@@ -1,6 +1,6 @@
 # TOIA-NYUAD
 
-TOIA project, or Time Offset Interaction Application, is a capstone project made by Dana Abu Ali, Hayat AlHassan, Ming Hu, Muaz Ahmad, and Paula Dozsa at NYUAD.
+TOIA project, or Time Offset Interaction Application, is a capstone project made by Dana Abu Ali, Hayat AlHassan, Ming Hu, Muaz Ahmad, Paula Dozsa and Jose Varias at NYUAD.
 
 Below a guide for creating new TOIA avatars. Prepare a list of questions and answers will be helpful.
 
