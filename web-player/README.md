@@ -1,5 +1,6 @@
 #### Set up virtual env
-Inside this directory, do `virtualenv venv` and `. venv/bin/activate`
+Run `virtualenv venv` and `. venv/bin/activate`
+
 For more instruction on virtual env, checkout https://help.pythonanywhere.com/pages/RebuildingVirtualenvs/
 
 #### Upload avatar videos
