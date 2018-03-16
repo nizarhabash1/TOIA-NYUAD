@@ -1,0 +1,2396 @@
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ١:
+diac:١: lex:١:_0 gloss:١: source:punc
+
+#WORD: ما
+diac:ما lex:ما_1 gloss:+what/which+ stem:ما
+diac:ما lex:ما_2 gloss:+not+ stem:ما
+diac:ما lex:ما_3 gloss:+what/which+ stem:ما
+diac:ما lex:ما_4 gloss:+that/if/unless/whether/as_long_as/as_soon_as+ stem:ما
+diac:ما lex:ما_5 gloss:+what/how+ stem:ما
+diac:ما lex:ما_6 gloss:+some+ source:lex stem:ما
+diac:ما lex:ما_7 gloss:+not+ source:lex stem:ما
+diac:ما lex:ما_8 gloss:+[no_gloss]+ stem:ما
+
+#WORD: اسمك؟
+diac:اسمك؟ lex:اسمك؟_0 gloss:NO_ANALYSIS source:backoff stem:اسمك؟
+
+#WORD: اسمي
+diac:أَسْمَى lex:أَسْمَى_1 gloss:+name;designate+he/it_[verb] source:spvar stem:أَسْمَى
+diac:أَسْمَى lex:أَسْمَى_2 gloss:+elevate;exalt+he/it_[verb] source:spvar stem:أَسْمَى
+diac:اِسْمِيّ lex:ٱِسْمِيّ_1 gloss:+nominal;in_name+ source:spvar stem:ٱِسْمِيّ
+diac:اِسْمِيُّ lex:ٱِسْمِيّ_1 gloss:+nominal;in_name+[def.nom.] source:spvar stem:ٱِسْمِيّ
+diac:اِسْمِيُّ lex:ٱِسْمِيّ_1 gloss:+nominal;in_name+[def.nom.] source:spvar stem:ٱِسْمِيّ
+diac:اِسْمِيَّ lex:ٱِسْمِيّ_1 gloss:+nominal;in_name+[def.acc.] source:spvar stem:ٱِسْمِيّ
+diac:اِسْمِيَّ lex:ٱِسْمِيّ_1 gloss:+nominal;in_name+[def.acc.] source:spvar stem:ٱِسْمِيّ
+diac:اِسْمِيِّ lex:ٱِسْمِيّ_1 gloss:+nominal;in_name+[def.gen.] source:spvar stem:ٱِسْمِيّ
+diac:اِسْمِيِّ lex:ٱِسْمِيّ_1 gloss:+nominal;in_name+[def.gen.] source:spvar stem:ٱِسْمِيّ
+diac:اِسْمِيٌّ lex:ٱِسْمِيّ_1 gloss:+nominal;in_name+[indef.nom.] source:spvar stem:ٱِسْمِيّ
+diac:اِسْمِيٍّ lex:ٱِسْمِيّ_1 gloss:+nominal;in_name+[indef.gen.] source:spvar stem:ٱِسْمِيّ
+diac:أَسْمَى lex:أَسْمَى_3 gloss:+higher/highest;loftier/loftiest+ source:spvar stem:أَسْمَى
+diac:اِسْمَيْ lex:ٱِسْم_1 gloss:+name+two_[acc.] source:spvar stem:ٱِسْم
+diac:اِسْمَيْ lex:ٱِسْم_1 gloss:+name+two_[gen.] source:spvar stem:ٱِسْم
+diac:اِسْمَيَّ lex:ٱِسْم_1 gloss:+name+two_[acc.]_+_my source:spvar stem:ٱِسْم
+diac:اِسْمَيَّ lex:ٱِسْم_1 gloss:+name+two_[gen.]_+_my source:spvar stem:ٱِسْم
+diac:اِسْمِي lex:ٱِسْم_1 gloss:+name+my source:spvar stem:ٱِسْم
+diac:أُسَمِّي lex:سَمَّى_1 gloss:I+name;designate+[ind.] source:spvar stem:سَمِّي
+diac:أُسَمِّيَ lex:سَمَّى_1 gloss:I+name;designate+[sub.] source:spvar stem:سَمِّي
+diac:أُسَمَّى lex:سَمَّى_1 gloss:I+be_called;be_named;be_designated+[ind.] source:spvar stem:سَمَّى
+diac:أُسَمَّى lex:سَمَّى_1 gloss:I+be_called;be_named;be_designated+[sub.] source:spvar stem:سَمَّى
+diac:أُسْمِي lex:أَسْمَى_1 gloss:I+name;designate+[ind.] source:spvar stem:سْمِي
+diac:أُسْمِيَ lex:أَسْمَى_1 gloss:I+name;designate+[sub.] source:spvar stem:سْمِي
+diac:أُسْمِي lex:أَسْمَى_2 gloss:I+elevate;exalt+[ind.] source:spvar stem:سْمِي
+diac:أُسْمِيَ lex:أَسْمَى_2 gloss:I+elevate;exalt+[sub.] source:spvar stem:سْمِي
+diac:أُسْمَى lex:أَسْمَى_2 gloss:I+be_elevated;be_exalted+[ind.] source:spvar stem:سْمَى
+diac:أُسْمَى lex:أَسْمَى_2 gloss:I+be_elevated;be_exalted+[sub.] source:spvar stem:سْمَى
+
+#WORD: باولا
+diac:باوْلا lex:باوْلا_1 gloss:+Paula+ source:spvar stem:باوْلا
+diac:بِأُولا lex:أَوَّل_2 gloss:[part.]+first+ source:spvar stem:أُولا
+diac:بِأُولا lex:أَوَّل_2 gloss:with/by+first+ source:spvar stem:أُولا
+diac:بِأَوْلا lex:أَوْلَى_2 gloss:[part.]+most_appropriate/suitable/deserving+ source:spvar stem:أَوْلا
+diac:بِأَوْلا lex:أَوْلَى_2 gloss:with/by+most_appropriate/suitable/deserving+ source:spvar stem:أَوْلا
+
+#WORD: دوسا
+diac:دَوْساً lex:دَوْس_1 gloss:+treading;trampling+[acc.indef.] source:spvar stem:دَوْس
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ٢:
+diac:٢: lex:٢:_0 gloss:٢: source:punc
+
+#WORD: من
+diac:مِن lex:مِن_1 gloss:+from+ source:spvar stem:مِن
+diac:مِن lex:مِن_2 gloss:+[no_gloss]+ source:spvar stem:مِن
+diac:مَنْ lex:مَنْ_1 gloss:+who/whom+ source:spvar stem:مَنْ
+diac:مَنْ lex:مَنْ_2 gloss:+who/whom+ source:spvar stem:مَنْ
+diac:مَنَّ lex:مَنّ-u_1 gloss:+bestow;grant+he/it_[verb] source:spvar stem:مَنّ
+diac:مَنّ lex:مَنّ_1 gloss:+grace;favor+ source:spvar stem:مَنّ
+diac:مَنُّ lex:مَنّ_1 gloss:+grace;favor+[def.nom.] source:spvar stem:مَنّ
+diac:مَنُّ lex:مَنّ_1 gloss:+grace;favor+[def.nom.] source:spvar stem:مَنّ
+diac:مَنَّ lex:مَنّ_1 gloss:+grace;favor+[def.acc.] source:spvar stem:مَنّ
+diac:مَنَّ lex:مَنّ_1 gloss:+grace;favor+[def.acc.] source:spvar stem:مَنّ
+diac:مَنِّ lex:مَنّ_1 gloss:+grace;favor+[def.gen.] source:spvar stem:مَنّ
+diac:مَنِّ lex:مَنّ_1 gloss:+grace;favor+[def.gen.] source:spvar stem:مَنّ
+diac:مَنٌّ lex:مَنّ_1 gloss:+grace;favor+[indef.nom.] source:spvar stem:مَنّ
+diac:مَنٍّ lex:مَنّ_1 gloss:+grace;favor+[indef.gen.] source:spvar stem:مَنّ
+
+#WORD: أين
+diac:أَيْنَ lex:أَيْنَ_1 gloss:+where+ source:spvar stem:أَيْنَ
+diac:أَيَّنَ lex:أَيَّن_1 gloss:+ionize+he/it_[verb] source:spvar stem:أَيَّن
+diac:أَيَّنَّ lex:أَيَّن_1 gloss:+ionize+they_[fem.pl.]_[verb] source:spvar stem:أَيَّن
+diac:أَيْنَ lex:أَيْنَ_2 gloss:+where+ source:spvar stem:أَيْنَ
+
+#WORD: أنت؟
+diac:انت؟ lex:انت؟_0 gloss:NO_ANALYSIS source:backoff stem:انت؟
+
+#WORD: أنا
+diac:أَنا lex:أَنا_1 gloss:+I+ source:spvar stem:أَنا
+diac:أَنا lex:أَنا_2 gloss:+ego+ source:spvar stem:أَنا
+diac:آنا lex:آنا_1 gloss:+Anna+ source:spvar stem:آنا
+diac:أَنا lex:أَنَى_1 gloss:+time;period+ source:spvar stem:أَنا
+diac:أَنْآ lex:نَأْي_2 gloss:+ditches+ source:spvar stem:أَنْآ
+diac:أَنْآ lex:أَنْأَى_2 gloss:+farthest_away;most_remote+ source:spvar stem:أَنْآ
+diac:أَنّا lex:أَنَّ_1 gloss:+that+we source:spvar stem:أَنّ
+diac:أَنّا lex:أَنّ-i_1 gloss:+complain;moan+they_(both)_[verb] source:spvar stem:أَنّ
+diac:آنا lex:آن-ui_1 gloss:+arrive;approach+they_(both)_[verb] source:spvar stem:آن
+diac:آناً lex:آن_1 gloss:+time;moment+[acc.indef.] source:spvar stem:آن
+diac:أَنْأَ lex:نَأَى-a_1 gloss:I+be_distant;go_away+[jus.] source:spvar stem:نْأَ
+diac:أُنْأَ lex:أَنْأَى_1 gloss:I+be_removed;be_placed_at_a_distance+[jus.] source:spvar stem:نْأَ
+
+#WORD: من
+diac:مِن lex:مِن_1 gloss:+from+ source:spvar stem:مِن
+diac:مِن lex:مِن_2 gloss:+[no_gloss]+ source:spvar stem:مِن
+diac:مَنْ lex:مَنْ_1 gloss:+who/whom+ source:spvar stem:مَنْ
+diac:مَنْ lex:مَنْ_2 gloss:+who/whom+ source:spvar stem:مَنْ
+diac:مَنَّ lex:مَنّ-u_1 gloss:+bestow;grant+he/it_[verb] source:spvar stem:مَنّ
+diac:مَنّ lex:مَنّ_1 gloss:+grace;favor+ source:spvar stem:مَنّ
+diac:مَنُّ lex:مَنّ_1 gloss:+grace;favor+[def.nom.] source:spvar stem:مَنّ
+diac:مَنُّ lex:مَنّ_1 gloss:+grace;favor+[def.nom.] source:spvar stem:مَنّ
+diac:مَنَّ lex:مَنّ_1 gloss:+grace;favor+[def.acc.] source:spvar stem:مَنّ
+diac:مَنَّ lex:مَنّ_1 gloss:+grace;favor+[def.acc.] source:spvar stem:مَنّ
+diac:مَنِّ lex:مَنّ_1 gloss:+grace;favor+[def.gen.] source:spvar stem:مَنّ
+diac:مَنِّ lex:مَنّ_1 gloss:+grace;favor+[def.gen.] source:spvar stem:مَنّ
+diac:مَنٌّ lex:مَنّ_1 gloss:+grace;favor+[indef.nom.] source:spvar stem:مَنّ
+diac:مَنٍّ lex:مَنّ_1 gloss:+grace;favor+[indef.gen.] source:spvar stem:مَنّ
+
+#WORD: رومانيا
+diac:رُومانِيا lex:رُومانِيا_1 gloss:+Romania+ source:spvar stem:رُومانِيا
+diac:رُومانِيّاً lex:رُومانِيّ_1 gloss:+Romanian+[acc.indef.] source:spvar stem:رُومانِيّ
+diac:رُومانِيّا lex:رُومانِيّ_1 gloss:+Romanian+two source:spvar stem:رُومانِيّ
+diac:رُومانِيّاً lex:رُومانِيّ_1 gloss:+Romanian+[acc.indef.] source:spvar stem:رُومانِيّ
+diac:رُومانِيّا lex:رُومانِيّ_1 gloss:+Romanian+two source:spvar stem:رُومانِيّ
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ٣:
+diac:٣: lex:٣:_0 gloss:٣: source:punc
+
+#WORD: كم
+diac:كَمْ lex:كَمْ_1 gloss:+how_many/much+ source:spvar stem:كَمْ
+diac:كَمْ lex:كَمْ_2 gloss:+how_many/much+ source:spvar stem:كَمْ
+diac:كَمْ lex:كَمْ_3 gloss:+how+ source:spvar stem:كَمْ
+diac:كم lex:كَمْ_3 gloss:+kilometer(s)+ stem:كم
+diac:كَمَّ lex:كَمّ-u_1 gloss:+cover;hide+he/it_[verb] source:spvar stem:كَمّ
+diac:كَمّ lex:كَمّ_1 gloss:+amount;quantity+ source:spvar stem:كَمّ
+diac:كَمُّ lex:كَمّ_1 gloss:+amount;quantity+[def.nom.] source:spvar stem:كَمّ
+diac:كَمُّ lex:كَمّ_1 gloss:+amount;quantity+[def.nom.] source:spvar stem:كَمّ
+diac:كَمَّ lex:كَمّ_1 gloss:+amount;quantity+[def.acc.] source:spvar stem:كَمّ
+diac:كَمَّ lex:كَمّ_1 gloss:+amount;quantity+[def.acc.] source:spvar stem:كَمّ
+diac:كَمِّ lex:كَمّ_1 gloss:+amount;quantity+[def.gen.] source:spvar stem:كَمّ
+diac:كَمِّ lex:كَمّ_1 gloss:+amount;quantity+[def.gen.] source:spvar stem:كَمّ
+diac:كَمٌّ lex:كَمّ_1 gloss:+amount;quantity+[indef.nom.] source:spvar stem:كَمّ
+diac:كَمٍّ lex:كَمّ_1 gloss:+amount;quantity+[indef.gen.] source:spvar stem:كَمّ
+
+#WORD: عمرك؟
+diac:عمرك؟ lex:عمرك؟_0 gloss:NO_ANALYSIS source:backoff stem:عمرك؟
+
+#WORD: عمري
+diac:عُمْرِيّ lex:عُمْرِيّ_1 gloss:+age-related;age-based;age-group+ source:spvar stem:عُمْرِيّ
+diac:عُمْرِيُّ lex:عُمْرِيّ_1 gloss:+age-related;age-based;age-group+[def.nom.] source:spvar stem:عُمْرِيّ
+diac:عُمْرِيُّ lex:عُمْرِيّ_1 gloss:+age-related;age-based;age-group+[def.nom.] source:spvar stem:عُمْرِيّ
+diac:عُمْرِيَّ lex:عُمْرِيّ_1 gloss:+age-related;age-based;age-group+[def.acc.] source:spvar stem:عُمْرِيّ
+diac:عُمْرِيَّ lex:عُمْرِيّ_1 gloss:+age-related;age-based;age-group+[def.acc.] source:spvar stem:عُمْرِيّ
+diac:عُمْرِيِّ lex:عُمْرِيّ_1 gloss:+age-related;age-based;age-group+[def.gen.] source:spvar stem:عُمْرِيّ
+diac:عُمْرِيِّ lex:عُمْرِيّ_1 gloss:+age-related;age-based;age-group+[def.gen.] source:spvar stem:عُمْرِيّ
+diac:عُمْرِيٌّ lex:عُمْرِيّ_1 gloss:+age-related;age-based;age-group+[indef.nom.] source:spvar stem:عُمْرِيّ
+diac:عُمْرِيٍّ lex:عُمْرِيّ_1 gloss:+age-related;age-based;age-group+[indef.gen.] source:spvar stem:عُمْرِيّ
+diac:عُمَرِيّ lex:عُمَرِيّ_1 gloss:+Umari+ source:spvar stem:عُمَرِيّ
+diac:عُمَرِيُّ lex:عُمَرِيّ_1 gloss:+Umari+[def.nom.] source:spvar stem:عُمَرِيّ
+diac:عُمَرِيُّ lex:عُمَرِيّ_1 gloss:+Umari+[def.nom.] source:spvar stem:عُمَرِيّ
+diac:عُمَرِيَّ lex:عُمَرِيّ_1 gloss:+Umari+[def.acc.] source:spvar stem:عُمَرِيّ
+diac:عُمَرِيَّ lex:عُمَرِيّ_1 gloss:+Umari+[def.acc.] source:spvar stem:عُمَرِيّ
+diac:عُمَرِيِّ lex:عُمَرِيّ_1 gloss:+Umari+[def.gen.] source:spvar stem:عُمَرِيّ
+diac:عُمَرِيِّ lex:عُمَرِيّ_1 gloss:+Umari+[def.gen.] source:spvar stem:عُمَرِيّ
+diac:عُمَرِيٌّ lex:عُمَرِيّ_1 gloss:+Umari+[indef.nom.] source:spvar stem:عُمَرِيّ
+diac:عُمَرِيٍّ lex:عُمَرِيّ_1 gloss:+Umari+[indef.gen.] source:spvar stem:عُمَرِيّ
+diac:عُمْرِي lex:عُمْر_1 gloss:+age;life+my source:spvar stem:عُمْر
+diac:عُمَرِي lex:عُمَر_1 gloss:+Omar;Umar+my source:spvar stem:عُمَر
+
+#WORD: اثنان
+diac:اِثْنانِ lex:ٱِثْن_1 gloss:+(stem_of_2_and_12)+two source:spvar stem:ٱِثْن
+diac:اِثْنانِ lex:ٱِثْن_1 gloss:+(stem_of_2_and_12)+two source:spvar stem:ٱِثْن
+
+#WORD: و
+diac:وَ lex:وَ_1 gloss:+and+ source:spvar stem:وَ
+diac:و lex:وَ_1 gloss:+W.;6th+ stem:و
+
+#WORD: عشرون
+diac:عِشْرُونَ lex:عِشْرُون_1 gloss:+twenty;twentieth+[masc.pl.] source:spvar stem:عِشْر
+diac:عِشْرُونَ lex:عِشْرُون_1 gloss:+twenty;twentieth+[masc.pl.] source:spvar stem:عِشْر
+diac:عِشْرُونَ lex:عِشْرُون_1 gloss:+twenty;twentieth+[masc.pl.] source:spvar stem:عِشْر
+diac:عِشْرُونَ lex:عِشْرُون_1 gloss:+twenty;twentieth+[masc.pl.] source:spvar stem:عِشْر
+
+#WORD: سنة
+diac:سُنَّة lex:سُنِّيّ_1 gloss:+Sunni_[pl]+ source:spvar stem:سُنَّة
+diac:سُنَّةُ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.nom.] source:spvar stem:سُنَّة
+diac:سُنَّةُ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.nom.] source:spvar stem:سُنَّة
+diac:سُنَّةَ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.acc.] source:spvar stem:سُنَّة
+diac:سُنَّةَ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.acc.] source:spvar stem:سُنَّة
+diac:سُنَّةِ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.gen.] source:spvar stem:سُنَّة
+diac:سُنَّةِ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.gen.] source:spvar stem:سُنَّة
+diac:سُنَّةٌ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[indef.nom.] source:spvar stem:سُنَّة
+diac:سُنَّةٍ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[indef.gen.] source:spvar stem:سُنَّة
+diac:سُنَّةً lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[indef.acc.] source:spvar stem:سُنَّة
+diac:سَنَّهُ lex:سَنّ-u_1 gloss:+prescribe;enact+he/it_[verb]_+_it/him source:spvar stem:سَنّ
+diac:سَنُّهُ lex:سَنّ_1 gloss:+enactment;prescription+[def.nom]_+_its/his source:spvar stem:سَنّ
+diac:سَنَّهُ lex:سَنّ_1 gloss:+enactment;prescription+[def.acc.]_+_its/his source:spvar stem:سَنّ
+diac:سَنِّهِ lex:سَنّ_1 gloss:+enactment;prescription+[def.gen.]_+_its/his source:spvar stem:سَنّ
+diac:سِنُّهُ lex:سِنّ_1 gloss:+tooth+[def.nom]_+_its/his source:spvar stem:سِنّ
+diac:سِنَّهُ lex:سِنّ_1 gloss:+tooth+[def.acc.]_+_its/his source:spvar stem:سِنّ
+diac:سِنِّهِ lex:سِنّ_1 gloss:+tooth+[def.gen.]_+_its/his source:spvar stem:سِنّ
+diac:سِنُّهُ lex:سِنّ_2 gloss:+age_(of_a_person)+[def.nom]_+_its/his source:spvar stem:سِنّ
+diac:سِنَّهُ lex:سِنّ_2 gloss:+age_(of_a_person)+[def.acc.]_+_its/his source:spvar stem:سِنّ
+diac:سِنِّهِ lex:سِنّ_2 gloss:+age_(of_a_person)+[def.gen.]_+_its/his source:spvar stem:سِنّ
+diac:سُنَّة lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.] source:spvar stem:سُنّ
+diac:سُنَّةُ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.nom.] source:spvar stem:سُنّ
+diac:سُنَّةُ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.nom.] source:spvar stem:سُنّ
+diac:سُنَّةَ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.acc.] source:spvar stem:سُنّ
+diac:سُنَّةَ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.acc.] source:spvar stem:سُنّ
+diac:سُنَّةِ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.gen.] source:spvar stem:سُنّ
+diac:سُنَّةِ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.gen.] source:spvar stem:سُنّ
+diac:سُنَّةٌ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[indef.nom.] source:spvar stem:سُنّ
+diac:سُنَّةً lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[indef.acc.] source:spvar stem:سُنّ
+diac:سُنَّةٍ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[indef.gen.] source:spvar stem:سُنّ
+diac:سَنَة lex:سَنَة_1 gloss:+year+[fem.sg.] source:spvar stem:سَن
+diac:سَنَةُ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.nom.] source:spvar stem:سَن
+diac:سَنَةُ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.nom.] source:spvar stem:سَن
+diac:سَنَةَ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.acc.] source:spvar stem:سَن
+diac:سَنَةَ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.acc.] source:spvar stem:سَن
+diac:سَنَةِ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.gen.] source:spvar stem:سَن
+diac:سَنَةِ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.gen.] source:spvar stem:سَن
+diac:سَنَةٌ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[indef.nom.] source:spvar stem:سَن
+diac:سَنَةً lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[indef.acc.] source:spvar stem:سَن
+diac:سَنَةٍ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[indef.gen.] source:spvar stem:سَن
+diac:سَنَهِ lex:وَهَى-i_1 gloss:will_+_we+be_frail;be_fragile+[jus.] source:spvar stem:هِ
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ٤:
+diac:٤: lex:٤:_0 gloss:٤: source:punc
+
+#WORD: أين
+diac:أَيْنَ lex:أَيْنَ_1 gloss:+where+ source:spvar stem:أَيْنَ
+diac:أَيَّنَ lex:أَيَّن_1 gloss:+ionize+he/it_[verb] source:spvar stem:أَيَّن
+diac:أَيَّنَّ lex:أَيَّن_1 gloss:+ionize+they_[fem.pl.]_[verb] source:spvar stem:أَيَّن
+diac:أَيْنَ lex:أَيْنَ_2 gloss:+where+ source:spvar stem:أَيْنَ
+
+#WORD: تسكنين
+diac:تَسْكُنِينَ lex:سَكَن-u_1 gloss:you_[fem.sg.]+be_calm+[fem.sg.] source:spvar stem:سْكُن
+diac:تُسَكِّنِينَ lex:سَكَّن_1 gloss:you_[fem.sg.]+calm;placate+[fem.sg.] source:spvar stem:سَكِّن
+diac:تُسْكِنِينَ lex:أَسْكَن_1 gloss:you_[fem.sg.]+give_lodging;house+[fem.sg.] source:spvar stem:سْكِن
+diac:تُسْكَنِينَ lex:أَسْكَن_1 gloss:you_[fem.sg.]+be_given_lodging;be_housed+[fem.sg.] source:spvar stem:سْكَن
+
+#WORD: ؟
+diac:؟ lex:؟_0 gloss:NO_ANALYSIS source:backoff stem:؟
+
+#WORD: أسكن
+diac:أَسْكَنَ lex:أَسْكَن_1 gloss:+give_lodging;house+he/it_[verb] source:spvar stem:أَسْكَن
+diac:أَسْكَنَّ lex:أَسْكَن_1 gloss:+give_lodging;house+they_[fem.pl.]_[verb] source:spvar stem:أَسْكَن
+diac:آسُكُنَّ lex:آس_1 gloss:+myrtle+[def.nom]_+_your_[fem.pl.] source:spvar stem:آس
+diac:آسَكُنَّ lex:آس_1 gloss:+myrtle+[def.acc.]_+_your_[fem.pl.] source:spvar stem:آس
+diac:آسِكُنَّ lex:آس_1 gloss:+myrtle+[def.gen.]_+_your_[fem.pl.] source:spvar stem:آس
+diac:آسُكُنَّ lex:آس_2 gloss:+ace+[def.nom]_+_your_[fem.pl.] source:spvar stem:آس
+diac:آسَكُنَّ lex:آس_2 gloss:+ace+[def.acc.]_+_your_[fem.pl.] source:spvar stem:آس
+diac:آسِكُنَّ lex:آس_2 gloss:+ace+[def.gen.]_+_your_[fem.pl.] source:spvar stem:آس
+diac:أُسُّكُنَّ lex:أُسّ_1 gloss:+exponent;basis+[def.nom]_+_your_[fem.pl.] source:spvar stem:أُسّ
+diac:أُسَّكُنَّ lex:أُسّ_1 gloss:+exponent;basis+[def.acc.]_+_your_[fem.pl.] source:spvar stem:أُسّ
+diac:أُسِّكُنَّ lex:أُسّ_1 gloss:+exponent;basis+[def.gen.]_+_your_[fem.pl.] source:spvar stem:أُسّ
+diac:أَسْكُنُ lex:سَكَن-u_1 gloss:I+be_calm+[ind.] source:spvar stem:سْكُن
+diac:أَسْكُنَ lex:سَكَن-u_1 gloss:I+be_calm+[sub.] source:spvar stem:سْكُن
+diac:أَسْكُنْ lex:سَكَن-u_1 gloss:I+be_calm+[jus.] source:spvar stem:سْكُن
+diac:أُسَكِّنُ lex:سَكَّن_1 gloss:I+calm;placate+[ind.] source:spvar stem:سَكِّن
+diac:أُسَكِّنَ lex:سَكَّن_1 gloss:I+calm;placate+[sub.] source:spvar stem:سَكِّن
+diac:أُسَكِّنْ lex:سَكَّن_1 gloss:I+calm;placate+[jus.] source:spvar stem:سَكِّن
+diac:أُسْكِنُ lex:أَسْكَن_1 gloss:I+give_lodging;house+[ind.] source:spvar stem:سْكِن
+diac:أُسْكِنَ lex:أَسْكَن_1 gloss:I+give_lodging;house+[sub.] source:spvar stem:سْكِن
+diac:أُسْكِنْ lex:أَسْكَن_1 gloss:I+give_lodging;house+[jus.] source:spvar stem:سْكِن
+diac:أُسْكَنُ lex:أَسْكَن_1 gloss:I+be_given_lodging;be_housed+[ind.] source:spvar stem:سْكَن
+diac:أُسْكَنَ lex:أَسْكَن_1 gloss:I+be_given_lodging;be_housed+[sub.] source:spvar stem:سْكَن
+diac:أُسْكَنْ lex:أَسْكَن_1 gloss:I+be_given_lodging;be_housed+[jus.] source:spvar stem:سْكَن
+
+#WORD: في
+diac:فِي lex:فِي_1 gloss:+in+ source:spvar stem:فِي
+diac:فِيَّ lex:فِي_1 gloss:+in+me source:spvar stem:فِي
+diac:فِي lex:فِي_2 gloss:+V.+ source:spvar stem:فِي
+diac:فَي lex:ي_1 gloss:so/and+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:because/therefore/as_a_result+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:so/then+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:so/then+Y.;10th+ source:spvar stem:ي
+
+#WORD: أبو
+diac:أَبُو lex:أَب_1 gloss:+father+ source:spvar stem:أَبُو
+diac:أَبُو lex:أَبُو_1 gloss:+Abu+ source:spvar stem:أَبُو
+diac:آبُو lex:آبِي_1 gloss:+reluctant;unwilling+[masc.pl.] source:spvar stem:آب
+
+#WORD: ظبي
+diac:ظَبْي lex:ظَبْي_1 gloss:+gazelle+ source:spvar stem:ظَبْي
+diac:ظَبْيُ lex:ظَبْي_1 gloss:+gazelle+[def.nom.] source:spvar stem:ظَبْي
+diac:ظَبْيُ lex:ظَبْي_1 gloss:+gazelle+[def.nom.] source:spvar stem:ظَبْي
+diac:ظَبْيَ lex:ظَبْي_1 gloss:+gazelle+[def.acc.] source:spvar stem:ظَبْي
+diac:ظَبْيَ lex:ظَبْي_1 gloss:+gazelle+[def.acc.] source:spvar stem:ظَبْي
+diac:ظَبْيِ lex:ظَبْي_1 gloss:+gazelle+[def.gen.] source:spvar stem:ظَبْي
+diac:ظَبْيِ lex:ظَبْي_1 gloss:+gazelle+[def.gen.] source:spvar stem:ظَبْي
+diac:ظَبْيٌ lex:ظَبْي_1 gloss:+gazelle+[indef.nom.] source:spvar stem:ظَبْي
+diac:ظَبْيٍ lex:ظَبْي_1 gloss:+gazelle+[indef.gen.] source:spvar stem:ظَبْي
+diac:ظَبِي lex:ظَبِي_1 gloss:+Dhabi+ source:spvar stem:ظَبِي
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ٥:
+diac:٥: lex:٥:_0 gloss:٥: source:punc
+
+#WORD: أي
+diac:أَيْ lex:أَيْ_1 gloss:+O,_oh+ source:spvar stem:أَيْ
+diac:أَيْ lex:أَيْ_2 gloss:+that_is_to_say+ source:spvar stem:أَيْ
+diac:أَيّ lex:أَيّ_1 gloss:+any+ source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_1 gloss:+any+[def.nom.] source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_1 gloss:+any+[def.nom.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_1 gloss:+any+[def.acc.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_1 gloss:+any+[def.acc.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_1 gloss:+any+[def.gen.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_1 gloss:+any+[def.gen.] source:spvar stem:أَيّ
+diac:أَيٌّ lex:أَيّ_1 gloss:+any+[indef.nom.] source:spvar stem:أَيّ
+diac:أَيٍّ lex:أَيّ_1 gloss:+any+[indef.gen.] source:spvar stem:أَيّ
+diac:أَيّ lex:أَيّ_2 gloss:+which+ source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_2 gloss:+which+[def.nom.] source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_2 gloss:+which+[def.nom.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_2 gloss:+which+[def.acc.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_2 gloss:+which+[def.acc.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_2 gloss:+which+[def.gen.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_2 gloss:+which+[def.gen.] source:spvar stem:أَيّ
+diac:أَيٌّ lex:أَيّ_2 gloss:+which+[indef.nom.] source:spvar stem:أَيّ
+diac:أَيٍّ lex:أَيّ_2 gloss:+which+[indef.gen.] source:spvar stem:أَيّ
+diac:أَيّ lex:أَيّ_3 gloss:+which/whatever/whichever+ source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.nom.] source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.nom.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.acc.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.acc.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.gen.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.gen.] source:spvar stem:أَيّ
+diac:أَيٌّ lex:أَيّ_3 gloss:+which/whatever/whichever+[indef.nom.] source:spvar stem:أَيّ
+diac:أَيٍّ lex:أَيّ_3 gloss:+which/whatever/whichever+[indef.gen.] source:spvar stem:أَيّ
+diac:إِي lex:إِي_1 gloss:+E.+ source:spvar stem:إِي
+diac:أَي lex:أَي_1 gloss:+A.+ source:spvar stem:أَي
+diac:أَي lex:أَي_1 gloss:+I.+ source:spvar stem:أَي
+diac:آي lex:آي_1 gloss:+A.+ source:spvar stem:آي
+diac:آي lex:آي_1 gloss:+I.+ source:spvar stem:آي
+
+#WORD: لغة
+diac:لُغَة lex:لُغَة_1 gloss:+language+[fem.sg.] source:spvar stem:لُغ
+diac:لُغَةُ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.nom.] source:spvar stem:لُغ
+diac:لُغَةُ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.nom.] source:spvar stem:لُغ
+diac:لُغَةَ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.acc.] source:spvar stem:لُغ
+diac:لُغَةَ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.acc.] source:spvar stem:لُغ
+diac:لُغَةِ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.gen.] source:spvar stem:لُغ
+diac:لُغَةِ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.gen.] source:spvar stem:لُغ
+diac:لُغَةٌ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[indef.nom.] source:spvar stem:لُغ
+diac:لُغَةً lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[indef.acc.] source:spvar stem:لُغ
+diac:لُغَةٍ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[indef.gen.] source:spvar stem:لُغ
+
+#WORD: /لغات
+diac:/لغات lex:/لغات_0 gloss:NO_ANALYSIS source:backoff stem:/لغات
+
+#WORD: تتكلمين؟
+diac:تتكلمين؟ lex:تتكلمين؟_0 gloss:NO_ANALYSIS source:backoff stem:تتكلمين؟
+diac:تَتكلمين؟ lex:تكلمين؟_0 gloss:NO_ANALYSIS source:backoff stem:تكلمين؟
+
+#WORD: أتكلم
+diac:أَتَكَلَّمُ lex:تَكَلَّم_1 gloss:I+speak;talk;discuss+[ind.] source:spvar stem:تَكَلَّم
+diac:أَتَكَلَّمَ lex:تَكَلَّم_1 gloss:I+speak;talk;discuss+[sub.] source:spvar stem:تَكَلَّم
+diac:أَتَكَلَّمْ lex:تَكَلَّم_1 gloss:I+speak;talk;discuss+[jus.] source:spvar stem:تَكَلَّم
+
+#WORD: الرومانية
+diac:الرُّومانِيَّة lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةُ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.nom.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةُ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.nom.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةَ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.acc.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةَ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.acc.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةِ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.gen.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةِ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.gen.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّة lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةُ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.nom.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةُ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.nom.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةَ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.acc.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةَ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.acc.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةِ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.gen.] source:spvar stem:رُومانِيّ
+diac:الرُّومانِيَّةِ lex:رُومانِيّ_1 gloss:the+Romanian+[fem.sg.]_+_[def.gen.] source:spvar stem:رُومانِيّ
+
+#WORD: و
+diac:وَ lex:وَ_1 gloss:+and+ source:spvar stem:وَ
+diac:و lex:وَ_1 gloss:+W.;6th+ stem:و
+
+#WORD: الروسية
+diac:الرُّوسِيَّة lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةُ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.nom.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةُ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.nom.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةَ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.acc.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةَ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.acc.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةِ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.gen.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةِ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.gen.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّة lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةُ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.nom.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةُ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.nom.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةَ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.acc.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةَ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.acc.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةِ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.gen.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةِ lex:رُوسِيّ_1 gloss:the+Russian+[fem.sg.]_+_[def.gen.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّة lex:رُوسِيَّة_1 gloss:the+Russian_(language)+[fem.sg.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةُ lex:رُوسِيَّة_1 gloss:the+Russian_(language)+[fem.sg.]_+_[def.nom.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةُ lex:رُوسِيَّة_1 gloss:the+Russian_(language)+[fem.sg.]_+_[def.nom.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةَ lex:رُوسِيَّة_1 gloss:the+Russian_(language)+[fem.sg.]_+_[def.acc.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةَ lex:رُوسِيَّة_1 gloss:the+Russian_(language)+[fem.sg.]_+_[def.acc.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةِ lex:رُوسِيَّة_1 gloss:the+Russian_(language)+[fem.sg.]_+_[def.gen.] source:spvar stem:رُوسِيّ
+diac:الرُّوسِيَّةِ lex:رُوسِيَّة_1 gloss:the+Russian_(language)+[fem.sg.]_+_[def.gen.] source:spvar stem:رُوسِيّ
+
+#WORD: و
+diac:وَ lex:وَ_1 gloss:+and+ source:spvar stem:وَ
+diac:و lex:وَ_1 gloss:+W.;6th+ stem:و
+
+#WORD: الفرنسية
+diac:الفَرَنْسِيَّة lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةُ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.nom.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةُ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.nom.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةَ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.acc.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةَ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.acc.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةِ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.gen.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةِ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.gen.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّة lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةُ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.nom.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةُ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.nom.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةَ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.acc.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةَ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.acc.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةِ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.gen.] source:spvar stem:فَرَنْسِيّ
+diac:الفَرَنْسِيَّةِ lex:فَرَنْسِيّ_1 gloss:the+French+[fem.sg.]_+_[def.gen.] source:spvar stem:فَرَنْسِيّ
+
+#WORD: و
+diac:وَ lex:وَ_1 gloss:+and+ source:spvar stem:وَ
+diac:و lex:وَ_1 gloss:+W.;6th+ stem:و
+
+#WORD: الانجليزية
+diac:الإِنْجلِيزِيَّة lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةُ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.nom.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةُ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.nom.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةَ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.acc.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةَ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.acc.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةِ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.gen.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةِ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.gen.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّة lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةُ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.nom.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةُ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.nom.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةَ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.acc.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةَ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.acc.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةِ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.gen.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةِ lex:إِنْجلِيزِيّ_1 gloss:the+English+[fem.sg.]_+_[def.gen.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّة lex:إِنْجلِيزِيَّة_1 gloss:the+English_(language)+[fem.sg.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةُ lex:إِنْجلِيزِيَّة_1 gloss:the+English_(language)+[fem.sg.]_+_[def.nom.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةُ lex:إِنْجلِيزِيَّة_1 gloss:the+English_(language)+[fem.sg.]_+_[def.nom.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةَ lex:إِنْجلِيزِيَّة_1 gloss:the+English_(language)+[fem.sg.]_+_[def.acc.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةَ lex:إِنْجلِيزِيَّة_1 gloss:the+English_(language)+[fem.sg.]_+_[def.acc.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةِ lex:إِنْجلِيزِيَّة_1 gloss:the+English_(language)+[fem.sg.]_+_[def.gen.] source:spvar stem:إِنْجلِيزِيّ
+diac:الإِنْجلِيزِيَّةِ lex:إِنْجلِيزِيَّة_1 gloss:the+English_(language)+[fem.sg.]_+_[def.gen.] source:spvar stem:إِنْجلِيزِيّ
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ٦:
+diac:٦: lex:٦:_0 gloss:٦: source:punc
+
+#WORD: هل
+diac:هَلْ lex:هَلْ_1 gloss:+do?;is?+ source:spvar stem:هَلْ
+diac:هَلَّ lex:هَلّ-i_1 gloss:+begin;appear+he/it_[verb] source:spvar stem:هَلّ
+
+#WORD: عندك
+diac:عِنْدُكَ lex:عِنْد_1 gloss:+with/at+[def.nom]_+_your_[masc.sg.] source:spvar stem:عِنْد
+diac:عِنْدُكِ lex:عِنْد_1 gloss:+with/at+[def.nom]_+_your_[fem.sg.] source:spvar stem:عِنْد
+diac:عِنْدَكَ lex:عِنْد_1 gloss:+with/at+[def.acc.]_+_your_[masc.sg.] source:spvar stem:عِنْد
+diac:عِنْدَكِ lex:عِنْد_1 gloss:+with/at+[def.acc.]_+_your_[fem.sg.] source:spvar stem:عِنْد
+diac:عِنْدِكَ lex:عِنْد_1 gloss:+with/at+[def.gen.]_+_your_[masc.sg.] source:spvar stem:عِنْد
+diac:عِنْدِكِ lex:عِنْد_1 gloss:+with/at+[def.gen.]_+_your_[fem.sg.] source:spvar stem:عِنْد
+
+#WORD: إخوة
+diac:أَخُوهُ lex:أَخ_1 gloss:+brother+its/his source:spvar stem:أَخُو
+diac:أَخُوهِ lex:أَخ_1 gloss:+brother+its/his source:spvar stem:أَخُو
+diac:إِخْوَة lex:أَخ_1 gloss:+brothers+[fem.sg.] source:spvar stem:إِخْو
+diac:إِخْوَةُ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.nom.] source:spvar stem:إِخْو
+diac:إِخْوَةُ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.nom.] source:spvar stem:إِخْو
+diac:إِخْوَةَ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.acc.] source:spvar stem:إِخْو
+diac:إِخْوَةَ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.acc.] source:spvar stem:إِخْو
+diac:إِخْوَةِ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.gen.] source:spvar stem:إِخْو
+diac:إِخْوَةِ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.gen.] source:spvar stem:إِخْو
+diac:إِخْوَةٌ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[indef.nom.] source:spvar stem:إِخْو
+diac:إِخْوَةً lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[indef.acc.] source:spvar stem:إِخْو
+diac:إِخْوَةٍ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[indef.gen.] source:spvar stem:إِخْو
+diac:إِخْوَة lex:أَخ_1 gloss:+brothers+[fem.sg.] source:spvar stem:إِخْو
+diac:إِخْوَةُ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.nom.] source:spvar stem:إِخْو
+diac:إِخْوَةُ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.nom.] source:spvar stem:إِخْو
+diac:إِخْوَةَ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.acc.] source:spvar stem:إِخْو
+diac:إِخْوَةَ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.acc.] source:spvar stem:إِخْو
+diac:إِخْوَةِ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.gen.] source:spvar stem:إِخْو
+diac:إِخْوَةِ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[def.gen.] source:spvar stem:إِخْو
+diac:إِخْوَةٌ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[indef.nom.] source:spvar stem:إِخْو
+diac:إِخْوَةً lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[indef.acc.] source:spvar stem:إِخْو
+diac:إِخْوَةٍ lex:أَخ_1 gloss:+brothers+[fem.sg.]_+_[indef.gen.] source:spvar stem:إِخْو
+diac:أُخُوَّة lex:أُخُوَّة_1 gloss:+fraternity;brotherhood+[fem.sg.] source:spvar stem:أُخُوّ
+diac:أُخُوَّةُ lex:أُخُوَّة_1 gloss:+fraternity;brotherhood+[fem.sg.]_+_[def.nom.] source:spvar stem:أُخُوّ
+diac:أُخُوَّةُ lex:أُخُوَّة_1 gloss:+fraternity;brotherhood+[fem.sg.]_+_[def.nom.] source:spvar stem:أُخُوّ
+diac:أُخُوَّةَ lex:أُخُوَّة_1 gloss:+fraternity;brotherhood+[fem.sg.]_+_[def.acc.] source:spvar stem:أُخُوّ
+diac:أُخُوَّةَ lex:أُخُوَّة_1 gloss:+fraternity;brotherhood+[fem.sg.]_+_[def.acc.] source:spvar stem:أُخُوّ
+diac:أُخُوَّةِ lex:أُخُوَّة_1 gloss:+fraternity;brotherhood+[fem.sg.]_+_[def.gen.] source:spvar stem:أُخُوّ
+diac:أُخُوَّةِ lex:أُخُوَّة_1 gloss:+fraternity;brotherhood+[fem.sg.]_+_[def.gen.] source:spvar stem:أُخُوّ
+diac:أُخُوَّةٌ lex:أُخُوَّة_1 gloss:+fraternity;brotherhood+[fem.sg.]_+_[indef.nom.] source:spvar stem:أُخُوّ
+diac:أُخُوَّةً lex:أُخُوَّة_1 gloss:+fraternity;brotherhood+[fem.sg.]_+_[indef.acc.] source:spvar stem:أُخُوّ
+diac:أُخُوَّةٍ lex:أُخُوَّة_1 gloss:+fraternity;brotherhood+[fem.sg.]_+_[indef.gen.] source:spvar stem:أُخُوّ
+diac:آخَوْهُ lex:آخَى_1 gloss:+fraternize+they_[verb]_+_it/him source:spvar stem:آخ
+diac:أَخْوِهِ lex:خَوَى-i_1 gloss:I+be_empty;be_hungry+[jus.]_+_it/him source:spvar stem:خْوِ
+diac:أَخْوَهُ lex:خَوِي-a_1 gloss:I+be_empty;be_desolate+[jus.]_+_it/him source:spvar stem:خْوَ
+
+#WORD: أو
+diac:أَوْ lex:أَوْ_1 gloss:+Or,_if_not,_unless,_except_if,_except_when+ source:spvar stem:أَوْ
+diac:أُو lex:أُو_1 gloss:+O.+ source:spvar stem:أُو
+
+#WORD: أخوات؟
+diac:اخوات؟ lex:اخوات؟_0 gloss:NO_ANALYSIS source:backoff stem:اخوات؟
+
+#WORD: عندي
+diac:عِنْدِي lex:عِنْد_1 gloss:+with/at+my source:spvar stem:عِنْد
+
+#WORD: أخت
+diac:أُخْت lex:أُخْت_1 gloss:+sister;counterpart+ source:spvar stem:أُخْت
+diac:أُخْتُ lex:أُخْت_1 gloss:+sister;counterpart+[def.nom.] source:spvar stem:أُخْت
+diac:أُخْتُ lex:أُخْت_1 gloss:+sister;counterpart+[def.nom.] source:spvar stem:أُخْت
+diac:أُخْتَ lex:أُخْت_1 gloss:+sister;counterpart+[def.acc.] source:spvar stem:أُخْت
+diac:أُخْتَ lex:أُخْت_1 gloss:+sister;counterpart+[def.acc.] source:spvar stem:أُخْت
+diac:أُخْتِ lex:أُخْت_1 gloss:+sister;counterpart+[def.gen.] source:spvar stem:أُخْت
+diac:أُخْتِ lex:أُخْت_1 gloss:+sister;counterpart+[def.gen.] source:spvar stem:أُخْت
+diac:أُخْتٌ lex:أُخْت_1 gloss:+sister;counterpart+[indef.nom.] source:spvar stem:أُخْت
+diac:أُخْتٍ lex:أُخْت_1 gloss:+sister;counterpart+[indef.gen.] source:spvar stem:أُخْت
+diac:آخَت lex:آخَى_1 gloss:+fraternize+it/they/she_[verb] source:spvar stem:آخ
+
+#WORD: واحدة.
+diac:واحده. lex:واحده._0 gloss:NO_ANALYSIS source:backoff stem:واحده.
+diac:وَاحده. lex:احده._0 gloss:NO_ANALYSIS source:backoff stem:احده.
+diac:وَاحده. lex:احده._0 gloss:NO_ANALYSIS source:backoff stem:احده.
+diac:وَاحده. lex:احده._0 gloss:NO_ANALYSIS source:backoff stem:احده.
+diac:وَاحده. lex:احده._0 gloss:NO_ANALYSIS source:backoff stem:احده.
+
+#WORD: عمرها
+diac:عَمَرَها lex:عَمَر-u_1 gloss:+inhabit;pervade+he/it_[verb]_+_it/them/her source:spvar stem:عَمَر
+diac:عَمُرَها lex:عَمُر-u_1 gloss:+thrive+he/it_[verb]_+_it/them/her source:spvar stem:عَمُر
+diac:عَمَّرَها lex:عَمَّر_1 gloss:+populate;renovate+he/it_[verb]_+_it/them/her source:spvar stem:عَمَّر
+diac:عُمْرُها lex:عُمْر_1 gloss:+age;life+[def.nom]_+_its/their/her source:spvar stem:عُمْر
+diac:عُمْرَها lex:عُمْر_1 gloss:+age;life+[def.acc.]_+_its/their/her source:spvar stem:عُمْر
+diac:عُمْرِها lex:عُمْر_1 gloss:+age;life+[def.gen.]_+_its/their/her source:spvar stem:عُمْر
+diac:عُمَرُها lex:عُمَر_1 gloss:+Omar;Umar+[def.nom]_+_its/their/her source:spvar stem:عُمَر
+diac:عُمَرَها lex:عُمَر_1 gloss:+Omar;Umar+[def.acc.]_+_its/their/her source:spvar stem:عُمَر
+diac:عُمَرِها lex:عُمَر_1 gloss:+Omar;Umar+[def.gen.]_+_its/their/her source:spvar stem:عُمَر
+
+#WORD: ٢٠
+diac:٢٠ lex:٢٠_0 gloss:٢٠ source:punc
+
+#WORD: سنة
+diac:سُنَّة lex:سُنِّيّ_1 gloss:+Sunni_[pl]+ source:spvar stem:سُنَّة
+diac:سُنَّةُ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.nom.] source:spvar stem:سُنَّة
+diac:سُنَّةُ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.nom.] source:spvar stem:سُنَّة
+diac:سُنَّةَ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.acc.] source:spvar stem:سُنَّة
+diac:سُنَّةَ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.acc.] source:spvar stem:سُنَّة
+diac:سُنَّةِ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.gen.] source:spvar stem:سُنَّة
+diac:سُنَّةِ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[def.gen.] source:spvar stem:سُنَّة
+diac:سُنَّةٌ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[indef.nom.] source:spvar stem:سُنَّة
+diac:سُنَّةٍ lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[indef.gen.] source:spvar stem:سُنَّة
+diac:سُنَّةً lex:سُنِّيّ_1 gloss:+Sunni_[pl]+[indef.acc.] source:spvar stem:سُنَّة
+diac:سَنَّهُ lex:سَنّ-u_1 gloss:+prescribe;enact+he/it_[verb]_+_it/him source:spvar stem:سَنّ
+diac:سَنُّهُ lex:سَنّ_1 gloss:+enactment;prescription+[def.nom]_+_its/his source:spvar stem:سَنّ
+diac:سَنَّهُ lex:سَنّ_1 gloss:+enactment;prescription+[def.acc.]_+_its/his source:spvar stem:سَنّ
+diac:سَنِّهِ lex:سَنّ_1 gloss:+enactment;prescription+[def.gen.]_+_its/his source:spvar stem:سَنّ
+diac:سِنُّهُ lex:سِنّ_1 gloss:+tooth+[def.nom]_+_its/his source:spvar stem:سِنّ
+diac:سِنَّهُ lex:سِنّ_1 gloss:+tooth+[def.acc.]_+_its/his source:spvar stem:سِنّ
+diac:سِنِّهِ lex:سِنّ_1 gloss:+tooth+[def.gen.]_+_its/his source:spvar stem:سِنّ
+diac:سِنُّهُ lex:سِنّ_2 gloss:+age_(of_a_person)+[def.nom]_+_its/his source:spvar stem:سِنّ
+diac:سِنَّهُ lex:سِنّ_2 gloss:+age_(of_a_person)+[def.acc.]_+_its/his source:spvar stem:سِنّ
+diac:سِنِّهِ lex:سِنّ_2 gloss:+age_(of_a_person)+[def.gen.]_+_its/his source:spvar stem:سِنّ
+diac:سُنَّة lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.] source:spvar stem:سُنّ
+diac:سُنَّةُ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.nom.] source:spvar stem:سُنّ
+diac:سُنَّةُ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.nom.] source:spvar stem:سُنّ
+diac:سُنَّةَ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.acc.] source:spvar stem:سُنّ
+diac:سُنَّةَ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.acc.] source:spvar stem:سُنّ
+diac:سُنَّةِ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.gen.] source:spvar stem:سُنّ
+diac:سُنَّةِ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[def.gen.] source:spvar stem:سُنّ
+diac:سُنَّةٌ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[indef.nom.] source:spvar stem:سُنّ
+diac:سُنَّةً lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[indef.acc.] source:spvar stem:سُنّ
+diac:سُنَّةٍ lex:سُنَّة_1 gloss:+customary_procedure;orthodox_(Sunni)_Islam+[fem.sg.]_+_[indef.gen.] source:spvar stem:سُنّ
+diac:سَنَة lex:سَنَة_1 gloss:+year+[fem.sg.] source:spvar stem:سَن
+diac:سَنَةُ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.nom.] source:spvar stem:سَن
+diac:سَنَةُ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.nom.] source:spvar stem:سَن
+diac:سَنَةَ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.acc.] source:spvar stem:سَن
+diac:سَنَةَ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.acc.] source:spvar stem:سَن
+diac:سَنَةِ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.gen.] source:spvar stem:سَن
+diac:سَنَةِ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[def.gen.] source:spvar stem:سَن
+diac:سَنَةٌ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[indef.nom.] source:spvar stem:سَن
+diac:سَنَةً lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[indef.acc.] source:spvar stem:سَن
+diac:سَنَةٍ lex:سَنَة_1 gloss:+year+[fem.sg.]_+_[indef.gen.] source:spvar stem:سَن
+diac:سَنَهِ lex:وَهَى-i_1 gloss:will_+_we+be_frail;be_fragile+[jus.] source:spvar stem:هِ
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ٧:
+diac:٧: lex:٧:_0 gloss:٧: source:punc
+
+#WORD: هل
+diac:هَلْ lex:هَلْ_1 gloss:+do?;is?+ source:spvar stem:هَلْ
+diac:هَلَّ lex:هَلّ-i_1 gloss:+begin;appear+he/it_[verb] source:spvar stem:هَلّ
+
+#WORD: عندك
+diac:عِنْدُكَ lex:عِنْد_1 gloss:+with/at+[def.nom]_+_your_[masc.sg.] source:spvar stem:عِنْد
+diac:عِنْدُكِ lex:عِنْد_1 gloss:+with/at+[def.nom]_+_your_[fem.sg.] source:spvar stem:عِنْد
+diac:عِنْدَكَ lex:عِنْد_1 gloss:+with/at+[def.acc.]_+_your_[masc.sg.] source:spvar stem:عِنْد
+diac:عِنْدَكِ lex:عِنْد_1 gloss:+with/at+[def.acc.]_+_your_[fem.sg.] source:spvar stem:عِنْد
+diac:عِنْدِكَ lex:عِنْد_1 gloss:+with/at+[def.gen.]_+_your_[masc.sg.] source:spvar stem:عِنْد
+diac:عِنْدِكِ lex:عِنْد_1 gloss:+with/at+[def.gen.]_+_your_[fem.sg.] source:spvar stem:عِنْد
+
+#WORD: أي
+diac:أَيْ lex:أَيْ_1 gloss:+O,_oh+ source:spvar stem:أَيْ
+diac:أَيْ lex:أَيْ_2 gloss:+that_is_to_say+ source:spvar stem:أَيْ
+diac:أَيّ lex:أَيّ_1 gloss:+any+ source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_1 gloss:+any+[def.nom.] source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_1 gloss:+any+[def.nom.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_1 gloss:+any+[def.acc.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_1 gloss:+any+[def.acc.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_1 gloss:+any+[def.gen.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_1 gloss:+any+[def.gen.] source:spvar stem:أَيّ
+diac:أَيٌّ lex:أَيّ_1 gloss:+any+[indef.nom.] source:spvar stem:أَيّ
+diac:أَيٍّ lex:أَيّ_1 gloss:+any+[indef.gen.] source:spvar stem:أَيّ
+diac:أَيّ lex:أَيّ_2 gloss:+which+ source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_2 gloss:+which+[def.nom.] source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_2 gloss:+which+[def.nom.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_2 gloss:+which+[def.acc.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_2 gloss:+which+[def.acc.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_2 gloss:+which+[def.gen.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_2 gloss:+which+[def.gen.] source:spvar stem:أَيّ
+diac:أَيٌّ lex:أَيّ_2 gloss:+which+[indef.nom.] source:spvar stem:أَيّ
+diac:أَيٍّ lex:أَيّ_2 gloss:+which+[indef.gen.] source:spvar stem:أَيّ
+diac:أَيّ lex:أَيّ_3 gloss:+which/whatever/whichever+ source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.nom.] source:spvar stem:أَيّ
+diac:أَيُّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.nom.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.acc.] source:spvar stem:أَيّ
+diac:أَيَّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.acc.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.gen.] source:spvar stem:أَيّ
+diac:أَيِّ lex:أَيّ_3 gloss:+which/whatever/whichever+[def.gen.] source:spvar stem:أَيّ
+diac:أَيٌّ lex:أَيّ_3 gloss:+which/whatever/whichever+[indef.nom.] source:spvar stem:أَيّ
+diac:أَيٍّ lex:أَيّ_3 gloss:+which/whatever/whichever+[indef.gen.] source:spvar stem:أَيّ
+diac:إِي lex:إِي_1 gloss:+E.+ source:spvar stem:إِي
+diac:أَي lex:أَي_1 gloss:+A.+ source:spvar stem:أَي
+diac:أَي lex:أَي_1 gloss:+I.+ source:spvar stem:أَي
+diac:آي lex:آي_1 gloss:+A.+ source:spvar stem:آي
+diac:آي lex:آي_1 gloss:+I.+ source:spvar stem:آي
+
+#WORD: حيوانات
+diac:حَيَوانات lex:حَيَوان_1 gloss:+animal;creature+[fem.pl.] source:spvar stem:حَيَوان
+diac:حَيَواناتُ lex:حَيَوان_1 gloss:+animal;creature+[fem.pl.]_+_[def.nom.] source:spvar stem:حَيَوان
+diac:حَيَواناتُ lex:حَيَوان_1 gloss:+animal;creature+[fem.pl.]_+_[def.nom.] source:spvar stem:حَيَوان
+diac:حَيَواناتِ lex:حَيَوان_1 gloss:+animal;creature+[fem.pl.]_+_[def.acc.] source:spvar stem:حَيَوان
+diac:حَيَواناتِ lex:حَيَوان_1 gloss:+animal;creature+[fem.pl.]_+_[def.acc.] source:spvar stem:حَيَوان
+diac:حَيَواناتِ lex:حَيَوان_1 gloss:+animal;creature+[fem.pl.]_+_[def.gen.] source:spvar stem:حَيَوان
+diac:حَيَواناتِ lex:حَيَوان_1 gloss:+animal;creature+[fem.pl.]_+_[def.gen.] source:spvar stem:حَيَوان
+diac:حَيَواناتٌ lex:حَيَوان_1 gloss:+animal;creature+[fem.pl.]_+_[indef.nom.] source:spvar stem:حَيَوان
+diac:حَيَواناتٍ lex:حَيَوان_1 gloss:+animal;creature+[fem.pl.]_+_[indef.acc.] source:spvar stem:حَيَوان
+diac:حَيَواناتٍ lex:حَيَوان_1 gloss:+animal;creature+[fem.pl.]_+_[indef.gen.] source:spvar stem:حَيَوان
+
+#WORD: أليفة
+diac:أَلِيفَة lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[fem.sg.] source:spvar stem:أَلِيف
+diac:أَلِيفَةُ lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[fem.sg.]_+_[def.nom.] source:spvar stem:أَلِيف
+diac:أَلِيفَةُ lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[fem.sg.]_+_[def.nom.] source:spvar stem:أَلِيف
+diac:أَلِيفَةَ lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[fem.sg.]_+_[def.acc.] source:spvar stem:أَلِيف
+diac:أَلِيفَةَ lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[fem.sg.]_+_[def.acc.] source:spvar stem:أَلِيف
+diac:أَلِيفَةِ lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[fem.sg.]_+_[def.gen.] source:spvar stem:أَلِيف
+diac:أَلِيفَةِ lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[fem.sg.]_+_[def.gen.] source:spvar stem:أَلِيف
+diac:أَلِيفَةٌ lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[fem.sg.]_+_[indef.nom.] source:spvar stem:أَلِيف
+diac:أَلِيفَةً lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[fem.sg.]_+_[indef.acc.] source:spvar stem:أَلِيف
+diac:أَلِيفَةٍ lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[fem.sg.]_+_[indef.gen.] source:spvar stem:أَلِيف
+diac:أَلِيفُهُ lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[def.nom]_+_its/his source:spvar stem:أَلِيف
+diac:أَلِيفَهُ lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[def.acc.]_+_its/his source:spvar stem:أَلِيف
+diac:أَلِيفِهِ lex:أَلِيف_1 gloss:+companion;familiar;domesticated+[def.gen.]_+_its/his source:spvar stem:أَلِيف
+diac:أُلَيِّفُهُ lex:لَيَّف_1 gloss:I+rub_with_palm_fibers+[ind.]_+_it/him source:spvar stem:لَيِّف
+diac:أُلَيِّفَهُ lex:لَيَّف_1 gloss:I+rub_with_palm_fibers+[sub.]_+_it/him source:spvar stem:لَيِّف
+diac:أُلَيِّفْهُ lex:لَيَّف_1 gloss:I+rub_with_palm_fibers+[jus.]_+_it/him source:spvar stem:لَيِّف
+
+#WORD: ؟
+diac:؟ lex:؟_0 gloss:NO_ANALYSIS source:backoff stem:؟
+
+#WORD: عندي
+diac:عِنْدِي lex:عِنْد_1 gloss:+with/at+my source:spvar stem:عِنْد
+
+#WORD: كلبين
+diac:كَلْبَيْنِ lex:كَلْب_1 gloss:+dog+two_[acc.] source:spvar stem:كَلْب
+diac:كَلْبَيْنِ lex:كَلْب_1 gloss:+dog+two_[acc.] source:spvar stem:كَلْب
+diac:كَلْبَيْنِ lex:كَلْب_1 gloss:+dog+two_[gen.] source:spvar stem:كَلْب
+diac:كَلْبَيْنِ lex:كَلْب_1 gloss:+dog+two_[gen.] source:spvar stem:كَلْب
+diac:كَلِبَيْنِ lex:كَلِب_1 gloss:+rabid;greedy+two_[acc.] source:spvar stem:كَلِب
+diac:كَلِبَيْنِ lex:كَلِب_1 gloss:+rabid;greedy+two_[acc.] source:spvar stem:كَلِب
+diac:كَلِبَيْنِ lex:كَلِب_1 gloss:+rabid;greedy+two_[gen.] source:spvar stem:كَلِب
+diac:كَلِبَيْنِ lex:كَلِب_1 gloss:+rabid;greedy+two_[gen.] source:spvar stem:كَلِب
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ٨:
+diac:٨: lex:٨:_0 gloss:٨: source:punc
+
+#WORD: أين
+diac:أَيْنَ lex:أَيْنَ_1 gloss:+where+ source:spvar stem:أَيْنَ
+diac:أَيَّنَ lex:أَيَّن_1 gloss:+ionize+he/it_[verb] source:spvar stem:أَيَّن
+diac:أَيَّنَّ lex:أَيَّن_1 gloss:+ionize+they_[fem.pl.]_[verb] source:spvar stem:أَيَّن
+diac:أَيْنَ lex:أَيْنَ_2 gloss:+where+ source:spvar stem:أَيْنَ
+
+#WORD: تدرسين
+diac:تَدْرُسِينَ lex:دَرَس-u_1 gloss:you_[fem.sg.]+study;learn+[fem.sg.] source:spvar stem:دْرُس
+diac:تُدْرَسِينَ lex:دَرَس-u_1 gloss:you_[fem.sg.]+be_studied;be_learned+[fem.sg.] source:spvar stem:دْرَس
+diac:تُدَرِّسِينَ lex:دَرَّس_1 gloss:you_[fem.sg.]+teach;instruct+[fem.sg.] source:spvar stem:دَرِّس
+diac:تَدَرْسَيْنِ lex:دَرْس_2 gloss:by+lesson;study+two_[acc.] source:spvar stem:دَرْس
+diac:تَدَرْسَيْنِ lex:دَرْس_2 gloss:by+lesson;study+two_[acc.] source:spvar stem:دَرْس
+diac:تَدَرْسَيْنِ lex:دَرْس_2 gloss:by+lesson;study+two_[gen.] source:spvar stem:دَرْس
+diac:تَدَرْسَيْنِ lex:دَرْس_2 gloss:by+lesson;study+two_[gen.] source:spvar stem:دَرْس
+
+#WORD: ؟
+diac:؟ lex:؟_0 gloss:NO_ANALYSIS source:backoff stem:؟
+
+#WORD: أدرس
+diac:أَدْرُسُ lex:دَرَس-u_1 gloss:I+study;learn+[ind.] source:spvar stem:دْرُس
+diac:أَدْرُسَ lex:دَرَس-u_1 gloss:I+study;learn+[sub.] source:spvar stem:دْرُس
+diac:أَدْرُسْ lex:دَرَس-u_1 gloss:I+study;learn+[jus.] source:spvar stem:دْرُس
+diac:أُدْرَسُ lex:دَرَس-u_1 gloss:I+be_studied;be_learned+[ind.] source:spvar stem:دْرَس
+diac:أُدْرَسَ lex:دَرَس-u_1 gloss:I+be_studied;be_learned+[sub.] source:spvar stem:دْرَس
+diac:أُدْرَسْ lex:دَرَس-u_1 gloss:I+be_studied;be_learned+[jus.] source:spvar stem:دْرَس
+diac:أُدَرِّسُ lex:دَرَّس_1 gloss:I+teach;instruct+[ind.] source:spvar stem:دَرِّس
+diac:أُدَرِّسَ lex:دَرَّس_1 gloss:I+teach;instruct+[sub.] source:spvar stem:دَرِّس
+diac:أُدَرِّسْ lex:دَرَّس_1 gloss:I+teach;instruct+[jus.] source:spvar stem:دَرِّس
+
+#WORD: في
+diac:فِي lex:فِي_1 gloss:+in+ source:spvar stem:فِي
+diac:فِيَّ lex:فِي_1 gloss:+in+me source:spvar stem:فِي
+diac:فِي lex:فِي_2 gloss:+V.+ source:spvar stem:فِي
+diac:فَي lex:ي_1 gloss:so/and+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:because/therefore/as_a_result+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:so/then+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:so/then+Y.;10th+ source:spvar stem:ي
+
+#WORD: جامعة
+diac:جامَعَهُ lex:جامَع_1 gloss:+make_love_to+he/it_[verb]_+_it/him source:spvar stem:جامَع
+diac:جامِعَة lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةٌ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[indef.nom.] source:spvar stem:جامِع
+diac:جامِعَةً lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[indef.acc.] source:spvar stem:جامِع
+diac:جامِعَةٍ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[indef.gen.] source:spvar stem:جامِع
+diac:جامِعُهُ lex:جامِع_1 gloss:+comprehensive;extensive+[def.nom]_+_its/his source:spvar stem:جامِع
+diac:جامِعَهُ lex:جامِع_1 gloss:+comprehensive;extensive+[def.acc.]_+_its/his source:spvar stem:جامِع
+diac:جامِعِهِ lex:جامِع_1 gloss:+comprehensive;extensive+[def.gen.]_+_its/his source:spvar stem:جامِع
+diac:جامِعَة lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةٌ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[indef.nom.] source:spvar stem:جامِع
+diac:جامِعَةً lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[indef.acc.] source:spvar stem:جامِع
+diac:جامِعَةٍ lex:جامِع_1 gloss:+comprehensive;extensive+[fem.sg.]_+_[indef.gen.] source:spvar stem:جامِع
+diac:جامِعُهُ lex:جامِع_1 gloss:+comprehensive;extensive+[def.nom]_+_its/his source:spvar stem:جامِع
+diac:جامِعَهُ lex:جامِع_1 gloss:+comprehensive;extensive+[def.acc.]_+_its/his source:spvar stem:جامِع
+diac:جامِعِهِ lex:جامِع_1 gloss:+comprehensive;extensive+[def.gen.]_+_its/his source:spvar stem:جامِع
+diac:جامِعُهُ lex:جامِع_2 gloss:+mosque+[def.nom]_+_its/his source:spvar stem:جامِع
+diac:جامِعَهُ lex:جامِع_2 gloss:+mosque+[def.acc.]_+_its/his source:spvar stem:جامِع
+diac:جامِعِهِ lex:جامِع_2 gloss:+mosque+[def.gen.]_+_its/his source:spvar stem:جامِع
+diac:جامِعَة lex:جامِع_3 gloss:+gatherer;collector;receiver+[fem.sg.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِع_3 gloss:+gatherer;collector;receiver+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِع_3 gloss:+gatherer;collector;receiver+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِع_3 gloss:+gatherer;collector;receiver+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِع_3 gloss:+gatherer;collector;receiver+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِع_3 gloss:+gatherer;collector;receiver+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِع_3 gloss:+gatherer;collector;receiver+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةٌ lex:جامِع_3 gloss:+gatherer;collector;receiver+[fem.sg.]_+_[indef.nom.] source:spvar stem:جامِع
+diac:جامِعَةً lex:جامِع_3 gloss:+gatherer;collector;receiver+[fem.sg.]_+_[indef.acc.] source:spvar stem:جامِع
+diac:جامِعَةٍ lex:جامِع_3 gloss:+gatherer;collector;receiver+[fem.sg.]_+_[indef.gen.] source:spvar stem:جامِع
+diac:جامِعُهُ lex:جامِع_3 gloss:+gatherer;collector;receiver+[def.nom]_+_its/his source:spvar stem:جامِع
+diac:جامِعَهُ lex:جامِع_3 gloss:+gatherer;collector;receiver+[def.acc.]_+_its/his source:spvar stem:جامِع
+diac:جامِعِهِ lex:جامِع_3 gloss:+gatherer;collector;receiver+[def.gen.]_+_its/his source:spvar stem:جامِع
+diac:جامِعَة lex:جامِع_3 gloss:+gathering;collecting;receiving+[fem.sg.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِع_3 gloss:+gathering;collecting;receiving+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِع_3 gloss:+gathering;collecting;receiving+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِع_3 gloss:+gathering;collecting;receiving+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِع_3 gloss:+gathering;collecting;receiving+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِع_3 gloss:+gathering;collecting;receiving+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِع_3 gloss:+gathering;collecting;receiving+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةٌ lex:جامِع_3 gloss:+gathering;collecting;receiving+[fem.sg.]_+_[indef.nom.] source:spvar stem:جامِع
+diac:جامِعَةً lex:جامِع_3 gloss:+gathering;collecting;receiving+[fem.sg.]_+_[indef.acc.] source:spvar stem:جامِع
+diac:جامِعَةٍ lex:جامِع_3 gloss:+gathering;collecting;receiving+[fem.sg.]_+_[indef.gen.] source:spvar stem:جامِع
+diac:جامِعُهُ lex:جامِع_3 gloss:+gathering;collecting;receiving+[def.nom]_+_its/his source:spvar stem:جامِع
+diac:جامِعَهُ lex:جامِع_3 gloss:+gathering;collecting;receiving+[def.acc.]_+_its/his source:spvar stem:جامِع
+diac:جامِعِهِ lex:جامِع_3 gloss:+gathering;collecting;receiving+[def.gen.]_+_its/his source:spvar stem:جامِع
+diac:جامِعَة lex:جامِعَة_1 gloss:+university+[fem.sg.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِعَة_1 gloss:+university+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِعَة_1 gloss:+university+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِعَة_1 gloss:+university+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِعَة_1 gloss:+university+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِعَة_1 gloss:+university+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِعَة_1 gloss:+university+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةٌ lex:جامِعَة_1 gloss:+university+[fem.sg.]_+_[indef.nom.] source:spvar stem:جامِع
+diac:جامِعَةً lex:جامِعَة_1 gloss:+university+[fem.sg.]_+_[indef.acc.] source:spvar stem:جامِع
+diac:جامِعَةٍ lex:جامِعَة_1 gloss:+university+[fem.sg.]_+_[indef.gen.] source:spvar stem:جامِع
+diac:جامِعَة lex:جامِعَة_2 gloss:+league+[fem.sg.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِعَة_2 gloss:+league+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةُ lex:جامِعَة_2 gloss:+league+[fem.sg.]_+_[def.nom.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِعَة_2 gloss:+league+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةَ lex:جامِعَة_2 gloss:+league+[fem.sg.]_+_[def.acc.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِعَة_2 gloss:+league+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةِ lex:جامِعَة_2 gloss:+league+[fem.sg.]_+_[def.gen.] source:spvar stem:جامِع
+diac:جامِعَةٌ lex:جامِعَة_2 gloss:+league+[fem.sg.]_+_[indef.nom.] source:spvar stem:جامِع
+diac:جامِعَةً lex:جامِعَة_2 gloss:+league+[fem.sg.]_+_[indef.acc.] source:spvar stem:جامِع
+diac:جامِعَةٍ lex:جامِعَة_2 gloss:+league+[fem.sg.]_+_[indef.gen.] source:spvar stem:جامِع
+
+#WORD: نيويورك
+diac:نِيُويُورْك lex:نِيُويُورْك_1 gloss:+New_York+ source:spvar stem:نِيُويُورْك
+
+#WORD: في
+diac:فِي lex:فِي_1 gloss:+in+ source:spvar stem:فِي
+diac:فِيَّ lex:فِي_1 gloss:+in+me source:spvar stem:فِي
+diac:فِي lex:فِي_2 gloss:+V.+ source:spvar stem:فِي
+diac:فَي lex:ي_1 gloss:so/and+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:because/therefore/as_a_result+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:so/then+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:so/then+Y.;10th+ source:spvar stem:ي
+
+#WORD: أبوظبي
+diac:أَبُوظَبِي lex:أَبُوظَبِي_1 gloss:+Abu_Dhabi+ source:spvar stem:أَبُوظَبِي
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ٩:
+diac:٩: lex:٩:_0 gloss:٩: source:punc
+
+#WORD: ماذا
+diac:ماذا lex:ماذا_1 gloss:+what+ stem:ماذا
+diac:ماذا lex:ماذا_2 gloss:+what+ stem:ماذا
+
+#WORD: تدرسين
+diac:تَدْرُسِينَ lex:دَرَس-u_1 gloss:you_[fem.sg.]+study;learn+[fem.sg.] source:spvar stem:دْرُس
+diac:تُدْرَسِينَ lex:دَرَس-u_1 gloss:you_[fem.sg.]+be_studied;be_learned+[fem.sg.] source:spvar stem:دْرَس
+diac:تُدَرِّسِينَ lex:دَرَّس_1 gloss:you_[fem.sg.]+teach;instruct+[fem.sg.] source:spvar stem:دَرِّس
+diac:تَدَرْسَيْنِ lex:دَرْس_2 gloss:by+lesson;study+two_[acc.] source:spvar stem:دَرْس
+diac:تَدَرْسَيْنِ lex:دَرْس_2 gloss:by+lesson;study+two_[acc.] source:spvar stem:دَرْس
+diac:تَدَرْسَيْنِ lex:دَرْس_2 gloss:by+lesson;study+two_[gen.] source:spvar stem:دَرْس
+diac:تَدَرْسَيْنِ lex:دَرْس_2 gloss:by+lesson;study+two_[gen.] source:spvar stem:دَرْس
+
+#WORD: ؟
+diac:؟ lex:؟_0 gloss:NO_ANALYSIS source:backoff stem:؟
+
+#WORD: أدرس
+diac:أَدْرُسُ lex:دَرَس-u_1 gloss:I+study;learn+[ind.] source:spvar stem:دْرُس
+diac:أَدْرُسَ lex:دَرَس-u_1 gloss:I+study;learn+[sub.] source:spvar stem:دْرُس
+diac:أَدْرُسْ lex:دَرَس-u_1 gloss:I+study;learn+[jus.] source:spvar stem:دْرُس
+diac:أُدْرَسُ lex:دَرَس-u_1 gloss:I+be_studied;be_learned+[ind.] source:spvar stem:دْرَس
+diac:أُدْرَسَ lex:دَرَس-u_1 gloss:I+be_studied;be_learned+[sub.] source:spvar stem:دْرَس
+diac:أُدْرَسْ lex:دَرَس-u_1 gloss:I+be_studied;be_learned+[jus.] source:spvar stem:دْرَس
+diac:أُدَرِّسُ lex:دَرَّس_1 gloss:I+teach;instruct+[ind.] source:spvar stem:دَرِّس
+diac:أُدَرِّسَ lex:دَرَّس_1 gloss:I+teach;instruct+[sub.] source:spvar stem:دَرِّس
+diac:أُدَرِّسْ lex:دَرَّس_1 gloss:I+teach;instruct+[jus.] source:spvar stem:دَرِّس
+
+#WORD: علم
+diac:عَلِمَ lex:عَلِم-a_1 gloss:+know;find_out+he/it_[verb] source:spvar stem:عَلِم
+diac:عُلِمَ lex:عَلِم-a_1 gloss:+be_known;be_found_out+he/it_[verb] source:spvar stem:عُلِم
+diac:عَلَّمَ lex:عَلَّم_1 gloss:+teach;instruct+he/it_[verb] source:spvar stem:عَلَّم
+diac:عِلْم lex:عِلْم_1 gloss:+knowledge;knowing+ source:spvar stem:عِلْم
+diac:عِلْمُ lex:عِلْم_1 gloss:+knowledge;knowing+[def.nom.] source:spvar stem:عِلْم
+diac:عِلْمُ lex:عِلْم_1 gloss:+knowledge;knowing+[def.nom.] source:spvar stem:عِلْم
+diac:عِلْمَ lex:عِلْم_1 gloss:+knowledge;knowing+[def.acc.] source:spvar stem:عِلْم
+diac:عِلْمَ lex:عِلْم_1 gloss:+knowledge;knowing+[def.acc.] source:spvar stem:عِلْم
+diac:عِلْمِ lex:عِلْم_1 gloss:+knowledge;knowing+[def.gen.] source:spvar stem:عِلْم
+diac:عِلْمِ lex:عِلْم_1 gloss:+knowledge;knowing+[def.gen.] source:spvar stem:عِلْم
+diac:عِلْمٌ lex:عِلْم_1 gloss:+knowledge;knowing+[indef.nom.] source:spvar stem:عِلْم
+diac:عِلْمٍ lex:عِلْم_1 gloss:+knowledge;knowing+[indef.gen.] source:spvar stem:عِلْم
+diac:عِلْم lex:عِلْم_2 gloss:+science;study_of+ source:spvar stem:عِلْم
+diac:عِلْمُ lex:عِلْم_2 gloss:+science;study_of+[def.nom.] source:spvar stem:عِلْم
+diac:عِلْمُ lex:عِلْم_2 gloss:+science;study_of+[def.nom.] source:spvar stem:عِلْم
+diac:عِلْمَ lex:عِلْم_2 gloss:+science;study_of+[def.acc.] source:spvar stem:عِلْم
+diac:عِلْمَ lex:عِلْم_2 gloss:+science;study_of+[def.acc.] source:spvar stem:عِلْم
+diac:عِلْمِ lex:عِلْم_2 gloss:+science;study_of+[def.gen.] source:spvar stem:عِلْم
+diac:عِلْمِ lex:عِلْم_2 gloss:+science;study_of+[def.gen.] source:spvar stem:عِلْم
+diac:عِلْمٌ lex:عِلْم_2 gloss:+science;study_of+[indef.nom.] source:spvar stem:عِلْم
+diac:عِلْمٍ lex:عِلْم_2 gloss:+science;study_of+[indef.gen.] source:spvar stem:عِلْم
+diac:عَلَم lex:عَلَم_1 gloss:+flag;banner;badge+ source:spvar stem:عَلَم
+diac:عَلَمُ lex:عَلَم_1 gloss:+flag;banner;badge+[def.nom.] source:spvar stem:عَلَم
+diac:عَلَمُ lex:عَلَم_1 gloss:+flag;banner;badge+[def.nom.] source:spvar stem:عَلَم
+diac:عَلَمَ lex:عَلَم_1 gloss:+flag;banner;badge+[def.acc.] source:spvar stem:عَلَم
+diac:عَلَمَ lex:عَلَم_1 gloss:+flag;banner;badge+[def.acc.] source:spvar stem:عَلَم
+diac:عَلَمِ lex:عَلَم_1 gloss:+flag;banner;badge+[def.gen.] source:spvar stem:عَلَم
+diac:عَلَمِ lex:عَلَم_1 gloss:+flag;banner;badge+[def.gen.] source:spvar stem:عَلَم
+diac:عَلَمٌ lex:عَلَم_1 gloss:+flag;banner;badge+[indef.nom.] source:spvar stem:عَلَم
+diac:عَلَمٍ lex:عَلَم_1 gloss:+flag;banner;badge+[indef.gen.] source:spvar stem:عَلَم
+diac:عَلَم lex:عَلَم_2 gloss:+Alam+ source:spvar stem:عَلَم
+diac:عَلَمُ lex:عَلَم_2 gloss:+Alam+[def.nom.] source:spvar stem:عَلَم
+diac:عَلَمُ lex:عَلَم_2 gloss:+Alam+[def.nom.] source:spvar stem:عَلَم
+diac:عَلَمَ lex:عَلَم_2 gloss:+Alam+[def.acc.] source:spvar stem:عَلَم
+diac:عَلَمَ lex:عَلَم_2 gloss:+Alam+[def.acc.] source:spvar stem:عَلَم
+diac:عَلَمِ lex:عَلَم_2 gloss:+Alam+[def.gen.] source:spvar stem:عَلَم
+diac:عَلَمِ lex:عَلَم_2 gloss:+Alam+[def.gen.] source:spvar stem:عَلَم
+diac:عَلَمٌ lex:عَلَم_2 gloss:+Alam+[indef.nom.] source:spvar stem:عَلَم
+diac:عَلَمٍ lex:عَلَم_2 gloss:+Alam+[indef.gen.] source:spvar stem:عَلَم
+
+#WORD: الكمبيوتر
+diac:الكَمْبِيُوتِر lex:كَمْبِيُوتِر_1 gloss:the+computer+ source:spvar stem:كَمْبِيُوتِر
+diac:الكَمْبِيُوتِرُ lex:كَمْبِيُوتِر_1 gloss:the+computer+[def.nom.] source:spvar stem:كَمْبِيُوتِر
+diac:الكَمْبِيُوتِرُ lex:كَمْبِيُوتِر_1 gloss:the+computer+[def.nom.] source:spvar stem:كَمْبِيُوتِر
+diac:الكَمْبِيُوتِرَ lex:كَمْبِيُوتِر_1 gloss:the+computer+[def.acc.] source:spvar stem:كَمْبِيُوتِر
+diac:الكَمْبِيُوتِرَ lex:كَمْبِيُوتِر_1 gloss:the+computer+[def.acc.] source:spvar stem:كَمْبِيُوتِر
+diac:الكَمْبِيُوتِرِ lex:كَمْبِيُوتِر_1 gloss:the+computer+[def.gen.] source:spvar stem:كَمْبِيُوتِر
+diac:الكَمْبِيُوتِرِ lex:كَمْبِيُوتِر_1 gloss:the+computer+[def.gen.] source:spvar stem:كَمْبِيُوتِر
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ١٠:
+diac:١٠: lex:١٠:_0 gloss:١٠: source:punc
+
+#WORD: أين
+diac:أَيْنَ lex:أَيْنَ_1 gloss:+where+ source:spvar stem:أَيْنَ
+diac:أَيَّنَ lex:أَيَّن_1 gloss:+ionize+he/it_[verb] source:spvar stem:أَيَّن
+diac:أَيَّنَّ lex:أَيَّن_1 gloss:+ionize+they_[fem.pl.]_[verb] source:spvar stem:أَيَّن
+diac:أَيْنَ lex:أَيْنَ_2 gloss:+where+ source:spvar stem:أَيْنَ
+
+#WORD: نشأت؟
+diac:نشات؟ lex:نشات؟_0 gloss:NO_ANALYSIS source:backoff stem:نشات؟
+
+#WORD: نشأت
+diac:نَشَأْتُ lex:نَشَأ-a_1 gloss:+rise;grow+I_[verb] source:spvar stem:نَشَأ
+diac:نَشَأْتَ lex:نَشَأ-a_1 gloss:+rise;grow+you_[masc.sg.]_[verb] source:spvar stem:نَشَأ
+diac:نَشَأْتِ lex:نَشَأ-a_1 gloss:+rise;grow+you_[fem.sg.]_[verb] source:spvar stem:نَشَأ
+diac:نَشَأَت lex:نَشَأ-a_1 gloss:+rise;grow+it/they/she_[verb] source:spvar stem:نَشَأ
+diac:نَشَّأْتُ lex:نَشَّأ_1 gloss:+make_grow;raise+I_[verb] source:spvar stem:نَشَّأ
+diac:نَشَّأْتَ lex:نَشَّأ_1 gloss:+make_grow;raise+you_[masc.sg.]_[verb] source:spvar stem:نَشَّأ
+diac:نَشَّأْتِ lex:نَشَّأ_1 gloss:+make_grow;raise+you_[fem.sg.]_[verb] source:spvar stem:نَشَّأ
+diac:نَشَّأَت lex:نَشَّأ_1 gloss:+make_grow;raise+it/they/she_[verb] source:spvar stem:نَشَّأ
+
+#WORD: في
+diac:فِي lex:فِي_1 gloss:+in+ source:spvar stem:فِي
+diac:فِيَّ lex:فِي_1 gloss:+in+me source:spvar stem:فِي
+diac:فِي lex:فِي_2 gloss:+V.+ source:spvar stem:فِي
+diac:فَي lex:ي_1 gloss:so/and+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:because/therefore/as_a_result+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:so/then+Y.;10th+ source:spvar stem:ي
+diac:فَي lex:ي_1 gloss:so/then+Y.;10th+ source:spvar stem:ي
+
+#WORD: بوخارست
+diac:بُوخارِسْت lex:بُوخارِسْت_1 gloss:+Bucharest+ source:spvar stem:بُوخارِسْت
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ١١:
+diac:١١: lex:١١:_0 gloss:١١: source:punc
+
+#WORD: ما
+diac:ما lex:ما_1 gloss:+what/which+ stem:ما
+diac:ما lex:ما_2 gloss:+not+ stem:ما
+diac:ما lex:ما_3 gloss:+what/which+ stem:ما
+diac:ما lex:ما_4 gloss:+that/if/unless/whether/as_long_as/as_soon_as+ stem:ما
+diac:ما lex:ما_5 gloss:+what/how+ stem:ما
+diac:ما lex:ما_6 gloss:+some+ source:lex stem:ما
+diac:ما lex:ما_7 gloss:+not+ source:lex stem:ما
+diac:ما lex:ما_8 gloss:+[no_gloss]+ stem:ما
+
+#WORD: هو
+diac:هُوَ lex:هُوَ_1 gloss:+it/he+ source:spvar stem:هُوَ
+diac:هُو lex:هُو_1 gloss:+Ho_(in_"Ho_Chi_Minh")+ source:spvar stem:هُو
+
+#WORD: فيلمك
+diac:فِيلمُكَ lex:فِيلْم_1 gloss:+film;movie+[def.nom]_+_your_[masc.sg.] source:spvar stem:فِيلم
+diac:فِيلمُكِ lex:فِيلْم_1 gloss:+film;movie+[def.nom]_+_your_[fem.sg.] source:spvar stem:فِيلم
+diac:فِيلمَكَ lex:فِيلْم_1 gloss:+film;movie+[def.acc.]_+_your_[masc.sg.] source:spvar stem:فِيلم
+diac:فِيلمَكِ lex:فِيلْم_1 gloss:+film;movie+[def.acc.]_+_your_[fem.sg.] source:spvar stem:فِيلم
+diac:فِيلمِكَ lex:فِيلْم_1 gloss:+film;movie+[def.gen.]_+_your_[masc.sg.] source:spvar stem:فِيلم
+diac:فِيلمِكِ lex:فِيلْم_1 gloss:+film;movie+[def.gen.]_+_your_[fem.sg.] source:spvar stem:فِيلم
+diac:فَيَلُمُّكَ lex:لَمّ-u_1 gloss:so/and_+_he/it+collect;put_in_order+[ind.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمُّكِ lex:لَمّ-u_1 gloss:so/and_+_he/it+collect;put_in_order+[ind.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكَ lex:لَمّ-u_1 gloss:so/and_+_he/it+collect;put_in_order+[sub.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكِ lex:لَمّ-u_1 gloss:so/and_+_he/it+collect;put_in_order+[sub.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكَ lex:لَمّ-u_1 gloss:so/and_+_he/it+collect;put_in_order+[jus.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكِ lex:لَمّ-u_1 gloss:so/and_+_he/it+collect;put_in_order+[jus.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمُّكَ lex:لَمّ-u_1 gloss:because/therefore/as_a_result_+_he/it+collect;put_in_order+[ind.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمُّكِ lex:لَمّ-u_1 gloss:because/therefore/as_a_result_+_he/it+collect;put_in_order+[ind.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكَ lex:لَمّ-u_1 gloss:because/therefore/as_a_result_+_he/it+collect;put_in_order+[sub.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكِ lex:لَمّ-u_1 gloss:because/therefore/as_a_result_+_he/it+collect;put_in_order+[sub.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكَ lex:لَمّ-u_1 gloss:because/therefore/as_a_result_+_he/it+collect;put_in_order+[jus.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكِ lex:لَمّ-u_1 gloss:because/therefore/as_a_result_+_he/it+collect;put_in_order+[jus.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمُّكَ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[ind.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمُّكِ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[ind.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكَ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[sub.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكِ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[sub.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكَ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[jus.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكِ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[jus.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمُّكَ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[ind.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمُّكِ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[ind.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكَ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[sub.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكِ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[sub.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكَ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[jus.]_+_you_[masc.sg.] source:spvar stem:لُمّ
+diac:فَيَلُمَّكِ lex:لَمّ-u_1 gloss:so/then_+_he/it+collect;put_in_order+[jus.]_+_you_[fem.sg.] source:spvar stem:لُمّ
+diac:فِيلَمِّكَ lex:لَمّ-u_2 gloss:in,_by+gathering+[def.gen.]_+_your_[masc.sg.] source:spvar stem:لَمّ
+diac:فِيلَمِّكِ lex:لَمّ-u_2 gloss:in,_by+gathering+[def.gen.]_+_your_[fem.sg.] source:spvar stem:لَمّ
+diac:فَيَلُمْكَ lex:لام-u_1 gloss:so/and_+_he/it+blame;censure+[jus.]_+_you_[masc.sg.] source:spvar stem:لُم
+diac:فَيَلُمْكِ lex:لام-u_1 gloss:so/and_+_he/it+blame;censure+[jus.]_+_you_[fem.sg.] source:spvar stem:لُم
+diac:فَيَلُمْكَ lex:لام-u_1 gloss:because/therefore/as_a_result_+_he/it+blame;censure+[jus.]_+_you_[masc.sg.] source:spvar stem:لُم
+diac:فَيَلُمْكِ lex:لام-u_1 gloss:because/therefore/as_a_result_+_he/it+blame;censure+[jus.]_+_you_[fem.sg.] source:spvar stem:لُم
+diac:فَيَلُمْكَ lex:لام-u_1 gloss:so/then_+_he/it+blame;censure+[jus.]_+_you_[masc.sg.] source:spvar stem:لُم
+diac:فَيَلُمْكِ lex:لام-u_1 gloss:so/then_+_he/it+blame;censure+[jus.]_+_you_[fem.sg.] source:spvar stem:لُم
+diac:فَيَلُمْكَ lex:لام-u_1 gloss:so/then_+_he/it+blame;censure+[jus.]_+_you_[masc.sg.] source:spvar stem:لُم
+diac:فَيَلُمْكِ lex:لام-u_1 gloss:so/then_+_he/it+blame;censure+[jus.]_+_you_[fem.sg.] source:spvar stem:لُم
+diac:فَيُلِمْكَ lex:أَلام_1 gloss:so/and_+_he/it+blame;censure+[jus.]_+_you_[masc.sg.] source:spvar stem:لِم
+diac:فَيُلِمْكِ lex:أَلام_1 gloss:so/and_+_he/it+blame;censure+[jus.]_+_you_[fem.sg.] source:spvar stem:لِم
+diac:فَيُلِمْكَ lex:أَلام_1 gloss:because/therefore/as_a_result_+_he/it+blame;censure+[jus.]_+_you_[masc.sg.] source:spvar stem:لِم
+diac:فَيُلِمْكِ lex:أَلام_1 gloss:because/therefore/as_a_result_+_he/it+blame;censure+[jus.]_+_you_[fem.sg.] source:spvar stem:لِم
+diac:فَيُلِمْكَ lex:أَلام_1 gloss:so/then_+_he/it+blame;censure+[jus.]_+_you_[masc.sg.] source:spvar stem:لِم
+diac:فَيُلِمْكِ lex:أَلام_1 gloss:so/then_+_he/it+blame;censure+[jus.]_+_you_[fem.sg.] source:spvar stem:لِم
+diac:فَيُلِمْكَ lex:أَلام_1 gloss:so/then_+_he/it+blame;censure+[jus.]_+_you_[masc.sg.] source:spvar stem:لِم
+diac:فَيُلِمْكِ lex:أَلام_1 gloss:so/then_+_he/it+blame;censure+[jus.]_+_you_[fem.sg.] source:spvar stem:لِم
+
+#WORD: المفضل
+diac:المِفْضَل lex:مِفْضَل_1 gloss:the+pre-eminent;generous+ source:spvar stem:مِفْضَل
+diac:المِفْضَلُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.gen.] source:spvar stem:مِفْضَل
+diac:المُفَضَّل lex:مُفَضَّل_1 gloss:the+favorite;preferred+ source:spvar stem:مُفَضَّل
+diac:المُفَضَّلُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.gen.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.gen.] source:spvar stem:مُفَضَّل
+
+#WORD: ؟
+diac:؟ lex:؟_0 gloss:NO_ANALYSIS source:backoff stem:؟
+
+#WORD: فيلمي
+diac:فِيلْمِيّ lex:فِيلْمِيّ_1 gloss:+film;cinematic+ source:spvar stem:فِيلْمِيّ
+diac:فِيلْمِيُّ lex:فِيلْمِيّ_1 gloss:+film;cinematic+[def.nom.] source:spvar stem:فِيلْمِيّ
+diac:فِيلْمِيُّ lex:فِيلْمِيّ_1 gloss:+film;cinematic+[def.nom.] source:spvar stem:فِيلْمِيّ
+diac:فِيلْمِيَّ lex:فِيلْمِيّ_1 gloss:+film;cinematic+[def.acc.] source:spvar stem:فِيلْمِيّ
+diac:فِيلْمِيَّ lex:فِيلْمِيّ_1 gloss:+film;cinematic+[def.acc.] source:spvar stem:فِيلْمِيّ
+diac:فِيلْمِيِّ lex:فِيلْمِيّ_1 gloss:+film;cinematic+[def.gen.] source:spvar stem:فِيلْمِيّ
+diac:فِيلْمِيِّ lex:فِيلْمِيّ_1 gloss:+film;cinematic+[def.gen.] source:spvar stem:فِيلْمِيّ
+diac:فِيلْمِيٌّ lex:فِيلْمِيّ_1 gloss:+film;cinematic+[indef.nom.] source:spvar stem:فِيلْمِيّ
+diac:فِيلْمِيٍّ lex:فِيلْمِيّ_1 gloss:+film;cinematic+[indef.gen.] source:spvar stem:فِيلْمِيّ
+diac:فِيلمَيْ lex:فِيلْم_1 gloss:+film;movie+two_[acc.] source:spvar stem:فِيلم
+diac:فِيلمَيْ lex:فِيلْم_1 gloss:+film;movie+two_[gen.] source:spvar stem:فِيلم
+diac:فِيلمَيَّ lex:فِيلْم_1 gloss:+film;movie+two_[acc.]_+_my source:spvar stem:فِيلم
+diac:فِيلمَيَّ lex:فِيلْم_1 gloss:+film;movie+two_[gen.]_+_my source:spvar stem:فِيلم
+diac:فِيلمِي lex:فِيلْم_1 gloss:+film;movie+my source:spvar stem:فِيلم
+diac:فِيلَمِّي lex:لَمّ-u_2 gloss:in,_by+gathering+my source:spvar stem:لَمّ
+
+#WORD: المفضل
+diac:المِفْضَل lex:مِفْضَل_1 gloss:the+pre-eminent;generous+ source:spvar stem:مِفْضَل
+diac:المِفْضَلُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[def.gen.] source:spvar stem:مِفْضَل
+diac:المُفَضَّل lex:مُفَضَّل_1 gloss:the+favorite;preferred+ source:spvar stem:مُفَضَّل
+diac:المُفَضَّلُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.gen.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[def.gen.] source:spvar stem:مُفَضَّل
+
+#WORD: هو
+diac:هُوَ lex:هُوَ_1 gloss:+it/he+ source:spvar stem:هُوَ
+diac:هُو lex:هُو_1 gloss:+Ho_(in_"Ho_Chi_Minh")+ source:spvar stem:هُو
+
+#WORD: “ليتل
+diac:“ليتل lex:“ليتل_0 gloss:NO_ANALYSIS source:backoff stem:“ليتل
+
+#WORD: مس
+diac:مَسَّ lex:مَسّ-a_1 gloss:+touch;violate;infringe+he/it_[verb] source:spvar stem:مَسّ
+diac:مَسّ lex:مَسّ_1 gloss:+touching;contact+ source:spvar stem:مَسّ
+diac:مَسُّ lex:مَسّ_1 gloss:+touching;contact+[def.nom.] source:spvar stem:مَسّ
+diac:مَسُّ lex:مَسّ_1 gloss:+touching;contact+[def.nom.] source:spvar stem:مَسّ
+diac:مَسَّ lex:مَسّ_1 gloss:+touching;contact+[def.acc.] source:spvar stem:مَسّ
+diac:مَسَّ lex:مَسّ_1 gloss:+touching;contact+[def.acc.] source:spvar stem:مَسّ
+diac:مَسِّ lex:مَسّ_1 gloss:+touching;contact+[def.gen.] source:spvar stem:مَسّ
+diac:مَسِّ lex:مَسّ_1 gloss:+touching;contact+[def.gen.] source:spvar stem:مَسّ
+diac:مَسٌّ lex:مَسّ_1 gloss:+touching;contact+[indef.nom.] source:spvar stem:مَسّ
+diac:مَسٍّ lex:مَسّ_1 gloss:+touching;contact+[indef.gen.] source:spvar stem:مَسّ
+diac:مَسّ lex:مَسّ_2 gloss:+violation;infringement+ source:spvar stem:مَسّ
+diac:مَسُّ lex:مَسّ_2 gloss:+violation;infringement+[def.nom.] source:spvar stem:مَسّ
+diac:مَسُّ lex:مَسّ_2 gloss:+violation;infringement+[def.nom.] source:spvar stem:مَسّ
+diac:مَسَّ lex:مَسّ_2 gloss:+violation;infringement+[def.acc.] source:spvar stem:مَسّ
+diac:مَسَّ lex:مَسّ_2 gloss:+violation;infringement+[def.acc.] source:spvar stem:مَسّ
+diac:مَسِّ lex:مَسّ_2 gloss:+violation;infringement+[def.gen.] source:spvar stem:مَسّ
+diac:مَسِّ lex:مَسّ_2 gloss:+violation;infringement+[def.gen.] source:spvar stem:مَسّ
+diac:مَسٌّ lex:مَسّ_2 gloss:+violation;infringement+[indef.nom.] source:spvar stem:مَسّ
+diac:مَسٍّ lex:مَسّ_2 gloss:+violation;infringement+[indef.gen.] source:spvar stem:مَسّ
+
+#WORD: سنشاين”
+diac:سنشاين” lex:سنشاين”_0 gloss:NO_ANALYSIS source:backoff stem:سنشاين”
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ١٢:
+diac:١٢: lex:١٢:_0 gloss:١٢: source:punc
+
+#WORD: ما
+diac:ما lex:ما_1 gloss:+what/which+ stem:ما
+diac:ما lex:ما_2 gloss:+not+ stem:ما
+diac:ما lex:ما_3 gloss:+what/which+ stem:ما
+diac:ما lex:ما_4 gloss:+that/if/unless/whether/as_long_as/as_soon_as+ stem:ما
+diac:ما lex:ما_5 gloss:+what/how+ stem:ما
+diac:ما lex:ما_6 gloss:+some+ source:lex stem:ما
+diac:ما lex:ما_7 gloss:+not+ source:lex stem:ما
+diac:ما lex:ما_8 gloss:+[no_gloss]+ stem:ما
+
+#WORD: هي
+diac:هِيَ lex:هِيَ_1 gloss:+it/they/she+ source:spvar stem:هِيَ
+
+#WORD: فرقتك
+diac:فَرَقْتُكَ lex:فَرَق-u_1 gloss:+differentiate;distinguish;discriminate+I_[verb]_+_you source:spvar stem:فَرَق
+diac:فَرَقْتُكِ lex:فَرَق-u_1 gloss:+differentiate;distinguish;discriminate+I_[verb]_+_you source:spvar stem:فَرَق
+diac:فَرَقَتْكَ lex:فَرَق-u_1 gloss:+differentiate;distinguish;discriminate+it/they/she_[verb]_+_you source:spvar stem:فَرَق
+diac:فَرَقَتْكِ lex:فَرَق-u_1 gloss:+differentiate;distinguish;discriminate+it/they/she_[verb]_+_you source:spvar stem:فَرَق
+diac:فَرَّقْتُكَ lex:فَرَّق_1 gloss:+separate;differentiate+I_[verb]_+_you source:spvar stem:فَرَّق
+diac:فَرَّقْتُكِ lex:فَرَّق_1 gloss:+separate;differentiate+I_[verb]_+_you source:spvar stem:فَرَّق
+diac:فَرَّقَتْكَ lex:فَرَّق_1 gloss:+separate;differentiate+it/they/she_[verb]_+_you source:spvar stem:فَرَّق
+diac:فَرَّقَتْكِ lex:فَرَّق_1 gloss:+separate;differentiate+it/they/she_[verb]_+_you source:spvar stem:فَرَّق
+diac:فِرْقَتُكَ lex:فِرْقَة_1 gloss:+group;team;troupe+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:فِرْق
+diac:فِرْقَتُكِ lex:فِرْقَة_1 gloss:+group;team;troupe+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:فِرْق
+diac:فِرْقَتَكَ lex:فِرْقَة_1 gloss:+group;team;troupe+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:فِرْق
+diac:فِرْقَتَكِ lex:فِرْقَة_1 gloss:+group;team;troupe+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:فِرْق
+diac:فِرْقَتِكَ lex:فِرْقَة_1 gloss:+group;team;troupe+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:فِرْق
+diac:فِرْقَتِكِ lex:فِرْقَة_1 gloss:+group;team;troupe+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:فِرْق
+diac:فِرْقَتُكَ lex:فِرْقَة_2 gloss:+squad;division+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:فِرْق
+diac:فِرْقَتُكِ lex:فِرْقَة_2 gloss:+squad;division+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:فِرْق
+diac:فِرْقَتَكَ lex:فِرْقَة_2 gloss:+squad;division+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:فِرْق
+diac:فِرْقَتَكِ lex:فِرْقَة_2 gloss:+squad;division+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:فِرْق
+diac:فِرْقَتِكَ lex:فِرْقَة_2 gloss:+squad;division+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:فِرْق
+diac:فِرْقَتِكِ lex:فِرْقَة_2 gloss:+squad;division+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:فِرْق
+diac:فُرْقَتُكَ lex:فُرْقَة_1 gloss:+disunity;dissent;split-up+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:فُرْق
+diac:فُرْقَتُكِ lex:فُرْقَة_1 gloss:+disunity;dissent;split-up+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:فُرْق
+diac:فُرْقَتَكَ lex:فُرْقَة_1 gloss:+disunity;dissent;split-up+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:فُرْق
+diac:فُرْقَتَكِ lex:فُرْقَة_1 gloss:+disunity;dissent;split-up+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:فُرْق
+diac:فُرْقَتِكَ lex:فُرْقَة_1 gloss:+disunity;dissent;split-up+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:فُرْق
+diac:فُرْقَتِكِ lex:فُرْقَة_1 gloss:+disunity;dissent;split-up+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:فُرْق
+diac:فَرِقَّتُكَ lex:رِقَّة_1 gloss:so/and+thinness;delicateness;amiability+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتُكِ lex:رِقَّة_1 gloss:so/and+thinness;delicateness;amiability+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتَكَ lex:رِقَّة_1 gloss:so/and+thinness;delicateness;amiability+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتَكِ lex:رِقَّة_1 gloss:so/and+thinness;delicateness;amiability+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتِكَ lex:رِقَّة_1 gloss:so/and+thinness;delicateness;amiability+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتِكِ lex:رِقَّة_1 gloss:so/and+thinness;delicateness;amiability+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتُكَ lex:رِقَّة_1 gloss:because/therefore/as_a_result+thinness;delicateness;amiability+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتُكِ lex:رِقَّة_1 gloss:because/therefore/as_a_result+thinness;delicateness;amiability+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتَكَ lex:رِقَّة_1 gloss:because/therefore/as_a_result+thinness;delicateness;amiability+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتَكِ lex:رِقَّة_1 gloss:because/therefore/as_a_result+thinness;delicateness;amiability+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتِكَ lex:رِقَّة_1 gloss:because/therefore/as_a_result+thinness;delicateness;amiability+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتِكِ lex:رِقَّة_1 gloss:because/therefore/as_a_result+thinness;delicateness;amiability+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتُكَ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتُكِ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتَكَ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتَكِ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتِكَ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتِكِ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتُكَ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتُكِ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتَكَ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتَكِ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتِكَ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:رِقّ
+diac:فَرِقَّتِكِ lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:رِقّ
+diac:فَرَقَّتْكَ lex:رَقَّى_1 gloss:so/and+promote;advance+it/they/she_[verb]_+_you source:spvar stem:رَقّ
+diac:فَرَقَّتْكِ lex:رَقَّى_1 gloss:so/and+promote;advance+it/they/she_[verb]_+_you source:spvar stem:رَقّ
+diac:فَرَقَّتْكَ lex:رَقَّى_1 gloss:because/therefore/as_a_result+promote;advance+it/they/she_[verb]_+_you source:spvar stem:رَقّ
+diac:فَرَقَّتْكِ lex:رَقَّى_1 gloss:because/therefore/as_a_result+promote;advance+it/they/she_[verb]_+_you source:spvar stem:رَقّ
+diac:فَرَقَّتْكَ lex:رَقَّى_1 gloss:so/then+promote;advance+it/they/she_[verb]_+_you source:spvar stem:رَقّ
+diac:فَرَقَّتْكِ lex:رَقَّى_1 gloss:so/then+promote;advance+it/they/she_[verb]_+_you source:spvar stem:رَقّ
+diac:فَرَقَّتْكَ lex:رَقَّى_1 gloss:so/then+promote;advance+it/they/she_[verb]_+_you source:spvar stem:رَقّ
+diac:فَرَقَّتْكِ lex:رَقَّى_1 gloss:so/then+promote;advance+it/they/she_[verb]_+_you source:spvar stem:رَقّ
+diac:فَرُقْتُكَ lex:راق-u_1 gloss:so/and+please;be_pure;surpass+I_[verb]_+_you source:spvar stem:رُق
+diac:فَرُقْتُكِ lex:راق-u_1 gloss:so/and+please;be_pure;surpass+I_[verb]_+_you source:spvar stem:رُق
+diac:فَرُقْتُكَ lex:راق-u_1 gloss:because/therefore/as_a_result+please;be_pure;surpass+I_[verb]_+_you source:spvar stem:رُق
+diac:فَرُقْتُكِ lex:راق-u_1 gloss:because/therefore/as_a_result+please;be_pure;surpass+I_[verb]_+_you source:spvar stem:رُق
+diac:فَرُقْتُكَ lex:راق-u_1 gloss:so/then+please;be_pure;surpass+I_[verb]_+_you source:spvar stem:رُق
+diac:فَرُقْتُكِ lex:راق-u_1 gloss:so/then+please;be_pure;surpass+I_[verb]_+_you source:spvar stem:رُق
+diac:فَرُقْتُكَ lex:راق-u_1 gloss:so/then+please;be_pure;surpass+I_[verb]_+_you source:spvar stem:رُق
+diac:فَرُقْتُكِ lex:راق-u_1 gloss:so/then+please;be_pure;surpass+I_[verb]_+_you source:spvar stem:رُق
+diac:فَرِقْتُكَ lex:راق-i_1 gloss:so/and+shine;glisten+I_[verb]_+_you source:spvar stem:رِق
+diac:فَرِقْتُكِ lex:راق-i_1 gloss:so/and+shine;glisten+I_[verb]_+_you source:spvar stem:رِق
+diac:فَرِقْتُكَ lex:راق-i_1 gloss:because/therefore/as_a_result+shine;glisten+I_[verb]_+_you source:spvar stem:رِق
+diac:فَرِقْتُكِ lex:راق-i_1 gloss:because/therefore/as_a_result+shine;glisten+I_[verb]_+_you source:spvar stem:رِق
+diac:فَرِقْتُكَ lex:راق-i_1 gloss:so/then+shine;glisten+I_[verb]_+_you source:spvar stem:رِق
+diac:فَرِقْتُكِ lex:راق-i_1 gloss:so/then+shine;glisten+I_[verb]_+_you source:spvar stem:رِق
+diac:فَرِقْتُكَ lex:راق-i_1 gloss:so/then+shine;glisten+I_[verb]_+_you source:spvar stem:رِق
+diac:فَرِقْتُكِ lex:راق-i_1 gloss:so/then+shine;glisten+I_[verb]_+_you source:spvar stem:رِق
+
+#WORD: المفضلة
+diac:المِفْضَلَة lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَة lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المُفَضَّلَة lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+
+#WORD: ؟
+diac:؟ lex:؟_0 gloss:NO_ANALYSIS source:backoff stem:؟
+
+#WORD: فرقتي
+diac:فِرْقَتَيْ lex:فِرْقَة_1 gloss:+group;team;troupe+two_[acc.] source:spvar stem:فِرْق
+diac:فِرْقَتَيْ lex:فِرْقَة_1 gloss:+group;team;troupe+two_[gen.] source:spvar stem:فِرْق
+diac:فِرْقَتَيَّ lex:فِرْقَة_1 gloss:+group;team;troupe+two_[acc.]_+_my source:spvar stem:فِرْق
+diac:فِرْقَتَيَّ lex:فِرْقَة_1 gloss:+group;team;troupe+two_[gen.]_+_my source:spvar stem:فِرْق
+diac:فِرْقَتِي lex:فِرْقَة_1 gloss:+group;team;troupe+[fem.sg.]_+_my source:spvar stem:فِرْق
+diac:فِرْقَتَيْ lex:فِرْقَة_2 gloss:+squad;division+two_[acc.] source:spvar stem:فِرْق
+diac:فِرْقَتَيْ lex:فِرْقَة_2 gloss:+squad;division+two_[gen.] source:spvar stem:فِرْق
+diac:فِرْقَتَيَّ lex:فِرْقَة_2 gloss:+squad;division+two_[acc.]_+_my source:spvar stem:فِرْق
+diac:فِرْقَتَيَّ lex:فِرْقَة_2 gloss:+squad;division+two_[gen.]_+_my source:spvar stem:فِرْق
+diac:فِرْقَتِي lex:فِرْقَة_2 gloss:+squad;division+[fem.sg.]_+_my source:spvar stem:فِرْق
+diac:فُرْقَتِي lex:فُرْقَة_1 gloss:+disunity;dissent;split-up+[fem.sg.]_+_my source:spvar stem:فُرْق
+diac:فَرِقَّتِي lex:رِقَّة_1 gloss:so/and+thinness;delicateness;amiability+[fem.sg.]_+_my source:spvar stem:رِقّ
+diac:فَرِقَّتِي lex:رِقَّة_1 gloss:because/therefore/as_a_result+thinness;delicateness;amiability+[fem.sg.]_+_my source:spvar stem:رِقّ
+diac:فَرِقَّتِي lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_my source:spvar stem:رِقّ
+diac:فَرِقَّتِي lex:رِقَّة_1 gloss:so/then+thinness;delicateness;amiability+[fem.sg.]_+_my source:spvar stem:رِقّ
+
+#WORD: المفضلة
+diac:المِفْضَلَة lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَة lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المُفَضَّلَة lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+
+#WORD: هي
+diac:هِيَ lex:هِيَ_1 gloss:+it/they/she+ source:spvar stem:هِيَ
+
+#WORD: “جلاس
+diac:“جلاس lex:“جلاس_0 gloss:NO_ANALYSIS source:backoff stem:“جلاس
+
+#WORD: أنيمالز”
+diac:انيمالز” lex:انيمالز”_0 gloss:NO_ANALYSIS source:backoff stem:انيمالز”
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ١٣:
+diac:١٣: lex:١٣:_0 gloss:١٣: source:punc
+
+#WORD: ما
+diac:ما lex:ما_1 gloss:+what/which+ stem:ما
+diac:ما lex:ما_2 gloss:+not+ stem:ما
+diac:ما lex:ما_3 gloss:+what/which+ stem:ما
+diac:ما lex:ما_4 gloss:+that/if/unless/whether/as_long_as/as_soon_as+ stem:ما
+diac:ما lex:ما_5 gloss:+what/how+ stem:ما
+diac:ما lex:ما_6 gloss:+some+ source:lex stem:ما
+diac:ما lex:ما_7 gloss:+not+ source:lex stem:ما
+diac:ما lex:ما_8 gloss:+[no_gloss]+ stem:ما
+
+#WORD: عدد
+diac:عَدَّدَ lex:عَدَّد_1 gloss:+enumerate;count+he/it_[verb] source:spvar stem:عَدَّد
+diac:عَدَد lex:عَدَد_1 gloss:+number;quantity;issue+ source:spvar stem:عَدَد
+diac:عَدَدُ lex:عَدَد_1 gloss:+number;quantity;issue+[def.nom.] source:spvar stem:عَدَد
+diac:عَدَدُ lex:عَدَد_1 gloss:+number;quantity;issue+[def.nom.] source:spvar stem:عَدَد
+diac:عَدَدَ lex:عَدَد_1 gloss:+number;quantity;issue+[def.acc.] source:spvar stem:عَدَد
+diac:عَدَدَ lex:عَدَد_1 gloss:+number;quantity;issue+[def.acc.] source:spvar stem:عَدَد
+diac:عَدَدِ lex:عَدَد_1 gloss:+number;quantity;issue+[def.gen.] source:spvar stem:عَدَد
+diac:عَدَدِ lex:عَدَد_1 gloss:+number;quantity;issue+[def.gen.] source:spvar stem:عَدَد
+diac:عَدَدٌ lex:عَدَد_1 gloss:+number;quantity;issue+[indef.nom.] source:spvar stem:عَدَد
+diac:عَدَدٍ lex:عَدَد_1 gloss:+number;quantity;issue+[indef.gen.] source:spvar stem:عَدَد
+
+#WORD: البلدان
+diac:البُلْدان lex:بَلَد_1 gloss:the+countries+ source:spvar stem:بُلْدان
+diac:البُلْدانُ lex:بَلَد_1 gloss:the+countries+[def.nom.] source:spvar stem:بُلْدان
+diac:البُلْدانُ lex:بَلَد_1 gloss:the+countries+[def.nom.] source:spvar stem:بُلْدان
+diac:البُلْدانَ lex:بَلَد_1 gloss:the+countries+[def.acc.] source:spvar stem:بُلْدان
+diac:البُلْدانَ lex:بَلَد_1 gloss:the+countries+[def.acc.] source:spvar stem:بُلْدان
+diac:البُلْدانِ lex:بَلَد_1 gloss:the+countries+[def.gen.] source:spvar stem:بُلْدان
+diac:البُلْدانِ lex:بَلَد_1 gloss:the+countries+[def.gen.] source:spvar stem:بُلْدان
+diac:البَلَدانِ lex:بَلَد_1 gloss:the+country+two source:spvar stem:بَلَد
+
+#WORD: التي
+diac:الَّتِي lex:الَّذِي_1 gloss:+which;who;whom_[fem.sg.]+ source:spvar stem:الَّتِي
+diac:آلَتَيْ lex:آلَة_1 gloss:+instrument;apparatus;appliance;machine+two_[acc.] source:spvar stem:آل
+diac:آلَتَيْ lex:آلَة_1 gloss:+instrument;apparatus;appliance;machine+two_[gen.] source:spvar stem:آل
+diac:آلَتَيَّ lex:آلَة_1 gloss:+instrument;apparatus;appliance;machine+two_[acc.]_+_my source:spvar stem:آل
+diac:آلَتَيَّ lex:آلَة_1 gloss:+instrument;apparatus;appliance;machine+two_[gen.]_+_my source:spvar stem:آل
+diac:آلَتِي lex:آلَة_1 gloss:+instrument;apparatus;appliance;machine+[fem.sg.]_+_my source:spvar stem:آل
+
+#WORD: زرتها
+diac:زَرَّتْها lex:زَرّ-u_1 gloss:+button_up;contort+it/they/she_[verb]_+_it/them/her source:spvar stem:زَرّ
+diac:زَرَتْها lex:زَرَى-i_1 gloss:+rebuke;revile+it/they/she_[verb]_+_it/them/her source:spvar stem:زَر
+diac:زُرْتُها lex:زار-u_1 gloss:+visit+I_[verb]_+_it/them/her source:spvar stem:زُر
+diac:زُرْتَها lex:زار-u_1 gloss:+visit+you_[masc.sg.]_[verb]_+_it/them/her source:spvar stem:زُر
+diac:زُرْتِها lex:زار-u_1 gloss:+visit+you_[fem.sg.]_[verb]_+_it/them/her source:spvar stem:زُر
+
+#WORD: ؟
+diac:؟ lex:؟_0 gloss:NO_ANALYSIS source:backoff stem:؟
+
+#WORD: زرت
+diac:زَرَّت lex:زَرّ-u_1 gloss:+button_up;contort+it/they/she_[verb] source:spvar stem:زَرّ
+diac:زَرَت lex:زَرَى-i_1 gloss:+rebuke;revile+it/they/she_[verb] source:spvar stem:زَر
+diac:زُرْتُ lex:زار-u_1 gloss:+visit+I_[verb] source:spvar stem:زُر
+diac:زُرْتَ lex:زار-u_1 gloss:+visit+you_[masc.sg.]_[verb] source:spvar stem:زُر
+diac:زُرْتِ lex:زار-u_1 gloss:+visit+you_[fem.sg.]_[verb] source:spvar stem:زُر
+
+#WORD: ١٩
+diac:١٩ lex:١٩_0 gloss:١٩ source:punc
+
+#WORD: دولة
+diac:دَوْلَة lex:دَوْلَة_1 gloss:+state;country+[fem.sg.] source:spvar stem:دَوْل
+diac:دَوْلَةُ lex:دَوْلَة_1 gloss:+state;country+[fem.sg.]_+_[def.nom.] source:spvar stem:دَوْل
+diac:دَوْلَةُ lex:دَوْلَة_1 gloss:+state;country+[fem.sg.]_+_[def.nom.] source:spvar stem:دَوْل
+diac:دَوْلَةَ lex:دَوْلَة_1 gloss:+state;country+[fem.sg.]_+_[def.acc.] source:spvar stem:دَوْل
+diac:دَوْلَةَ lex:دَوْلَة_1 gloss:+state;country+[fem.sg.]_+_[def.acc.] source:spvar stem:دَوْل
+diac:دَوْلَةِ lex:دَوْلَة_1 gloss:+state;country+[fem.sg.]_+_[def.gen.] source:spvar stem:دَوْل
+diac:دَوْلَةِ lex:دَوْلَة_1 gloss:+state;country+[fem.sg.]_+_[def.gen.] source:spvar stem:دَوْل
+diac:دَوْلَةٌ lex:دَوْلَة_1 gloss:+state;country+[fem.sg.]_+_[indef.nom.] source:spvar stem:دَوْل
+diac:دَوْلَةً lex:دَوْلَة_1 gloss:+state;country+[fem.sg.]_+_[indef.acc.] source:spvar stem:دَوْل
+diac:دَوْلَةٍ lex:دَوْلَة_1 gloss:+state;country+[fem.sg.]_+_[indef.gen.] source:spvar stem:دَوْل
+diac:دُوَلُهُ lex:دَوْلَة_1 gloss:+states;countries+[def.nom]_+_its/his source:spvar stem:دُوَل
+diac:دُوَلَهُ lex:دَوْلَة_1 gloss:+states;countries+[def.acc.]_+_its/his source:spvar stem:دُوَل
+diac:دُوَلِهِ lex:دَوْلَة_1 gloss:+states;countries+[def.gen.]_+_its/his source:spvar stem:دُوَل
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ١٤:
+diac:١٤: lex:١٤:_0 gloss:١٤: source:punc
+
+#WORD: ما
+diac:ما lex:ما_1 gloss:+what/which+ stem:ما
+diac:ما lex:ما_2 gloss:+not+ stem:ما
+diac:ما lex:ما_3 gloss:+what/which+ stem:ما
+diac:ما lex:ما_4 gloss:+that/if/unless/whether/as_long_as/as_soon_as+ stem:ما
+diac:ما lex:ما_5 gloss:+what/how+ stem:ما
+diac:ما lex:ما_6 gloss:+some+ source:lex stem:ما
+diac:ما lex:ما_7 gloss:+not+ source:lex stem:ما
+diac:ما lex:ما_8 gloss:+[no_gloss]+ stem:ما
+
+#WORD: هي
+diac:هِيَ lex:هِيَ_1 gloss:+it/they/she+ source:spvar stem:هِيَ
+
+#WORD: الرياضات
+diac:الرِّياضات lex:رِياضَة_1 gloss:the+sport;physical_exercise+[fem.pl.] source:spvar stem:رِياض
+diac:الرِّياضاتُ lex:رِياضَة_1 gloss:the+sport;physical_exercise+[fem.pl.]_+_[def.nom.] source:spvar stem:رِياض
+diac:الرِّياضاتُ lex:رِياضَة_1 gloss:the+sport;physical_exercise+[fem.pl.]_+_[def.nom.] source:spvar stem:رِياض
+diac:الرِّياضاتِ lex:رِياضَة_1 gloss:the+sport;physical_exercise+[fem.pl.]_+_[def.acc.] source:spvar stem:رِياض
+diac:الرِّياضاتِ lex:رِياضَة_1 gloss:the+sport;physical_exercise+[fem.pl.]_+_[def.acc.] source:spvar stem:رِياض
+diac:الرِّياضاتِ lex:رِياضَة_1 gloss:the+sport;physical_exercise+[fem.pl.]_+_[def.gen.] source:spvar stem:رِياض
+diac:الرِّياضاتِ lex:رِياضَة_1 gloss:the+sport;physical_exercise+[fem.pl.]_+_[def.gen.] source:spvar stem:رِياض
+diac:الرِّياضات lex:رِياضَة_1 gloss:the+mathematics+[fem.pl.] source:spvar stem:رِياض
+diac:الرِّياضاتُ lex:رِياضَة_1 gloss:the+mathematics+[fem.pl.]_+_[def.nom.] source:spvar stem:رِياض
+diac:الرِّياضاتُ lex:رِياضَة_1 gloss:the+mathematics+[fem.pl.]_+_[def.nom.] source:spvar stem:رِياض
+diac:الرِّياضاتِ lex:رِياضَة_1 gloss:the+mathematics+[fem.pl.]_+_[def.acc.] source:spvar stem:رِياض
+diac:الرِّياضاتِ lex:رِياضَة_1 gloss:the+mathematics+[fem.pl.]_+_[def.acc.] source:spvar stem:رِياض
+diac:الرِّياضاتِ lex:رِياضَة_1 gloss:the+mathematics+[fem.pl.]_+_[def.gen.] source:spvar stem:رِياض
+diac:الرِّياضاتِ lex:رِياضَة_1 gloss:the+mathematics+[fem.pl.]_+_[def.gen.] source:spvar stem:رِياض
+
+#WORD: التي
+diac:الَّتِي lex:الَّذِي_1 gloss:+which;who;whom_[fem.sg.]+ source:spvar stem:الَّتِي
+diac:آلَتَيْ lex:آلَة_1 gloss:+instrument;apparatus;appliance;machine+two_[acc.] source:spvar stem:آل
+diac:آلَتَيْ lex:آلَة_1 gloss:+instrument;apparatus;appliance;machine+two_[gen.] source:spvar stem:آل
+diac:آلَتَيَّ lex:آلَة_1 gloss:+instrument;apparatus;appliance;machine+two_[acc.]_+_my source:spvar stem:آل
+diac:آلَتَيَّ lex:آلَة_1 gloss:+instrument;apparatus;appliance;machine+two_[gen.]_+_my source:spvar stem:آل
+diac:آلَتِي lex:آلَة_1 gloss:+instrument;apparatus;appliance;machine+[fem.sg.]_+_my source:spvar stem:آل
+
+#WORD: تمارسينها
+diac:تُمارِسِينَها lex:مارَس_1 gloss:you_[fem.sg.]+practice;pursue;exercise+[fem.sg.]_+_it/them/her source:spvar stem:مارِس
+
+#WORD: ؟
+diac:؟ lex:؟_0 gloss:NO_ANALYSIS source:backoff stem:؟
+
+#WORD: أمارس
+diac:أُمارِسُ lex:مارَس_1 gloss:I+practice;pursue;exercise+[ind.] source:spvar stem:مارِس
+diac:أُمارِسَ lex:مارَس_1 gloss:I+practice;pursue;exercise+[sub.] source:spvar stem:مارِس
+diac:أُمارِسْ lex:مارَس_1 gloss:I+practice;pursue;exercise+[jus.] source:spvar stem:مارِس
+diac:أُمارَسُ lex:مارَس_1 gloss:I+be_exerted;be_brought_to_bear_(pressure)+[ind.] source:spvar stem:مارَس
+diac:أُمارَسَ lex:مارَس_1 gloss:I+be_exerted;be_brought_to_bear_(pressure)+[sub.] source:spvar stem:مارَس
+diac:أُمارَسْ lex:مارَس_1 gloss:I+be_exerted;be_brought_to_bear_(pressure)+[jus.] source:spvar stem:مارَس
+
+#WORD: رياضة
+diac:رِياضُهُ lex:رَوْضَة_1 gloss:+gardens+[def.nom]_+_its/his source:spvar stem:رِياض
+diac:رِياضَهُ lex:رَوْضَة_1 gloss:+gardens+[def.acc.]_+_its/his source:spvar stem:رِياض
+diac:رِياضِهِ lex:رَوْضَة_1 gloss:+gardens+[def.gen.]_+_its/his source:spvar stem:رِياض
+diac:رِياضُهُ lex:رِياض_1 gloss:+Riyadh+[def.nom]_+_its/his source:spvar stem:رِياض
+diac:رِياضَهُ lex:رِياض_1 gloss:+Riyadh+[def.acc.]_+_its/his source:spvar stem:رِياض
+diac:رِياضِهِ lex:رِياض_1 gloss:+Riyadh+[def.gen.]_+_its/his source:spvar stem:رِياض
+diac:رِياضَة lex:رِياضَة_1 gloss:+sport;physical_exercise+[fem.sg.] source:spvar stem:رِياض
+diac:رِياضَةُ lex:رِياضَة_1 gloss:+sport;physical_exercise+[fem.sg.]_+_[def.nom.] source:spvar stem:رِياض
+diac:رِياضَةُ lex:رِياضَة_1 gloss:+sport;physical_exercise+[fem.sg.]_+_[def.nom.] source:spvar stem:رِياض
+diac:رِياضَةَ lex:رِياضَة_1 gloss:+sport;physical_exercise+[fem.sg.]_+_[def.acc.] source:spvar stem:رِياض
+diac:رِياضَةَ lex:رِياضَة_1 gloss:+sport;physical_exercise+[fem.sg.]_+_[def.acc.] source:spvar stem:رِياض
+diac:رِياضَةِ lex:رِياضَة_1 gloss:+sport;physical_exercise+[fem.sg.]_+_[def.gen.] source:spvar stem:رِياض
+diac:رِياضَةِ lex:رِياضَة_1 gloss:+sport;physical_exercise+[fem.sg.]_+_[def.gen.] source:spvar stem:رِياض
+diac:رِياضَةٌ lex:رِياضَة_1 gloss:+sport;physical_exercise+[fem.sg.]_+_[indef.nom.] source:spvar stem:رِياض
+diac:رِياضَةً lex:رِياضَة_1 gloss:+sport;physical_exercise+[fem.sg.]_+_[indef.acc.] source:spvar stem:رِياض
+diac:رِياضَةٍ lex:رِياضَة_1 gloss:+sport;physical_exercise+[fem.sg.]_+_[indef.gen.] source:spvar stem:رِياض
+diac:رِياضَة lex:رِياضَة_1 gloss:+mathematics+[fem.sg.] source:spvar stem:رِياض
+diac:رِياضَةُ lex:رِياضَة_1 gloss:+mathematics+[fem.sg.]_+_[def.nom.] source:spvar stem:رِياض
+diac:رِياضَةُ lex:رِياضَة_1 gloss:+mathematics+[fem.sg.]_+_[def.nom.] source:spvar stem:رِياض
+diac:رِياضَةَ lex:رِياضَة_1 gloss:+mathematics+[fem.sg.]_+_[def.acc.] source:spvar stem:رِياض
+diac:رِياضَةَ lex:رِياضَة_1 gloss:+mathematics+[fem.sg.]_+_[def.acc.] source:spvar stem:رِياض
+diac:رِياضَةِ lex:رِياضَة_1 gloss:+mathematics+[fem.sg.]_+_[def.gen.] source:spvar stem:رِياض
+diac:رِياضَةِ lex:رِياضَة_1 gloss:+mathematics+[fem.sg.]_+_[def.gen.] source:spvar stem:رِياض
+diac:رِياضَةٌ lex:رِياضَة_1 gloss:+mathematics+[fem.sg.]_+_[indef.nom.] source:spvar stem:رِياض
+diac:رِياضَةً lex:رِياضَة_1 gloss:+mathematics+[fem.sg.]_+_[indef.acc.] source:spvar stem:رِياض
+diac:رِياضَةٍ lex:رِياضَة_1 gloss:+mathematics+[fem.sg.]_+_[indef.gen.] source:spvar stem:رِياض
+
+#WORD: التنس
+diac:التِّنِس lex:تِنِس_1 gloss:the+tennis+ source:spvar stem:تِنِس
+diac:التِّنِسُ lex:تِنِس_1 gloss:the+tennis+[def.nom.] source:spvar stem:تِنِس
+diac:التِّنِسُ lex:تِنِس_1 gloss:the+tennis+[def.nom.] source:spvar stem:تِنِس
+diac:التِّنِسَ lex:تِنِس_1 gloss:the+tennis+[def.acc.] source:spvar stem:تِنِس
+diac:التِّنِسَ lex:تِنِس_1 gloss:the+tennis+[def.acc.] source:spvar stem:تِنِس
+diac:التِّنِسِ lex:تِنِس_1 gloss:the+tennis+[def.gen.] source:spvar stem:تِنِس
+diac:التِّنِسِ lex:تِنِس_1 gloss:the+tennis+[def.gen.] source:spvar stem:تِنِس
+
+#WORD: و
+diac:وَ lex:وَ_1 gloss:+and+ source:spvar stem:وَ
+diac:و lex:وَ_1 gloss:+W.;6th+ stem:و
+
+#WORD: الريشة
+diac:الرِّيشَة lex:رِيش_1 gloss:the+feather;quill;pen+[fem.sg.] source:spvar stem:رِيش
+diac:الرِّيشَةُ lex:رِيش_1 gloss:the+feather;quill;pen+[fem.sg.]_+_[def.nom.] source:spvar stem:رِيش
+diac:الرِّيشَةُ lex:رِيش_1 gloss:the+feather;quill;pen+[fem.sg.]_+_[def.nom.] source:spvar stem:رِيش
+diac:الرِّيشَةَ lex:رِيش_1 gloss:the+feather;quill;pen+[fem.sg.]_+_[def.acc.] source:spvar stem:رِيش
+diac:الرِّيشَةَ lex:رِيش_1 gloss:the+feather;quill;pen+[fem.sg.]_+_[def.acc.] source:spvar stem:رِيش
+diac:الرِّيشَةِ lex:رِيش_1 gloss:the+feather;quill;pen+[fem.sg.]_+_[def.gen.] source:spvar stem:رِيش
+diac:الرِّيشَةِ lex:رِيش_1 gloss:the+feather;quill;pen+[fem.sg.]_+_[def.gen.] source:spvar stem:رِيش
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ١٥:
+diac:١٥: lex:١٥:_0 gloss:١٥: source:punc
+
+#WORD: من
+diac:مِن lex:مِن_1 gloss:+from+ source:spvar stem:مِن
+diac:مِن lex:مِن_2 gloss:+[no_gloss]+ source:spvar stem:مِن
+diac:مَنْ lex:مَنْ_1 gloss:+who/whom+ source:spvar stem:مَنْ
+diac:مَنْ lex:مَنْ_2 gloss:+who/whom+ source:spvar stem:مَنْ
+diac:مَنَّ lex:مَنّ-u_1 gloss:+bestow;grant+he/it_[verb] source:spvar stem:مَنّ
+diac:مَنّ lex:مَنّ_1 gloss:+grace;favor+ source:spvar stem:مَنّ
+diac:مَنُّ lex:مَنّ_1 gloss:+grace;favor+[def.nom.] source:spvar stem:مَنّ
+diac:مَنُّ lex:مَنّ_1 gloss:+grace;favor+[def.nom.] source:spvar stem:مَنّ
+diac:مَنَّ lex:مَنّ_1 gloss:+grace;favor+[def.acc.] source:spvar stem:مَنّ
+diac:مَنَّ lex:مَنّ_1 gloss:+grace;favor+[def.acc.] source:spvar stem:مَنّ
+diac:مَنِّ lex:مَنّ_1 gloss:+grace;favor+[def.gen.] source:spvar stem:مَنّ
+diac:مَنِّ lex:مَنّ_1 gloss:+grace;favor+[def.gen.] source:spvar stem:مَنّ
+diac:مَنٌّ lex:مَنّ_1 gloss:+grace;favor+[indef.nom.] source:spvar stem:مَنّ
+diac:مَنٍّ lex:مَنّ_1 gloss:+grace;favor+[indef.gen.] source:spvar stem:مَنّ
+
+#WORD: هو
+diac:هُوَ lex:هُوَ_1 gloss:+it/he+ source:spvar stem:هُوَ
+diac:هُو lex:هُو_1 gloss:+Ho_(in_"Ho_Chi_Minh")+ source:spvar stem:هُو
+
+#WORD: مرشدك
+diac:مُرْشِدُكَ lex:مُرْشِد_1 gloss:+guide;instructor;adviser+[def.nom]_+_your_[masc.sg.] source:spvar stem:مُرْشِد
+diac:مُرْشِدُكِ lex:مُرْشِد_1 gloss:+guide;instructor;adviser+[def.nom]_+_your_[fem.sg.] source:spvar stem:مُرْشِد
+diac:مُرْشِدَكَ lex:مُرْشِد_1 gloss:+guide;instructor;adviser+[def.acc.]_+_your_[masc.sg.] source:spvar stem:مُرْشِد
+diac:مُرْشِدَكِ lex:مُرْشِد_1 gloss:+guide;instructor;adviser+[def.acc.]_+_your_[fem.sg.] source:spvar stem:مُرْشِد
+diac:مُرْشِدِكَ lex:مُرْشِد_1 gloss:+guide;instructor;adviser+[def.gen.]_+_your_[masc.sg.] source:spvar stem:مُرْشِد
+diac:مُرْشِدِكِ lex:مُرْشِد_1 gloss:+guide;instructor;adviser+[def.gen.]_+_your_[fem.sg.] source:spvar stem:مُرْشِد
+diac:مُرْشِدُكَ lex:مُرْشِد_1 gloss:+guiding;instructing;advising+[def.nom]_+_your_[masc.sg.] source:spvar stem:مُرْشِد
+diac:مُرْشِدُكِ lex:مُرْشِد_1 gloss:+guiding;instructing;advising+[def.nom]_+_your_[fem.sg.] source:spvar stem:مُرْشِد
+diac:مُرْشِدَكَ lex:مُرْشِد_1 gloss:+guiding;instructing;advising+[def.acc.]_+_your_[masc.sg.] source:spvar stem:مُرْشِد
+diac:مُرْشِدَكِ lex:مُرْشِد_1 gloss:+guiding;instructing;advising+[def.acc.]_+_your_[fem.sg.] source:spvar stem:مُرْشِد
+diac:مُرْشِدِكَ lex:مُرْشِد_1 gloss:+guiding;instructing;advising+[def.gen.]_+_your_[masc.sg.] source:spvar stem:مُرْشِد
+diac:مُرْشِدِكِ lex:مُرْشِد_1 gloss:+guiding;instructing;advising+[def.gen.]_+_your_[fem.sg.] source:spvar stem:مُرْشِد
+
+#WORD: لمشروع
+diac:لِمَشْرُوع lex:مَشْرُوع_1 gloss:for/to+project;enterprise+ source:spvar stem:مَشْرُوع
+diac:لِمَشْرُوعِ lex:مَشْرُوع_1 gloss:for/to+project;enterprise+[def.gen.] source:spvar stem:مَشْرُوع
+diac:لِمَشْرُوعِ lex:مَشْرُوع_1 gloss:for/to+project;enterprise+[def.gen.] source:spvar stem:مَشْرُوع
+diac:لِمَشْرُوعٍ lex:مَشْرُوع_1 gloss:for/to+project;enterprise+[indef.gen.] source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوع lex:مَشْرُوع_1 gloss:for/to+project;enterprise+ source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوعِ lex:مَشْرُوع_1 gloss:for/to+project;enterprise+[def.gen.] source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوعِ lex:مَشْرُوع_1 gloss:for/to+project;enterprise+[def.gen.] source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوعٍ lex:مَشْرُوع_1 gloss:for/to+project;enterprise+[indef.gen.] source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوع lex:مَشْرُوع_1 gloss:indeed/truly+project;enterprise+ source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوعٌ lex:مَشْرُوع_1 gloss:indeed/truly+project;enterprise+[indef.nom.] source:spvar stem:مَشْرُوع
+diac:لِمَشْرُوع lex:مَشْرُوع_2 gloss:for/to+lawful;legal+ source:spvar stem:مَشْرُوع
+diac:لِمَشْرُوعِ lex:مَشْرُوع_2 gloss:for/to+lawful;legal+[def.gen.] source:spvar stem:مَشْرُوع
+diac:لِمَشْرُوعِ lex:مَشْرُوع_2 gloss:for/to+lawful;legal+[def.gen.] source:spvar stem:مَشْرُوع
+diac:لِمَشْرُوعٍ lex:مَشْرُوع_2 gloss:for/to+lawful;legal+[indef.gen.] source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوع lex:مَشْرُوع_2 gloss:for/to+lawful;legal+ source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوعِ lex:مَشْرُوع_2 gloss:for/to+lawful;legal+[def.gen.] source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوعِ lex:مَشْرُوع_2 gloss:for/to+lawful;legal+[def.gen.] source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوعٍ lex:مَشْرُوع_2 gloss:for/to+lawful;legal+[indef.gen.] source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوع lex:مَشْرُوع_2 gloss:indeed/truly+lawful;legal+ source:spvar stem:مَشْرُوع
+diac:لَمَشْرُوعٌ lex:مَشْرُوع_2 gloss:indeed/truly+lawful;legal+[indef.nom.] source:spvar stem:مَشْرُوع
+
+#WORD: التخرج
+diac:التَّخَرُّج lex:تَخَرُّج_1 gloss:the+graduation+ source:spvar stem:تَخَرُّج
+diac:التَّخَرُّجُ lex:تَخَرُّج_1 gloss:the+graduation+[def.nom.] source:spvar stem:تَخَرُّج
+diac:التَّخَرُّجُ lex:تَخَرُّج_1 gloss:the+graduation+[def.nom.] source:spvar stem:تَخَرُّج
+diac:التَّخَرُّجَ lex:تَخَرُّج_1 gloss:the+graduation+[def.acc.] source:spvar stem:تَخَرُّج
+diac:التَّخَرُّجَ lex:تَخَرُّج_1 gloss:the+graduation+[def.acc.] source:spvar stem:تَخَرُّج
+diac:التَّخَرُّجِ lex:تَخَرُّج_1 gloss:the+graduation+[def.gen.] source:spvar stem:تَخَرُّج
+diac:التَّخَرُّجِ lex:تَخَرُّج_1 gloss:the+graduation+[def.gen.] source:spvar stem:تَخَرُّج
+
+#WORD: ؟
+diac:؟ lex:؟_0 gloss:NO_ANALYSIS source:backoff stem:؟
+
+#WORD: البروفيسور
+diac:البرُوفِيسُور lex:برُوفِسُور_1 gloss:the+professor+ source:spvar stem:برُوفِيسُور
+diac:البرُوفِيسُورُ lex:برُوفِسُور_1 gloss:the+professor+[def.nom.] source:spvar stem:برُوفِيسُور
+diac:البرُوفِيسُورُ lex:برُوفِسُور_1 gloss:the+professor+[def.nom.] source:spvar stem:برُوفِيسُور
+diac:البرُوفِيسُورَ lex:برُوفِسُور_1 gloss:the+professor+[def.acc.] source:spvar stem:برُوفِيسُور
+diac:البرُوفِيسُورَ lex:برُوفِسُور_1 gloss:the+professor+[def.acc.] source:spvar stem:برُوفِيسُور
+diac:البرُوفِيسُورِ lex:برُوفِسُور_1 gloss:the+professor+[def.gen.] source:spvar stem:برُوفِيسُور
+diac:البرُوفِيسُورِ lex:برُوفِسُور_1 gloss:the+professor+[def.gen.] source:spvar stem:برُوفِيسُور
+diac:البرُوفِيسُور lex:برُوفِسُور_2 gloss:the+Prof.+ source:spvar stem:برُوفِيسُور
+
+#WORD: نزار
+diac:نِزار lex:نِزار_1 gloss:+Nizar+ source:spvar stem:نِزار
+diac:نَزْأَرُ lex:زَأَر_1 gloss:we+roar;bellow+[ind.] source:spvar stem:زْأَر
+diac:نَزْأَرَ lex:زَأَر_1 gloss:we+roar;bellow+[sub.] source:spvar stem:زْأَر
+diac:نَزْأَرْ lex:زَأَر_1 gloss:we+roar;bellow+[jus.] source:spvar stem:زْأَر
+diac:نُزارُ lex:أَزار_1 gloss:we+be_shown_(as_visitor)+[ind.] source:spvar stem:زار
+diac:نُزارَ lex:أَزار_1 gloss:we+be_shown_(as_visitor)+[sub.] source:spvar stem:زار
+
+#WORD: حبش
+diac:حَبَش lex:حَبَش_1 gloss:+Ethiopia;Abyssinia+ source:spvar stem:حَبَش
+diac:حَبَشُ lex:حَبَش_1 gloss:+Ethiopia;Abyssinia+[def.nom.] source:spvar stem:حَبَش
+diac:حَبَشُ lex:حَبَش_1 gloss:+Ethiopia;Abyssinia+[def.nom.] source:spvar stem:حَبَش
+diac:حَبَشَ lex:حَبَش_1 gloss:+Ethiopia;Abyssinia+[def.acc.] source:spvar stem:حَبَش
+diac:حَبَشَ lex:حَبَش_1 gloss:+Ethiopia;Abyssinia+[def.acc.] source:spvar stem:حَبَش
+diac:حَبَشِ lex:حَبَش_1 gloss:+Ethiopia;Abyssinia+[def.gen.] source:spvar stem:حَبَش
+diac:حَبَشِ lex:حَبَش_1 gloss:+Ethiopia;Abyssinia+[def.gen.] source:spvar stem:حَبَش
+diac:حَبَشٌ lex:حَبَش_1 gloss:+Ethiopia;Abyssinia+[indef.nom.] source:spvar stem:حَبَش
+diac:حَبَشٍ lex:حَبَش_1 gloss:+Ethiopia;Abyssinia+[indef.gen.] source:spvar stem:حَبَش
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ١٦:
+diac:١٦: lex:١٦:_0 gloss:١٦: source:punc
+
+#WORD: ما
+diac:ما lex:ما_1 gloss:+what/which+ stem:ما
+diac:ما lex:ما_2 gloss:+not+ stem:ما
+diac:ما lex:ما_3 gloss:+what/which+ stem:ما
+diac:ما lex:ما_4 gloss:+that/if/unless/whether/as_long_as/as_soon_as+ stem:ما
+diac:ما lex:ما_5 gloss:+what/how+ stem:ما
+diac:ما lex:ما_6 gloss:+some+ source:lex stem:ما
+diac:ما lex:ما_7 gloss:+not+ source:lex stem:ما
+diac:ما lex:ما_8 gloss:+[no_gloss]+ stem:ما
+
+#WORD: هي
+diac:هِيَ lex:هِيَ_1 gloss:+it/they/she+ source:spvar stem:هِيَ
+
+#WORD: موادك
+diac:مَوادُّكَ lex:مادَّة_1 gloss:+substances;materials+[def.nom]_+_your_[masc.sg.] source:spvar stem:مَوادّ
+diac:مَوادُّكِ lex:مادَّة_1 gloss:+substances;materials+[def.nom]_+_your_[fem.sg.] source:spvar stem:مَوادّ
+diac:مَوادَّكَ lex:مادَّة_1 gloss:+substances;materials+[def.acc.]_+_your_[masc.sg.] source:spvar stem:مَوادّ
+diac:مَوادَّكِ lex:مادَّة_1 gloss:+substances;materials+[def.acc.]_+_your_[fem.sg.] source:spvar stem:مَوادّ
+diac:مَوادِّكَ lex:مادَّة_1 gloss:+substances;materials+[def.gen.]_+_your_[masc.sg.] source:spvar stem:مَوادّ
+diac:مَوادِّكِ lex:مادَّة_1 gloss:+substances;materials+[def.gen.]_+_your_[fem.sg.] source:spvar stem:مَوادّ
+diac:مَوادُّكَ lex:مادَّة_2 gloss:+subjects;topics+[def.nom]_+_your_[masc.sg.] source:spvar stem:مَوادّ
+diac:مَوادُّكِ lex:مادَّة_2 gloss:+subjects;topics+[def.nom]_+_your_[fem.sg.] source:spvar stem:مَوادّ
+diac:مَوادَّكَ lex:مادَّة_2 gloss:+subjects;topics+[def.acc.]_+_your_[masc.sg.] source:spvar stem:مَوادّ
+diac:مَوادَّكِ lex:مادَّة_2 gloss:+subjects;topics+[def.acc.]_+_your_[fem.sg.] source:spvar stem:مَوادّ
+diac:مَوادِّكَ lex:مادَّة_2 gloss:+subjects;topics+[def.gen.]_+_your_[masc.sg.] source:spvar stem:مَوادّ
+diac:مَوادِّكِ lex:مادَّة_2 gloss:+subjects;topics+[def.gen.]_+_your_[fem.sg.] source:spvar stem:مَوادّ
+diac:مَوادُّكَ lex:مادَّة_3 gloss:+articles;paragraphs+[def.nom]_+_your_[masc.sg.] source:spvar stem:مَوادّ
+diac:مَوادُّكِ lex:مادَّة_3 gloss:+articles;paragraphs+[def.nom]_+_your_[fem.sg.] source:spvar stem:مَوادّ
+diac:مَوادَّكَ lex:مادَّة_3 gloss:+articles;paragraphs+[def.acc.]_+_your_[masc.sg.] source:spvar stem:مَوادّ
+diac:مَوادَّكِ lex:مادَّة_3 gloss:+articles;paragraphs+[def.acc.]_+_your_[fem.sg.] source:spvar stem:مَوادّ
+diac:مَوادِّكَ lex:مادَّة_3 gloss:+articles;paragraphs+[def.gen.]_+_your_[masc.sg.] source:spvar stem:مَوادّ
+diac:مَوادِّكِ lex:مادَّة_3 gloss:+articles;paragraphs+[def.gen.]_+_your_[fem.sg.] source:spvar stem:مَوادّ
+
+#WORD: هذا
+diac:هٰذا lex:هٰذا_1 gloss:+this_[masc.sg.]+ source:spvar stem:هٰذا
+
+#WORD: الفصل
+diac:الفَصْل lex:فَصْل_1 gloss:the+discharge;dismissal+ source:spvar stem:فَصْل
+diac:الفَصْلُ lex:فَصْل_1 gloss:the+discharge;dismissal+[def.nom.] source:spvar stem:فَصْل
+diac:الفَصْلُ lex:فَصْل_1 gloss:the+discharge;dismissal+[def.nom.] source:spvar stem:فَصْل
+diac:الفَصْلَ lex:فَصْل_1 gloss:the+discharge;dismissal+[def.acc.] source:spvar stem:فَصْل
+diac:الفَصْلَ lex:فَصْل_1 gloss:the+discharge;dismissal+[def.acc.] source:spvar stem:فَصْل
+diac:الفَصْلِ lex:فَصْل_1 gloss:the+discharge;dismissal+[def.gen.] source:spvar stem:فَصْل
+diac:الفَصْلِ lex:فَصْل_1 gloss:the+discharge;dismissal+[def.gen.] source:spvar stem:فَصْل
+diac:الفَصْل lex:فَصْل_2 gloss:the+detaching;separating;cutting_off+ source:spvar stem:فَصْل
+diac:الفَصْلُ lex:فَصْل_2 gloss:the+detaching;separating;cutting_off+[def.nom.] source:spvar stem:فَصْل
+diac:الفَصْلُ lex:فَصْل_2 gloss:the+detaching;separating;cutting_off+[def.nom.] source:spvar stem:فَصْل
+diac:الفَصْلَ lex:فَصْل_2 gloss:the+detaching;separating;cutting_off+[def.acc.] source:spvar stem:فَصْل
+diac:الفَصْلَ lex:فَصْل_2 gloss:the+detaching;separating;cutting_off+[def.acc.] source:spvar stem:فَصْل
+diac:الفَصْلِ lex:فَصْل_2 gloss:the+detaching;separating;cutting_off+[def.gen.] source:spvar stem:فَصْل
+diac:الفَصْلِ lex:فَصْل_2 gloss:the+detaching;separating;cutting_off+[def.gen.] source:spvar stem:فَصْل
+diac:الفَصْل lex:فَصْل_3 gloss:the+section;chapter;season+ source:spvar stem:فَصْل
+diac:الفَصْلُ lex:فَصْل_3 gloss:the+section;chapter;season+[def.nom.] source:spvar stem:فَصْل
+diac:الفَصْلُ lex:فَصْل_3 gloss:the+section;chapter;season+[def.nom.] source:spvar stem:فَصْل
+diac:الفَصْلَ lex:فَصْل_3 gloss:the+section;chapter;season+[def.acc.] source:spvar stem:فَصْل
+diac:الفَصْلَ lex:فَصْل_3 gloss:the+section;chapter;season+[def.acc.] source:spvar stem:فَصْل
+diac:الفَصْلِ lex:فَصْل_3 gloss:the+section;chapter;season+[def.gen.] source:spvar stem:فَصْل
+diac:الفَصْلِ lex:فَصْل_3 gloss:the+section;chapter;season+[def.gen.] source:spvar stem:فَصْل
+
+#WORD: ؟
+diac:؟ lex:؟_0 gloss:NO_ANALYSIS source:backoff stem:؟
+
+#WORD: موادي
+diac:مَوادِّي lex:مادَّة_1 gloss:+substances;materials+my source:spvar stem:مَوادّ
+diac:مَوادِّي lex:مادَّة_2 gloss:+subjects;topics+my source:spvar stem:مَوادّ
+diac:مَوادِّي lex:مادَّة_3 gloss:+articles;paragraphs+my source:spvar stem:مَوادّ
+
+#WORD: هي
+diac:هِيَ lex:هِيَ_1 gloss:+it/they/she+ source:spvar stem:هِيَ
+
+#WORD: “فن
+diac:“فن lex:“فن_0 gloss:NO_ANALYSIS source:backoff stem:“فن
+
+#WORD: الرواية
+diac:الرِّوايَة lex:رِوايَة_1 gloss:the+story;novel+[fem.sg.] source:spvar stem:رِواي
+diac:الرِّوايَةُ lex:رِوايَة_1 gloss:the+story;novel+[fem.sg.]_+_[def.nom.] source:spvar stem:رِواي
+diac:الرِّوايَةُ lex:رِوايَة_1 gloss:the+story;novel+[fem.sg.]_+_[def.nom.] source:spvar stem:رِواي
+diac:الرِّوايَةَ lex:رِوايَة_1 gloss:the+story;novel+[fem.sg.]_+_[def.acc.] source:spvar stem:رِواي
+diac:الرِّوايَةَ lex:رِوايَة_1 gloss:the+story;novel+[fem.sg.]_+_[def.acc.] source:spvar stem:رِواي
+diac:الرِّوايَةِ lex:رِوايَة_1 gloss:the+story;novel+[fem.sg.]_+_[def.gen.] source:spvar stem:رِواي
+diac:الرِّوايَةِ lex:رِوايَة_1 gloss:the+story;novel+[fem.sg.]_+_[def.gen.] source:spvar stem:رِواي
+diac:الرِّوايَة lex:رِوايَة_2 gloss:the+report;account+[fem.sg.] source:spvar stem:رِواي
+diac:الرِّوايَةُ lex:رِوايَة_2 gloss:the+report;account+[fem.sg.]_+_[def.nom.] source:spvar stem:رِواي
+diac:الرِّوايَةُ lex:رِوايَة_2 gloss:the+report;account+[fem.sg.]_+_[def.nom.] source:spvar stem:رِواي
+diac:الرِّوايَةَ lex:رِوايَة_2 gloss:the+report;account+[fem.sg.]_+_[def.acc.] source:spvar stem:رِواي
+diac:الرِّوايَةَ lex:رِوايَة_2 gloss:the+report;account+[fem.sg.]_+_[def.acc.] source:spvar stem:رِواي
+diac:الرِّوايَةِ lex:رِوايَة_2 gloss:the+report;account+[fem.sg.]_+_[def.gen.] source:spvar stem:رِواي
+diac:الرِّوايَةِ lex:رِوايَة_2 gloss:the+report;account+[fem.sg.]_+_[def.gen.] source:spvar stem:رِواي
+
+#WORD: العلمية”
+diac:العلميه” lex:العلميه”_0 gloss:NO_ANALYSIS source:backoff stem:العلميه”
+diac:العلميه” lex:علميه”_0 gloss:NO_ANALYSIS source:backoff stem:علميه”
+
+#WORD: ،
+diac:، lex:،_0 gloss:NO_ANALYSIS source:backoff stem:،
+
+#WORD: “علم
+diac:“علم lex:“علم_0 gloss:NO_ANALYSIS source:backoff stem:“علم
+
+#WORD: الإنسان
+diac:الإِنْسان lex:إِنْسان_1 gloss:the+human_being+ source:spvar stem:إِنْسان
+diac:الإِنْسانُ lex:إِنْسان_1 gloss:the+human_being+[def.nom.] source:spvar stem:إِنْسان
+diac:الإِنْسانُ lex:إِنْسان_1 gloss:the+human_being+[def.nom.] source:spvar stem:إِنْسان
+diac:الإِنْسانَ lex:إِنْسان_1 gloss:the+human_being+[def.acc.] source:spvar stem:إِنْسان
+diac:الإِنْسانَ lex:إِنْسان_1 gloss:the+human_being+[def.acc.] source:spvar stem:إِنْسان
+diac:الإِنْسانِ lex:إِنْسان_1 gloss:the+human_being+[def.gen.] source:spvar stem:إِنْسان
+diac:الإِنْسانِ lex:إِنْسان_1 gloss:the+human_being+[def.gen.] source:spvar stem:إِنْسان
+
+#WORD: و
+diac:وَ lex:وَ_1 gloss:+and+ source:spvar stem:وَ
+diac:و lex:وَ_1 gloss:+W.;6th+ stem:و
+
+#WORD: الوطن
+diac:الوَطَن lex:وَطَن_1 gloss:the+nation;homeland+ source:spvar stem:وَطَن
+diac:الوَطَنُ lex:وَطَن_1 gloss:the+nation;homeland+[def.nom.] source:spvar stem:وَطَن
+diac:الوَطَنُ lex:وَطَن_1 gloss:the+nation;homeland+[def.nom.] source:spvar stem:وَطَن
+diac:الوَطَنَ lex:وَطَن_1 gloss:the+nation;homeland+[def.acc.] source:spvar stem:وَطَن
+diac:الوَطَنَ lex:وَطَن_1 gloss:the+nation;homeland+[def.acc.] source:spvar stem:وَطَن
+diac:الوَطَنِ lex:وَطَن_1 gloss:the+nation;homeland+[def.gen.] source:spvar stem:وَطَن
+diac:الوَطَنِ lex:وَطَن_1 gloss:the+nation;homeland+[def.gen.] source:spvar stem:وَطَن
+diac:الوَطَن lex:وَطَن_2 gloss:the+Watan+ source:spvar stem:وَطَن
+
+#WORD: العربي”،
+diac:العربي”، lex:العربي”،_0 gloss:NO_ANALYSIS source:backoff stem:العربي”،
+diac:العربي”، lex:عربي”،_0 gloss:NO_ANALYSIS source:backoff stem:عربي”،
+
+#WORD: “ماش
+diac:“ماش lex:“ماش_0 gloss:NO_ANALYSIS source:backoff stem:“ماش
+
+#WORD: ابس”
+diac:ابس” lex:ابس”_0 gloss:NO_ANALYSIS source:backoff stem:ابس”
+
+#WORD: و
+diac:وَ lex:وَ_1 gloss:+and+ source:spvar stem:وَ
+diac:و lex:وَ_1 gloss:+W.;6th+ stem:و
+
+#WORD: “مشروع
+diac:“مشروع lex:“مشروع_0 gloss:NO_ANALYSIS source:backoff stem:“مشروع
+
+#WORD: التخرج”
+diac:التخرج” lex:التخرج”_0 gloss:NO_ANALYSIS source:backoff stem:التخرج”
+diac:التّخرج” lex:تخرج”_0 gloss:NO_ANALYSIS source:backoff stem:تخرج”
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ١٧:
+diac:١٧: lex:١٧:_0 gloss:١٧: source:punc
+
+#WORD: ما
+diac:ما lex:ما_1 gloss:+what/which+ stem:ما
+diac:ما lex:ما_2 gloss:+not+ stem:ما
+diac:ما lex:ما_3 gloss:+what/which+ stem:ما
+diac:ما lex:ما_4 gloss:+that/if/unless/whether/as_long_as/as_soon_as+ stem:ما
+diac:ما lex:ما_5 gloss:+what/how+ stem:ما
+diac:ما lex:ما_6 gloss:+some+ source:lex stem:ما
+diac:ما lex:ما_7 gloss:+not+ source:lex stem:ما
+diac:ما lex:ما_8 gloss:+[no_gloss]+ stem:ما
+
+#WORD: هي
+diac:هِيَ lex:هِيَ_1 gloss:+it/they/she+ source:spvar stem:هِيَ
+
+#WORD: مدينتك
+diac:مَدِينَتُكَ lex:مَدِين_1 gloss:+owing;obligated;debtor+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتُكِ lex:مَدِين_1 gloss:+owing;obligated;debtor+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتَكَ lex:مَدِين_1 gloss:+owing;obligated;debtor+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتَكِ lex:مَدِين_1 gloss:+owing;obligated;debtor+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتِكَ lex:مَدِين_1 gloss:+owing;obligated;debtor+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتِكِ lex:مَدِين_1 gloss:+owing;obligated;debtor+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:مَدِين
+diac:مُدِينَتُكَ lex:مُدِين_1 gloss:+creditor;moneylender+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:مُدِين
+diac:مُدِينَتُكِ lex:مُدِين_1 gloss:+creditor;moneylender+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:مُدِين
+diac:مُدِينَتَكَ lex:مُدِين_1 gloss:+creditor;moneylender+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:مُدِين
+diac:مُدِينَتَكِ lex:مُدِين_1 gloss:+creditor;moneylender+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:مُدِين
+diac:مُدِينَتِكَ lex:مُدِين_1 gloss:+creditor;moneylender+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:مُدِين
+diac:مُدِينَتِكِ lex:مُدِين_1 gloss:+creditor;moneylender+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:مُدِين
+diac:مُدِينَتُكَ lex:مُدِين_1 gloss:+lending+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:مُدِين
+diac:مُدِينَتُكِ lex:مُدِين_1 gloss:+lending+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:مُدِين
+diac:مُدِينَتَكَ lex:مُدِين_1 gloss:+lending+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:مُدِين
+diac:مُدِينَتَكِ lex:مُدِين_1 gloss:+lending+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:مُدِين
+diac:مُدِينَتِكَ lex:مُدِين_1 gloss:+lending+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:مُدِين
+diac:مُدِينَتِكِ lex:مُدِين_1 gloss:+lending+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:مُدِين
+diac:مَدِينَتُكَ lex:مَدِينَة_1 gloss:+city+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتُكِ lex:مَدِينَة_1 gloss:+city+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتَكَ lex:مَدِينَة_1 gloss:+city+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتَكِ lex:مَدِينَة_1 gloss:+city+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتِكَ lex:مَدِينَة_1 gloss:+city+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتِكِ lex:مَدِينَة_1 gloss:+city+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتُكَ lex:مَدِينَة_2 gloss:+Medina+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتُكِ lex:مَدِينَة_2 gloss:+Medina+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتَكَ lex:مَدِينَة_2 gloss:+Medina+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتَكِ lex:مَدِينَة_2 gloss:+Medina+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتِكَ lex:مَدِينَة_2 gloss:+Medina+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتِكِ lex:مَدِينَة_2 gloss:+Medina+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتُكَ lex:مَدِينَة_2 gloss:+Madinat+[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتُكِ lex:مَدِينَة_2 gloss:+Madinat+[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتَكَ lex:مَدِينَة_2 gloss:+Madinat+[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتَكِ lex:مَدِينَة_2 gloss:+Madinat+[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتِكَ lex:مَدِينَة_2 gloss:+Madinat+[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] source:spvar stem:مَدِين
+diac:مَدِينَتِكِ lex:مَدِينَة_2 gloss:+Madinat+[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] source:spvar stem:مَدِين
+
+#WORD: المفضلة
+diac:المِفْضَلَة lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَة lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المُفَضَّلَة lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+
+#WORD: ؟
+diac:؟ lex:؟_0 gloss:NO_ANALYSIS source:backoff stem:؟
+
+#WORD: مدينتي
+diac:مَدِينَتَيْ lex:مَدِين_1 gloss:+owing;obligated;debtor+two_[acc.] source:spvar stem:مَدِين
+diac:مَدِينَتَيْ lex:مَدِين_1 gloss:+owing;obligated;debtor+two_[gen.] source:spvar stem:مَدِين
+diac:مَدِينَتَيَّ lex:مَدِين_1 gloss:+owing;obligated;debtor+two_[acc.]_+_my source:spvar stem:مَدِين
+diac:مَدِينَتَيَّ lex:مَدِين_1 gloss:+owing;obligated;debtor+two_[gen.]_+_my source:spvar stem:مَدِين
+diac:مَدِينَتِي lex:مَدِين_1 gloss:+owing;obligated;debtor+[fem.sg.]_+_my source:spvar stem:مَدِين
+diac:مُدِينَتَيْ lex:مُدِين_1 gloss:+creditor;moneylender+two_[acc.] source:spvar stem:مُدِين
+diac:مُدِينَتَيْ lex:مُدِين_1 gloss:+creditor;moneylender+two_[gen.] source:spvar stem:مُدِين
+diac:مُدِينَتَيَّ lex:مُدِين_1 gloss:+creditor;moneylender+two_[acc.]_+_my source:spvar stem:مُدِين
+diac:مُدِينَتَيَّ lex:مُدِين_1 gloss:+creditor;moneylender+two_[gen.]_+_my source:spvar stem:مُدِين
+diac:مُدِينَتِي lex:مُدِين_1 gloss:+creditor;moneylender+[fem.sg.]_+_my source:spvar stem:مُدِين
+diac:مُدِينَتَيْ lex:مُدِين_1 gloss:+lending+two_[acc.] source:spvar stem:مُدِين
+diac:مُدِينَتَيْ lex:مُدِين_1 gloss:+lending+two_[gen.] source:spvar stem:مُدِين
+diac:مُدِينَتَيَّ lex:مُدِين_1 gloss:+lending+two_[acc.]_+_my source:spvar stem:مُدِين
+diac:مُدِينَتَيَّ lex:مُدِين_1 gloss:+lending+two_[gen.]_+_my source:spvar stem:مُدِين
+diac:مُدِينَتِي lex:مُدِين_1 gloss:+lending+[fem.sg.]_+_my source:spvar stem:مُدِين
+diac:مَدِينَتَيْ lex:مَدِينَة_1 gloss:+city+two_[acc.] source:spvar stem:مَدِين
+diac:مَدِينَتَيْ lex:مَدِينَة_1 gloss:+city+two_[gen.] source:spvar stem:مَدِين
+diac:مَدِينَتَيَّ lex:مَدِينَة_1 gloss:+city+two_[acc.]_+_my source:spvar stem:مَدِين
+diac:مَدِينَتَيَّ lex:مَدِينَة_1 gloss:+city+two_[gen.]_+_my source:spvar stem:مَدِين
+diac:مَدِينَتِي lex:مَدِينَة_1 gloss:+city+[fem.sg.]_+_my source:spvar stem:مَدِين
+diac:مَدِينَتِي lex:مَدِينَة_2 gloss:+Medina+[fem.sg.]_+_my source:spvar stem:مَدِين
+diac:مَدِينَتِي lex:مَدِينَة_2 gloss:+Madinat+[fem.sg.]_+_my source:spvar stem:مَدِين
+
+#WORD: المفضلة
+diac:المِفْضَلَة lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَة lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المُفَضَّلَة lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+
+#WORD: هي
+diac:هِيَ lex:هِيَ_1 gloss:+it/they/she+ source:spvar stem:هِيَ
+
+#WORD: نيويورك
+diac:نِيُويُورْك lex:نِيُويُورْك_1 gloss:+New_York+ source:spvar stem:نِيُويُورْك
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ١٨:
+diac:١٨: lex:١٨:_0 gloss:١٨: source:punc
+
+#WORD: متى
+diac:مَتَى lex:مَتَى_1 gloss:+when+ source:spvar stem:مَتَى
+diac:مَتَّى lex:مَتَّى_1 gloss:+Matthew+ source:spvar stem:مَتَّى
+diac:مَتَى lex:مَتَى_2 gloss:+when+ source:spvar stem:مَتَى
+
+#WORD: عيد
+diac:عَيَّدَ lex:عَيَّد_1 gloss:+celebrate+he/it_[verb] source:spvar stem:عَيَّد
+diac:عِيد lex:عِيد_1 gloss:+feast;holiday;festival+ source:spvar stem:عِيد
+diac:عِيدُ lex:عِيد_1 gloss:+feast;holiday;festival+[def.nom.] source:spvar stem:عِيد
+diac:عِيدُ lex:عِيد_1 gloss:+feast;holiday;festival+[def.nom.] source:spvar stem:عِيد
+diac:عِيدَ lex:عِيد_1 gloss:+feast;holiday;festival+[def.acc.] source:spvar stem:عِيد
+diac:عِيدَ lex:عِيد_1 gloss:+feast;holiday;festival+[def.acc.] source:spvar stem:عِيد
+diac:عِيدِ lex:عِيد_1 gloss:+feast;holiday;festival+[def.gen.] source:spvar stem:عِيد
+diac:عِيدِ lex:عِيد_1 gloss:+feast;holiday;festival+[def.gen.] source:spvar stem:عِيد
+diac:عِيدٌ lex:عِيد_1 gloss:+feast;holiday;festival+[indef.nom.] source:spvar stem:عِيد
+diac:عِيدٍ lex:عِيد_1 gloss:+feast;holiday;festival+[indef.gen.] source:spvar stem:عِيد
+
+#WORD: ميلادك؟
+diac:ميلادك؟ lex:ميلادك؟_0 gloss:NO_ANALYSIS source:backoff stem:ميلادك؟
+
+#WORD: عيد
+diac:عَيَّدَ lex:عَيَّد_1 gloss:+celebrate+he/it_[verb] source:spvar stem:عَيَّد
+diac:عِيد lex:عِيد_1 gloss:+feast;holiday;festival+ source:spvar stem:عِيد
+diac:عِيدُ lex:عِيد_1 gloss:+feast;holiday;festival+[def.nom.] source:spvar stem:عِيد
+diac:عِيدُ lex:عِيد_1 gloss:+feast;holiday;festival+[def.nom.] source:spvar stem:عِيد
+diac:عِيدَ lex:عِيد_1 gloss:+feast;holiday;festival+[def.acc.] source:spvar stem:عِيد
+diac:عِيدَ lex:عِيد_1 gloss:+feast;holiday;festival+[def.acc.] source:spvar stem:عِيد
+diac:عِيدِ lex:عِيد_1 gloss:+feast;holiday;festival+[def.gen.] source:spvar stem:عِيد
+diac:عِيدِ lex:عِيد_1 gloss:+feast;holiday;festival+[def.gen.] source:spvar stem:عِيد
+diac:عِيدٌ lex:عِيد_1 gloss:+feast;holiday;festival+[indef.nom.] source:spvar stem:عِيد
+diac:عِيدٍ lex:عِيد_1 gloss:+feast;holiday;festival+[indef.gen.] source:spvar stem:عِيد
+
+#WORD: ميلادي
+diac:مِيلادِيّ lex:مِيلادِيّ_1 gloss:+A.D.;Christian_Era+ source:spvar stem:مِيلادِيّ
+diac:مِيلادِيُّ lex:مِيلادِيّ_1 gloss:+A.D.;Christian_Era+[def.nom.] source:spvar stem:مِيلادِيّ
+diac:مِيلادِيُّ lex:مِيلادِيّ_1 gloss:+A.D.;Christian_Era+[def.nom.] source:spvar stem:مِيلادِيّ
+diac:مِيلادِيَّ lex:مِيلادِيّ_1 gloss:+A.D.;Christian_Era+[def.acc.] source:spvar stem:مِيلادِيّ
+diac:مِيلادِيَّ lex:مِيلادِيّ_1 gloss:+A.D.;Christian_Era+[def.acc.] source:spvar stem:مِيلادِيّ
+diac:مِيلادِيِّ lex:مِيلادِيّ_1 gloss:+A.D.;Christian_Era+[def.gen.] source:spvar stem:مِيلادِيّ
+diac:مِيلادِيِّ lex:مِيلادِيّ_1 gloss:+A.D.;Christian_Era+[def.gen.] source:spvar stem:مِيلادِيّ
+diac:مِيلادِيٌّ lex:مِيلادِيّ_1 gloss:+A.D.;Christian_Era+[indef.nom.] source:spvar stem:مِيلادِيّ
+diac:مِيلادِيٍّ lex:مِيلادِيّ_1 gloss:+A.D.;Christian_Era+[indef.gen.] source:spvar stem:مِيلادِيّ
+diac:مِيلادَيْ lex:مِيلاد_1 gloss:+birthday;birth+two_[acc.] source:spvar stem:مِيلاد
+diac:مِيلادَيْ lex:مِيلاد_1 gloss:+birthday;birth+two_[gen.] source:spvar stem:مِيلاد
+diac:مِيلادَيَّ lex:مِيلاد_1 gloss:+birthday;birth+two_[acc.]_+_my source:spvar stem:مِيلاد
+diac:مِيلادَيَّ lex:مِيلاد_1 gloss:+birthday;birth+two_[gen.]_+_my source:spvar stem:مِيلاد
+diac:مِيلادِي lex:مِيلاد_1 gloss:+birthday;birth+my source:spvar stem:مِيلاد
+diac:مِيلادِي lex:مِيلاد_1 gloss:+Christmas+my source:spvar stem:مِيلاد
+diac:مِيلادِي lex:مِيلاد_1 gloss:+Christian_Era+my source:spvar stem:مِيلاد
+diac:مِيلادِي lex:مِيلاد_2 gloss:+Milad+my source:spvar stem:مِيلاد
+
+#WORD: هو
+diac:هُوَ lex:هُوَ_1 gloss:+it/he+ source:spvar stem:هُوَ
+diac:هُو lex:هُو_1 gloss:+Ho_(in_"Ho_Chi_Minh")+ source:spvar stem:هُو
+
+#WORD: الثاني
+diac:الثّانِي lex:ثانِي_1 gloss:the+second;next+ source:spvar stem:ثانِي
+diac:الثّانِيَ lex:ثانِي_1 gloss:the+second;next+[def.acc.] source:spvar stem:ثانِي
+diac:الثّانِيَ lex:ثانِي_1 gloss:the+second;next+[def.acc.] source:spvar stem:ثانِي
+diac:الثّانِي lex:ثانِي_1 gloss:the+Second;II+ source:spvar stem:ثانِي
+diac:الثّانِي lex:ثانِي_2 gloss:the+Thani+ source:spvar stem:ثانِي
+
+#WORD: عشر
+diac:عَشَّرَ lex:عَشَّر_1 gloss:+increase_tenfold+he/it_[verb] source:spvar stem:عَشَّر
+diac:عُشُر lex:عُشُر_1 gloss:+(one)_tenth+ source:spvar stem:عُشُر
+diac:عُشُرُ lex:عُشُر_1 gloss:+(one)_tenth+[def.nom.] source:spvar stem:عُشُر
+diac:عُشُرُ lex:عُشُر_1 gloss:+(one)_tenth+[def.nom.] source:spvar stem:عُشُر
+diac:عُشُرَ lex:عُشُر_1 gloss:+(one)_tenth+[def.acc.] source:spvar stem:عُشُر
+diac:عُشُرَ lex:عُشُر_1 gloss:+(one)_tenth+[def.acc.] source:spvar stem:عُشُر
+diac:عُشُرِ lex:عُشُر_1 gloss:+(one)_tenth+[def.gen.] source:spvar stem:عُشُر
+diac:عُشُرِ lex:عُشُر_1 gloss:+(one)_tenth+[def.gen.] source:spvar stem:عُشُر
+diac:عُشُرٌ lex:عُشُر_1 gloss:+(one)_tenth+[indef.nom.] source:spvar stem:عُشُر
+diac:عُشُرٍ lex:عُشُر_1 gloss:+(one)_tenth+[indef.gen.] source:spvar stem:عُشُر
+diac:عَشْر lex:عَشْر_1 gloss:+ten+ source:spvar stem:عَشْر
+diac:عَشْرُ lex:عَشْر_1 gloss:+ten+[def.nom.] source:spvar stem:عَشْر
+diac:عَشْرُ lex:عَشْر_1 gloss:+ten+[def.nom.] source:spvar stem:عَشْر
+diac:عَشْرَ lex:عَشْر_1 gloss:+ten+[def.acc.] source:spvar stem:عَشْر
+diac:عَشْرَ lex:عَشْر_1 gloss:+ten+[def.acc.] source:spvar stem:عَشْر
+diac:عَشْرِ lex:عَشْر_1 gloss:+ten+[def.gen.] source:spvar stem:عَشْر
+diac:عَشْرِ lex:عَشْر_1 gloss:+ten+[def.gen.] source:spvar stem:عَشْر
+diac:عَشْرٌ lex:عَشْر_1 gloss:+ten+[indef.nom.] source:spvar stem:عَشْر
+diac:عَشْرٍ lex:عَشْر_1 gloss:+ten+[indef.gen.] source:spvar stem:عَشْر
+diac:عَشَر lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+ source:spvar stem:عَشَر
+diac:عَشَرُ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.nom.] source:spvar stem:عَشَر
+diac:عَشَرُ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.nom.] source:spvar stem:عَشَر
+diac:عَشَرَ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.acc.] source:spvar stem:عَشَر
+diac:عَشَرَ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.acc.] source:spvar stem:عَشَر
+diac:عَشَرِ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.gen.] source:spvar stem:عَشَر
+diac:عَشَرِ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.gen.] source:spvar stem:عَشَر
+diac:عَشَرٌ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[indef.nom.] source:spvar stem:عَشَر
+diac:عَشَرٍ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[indef.gen.] source:spvar stem:عَشَر
+diac:عَشَر lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+ source:spvar stem:عَشَر
+diac:عَشَرُ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.nom.] source:spvar stem:عَشَر
+diac:عَشَرُ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.nom.] source:spvar stem:عَشَر
+diac:عَشَرَ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.acc.] source:spvar stem:عَشَر
+diac:عَشَرَ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.acc.] source:spvar stem:عَشَر
+diac:عَشَرِ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.gen.] source:spvar stem:عَشَر
+diac:عَشَرِ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[def.gen.] source:spvar stem:عَشَر
+diac:عَشَرٌ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[indef.nom.] source:spvar stem:عَشَر
+diac:عَشَرٍ lex:عَشَر_1 gloss:+ten_(in_numbers_11-19)+[indef.gen.] source:spvar stem:عَشَر
+
+#WORD: من
+diac:مِن lex:مِن_1 gloss:+from+ source:spvar stem:مِن
+diac:مِن lex:مِن_2 gloss:+[no_gloss]+ source:spvar stem:مِن
+diac:مَنْ lex:مَنْ_1 gloss:+who/whom+ source:spvar stem:مَنْ
+diac:مَنْ lex:مَنْ_2 gloss:+who/whom+ source:spvar stem:مَنْ
+diac:مَنَّ lex:مَنّ-u_1 gloss:+bestow;grant+he/it_[verb] source:spvar stem:مَنّ
+diac:مَنّ lex:مَنّ_1 gloss:+grace;favor+ source:spvar stem:مَنّ
+diac:مَنُّ lex:مَنّ_1 gloss:+grace;favor+[def.nom.] source:spvar stem:مَنّ
+diac:مَنُّ lex:مَنّ_1 gloss:+grace;favor+[def.nom.] source:spvar stem:مَنّ
+diac:مَنَّ lex:مَنّ_1 gloss:+grace;favor+[def.acc.] source:spvar stem:مَنّ
+diac:مَنَّ lex:مَنّ_1 gloss:+grace;favor+[def.acc.] source:spvar stem:مَنّ
+diac:مَنِّ lex:مَنّ_1 gloss:+grace;favor+[def.gen.] source:spvar stem:مَنّ
+diac:مَنِّ lex:مَنّ_1 gloss:+grace;favor+[def.gen.] source:spvar stem:مَنّ
+diac:مَنٌّ lex:مَنّ_1 gloss:+grace;favor+[indef.nom.] source:spvar stem:مَنّ
+diac:مَنٍّ lex:مَنّ_1 gloss:+grace;favor+[indef.gen.] source:spvar stem:مَنّ
+
+#WORD: أيار
+diac:أَيّار lex:أَيّار_1 gloss:+May+ source:spvar stem:أَيّار
+diac:أَيّارُ lex:أَيّار_1 gloss:+May+[def.nom.] source:spvar stem:أَيّار
+diac:أَيّارُ lex:أَيّار_1 gloss:+May+[def.nom.] source:spvar stem:أَيّار
+diac:أَيّارَ lex:أَيّار_1 gloss:+May+[def.acc.] source:spvar stem:أَيّار
+diac:أَيّارَ lex:أَيّار_1 gloss:+May+[def.acc.] source:spvar stem:أَيّار
+diac:أَيّارِ lex:أَيّار_1 gloss:+May+[def.gen.] source:spvar stem:أَيّار
+diac:أَيّارِ lex:أَيّار_1 gloss:+May+[def.gen.] source:spvar stem:أَيّار
+diac:أَيّارُ lex:أَيّار_1 gloss:+May+[indef.nom.] source:spvar stem:أَيّار
+diac:أَيّارَ lex:أَيّار_1 gloss:+May+[indef.acc.] source:spvar stem:أَيّار
+diac:أَيّارَ lex:أَيّار_1 gloss:+May+[indef.gen.] source:spvar stem:أَيّار
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ١٩:
+diac:١٩: lex:١٩:_0 gloss:١٩: source:punc
+
+#WORD: ما
+diac:ما lex:ما_1 gloss:+what/which+ stem:ما
+diac:ما lex:ما_2 gloss:+not+ stem:ما
+diac:ما lex:ما_3 gloss:+what/which+ stem:ما
+diac:ما lex:ما_4 gloss:+that/if/unless/whether/as_long_as/as_soon_as+ stem:ما
+diac:ما lex:ما_5 gloss:+what/how+ stem:ما
+diac:ما lex:ما_6 gloss:+some+ source:lex stem:ما
+diac:ما lex:ما_7 gloss:+not+ source:lex stem:ما
+diac:ما lex:ما_8 gloss:+[no_gloss]+ stem:ما
+
+#WORD: هي
+diac:هِيَ lex:هِيَ_1 gloss:+it/they/she+ source:spvar stem:هِيَ
+
+#WORD: لغة
+diac:لُغَة lex:لُغَة_1 gloss:+language+[fem.sg.] source:spvar stem:لُغ
+diac:لُغَةُ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.nom.] source:spvar stem:لُغ
+diac:لُغَةُ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.nom.] source:spvar stem:لُغ
+diac:لُغَةَ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.acc.] source:spvar stem:لُغ
+diac:لُغَةَ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.acc.] source:spvar stem:لُغ
+diac:لُغَةِ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.gen.] source:spvar stem:لُغ
+diac:لُغَةِ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.gen.] source:spvar stem:لُغ
+diac:لُغَةٌ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[indef.nom.] source:spvar stem:لُغ
+diac:لُغَةً lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[indef.acc.] source:spvar stem:لُغ
+diac:لُغَةٍ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[indef.gen.] source:spvar stem:لُغ
+
+#WORD: البرمجة
+diac:البَرْمَجَة lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةُ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.nom.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةُ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.nom.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةَ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.acc.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةَ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.acc.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةِ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.gen.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةِ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.gen.] source:spvar stem:بَرْمَج
+
+#WORD: المفضلة
+diac:المِفْضَلَة lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَة lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المُفَضَّلَة lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+
+#WORD: لديك؟
+diac:لديك؟ lex:لديك؟_0 gloss:NO_ANALYSIS source:backoff stem:لديك؟
+diac:لِديك؟ lex:ديك؟_0 gloss:NO_ANALYSIS source:backoff stem:ديك؟
+diac:لَديك؟ lex:ديك؟_0 gloss:NO_ANALYSIS source:backoff stem:ديك؟
+diac:لَديك؟ lex:ديك؟_0 gloss:NO_ANALYSIS source:backoff stem:ديك؟
+
+#WORD: لغة
+diac:لُغَة lex:لُغَة_1 gloss:+language+[fem.sg.] source:spvar stem:لُغ
+diac:لُغَةُ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.nom.] source:spvar stem:لُغ
+diac:لُغَةُ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.nom.] source:spvar stem:لُغ
+diac:لُغَةَ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.acc.] source:spvar stem:لُغ
+diac:لُغَةَ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.acc.] source:spvar stem:لُغ
+diac:لُغَةِ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.gen.] source:spvar stem:لُغ
+diac:لُغَةِ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[def.gen.] source:spvar stem:لُغ
+diac:لُغَةٌ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[indef.nom.] source:spvar stem:لُغ
+diac:لُغَةً lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[indef.acc.] source:spvar stem:لُغ
+diac:لُغَةٍ lex:لُغَة_1 gloss:+language+[fem.sg.]_+_[indef.gen.] source:spvar stem:لُغ
+
+#WORD: البرمجة
+diac:البَرْمَجَة lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةُ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.nom.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةُ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.nom.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةَ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.acc.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةَ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.acc.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةِ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.gen.] source:spvar stem:بَرْمَج
+diac:البَرْمَجَةِ lex:بَرْمَجَة_1 gloss:the+programming+[fem.sg.]_+_[def.gen.] source:spvar stem:بَرْمَج
+
+#WORD: المفضلة
+diac:المِفْضَلَة lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَل_1 gloss:the+pre-eminent;generous+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَة lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةُ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.nom.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةَ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.acc.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المِفْضَلَةِ lex:مِفْضَلَة_1 gloss:the+negligee+[fem.sg.]_+_[def.gen.] source:spvar stem:مِفْضَل
+diac:المُفَضَّلَة lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةُ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.nom.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةَ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.acc.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+diac:المُفَضَّلَةِ lex:مُفَضَّل_1 gloss:the+favorite;preferred+[fem.sg.]_+_[def.gen.] source:spvar stem:مُفَضَّل
+
+#WORD: لدي
+diac:لَدَى lex:لَدَى_1 gloss:+with;by+ source:spvar stem:لَدَى
+diac:لَدَيَّ lex:لَدَى_1 gloss:+with;by+me source:spvar stem:لَدَي
+diac:لِدِّي lex:لِدّ_1 gloss:+Lydda;Lod+my source:spvar stem:لِدّ
+diac:لُدِّي lex:أَلَدّ_1 gloss:+implacable;mortal+my source:spvar stem:لُدّ
+diac:لِدِي lex:لِدَة_2 gloss:+contemporaries+[masc.pl.acc.] source:spvar stem:لِد
+diac:لِدِي lex:لِدَة_2 gloss:+contemporaries+[masc.pl.gen.] source:spvar stem:لِد
+diac:لِدِيَّ lex:لِدَة_2 gloss:+contemporaries+[masc.pl.acc.]_+_my source:spvar stem:لِد
+diac:لِدِيَّ lex:لِدَة_2 gloss:+contemporaries+[masc.pl.gen.]_+_my source:spvar stem:لِد
+diac:لِدِيَّ lex:لِدَة_2 gloss:+contemporaries+[masc.pl.]_+_my source:spvar stem:لِد
+
+#WORD: هي
+diac:هِيَ lex:هِيَ_1 gloss:+it/they/she+ source:spvar stem:هِيَ
+
+#WORD: “بايثون”
+diac:“بايثون” lex:“بايثون”_0 gloss:NO_ANALYSIS source:backoff stem:“بايثون”
+
+#WORD: السؤال
+diac:السُّؤال lex:سُؤال_1 gloss:the+question;inquiry+ source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالُ lex:سُؤال_1 gloss:the+question;inquiry+[def.nom.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالَ lex:سُؤال_1 gloss:the+question;inquiry+[def.acc.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+diac:السُّؤالِ lex:سُؤال_1 gloss:the+question;inquiry+[def.gen.] source:spvar stem:سُؤال
+
+#WORD: ٢٠:
+diac:٢٠: lex:٢٠:_0 gloss:٢٠: source:punc
+
+#WORD: ما
+diac:ما lex:ما_1 gloss:+what/which+ stem:ما
+diac:ما lex:ما_2 gloss:+not+ stem:ما
+diac:ما lex:ما_3 gloss:+what/which+ stem:ما
+diac:ما lex:ما_4 gloss:+that/if/unless/whether/as_long_as/as_soon_as+ stem:ما
+diac:ما lex:ما_5 gloss:+what/how+ stem:ما
+diac:ما lex:ما_6 gloss:+some+ source:lex stem:ما
+diac:ما lex:ما_7 gloss:+not+ source:lex stem:ما
+diac:ما lex:ما_8 gloss:+[no_gloss]+ stem:ما
+
+#WORD: هو
+diac:هُوَ lex:هُوَ_1 gloss:+it/he+ source:spvar stem:هُوَ
+diac:هُو lex:هُو_1 gloss:+Ho_(in_"Ho_Chi_Minh")+ source:spvar stem:هُو
+
+#WORD: آخر
+diac:آخَر lex:آخَر_1 gloss:+other;another+ source:spvar stem:آخَر
+diac:آخَرُ lex:آخَر_1 gloss:+other;another+[def.nom.] source:spvar stem:آخَر
+diac:آخَرُ lex:آخَر_1 gloss:+other;another+[def.nom.] source:spvar stem:آخَر
+diac:آخَرَ lex:آخَر_1 gloss:+other;another+[def.acc.] source:spvar stem:آخَر
+diac:آخَرَ lex:آخَر_1 gloss:+other;another+[def.acc.] source:spvar stem:آخَر
+diac:آخَرِ lex:آخَر_1 gloss:+other;another+[def.gen.] source:spvar stem:آخَر
+diac:آخَرِ lex:آخَر_1 gloss:+other;another+[def.gen.] source:spvar stem:آخَر
+diac:آخَرٌ lex:آخَر_1 gloss:+other;another+[indef.nom.] source:spvar stem:آخَر
+diac:آخَرٍ lex:آخَر_1 gloss:+other;another+[indef.gen.] source:spvar stem:آخَر
+diac:آخِر lex:آخِر_1 gloss:+last;end+ source:spvar stem:آخِر
+diac:آخِرُ lex:آخِر_1 gloss:+last;end+[def.nom.] source:spvar stem:آخِر
+diac:آخِرُ lex:آخِر_1 gloss:+last;end+[def.nom.] source:spvar stem:آخِر
+diac:آخِرَ lex:آخِر_1 gloss:+last;end+[def.acc.] source:spvar stem:آخِر
+diac:آخِرَ lex:آخِر_1 gloss:+last;end+[def.acc.] source:spvar stem:آخِر
+diac:آخِرِ lex:آخِر_1 gloss:+last;end+[def.gen.] source:spvar stem:آخِر
+diac:آخِرِ lex:آخِر_1 gloss:+last;end+[def.gen.] source:spvar stem:آخِر
+diac:آخِرٌ lex:آخِر_1 gloss:+last;end+[indef.nom.] source:spvar stem:آخِر
+diac:آخِرٍ lex:آخِر_1 gloss:+last;end+[indef.gen.] source:spvar stem:آخِر
+diac:أَخَّرَ lex:أَخَّر_1 gloss:+delay+he/it_[verb] source:spvar stem:أَخَّر
+diac:أَخِرُّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[ind.] source:spvar stem:خِرّ
+diac:أَخِرَّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[sub.] source:spvar stem:خِرّ
+diac:أَخِرَّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[jus.] source:spvar stem:خِرّ
+diac:أَخُرُّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[ind.] source:spvar stem:خُرّ
+diac:أَخُرَّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[sub.] source:spvar stem:خُرّ
+diac:أَخُرَّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[jus.] source:spvar stem:خُرّ
+diac:أَخُرْ lex:خار-u_1 gloss:I+moo;grow_weak;dwindle+[jus.] source:spvar stem:خُر
+diac:أَخِرْ lex:خار-i_1 gloss:I+choose;prefer+[jus.] source:spvar stem:خِر
+
+#WORD: كتاب
+diac:كِتاب lex:كِتاب_1 gloss:+book+ source:spvar stem:كِتاب
+diac:كِتابُ lex:كِتاب_1 gloss:+book+[def.nom.] source:spvar stem:كِتاب
+diac:كِتابُ lex:كِتاب_1 gloss:+book+[def.nom.] source:spvar stem:كِتاب
+diac:كِتابَ lex:كِتاب_1 gloss:+book+[def.acc.] source:spvar stem:كِتاب
+diac:كِتابَ lex:كِتاب_1 gloss:+book+[def.acc.] source:spvar stem:كِتاب
+diac:كِتابِ lex:كِتاب_1 gloss:+book+[def.gen.] source:spvar stem:كِتاب
+diac:كِتابِ lex:كِتاب_1 gloss:+book+[def.gen.] source:spvar stem:كِتاب
+diac:كِتابٌ lex:كِتاب_1 gloss:+book+[indef.nom.] source:spvar stem:كِتاب
+diac:كِتابٍ lex:كِتاب_1 gloss:+book+[indef.gen.] source:spvar stem:كِتاب
+diac:كُتّاب lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+ source:spvar stem:كُتّاب
+diac:كُتّابُ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.nom.] source:spvar stem:كُتّاب
+diac:كُتّابُ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.nom.] source:spvar stem:كُتّاب
+diac:كُتّابَ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.acc.] source:spvar stem:كُتّاب
+diac:كُتّابَ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.acc.] source:spvar stem:كُتّاب
+diac:كُتّابِ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.gen.] source:spvar stem:كُتّاب
+diac:كُتّابِ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.gen.] source:spvar stem:كُتّاب
+diac:كُتّابٌ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[indef.nom.] source:spvar stem:كُتّاب
+diac:كُتّابٍ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[indef.gen.] source:spvar stem:كُتّاب
+diac:كُتّاب lex:كاتِب_1 gloss:+authors;writers+ source:spvar stem:كُتّاب
+diac:كُتّابُ lex:كاتِب_1 gloss:+authors;writers+[def.nom.] source:spvar stem:كُتّاب
+diac:كُتّابُ lex:كاتِب_1 gloss:+authors;writers+[def.nom.] source:spvar stem:كُتّاب
+diac:كُتّابَ lex:كاتِب_1 gloss:+authors;writers+[def.acc.] source:spvar stem:كُتّاب
+diac:كُتّابَ lex:كاتِب_1 gloss:+authors;writers+[def.acc.] source:spvar stem:كُتّاب
+diac:كُتّابِ lex:كاتِب_1 gloss:+authors;writers+[def.gen.] source:spvar stem:كُتّاب
+diac:كُتّابِ lex:كاتِب_1 gloss:+authors;writers+[def.gen.] source:spvar stem:كُتّاب
+diac:كُتّابٌ lex:كاتِب_1 gloss:+authors;writers+[indef.nom.] source:spvar stem:كُتّاب
+diac:كُتّابٍ lex:كاتِب_1 gloss:+authors;writers+[indef.gen.] source:spvar stem:كُتّاب
+
+#WORD: قرأتيه؟
+diac:قراتيه؟ lex:قراتيه؟_0 gloss:NO_ANALYSIS source:backoff stem:قراتيه؟
+
+#WORD: أخر
+diac:آخَر lex:آخَر_1 gloss:+other;another+ source:spvar stem:آخَر
+diac:آخَرُ lex:آخَر_1 gloss:+other;another+[def.nom.] source:spvar stem:آخَر
+diac:آخَرُ lex:آخَر_1 gloss:+other;another+[def.nom.] source:spvar stem:آخَر
+diac:آخَرَ lex:آخَر_1 gloss:+other;another+[def.acc.] source:spvar stem:آخَر
+diac:آخَرَ lex:آخَر_1 gloss:+other;another+[def.acc.] source:spvar stem:آخَر
+diac:آخَرِ lex:آخَر_1 gloss:+other;another+[def.gen.] source:spvar stem:آخَر
+diac:آخَرِ lex:آخَر_1 gloss:+other;another+[def.gen.] source:spvar stem:آخَر
+diac:آخَرٌ lex:آخَر_1 gloss:+other;another+[indef.nom.] source:spvar stem:آخَر
+diac:آخَرٍ lex:آخَر_1 gloss:+other;another+[indef.gen.] source:spvar stem:آخَر
+diac:آخِر lex:آخِر_1 gloss:+last;end+ source:spvar stem:آخِر
+diac:آخِرُ lex:آخِر_1 gloss:+last;end+[def.nom.] source:spvar stem:آخِر
+diac:آخِرُ lex:آخِر_1 gloss:+last;end+[def.nom.] source:spvar stem:آخِر
+diac:آخِرَ lex:آخِر_1 gloss:+last;end+[def.acc.] source:spvar stem:آخِر
+diac:آخِرَ lex:آخِر_1 gloss:+last;end+[def.acc.] source:spvar stem:آخِر
+diac:آخِرِ lex:آخِر_1 gloss:+last;end+[def.gen.] source:spvar stem:آخِر
+diac:آخِرِ lex:آخِر_1 gloss:+last;end+[def.gen.] source:spvar stem:آخِر
+diac:آخِرٌ lex:آخِر_1 gloss:+last;end+[indef.nom.] source:spvar stem:آخِر
+diac:آخِرٍ lex:آخِر_1 gloss:+last;end+[indef.gen.] source:spvar stem:آخِر
+diac:أَخَّرَ lex:أَخَّر_1 gloss:+delay+he/it_[verb] source:spvar stem:أَخَّر
+diac:أَخِرُّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[ind.] source:spvar stem:خِرّ
+diac:أَخِرَّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[sub.] source:spvar stem:خِرّ
+diac:أَخِرَّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[jus.] source:spvar stem:خِرّ
+diac:أَخُرُّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[ind.] source:spvar stem:خُرّ
+diac:أَخُرَّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[sub.] source:spvar stem:خُرّ
+diac:أَخُرَّ lex:خَرّ-iu_1 gloss:I+murmur;snore;fall_down+[jus.] source:spvar stem:خُرّ
+diac:أَخُرْ lex:خار-u_1 gloss:I+moo;grow_weak;dwindle+[jus.] source:spvar stem:خُر
+diac:أَخِرْ lex:خار-i_1 gloss:I+choose;prefer+[jus.] source:spvar stem:خِر
+
+#WORD: كتاب
+diac:كِتاب lex:كِتاب_1 gloss:+book+ source:spvar stem:كِتاب
+diac:كِتابُ lex:كِتاب_1 gloss:+book+[def.nom.] source:spvar stem:كِتاب
+diac:كِتابُ lex:كِتاب_1 gloss:+book+[def.nom.] source:spvar stem:كِتاب
+diac:كِتابَ lex:كِتاب_1 gloss:+book+[def.acc.] source:spvar stem:كِتاب
+diac:كِتابَ lex:كِتاب_1 gloss:+book+[def.acc.] source:spvar stem:كِتاب
+diac:كِتابِ lex:كِتاب_1 gloss:+book+[def.gen.] source:spvar stem:كِتاب
+diac:كِتابِ lex:كِتاب_1 gloss:+book+[def.gen.] source:spvar stem:كِتاب
+diac:كِتابٌ lex:كِتاب_1 gloss:+book+[indef.nom.] source:spvar stem:كِتاب
+diac:كِتابٍ lex:كِتاب_1 gloss:+book+[indef.gen.] source:spvar stem:كِتاب
+diac:كُتّاب lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+ source:spvar stem:كُتّاب
+diac:كُتّابُ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.nom.] source:spvar stem:كُتّاب
+diac:كُتّابُ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.nom.] source:spvar stem:كُتّاب
+diac:كُتّابَ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.acc.] source:spvar stem:كُتّاب
+diac:كُتّابَ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.acc.] source:spvar stem:كُتّاب
+diac:كُتّابِ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.gen.] source:spvar stem:كُتّاب
+diac:كُتّابِ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[def.gen.] source:spvar stem:كُتّاب
+diac:كُتّابٌ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[indef.nom.] source:spvar stem:كُتّاب
+diac:كُتّابٍ lex:كُتّاب_1 gloss:+kuttab_(village_school);Quran_school+[indef.gen.] source:spvar stem:كُتّاب
+diac:كُتّاب lex:كاتِب_1 gloss:+authors;writers+ source:spvar stem:كُتّاب
+diac:كُتّابُ lex:كاتِب_1 gloss:+authors;writers+[def.nom.] source:spvar stem:كُتّاب
+diac:كُتّابُ lex:كاتِب_1 gloss:+authors;writers+[def.nom.] source:spvar stem:كُتّاب
+diac:كُتّابَ lex:كاتِب_1 gloss:+authors;writers+[def.acc.] source:spvar stem:كُتّاب
+diac:كُتّابَ lex:كاتِب_1 gloss:+authors;writers+[def.acc.] source:spvar stem:كُتّاب
+diac:كُتّابِ lex:كاتِب_1 gloss:+authors;writers+[def.gen.] source:spvar stem:كُتّاب
+diac:كُتّابِ lex:كاتِب_1 gloss:+authors;writers+[def.gen.] source:spvar stem:كُتّاب
+diac:كُتّابٌ lex:كاتِب_1 gloss:+authors;writers+[indef.nom.] source:spvar stem:كُتّاب
+diac:كُتّابٍ lex:كاتِب_1 gloss:+authors;writers+[indef.gen.] source:spvar stem:كُتّاب
+
+#WORD: قرأته
+diac:قَرَأْتُهُ lex:قَرَأ-a_1 gloss:+read+I_[verb]_+_it/him source:spvar stem:قَرَأ
+diac:قَرَأْتَهُ lex:قَرَأ-a_1 gloss:+read+you_[masc.sg.]_[verb]_+_it/him source:spvar stem:قَرَأ
+diac:قَرَأْتِهِ lex:قَرَأ-a_1 gloss:+read+you_[fem.sg.]_[verb]_+_it/him source:spvar stem:قَرَأ
+diac:قَرَأَتْهُ lex:قَرَأ-a_1 gloss:+read+it/they/she_[verb]_+_it/him source:spvar stem:قَرَأ
+
+#WORD: هو
+diac:هُوَ lex:هُوَ_1 gloss:+it/he+ source:spvar stem:هُوَ
+diac:هُو lex:هُو_1 gloss:+Ho_(in_"Ho_Chi_Minh")+ source:spvar stem:هُو
+
+#WORD: “يمن
+diac:“يمن lex:“يمن_0 gloss:NO_ANALYSIS source:backoff stem:“يمن
+
+#WORD: كرونيكل”
+diac:كرونيكل” lex:كرونيكل”_0 gloss:NO_ANALYSIS source:backoff stem:كرونيكل”
+diac:كَرونيكل” lex:رونيكل”_0 gloss:NO_ANALYSIS source:backoff stem:رونيكل”
+

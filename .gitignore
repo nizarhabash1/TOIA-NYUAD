@@ -1,0 +1,7 @@
+*.pyc
+**.pyc
+/web-player/static/avatar-videos
+/web-player/venv
+__pycache__
+*.DS_Store
+**.DS_Store

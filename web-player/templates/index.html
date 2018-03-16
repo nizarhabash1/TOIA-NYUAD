@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <h1>TOIA: Interactive Story Telling Done Right</h1>
+    <p>Hi I'm your friend from TOIA! Ask anything you want to know from me :)</p>
+    <form method="POST">
+      <input name="text" id = "messageText">
+      <input type="submit" id = "chatbot-form-btn">
+    </form>
+
+    <!-- USE FOLLOWING CODE TO DISPLAY AVATAR RESPONSE -->
+    <!-- <div id="place_for_avatar_response">
+      <label>
+      {{ avatar_response }}
+    </label>
+    </div> -->
+
+    <div id="speech_query"></div>
+    <video id = 'avatar_video' class='center' width="640" height="480" align="middle" controls autoplay
+    preload = "auto">
+      <source src="{{avatar_video_path}}" type="video/mp4">
+      <source src="{{avatar_video_path}}" type="video/webm">
+      <source src="{{avatar_video_path}}" type="video/ogv">
+      <source src="{{avatar_video_path}}" type="video/ogg">
+      <track label="English" kind="subtitles" srclang="en" src= {{avatar_subtitle}} default>
+    </video>
+    <div><button id="stop_button">Stop speech recognition</button></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script src="../static/mediaelement-and-player.min.js"></script>
+    <script>
+    // speech recognition using annyang
+      function detectSpeech(){
+        if (annyang) {
+          annyang.start();
+          var sayThis = function(result) {
+            document.getElementById('messageText').value = result;
+            document.getElementById('chatbot-form-btn').click();
+            speech_detected = result;
+          }
+          var commands = {'*say': sayThis};
+          annyang.addCommands(commands);
+        }
+      }
+      //start or pause speech recognition depending on if video is playing
+      $(document).ready(function() {
+        document.getElementById('stop_button').onclick = function(){
+          if(annyang)
+            annyang.abort();
+        }
+
+
+
+        var vid = document.getElementById('avatar_video');
+        var vid_src = document.getElementById('avatar_video').src;
+
+        switch ("{{avatar}}"){
+          case "":
+            vid.src = "../static/avatar-videos/margarita_338_6be11151af2d475f7f56fe99b547c810.mp4"
+            console.log("no avatar yet");
+            break;
+          case "margarita":
+            break;
+        }
+
+        $('#avatar_video').bind('playing', function(e) {
+          console.log('bind - playing');
+        });
+
+        var player = document.getElementById('avatar_video');
+
+        player.addEventListener('playing', function(e) {
+          annyang.pause();
+          console.log('addEventListener - playing') ;
+
+        });
+
+        player.addEventListener('pause', function(e) {
+          console.log('addEventListener - pause') ;
+          detectSpeech();
+        });
+
+        player.addEventListener('ended', function(e) {
+          console.log('addEventListener - ended') ;
+          detectSpeech();
+        });
+      });
+    </script>
+  </body>
+</html>
