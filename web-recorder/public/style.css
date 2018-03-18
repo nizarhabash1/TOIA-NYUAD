@@ -1,0 +1,209 @@
+        li {
+/*            border-bottom: 1px solid rgb(189, 189, 189);
+            border-left: 1px solid rgb(189, 189, 189);*/
+            padding: .5em;
+        }
+        label {
+            display: inline-block;
+            width: 8em;
+        }
+
+        h1 span {
+            background: yellow;
+/*            border: 2px solid #8e1515;*/
+            padding: 2px 8px;
+            margin: 2px 5px;
+/*            border-radius: 7px;*/
+            color: #8e1515;
+            display: inline-block;
+        }
+
+        h1, h2{
+            border-bottom:0;
+        }
+
+        .recordrtc button {
+            font-size: inherit;
+        }
+
+        .recordrtc button, .recordrtc select {
+            vertical-align: middle;
+            line-height: 1;
+            padding: 2px 5px;
+            height: auto;
+            font-size: inherit;
+            margin: 0;
+        }
+
+        .recordrtc, .recordrtc .header {
+            display: block;
+/*            text-align: center;*/
+            padding-top: 0; 
+            text-align: center;            
+        }
+
+        .recordrtc video, .recordrtc img {
+            max-width: 100%!important;
+            vertical-align: top;
+            /*added*/
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+
+        .recordrtc audio {
+            vertical-align: bottom;
+        }
+
+        .recordrtc option[disabled] {
+            display: none;
+        }
+
+        .recordrtc select {
+            font-size: 17px;
+        }
+
+        .msg{
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .recorder-container{
+            position:relative;
+/*            text-align: center;*/
+        }
+        #recording-player{
+            position: relative;
+            top:0;
+            left:0;
+            height:355px;
+/*            display: none;*/
+        }
+
+        #recording-gif{
+            position: absolute;
+            top:10;
+            left:120;
+            display: none;
+        }
+
+        #face-outline{
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            margin: 0 auto;
+            opacity:0.3;
+            width:auto;
+            height:250px;
+            top:70px;
+            z-index: 1;
+/*            text-align: center;*/
+            display: block;
+        }
+        .back-and-next{
+            font-size:14px;
+        }
+
+        #recording-gif{
+            position:absolute;
+            text-align:center;
+        }
+        #questionContainer{
+            overflow-y:auto;
+            height:400px;
+            padding:0;
+            border:2px;
+        }
+
+        #replay-button{
+            margin: 5pt 0pt;
+        }
+
+.experiment{
+    border:0;
+    margin:0;
+    padding:0;
+}
+
+li {
+    list-style-type: none;
+    padding:0;
+}
+
+.col-sm-9{
+    padding-right:0;
+    padding-left:0;
+}
+
+.left-column{
+    text-align: center;
+}
+
+#submit-button{
+    float:right;
+}
+
+.updateButton, .deleteButton, .playBackButton, .saveButton, .playButton{
+    font-size:10px;
+    color:black;
+    background:white;
+    text-shadow: none;
+    border:1px solid #89b1da;
+    padding:5px 10px;
+}
+
+.video-button-container {
+    display: inline; 
+}
+
+.video-button-image{
+    margin-top:50px;
+}
+
+.video-button{
+    height:50px;
+    width:63px;
+    background: transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    /*overflow: hidden;*/
+    outline:none;
+}
+
+#record-button, #pause-button, #play-button, #stop-button, #download-button{
+    margin-top: 20px;
+}
+
+.video-button-image{
+    width:100%;
+}
+
+.initially-hidden-button{
+    display:none;
+}
+
+.original-buttons, .checkbox-timeslice, .recording-media, .media-container-format, #save-to-disk{
+    display: none;
+}
+
+#questionContainer{
+    border:2px solid;
+    margin-left:40px;
+}
+
+.add-question-container{
+    margin-left:40px;
+    margin-top:20px;
+    padding:10px;
+}
+
+#add-question-button{
+    color:white;
+    margin-top:10px;
+}
+
+ul{
+    -webkit-padding-start: 0px
+}
+

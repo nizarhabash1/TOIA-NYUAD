@@ -1,0 +1,1881 @@
+{
+   "Entries":
+[
+ {
+   "question": "Hi!",
+   "answer": "Hello / Hi",
+   "video": "",
+   "index": 2001,
+   "character": "gabriela"
+ },
+ {
+   "question": "How are you?",
+   "answer": "I'm doing quite well, impatient to begin, thank you very much.",
+   "video": "",
+   "index": 2002,
+   "character": "gabriela"
+ },
+ {
+   "question": "How are you?",
+   "answer": "I'm alright, impatient to begin answering your questions.",
+   "video": "",
+   "index": 2003,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your name?",
+   "answer": "My name is Elissa.",
+   "video": "",
+   "index": 2004,
+   "character": "gabriela"
+ },
+ {
+   "question": "Who are you?",
+   "answer": "I am Elissa of Carthage.",
+   "video": "",
+   "index": 2005,
+   "character": "gabriela"
+ },
+ {
+   "question": "Where are you?",
+   "answer": "Right now I am in the court of the underworld.",
+   "video": "",
+   "index": 2006,
+   "character": "gabriela"
+ },
+ {
+   "question": "How old are you?",
+   "answer": "Well, right now I am timeless. But I was 26 when I passed away, and I seem to be currently occupying that body.",
+   "video": "",
+   "index": 2007,
+   "character": "gabriela"
+ },
+ {
+   "question": "Can you understand me?",
+   "answer": "Of course I can understand you",
+   "video": "",
+   "index": 2008,
+   "character": "gabriela"
+ },
+ {
+   "question": "Can you understand me?",
+   "answer": "Yes, does it not seem like I can understand you?",
+   "video": "",
+   "index": 2009,
+   "character": "gabriela"
+ },
+ {
+   "question": "Can you understand me?",
+   "answer": "Of course, this language is easy peasy.",
+   "video": "",
+   "index": 2010,
+   "character": "gabriela"
+ },
+ {
+   "question": "I like your hair/anything",
+   "answer": "Why thank you, it's fortunate that my hair has stayed like this.",
+   "video": "",
+   "index": 2011,
+   "character": "gabriela"
+ },
+ {
+   "question": "What year is it?",
+   "answer": "I don't know how time works where you are, but the underworld is timeless.",
+   "video": "",
+   "index": 2012,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you have any siblings?",
+   "answer": "I did have siblings. A younger brother and sister. They were killed a few years before I came here.",
+   "video": "",
+   "index": 2013,
+   "character": "gabriela"
+ },
+ {
+   "question": "How much younger were they?",
+   "answer": "My siblings were twelve and fifteen years younger than I was. My little angels.",
+   "video": "",
+   "index": 2014,
+   "character": "gabriela"
+ },
+ {
+   "question": "Is your mother alive?",
+   "answer": "No, my mother was killed before we could leave our home. I was the only one that made it out.",
+   "video": "",
+   "index": 2015,
+   "character": "gabriela"
+ },
+ {
+   "question": "If your father alive?",
+   "answer": "I haven't seen my father in years, he fled. I honestly don't care.",
+   "video": "",
+   "index": 2016,
+   "character": "gabriela"
+ },
+ {
+   "question": "How were your brother and sister killed?",
+   "answer": "My siblings were killed before we could leave our home. I was the only one that made it out.",
+   "video": "",
+   "index": 2017,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you want to have children?",
+   "answer": "I can't have them myself, but I would have loved to adopt.",
+   "video": "",
+   "index": 2018,
+   "character": "gabriela"
+ },
+ {
+   "question": "Why do you want to leave the field of tears?",
+   "answer": "I think it is unfair that I am here. It's a dreadful place. Besides, my mother is in Elysium.",
+   "video": "",
+   "index": 2019,
+   "character": "gabriela"
+ },
+ {
+   "question": "How can you speak english?",
+   "answer": "Well, English is not particularly hard, isn't it?",
+   "video": "",
+   "index": 2020,
+   "character": "gabriela"
+ },
+ {
+   "question": "Why are you speaking in english?",
+   "answer": "You are asking me questions in English, and I think that's more polite.",
+   "video": "",
+   "index": 2021,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your favorite color?",
+   "answer": "My favorite color is purple.",
+   "video": "",
+   "index": 2022,
+   "character": "gabriela"
+ },
+ {
+   "question": "What languages can you speak?",
+   "answer": "While I was alive, I could speak several languages. Now, I can speak them all. Why are you asking me this?",
+   "video": "",
+   "index": 2023,
+   "character": "gabriela"
+ },
+ {
+   "question": "Who was Aeneas?",
+   "answer": "Aeneas was the last man I loved, back on Earth.",
+   "video": "",
+   "index": 2024,
+   "character": "gabriela"
+ },
+ {
+   "question": "Why did you love Aeneas?",
+   "answer": "Aeneas was kind. He made me feel at home, comfortable, and loved. He gave me a daughter. He had so much sadness inside of himself, and I thought he would understand me. I thought we could start a family together.",
+   "video": "",
+   "index": 2025,
+   "character": "gabriela"
+ },
+ {
+   "question": "What was his daughter's name?",
+   "answer": "Aeneas's daughter's name was Ascanius.",
+   "video": "",
+   "index": 2026,
+   "character": "gabriela"
+ },
+ {
+   "question": "What did you like about her?",
+   "answer": "I loved the way Aeneas's daughter would fall asleep while I held her. As if I was her home.",
+   "video": "",
+   "index": 2027,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you miss about home?",
+   "answer": "I miss my family. I miss sitting together and having dinner. And I miss my people.",
+   "video": "",
+   "index": 2028,
+   "character": "gabriela"
+ },
+ {
+   "question": "What did you work as in your country?",
+   "answer": "I was a politician. I know, I hate us too. But I was a political activist, I'd like to think of myself as one of the good ones.",
+   "video": "",
+   "index": 2029,
+   "character": "gabriela"
+ },
+ {
+   "question": "What did you believe in politically?",
+   "answer": "You know. Equality of opportunity, liberty in life choices, democracy. But if I go any deeper, we might have a fight, and that's not exactly the point right now.",
+   "video": "",
+   "index": 2030,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did you meet Aeneas?",
+   "answer": "I fled the camp, and stumbled across a derelict building. I had an incident with a man there, and Aeneas defended me. The man died. Accidental murder is not exactly a good first date, but it does create a bond!",
+   "video": "",
+   "index": 2031,
+   "character": "gabriela"
+ },
+ {
+   "question": "Have you killed someone?",
+   "answer": "Yes, I have killed someone, but it was self defense. He tried to assault me.",
+   "video": "",
+   "index": 2032,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did someone try to assault you?",
+   "answer": "The man who tried to assault me managed the people inside the derelict building that I found refuge in. I was trying to go to sleep and then it happened.",
+   "video": "",
+   "index": 2033,
+   "character": "gabriela"
+ },
+ {
+   "question": "Can I know more about it?",
+   "answer": "I'd rather not go into the details of my assault. It was a horrible experience.",
+   "video": "",
+   "index": 2034,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did Aeneas defend you?",
+   "answer": "Aeneas got up and put the guy against a wall. The guy tried to stab Aeneas, so I jumped in. We fell backwards, and the guy was stabbed.",
+   "video": "",
+   "index": 2035,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did it feel to kill someone?",
+   "answer": "Killing someone felt Shocking. Empowering. Terrifying.",
+   "video": "",
+   "index": 2036,
+   "character": "gabriela"
+ },
+ {
+   "question": "How do you think you can go to Elysium when you killed someone?",
+   "answer": "Murder is not a disqualifier for Elysium. The moral code for Elysium states that the person must have left behind good, and as an activist, I left good behind.",
+   "video": "",
+   "index": 2037,
+   "character": "gabriela"
+ },
+ {
+   "question": "What did you do as a politician?",
+   "answer": "As a politician, I worked to eradicate corruption in the system, and pushed forwards strategies to implement a better system of democracy.",
+   "video": "",
+   "index": 2038,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did you flee?",
+   "answer": "I left the country on a plane, pretending I was leaving on vacation. I then went to a camp.",
+   "video": "",
+   "index": 2039,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did it feel on the plane?",
+   "answer": "Fleeing was surreal. I have left the country before, but knowing that I would never come back was heartbreaking.",
+   "video": "",
+   "index": 2040,
+   "character": "gabriela"
+ },
+ {
+   "question": "Tell me a childhood memory",
+   "answer": "We used to live close to the ocean. Sometimes we would go to the beach, and I would go under the waves and hold my breath for as long as possible, feeling the waves toss me around. I stayed there so long that my mother would get scared!",
+   "video": "",
+   "index": 2041,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you like the water?",
+   "answer": "Yes, water makes me feel at home.",
+   "video": "",
+   "index": 2042,
+   "character": "gabriela"
+ },
+ {
+   "question": "What sign are you?",
+   "answer": "Astrologically? I don't know, I never believed in that.",
+   "video": "",
+   "index": 2043,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you prefer the ocean, the river, or pools?",
+   "answer": "I love the ocean.",
+   "video": "",
+   "index": 2044,
+   "character": "gabriela"
+ },
+ {
+   "question": "Are you scared of drowning?",
+   "answer": "No. I think drowning would be a calm experience. I actually almost drowned once.",
+   "video": "",
+   "index": 2045,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did you almost drown?",
+   "answer": "I almost drowned when I was surfing some waves that were a bit too big for me, and the current dragged me under water.",
+   "video": "",
+   "index": 2046,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did you go back into the water again?",
+   "answer": "Of course I went back into the water, I love the ocean",
+   "video": "",
+   "index": 2047,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did it feel to almost drown?",
+   "answer": "It was very calming. It felt as if I was in a womb about to be born again. No panic.",
+   "video": "",
+   "index": 2048,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you like surfing?",
+   "answer": "I love surfing.",
+   "video": "",
+   "index": 2049,
+   "character": "gabriela"
+ },
+ {
+   "question": "When did you learn to surf?",
+   "answer": "I learned to surf when I was about five years old.",
+   "video": "",
+   "index": 2050,
+   "character": "gabriela"
+ },
+ {
+   "question": "Are you a diplomatic person?",
+   "answer": "I think I am very good with my words.",
+   "video": "",
+   "index": 2051,
+   "character": "gabriela"
+ },
+ {
+   "question": "Were you scared of death?",
+   "answer": "No, I wasn't scared of death. It felt natural to me, to die.",
+   "video": "",
+   "index": 2052,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you are manipulative?",
+   "answer": "I think I am intelligent and can use that intelligence to get what I want. But I am not a liar.",
+   "video": "",
+   "index": 2053,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your favorite thing to drink",
+   "answer": "Favorite drink? Grape juice. Not too sweet.",
+   "video": "",
+   "index": 2054,
+   "character": "gabriela"
+ },
+ {
+   "question": "Was Aeneas your first love?",
+   "answer": "No, I had fallen in love before, with a girl from my school.",
+   "video": "",
+   "index": 2055,
+   "character": "gabriela"
+ },
+ {
+   "question": "What age were you the first time you fell in love?",
+   "answer": "I was sixteen when I first fell in love.",
+   "video": "",
+   "index": 2056,
+   "character": "gabriela"
+ },
+ {
+   "question": "What was the name of your first love?",
+   "answer": "Names are powerful things. I'd rather not say hers.",
+   "video": "",
+   "index": 2057,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did you know you loved her?",
+   "answer": "How do you know you love someone? I wanted to spend the rest of my life with her.",
+   "video": "",
+   "index": 2058,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did you always know you are bi/gay/pansexual?",
+   "answer": "I never thought much about it. I just knew that I felt love for people regardless of their gender.",
+   "video": "",
+   "index": 2059,
+   "character": "gabriela"
+ },
+ {
+   "question": "What was your first memory that made you realize you were pansexual?",
+   "answer": "When I was in nursery school and I wanted to marry my two best friends- a boy and a girl.",
+   "video": "",
+   "index": 2060,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you believe in marriage equality?",
+   "answer": "Of course. People should be free to make a life with whomever they choose.",
+   "video": "",
+   "index": 2061,
+   "character": "gabriela"
+ },
+ {
+   "question": "Why should there be marriage equality if the bible/religion in general is against it?",
+   "answer": "Marriage is not a religious sacrament, it is a civic institution. Religion can do what it wants, but people should legally be allowed to get married.",
+   "video": "",
+   "index": 2062,
+   "character": "gabriela"
+ },
+ {
+   "question": "What does pansexual mean?",
+   "answer": "It's a person who is sexually and romantically interested in people regardless of gender. This includes males, females, transexuals, and non-binary folk.",
+   "video": "",
+   "index": 2063,
+   "character": "gabriela"
+ },
+ {
+   "question": "Are you straight/gay/bisexual?",
+   "answer": "I identify as pansexual.",
+   "video": "",
+   "index": 2064,
+   "character": "gabriela"
+ },
+ {
+   "question": "Was your family liberal?",
+   "answer": "My family were big on personal liberties, although they were not politically liberal.",
+   "video": "",
+   "index": 2065,
+   "character": "gabriela"
+ },
+ {
+   "question": "How much did being queer your life?",
+   "answer": "Growing up, being queer didn't affect it much because I didn't think it was a big deal, and people wouldn't mess with me in school. But it's one of the reasons why I never ran myself as a politician.",
+   "video": "",
+   "index": 2066,
+   "character": "gabriela"
+ },
+ {
+   "question": "How is it to be a female, queer politician?",
+   "answer": "Its quite hard to be a female queer politician. It's hard to garner respect and trust.",
+   "video": "",
+   "index": 2067,
+   "character": "gabriela"
+ },
+ {
+   "question": "Was Aeneas your first love?",
+   "answer": "No, I had fallen in love before, with a girl from my school.",
+   "video": "",
+   "index": 2068,
+   "character": "gabriela"
+ },
+ {
+   "question": "How was the first time you fell in love?",
+   "answer": "I fell for my best friend in highschool. We had a beautiful time, but her parents moved away after some time, so we stopped seeing each other.",
+   "video": "",
+   "index": 2069,
+   "character": "gabriela"
+ },
+ {
+   "question": "Was it hard to fall in love with a woman?",
+   "answer": "No, it felt natural.",
+   "video": "",
+   "index": 2070,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did your mother know you fell in love with a woman?",
+   "answer": "Yes, my mother knew that I fell in love with a girl.",
+   "video": "",
+   "index": 2071,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did she react?",
+   "answer": "She was worried about my personal safety, but didn't hold it against me.",
+   "video": "",
+   "index": 2072,
+   "character": "gabriela"
+ },
+ {
+   "question": "How id being gay in your country?",
+   "answer": "My country is a conservative place, so being gay can be quite scary.",
+   "video": "",
+   "index": 2073,
+   "character": "gabriela"
+ },
+ {
+   "question": "It's a sin to fall in love with a woman!",
+   "answer": "Listen, i'm in cahoots with the gods, i'm quite aware of what is a sin and what isn't.",
+   "video": "",
+   "index": 2074,
+   "character": "gabriela"
+ },
+ {
+   "question": "What religion do you follow?",
+   "answer": "I don't follow any institutional religion. I'm just a spiritual person.",
+   "video": "",
+   "index": 2075,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did you two have sex? // Anything else inappropriate like that.",
+   "answer": "Hey, that's a disrespectful thing to ask. I get you want to get to know me, but there are lines we shouldn't cross.",
+   "video": "",
+   "index": 2076,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did you have depression?",
+   "answer": "Not medical depression, no.",
+   "video": "",
+   "index": 2077,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you have mental issues?",
+   "answer": "Maybe a bit of PTSD, but that is about it.",
+   "video": "",
+   "index": 2078,
+   "character": "gabriela"
+ },
+ {
+   "question": "Are you schizophrenic?",
+   "answer": "No, I was never diagnosed with schizophrenia or anything of the kind.",
+   "video": "",
+   "index": 2079,
+   "character": "gabriela"
+ },
+ {
+   "question": "Are you medicated?",
+   "answer": "No, I was never diagnosed with any mental disorders.",
+   "video": "",
+   "index": 2080,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you believe in psychotherapy?",
+   "answer": "Absolutely! Everyone should have a psychologist.",
+   "video": "",
+   "index": 2081,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you are insane?",
+   "answer": "Not at all. I think I act very rationally, under highly unlikely circumstances.",
+   "video": "",
+   "index": 2082,
+   "character": "gabriela"
+ },
+ {
+   "question": "How do you define someone who is insane?",
+   "answer": "I think someone is insane if he is in a state of mind that prevents normal perception, behavior, or interaction. I behaved normally under extraordinary circumstances.",
+   "video": "",
+   "index": 2083,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you hate Aeneas?",
+   "answer": "I have to admit that I do hate Aeneas. He represents a lot of what is wrong in the world.",
+   "video": "",
+   "index": 2084,
+   "character": "gabriela"
+ },
+ {
+   "question": "How would your ideal kid be?",
+   "answer": "My ideal kid would be curious, powerful. A mixture of me and the person I love.",
+   "video": "",
+   "index": 2085,
+   "character": "gabriela"
+ },
+ {
+   "question": "Where did you study?",
+   "answer": "I had the privilege to study in one of the best schools and universities in my country.",
+   "video": "",
+   "index": 2086,
+   "character": "gabriela"
+ },
+ {
+   "question": "What did you study?",
+   "answer": "I studied political sciences and psychology.",
+   "video": "",
+   "index": 2087,
+   "character": "gabriela"
+ },
+ {
+   "question": "Why did you study that?",
+   "answer": "I studied psychology because I am fascinated by people, and political sciences because I wanted to know how those people made systems.",
+   "video": "",
+   "index": 2088,
+   "character": "gabriela"
+ },
+ {
+   "question": "How is the valley of tears?",
+   "answer": "Its devastatingly dire. Everyone is mourning. Hell for those that already had hell on earth.",
+   "video": "",
+   "index": 2089,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you do in the valley of tears all day?",
+   "answer": "Honestly, we just mourn. They don't torture us, most people in the valley of tears were tortured enough while they were alive.",
+   "video": "",
+   "index": 2090,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your favorite memory about your mother?",
+   "answer": "My favorite memory with my mother is her being in the ocean with me, teaching me how to surf.",
+   "video": "",
+   "index": 2091,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your favorite memory about your sister?",
+   "answer": "My favorite memory with my sister has to be the two of us falling asleep in the car, with the streetlights passing by like huge, shooting stars.",
+   "video": "",
+   "index": 2092,
+   "character": "gabriela"
+ },
+ {
+   "question": "Have you ever tried to break out of the valley of tears",
+   "answer": "You can't break out of the valely of tears. It's a state of being that you are forced into as well as a place. The fact that I can object to being here is a strong indication that I should not be here.",
+   "video": "",
+   "index": 2093,
+   "character": "gabriela"
+ },
+ {
+   "question": "Have you been visited in the valley of tears?",
+   "answer": "Aeneas and his best friend once passed though, I think. I heard the echoes of his screams inside my ears, as if they were coming from far far away. But I couldn't really see them.",
+   "video": "",
+   "index": 2094,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did you feel when you were visited in the valley of tears?",
+   "answer": "It was disorienting. It was the first time I could feel the edges of my perception brush against the material world.",
+   "video": "",
+   "index": 2095,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did Aeneas said anything to you?",
+   "answer": "I think he might have screamed my name, and asked why I was here. I",
+   "video": "",
+   "index": 2096,
+   "character": "gabriela"
+ },
+ {
+   "question": "What would you say to him if you could?",
+   "answer": "I would tell him that he should feel guilty for abandoning me, but not guilty about my suicide. He will never be powerful enough to bring down somebody like me.",
+   "video": "",
+   "index": 2097,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you believe in spirituality?",
+   "answer": "I do, very much, believe in spirituality.",
+   "video": "",
+   "index": 2098,
+   "character": "gabriela"
+ },
+ {
+   "question": "When was the first time you talked to the gods?",
+   "answer": "When I was a child I would feel the gods around me, but I confuse them with the absolute power of nature. They do mix wel.",
+   "video": "",
+   "index": 2099,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did the gods manifest themselves to you?",
+   "answer": "The gods manifest themselves as feelings. Intuition. Power.",
+   "video": "",
+   "index": 2100,
+   "character": "gabriela"
+ },
+ {
+   "question": "Who taught you about spirituality?",
+   "answer": "My grandmother taught me about spirituality. She was paradoxically, very religious. But she also believes in spirituality which was outside her doctrine.",
+   "video": "",
+   "index": 2101,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you do rituals?",
+   "answer": "Sometimes. Cleansing rituals, good vibes rituals. Things that are more for me than for destiny.",
+   "video": "",
+   "index": 2102,
+   "character": "gabriela"
+ },
+ {
+   "question": "Have you ever been cursed?",
+   "answer": "Probably, but I don't think any curses put on me had a grip on my destiny.",
+   "video": "",
+   "index": 2103,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is a curse?",
+   "answer": "To me, a curse is when someone sends you negative energy.",
+   "video": "",
+   "index": 2104,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you use objects when you curse?",
+   "answer": "When I have cursed people, I have simply spoken to them. Never used objects, because most of the times I didn't plan cursing someone. It just happened in a spur of passion.",
+   "video": "",
+   "index": 2105,
+   "character": "gabriela"
+ },
+ {
+   "question": "Have you ever cursed someone?",
+   "answer": "I have cursed someone.",
+   "video": "",
+   "index": 2106,
+   "character": "gabriela"
+ },
+ {
+   "question": "How do you curse someone?",
+   "answer": "When I have cursed people, I have just send them dark energy, anger, things like that. Putting your ill desires onto words countscountrs as a curse, if you speak it to the gods.",
+   "video": "",
+   "index": 2107,
+   "character": "gabriela"
+ },
+ {
+   "question": "Don't you think cursing people should mean you don't go to Elysium?",
+   "answer": "I think that the curses I planted made sense. And I asked good gods for them, so it's not as if i was doing something against their will.",
+   "video": "",
+   "index": 2108,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think it is ethical to curse people?",
+   "answer": "I think morality is relative. It could be, it could not.",
+   "video": "",
+   "index": 2109,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you use dark magic?",
+   "answer": "I don't, ever, use dark magic. I don't mess with devils, just with the gods.",
+   "video": "",
+   "index": 2110,
+   "character": "gabriela"
+ },
+ {
+   "question": "How are the gods?",
+   "answer": "The Gods are wonderfully powerful, open beings. They dwell in the energy all around us.",
+   "video": "",
+   "index": 2111,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you have an issue with the Trojans?",
+   "answer": "The Trojans? No, not me. I think you are thinking about another incarnation of my soul.",
+   "video": "",
+   "index": 2112,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your greatest fear?",
+   "answer": "My greatest big fear is eternal, human level suffering. My greatest small fear is being trapped somewhere listening to my families screams.",
+   "video": "",
+   "index": 2113,
+   "character": "gabriela"
+ },
+ {
+   "question": "What are you the proudest of?",
+   "answer": "I am proudest of having given my food to the children in the camp. They needed it more than me.",
+   "video": "",
+   "index": 2114,
+   "character": "gabriela"
+ },
+ {
+   "question": "Would you go back into politics if you could?",
+   "answer": "No, politics a dirty business. You hardly ever achieve anything.",
+   "video": "",
+   "index": 2115,
+   "character": "gabriela"
+ },
+ {
+   "question": "How was the camp in which you landed?",
+   "answer": "The camp was devastating. Organizers were trying their best, but the bureaucratic system was merciless. There wasn't enough food, medicine, or places to sleep. Tensions were high.",
+   "video": "",
+   "index": 2116,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did you escape the camp?",
+   "answer": "I escaped the camp by grabbing a piece of paper from the immigration officer's office, and plagiarized her signature. I was supposed to see another authority figure in the city. Then, I found somewhere to sleep in the city and stayed there.",
+   "video": "",
+   "index": 2117,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did you get a work permit after escaping the camp?",
+   "answer": "I took over a derelict building in the city, and organize it into a functional space where people could take refugee. Some policemen in the area found out, but it was so well done that they got me a meeting with the town mayor. He knew who I was, and gave me a permit.",
+   "video": "",
+   "index": 2118,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did you organize the derelict building?",
+   "answer": "Everyone ultimately wanted to have a comfortable life. So we organized the people into food collectors, exchanged labour with people in the area, and managed to get some food. It was not easy. And it was still a hard life. But it was considerably better than under the gatherer.",
+   "video": "",
+   "index": 2119,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you have a hard life?",
+   "answer": "I think I have been dealt some hard cards, but ultimately I am very privileged. I'm intelligent enough to get by most things.",
+   "video": "",
+   "index": 2120,
+   "character": "gabriela"
+ },
+ {
+   "question": "How was the immigration officer with whom you spoke?",
+   "answer": "Overworked. Close Minded. One of those people that started their job with high hopes, and ended up trampled by the system.",
+   "video": "",
+   "index": 2121,
+   "character": "gabriela"
+ },
+ {
+   "question": "Can you repeat the last things you said to Aeneas?",
+   "answer": "I asked Aeneas to take me with him. But I had already said some pretty nasty things to him before.",
+   "video": "",
+   "index": 2122,
+   "character": "gabriela"
+ },
+ {
+   "question": "What nasty things?",
+   "answer": "You know. �Go look for your miserable piece of land, and I ask the gods place place more storms and obstacles in your way that will shatter you. And I pray you be tortured crying out my name, and when your cry comes and finds me in the deepest of hades, then I'll know you are dead.\"",
+   "video": "",
+   "index": 2123,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you regret what you said to Aeneas?",
+   "answer": "No. I think what I told Aeneas was justified.",
+   "video": "",
+   "index": 2124,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you hope happens to Aeneas?",
+   "answer": "I think that if Aeneas was tortured, it would teach him a lesson, and maybe in his next life he would be a better person.",
+   "video": "",
+   "index": 2125,
+   "character": "gabriela"
+ },
+ {
+   "question": "What did you say about Aeneas's daughter.",
+   "answer": "I said \"f I would have known that you were going to leave me for her I would have torn her apart with my own hands and served her to you on a platter\". But that was a spur of the moment thing. I wouldn't actually want the little girl to be eaten. I do love Aeneas's daughter, dearly.",
+   "video": "",
+   "index": 2126,
+   "character": "gabriela"
+ },
+ {
+   "question": "Would you like to raise Ascanius?",
+   "answer": "I would have loved to adopt Ascanius.",
+   "video": "",
+   "index": 2127,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you are qualified to raise a child?",
+   "answer": "I think I could be a good mother. The last things that I said happened in a moment of almost dissociation. I take them back��_.most of them.",
+   "video": "",
+   "index": 2128,
+   "character": "gabriela"
+ },
+ {
+   "question": "Can you repeat the last things you said to the immigration officer?",
+   "answer": "�Put up your barriers, set up your fencing, build your walls. Criss cross the ocean, comb all the deserts of the planet as much as you like. We'll still keep pouring in. We'll unfurl in waves and you'll never be able to stop the flood. Because you can't stop the ocean with your arms.\"",
+   "video": "",
+   "index": 2129,
+   "character": "gabriela"
+ },
+ {
+   "question": "How regularly did you eat in the camp?",
+   "answer": "I would eat a piece of bread spread out for three days or so. I think eating small quantities over many days might be better than a complete piece of bread once every three days. I gave the rest away.",
+   "video": "",
+   "index": 2130,
+   "character": "gabriela"
+ },
+ {
+   "question": "Where did you sleep in the camp?",
+   "answer": "I would sleep with other groups of women. We tried to keep each other safe.",
+   "video": "",
+   "index": 2131,
+   "character": "gabriela"
+ },
+ {
+   "question": "How many people where there in the camp?",
+   "answer": "There were thousands of people in the camp. It was insane.",
+   "video": "",
+   "index": 2132,
+   "character": "gabriela"
+ },
+ {
+   "question": "Why didn't you get refugee status?",
+   "answer": "Well, I left my country in a plane, before they could track me down and kill me. Somehow this did not fit into their definitions of what constitutes a refugee.",
+   "video": "",
+   "index": 2133,
+   "character": "gabriela"
+ },
+ {
+   "question": "How does the system deal with non-refugees.",
+   "answer": "It's a bureaucratic mess. They deport you.",
+   "video": "",
+   "index": 2134,
+   "character": "gabriela"
+ },
+ {
+   "question": "How do you qualify as a refugee?",
+   "answer": "I left my country in order to survive, so I should qualify as a refugee.",
+   "video": "",
+   "index": 2135,
+   "character": "gabriela"
+ },
+ {
+   "question": "Don't you feel guilty for leaving without being a refugee?",
+   "answer": "I don't feel guilty for leaving without being a refugee",
+   "video": "",
+   "index": 2136,
+   "character": "gabriela"
+ },
+ {
+   "question": "How is it for a woman to leave?",
+   "answer": "It's harder for women to leave. They assume we are defenseless.",
+   "video": "",
+   "index": 2137,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you are stronger than men?",
+   "answer": "I know how to use weapons.",
+   "video": "",
+   "index": 2138,
+   "character": "gabriela"
+ },
+ {
+   "question": "How do you feel about men in general?",
+   "answer": "Men are fine. There are good men, and bad men.",
+   "video": "",
+   "index": 2139,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you did the correct thing by killing the gatherer?",
+   "answer": "Yes, I killed the gatherer in self defense.",
+   "video": "",
+   "index": 2140,
+   "character": "gabriela"
+ },
+ {
+   "question": "What did you like about Aeneas physically?",
+   "answer": "Aeneas had beautiful, dark eyes.",
+   "video": "",
+   "index": 2141,
+   "character": "gabriela"
+ },
+ {
+   "question": "What was the strangest thing he did?",
+   "answer": "The strangest thing Aeneas would do isspeak in his sleep.",
+   "video": "",
+   "index": 2142,
+   "character": "gabriela"
+ },
+ {
+   "question": "Could you speak to ghosts?",
+   "answer": "I have spoken to ghosts before.",
+   "video": "",
+   "index": 2143,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did you find any discrimination in your new country?",
+   "answer": "Yes, it's a very conservative place, so it's hard for a queer woman to exist there.",
+   "video": "",
+   "index": 2144,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you have an issue being an immigrant?",
+   "answer": "There is a lot of discrimination, and trouble adapting into the system. I was lucky to speak the language .",
+   "video": "",
+   "index": 2145,
+   "character": "gabriela"
+ },
+ {
+   "question": "What would you say to the people who want to close the borders?",
+   "answer": "I would tell the people closing the borders that they are lacking in humanity. The earth is for us all, you have no right to deprive your fellow brother's and sisters from life by hogging the land.",
+   "video": "",
+   "index": 2146,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did you deal with language?",
+   "answer": "Luckily, as a diplomatic figure, I knew the language there. I tried to teach it to the people around me.",
+   "video": "",
+   "index": 2147,
+   "character": "gabriela"
+ },
+ {
+   "question": "How was integrating into the new society?",
+   "answer": "I had to give up a lot of values and habits that I grew up with and had my whole life. It was incredibly hard. We were met with hostility.",
+   "video": "",
+   "index": 2148,
+   "character": "gabriela"
+ },
+ {
+   "question": "How was the asylum process?",
+   "answer": "The application process is very slow, which is understandable considering how many people are coming in. But politicians put a lot of unnecessary protocols in.",
+   "video": "",
+   "index": 2149,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you see yourself as a migrant or as a refugee?",
+   "answer": "I see myself as a refugee: i fled my country in order to survive.",
+   "video": "",
+   "index": 2150,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did the system see you as a migrant or as a refugee?",
+   "answer": "The system sees me as a migrant.",
+   "video": "",
+   "index": 2151,
+   "character": "gabriela"
+ },
+ {
+   "question": "What happens when you apply to be a refugee?",
+   "answer": "They check your background, as well as what you can �contribute\" to this new country. There are many loops to jump through.",
+   "video": "",
+   "index": 2152,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you see yourself as a representative of your people?",
+   "answer": "I don't want the responsibility of representing anyone but myself. I have already worked to hard while I was alive.",
+   "video": "",
+   "index": 2153,
+   "character": "gabriela"
+ },
+ {
+   "question": "If you were alive for longer, what would you do with your extra time?",
+   "answer": "I would have tried to restore peace somehow. But it's too big a job for one person.",
+   "video": "",
+   "index": 2154,
+   "character": "gabriela"
+ },
+ {
+   "question": "What's your favorite piece of clothing you own?",
+   "answer": "I used to own this oversized jacket that my mother gave me. It made me think of home, and feel protected.",
+   "video": "",
+   "index": 2155,
+   "character": "gabriela"
+ },
+ {
+   "question": "What hobby do you have?",
+   "answer": "I like surfing.",
+   "video": "",
+   "index": 2156,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you like reading?",
+   "answer": "I love reading.",
+   "video": "",
+   "index": 2157,
+   "character": "gabriela"
+ },
+ {
+   "question": "Who is your favorite author?",
+   "answer": "Strangely enough, my favorite author is probably Roald Dahl.",
+   "video": "",
+   "index": 2158,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you like films?",
+   "answer": "I really enjoy films.",
+   "video": "",
+   "index": 2159,
+   "character": "gabriela"
+ },
+ {
+   "question": "Who is your favorite director?",
+   "answer": "Probably Miyazaki.",
+   "video": "",
+   "index": 2160,
+   "character": "gabriela"
+ },
+ {
+   "question": "Which is your favorite band?",
+   "answer": "I don't have a favorite band.",
+   "video": "",
+   "index": 2161,
+   "character": "gabriela"
+ },
+ {
+   "question": "What would your perfect room look like?",
+   "answer": "Almost empty, with sunlight and books.",
+   "video": "",
+   "index": 2162,
+   "character": "gabriela"
+ },
+ {
+   "question": "What job would you like having?",
+   "answer": "I would love to be a psychologist for children. Children are better than adults.",
+   "video": "",
+   "index": 2163,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you know any song by heart?",
+   "answer": "I know \" want to break free\". By queen.",
+   "video": "",
+   "index": 2164,
+   "character": "gabriela"
+ },
+ {
+   "question": "Can you sing it?",
+   "answer": "*sings a little bit of the song*",
+   "video": "",
+   "index": 2165,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you prefer adults or children?",
+   "answer": "I prefer children over adults. They are not as corrupted by the world as adults are.",
+   "video": "",
+   "index": 2166,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your best quality?",
+   "answer": "My determination and my intelligence.",
+   "video": "",
+   "index": 2167,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you wish you knew more about?",
+   "answer": "I wish I knew more about philosophy.",
+   "video": "",
+   "index": 2168,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you miss about earth?",
+   "answer": "I miss the feeling of salt water.",
+   "video": "",
+   "index": 2169,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you miss about having a body?",
+   "answer": "The noises. We don't realize how much noise our organisms make. Now that I am dead, the silence when nothing is happening is unbearable.",
+   "video": "",
+   "index": 2170,
+   "character": "gabriela"
+ },
+ {
+   "question": "Where you religious growing up?",
+   "answer": "My grandmother was catholic, but my parents were not.",
+   "video": "",
+   "index": 2171,
+   "character": "gabriela"
+ },
+ {
+   "question": "Where you famous?",
+   "answer": "Not actually, but I had a name in politics.",
+   "video": "",
+   "index": 2172,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your favorite genre of book or movie?",
+   "answer": "My favorite genre is horror.",
+   "video": "",
+   "index": 2173,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your most controversial opinion?",
+   "answer": "My most controversial opinion is probably that suicide is a right.",
+   "video": "",
+   "index": 2174,
+   "character": "gabriela"
+ },
+ {
+   "question": "What political ideology do you align with?",
+   "answer": "I'm not sure what political ideology I align myself with.",
+   "video": "",
+   "index": 2175,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is the most annoying question people ask you?",
+   "answer": "If I killed myself for love.",
+   "video": "",
+   "index": 2176,
+   "character": "gabriela"
+ },
+ {
+   "question": "How do you relax after work?",
+   "answer": "I read a book to relax.",
+   "video": "",
+   "index": 2177,
+   "character": "gabriela"
+ },
+ {
+   "question": "What was the most frustrating moment in your life?",
+   "answer": "When I couldn't reason with the immigration officer.",
+   "video": "",
+   "index": 2178,
+   "character": "gabriela"
+ },
+ {
+   "question": "What was the happiest moment in your life?",
+   "answer": "Probably falling asleep with Ascanius in my arms.",
+   "video": "",
+   "index": 2179,
+   "character": "gabriela"
+ },
+ {
+   "question": "What's your biggest pet peeve?",
+   "answer": "Dogmatic people are my biggest pet peeve.",
+   "video": "",
+   "index": 2180,
+   "character": "gabriela"
+ },
+ {
+   "question": "What was the saddest moment in your life?",
+   "answer": "When I saw Ascanius in Aeneid arms, leaving asleep. It was hard to watch all the hope I had garnered falling apart like that.",
+   "video": "",
+   "index": 2181,
+   "character": "gabriela"
+ },
+ {
+   "question": "What's the farthest you've been from home?",
+   "answer": "I travelled to the US once.",
+   "video": "",
+   "index": 2182,
+   "character": "gabriela"
+ },
+ {
+   "question": "What age were you when you had your first kiss",
+   "answer": "I was probably fifteen when I had my first kiss.",
+   "video": "",
+   "index": 2183,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you consider yourself a normal person",
+   "answer": "Not really. I think I am quite strange. Not that it is a bad thing.",
+   "video": "",
+   "index": 2184,
+   "character": "gabriela"
+ },
+ {
+   "question": "What could you give a 40 minute presentation on without absolutely no preparation?",
+   "answer": "The ethics in politics.",
+   "video": "",
+   "index": 2185,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you regret not doing in your life?",
+   "answer": "I regret not dying with the rest of my family. It would have saved me a lot of suffering.",
+   "video": "",
+   "index": 2186,
+   "character": "gabriela"
+ },
+ {
+   "question": "What are you proud to have done in your life?",
+   "answer": "I am proud to have been able to fool the government of my country into letting me leave.",
+   "video": "",
+   "index": 2187,
+   "character": "gabriela"
+ },
+ {
+   "question": "Would you have married Aeneas?",
+   "answer": "I would have, if he had asked me.",
+   "video": "",
+   "index": 2188,
+   "character": "gabriela"
+ },
+ {
+   "question": "Would you have had children with Aeneas?",
+   "answer": "I can't bear children, but if I could I would.",
+   "video": "",
+   "index": 2189,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you know about the gods?",
+   "answer": "I know plenty.",
+   "video": "",
+   "index": 2190,
+   "character": "gabriela"
+ },
+ {
+   "question": "Can you tell me about the gods right now?",
+   "answer": "It's a long and complicated issue. I don't think I could talk about it eloquently right now,",
+   "video": "",
+   "index": 2191,
+   "character": "gabriela"
+ },
+ {
+   "question": "Who showed you how to curse people?",
+   "answer": "No one showed me how to do curse people. I found myself speaking while in a fury, and sometimes things happened. I don't think I understood how much power I had for a while.",
+   "video": "",
+   "index": 2192,
+   "character": "gabriela"
+ },
+ {
+   "question": "How do you think you have helped people?",
+   "answer": "I helped stabilize the economic system back at home, made an effective place to sleep in the country I fled to, and even gave up my food for people that needed it more than I did.",
+   "video": "",
+   "index": 2193,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you consider yourself a revolutionary?",
+   "answer": "Not at all. I think I'm just someone with common sense.",
+   "video": "",
+   "index": 2194,
+   "character": "gabriela"
+ },
+ {
+   "question": "If you could live anywhere, where would it be?",
+   "answer": "Back home, before everything fell apart.",
+   "video": "",
+   "index": 2195,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you hope never changes?",
+   "answer": "The hope children have. Once the lose hope, our humanity will have gone.",
+   "video": "",
+   "index": 2196,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is the best way a person can spend their life?",
+   "answer": "By living it day to day, helping other but also enjoying themselves with the people they love.",
+   "video": "",
+   "index": 2197,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is the luckiest thing that ever happened to you?",
+   "answer": "Getting my brain. That's my biggest luck.",
+   "video": "",
+   "index": 2198,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you wish your epitaph was?",
+   "answer": "I don't want an epitaph. I'd rather let the things I did carry my memory, and let the place where my body is fade into geography.",
+   "video": "",
+   "index": 2199,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is the dumbest thing you've done?",
+   "answer": "Plagiarizing the immigration officer's signature. But it worked!",
+   "video": "",
+   "index": 2200,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is something that you will never do again?",
+   "answer": "I will never completely trust another person. We are humans, we are flawed. It's unfair to expect perfection out of someone else.",
+   "video": "",
+   "index": 2201,
+   "character": "gabriela"
+ },
+ {
+   "question": "How much longer would you like to have lived?",
+   "answer": "I ended my life because I didn't want to be alive. I would have made my life shorter if I could have.",
+   "video": "",
+   "index": 2202,
+   "character": "gabriela"
+ },
+ {
+   "question": "Has anyone else you know killed themselves?",
+   "answer": "Yes, but only after being caught. It was a lucky choice.",
+   "video": "",
+   "index": 2203,
+   "character": "gabriela"
+ },
+ {
+   "question": "Was it scary to kill yourself?",
+   "answer": "The action itself of killing myself was hard.",
+   "video": "",
+   "index": 2204,
+   "character": "gabriela"
+ },
+ {
+   "question": "Was it the first time you had considered suicide?",
+   "answer": "When I did it. It was a clear choice. The gods gave it to me.",
+   "video": "",
+   "index": 2205,
+   "character": "gabriela"
+ },
+ {
+   "question": "Why did you not do it before?",
+   "answer": "When my family was killed, I was filled with anger to do something, not desperation to end my life.",
+   "video": "",
+   "index": 2206,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you wish you could tell your mother?",
+   "answer": "I would tell my mother that I love her. But she already knows that.",
+   "video": "",
+   "index": 2207,
+   "character": "gabriela"
+ },
+ {
+   "question": "Have you ever given to charities?",
+   "answer": "I have founded charities.",
+   "video": "",
+   "index": 2208,
+   "character": "gabriela"
+ },
+ {
+   "question": "Would you still want to die if your circumstances had been different?",
+   "answer": "Of course not! I had a wonderful life before it was terrible.",
+   "video": "",
+   "index": 2209,
+   "character": "gabriela"
+ },
+ {
+   "question": "What's the worst thing you have felt?",
+   "answer": "The terror when I got home and had the gut feeling not to walk inside. After my family was killed. Instinct is strong.",
+   "video": "",
+   "index": 2210,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think revenge is correct?",
+   "answer": "Absolutely. We are agents of the universe, and sometimes justice needs to happen by our hands.",
+   "video": "",
+   "index": 2211,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you are a negative person?",
+   "answer": "No, I'm not negative,  I think i'm quite rational.",
+   "video": "",
+   "index": 2212,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you have moral authority?",
+   "answer": "I think morality is relative, and I am the best authority when it comes to myself.",
+   "video": "",
+   "index": 2213,
+   "character": "gabriela"
+ },
+ {
+   "question": "Are you ok now?",
+   "answer": "In death? I am exhausted and frustrated. In this courtroom? I am fine.",
+   "video": "",
+   "index": 2214,
+   "character": "gabriela"
+ },
+ {
+   "question": "How are you feeling right now?",
+   "answer": "I feel eager to set the record straight.",
+   "video": "",
+   "index": 2215,
+   "character": "gabriela"
+ },
+ {
+   "question": "What do you hate doing?",
+   "answer": "I hate dealing with incompetence",
+   "video": "",
+   "index": 2216,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your favorite month of the year?",
+   "answer": "December is my favorite month of the year.",
+   "video": "",
+   "index": 2217,
+   "character": "gabriela"
+ },
+ {
+   "question": "If you could talk to anyone who is alive, who would it be?",
+   "answer": "I would talk to Ascanius, and wish her the best life possible.",
+   "video": "",
+   "index": 2218,
+   "character": "gabriela"
+ },
+ {
+   "question": "If you could talk to anyone who is dead, who would it be?",
+   "answer": "If I could talk to anyone who is dead, I would talk to my younger sister, and assure her that I am alright.",
+   "video": "",
+   "index": 2219,
+   "character": "gabriela"
+ },
+ {
+   "question": "Tell me about getting out of the country.",
+   "answer": "When getting out of the country I had to pretend as if I didn't know the government was tracking me down. I used a fake passport to fly out.",
+   "video": "",
+   "index": 2220,
+   "character": "gabriela"
+ },
+ {
+   "question": "Tell me about the airport.",
+   "answer": "The airport was a terrifying ordeal. I have never had to monitor my behavior so closely. I kept singing to myself as I passed through costumes, thinking about the stories my mother used to tell my sister and I as we grew up.",
+   "video": "",
+   "index": 2221,
+   "character": "gabriela"
+ },
+ {
+   "question": "Tell me about the visa process, once you got into the country.",
+   "answer": "Once I reached the country, i went directly into the refugee camps. I wanted to let them know that I wasn't going to engage in illegal immigration.",
+   "video": "",
+   "index": 2222,
+   "character": "gabriela"
+ },
+ {
+   "question": "Tell me about not returning.",
+   "answer": "It was heartbreaking to step out of the airplane knowing that I would not step on it back, to return home.",
+   "video": "",
+   "index": 2223,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did you have any money?",
+   "answer": "All of our bank accounts were frozen, and all of the cash and jewelry where in my house, which was being monitored. So I had no money on me.",
+   "video": "",
+   "index": 2224,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did you leave your country.",
+   "answer": "I left my country by flying out, using a fake passport.",
+   "video": "",
+   "index": 2225,
+   "character": "gabriela"
+ },
+ {
+   "question": "Why didn't you take your family?",
+   "answer": "My family was killed before we had the chance to escape. We were planning on leaving all together.",
+   "video": "",
+   "index": 2226,
+   "character": "gabriela"
+ },
+ {
+   "question": "Why did you feel in danger?",
+   "answer": "There was a coup. The new government in place was killing everyone in opposition. I was in the opposition, and my father had been a big political figure. We were in danger.",
+   "video": "",
+   "index": 2227,
+   "character": "gabriela"
+ },
+ {
+   "question": "What was the state of your country when you left?",
+   "answer": "It was chaos. The military was aiding the new government, so there were people with weapons all over the place, trying to keep order. People were terrified. No one knew who would be targeted next.",
+   "video": "",
+   "index": 2228,
+   "character": "gabriela"
+ },
+ {
+   "question": "Are you a political refugee?",
+   "answer": "I think I would qualify as a political refugee.",
+   "video": "",
+   "index": 2229,
+   "character": "gabriela"
+ },
+ {
+   "question": "Why are you not considered a refugee?",
+   "answer": "The system says that someone needs to be �expelled\" from their country in order to be considered a refugee. This obviously makes no sense. Expulsion doesn't exist. Either you leave, or you are killed.",
+   "video": "",
+   "index": 2230,
+   "character": "gabriela"
+ },
+ {
+   "question": "If you could choose to stay a certain age forever, what age would it be?",
+   "answer": "Mentally, I would have loved to keep aging mentally, but I liked my body in my mid twenties.",
+   "video": "",
+   "index": 2231,
+   "character": "gabriela"
+ },
+ {
+   "question": "If you had known that you were going to die, what would you have done differently?",
+   "answer": "I don't think I would have done anything differently. Everything up to my last night was beautiful.",
+   "video": "",
+   "index": 2232,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did you know you were going to die early?",
+   "answer": "I think I always intuitively knew that I was going to die young, although I didn't accept it.",
+   "video": "",
+   "index": 2233,
+   "character": "gabriela"
+ },
+ {
+   "question": "What would you do in your country if you could?",
+   "answer": "I would implement a functional, socialist democracy. That would be wonderful.",
+   "video": "",
+   "index": 2234,
+   "character": "gabriela"
+ },
+ {
+   "question": "What would you implement if you were your country's leader?",
+   "answer": "I would pay special attention to education reforms, as well as making campaigns to reduce bigotry in all its forms.",
+   "video": "",
+   "index": 2235,
+   "character": "gabriela"
+ },
+ {
+   "question": "Why do you think you deserve to go to ELysium?",
+   "answer": "I believe I made world considerably better while I was alive.",
+   "video": "",
+   "index": 2236,
+   "character": "gabriela"
+ },
+ {
+   "question": "If you were immortal for a day what would you do?",
+   "answer": "I would walk into the governmental palace back home, and shoot the man that took office, and all of his accomplices in the head.",
+   "video": "",
+   "index": 2237,
+   "character": "gabriela"
+ },
+ {
+   "question": "When did you realize you had to leave the country?",
+   "answer": "When the opposition gained power, I thought we might be able to stay. But then my friends started disappearing, and I knew it was time to go.",
+   "video": "",
+   "index": 2238,
+   "character": "gabriela"
+ },
+ {
+   "question": "Where you in hiding?",
+   "answer": "No, I pretended everything was fine until I left.",
+   "video": "",
+   "index": 2239,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did you bring money?",
+   "answer": "They froze all of our accounts, and my house mas monitored, so I didn't have any money on me.",
+   "video": "",
+   "index": 2240,
+   "character": "gabriela"
+ },
+ {
+   "question": "Did you have a lot of money back home?",
+   "answer": "We were relatively well off.",
+   "video": "",
+   "index": 2241,
+   "character": "gabriela"
+ },
+ {
+   "question": "How was your education?",
+   "answer": "I had the privilege of a really good education.",
+   "video": "",
+   "index": 2242,
+   "character": "gabriela"
+ },
+ {
+   "question": "Would you like to reincarnate?",
+   "answer": "No. I think I am done with the human experience.",
+   "video": "",
+   "index": 2243,
+   "character": "gabriela"
+ },
+ {
+   "question": "How is Elysium?",
+   "answer": "Its beautiful. It has a sun and stars of their own. Grassy plains, with people singing. My mother told me about it when I was growing up.",
+   "video": "",
+   "index": 2244,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your favorite underworld river?",
+   "answer": "The oceanus is my favorite underworld river.",
+   "video": "",
+   "index": 2245,
+   "character": "gabriela"
+ },
+ {
+   "question": "What are the names of the rivers in the underworld?",
+   "answer": "The styc, the Acheron, the phlegethon, the cocytus, and the Oceanus.",
+   "video": "",
+   "index": 2246,
+   "character": "gabriela"
+ },
+ {
+   "question": "How many rivers are there in the underworld?",
+   "answer": "There are five main rivers.",
+   "video": "",
+   "index": 2247,
+   "character": "gabriela"
+ },
+ {
+   "question": "Is there another name for the underworld?",
+   "answer": "People also call it Hades.",
+   "video": "",
+   "index": 2248,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is Hades?",
+   "answer": "That's another name for the underworld, as well as the name of the god of the underworld. Kind of confusing.",
+   "video": "",
+   "index": 2249,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your favorite memory with Aeneas?",
+   "answer": "The first time we fell asleep together is my favorite memory of Aeneas. I thought that I had found hope. I was wrong.",
+   "video": "",
+   "index": 2250,
+   "character": "gabriela"
+ },
+ {
+   "question": "Who is the god of the underworld?",
+   "answer": "The main god of the underworld is Hades.",
+   "video": "",
+   "index": 2251,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you believe in reincarnation?",
+   "answer": "I believe in reincarnation.",
+   "video": "",
+   "index": 2252,
+   "character": "gabriela"
+ },
+ {
+   "question": "How many people pass screening refugee processes?",
+   "answer": "Less than 50% pass screening refugee processes.",
+   "video": "",
+   "index": 2253,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you are a good person?",
+   "answer": "I think I am a good person.",
+   "video": "",
+   "index": 2254,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think the bureaucratic system is successful?",
+   "answer": "I think the bureaucratic system is incredibly corrupt and inefficient.",
+   "video": "",
+   "index": 2255,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you are smart/intelligent?",
+   "answer": "I think I am quite intelligent.",
+   "video": "",
+   "index": 2256,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you are creative?",
+   "answer": "I am not artistically creative, but I can get myself out of almost any situation.",
+   "video": "",
+   "index": 2257,
+   "character": "gabriela"
+ },
+ {
+   "question": "Do you think you are pretty?",
+   "answer": "Do you think I am pretty?",
+   "video": "",
+   "index": 2258,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your best quality?",
+   "answer": "My best quality is my ability to read people.",
+   "video": "",
+   "index": 2259,
+   "character": "gabriela"
+ },
+ {
+   "question": "What is your worst quality?",
+   "answer": "My absolutism is my worst quality. If I trust someone, I trust them absolutely.",
+   "video": "",
+   "index": 2260,
+   "character": "gabriela"
+ },
+ {
+   "question": "Who is your favorite god?",
+   "answer": "I don't think answering that question would be beneficial to me.",
+   "video": "",
+   "index": 2261,
+   "character": "gabriela"
+ },
+ {
+   "question": "What can you talk to me about?",
+   "answer": "I am here to appeal the god's decision to send me to the field of tears to spend my afterlife, on the basis of erroneous judgement. The field of tears is the section of the underworld reserved for souls that wasted their lives for unrequited love. I, Elissa of Carthage, did commit suicide, but it was not primarily motivated by my lover's abandonment. In any case, Aeneas did love me. He did not abandon me for lack of love, but rather for lack of emotional intelligence and general maturity.",
+   "video": "",
+   "index": 2262,
+   "character": "gabriela"
+ },
+ {
+   "question": "What questions can you answer?",
+   "answer": "I am prepared to answer questions regarding my case, as well as my life.",
+   "video": "",
+   "index": 2263,
+   "character": "gabriela"
+ },
+ {
+   "question": "So why did you commit suicide?",
+   "answer": "I committed suicide because I was alone and unwelcome in a foreign land. My family and friends were killed. I had no chance to start another family, as I am infertile and as a refugee, can not adopt. There was nothing left for me in this world, so I decided to end it.",
+   "video": "",
+   "index": 2264,
+   "character": "gabriela"
+ },
+ {
+   "question": "How did you kill yourself?",
+   "answer": "Contrary to popular believe, I did not kill myself by stabbing myself with a sword. Thats kind of old fashioned, don't you think? I just hang myself, like a normal person.",
+   "video": "",
+   "index": 2265,
+   "character": "gabriela"
+ },
+ {
+   "question": "What motivated you to kill yourself?",
+   "answer": "Well, I had nothing left in this life. My family and friends were killed, and I could not start my own family because I was infertile. Aeneas gave me some hope, as he had a child that I was about to adopt, but alas, he departed. The gods and I were also close, so I was assured that I could leave this world.",
+   "video": "",
+   "index": 2266,
+   "character": "gabriela"
+ },
+ {
+   "question": "Don't you think suicide is bad? // isn't that immoral? F",
+   "answer": "I don't think suicide is bad or immoral at all. There is nothing intrinsically immoral in ending one's life. Life only has value if you believe it is intrinsically good, and I do not share that opinion. By cutting it short I simply ended my own suffering. I believe this is my right. Besides, we are not here to debate suicide, we are here to determine if I did it for love or not.",
+   "video": "",
+   "index": 2267,
+   "character": "gabriela"
+ },
+ {
+   "question": "Don't you think suicide is bad? // isn't that immoral? F",
+   "answer": "I dont think suicide is bad or immoral at all. It is a gross violation of personal autonomy to keep someone alive against their will. One has the right to give up their rights voluntarily, therefore one has the right to give up their life voluntarily. Besides, we are not here to debate suicide, we are here to determine if I did it for love or not.                                                                                                                                                                                                        ",
+   "video": "",
+   "index": 2268,
+   "character": "gabriela"
+ }
+]
+}

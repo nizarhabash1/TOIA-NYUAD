@@ -1,0 +1,19 @@
+{
+   "selector": {
+      "index": {
+         "$gte": 0
+      }
+   },
+   "fields": [
+      "_id",
+      "_rev",
+      "index",
+      "question",
+      "answer"
+   ],
+   "sort": [
+      {
+         "index": "asc"
+      }
+   ]
+}

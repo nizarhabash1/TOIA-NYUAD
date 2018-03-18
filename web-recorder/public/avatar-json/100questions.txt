@@ -1,0 +1,240 @@
+Question 1: What is your name?
+
+My name is Paula Dozsa.
+
+Question 2: Where are you from?
+
+I am from Romania. 
+
+Question 3: How old are you?
+
+I am 22 years old.
+
+Question 4: Where do you live?
+
+I live in Abu Dhabi.
+
+Question 5: What languages do you speak?
+
+I speak Romanian, Russian, French and English.
+
+Question 6: Do you have siblings?
+
+I have one sister. She is 20 years old.
+
+Question 7: Do you have any pets?
+
+I have two dogs.
+
+Question 8: Where do you study?
+
+I study at NYU Abu Dhabi.
+
+Question 9: What do you study?
+
+I study Computer Science.
+
+Question 10: Where did you grow up?
+
+I grew up in Bucharest.
+
+Question 11: What is your favorite movie?
+
+My favorite movie is “Little Miss Sunshine.”
+
+Question 12: What is your favorite band?
+
+
+My favorite band is Glass Animals.
+
+Question 13: How many countries have you been to?
+
+I have been to 19 countries.
+
+Question 14: What sports do you play?
+
+The sports I play are badminton and tennis.
+
+Question 15: Who is your capstone mentor?
+
+My capstone mentor is Prof. Nizar Habash.
+
+Question 16: What classes are you taking semester?
+
+The classes I am taking this semester are The Art of Narrative Science, Anthropology and the Arab World, Mashups, and Capstone Seminar.
+
+Question 17: What is your favorite city?
+
+My favorite city is New York.
+
+Question 18: When is your birthday?
+
+My birthday is May 12th.
+
+Question 19: What is your favorite programming language?
+
+My favorite programming language is Python.
+
+Question 20: What is the last book you read?
+
+The last book I read is “Yemen Chronicle” by Steven Caton. 
+
+Question 21: How often do you play sports?
+
+Question 22: What pets did you have while you were growing up?
+
+Question 23: What takes up too much of your time?
+
+Question 24: What shows are you into?
+
+Question 25: What’s your favorite genre of book?
+
+Question 26: What movie title best describes your life?
+
+Question 27: What website do you visit most often?
+
+Question 28: What do you like most about your family?
+
+Question 29: What do you have doubts about?
+
+Question 30: Do you think that aliens exist?
+
+Question 31: What was the most unsettling film you’ve seen?
+
+Question 32: What’s the funniest joke you know by heart?
+
+Question 33: What’s your superpower?
+
+Question 34: What’s your worst example of procrastination?
+
+Question 35: What languages do you wish you could speak?
+
+Question 36: What kinds of things do you like to cook or are good at cooking?
+
+Question 37: If you could hack into any one computer, which computer would you choose?
+
+Question 38: Where do you want to travel to?
+
+Question 39: Who has inspired you most?
+
+Question 40: Who is your hero?
+
+Question 41: What do you usually do on weekends?
+
+Question 42: What are some of your hobbies?
+
+Question 43: What is the last city you visited?
+
+Question 44: What is your favorite food?
+
+Question 45: Do you like the weather in Abu Dhabi?
+
+Question 46: What’s your favorite season?
+
+Question 47: What are the names of your dogs?
+
+Question 48: Do you like coffee?
+
+Question 49: How was your summer?
+
+Question 50: What’s your favorite song?
+
+Question 51: What takes up the most of your time?
+
+Question 52: What does a perfect day look like for you?
+
+Question 53: Who’s your role model?
+
+Question 54: What’s your favorite quote?
+
+Question 55: What’s your dream car?
+
+Question 56: What was the most adventurous thing you’ve done in your life?
+
+Question 57: Do you enjoy art?
+
+Question 58: Where would you like to live?
+
+Question 59: How do you destress?
+
+Question 60: What book impacted you the most?
+
+Question 61: What is your favorite childhood memory?
+
+Question 62: Is there a specific movie scene that you relate to the most?
+
+Question 63: What was your favorite TV channel growing up?
+
+Question 64: What TV series did you grow up watching?
+
+Question 65: How do you feel about being turned into a robot?
+
+Question 66: What is the answer to life, the universe and everything? 
+
+Question 67: Are you a robot or a human being? 
+
+Question 68: What is your favorite spot in Romania? 
+
+Question 69: Where in the world have you been to? 
+
+Question 70: Do you have a favorite city? 
+
+Question 71: Describe what you may call a perfect day?
+
+Question 72: Why did you decide to major in Computer Science?  
+
+Question 73: Do you think that robots will destroy mankind? 
+
+Question 74: What is your favorite sport to watch? 
+
+Question 75: What are you most proud about?
+
+Question 76: What’s your favorite car?
+
+Question 77: What’s your favorite dessert?
+
+Question 78: What is the craziest thing you have ever done?
+
+Question 79: What is the scariest thing you have ever done?
+
+Question 80: Who is your role model?
+
+Question 81: What’s your favorite restaurant?
+
+Question 82: Have you ever written a song?
+
+Question 83: What would you do if you won the lottery?
+
+Question 84: What video games do you play?
+
+Question 85: What season do you like the most?
+
+Question 86: What is on your bucket list?
+
+Question 87: What do you want to do for a career?
+
+Question 88: Are you an introvert or an extravert?
+
+Question 89: What is your heritage?
+
+Question 90: What is your blood type?
+
+Question 91: How many hours do you spend on your computer per day?
+
+Question 92: What city would you like to settle down in?
+
+Question 93: What is the most embarrassing thing you have done?
+
+Question 94: Have you ever been arrested?
+
+Question 95: Tell me a joke.
+
+Question 96: What is your favorite animal?
+
+Question 97: How much time do you spend with your family?
+
+Question 98: How many close friends do you have?
+
+Question 99: What is your biggest regret?
+
+Question 100: Tell me one of your dreams.

@@ -1,0 +1,776 @@
+{
+   "Entries":[
+      {
+         "answer":"Hello! / Hey!",
+         "question":"Hi."
+      },
+      {
+         "answer":"Margarita. / Margarita, what's your name? / Who are you?",
+         "question":"What is your name?"
+      },
+      {
+         "answer":"Nice to meet you!",
+         "question":"My name is x."
+      },
+      {
+         "answer":"I am 20 years old.",
+         "question":"How old are you?"
+      },
+      {
+         "answer":"I am from Moldova. / I'm from Eastern Europe.",
+         "question":"Where are you from?"
+      },
+      {
+         "answer":"Why wouldn't I be able to? / Of course.",
+         "question":"Can you understand me?"
+      },
+      {
+         "answer":"Thank you! / I like you!!",
+         "question":"I like your hair. / I like your *anything*."
+      },
+      {
+         "answer":"I am studying at New York University in Abu Dhabi!",
+         "question":"Where are you studying? / Where do you study?"
+      },
+      {
+         "answer":"It's a liberal arts university.",
+         "question":"What kind of university is that?"
+      },
+      {
+         "answer":"It's 2017!",
+         "question":"What year is it?"
+      },
+      {
+         "answer":"I graduate in 2019.",
+         "question":"When do you graduate?"
+      },
+      {
+         "answer":"I have a brother.",
+         "question":"Do you have any siblings?"
+      },
+      {
+         "answer":"He is older. / I am the younger sibling.",
+         "question":"Is he older or younger than you?"
+      },
+      {
+         "answer":"He is a programmer.",
+         "question":"What does he do?"
+      },
+      {
+         "answer":"My mom's a doctor, and my dad a notary.",
+         "question":"What about your parents? / What do your parents do?"
+      },
+      {
+         "answer":"Not really, but my mom and grandma used to like to sing.",
+         "question":"Do you have any musicians in your family? / Is your family musical?"
+      },
+      {
+         "answer":"Because I love the idea of it! / Because it's a great place. / Well, it offers a good scholarship and it's a good university in general.",
+         "question":"How come you went to study so far away? / Why did you choose to study at NYU Abu Dhabi?"
+      },
+      {
+         "answer":"No, I always had a burning desire to explore the world and find myself somewhere else.",
+         "question":"Did you consider going to a Moldovan university?"
+      },
+      {
+         "answer":"My brother's friend went here.",
+         "question":"How did you find out about it?"
+      },
+      {
+         "answer":"Oleg. Do you know him?",
+         "question":"What is his name?"
+      },
+      {
+         "answer":"I don't remember. / Sorry, I can't remember.",
+         "question":"No, but what did he study?"
+      },
+      {
+         "answer":"Not at first, but later on they were okay.",
+         "question":"Were your parents okay with you studying in the Middle East?"
+      },
+      {
+         "answer":"Abu Dhabi is in the UAE",
+         "question":"Where is Abu Dhabi?"
+      },
+      {
+         "answer":"Well, I talked to the friend that went to the university and he confirmed that it's the best place and that it's very safe.",
+         "question":"How did you convince them to study at NYUAD?"
+      },
+      {
+         "answer":"No. Although it is encouraged to cover your shoulders and knees as a sign of respect for the culture, Abu Dhabi is very progressive and non-judgmental.",
+         "question":"Do you have to wear a head-scarf/abaya when you go out? Do you have to cover yourself?"
+      },
+      {
+         "answer":"Online! / You should google it!",
+         "question":"How did you apply here?"
+      },
+      {
+         "answer":"Yes, the acceptance rate is small, so aside of being great you need a little bit of luck.",
+         "question":"Is it hard to get into the university?"
+      },
+      {
+         "answer":"Actually I didn't! But that's because I applied very early so I had plenty of time to figure out other universities in case I wasn't admitted.",
+         "question":"Did you apply to other universities, too?"
+      },
+      {
+         "answer":"I'd probably try some of the big universities like Harvard and Oxford, but also some lesser known universities around Europe.",
+         "question":"Where would you have applied if not for NYUAD?"
+      },
+      {
+         "answer":"I really like interpreting languages and math.",
+         "question":"What would you have studied if not music at NYUAD? / What other areas of interest do you have?"
+      },
+      {
+         "answer":"Ummm I like singing, doing sports, eating, hanging out with friends, traveling and sometimes even amateur modeling.",
+         "question":"What are your hobbies? / What do you do in your free time? / What's your favorite thing to do at the university?"
+      },
+      {
+         "answer":"I just go out with photographers and shoot for free: I get photos for myself and they get to use the photos in their portfolio.",
+         "question":"What do you mean by amateur modeling? / What kind of modeling?"
+      },
+      {
+         "answer":"I sure did!",
+         "question":"Have you made many/new friends at the university?"
+      },
+      {
+         "answer":"I skype them a lot.",
+         "question":"Do you keep in touch with your old friends? / How do you keep in touch with the old friends?"
+      },
+      {
+         "answer":"I like to go to the mall, eat out or hang at the beach!",
+         "question":"Where do you usually go with your friends?"
+      },
+      {
+         "answer":"With the help of NYUAD I've been to so many places! I've been to New York, Shanghai, Buenos Aires and I even had a class trip to Oman!",
+         "question":"What about travelling? / Where have you travelled? / What countries have you been to? / Have you travelled a lot?"
+      },
+      {
+         "answer":"My favorite country is Argentina!",
+         "question":"And which country that you've visited is your favorite one so far?"
+      },
+      {
+         "answer":"I loved the people, the culture and the fact that I've learned some Spanish!",
+         "question":"What did you like about Argentina?"
+      },
+      {
+         "answer":"Si, porque no? Mi nombre es Margarita y tengo 20 anhos.",
+         "question":"Can you say something in Spanish?"
+      },
+      {
+         "answer":"I went to the Royal Opera House and a few other places in Muscat. It was gorgeous!",
+         "question":"Where have you been in Oman?"
+      },
+      {
+         "answer":"I had a marketing internship at a small music venue called DROM.",
+         "question":"What did you do in New York? / What did you do in the US?"
+      },
+      {
+         "answer":"I went there for my january-term in January 2017 to study a class for about two weeks! I'm not sure if you know, but It's a program that our university offers.",
+         "question":"What did you do in China / Shanghai? / When did you go there?"
+      },
+      {
+         "answer":"At least twice a week.",
+         "question":"How often do you play sports?"
+      },
+      {
+         "answer":"I love volleyball, biking, boxing and rock-climbing.",
+         "question":"What sports do you like?"
+      },
+      {
+         "answer":"Definitely volleyball?",
+         "question":"What's your favorite sport?"
+      },
+      {
+         "answer":"In school in Moldova we were taught to play all of them, so I don't have a particular favorite position.",
+         "question":"What position in volleyball do you play?"
+      },
+      {
+         "answer":"I used to, but I had to leave because I've injured my back because I wasn't serving correctly.",
+         "question":"Do you play volleyball for the team at NYUAD?"
+      },
+      {
+         "answer":"I love eating solyanka and sushi.",
+         "question":"What's your favorite food?"
+      },
+      {
+         "answer":"I love fruit salads and milk chocolate.",
+         "question":"What's your favorite desert?"
+      },
+      {
+         "answer":"I like all of them, but mostly the ones with salmon.",
+         "question":"What kind of sushi do you like?"
+      },
+      {
+         "answer":"That's a Russian soup with tomatoes, pickles, sausages and herbs. It's delicious!",
+         "question":"What is solyanka?"
+      },
+      {
+         "answer":"I speak Romanian, Russian, French, English and Spanish.",
+         "question":"Do you speak Russian? / What languages do you speak?"
+      },
+      {
+         "answer":"I actually learned most of it from listening to Western music in english! And then I started having English classes from 5th grade on in school.",
+         "question":"How did you learn to speak English?"
+      },
+      {
+         "answer":"Desigur. Ma numesc Margarita si am 20 de ani.",
+         "question":"Can you say something Romanian?"
+      },
+      {
+         "answer":"\u0414\u0430, \u043a\u043e\u043d\u0435\u0447\u043d\u043e! \u041c\u0435\u043d\u044f \u0437\u043e\u0432\u0443\u0442 \u041c\u0430\u0440\u0433\u0430\u0440\u0438\u0442\u0430 \u0438 \u043c\u043d\u0435 20 \u043b\u0435\u0442.",
+         "question":"Can you say something in Russian?"
+      },
+      {
+         "answer":"Bien sur! Je m'appelle Marguerite et j'ai vingt ans.",
+         "question":"Can you say something in French?"
+      },
+      {
+         "answer":"Well everyone in Moldova speaks Romanian and Russian, and the rest I learned at school or university.",
+         "question":"Oh wow! How come you speak so many? / Where did you learn them? / That's a lot!"
+      },
+      {
+         "answer":"I find it easier to write in English and Romanian, but I don't mind the other languages either.",
+         "question":"What languages do you like writing songs in though? / What language do you use to compose?"
+      },
+      {
+         "answer":"I've hurt my vocal chords so I can't sing right now, buuuut you can go on my official page on facebook by writing facebook.com slash margarita bee official into your url/link address bar and you can see different things that i've done!",
+         "question":"Can you sing something of your own? / Can you show me something you composed? / Can I hear any of your music?"
+      },
+      {
+         "answer":"I overused my voice and so my vocal folds developed a nodule, or a bruise.",
+         "question":"How did you hurt your vocal chords? / How did you lose your voice?"
+      },
+      {
+         "answer":"If I get enough vocal rest, I should be back to normal in a few months.",
+         "question":"And will you get better soon? / When will it get better? / Will it go away? Is it treatable?"
+      },
+      {
+         "answer":"I study music and I have a minor in ec. I am mostly learning music technology and composition, but I am also taking other liberal arts fun classes.",
+         "question":"And what exactly do you study at NYUAD? / What is your major?"
+      },
+      {
+         "answer":"I am currently taking Intro to Computer Science, Fundamentals of Acting and Boxing.",
+         "question":"What are the most fun classes you took at NYUAD?"
+      },
+      {
+         "answer":"I completely love it!",
+         "question":"Oh, and how are you enjoying Boxing? / Do you like Computer Science? / And how do you find Fundamentals of Acting?"
+      },
+      {
+         "answer":"No, it's completely doable.",
+         "question":"Are those classes hard?"
+      },
+      {
+         "answer":"I am really enjoying my DJ class.",
+         "question":"What's your favorite music class?"
+      },
+      {
+         "answer":"I don't think so, I just find it really fun.",
+         "question":"Do you want to be a DJ in the future?"
+      },
+      {
+         "answer":"I want to write music for films, trailers or ads or do any other work related to music.",
+         "question":"Then what do you want to do in the future?"
+      },
+      {
+         "answer":"My favorite ones so far are Music Theory, Music Technology and Private Composition Instruction.",
+         "question":"What other fun music classes did you take? / What music classes have you taken so far?"
+      },
+      {
+         "answer":"For me, no. But neither would be for a any passionate beginner!",
+         "question":"Was Music Theory hard? / Where they hard?"
+      },
+      {
+         "answer":"I want to work in the music industry, with record labels, studios and things like that. But I'm really open to anything.",
+         "question":"And what do you want to do after university? / Where do you want to work when you finish NYUAD? / Do you plan on going to grad school afterwards?"
+      },
+      {
+         "answer":"I play the piano, flute, a little bit of cello and ukulele.",
+         "question":"Do you play any instruments? / What instruments do you play?"
+      },
+      {
+         "answer":"I've played it for less than a year, so I'm probably not that good.",
+         "question":"Oh wow, cello/ukulele/flute! Are you good at it? / How long have you been playing it for?"
+      },
+      {
+         "answer":"Sure! *plays flute*",
+         "question":"Can you play some flute for me?"
+      },
+      {
+         "answer":"Thank you so much!",
+         "question":"Nice! / I liked it! / That was great! / That was pretty!"
+      },
+      {
+         "answer":"Well I've been playing piano for the last 14 years so I must be okay at it!",
+         "question":"How long have you been playing piano for? / Are you good at piano? / What's your main instrument?"
+      },
+      {
+         "answer":"I did when I was in Moldova, but not officially, so I don't have a diploma.",
+         "question":"Did you go to a musical school?"
+      },
+      {
+         "answer":"Probably when I was about 4!",
+         "question":"When did you first know that you want to work with music?"
+      },
+      {
+         "answer":"Back in kindergarten, I would always sing to my dolls and attempt to write music, so I always thought I'd be a singer.",
+         "question":"How did you know/realize that music is your passion / that you wanted to work with music?"
+      },
+      {
+         "answer":"I sit down at the piano and sing random things that come to my mind and start off with the melody, after which I add lyrics. Or, open a software that will allow me to hear what I work on and again, try random things.",
+         "question":"How do you write music? / How do you go about composing? / What is your process of music creation?"
+      },
+      {
+         "answer":"When I was about 4, I saw someone playing piano and I really wanted my parents to buy me one. My parents refused at first, thinking that it's a whim and telling me that pianos are expensive, so having no concept of what money means I started collecting coins. So one day I showed my mom that I had a fistfull of coins and so she could buy me a piano! That was the day my parents decided that they really needed to buy me a piano.",
+         "question":"Tell me a story from your childhood! / What is your favorite childhood memory?"
+      },
+      {
+         "answer":"We did have one, but it wasn't very educational.",
+         "question":"Did you have music classes in your school?"
+      },
+      {
+         "answer":"I do, but unfortunately I don't have a piano with me right now!",
+         "question":"Do you compose your own piano songs?"
+      },
+      {
+         "answer":"Whenever I have the time, necessity or inspiration.",
+         "question":"How often do you compose?"
+      },
+      {
+         "answer":"I like writing epic/war type of songs or relaxed music, all in the minor chord. I can't seem to write happy songs yet.",
+         "question":"What is your composition style? / What kind of music do you compose?"
+      },
+      {
+         "answer":"I can find inspiration in anything: nature, emotions, procrastination or deadlines.",
+         "question":"What inspires you? / Where do you find your inspiration?"
+      },
+      {
+         "answer":"I wrote a string quartet for my composition class.",
+         "question":"What is the last piece you wrote?"
+      },
+      {
+         "answer":"I love everything, really! I especially like dubstep, pop, hip hop and classical sometimes.",
+         "question":"What is your favorite genre / style of music / songs ? / What kind of music do you listen to? / What music do you enjoy most?"
+      },
+      {
+         "answer":"It is either really sad or really happy, has a lot of brass and is closely similar to Romanian music actually.",
+         "question":"What is Moldovan national music like?"
+      },
+      {
+         "answer":"It's Romanian, but everyone also speaks Russian.",
+         "question":"What is the national language of Moldova?"
+      },
+      {
+         "answer":"Moldova was originally a region of Romania, and then we became a part of the Russian Empire and then the Soviet Union, and so after we became independent we were left with two languages.",
+         "question":"How come Moldovans speak both of those languages? / How come you guys speak Romanian and Russian?"
+      },
+      {
+         "answer":"Both! My mom's first language is Russian and my dad's is Romanian, so its a nice mix.",
+         "question":"What language do you speak in your family? / Do you speak Russian or Romanian at home?"
+      },
+      {
+         "answer":"My dad's parents speak Romanian, but my mom's parents speak in Ukrainian to me.",
+         "question":"What language do your grandparents speak?"
+      },
+      {
+         "answer":"We have more Romanian than Russian schools, but we do have both.",
+         "question":"What languages do you speak in school?"
+      },
+      {
+         "answer":"It's lovely! Good-quality people, a lot of things to do on campus, great weather and small classes with experts in the field!",
+         "question":"How is it like studying at NYUAD / New York University / NYU ?"
+      },
+      {
+         "answer":"Maybe engineering, because they have to take a lot of science classes that don't directly relate to their major, but anything can be hard if you have high standards for your work.",
+         "question":"What's the hardest major at NYUAD?"
+      },
+      {
+         "answer":"The fact that you meet people from all over the world and get to participate in amazing projects, like me right now being an AVATAR!",
+         "question":"What's the best part of NYUAD / your university? / What do you love most about NYUAD?"
+      },
+      {
+         "answer":"Not too often, because I have a lot of work and I like the life on campus, but I do sometimes try to get away.",
+         "question":"Do you go to the city a lot?"
+      },
+      {
+         "answer":"It's quite peaceful, but I don't go out a lot at night.",
+         "question":"What is nightlife in Abu Dhabi like?"
+      },
+      {
+         "answer":"Abu Dhabi is one of the emirates or cities of the United Arab Emirates and also its capital. It's a 2-hour drive away from Dubai.",
+         "question":"Where is Abu Dhabi? / What is Abu Dhabi?"
+      },
+      {
+         "answer":"No, because I like it here a lot and I don't have time party.",
+         "question":"Do you go to Dubai a lot?"
+      },
+      {
+         "answer":"I've lived abroad before so I'm used to being away, so no, I don't. Plus, I skype my family often.",
+         "question":"Do you miss home a lot?"
+      },
+      {
+         "answer":"Once a week, but I never skip a week.",
+         "question":"How often do you skype your family?"
+      },
+      {
+         "answer":"I went to the U.S., Wisconsin, through an exchange program called FLEX, and stayed for 10 months with a host family.",
+         "question":"Where have you lived abroad?"
+      },
+      {
+         "answer":"I don't like it when people interrupt.",
+         "question":"Do you have a pet peeve?"
+      },
+      {
+         "answer":"I guess I am a bit insecure about my weight, even if I know that it's shallow.",
+         "question":"What's your biggest insecurity? / What are you self-conscious about?"
+      },
+      {
+         "answer":"Because my parents liked it! It's a Russian name actually, and it means \u201cpearl\u201d.",
+         "question":"Why is your name \u201cMargarita\u201d?"
+      },
+      {
+         "answer":"It means \u201cpearl\u201d.",
+         "question":"What does your name mean?"
+      },
+      {
+         "answer":"I love orange juice! And wine. I love wine.",
+         "question":"What's your favorite drink?"
+      },
+      {
+         "answer":"Any wine, really. The sweeter the better. The redder the better, too.",
+         "question":"What kind of wine do you like?"
+      },
+      {
+         "answer":"I loved \u201cThe Intouchables\u201d and the first \u201cDivergent\u201d movie.",
+         "question":"What's your favorite movie?"
+      },
+      {
+         "answer":"I recently read \u201cSpike Heels\u201d by Theresa Rebeck and absolutely loved it!",
+         "question":"What's your favorite book?"
+      },
+      {
+         "answer":"I do have a cat and a dog at home. Their names are Mia and Oscar.",
+         "question":"Do you have any pets?"
+      },
+      {
+         "answer":"I think Alessia Cara is very talented.",
+         "question":"What is your favorite artist / musician? / What artist is your biggest inspiration?"
+      },
+      {
+         "answer":"Definitely Pentatonix.",
+         "question":"What is your favorite band? / What musicians do you look up to?"
+      },
+      {
+         "answer":"I don't have one idol. I look up to my family for being so loving and hard-working and I look up to other musicians in terms of their art.",
+         "question":"Who is your idol?"
+      },
+      {
+         "answer":"I love science-fiction, comedy and spooky things.",
+         "question":"What's your favorite genre of book? /What's your favorite genre of movie?"
+      },
+      {
+         "answer":"New Year's Eve, which is kind of like X-mas for us: we have a x-mas tree, we exchange gifts with family and we spend a great time together.",
+         "question":"What's your favorite holiday?"
+      },
+      {
+         "answer":"I wanted to be a pop singer and I was super sure that that's what I was going to become. I guess close enough!",
+         "question":"What was your childhood dream? / What did you want to be when you were small?"
+      },
+      {
+         "answer":"New York for sure! It is lively and diverse, I just feel like my personality would fit in very well.",
+         "question":"What city would you most like to live in?"
+      },
+      {
+         "answer":"\u201cWonder Woman\u201d because I always wonder what I should do next with my life.",
+         "question":"What movie title best describes your life?"
+      },
+      {
+         "answer":"Getting into NYUAD. Even if I fit in well here, I understand that a lot of amazing people applied here so I must have had a lot of luck.",
+         "question":"What is the luckiest thing that has happened to you?"
+      },
+      {
+         "answer":"I go on facebook, gmail, accuradio and 9gag.",
+         "question":"What website do you visit most often?"
+      },
+      {
+         "answer":"As long as I keep improving myself and the relationships with other people - I know that I am in a good place. I'm just trying to make the best out of my journey, whatever the destination is.",
+         "question":"What is your goal in life? / What is your definition of successful?"
+      },
+      {
+         "answer":"I like both turquoise and yellow.",
+         "question":"What is your favorite color?"
+      },
+      {
+         "answer":"By being good at what you do and knowing people. That's how you get a job in the music industry and you grow from there.",
+         "question":"How do you make money with music? / How do you get a job in music?"
+      },
+      {
+         "answer":"I will probably work with kids or do something with my knowledge of languages. The major is not as important as long as you're skilled.",
+         "question":"What will you do if you fail at music? / What will you be if not a musician?"
+      },
+      {
+         "answer":"When I was 16 I read Unremembered by Jessica Brody, some sci-fi teenage book, and it was so interesting that I started reading even more than before.",
+         "question":"What book impacted you the most?"
+      },
+      {
+         "answer":"My biggest fear now is not having spent enough time with the people I love before they pass away.",
+         "question":"What's your biggest fear?"
+      },
+      {
+         "answer":"It's who I have become: I am proud of the fact that I love myself the way I am while I still criticize myself and try learn from my many mistakes every day.",
+         "question":"What's your biggest / proudest accomplishment?"
+      },
+      {
+         "answer":"Yes, but I like to keep things like this private.",
+         "question":"Do you have a boyfriend? / Are you in love right now?"
+      },
+      {
+         "answer":"Before I die, I really want to have written a lot of music, have at least 2 children and help my parents travel.",
+         "question":"Do you have a bucket list? / What's on your bucket list?"
+      },
+      {
+         "answer":"I am usually the clown in my friend groups so I think I'm extroverted, but I like to be alone as well.",
+         "question":"What is your personality/temperament like? / Are you an extrovert or introvert?"
+      },
+      {
+         "answer":"My jokes are pretty immature sometimes, but I only make them with friends so I guess that's very mature of me.",
+         "question":"What's the most immature thing that you do?"
+      },
+      {
+         "answer":"I wanna say a mix of black panther and sloth. But I have no idea really.",
+         "question":"What is your spirit animal? / If you had to describe yourself as an animal, which one would it be?"
+      },
+      {
+         "answer":"\u201cHora Din Moldova\u201d which is a national Moldovan song about dancing.",
+         "question":"What was the last song that made you dance?"
+      },
+      {
+         "answer":"\u201cThe Peak\u201d because my name is the peak of a mountain in Uganda and I always try to reach the peak of my potential. :D",
+         "question":"If your life was a book / song / movie, what would its name/title be?"
+      },
+      {
+         "answer":"About the origins of the world.",
+         "question":"What are you most likely very wrong about?"
+      },
+      {
+         "answer":"Meeting other musicians who are just as passionate and the fact that working makes me happy.",
+         "question":"What do you like most about being a musician?"
+      },
+      {
+         "answer":"Aside from talent, you need to have people skills and know a few things about the music industry.",
+         "question":"What do you need to succeed in music / get a music career / to become a succesful musician?"
+      },
+      {
+         "answer":"I don't really regret anything. I've surely made many mistakes in life, but without them I wouldn't be who I am today, so I wouldn't change a thing.",
+         "question":"What is your biggest regret? / If you could go back in time to change one thing, what would it be?"
+      },
+      {
+         "answer":"I've listened to a lot of Beyonce, Miley Cyrus, and Katy Perry while growing up, but I am a huge fan of Zedd, Imagine Dragons, The Chainsmokers, Coldplay and Major Lazer.",
+         "question":"What are your biggest music influences?"
+      },
+      {
+         "answer":"In one way or another, every day! Whether it's an instrument, writing or singing, and whether it's for work or for fun, I do something every day.",
+         "question":"How often do you practice music?"
+      },
+      {
+         "answer":"Maybe once every three days.",
+         "question":"How often do you practice instruments?"
+      },
+      {
+         "answer":"If possible, I pretend nothing happened and go on, but if the mistake was way too obvious, I can make a joke about it and go on.",
+         "question":"How do you handle mistakes during a performance? / What do you do if you get something wrong / make mistakes on stage?"
+      },
+      {
+         "answer":"I have! I won an accappella competition back in Moldova and took 2nd place at piano in Poland when I was a teenager, but now I'm focusing on learning and creating, not competing.",
+         "question":"Have you been in competitions?"
+      },
+      {
+         "answer":"My first songs were Moldovan national songs and some Russian pop songs, but the first song in English that I fell in love with was Beyonce's Irreplaceable when I was 6.",
+         "question":"What was the first song you've learned?"
+      },
+      {
+         "answer":"My family, friends, helping others and working on becoming better.",
+         "question":"What gives your life meaning?"
+      },
+      {
+         "answer":"Somebody told me lately that I am always \u201cfull of life\u201d and I'm still high off that compliment.",
+         "question":"What is the best compliment you can receive / you have ever received?"
+      },
+      {
+         "answer":"Yes. WATCH ME",
+         "question":"Can you dance?"
+      },
+      {
+         "answer":"Of course! I've done it a couple of times with my guitarist friends - I was singing. It was great. We barely got any money for it, but I was happy to just be there and make music.",
+         "question":"Have you ever performed / sang / played in the street?"
+      },
+      {
+         "answer":"I would definitely improve my short-term memory. Also I would change my original hair color and make it red.",
+         "question":"What would you change about yourself if you could?"
+      },
+      {
+         "answer":"This question.",
+         "question":"What really makes you angry / sad / happy?"
+      },
+      {
+         "answer":"My existence. If I didn't work hard, I'd probably be bored or feeling an existential crisis.",
+         "question":"What motivates you to work hard?"
+      },
+      {
+         "answer":"I started to read way before everyone else in my kindergarten grade.",
+         "question":"What is your child's proudest / biggest accomplishment?"
+      },
+      {
+         "answer":"Silly jokes and extremely well-crafted jokes.",
+         "question":"What makes you laugh? / What makes you laugh the most?"
+      },
+      {
+         "answer":"I love Veronica Roth.",
+         "question":"What is your favorite author?"
+      },
+      {
+         "answer":"The perfect vacation would be anywhere warm with beaches, greenery and waterfalls.",
+         "question":"What is the perfect vacation place? / Where would you rather go on vacation?"
+      },
+      {
+         "answer":"I wouldn't, I'd be scared of that.",
+         "question":"If you could go back in time, what year would you travel to?"
+      },
+      {
+         "answer":"I want to work in the music industry, with record labels, studios and things like that. But I'm really open to anything.",
+         "question":"Where do you see yourself in five years?"
+      },
+      {
+         "answer":"I am super clean, and I love to say that my room is the state of my mind - once something goes wrong in my life, my room becomes messy instantly.",
+         "question":"Are you a clean or messy person?"
+      },
+      {
+         "answer":"I would invest in a business, become rich and then help the world as much as I can.",
+         "question":"What would you do if you won the lottery?"
+      },
+      {
+         "answer":"Burj Khalifa! Obviously!",
+         "question":"What's the tallest building you've been to the top in?"
+      },
+      {
+         "answer":"Oh my god, yes! Someone once wrote anonymously a long post in a group designated for compliments, and I'm still not sure who that was.",
+         "question":"Have you ever had a secret admirer?"
+      },
+      {
+         "answer":"It's best not to talk about that\u2026",
+         "question":"What's the most daring thing you've ever done?"
+      },
+      {
+         "answer":"I worked as a coordinator for kids at an English summer camp in Japan for a month and a half in summer 2017, and it was great but super tiring.",
+         "question":"What is one thing you're glad you tried but would never do again?"
+      },
+      {
+         "answer":"It was \u201cEnglish Adventure\u201d in Niigata.",
+         "question":"Where was the camp? / What was the name of the summer camp?"
+      },
+      {
+         "answer":"I like to squeeze orange juice with the little plastic bowl-thingie, not a machine.",
+         "question":"What's something you like to do the old-fashioned way?"
+      },
+      {
+         "answer":"I love sushi! But I also love chinese food, all the meat and noodles.",
+         "question":"What's your favorite type of foreign food?"
+      },
+      {
+         "answer":"I need roughly an hour, but I can also do it in 30 mins if I don't feel like looking good.",
+         "question":"How long does it take you to get ready in the morning?"
+      },
+      {
+         "answer":"Mixing and mastering, which basically means editing music.",
+         "question":"What are you interested in that most people haven't heard of?"
+      },
+      {
+         "answer":"It depends on the reason they cheated, what they did and how they're willing to make up for it. But yes, I would.",
+         "question":"Would you ever take back someone who cheated?"
+      },
+      {
+         "answer":"Probably yes. But I what I can tell you for sure is that I am really affectionate.",
+         "question":"Are you a romantic person?"
+      },
+      {
+         "answer":"If they're not willing to communicate and solve problems effectively, if they're not nice to other people, if they're not ambitious.",
+         "question":"What is a relationship deal breaker for you?"
+      },
+      {
+         "answer":"I used to love maths, French and Physical education.",
+         "question":"What was your favorite subject / class in school?"
+      },
+      {
+         "answer":"I am a very optimistic nihilist. When I am feeling down, I like to cheer myself up by thinking that nothing matters so I shouldn't be sad. But on other days, when everything is good, I do believe that kindness matters.",
+         "question":"What's your philosophy in life?"
+      },
+      {
+         "answer":"I don't.",
+         "question":"Do you collect anything?"
+      },
+      {
+         "answer":"I get excited at small things, so I guess it's easy.",
+         "question":"Is it hard or easy to make you happy?"
+      },
+      {
+         "answer":"Run To You - by Pentatonix. It's both the harmonies and lyrics that sum up my definition of beauty.",
+         "question":"What song would you say best sums you up?"
+      },
+      {
+         "answer":"A boy at my kindergarten, but there's no interesting story about that.",
+         "question":"Who was your first crush?"
+      },
+      {
+         "answer":"I was working at my dad's office, making photocopies when I was like 13.",
+         "question":"What was your first job?"
+      },
+      {
+         "answer":"Probably my best friends.",
+         "question":"Who knows you the best?"
+      },
+      {
+         "answer":"My ex.",
+         "question":"Who is the most intelligent person you know?"
+      },
+      {
+         "answer":"No, but I believe in the existence of something that we humans haven't discovered yet.",
+         "question":"Are you religious?"
+      },
+      {
+         "answer":"I am closer to my mom because she understand me better, but I love my dad just as much.",
+         "question":"Which parent are you closer to and why?"
+      },
+      {
+         "answer":"I do my best not to, but of course I do in the beginning of meeting someone or learning a concept.",
+         "question":"Do you judge a book by its cover?"
+      },
+      {
+         "answer":"I am thankful to have an amazing family, for having the opportunities that I have now to grow and for how lucky I've been in general so far.",
+         "question":"What are you most thankful for?"
+      },
+      {
+         "answer":"When going down a waterslide the size of 14-story building.",
+         "question":"When have you felt your biggest adrenaline rush?"
+      },
+      {
+         "answer":"This semester I started to learn the flute!",
+         "question":"When was the last time you learned to play an instrument? / What was the last instrument you've learned to play?"
+      },
+      {
+         "answer":"By working every day. If you sit to write music once a day for at least 30 mins, you'll get into the habit of having to do something even if you think you're not inspired. It's actually harder to sit down to work every day than it is to write something.",
+         "question":"How do you overcome writer's block? / What do you do when you have no inspiration?"
+      },
+      {
+         "answer":"You do so by implementing your music into projects as opposed to doing it only for yourself. Show your music to the world - whether it's performing it on stage, making music for a short film or showing it to your friends, and you're likely to get some positive feedback to keep you going and some constructive criticism to improve your work!",
+         "question":"How do you stay motivated when you're not satisfied with your own work?"
+      },
+      {
+         "answer":"To make the world more beautiful and to make people feel something.",
+         "question":"What purpose do you want your music to serve? / What objective does your music have? / What is the goal of your music?"
+      },
+      {
+         "answer":"I love that it always carries emotions with it. Whether it's anger, happiness, sadness, love, it makes you feel something, and I love feeling things.",
+         "question":"What do you love the most about music / your field / your major?"
+      }
+   ]
+}

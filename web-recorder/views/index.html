@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TOIA Recorder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="stylesheet" href="https://cdn.webrtc-experiment.com/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
+
+
+    <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+
+    <!-- for Edge/FF/Chrome/Opera/etc. getUserMedia support -->
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"> </script>
+
+    <!-- video element -->
+    <link href="https://cdn.webrtc-experiment.com/getHTMLMediaElement.css" rel="stylesheet">
+    <script src="https://cdn.webrtc-experiment.com/getHTMLMediaElement.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <!-- <script src="http://gregfranko.com/jquery.selectBoxIt.js/js/jquery.selectBoxIt.min.js"></script> -->
+</head>
+
+<body>
+    <div>
+        <header style="text-align: center;">
+            <h1>
+                Katarina TOIA Recording
+            </h1>
+        </header>
+        <div class="row">
+        <div class="col-sm-4" >
+            <div class = "left-column" id = "questionContainer"></div>
+<!--                 <ul size="10" class="question-column" id="left-container"></ul> -->
+              <div class="add-question-container">
+                <div>
+                  Question:<input type='text' id='new-question'/>
+                </div>
+                <div>
+                  Answer:<input type='text' id="new-answer"/>
+                </div>
+                <button id="add-question-button">Add New Question</button>
+              </div>
+
+        </div>
+        <div class="col-sm-8">
+
+        <section class="experiment recordrtc">
+            <h2 class="header" style="margin: 0;">
+                <select class="recording-media">
+                    <option value="record-audio-plus-video">Microphone+Camera</option>
+                    <option value="record-audio">Microphone</option>
+                    <option value="record-screen">Full Screen</option>
+                    <option value="record-audio-plus-screen">Microphone+Screen</option>
+                </select>
+
+<!--                 <span style="font-size: 15px;">into</span> -->
+
+                <select class="media-container-format">
+                    <option>default</option>
+                    <option>vp8</option>
+                    <option>vp9</option>
+                    <option>h264</option>
+                    <option>mkv</option>
+                    <option>opus</option>
+                    <option>ogg</option>
+                    <option>pcm</option>
+                    <option>gif</option>
+                    <option>whammy</option>
+                </select>
+                <div class="checkbox-timeslice">
+                    <input type="checkbox" id="chk-timeSlice" style="margin:0;width:auto;" title="Use intervals based recording">
+                    <label for="chk-timeSlice" style="font-size: 15px;margin:0;width: auto;cursor: pointer;-webkit-user-select:none;user-select:none;" title="Use intervals based recording">Use timeSlice?</label>
+                </div>
+            </h2>
+<!--                 <textarea rows="3" cols="100" type="text" id = "answer-box"></textarea> -->
+<!--                 <img src="icons/record.png" style="width:36px;height:36px;"> -->
+            <div class = "original-buttons">
+                <button id="btn-start-recording">Start Recording</button>
+
+                <button id="btn-pause-recording" style="display: none; font-size: 15px;">Pause</button>
+
+                <button id="replay-button">Replay</button>
+
+
+                <hr style="border-top: 0;
+/*                border-bottom: 1px solid rgb(189, 189, 189);*/
+                margin: 4px -12px;margin-top: 8px;">
+                <select class="media-resolutions">
+                    <option value="default">Default resolutions</option>
+                    <option value="1920x1080">1080p</option>
+                    <option value="1280x720">720p</option>
+                    <option value="640x480">480p</option>
+                    <option value="3840x2160">4K Ultra HD (3840x2160)</option>
+                </select>
+
+                <select class="media-framerates">
+                    <option value="default">Default framerates</option>
+                    <option value="5">5 fps</option>
+                    <option value="15">15 fps</option>
+                    <option value="24">24 fps</option>
+                    <option value="30">30 fps</option>
+                    <option value="60">60 fps</option>
+                </select>
+
+                <select class="media-bitrates">
+                    <option value="default">Default bitrates</option>
+                    <option value="8000000000">1 GB bps</option>
+                    <option value="800000000">100 MB bps</option>
+                    <option value="8000000">1 MB bps</option>
+                    <option value="800000">100 KB bps</option>
+                    <option value="8000">1 KB bps</option>
+                    <option value="800">100 Bytes bps</option>
+                </select>
+<!--             </h2> -->
+            </div>
+<!--             <button id="submit-button">Submit</button> -->
+            <div id = "streaming-container">
+<!--               <video id="gum" autoplay muted hwz="on"></video> -->
+              <img id = "recording-gif" src="https://cdn.webrtc-experiment.com/images/progress.gif">
+              <img id = "face-outline" src="icons/face-outline-white.png">
+
+            </div>
+            <div class="recorder-container" >
+                <div id="recording-player" ></div>
+
+
+            </div>
+
+            <div class="video-button-container">
+              <!-- video/recording buttons -->
+              <button class="video-button" id="record-button">
+                <img src="icons/record.png" class="video-button-image"> </button>
+              <button class="video-button initially-hidden-button" id="play-button">
+                <img src="icons/play.png" class="video-button-image"> </button>
+              <button class="video-button initially-hidden-button" id="pause-button">
+                <img src="icons/pause.png" class="video-button-image"> </button>
+              <button class="video-button initially-hidden-button" id="stop-button">
+                <img src="icons/stop.png" class="video-button-image"> </button>
+              <button class="video-button initially-hidden-button" id="download-button">
+                <img src="icons/download.png" class="video-button-image"> </button>
+            </div>
+
+
+            <div style="text-align: center; display: none;">
+                <button id="save-to-disk">Save To Disk</button>
+            </div>
+
+
+        </section>
+        </div>
+<!--         responding to the row container -->
+    </div>
+    <script src="camera.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore.js"></script>
+        <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="buttons-script.js"></script>
+        <script src="show-question.js"></script>
+        <script src="main.js"></script>
+        <script>
+      //Grab the response object var
+            var page = '<%=page%>';
+        </script>
+        <script>
+            (function() {
+                var params = {},
+                    r = /([^&=]+)=?([^&]*)/g;
+
+                function d(s) {
+                    return decodeURIComponent(s.replace(/\+/g, ' '));
+                }
+
+                var match, search = window.location.search;
+                while (match = r.exec(search.substring(1))) {
+                    params[d(match[1])] = d(match[2]);
+
+                    if(d(match[2]) === 'true' || d(match[2]) === 'false') {
+                        params[d(match[1])] = d(match[2]) === 'true' ? true : false;
+                    }
+                }
+
+                window.params = params;
+            })();
+
+            function addStreamStopListener(stream, callback) {
+                var streamEndedEvent = 'ended';
+
+                if ('oninactive' in stream) {
+                    streamEndedEvent = 'inactive';
+                }
+
+                stream.addEventListener(streamEndedEvent, function() {
+                    callback();
+                    callback = function() {};
+                }, false);
+
+                stream.getAudioTracks().forEach(function(track) {
+                    track.addEventListener(streamEndedEvent, function() {
+                        callback();
+                        callback = function() {};
+                    }, false);
+                });
+
+                stream.getVideoTracks().forEach(function(track) {
+                    track.addEventListener(streamEndedEvent, function() {
+                        callback();
+                        callback = function() {};
+                    }, false);
+                });
+            }
+        </script>
+
+
+
+        <script>
+            /* upload_youtube_video.js Copyright 2017 Google Inc. All Rights Reserved. */
+
+            function uploadToYouTube(fileName, recordRTC, callback) {
+                var blob = recordRTC instanceof Blob ? recordRTC : recordRTC.getBlob();
+
+                blob = new File([blob], getFileName(fileExtension), {
+                    type: mimeType
+                });
+
+                if(!uploadVideo) {
+                    alert('YouTube API are not available.');
+                    return;
+                }
+
+                uploadVideo.callback = callback;
+                uploadVideo.uploadFile(fileName, blob);
+            }
+
+            var uploadVideo;
+
+            var signinCallback = function (result){
+              if(result.access_token) {
+                uploadVideo = new UploadVideo();
+                uploadVideo.ready(result.access_token);
+
+                document.querySelector('#signinButton').style.display = 'none';
+              }
+              else {
+                // console.error('YouTube error', result);
+                // document.querySelector('#upload-to-youtube').style.display = 'none';
+              }
+            };
+
+            var STATUS_POLLING_INTERVAL_MILLIS = 60 * 1000; // One minute.
+
+            var UploadVideo = function() {
+              this.tags = ['recordrtc'];
+              this.categoryId = 28; // via: http://stackoverflow.com/a/35877512/552182
+              this.videoId = '';
+              this.uploadStartTime = 0;
+            };
+
+
+            UploadVideo.prototype.ready = function(accessToken) {
+              this.accessToken = accessToken;
+              this.gapi = gapi;
+              this.authenticated = true;
+              false && this.gapi.client.request({
+                path: '/youtube/v3/channels',
+                params: {
+                  part: 'snippet',
+                  mine: true
+                },
+                callback: function(response) {
+                  if (!response.error) {
+                    // response.items[0].snippet.title -- channel title
+                    // response.items[0].snippet.thumbnails.default.url -- channel thumbnail
+                  }
+                }.bind(this)
+              });
+            };
+
+            UploadVideo.prototype.uploadFile = function(fileName, file) {
+              var metadata = {
+                snippet: {
+                  title: fileName,
+                  description: fileName,
+                  tags: this.tags,
+                  categoryId: this.categoryId
+                },
+                status: {
+                  privacyStatus: 'private'
+                }
+              };
+              var uploader = new MediaUploader({
+                baseUrl: 'https://www.googleapis.com/upload/youtube/v3/videos',
+                file: file,
+                token: this.accessToken,
+                metadata: metadata,
+                params: {
+                  part: Object.keys(metadata).join(',')
+                },
+                onError: function(data) {
+                  var message = data;
+                  try {
+                    var errorResponse = JSON.parse(data);
+                    message = errorResponse.error.message;
+                  } finally {
+                    alert(message);
+                  }
+                }.bind(this),
+                onProgress: function(data) {
+                  var bytesUploaded = data.loaded;
+                  var totalBytes = parseInt(data.total);
+                  var percentageComplete = parseInt((bytesUploaded * 100) / totalBytes);
+
+                  uploadVideo.callback(percentageComplete);
+                }.bind(this),
+                onComplete: function(data) {
+                  var uploadResponse = JSON.parse(data);
+                  this.videoId = uploadResponse.id;
+                  this.videoURL = 'https://www.youtube.com/watch?v=' + this.videoId;
+                  uploadVideo.callback('uploaded', this.videoURL);
+
+                  setTimeout(this.pollForVideoStatus, 2000);
+                }.bind(this)
+              });
+              this.uploadStartTime = Date.now();
+              uploader.upload();
+            };
+
+            UploadVideo.prototype.pollForVideoStatus = function() {
+              this.gapi.client.request({
+                path: '/youtube/v3/videos',
+                params: {
+                  part: 'status,player',
+                  id: this.videoId
+                },
+                callback: function(response) {
+                  if (response.error) {
+                    uploadVideo.pollForVideoStatus();
+                  } else {
+                    var uploadStatus = response.items[0].status.uploadStatus;
+                    switch (uploadStatus) {
+                      case 'uploaded':
+                        uploadVideo.callback('uploaded', uploadVideo.videoURL);
+                        uploadVideo.pollForVideoStatus();
+                        break;
+                        case 'processed':
+                        uploadVideo.callback('processed', uploadVideo.videoURL);
+                        break;
+                        default:
+                        uploadVideo.callback('failed', uploadVideo.videoURL);
+                        break;
+                    }
+                  }
+                }.bind(this)
+              });
+            };
+
+        </script>
+
+        <script>
+            /* cors_upload.js Copyright 2015 Google Inc. All Rights Reserved. */
+
+            var DRIVE_UPLOAD_URL = 'https://www.googleapis.com/upload/drive/v2/files/';
+
+            var RetryHandler = function() {
+              this.interval = 1000; // Start at one second
+              this.maxInterval = 60 * 1000; // Don't wait longer than a minute
+            };
+
+            RetryHandler.prototype.retry = function(fn) {
+              setTimeout(fn, this.interval);
+              this.interval = this.nextInterval_();
+            };
+
+            RetryHandler.prototype.reset = function() {
+              this.interval = 1000;
+            };
+
+            RetryHandler.prototype.nextInterval_ = function() {
+              var interval = this.interval * 2 + this.getRandomInt_(0, 1000);
+              return Math.min(interval, this.maxInterval);
+            };
+
+            RetryHandler.prototype.getRandomInt_ = function(min, max) {
+              return Math.floor(Math.random() * (max - min + 1) + min);
+            };
+
+            var MediaUploader = function(options) {
+              var noop = function() {};
+              this.file = options.file;
+              this.contentType = options.contentType || this.file.type || 'application/octet-stream';
+              this.metadata = options.metadata || {
+                'title': this.file.name,
+                'mimeType': this.contentType
+              };
+              this.token = options.token;
+              this.onComplete = options.onComplete || noop;
+              this.onProgress = options.onProgress || noop;
+              this.onError = options.onError || noop;
+              this.offset = options.offset || 0;
+              this.chunkSize = options.chunkSize || 0;
+              this.retryHandler = new RetryHandler();
+
+              this.url = options.url;
+              if (!this.url) {
+                var params = options.params || {};
+                params.uploadType = 'resumable';
+                this.url = this.buildUrl_(options.fileId, params, options.baseUrl);
+              }
+              this.httpMethod = options.fileId ? 'PUT' : 'POST';
+            };
+
+            MediaUploader.prototype.upload = function() {
+              var self = this;
+              var xhr = new XMLHttpRequest();
+
+              xhr.open(this.httpMethod, this.url, true);
+              xhr.setRequestHeader('Authorization', 'Bearer ' + this.token);
+              xhr.setRequestHeader('Content-Type', 'application/json');
+              xhr.setRequestHeader('X-Upload-Content-Length', this.file.size);
+              xhr.setRequestHeader('X-Upload-Content-Type', this.contentType);
+
+              xhr.onload = function(e) {
+                if (e.target.status < 400) {
+                  var location = e.target.getResponseHeader('Location');
+                  this.url = location;
+                  this.sendFile_();
+                } else {
+                  this.onUploadError_(e);
+                }
+              }.bind(this);
+              xhr.onerror = this.onUploadError_.bind(this);
+              xhr.send(JSON.stringify(this.metadata));
+            };
+
+            MediaUploader.prototype.sendFile_ = function() {
+              var content = this.file;
+              var end = this.file.size;
+
+              if (this.offset || this.chunkSize) {
+                // Only bother to slice the file if we're either resuming or uploading in chunks
+                if (this.chunkSize) {
+                  end = Math.min(this.offset + this.chunkSize, this.file.size);
+                }
+                content = content.slice(this.offset, end);
+              }
+
+              var xhr = new XMLHttpRequest();
+              xhr.open('PUT', this.url, true);
+              xhr.setRequestHeader('Content-Type', this.contentType);
+              xhr.setRequestHeader('Content-Range', 'bytes ' + this.offset + '-' + (end - 1) + '/' + this.file.size);
+              xhr.setRequestHeader('X-Upload-Content-Type', this.file.type);
+              if (xhr.upload) {
+                xhr.upload.addEventListener('progress', this.onProgress);
+              }
+              xhr.onload = this.onContentUploadSuccess_.bind(this);
+              xhr.onerror = this.onContentUploadError_.bind(this);
+              xhr.send(content);
+            };
+
+            MediaUploader.prototype.resume_ = function() {
+              var xhr = new XMLHttpRequest();
+              xhr.open('PUT', this.url, true);
+              xhr.setRequestHeader('Content-Range', 'bytes */' + this.file.size);
+              xhr.setRequestHeader('X-Upload-Content-Type', this.file.type);
+              if (xhr.upload) {
+                xhr.upload.addEventListener('progress', this.onProgress);
+              }
+              xhr.onload = this.onContentUploadSuccess_.bind(this);
+              xhr.onerror = this.onContentUploadError_.bind(this);
+              xhr.send();
+            };
+
+            MediaUploader.prototype.extractRange_ = function(xhr) {
+              var range = xhr.getResponseHeader('Range');
+              if (range) {
+                this.offset = parseInt(range.match(/\d+/g).pop(), 10) + 1;
+              }
+            };
+
+            MediaUploader.prototype.onContentUploadSuccess_ = function(e) {
+              if (e.target.status == 200 || e.target.status == 201) {
+                this.onComplete(e.target.response);
+              } else if (e.target.status == 308) {
+                this.extractRange_(e.target);
+                this.retryHandler.reset();
+                this.sendFile_();
+              }
+            };
+
+            MediaUploader.prototype.onContentUploadError_ = function(e) {
+              if (e.target.status && e.target.status < 500) {
+                this.onError(e.target.response);
+              } else {
+                this.retryHandler.retry(this.resume_.bind(this));
+              }
+            };
+
+            MediaUploader.prototype.onUploadError_ = function(e) {
+              this.onError(e.target.response); // TODO - Retries for initial upload
+            };
+
+            MediaUploader.prototype.buildQuery_ = function(params) {
+              params = params || {};
+              return Object.keys(params).map(function(key) {
+                return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
+              }).join('&');
+            };
+
+            MediaUploader.prototype.buildUrl_ = function(id, params, baseUrl) {
+              var url = baseUrl || DRIVE_UPLOAD_URL;
+              if (id) {
+                url += id;
+              }
+              var query = this.buildQuery_(params);
+              if (query) {
+                url += '?' + query;
+              }
+              return url;
+            };
+        </script>
+
+        <script>
+            var chkTimeSlice = document.querySelector('#chk-timeSlice');
+            var timeSlice = false;
+
+            if(typeof MediaRecorder === 'undefined') {
+                chkTimeSlice.disabled = true;
+            }
+
+            chkTimeSlice.addEventListener('change', function() {
+                if(chkTimeSlice.checked === true) {
+                    var _timeSlice = prompt('Please enter timeSlice in milliseconds e.g. 1000 or 2000 or 3000.', 1000);
+                    _timeSlice = parseInt(_timeSlice);
+                    if(!_timeSlice || _timeSlice == NaN || typeof _timeSlice === 'undefined') {
+                        timeSlice = false;
+                        return;
+                    }
+
+                    timeSlice = _timeSlice;
+                }
+                else {
+                    timeSlice = false;
+                }
+            }, false);
+        </script>
+
+        <script>
+            var btnPauseRecording = document.querySelector('#btn-pause-recording');
+            btnPauseRecording.onclick = function() {
+                if(!btnStartRecording.recordRTC) {
+                    btnPauseRecording.style.display = 'none';
+                    return;
+                }
+
+                btnPauseRecording.disabled = true;
+                if(btnPauseRecording.innerHTML === 'Pause') {
+                    btnStartRecording.disabled = true;
+                    btnStartRecording.style.fontSize = '15px';
+                    btnStartRecording.recordRTC.pauseRecording();
+                    recordingPlayer.parentNode.parentNode.querySelector('h2').innerHTML = 'Recording status: paused';
+                    recordingPlayer.pause();
+
+                    btnPauseRecording.style.fontSize = 'inherit';
+                    setTimeout(function() {
+                        btnPauseRecording.innerHTML = 'Resume Recording';
+                        btnPauseRecording.disabled = false;
+                    }, 2000);
+                }
+
+                if(btnPauseRecording.innerHTML === 'Resume Recording') {
+                    btnStartRecording.disabled = false;
+                    btnStartRecording.style.fontSize = 'inherit';
+                    btnStartRecording.recordRTC.resumeRecording();
+                    recordingPlayer.parentNode.parentNode.querySelector('h2').innerHTML = '<img src="https://cdn.webrtc-experiment.com/images/progress.gif">';
+                    recordingPlayer.play();
+
+                    btnPauseRecording.style.fontSize = '15px';
+                    btnPauseRecording.innerHTML = 'Pause';
+                    setTimeout(function() {
+                        btnPauseRecording.disabled = false;
+                    }, 2000);
+                }
+            };
+        </script>
+
+    </div>
+
+    <script src="https://apis.google.com/js/client:plusone.js"></script>
+
+    <!-- <script src="https://cdn.webrtc-experiment.com/getScreenId.js"></script> -->
+    <script>
+        var chromeMediaSource = 'screen';
+        window.addEventListener('message', function(message) {
+            if(message.origin.toString().indexOf(MY_DOMAIN) === -1) return;
+            chromeMediaSource = 'desktop';
+            if(typeof getScreenId == 'function' && !!message.data.sourceId) {
+                getScreenId(chromeMediaSource, message.data.sourceId);
+            }
+        });
+    </script>
+</body>
+
+</html>
