@@ -36,7 +36,8 @@ def my_form_post():
                            avatar = currentAvatar,
                            avatar_video_path= response_video_path,
                            avatar_response=response.answer,
-                           avatar_subtitle = response_subtitle_path)
+                           avatar_subtitle = response_subtitle_path,
+                           query_text = processed_text)
 
 if __name__ == '__main__':
     avatar = ""

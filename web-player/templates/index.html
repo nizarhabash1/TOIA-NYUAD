@@ -18,7 +18,7 @@
     </label>
     </div> -->
 
-    <div id="speech_query"></div>
+    <div id="speech_query">{{query_text}}</div>
     <video id = 'avatar_video' class='center' width="640" height="480" align="middle" controls autoplay
     preload = "auto">
       <source src="{{avatar_video_path}}" type="video/mp4">
@@ -31,19 +31,28 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
-    <script src="../static/mediaelement-and-player.min.js"></script>
     <script>
     // speech recognition using annyang
       function detectSpeech(){
         if (annyang) {
+          // set langauge to be English
+          annyang.setLanguage('en-US');
+          // set langauge to be Chinese
+          annyang.setLanguage('zh-CN');
+          // set langauge to be Arabic
+          annyang.setLanguage('ar-AE');
+
           annyang.start();
           var sayThis = function(result) {
             document.getElementById('messageText').value = result;
             document.getElementById('chatbot-form-btn').click();
             speech_detected = result;
+
+            console.log(result);
           }
           var commands = {'*say': sayThis};
           annyang.addCommands(commands);
+        });
         }
       }
       //start or pause speech recognition depending on if video is playing
@@ -52,8 +61,6 @@
           if(annyang)
             annyang.abort();
         }
-
-
 
         var vid = document.getElementById('avatar_video');
         var vid_src = document.getElementById('avatar_video').src;
