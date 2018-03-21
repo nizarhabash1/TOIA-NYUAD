@@ -18,3 +18,4 @@ Go to http://127.0.0.1:5000/ to view the application
 #### Interaction Design TODO
 - Loop of filler videos at the beginning and in between
 - Style the web player
+- If possible, let speech recognition engine recognize NYUAD
