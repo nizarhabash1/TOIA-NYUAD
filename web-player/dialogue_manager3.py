@@ -20,9 +20,13 @@ analysis= open("static/scripts/arabicQuestions.txt.analysis", "r+")
 sourceFile= "static/scripts/arabicQuestions.txt"
 matches=[]
 
+source = "20questions.txt"
 questionCorpus = []
 porterStemmer = PorterStemmer()
 lemmatizer = WordNetLemmatizer()
+
+
+
 
 #assign encoding for Arabic
 str.encode('utf-8')
@@ -42,23 +46,15 @@ class videoRecording:
 		print(self.id, ": ", self.character, "\n",self.question,"\n", self.answer, "\n")
 
 def readJsonFile( characterdict):
-
-	####################################################
-
-	# Structure of Character Dict:
-	#characterdict[character] = {"greetings": [], "questions": [], "silences": []}
-
-	####################################################
-
 	#f= open('all_characters.json', 'r',encoding = 'utf-8')
-	f= open('static/scripts/all_characters.json', 'r')
+	f= open('static/scripts/demo.json', 'r')
 
 	resp = json.load(f)
 	for i in range (0, len(resp["rows"])-1, 1):
 		if("question" in resp["rows"][i]["doc"].keys()):
 			# remove all the special characters from both questions and answers
-			question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.")
-			answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.")
+			question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.").lower()
+			answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.").lower()
 			video= json.dumps(resp["rows"][i]["doc"]["video"])
 			character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
 			#do we wanna give it ID ourselves or use the JSON one?
@@ -70,22 +66,12 @@ def readJsonFile( characterdict):
 
 			# Creates the chracter list in the dictionary if it does not exist already
 			if character not in characterdict.keys():
-				#characterdict[character] is a dictionary of the following lists of videos: silences, greetings, questions
-			 	characterdict[character] = {}
-			 	characterdict[character]["silences"] = []
-			 	characterdict[character]["greetings"] = []
-			 	characterdict[character]["questions"] = []
+				characterdict[character] = []
 
-			 	# if the video is for silence
-			if (answer == '""' and video != '""'):
-			 	characterdict[character]["silences"].append(obj)
+			#adds to the character list based on the character key
+			characterdict[character].append(obj)
+			#print(characterdict, i , ID)
 
-			#adds to the character's questions list based on the character key; adds all videos regardless of type to questions
-			characterdict[character]["questions"].append(obj)
-    # adding the list of greeting videos to the characterdict[chracter] dictionary
-	for key in characterdict.keys():
-		characterdict[key]["greetings"].append(characterdict[key]["questions"][0])
-		characterdict[key]["greetings"].append(characterdict[key]["questions"][-1])
 
 def readFile(fileName):
 
@@ -140,154 +126,105 @@ def isArabic(line):
 				return False
 
 
-def direct_intersection_match_Arabic(query, corpus):
-	print("Finding Direct Intersection in Arabic")
+def direct_intersection_match_Arabic(query, questionArray):
+	print("I am trying to match in manager. ")
 	maximumSize = 0
-	matchedObject = corpus[0]
-	queryList = query.split()
-	queryList.encode('utf-8')
-	queryList.strip('؟')
-
-	for obj in corpus:
+	matchedQuestion = ""
+	matchedObject = videoRecording(1000, "query", "No response found")
+	query.encode('utf-8')
+	query.strip('؟')
+	for question in questionArray:
+		print(question)
 		# finds the intersection between the words in query and the set of words in each object's question and answer
-		objectList = obj.question.split()
-		output = "".join(c for c in objectList if c not in ('!','.',':', '’' , '“', '”', '؟'))
+		output = "".join(c for c in question if c not in ('!','.',':', '’' , '“', '”', '?'))
 		if(isArabic(output)==True):
-			objectList= preprocess(output)
+			question= preprocess(output)
 
-		intersection = intersect(queryList, objectList)
+			intersection = intersect(query, question)
 
-		if len(intersection) > maximumSize:
-			maximumSize = len(intersection)
-			matchedObject = obj
+			if len(intersection) > maximumSize:
+				maximumSize = len(intersection)
+			#matchAnswer = obj.answer
+			#matchedObject = obj
+				matchedQuestion=question
+				matches.append(question)
 
+	print(matchedQuestion)
+	return matchedQuestion
+	exit()
 
-	return matchedObject
-
-
-def stem_intersection_match_Arabic(query, corpus):
-
-	print("Finding stem Intersection in Arabic")
+def stem_intersection_match_Arabic(query, questionNum, matches, question_array):
 	maximumSize = 0
-	matchedObject = corpus[0]
-	queryList = query.split()
-	queryList.encode('utf-8')
-	queryList.strip('؟')
+	matchAnswer = ""
+	newQuestion= ""
+	matchedObject = videoRecording(1000, "query", "No response found")
+	query.encode('utf-8')
+	query.strip('؟')
 
-	#StarMorphModules.read_config("/Users/student/Desktop/Senior year/Capstone/January 2017/CALIMA-STAR/Code/StarMorph/config_stem.xml")
-	#StarMorphModules.initialize_from_file("/Users/student/Desktop/Senior year/Capstone/January 2017/CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
+	for obj in questionCorpus:
 
-	output = "".join(c for c in queryList if c not in ('!','.',':', '’' , '“', '”', '?'))
-	if(isArabic(output)==True):
-		queryList= preprocess(output)
-
-	stemmedQuery= ""
-	for word in queryList.split():
-		analyzedQuery=StarMorphModules.analyze_word(word,False)
-		stemQuery=(analyzedQuery[0].replace("stem:", ""))
-		stemmedQuery+=" "+stemQuery
-	print(stemmedQuery)
-
-	for obj in corpus:
 		# finds the intersection between the words in query and the set of words in each object's question and answer
-		objectList = obj.question.split()
-		output = "".join(c for c in objectList if c not in ('!','.',':', '’' , '“', '”', '؟'))
-		if(isArabic(output)==True):
-			objectList= preprocess(output)
+		intersection=[]
+		newQuestion= ""
 
-		for word in objectList:
-			analyzedQuestion= StarMorphModules.analyze_word(word,False)
-			stemQuestion=(analyzedQuestion[0].replace("stem:", ""))
-			stemmedQuestion+=" "+stemQuestion
+		splitQuestion= obj.question.split()
+		irofile = iter(analysis)
+		#print("question: ", splitQuestion)
+		for wordq in splitQuestion:
+			#print("word: ", wordq)
+			irofile = iter(analysis)
+			for line in irofile:
+				split=line.split()
+				#print("analysis: ", split)
+				for token in range(0, len(split), 1):
+					if (split[token]== "#WORD:"):
+						nextLine= next(irofile)
+						#print(nextLine)
+						for word in nextLine.split():
+							if(word[:4]=="stem" and wordq==split[token+1]):
+								newQuestion= obj.question.replace (wordq,word[4:].strip(':'))
+								intersection= intersect(query.split(), newQuestion.split())
+								continue
 
-		intersection = intersect(stemmedQuery, stemmedQuestion)
+									#print(newQuestion.split())
 
-		if len(intersection) > maximumSize:
-			maximumSize = len(intersection)
-			matchedObject = obj
-
-
-	return matchedObject
-
-def lemma_intersection_match_Arabic(query, corpus):
-	print("Finding lemma Intersection in Arabic")
-	maximumSize = 0
-	matchedObject = corpus[0]
-	queryList = query.split()
-	queryList.encode('utf-8')
-	queryList.strip('؟')
-
-	# Muaz or Dana update these lines?
-	StarMorphModules.read_config("/Users/student/Desktop/Senior year/Capstone/January 2017/CALIMA-STAR/Code/StarMorph/config_lex.xml")
-	StarMorphModules.initialize_from_file("/Users/student/Desktop/Senior year/Capstone/January 2017/CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
-
-	output = "".join(c for c in queryList if c not in ('!','.',':', '’' , '“', '”', '?'))
-	if(isArabic(output)==True):
-			queryList= preprocess(output)
-
-	lexQuery= ""
-
-	for obj in corpus:
-		objectList = obj.question.split()
-		output = "".join(c for c in objectList if c not in ('!','.',':', '’' , '“', '”', '؟'))
-
-		if(isArabic(output)==True):
-			objectList= preprocess(output)
-
-		for word in objectList:
-			analyzedQuery=StarMorphModules.analyze_word(word,False)
-			lemmatizedQuery=(analyzedQuery[0].replace("lex:", ""))
-			lemmatizedQuery=lemmatizedQuery.strip("1_")
-			lexQuery+=" "+lemmatizedQuery
-
-		intersection = intersect(stemmedQuery, stemmedQuestion)
+		'''intersection2= intersect(query.split(), obj.answer.split())
+		if(len(intersection1)>0):
+			print("q intersection= ", intersection1)
+		if(len(intersection2)>0):
+			print("a intersection= ", intersection2)
+		if (len(intersection1) > len(intersection2)):
+			intersection= intersection1
+		else:
+			intersection= intersection2'''
 
 		if len(intersection) > maximumSize:
 			maximumSize = len(intersection)
+			matchAnswer = obj.answer
 			matchedObject = obj
+			matches.append(obj.answer)
 
+	if(len(matchAnswer)!= 0):
+		print("This is the  matched answer: ", matchAnswer)
+	else:
+		print("no answer found")
 
-	return matchedObject
 
 def direct_intersection_match_English(query, corpus):
 	print("Finding Direct Intersection direct_intersection_match")
 	maximumSize = 0
-	nextMax=0
 	matchedObject = corpus[0]
-	secondMatchedObject= corpus[0]
-	thirdMatchedObject= corpus[0]
-	matches={}
-	intersectionList=[]
 	queryList = query.split()
-
 
 	for obj in corpus:
 		# finds the intersection between the words in query and the set of words in each object's question and answer
 		objectList = obj.question.split()
 		intersection = intersect(queryList, objectList)
-		if len(intersection)>0:
-			matches[obj]= len(intersection);
-			if len(intersection)>maximumSize:
-				print(intersection)
-				maximumSize= len(intersection)
-				matchedObject= obj
 
-
-		for k in sorted(matches, key= lambda k: matches[k], reverse=True):
-				diff=maximumSize-matches[k]
-				if (diff==0):
-					matchedObject=k
-				elif (diff==1):
-					secondMatchedObject=k
-				elif (diff==2):
-					thirdMatchedObject=k
-
-	print("Query: ", query)
-	print("first match:", matchedObject.question)
-	print("second match:",secondMatchedObject.question)
-	print("third match:",thirdMatchedObject.question)
-
-
+		if len(intersection) > maximumSize:
+			maximumSize = len(intersection)
+			matchedObject = obj
+			#matches.append(question)
 
 	return matchedObject
 
@@ -296,12 +233,7 @@ def direct_intersection_match_English(query, corpus):
 def stem_intersection_match_English(query, corpus):
 	print("Finding Porter Stemmed Intersection")
 	maximumSize = 0
-	nextMax=0
 	matchedObject = corpus[0]
-	secondMatchedObject= corpus[0]
-	thirdMatchedObject= corpus[0]
-	matches={}
-	intersectionList=[]
 	# creates a set of stemmed words in query
 	queryStemmedList = [porterStemmer.stem(tmp) for tmp in query.split() ]
 	for obj in corpus:
@@ -309,38 +241,19 @@ def stem_intersection_match_English(query, corpus):
 		objStemmedList = [porterStemmer.stem(tmp) for tmp in obj.question.split() ] + [porterStemmer.stem(tmp) for tmp in obj.answer.split() ]
 		#finds the intersection between each set and the query
 		intersection = set(queryStemmedList) & set(objStemmedList)
+		if len(intersection) > maximumSize:
+			maximumSize = len(intersection)
+			matchedObject = obj
 
-
-		if len(intersection)>0:
-			matches[obj]= len(intersection);
-			if len(intersection) > maximumSize:
-				maximumSize = len(intersection)
-				matchedObject = obj
-
-		for k in sorted(matches, key= lambda k: matches[k], reverse=True):
-				diff=maximumSize-matches[k]
-				if (diff==0):
-					matchedObject=k
-				elif (diff==1):
-					secondMatchedObject=k
-				elif (diff==2):
-					thirdMatchedObject=k
-
-	print("first match:", matchedObject.question)
-	print("second match:",secondMatchedObject.question)
-	print("third match:",thirdMatchedObject.question)
-
+			#print(intersection)
+	print("you know you just match with one object")
+	print(matchedObject.videoLink)
 	return matchedObject
 
 def lemma_intersection_match_English(query, corpus):
 	print("Finding Word Net Lemmatizer Intersection")
 	maximumSize = 0
-	nextMax=0
 	matchedObject = corpus[0]
-	secondMatchedObject= corpus[0]
-	thirdMatchedObject= corpus[0]
-	matches={}
-	intersectionList=[]
 	# creates a set of lemmatized words in query
 	queryLemmatizedList = [lemmatizer.lemmatize(tmp) for tmp in query.split() ]
 	for obj in corpus:
@@ -348,24 +261,11 @@ def lemma_intersection_match_English(query, corpus):
 		objLemmatizedList = [lemmatizer.lemmatize(tmp) for tmp in obj.question.split() ] + [lemmatizer.lemmatize(tmp) for tmp in obj.answer.split() ]
 		#finds the intersection between each set and the query
 		intersection = set(queryLemmatizedList) & set(objLemmatizedList)
-		if len(intersection>0):
-			matches[obj]= len(intersection);
-			if len(intersection) > maximumSize:
-				maximumSize = len(intersection)
-				matchedObject = obj
-
-		for k in sorted(matches, key= lambda k: matches[k], reverse=True):
-				diff=maximumSize-matches[k]
-				if (diff==0):
-					matchedObject=k
-				elif (diff==1):
-					secondMatchedObject=k
-				elif (diff==2):
-					thirdMatchedObject=k
-
-		print("first match:", matchedObject.question)
-		print("second match:",secondMatchedObject.question)
-		print("third match:",thirdMatchedObject.question)
+		if len(intersection) > maximumSize:
+			maximumSize = len(intersection)
+			matchAnswer = obj.answer
+			matchedObject = obj
+			print(intersection)
 	return matchedObject
 
 def evaluate(questionsNum, matches):
@@ -376,47 +276,34 @@ def evaluate(questionsNum, matches):
 
 def findResponse(query, corpus):
 	#return direct_intersection_match_English(query, corpus)
-	return direct_intersection_match_English(query, corpus["questions"])
+	return stem_intersection_match_English(query, corpus)
 
 def determineAvatar(query, avatar):
 	if avatar == "":
 		avatar = "margarita"
+	#Changes the avatar
+	#print("the query you give is " + query )
 
-    #Changes the avatar
+	query = query.lower();
 
-	if query == "toya toya can i talk to margarita":
-			avatar = "margarita"
+	if query == "can i talk to margarita":
+		avatar = "margarita"
 
-	if query == "toya toya can i talk to katarina":
-			print("you are switching to katarina")
-			avatar = "katarina"
+	if query == "can i talk to katarina" or query == "can i talk to katrina" :
+		print("you are switching to katarina")
+		avatar = "katarina"
 
-	if query == "toya toya can i talk to gabriela":
-			avatar = "gabriela"
+	if query == "can i talk to gabriela" or query == "can i talk to gabriella":
+		avatar = "gabriela"
 
-
-	if query == "toya toya can i talk to gabriella":
-			avatar = "gabriela"
-
-
-	if query == "toya toya can i talk to someone else":
-			print("you are switching to gabriela")
-			avatar = "gabriela"
+	if query == "can I talk to someone else":
+		print("you are switching to gabriela")
+		avatar = "gabriela"
 
 	return avatar
 
-# the player calls the following functions for greetings and silentVideos, using calls such as dialogue-manager3.sayHi(characterdict[avatar])
-
-def silentVideos(corpus):
-        return corpus["silences"]
-
-def sayHi(corpus):
-        return corpus["greetings"][0]
-
-def sayBye(corpus):
-        return corpus["greetings"][-1]
-
-def main(query, question):
+def main(query, question_array):
+	query = query.lower()
 	questionsAsked=0
 	readFile(sourceFile)
 	#while(True):
@@ -425,8 +312,9 @@ def main(query, question):
 	questionsAsked +=1
 
 	print(question_array)
-
-
+	match= direct_intersection_match_English(query, question_array)
+	print("This is match in main: ", match)
+	return match
 	#evaluate(questionsAsked, len(matches))
 	#stem_intersection_match_Arabic(query, questionsAsked, matches)
 	#lemma_intersection_match(query)
@@ -434,5 +322,5 @@ def main(query, question):
 
 
 if __name__ == "__main__":
-	""" This is executed when run from the command line """
-	main(query, question_array)
+    """ This is executed when run from the command line """
+    main(query, question_array)
