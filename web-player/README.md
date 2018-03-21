@@ -11,9 +11,10 @@ Do `export FLASK_APP=app.py` and `flask run` inside venv
 
 Go to http://127.0.0.1:5000/ to view the application
 
-#### TODO
+#### Dialogue Manager TODO
+- Make sure direct matching works when the query is exactly the same
+- For question type of reply list to something something, write customized matching for them. For example, there should be a better way of matching "Reply list to 'when somebody asks how I found something': Examples: And did you like it? / Was it fun? / How was it? / How did you find x? / What did you think? / Was it nice? (because usually talk about my past experiences which were good anyway" than direct matching
 
-- Checkout other speech recognition library for Arabic integration
-- Display text of speech recognition
+#### Interaction Design TODO
 - Loop of filler videos at the beginning and in between
 - Style the web player
