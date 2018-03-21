@@ -76,11 +76,25 @@
         "_id": "3792386d3488216a787d3261b35c6ac9",
         "_rev": "2-9e44315125285c3348c47a3d3fb8f9d7",
         "index": 1049,
-        "question": "What is the Emirati national dress? ",
+        "question": "can you tell me about the Emirati national dress",
         "answer": "The Emirati national dress for men is called the Kandoura. For women it is called the Abaya.",
         "video": "katarina_1049_3792386d3488216a787d3261b35c6ac9.mp4"
       }
+    },
+    {
+      "id": "3a91e77640148c090faf1193dc576cb2",
+      "key": "3a91e77640148c090faf1193dc576cb2",
+      "value": {
+        "rev": "3-44738ebab7a1b043a3d165b175d1c0c1"
+      },
+      "doc": {
+        "_id": "3a91e77640148c090faf1193dc576cb2",
+        "_rev": "3-44738ebab7a1b043a3d165b175d1c0c1",
+        "index": 1058,
+        "question": "What are the languages spoken in Abu Dhabi? ",
+        "answer": "Arabic is the official language of the government and business, though English, Persian, Hindi, and Urdu are also spoken. All signs are either in English or both English and Arabic.",
+        "video": "katarina_1058_3a91e77640148c090faf1193dc576cb2.mp4"
+      }
     }
-
   ]
 }

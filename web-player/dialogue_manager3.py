@@ -50,7 +50,7 @@ def readJsonFile( characterdict):
 	f= open('static/scripts/demo.json', 'r')
 
 	resp = json.load(f)
-	for i in range (0, len(resp["rows"])-1, 1):
+	for i in range (0, len(resp["rows"]), 1):
 		if("question" in resp["rows"][i]["doc"].keys()):
 			# remove all the special characters from both questions and answers
 			question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.").lower()
@@ -175,11 +175,11 @@ def stem_intersection_match_Arabic(query, questionNum, matches, question_array):
 			irofile = iter(analysis)
 			for line in irofile:
 				split=line.split()
-				#print("analysis: ", split)
+				print("analysis: ", split)
 				for token in range(0, len(split), 1):
-					if (split[token]== "#WORD:"):
-						nextLine= next(irofile)
-						#print(nextLine)
+					if split[token] == "#WORD:":
+						nextLine = next(irofile)
+						print("next line: ", nextLine)
 						for word in nextLine.split():
 							if(word[:4]=="stem" and wordq==split[token+1]):
 								newQuestion= obj.question.replace (wordq,word[4:].strip(':'))
@@ -218,7 +218,7 @@ def direct_intersection_match_English(query, corpus):
 
 	for obj in corpus:
 		# finds the intersection between the words in query and the set of words in each object's question and answer
-		objectList = obj.question.split()
+		objectList = obj.question.lower().strip('?."!').rstrip().replace('?','').encode('utf-8').split()
 		intersection = intersect(queryList, objectList)
 
 		if len(intersection) > maximumSize:
@@ -228,6 +228,17 @@ def direct_intersection_match_English(query, corpus):
 
 	return matchedObject
 
+def exact_match_English(query, corpus):
+	print("Finding exact match")
+	maximumSize = 0
+	matchedObject = corpus[0]
+	query = query.lower().strip('."?!')
+	print("query is ", query)
+	for obj in corpus:
+		# finds the intersection between the words in query and the set of words in each object's question and answer
+		databaseQuestion = obj.question.lower().strip('?."!').rstrip().replace('?','').encode('utf-8')
+		if query == databaseQuestion:
+			return obj
 
 
 def stem_intersection_match_English(query, corpus):
@@ -275,12 +286,13 @@ def evaluate(questionsNum, matches):
 
 
 def findResponse(query, corpus):
-	#return direct_intersection_match_English(query, corpus)
-	return stem_intersection_match_English(query, corpus)
+	# return exact_match_English(query, corpus)
+	return direct_intersection_match_English(query, corpus)
+	# return stem_intersection_match_English(query, corpus)
 
 def determineAvatar(query, avatar):
 	if avatar == "":
-		avatar = "margarita"
+		avatar = "katarina"
 	#Changes the avatar
 	#print("the query you give is " + query )
 
@@ -312,7 +324,7 @@ def main(query, question_array):
 	questionsAsked +=1
 
 	print(question_array)
-	match= direct_intersection_match_English(query, question_array)
+	match = direct_intersection_match_English(query, question_array)
 	print("This is match in main: ", match)
 	return match
 	#evaluate(questionsAsked, len(matches))
