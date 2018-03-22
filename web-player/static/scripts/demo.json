@@ -95,6 +95,22 @@
         "answer": "Arabic is the official language of the government and business, though English, Persian, Hindi, and Urdu are also spoken. All signs are either in English or both English and Arabic.",
         "video": "katarina_1058_3a91e77640148c090faf1193dc576cb2.mp4"
       }
+    },
+    {
+      "id": "3a91e77640148c090faf1193dc584321",
+      "key": "3a91e77640148c090faf1193dc584321",
+      "value": {
+        "rev": "2-7ceda6545cd05779a6eef45ec8c167f5"
+      },
+      "doc": {
+        "_id": "3a91e77640148c090faf1193dc584321",
+        "_rev": "2-7ceda6545cd05779a6eef45ec8c167f5",
+        "index": 1177,
+        "question": "You are very knowledgeable",
+        "answer": "Thank you! / Thank you.",
+        "video": "katarina_1177_3a91e77640148c090faf1193dc584321.mp4",
+        "video_saved": true
+      }
     }
   ]
 }
