@@ -1,0 +1,171 @@
+
+GOALS/DESIDERATA
+
+* Allows for analysis and generation (BAMA only does analysis)
+
+* Morphological representation includes:
+
+  - Full functional feature-value (new content)
+
+  - Form-based feature-value (new formulation)
+
+  - Form-based morph-meaning (this is BAMA)
+
+  - Full segmentation and tokenization information based on form-based
+    morphology; several tokenization schemes (BAMA has one) with consistent
+    choices (BAMA is not consistent)
+
+  - Functional (MAGEAD) and form-based (as we use in paradigm comletion)
+    pattern/root/vocalism (BAMA does not have)
+
+  - English glosses (BAMA has, but can get new)
+
+
+* Sufficient lexical coverage (how is that defined?) 
+
+  - Coverage of ATB* (BAMA has this, roughly, plus a lot more that is not
+    in ATB*)
+
+* Backoff
+
+  - Smarter morphological backoff for unseen words: not just assume it's a
+    PN (beyond BAMA)
+
+  - Fuzzy orthography for input words (Alif forms, hamza forms) -- Nizar
+    remembers that there were some specific ideas (perhaps go beyond BAMA);
+    add common MSA spelling errors: Z/D etc.
+
+* Probability of words out of context (can be derived from ATB) (not at all
+  in BAMA)
+
+* Tripartite database in one file (like BAMA, except for single file)
+
+* Make classes in database aware of inflecional classes which are
+  explicitly defined by us (under MAGEAD) and available as a resource
+  (details to be worked out) (beyond BAMA)
+
+
+
+OTHER GOALS
+
+* Can re-annotate the ATB with full morphological representation used in
+  CALIMA (largely automatic with possible subsequent annotation/error
+  checking)
+
+
+
+
+HOW DO WE GET THERE
+
+These are preliminary thoughts.
+
+* Derived from ATB (different from BAMA)
+
+  - Gather all forms with segmentation, lemma, features
+  - Fix the bad represntations in BAMA/SAMA such as the inconsistent
+    handling of Al and ( +ap and +aY and many more) between tokenization
+    and segmentation.) 
+  - Do paradigm completion
+    + Make use of iconic inflectional classes from Magead
+    + Start with Mohammed Tantawy's list of sample verbs for various classes
+  - Do something special for closed classes
+
+* Glosses: various posssible sources, including MT techniques
+
+* Backoff: need to code
+
+* We need to do evaluation and error correction (LDC?)
+
+* Lexicon: use other Arabic lexical resources
+
+
+
+
+LEGAL ISSUES
+
+* We want joint ownership so that we can distribute it freely
+
+* EGY and IRQ should be similar, design should anticipate dialectal
+  resources as well
+
+
+
+
+PEOPLE:
+
+* Columbia: Nizar, Owen, Ramy, Sarah
+
+* LDC: Chris, Ann B, M Maamouri, ...?
+
+* Qamus: Tim???
+
+* Others: Ota, ... 
+
+====
+
+
+Principal Components of BIG CALIMA
+
+
+1) Corpora
+
+- Annotated
+
+- Unannotated
+
+Existing resources: many
+
+
+2) CODA Guidelines
+
+Existing resources: have CODA for EGY, TUN
+
+
+3) Morphological Analyzer
+
+Existing resources:
+
+* BAMA/SAMA etc
+* CALIMA-EGY
+* CALIMA-IRQ
+* MAGEAD
+
+
+Things we have done:
+
+- Paradigm Completion
+
+
+Issues:
+
+- Modeling clitics
+- Modeling inflections and inflectional paradigms
+- The lexicon  
+
+
+
+Possible approach
+
+- Clitics: top-down
+- Inflectional classes: by analogy to other variants
+- Lexicon: using Paradigm Completion
+
+
+Possible short-term tasks
+
+- Relate verbal ICs in MSA, EGY; create new ICs for LEV, YEM and relate
+  them
+
+
+
+
+
+4) Morphological Tagger
+
+Existing resources:
+
+MADAMIRA-MSA
+MADAMIRA-EGY
+
+
+

@@ -1,0 +1,963 @@
+###SUFFIXES###
+	Suff-0	
+	CVSuff-o	diac:o bw:o/CVSUFF_SUBJ:2MS gloss:you_[verb] pos:verb per:2 asp:c mod:i gen:m num:s
+h	CVSuff-oh	diac:ohu bw:o/CVSUFF_SUBJ:2MS+hu/CVSUFF_DO:3MS gloss:you_[verb]_+_it/him pos:verb per:2 asp:c mod:i gen:m num:s enc0:3ms_dobj
+hmA	CVSuff-oh	diac:ohumA bw:o/CVSUFF_SUBJ:2MS+humA/CVSUFF_DO:3D gloss:you_[verb]_+_them_(both) pos:verb per:2 asp:c mod:i gen:m num:s enc0:3d_dobj
+hm	CVSuff-oh	diac:ohum bw:o/CVSUFF_SUBJ:2MS+hum/CVSUFF_DO:3MP gloss:you_[verb]_+_them pos:verb per:2 asp:c mod:i gen:m num:s enc0:3mp_dobj
+hA	CVSuff-oh	diac:ohA bw:o/CVSUFF_SUBJ:2MS+hA/CVSUFF_DO:3FS gloss:you_[verb]_+_it/them/her pos:verb per:2 asp:c mod:i gen:m num:s enc0:3fs_dobj
+hn	CVSuff-oh	diac:ohun~a bw:o/CVSUFF_SUBJ:2MS+hun~a/CVSUFF_DO:3FP gloss:you_[verb]_+_them pos:verb per:2 asp:c mod:i gen:m num:s enc0:3fp_dobj
+ny	CVSuff-oh	diac:oniy bw:o/CVSUFF_SUBJ:2MS+niy/CVSUFF_DO:1S gloss:you_[verb]_+_me pos:verb per:2 asp:c mod:i gen:m num:s enc0:1s_dobj
+nA	CVSuff-oh	diac:onA bw:o/CVSUFF_SUBJ:2MS+nA/CVSUFF_DO:1P gloss:you_[verb]_+_us pos:verb per:2 asp:c mod:i gen:m num:s enc0:1p_dobj
+	CVSuff-0	bw:(null)/CVSUFF_SUBJ:2MS gloss:you_[verb] pos:verb per:2 asp:c mod:i gen:m num:s
+h	CVSuff-0hi	diac:hi bw:(null)/CVSUFF_SUBJ:2MS+hi/CVSUFF_DO:3MS gloss:you_[verb]_+_it/him pos:verb per:2 asp:c mod:i gen:m num:s enc0:3ms_dobj
+hmA	CVSuff-0hi	diac:himA bw:(null)/CVSUFF_SUBJ:2MS+himA/CVSUFF_DO:3D gloss:you_[verb]_+_them_(both) pos:verb per:2 asp:c mod:i gen:m num:s enc0:3d_dobj
+hm	CVSuff-0hi	diac:him bw:(null)/CVSUFF_SUBJ:2MS+him/CVSUFF_DO:3MP gloss:you_[verb]_+_them pos:verb per:2 asp:c mod:i gen:m num:s enc0:3mp_dobj
+hA	CVSuff-0hi	diac:hA bw:(null)/CVSUFF_SUBJ:2MS+hA/CVSUFF_DO:3FS gloss:you_[verb]_+_it/them/her pos:verb per:2 asp:c mod:i gen:m num:s enc0:3fs_dobj
+hn	CVSuff-0hi	diac:hin~a bw:(null)/CVSUFF_SUBJ:2MS+hin~a/CVSUFF_DO:3FP gloss:you_[verb]_+_them pos:verb per:2 asp:c mod:i gen:m num:s enc0:3fp_dobj
+ny	CVSuff-0hi	diac:niy bw:(null)/CVSUFF_SUBJ:2MS+niy/CVSUFF_DO:1S gloss:you_[verb]_+_me pos:verb per:2 asp:c mod:i gen:m num:s enc0:1s_dobj
+nA	CVSuff-0hi	diac:nA bw:(null)/CVSUFF_SUBJ:2MS+nA/CVSUFF_DO:1P gloss:you_[verb]_+_us pos:verb per:2 asp:c mod:i gen:m num:s enc0:1p_dobj
+h	CVSuff-0h	diac:hu bw:(null)/CVSUFF_SUBJ:2MS+hu/CVSUFF_DO:3MS gloss:you_[verb]_+_it/him pos:verb per:2 asp:c mod:i gen:m num:s enc0:3ms_dobj
+hmA	CVSuff-0h	diac:humA bw:(null)/CVSUFF_SUBJ:2MS+humA/CVSUFF_DO:3D gloss:you_[verb]_+_them_(both) pos:verb per:2 asp:c mod:i gen:m num:s enc0:3d_dobj
+hm	CVSuff-0h	diac:hum bw:(null)/CVSUFF_SUBJ:2MS+hum/CVSUFF_DO:3MP gloss:you_[verb]_+_them pos:verb per:2 asp:c mod:i gen:m num:s enc0:3mp_dobj
+hA	CVSuff-0h	diac:hA bw:(null)/CVSUFF_SUBJ:2MS+hA/CVSUFF_DO:3FS gloss:you_[verb]_+_it/them/her pos:verb per:2 asp:c mod:i gen:m num:s enc0:3fs_dobj
+hn	CVSuff-0h	diac:hun~a bw:(null)/CVSUFF_SUBJ:2MS+hun~a/CVSUFF_DO:3FP gloss:you_[verb]_+_them pos:verb per:2 asp:c mod:i gen:m num:s enc0:3fp_dobj
+ny	CVSuff-0h	diac:niy bw:(null)/CVSUFF_SUBJ:2MS+niy/CVSUFF_DO:1S gloss:you_[verb]_+_me pos:verb per:2 asp:c mod:i gen:m num:s enc0:1s_dobj
+nA	CVSuff-0h	diac:nA bw:(null)/CVSUFF_SUBJ:2MS+nA/CVSUFF_DO:1P gloss:you_[verb]_+_us pos:verb per:2 asp:c mod:i gen:m num:s enc0:1p_dobj
+	PVSuff-a	diac:a bw:a/PVSUFF_SUBJ:3MS gloss:he/it_[verb] pos:verb per:3 asp:p mod:i gen:m num:s
+	PVSuff-0a	bw:(null)/PVSUFF_SUBJ:3MS gloss:he/it_[verb] pos:verb per:3 asp:p mod:i gen:m num:s
+h	PVSuff-0ah	diac:hu bw:(null)/PVSUFF_SUBJ:3MS+hu/PVSUFF_DO:3MS gloss:he/it_[verb]_+_it/him pos:verb per:3 asp:p mod:i gen:m num:s enc0:3ms_dobj
+hmA	PVSuff-0ah	diac:humA bw:(null)/PVSUFF_SUBJ:3MS+humA/PVSUFF_DO:3D gloss:he/it_[verb]_+_them_(both) pos:verb per:3 asp:p mod:i gen:m num:s enc0:3d_dobj
+hm	PVSuff-0ah	diac:hum bw:(null)/PVSUFF_SUBJ:3MS+hum/PVSUFF_DO:3MP gloss:he/it_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:s enc0:3mp_dobj
+hA	PVSuff-0ah	diac:hA bw:(null)/PVSUFF_SUBJ:3MS+hA/PVSUFF_DO:3FS gloss:he/it_[verb]_+_it/them/her pos:verb per:3 asp:p mod:i gen:m num:s enc0:3fs_dobj
+hn	PVSuff-0ah	diac:hun~a bw:(null)/PVSUFF_SUBJ:3MS+hun~a/PVSUFF_DO:3FP gloss:he/it_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:s enc0:3fp_dobj
+k	PVSuff-0ah	diac:ka bw:(null)/PVSUFF_SUBJ:3MS+ka/PVSUFF_DO:2MS gloss:he/it_[verb]_+_you_[masc.sg.] pos:verb per:3 asp:p mod:i gen:m num:s enc0:2ms_dobj
+k	PVSuff-0ah	diac:ki bw:(null)/PVSUFF_SUBJ:3MS+ki/PVSUFF_DO:2FS gloss:he/it_[verb]_+_you_[fem.sg.] pos:verb per:3 asp:p mod:i gen:m num:s enc0:2fs_dobj
+kmA	PVSuff-0ah	diac:kumA bw:(null)/PVSUFF_SUBJ:3MS+kumA/PVSUFF_DO:2D gloss:he/it_[verb]_+_you_[du.] pos:verb per:3 asp:p mod:i gen:m num:s enc0:2d_dobj
+km	PVSuff-0ah	diac:kum bw:(null)/PVSUFF_SUBJ:3MS+kum/PVSUFF_DO:2MP gloss:he/it_[verb]_+_you_[masc.pl.] pos:verb per:3 asp:p mod:i gen:m num:s enc0:2mp_dobj
+kn	PVSuff-0ah	diac:kun~a bw:(null)/PVSUFF_SUBJ:3MS+kun~a/PVSUFF_DO:2FP gloss:he/it_[verb]_+_you_[fem.pl.] pos:verb per:3 asp:p mod:i gen:m num:s enc0:2fp_dobj
+ny	PVSuff-0ah	diac:niy bw:(null)/PVSUFF_SUBJ:3MS+niy/PVSUFF_DO:1S gloss:he/it_[verb]_+_me pos:verb per:3 asp:p mod:i gen:m num:s enc0:1s_dobj
+nA	PVSuff-0ah	diac:nA bw:(null)/PVSUFF_SUBJ:3MS+nA/PVSUFF_DO:1P gloss:he/it_[verb]_+_us pos:verb per:3 asp:p mod:i gen:m num:s enc0:1p_dobj
+	NSuff-u	diac:u bw:u/CASE_DEF_NOM gloss:[def.nom.] stt:c cas:n
+	NSuff-u	diac:u bw:u/CASE_DEF_NOM gloss:[def.nom.] stt:d cas:n
+	NSuff-a	diac:a bw:a/CASE_DEF_ACC gloss:[def.acc.] stt:c cas:a
+	NSuff-a	diac:a bw:a/CASE_DEF_ACC gloss:[def.acc.] stt:d cas:a
+	NSuff-i	diac:i bw:i/CASE_DEF_GEN gloss:[def.gen.] stt:c cas:g
+	NSuff-i	diac:i bw:i/CASE_DEF_GEN gloss:[def.gen.] stt:d cas:g
+	NSuff-N	diac:N bw:N/CASE_INDEF_NOM gloss:[indef.nom.] stt:i cas:n
+	NSuff-F	diac:F bw:F/CASE_INDEF_ACC gloss:[indef.acc.] stt:i cas:a
+	NSuff-K	diac:K bw:K/CASE_INDEF_GEN gloss:[indef.gen.] stt:i cas:g
+	NSuff-u_indef_nom	diac:u bw:u/CASE_INDEF_NOM gloss:[indef.nom.] stt:i cas:n
+	NSuff-a_indef_acc	diac:a bw:a/CASE_INDEF_ACC gloss:[indef.acc.] stt:i cas:a
+	NSuff-a_indef_gen	diac:a bw:a/CASE_INDEF_GEN gloss:[indef.gen.] stt:i cas:g
+	NSuff-K_nom	diac:K bw:K/CASE_INDEF_NOM gloss:[indef.nom.] stt:i cas:n
+	NSuff-F_nom	diac:F bw:F/CASE_INDEF_NOM gloss:[indef.nom.] stt:i cas:n
+	NSuff-F_acc	diac:F bw:F/CASE_INDEF_ACC gloss:[indef.acc.] stt:i cas:a
+	NSuff-F_gen	diac:F bw:F/CASE_INDEF_GEN gloss:[indef.gen.] stt:i cas:g
+tyn	NSuff-tayn	diac:atayoni bw:atayoni/NSUFF_FEM_DU_ACC gloss:two_[acc.] gen:f num:d cas:a
+tyn	NSuff-tayn-indef	diac:atayoni bw:atayoni/NSUFF_FEM_DU_ACC gloss:two_[acc.] gen:f num:i cas:a
+tyn	NSuff-tayn	diac:atayoni bw:atayoni/NSUFF_FEM_DU_GEN gloss:two_[gen.] gen:f num:d cas:g
+tyn	NSuff-tayn-indef	diac:atayoni bw:atayoni/NSUFF_FEM_DU_GEN gloss:two_[gen.] gen:f num:i cas:g
+ty	NSuff-tayn	diac:atayo bw:atayo/NSUFF_FEM_DU_ACC_POSS gloss:two_[acc.] gen:f num:d stt:c cas:a
+ty	NSuff-tayn	diac:atayo bw:atayo/NSUFF_FEM_DU_GEN_POSS gloss:two_[gen.] gen:f num:d stt:c cas:g
+tAn	NSuff-atAn	diac:atAni bw:atAni/NSUFF_FEM_DU_NOM gloss:two gen:f num:d stt:d cas:n
+tAn	NSuff-atAn-indef	diac:atAni bw:atAni/NSUFF_FEM_DU_NOM gloss:two gen:f num:d stt:i cas:n
+tA	NSuff-atAn	diac:atA bw:atA/NSUFF_FEM_DU_NOM_POSS gloss:two gen:f num:d stt:c cas:n
+tAh	NSuff-atAh	diac:atAhu bw:atA/NSUFF_FEM_DU_NOM_POSS+hu/POSS_PRON_3MS gloss:two_+_his/its gen:f num:d stt:c cas:n enc0:3ms_poss
+tAhmA	NSuff-atAh	diac:atAhumA bw:atA/NSUFF_FEM_DU_NOM_POSS+humA/POSS_PRON_3D gloss:two_+_their gen:f num:d stt:c cas:n enc0:3d_poss
+tAhm	NSuff-atAh	diac:atAhum bw:atA/NSUFF_FEM_DU_NOM_POSS+hum/POSS_PRON_3MP gloss:two_+_their gen:f num:d stt:c cas:n enc0:3mp_poss
+tAhA	NSuff-atAh	diac:atAhA bw:atA/NSUFF_FEM_DU_NOM_POSS+hA/POSS_PRON_3FS gloss:two_+_its/their/her gen:f num:d stt:c cas:n enc0:3fs_poss
+tAhn	NSuff-atAh	diac:atAhun~a bw:atA/NSUFF_FEM_DU_NOM_POSS+hun~a/POSS_PRON_3FP gloss:two_+_their gen:f num:d stt:c cas:n enc0:3fp_poss
+tAk	NSuff-atAh	diac:atAka bw:atA/NSUFF_FEM_DU_NOM_POSS+ka/POSS_PRON_2MS gloss:two_+_your_[masc.sg.] gen:f num:d stt:c cas:n enc0:2ms_poss
+tAk	NSuff-atAh	diac:atAki bw:atA/NSUFF_FEM_DU_NOM_POSS+ki/POSS_PRON_2FS gloss:two_+_your_[fem.sg.] gen:f num:d stt:c cas:n enc0:2fs_poss
+tAkmA	NSuff-atAh	diac:atAkumA bw:atA/NSUFF_FEM_DU_NOM_POSS+kumA/POSS_PRON_2D gloss:two_+_your_[du.] gen:f num:d stt:c cas:n enc0:2d_poss
+tAkm	NSuff-atAh	diac:atAkum bw:atA/NSUFF_FEM_DU_NOM_POSS+kum/POSS_PRON_2MP gloss:two_+_your_[masc.pl.] gen:f num:d stt:c cas:n enc0:2mp_poss
+tAkn	NSuff-atAh	diac:atAkun~a bw:atA/NSUFF_FEM_DU_NOM_POSS+kun~a/POSS_PRON_2FP gloss:two_+_your_[fem.pl.] gen:f num:d stt:c cas:n enc0:2fp_poss
+tAy	NSuff-atAh	diac:atAya bw:atA/NSUFF_FEM_DU_NOM_POSS+ya/POSS_PRON_1S gloss:two_+_my gen:f num:d stt:c cas:n enc0:1s_poss
+tAnA	NSuff-atAh	diac:atAnA bw:atA/NSUFF_FEM_DU_NOM_POSS+nA/POSS_PRON_1P gloss:two_+_our gen:f num:d stt:c cas:n enc0:1p_poss
+tyh	NSuff-tay	diac:atayohi bw:atayo/NSUFF_FEM_DU_ACC_POSS+hi/POSS_PRON_3MS gloss:two_[acc.]_+_his/its gen:f num:d stt:c cas:a enc0:3ms_poss
+tyhmA	NSuff-tay	diac:atayohimA bw:atayo/NSUFF_FEM_DU_ACC_POSS+himA/POSS_PRON_3D gloss:two_[acc.]_+_their gen:f num:d stt:c cas:a enc0:3d_poss
+tyhm	NSuff-tay	diac:atayohim bw:atayo/NSUFF_FEM_DU_ACC_POSS+him/POSS_PRON_3MP gloss:two_[acc.]_+_their gen:f num:d stt:c cas:a enc0:3mp_poss
+tyhA	NSuff-tay	diac:atayohA bw:atayo/NSUFF_FEM_DU_ACC_POSS+hA/POSS_PRON_3FS gloss:two_[acc.]_+_its/their/her gen:f num:d stt:c cas:a enc0:3fs_poss
+tyhn	NSuff-tay	diac:atayohin~a bw:atayo/NSUFF_FEM_DU_ACC_POSS+hin~a/POSS_PRON_3FP gloss:two_[acc.]_+_their gen:f num:d stt:c cas:a enc0:3fp_poss
+tyk	NSuff-tay	diac:atayoka bw:atayo/NSUFF_FEM_DU_ACC_POSS+ka/POSS_PRON_2MS gloss:two_[acc.]_+_your_[masc.sg.] gen:f num:d stt:c cas:a enc0:2ms_poss
+tyk	NSuff-tay	diac:atayoki bw:atayo/NSUFF_FEM_DU_ACC_POSS+ki/POSS_PRON_2FS gloss:two_[acc.]_+_your_[fem.sg.] gen:f num:d stt:c cas:a enc0:2fs_poss
+tykmA	NSuff-tay	diac:atayokumA bw:atayo/NSUFF_FEM_DU_ACC_POSS+kumA/POSS_PRON_2D gloss:two_[acc.]_+_your_[du.] gen:f num:d stt:c cas:a enc0:2d_poss
+tykm	NSuff-tay	diac:atayokum bw:atayo/NSUFF_FEM_DU_ACC_POSS+kum/POSS_PRON_2MP gloss:two_[acc.]_+_your_[masc.pl.] gen:f num:d stt:c cas:a enc0:2mp_poss
+tykn	NSuff-tay	diac:atayokun~a bw:atayo/NSUFF_FEM_DU_ACC_POSS+kun~a/POSS_PRON_2FP gloss:two_[acc.]_+_your_[fem.pl.] gen:f num:d stt:c cas:a enc0:2fp_poss
+ty	NSuff-tay	diac:atay~a bw:atayo/NSUFF_FEM_DU_ACC_POSS+ya/POSS_PRON_1S gloss:two_[acc.]_+_my gen:f num:d stt:c cas:a enc0:1s_poss
+tynA	NSuff-tay	diac:atayonA bw:atayo/NSUFF_FEM_DU_ACC_POSS+nA/POSS_PRON_1P gloss:two_[acc.]_+_our gen:f num:d stt:c cas:a enc0:1p_poss
+tyh	NSuff-tay	diac:atayohi bw:atayo/NSUFF_FEM_DU_GEN_POSS+hi/POSS_PRON_3MS gloss:two_[gen.]_+_his/its gen:f num:d stt:c cas:g enc0:3ms_poss
+tyhmA	NSuff-tay	diac:atayohimA bw:atayo/NSUFF_FEM_DU_GEN_POSS+himA/POSS_PRON_3D gloss:two_[gen.]_+_their gen:f num:d stt:c cas:g enc0:3d_poss
+tyhm	NSuff-tay	diac:atayohim bw:atayo/NSUFF_FEM_DU_GEN_POSS+him/POSS_PRON_3MP gloss:two_[gen.]_+_their gen:f num:d stt:c cas:g enc0:3mp_poss
+tyhA	NSuff-tay	diac:atayohA bw:atayo/NSUFF_FEM_DU_GEN_POSS+hA/POSS_PRON_3FS gloss:two_[gen.]_+_its/their/her gen:f num:d stt:c cas:g enc0:3fs_poss
+tyhn	NSuff-tay	diac:atayohin~a bw:atayo/NSUFF_FEM_DU_GEN_POSS+hin~a/POSS_PRON_3FP gloss:two_[gen.]_+_their gen:f num:d stt:c cas:g enc0:3fp_poss
+tyk	NSuff-tay	diac:atayoka bw:atayo/NSUFF_FEM_DU_GEN_POSS+ka/POSS_PRON_2MS gloss:two_[gen.]_+_your_[masc.sg.] gen:f num:d stt:c cas:g enc0:2ms_poss
+tyk	NSuff-tay	diac:atayoki bw:atayo/NSUFF_FEM_DU_GEN_POSS+ki/POSS_PRON_2FS gloss:two_[gen.]_+_your_[fem.sg.] gen:f num:d stt:c cas:g enc0:2fs_poss
+tykmA	NSuff-tay	diac:atayokumA bw:atayo/NSUFF_FEM_DU_GEN_POSS+kumA/POSS_PRON_2D gloss:two_[gen.]_+_your_[du.] gen:f num:d stt:c cas:g enc0:2d_poss
+tykm	NSuff-tay	diac:atayokum bw:atayo/NSUFF_FEM_DU_GEN_POSS+kum/POSS_PRON_2MP gloss:two_[gen.]_+_your_[masc.pl.] gen:f num:d stt:c cas:g enc0:2mp_poss
+tykn	NSuff-tay	diac:atayokun~a bw:atayo/NSUFF_FEM_DU_GEN_POSS+kun~a/POSS_PRON_2FP gloss:two_[gen.]_+_your_[fem.pl.] gen:f num:d stt:c cas:g enc0:2fp_poss
+ty	NSuff-tay	diac:atay~a bw:atayo/NSUFF_FEM_DU_GEN_POSS+ya/POSS_PRON_1S gloss:two_[gen.]_+_my gen:f num:d stt:c cas:g enc0:1s_poss
+tynA	NSuff-tay	diac:atayonA bw:atayo/NSUFF_FEM_DU_GEN_POSS+nA/POSS_PRON_1P gloss:two_[gen.]_+_our gen:f num:d stt:c cas:g enc0:1p_poss
+h	NSuff-ap	diac:ap bw:ap/NSUFF_FEM_SG gloss:[fem.sg.] gen:f num:s
+h	NSuff-apu	diac:apu bw:ap/NSUFF_FEM_SG+u/CASE_DEF_NOM gloss:[fem.sg.]_+_[def.nom.] gen:f num:s stt:c cas:n
+h	NSuff-apu	diac:apu bw:ap/NSUFF_FEM_SG+u/CASE_DEF_NOM gloss:[fem.sg.]_+_[def.nom.] gen:f num:s stt:d cas:n
+h	NSuff-apa	diac:apa bw:ap/NSUFF_FEM_SG+a/CASE_DEF_ACC gloss:[fem.sg.]_+_[def.acc.] gen:f num:s stt:c cas:a
+h	NSuff-apa	diac:apa bw:ap/NSUFF_FEM_SG+a/CASE_DEF_ACC gloss:[fem.sg.]_+_[def.acc.] gen:f num:s stt:d cas:a
+h	NSuff-api	diac:api bw:ap/NSUFF_FEM_SG+i/CASE_DEF_GEN gloss:[fem.sg.]_+_[def.gen.] gen:f num:s stt:c cas:g
+h	NSuff-api	diac:api bw:ap/NSUFF_FEM_SG+i/CASE_DEF_GEN gloss:[fem.sg.]_+_[def.gen.] gen:f num:s stt:d cas:g
+h	NSuff-apN	diac:apN bw:ap/NSUFF_FEM_SG+N/CASE_INDEF_NOM gloss:[fem.sg.]_+_[indef.nom.] gen:f num:s stt:i cas:n
+h	NSuff-apF	diac:apF bw:ap/NSUFF_FEM_SG+F/CASE_INDEF_ACC gloss:[fem.sg.]_+_[indef.acc.] gen:f num:s stt:i cas:a
+h	NSuff-apK	diac:apK bw:ap/NSUFF_FEM_SG+K/CASE_INDEF_GEN gloss:[fem.sg.]_+_[indef.gen.] gen:f num:s stt:i cas:g
+h	NSuff-apa_gen	diac:apa bw:ap/NSUFF_FEM_SG+a/CASE_DEF_GEN gloss:[fem.sg.]_+_[def.gen.] gen:f num:s stt:c cas:g
+ty	NSuff-ath	diac:atiy bw:at/NSUFF_FEM_SG+iy/POSS_PRON_1S gloss:[fem.sg.]_+_my gen:f num:s stt:c enc0:1s_poss
+th	NSuff-ath	diac:atuhu bw:at/NSUFF_FEM_SG+u/CASE_DEF_NOM+hu/POSS_PRON_3MS gloss:[fem.sg.]_+_[def.nom]_+_his/its gen:f num:s stt:c cas:n enc0:3ms_poss
+thmA	NSuff-ath	diac:atuhumA bw:at/NSUFF_FEM_SG+u/CASE_DEF_NOM+humA/POSS_PRON_3D gloss:[fem.sg.]_+_[def.nom]_+_their gen:f num:s stt:c cas:n enc0:3d_poss
+thm	NSuff-ath	diac:atuhum bw:at/NSUFF_FEM_SG+u/CASE_DEF_NOM+hum/POSS_PRON_3MP gloss:[fem.sg.]_+_[def.nom]_+_their gen:f num:s stt:c cas:n enc0:3mp_poss
+thA	NSuff-ath	diac:atuhA bw:at/NSUFF_FEM_SG+u/CASE_DEF_NOM+hA/POSS_PRON_3FS gloss:[fem.sg.]_+_[def.nom]_+_its/their/her gen:f num:s stt:c cas:n enc0:3fs_poss
+thn	NSuff-ath	diac:atuhun~a bw:at/NSUFF_FEM_SG+u/CASE_DEF_NOM+hun~a/POSS_PRON_3FP gloss:[fem.sg.]_+_[def.nom]_+_their gen:f num:s stt:c cas:n enc0:3fp_poss
+tk	NSuff-ath	diac:atuka bw:at/NSUFF_FEM_SG+u/CASE_DEF_NOM+ka/POSS_PRON_2MS gloss:[fem.sg.]_+_[def.nom]_+_your_[masc.sg.] gen:f num:s stt:c cas:n enc0:2ms_poss
+tk	NSuff-ath	diac:atuki bw:at/NSUFF_FEM_SG+u/CASE_DEF_NOM+ki/POSS_PRON_2FS gloss:[fem.sg.]_+_[def.nom]_+_your_[fem.sg.] gen:f num:s stt:c cas:n enc0:2fs_poss
+tkmA	NSuff-ath	diac:atukumA bw:at/NSUFF_FEM_SG+u/CASE_DEF_NOM+kumA/POSS_PRON_2D gloss:[fem.sg.]_+_[def.nom]_+_your_[du.] gen:f num:s stt:c cas:n enc0:2d_poss
+tkm	NSuff-ath	diac:atukum bw:at/NSUFF_FEM_SG+u/CASE_DEF_NOM+kum/POSS_PRON_2MP gloss:[fem.sg.]_+_[def.nom]_+_your_[masc.pl.] gen:f num:s stt:c cas:n enc0:2mp_poss
+tkn	NSuff-ath	diac:atukun~a bw:at/NSUFF_FEM_SG+u/CASE_DEF_NOM+kun~a/POSS_PRON_2FP gloss:[fem.sg.]_+_[def.nom]_+_your_[fem.pl] gen:f num:s stt:c cas:n enc0:2fp_poss
+tnA	NSuff-ath	diac:atunA bw:at/NSUFF_FEM_SG+u/CASE_DEF_NOM+nA/POSS_PRON_1P gloss:[fem.sg.]_+_[def.nom]_+_our gen:f num:s stt:c cas:n enc0:1p_poss
+th	NSuff-ath	diac:atahu bw:at/NSUFF_FEM_SG+a/CASE_DEF_ACC+hu/POSS_PRON_3MS gloss:[fem.sg.]_+_[def.acc.]_+_his/its gen:f num:s stt:c cas:a enc0:3ms_poss
+thmA	NSuff-ath	diac:atahumA bw:at/NSUFF_FEM_SG+a/CASE_DEF_ACC+humA/POSS_PRON_3D gloss:[fem.sg.]_+_[def.acc.]_+_their gen:f num:s stt:c cas:a enc0:3d_poss
+thm	NSuff-ath	diac:atahum bw:at/NSUFF_FEM_SG+a/CASE_DEF_ACC+hum/POSS_PRON_3MP gloss:[fem.sg.]_+_[def.acc.]_+_their gen:f num:s stt:c cas:a enc0:3mp_poss
+thA	NSuff-ath	diac:atahA bw:at/NSUFF_FEM_SG+a/CASE_DEF_ACC+hA/POSS_PRON_3FS gloss:[fem.sg.]_+_[def.acc.]_+_its/their/her gen:f num:s stt:c cas:a enc0:3fs_poss
+thn	NSuff-ath	diac:atahun~a bw:at/NSUFF_FEM_SG+a/CASE_DEF_ACC+hun~a/POSS_PRON_3FP gloss:[fem.sg.]_+_[def.acc.]_+_their gen:f num:s stt:c cas:a enc0:3fp_poss
+tk	NSuff-ath	diac:ataka bw:at/NSUFF_FEM_SG+a/CASE_DEF_ACC+ka/POSS_PRON_2MS gloss:[fem.sg.]_+_[def.acc.]_+_your_[masc.sg.] gen:f num:s stt:c cas:a enc0:2ms_poss
+tk	NSuff-ath	diac:ataki bw:at/NSUFF_FEM_SG+a/CASE_DEF_ACC+ki/POSS_PRON_2FS gloss:[fem.sg.]_+_[def.acc.]_+_your_[fem.sg.] gen:f num:s stt:c cas:a enc0:2fs_poss
+tkmA	NSuff-ath	diac:atakumA bw:at/NSUFF_FEM_SG+a/CASE_DEF_ACC+kumA/POSS_PRON_2D gloss:[fem.sg.]_+_[def.acc.]_+_your_[du.] gen:f num:s stt:c cas:a enc0:2d_poss
+tkm	NSuff-ath	diac:atakum bw:at/NSUFF_FEM_SG+a/CASE_DEF_ACC+kum/POSS_PRON_2MP gloss:[fem.sg.]_+_[def.acc.]_+_your_[masc.pl.] gen:f num:s stt:c cas:a enc0:2mp_poss
+tkn	NSuff-ath	diac:atakun~a bw:at/NSUFF_FEM_SG+a/CASE_DEF_ACC+kun~a/POSS_PRON_2FP gloss:[fem.sg.]_+_[def.acc.]_+_your_[fem.pl.] gen:f num:s stt:c cas:a enc0:2fp_poss
+tnA	NSuff-ath	diac:atanA bw:at/NSUFF_FEM_SG+a/CASE_DEF_ACC+nA/POSS_PRON_1P gloss:[fem.sg.]_+_[def.acc.]_+_our gen:f num:s stt:c cas:a enc0:1p_poss
+th	NSuff-ath	diac:atihi bw:at/NSUFF_FEM_SG+i/CASE_DEF_GEN+hi/POSS_PRON_3MS gloss:[fem.sg.]_+_[def.gen.]_+_his/its gen:f num:s stt:c cas:g enc0:3ms_poss
+thmA	NSuff-ath	diac:atihimA bw:at/NSUFF_FEM_SG+i/CASE_DEF_GEN+himA/POSS_PRON_3D gloss:[fem.sg.]_+_[def.gen.]_+_their gen:f num:s stt:c cas:g enc0:3d_poss
+thm	NSuff-ath	diac:atihim bw:at/NSUFF_FEM_SG+i/CASE_DEF_GEN+him/POSS_PRON_3MP gloss:[fem.sg.]_+_[def.gen.]_+_their gen:f num:s stt:c cas:g enc0:3mp_poss
+thA	NSuff-ath	diac:atihA bw:at/NSUFF_FEM_SG+i/CASE_DEF_GEN+hA/POSS_PRON_3FS gloss:[fem.sg.]_+_[def.gen.]_+_its/their/her gen:f num:s stt:c cas:g enc0:3fs_poss
+thn	NSuff-ath	diac:atihin~a bw:at/NSUFF_FEM_SG+i/CASE_DEF_GEN+hin~a/POSS_PRON_3FP gloss:[fem.sg.]_+_[def.gen.]_+_their gen:f num:s stt:c cas:g enc0:3fp_poss
+tk	NSuff-ath	diac:atika bw:at/NSUFF_FEM_SG+i/CASE_DEF_GEN+ka/POSS_PRON_2MS gloss:[fem.sg.]_+_[def.gen.]_+_your_[masc.sg.] gen:f num:s stt:c cas:g enc0:2ms_poss
+tk	NSuff-ath	diac:atiki bw:at/NSUFF_FEM_SG+i/CASE_DEF_GEN+ki/POSS_PRON_2FS gloss:[fem.sg.]_+_[def.gen.]_+_your_[fem.sg.] gen:f num:s stt:c cas:g enc0:2fs_poss
+tkmA	NSuff-ath	diac:atikumA bw:at/NSUFF_FEM_SG+i/CASE_DEF_GEN+kumA/POSS_PRON_2D gloss:[fem.sg.]_+_[def.gen.]_+_your_[du.] gen:f num:s stt:c cas:g enc0:2d_poss
+tkm	NSuff-ath	diac:atikum bw:at/NSUFF_FEM_SG+i/CASE_DEF_GEN+kum/POSS_PRON_2MP gloss:[fem.sg.]_+_[def.gen.]_+_your_[masc.pl.] gen:f num:s stt:c cas:g enc0:2mp_poss
+tkn	NSuff-ath	diac:atikun~a bw:at/NSUFF_FEM_SG+i/CASE_DEF_GEN+kun~a/POSS_PRON_2FP gloss:[fem.sg.]_+_[def.gen.]_+_your_[fem.pl.] gen:f num:s stt:c cas:g enc0:2fp_poss
+tnA	NSuff-ath	diac:atinA bw:at/NSUFF_FEM_SG+i/CASE_DEF_GEN+nA/POSS_PRON_1P gloss:[fem.sg.]_+_[def.gen.]_+_our gen:f num:s stt:c cas:g enc0:1p_poss
+yn	NSuff-ayn	diac:ayoni bw:ayoni/NSUFF_MASC_DU_ACC gloss:two_[acc.] gen:m num:d stt:d cas:a
+yn	NSuff-ayn-indef	diac:ayoni bw:ayoni/NSUFF_MASC_DU_ACC gloss:two_[acc.] gen:m num:d stt:i cas:a
+yn	NSuff-ayn	diac:ayoni bw:ayoni/NSUFF_MASC_DU_GEN gloss:two_[gen.] gen:m num:d stt:d cas:g
+yn	NSuff-ayn-indef	diac:ayoni bw:ayoni/NSUFF_MASC_DU_GEN gloss:two_[gen.] gen:m num:d stt:i cas:g
+y	NSuff-ayn	diac:ayo bw:ayo/NSUFF_MASC_DU_ACC_POSS gloss:two_[acc.] gen:m num:d stt:c cas:a
+y	NSuff-ayn	diac:ayo bw:ayo/NSUFF_MASC_DU_GEN_POSS gloss:two_[gen.] gen:m num:d stt:c cas:g
+yh	NSuff-ayh	diac:ayohi bw:ayo/NSUFF_MASC_DU_ACC+hi/POSS_PRON_3MS gloss:two_[acc.]_+_his/its gen:m num:d stt:c cas:a enc0:3ms_poss
+yhmA	NSuff-ayh	diac:ayohimA bw:ayo/NSUFF_MASC_DU_ACC+himA/POSS_PRON_3D gloss:two_[acc.]_+_their gen:m num:d stt:c cas:a enc0:3d_poss
+yhm	NSuff-ayh	diac:ayohim bw:ayo/NSUFF_MASC_DU_ACC+him/POSS_PRON_3MP gloss:two_[acc.]_+_their gen:m num:d stt:c cas:a enc0:3mp_poss
+yhA	NSuff-ayh	diac:ayohA bw:ayo/NSUFF_MASC_DU_ACC+hA/POSS_PRON_3FS gloss:two_[acc.]_+_its/their/her gen:m num:d stt:c cas:a enc0:3fs_poss
+yhn	NSuff-ayh	diac:ayohin~a bw:ayo/NSUFF_MASC_DU_ACC+hin~a/POSS_PRON_3FP gloss:two_[acc.]_+_their gen:m num:d stt:c cas:a enc0:3fp_poss
+yk	NSuff-ayh	diac:ayoka bw:ayo/NSUFF_MASC_DU_ACC+ka/POSS_PRON_2MS gloss:two_[acc.]_+_your_[masc.sg.] gen:m num:d stt:c cas:a enc0:2ms_poss
+yk	NSuff-ayh	diac:ayoki bw:ayo/NSUFF_MASC_DU_ACC+ki/POSS_PRON_2FS gloss:two_[acc.]_+_your_[fem.sg.] gen:m num:d stt:c cas:a enc0:2fs_poss
+ykmA	NSuff-ayh	diac:ayokumA bw:ayo/NSUFF_MASC_DU_ACC+kumA/POSS_PRON_2D gloss:two_[acc.]_+_your_[du.] gen:m num:d stt:c cas:a enc0:2d_poss
+ykm	NSuff-ayh	diac:ayokum bw:ayo/NSUFF_MASC_DU_ACC+kum/POSS_PRON_2MP gloss:two_[acc.]_+_your_[masc.pl.] gen:m num:d stt:c cas:a enc0:2mp_poss
+ykn	NSuff-ayh	diac:ayokun~a bw:ayo/NSUFF_MASC_DU_ACC+kun~a/POSS_PRON_2FP gloss:two_[acc.]_+_your_[fem.pl.] gen:m num:d stt:c cas:a enc0:2fp_poss
+y	NSuff-ayh	diac:ay~a bw:ayo/NSUFF_MASC_DU_ACC+ya/POSS_PRON_1S gloss:two_[acc.]_+_my gen:m num:d stt:c cas:a enc0:1s_poss
+ynA	NSuff-ayh	diac:ayonA bw:ayo/NSUFF_MASC_DU_ACC+nA/POSS_PRON_1P gloss:two_[acc.]_+_our gen:m num:d stt:c cas:a enc0:1p_poss
+yh	NSuff-ayh	diac:ayohi bw:ayo/NSUFF_MASC_DU_GEN+hi/POSS_PRON_3MS gloss:two_[gen.]_+_his/its gen:m num:d stt:c cas:g enc0:3ms_poss
+yhmA	NSuff-ayh	diac:ayohimA bw:ayo/NSUFF_MASC_DU_GEN+himA/POSS_PRON_3D gloss:two_[gen.]_+_their gen:m num:d stt:c cas:g enc0:3d_poss
+yhm	NSuff-ayh	diac:ayohim bw:ayo/NSUFF_MASC_DU_GEN+him/POSS_PRON_3MP gloss:two_[gen.]_+_their gen:m num:d stt:c cas:g enc0:3mp_poss
+yhA	NSuff-ayh	diac:ayohA bw:ayo/NSUFF_MASC_DU_GEN+hA/POSS_PRON_3FS gloss:two_[gen.]_+_its/their/her gen:m num:d stt:c cas:g enc0:3fs_poss
+yhn	NSuff-ayh	diac:ayohin~a bw:ayo/NSUFF_MASC_DU_GEN+hin~a/POSS_PRON_3FP gloss:two_[gen.]_+_their gen:m num:d stt:c cas:g enc0:3fp_poss
+yk	NSuff-ayh	diac:ayoka bw:ayo/NSUFF_MASC_DU_GEN+ka/POSS_PRON_2MS gloss:two_[gen.]_+_your_[masc.sg.] gen:m num:d stt:c cas:g enc0:2ms_poss
+yk	NSuff-ayh	diac:ayoki bw:ayo/NSUFF_MASC_DU_GEN+ki/POSS_PRON_2FS gloss:two_[gen.]_+_your_[fem.sg.] gen:m num:d stt:c cas:g enc0:2fs_poss
+ykmA	NSuff-ayh	diac:ayokumA bw:ayo/NSUFF_MASC_DU_GEN+kumA/POSS_PRON_2D gloss:two_[gen.]_+_your_[du.] gen:m num:d stt:c cas:g enc0:2d_poss
+ykm	NSuff-ayh	diac:ayokum bw:ayo/NSUFF_MASC_DU_GEN+kum/POSS_PRON_2MP gloss:two_[gen.]_+_your_[masc.pl.] gen:m num:d stt:c cas:g enc0:2mp_poss
+ykn	NSuff-ayh	diac:ayokun~a bw:ayo/NSUFF_MASC_DU_GEN+kun~a/POSS_PRON_2FP gloss:two_[gen.]_+_your_[fem.pl.] gen:m num:d stt:c cas:g enc0:2fp_poss
+y	NSuff-ayh	diac:ay~a bw:ayo/NSUFF_MASC_DU_GEN+ya/POSS_PRON_1S gloss:two_[gen.]_+_my gen:m num:d stt:c cas:g enc0:1s_poss
+ynA	NSuff-ayh	diac:ayonA bw:ayo/NSUFF_MASC_DU_GEN+nA/POSS_PRON_1P gloss:two_[gen.]_+_our gen:m num:d stt:c cas:g enc0:1p_poss
+A	NSuff-AF	diac:AF bw:AF/CASE_INDEF_ACC gloss:[acc.indef.] stt:i cas:a
+An	NSuff-An	diac:Ani bw:Ani/NSUFF_MASC_DU_NOM gloss:two gen:m num:d stt:d cas:n
+An	NSuff-An-indef	diac:Ani bw:Ani/NSUFF_MASC_DU_NOM gloss:two gen:m num:d stt:i cas:n
+A	NSuff-An	diac:A bw:A/NSUFF_MASC_DU_NOM_POSS gloss:two gen:m num:d stt:c cas:n
+Ah	NSuff-Ah	diac:Ahu bw:A/NSUFF_MASC_DU_NOM+hu/POSS_PRON_3MS gloss:two_+_its/his gen:m num:d stt:c cas:n enc0:3ms_poss
+AhmA	NSuff-Ah	diac:AhumA bw:A/NSUFF_MASC_DU_NOM+humA/POSS_PRON_3D gloss:two_+_their gen:m num:d stt:c cas:n enc0:3d_poss
+Ahm	NSuff-Ah	diac:Ahum bw:A/NSUFF_MASC_DU_NOM+hum/POSS_PRON_3MP gloss:two_+_their gen:m num:d stt:c cas:n enc0:3mp_poss
+AhA	NSuff-Ah	diac:AhA bw:A/NSUFF_MASC_DU_NOM+hA/POSS_PRON_3FS gloss:two_+_its/their/her gen:m num:d stt:c cas:n enc0:3fs_poss
+Ahn	NSuff-Ah	diac:Ahun~a bw:A/NSUFF_MASC_DU_NOM+hun~a/POSS_PRON_3FP gloss:two_+_their gen:m num:d stt:c cas:n enc0:3fp_poss
+Ak	NSuff-Ah	diac:Aka bw:A/NSUFF_MASC_DU_NOM+ka/POSS_PRON_2MS gloss:two_+_your_[masc.sg.] gen:m num:d stt:c cas:n enc0:2ms_poss
+Ak	NSuff-Ah	diac:Aki bw:A/NSUFF_MASC_DU_NOM+ki/POSS_PRON_2FS gloss:two_+_your_[fem.sg.] gen:m num:d stt:c cas:n enc0:2fs_poss
+AkmA	NSuff-Ah	diac:AkumA bw:A/NSUFF_MASC_DU_NOM+kumA/POSS_PRON_2D gloss:two_+_your_[du.] gen:m num:d stt:c cas:n enc0:2d_poss
+Akm	NSuff-Ah	diac:Akum bw:A/NSUFF_MASC_DU_NOM+kum/POSS_PRON_2MP gloss:two_+_your_[masc.pl.] gen:m num:d stt:c cas:n enc0:2mp_poss
+Akn	NSuff-Ah	diac:Akun~a bw:A/NSUFF_MASC_DU_NOM+kun~a/POSS_PRON_2FP gloss:two_+_your_[fem.pl.] gen:m num:d stt:c cas:n enc0:2fp_poss
+Ay	NSuff-Ah	diac:Aya bw:A/NSUFF_MASC_DU_NOM+ya/POSS_PRON_1S gloss:two_+_my gen:m num:d stt:c cas:n enc0:1s_poss
+AnA	NSuff-Ah	diac:AnA bw:A/NSUFF_MASC_DU_NOM+nA/POSS_PRON_1P gloss:two_+_our gen:m num:d stt:c cas:n enc0:1p_poss
+At	NSuff-At	diac:At bw:At/NSUFF_FEM_PL gloss:[fem.pl.] gen:f num:p
+At	NSuff-Atu	diac:Atu bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM gloss:[fem.pl.]_+_[def.nom.] gen:f num:p stt:c cas:n
+At	NSuff-Atu	diac:Atu bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM gloss:[fem.pl.]_+_[def.nom.] gen:f num:p stt:d cas:n
+At	NSuff-Ati_acc	diac:Ati bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC gloss:[fem.pl.]_+_[def.acc.] gen:f num:p stt:c cas:a
+At	NSuff-Ati_acc	diac:Ati bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC gloss:[fem.pl.]_+_[def.acc.] gen:f num:p stt:d cas:a
+At	NSuff-Ati_gen	diac:Ati bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN gloss:[fem.pl.]_+_[def.gen.] gen:f num:p stt:c cas:g
+At	NSuff-Ati_gen	diac:Ati bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN gloss:[fem.pl.]_+_[def.gen.] gen:f num:p stt:d cas:g
+At	NSuff-AtN	diac:AtN bw:At/NSUFF_FEM_PL+N/CASE_INDEF_NOM gloss:[fem.pl.]_+_[indef.nom.] gen:f num:p stt:i cas:n
+At	NSuff-AtK_acc	diac:AtK bw:At/NSUFF_FEM_PL+K/CASE_INDEF_ACC gloss:[fem.pl.]_+_[indef.acc.] gen:f num:p stt:i cas:a
+At	NSuff-AtK_gen	diac:AtK bw:At/NSUFF_FEM_PL+K/CASE_INDEF_GEN gloss:[fem.pl.]_+_[indef.gen.] gen:f num:p stt:i cas:g
+Aty	NSuff-Ath	diac:Atiy bw:At/NSUFF_FEM_PL+iy/POSS_PRON_1S gloss:[fem.pl.]_+_my gen:f num:p stt:c enc0:1s_poss
+Ath	NSuff-Ath	diac:Atuhu bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM+hu/POSS_PRON_3MS gloss:[fem.pl.]_+_[def.nom.]_+_its/his gen:f num:p stt:c cas:n enc0:3ms_poss
+AthmA	NSuff-Ath	diac:AtuhumA bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM+humA/POSS_PRON_3D gloss:[fem.pl.]_+_[def.nom.]_+_their gen:f num:p stt:c cas:n enc0:3d_poss
+Athm	NSuff-Ath	diac:Atuhum bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM+hum/POSS_PRON_3MP gloss:[fem.pl.]_+_[def.nom.]_+_their gen:f num:p stt:c cas:n enc0:3mp_poss
+AthA	NSuff-Ath	diac:AtuhA bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM+hA/POSS_PRON_3FS gloss:[fem.pl.]_+_[def.nom.]_+_its/their/her gen:f num:p stt:c cas:n enc0:3fs_poss
+Athn	NSuff-Ath	diac:Atuhun~a bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM+hun~a/POSS_PRON_3FP gloss:[fem.pl.]_+_[def.nom.]_+_their gen:f num:p stt:c cas:n enc0:3fp_poss
+Atk	NSuff-Ath	diac:Atuka bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM+ka/POSS_PRON_2MS gloss:[fem.pl.]_+_[def.nom.]_+_your_[masc.sg.] gen:f num:p stt:c cas:n enc0:2ms_poss
+Atk	NSuff-Ath	diac:Atuki bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM+ki/POSS_PRON_2FS gloss:[fem.pl.]_+_[def.nom.]_+_your_[fem.sg.] gen:f num:p stt:c cas:n enc0:2fs_poss
+AtkmA	NSuff-Ath	diac:AtukumA bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM+kumA/POSS_PRON_2D gloss:[fem.pl.]_+_[def.nom.]_+_your_[du.] gen:f num:p stt:c cas:n enc0:2d_poss
+Atkm	NSuff-Ath	diac:Atukum bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM+kum/POSS_PRON_2MP gloss:[fem.pl.]_+_[def.nom.]_+_your_[masc.pl.] gen:f num:p stt:c cas:n enc0:2mp_poss
+Atkn	NSuff-Ath	diac:Atukun~a bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM+kun~a/POSS_PRON_2FP gloss:[fem.pl.]_+_[def.nom.]_+_your_[fem.pl.] gen:f num:p stt:c cas:n enc0:2fp_poss
+AtnA	NSuff-Ath	diac:AtunA bw:At/NSUFF_FEM_PL+u/CASE_DEF_NOM+nA/POSS_PRON_1P gloss:[fem.pl.]_+_[def.nom.]_+_our gen:f num:p stt:c cas:n enc0:1p_poss
+Ath	NSuff-Ath	diac:Atihi bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC+hi/POSS_PRON_3MS gloss:[fem.pl.]_+_[def.acc.]_+_its/his gen:f num:p stt:c cas:a enc0:3ms_poss
+AthmA	NSuff-Ath	diac:AtihimA bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC+himA/POSS_PRON_3D gloss:[fem.pl.]_+_[def.acc.]_+_their gen:f num:p stt:c cas:a enc0:3d_poss
+Athm	NSuff-Ath	diac:Atihim bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC+him/POSS_PRON_3MP gloss:[fem.pl.]_+_[def.acc.]_+_their gen:f num:p stt:c cas:a enc0:3mp_poss
+AthA	NSuff-Ath	diac:AtihA bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC+hA/POSS_PRON_3FS gloss:[fem.pl.]_+_[def.acc.]_+_its/their/her gen:f num:p stt:c cas:a enc0:3fs_poss
+Athn	NSuff-Ath	diac:Atihin~a bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC+hin~a/POSS_PRON_3FP gloss:[fem.pl.]_+_[def.acc.]_+_their gen:f num:p stt:c cas:a enc0:3fp_poss
+Atk	NSuff-Ath	diac:Atika bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC+ka/POSS_PRON_2MS gloss:[fem.pl.]_+_[def.acc.]_+_your_[masc.sg.] gen:f num:p stt:c cas:a enc0:2ms_poss
+Atk	NSuff-Ath	diac:Atiki bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC+ki/POSS_PRON_2FS gloss:[fem.pl.]_+_[def.acc.]_+_your_[fem.sg.] gen:f num:p stt:c cas:a enc0:2fs_poss
+AtkmA	NSuff-Ath	diac:AtikumA bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC+kumA/POSS_PRON_2D gloss:[fem.pl.]_+_[def.acc.]_+_your_[du.] gen:f num:p stt:c cas:a enc0:2d_poss
+Atkm	NSuff-Ath	diac:Atikum bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC+kum/POSS_PRON_2MP gloss:[fem.pl.]_+_[def.acc.]_+_your_[masc.pl.] gen:f num:p stt:c cas:a enc0:2mp_poss
+Atkn	NSuff-Ath	diac:Atikun~a bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC+kun~a/POSS_PRON_2FP gloss:[fem.pl.]_+_[def.acc.]_+_your_[fem.pl.] gen:f num:p stt:c cas:a enc0:2fp_poss
+AtnA	NSuff-Ath	diac:AtinA bw:At/NSUFF_FEM_PL+i/CASE_DEF_ACC+nA/POSS_PRON_1P gloss:[fem.pl.]_+_[def.acc.]_+_our gen:f num:p stt:c cas:a enc0:1p_poss
+Ath	NSuff-Ath	diac:Atihi bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN+hi/POSS_PRON_3MS gloss:[fem.pl.]_+_[def.gen.]_+_its/his gen:f num:p stt:c cas:g enc0:3ms_poss
+AthmA	NSuff-Ath	diac:AtihimA bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN+himA/POSS_PRON_3D gloss:[fem.pl.]_+_[def.gen.]_+_their gen:f num:p stt:c cas:g enc0:3d_poss
+Athm	NSuff-Ath	diac:Atihim bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN+him/POSS_PRON_3MP gloss:[fem.pl.]_+_[def.gen.]_+_their gen:f num:p stt:c cas:g enc0:3mp_poss
+AthA	NSuff-Ath	diac:AtihA bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN+hA/POSS_PRON_3FS gloss:[fem.pl.]_+_[def.gen.]_+_its/their/her gen:f num:p stt:c cas:g enc0:3fs_poss
+Athn	NSuff-Ath	diac:Atihin~a bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN+hin~a/POSS_PRON_3FP gloss:[fem.pl.]_+_[def.gen.]_+_their gen:f num:p stt:c cas:g enc0:3fp_poss
+Atk	NSuff-Ath	diac:Atika bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN+ka/POSS_PRON_2MS gloss:[fem.pl.]_+_[def.gen.]_+_your_[masc.sg.] gen:f num:p stt:c cas:g enc0:2ms_poss
+Atk	NSuff-Ath	diac:Atiki bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN+ki/POSS_PRON_2FS gloss:[fem.pl.]_+_[def.gen.]_+_your_[fem.sg.] gen:f num:p stt:c cas:g enc0:2fs_poss
+AtkmA	NSuff-Ath	diac:AtikumA bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN+kumA/POSS_PRON_2D gloss:[fem.pl.]_+_[def.gen.]_+_your_[du.] gen:f num:p stt:c cas:g enc0:2d_poss
+Atkm	NSuff-Ath	diac:Atikum bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN+kum/POSS_PRON_2MP gloss:[fem.pl.]_+_[def.gen.]_+_your_[masc.pl.] gen:f num:p stt:c cas:g enc0:2mp_poss
+Atkn	NSuff-Ath	diac:Atikun~a bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN+kun~a/POSS_PRON_2FP gloss:[fem.pl.]_+_[def.gen.]_+_your_[fem.pl.] gen:f num:p stt:c cas:g enc0:2fp_poss
+AtnA	NSuff-Ath	diac:AtinA bw:At/NSUFF_FEM_PL+i/CASE_DEF_GEN+nA/POSS_PRON_1P gloss:[fem.pl.]_+_[def.gen.]_+_our gen:f num:p stt:c cas:g enc0:1p_poss
+At	NSuff-|tu	diac:|tu bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM gloss:[fem.pl.]_+_[def.nom.] gen:f num:p stt:c cas:n
+At	NSuff-|tu	diac:|tu bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM gloss:[fem.pl.]_+_[def.nom.] gen:f num:p stt:d cas:n
+At	NSuff-|ti	diac:|ti bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC gloss:[fem.pl.]_+_[def.acc.] gen:f num:p stt:c cas:a
+At	NSuff-|ti	diac:|ti bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC gloss:[fem.pl.]_+_[def.acc.] gen:f num:p stt:d cas:a
+At	NSuff-|ti	diac:|ti bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN gloss:[fem.pl.]_+_[def.gen.] gen:f num:p stt:c cas:g
+At	NSuff-|ti	diac:|ti bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN gloss:[fem.pl.]_+_[def.gen.] gen:f num:p stt:d cas:g
+At	NSuff-|tN	diac:|tN bw:|t/NSUFF_FEM_PL+N/CASE_INDEF_NOM gloss:[fem.pl.]_+_[indef.nom.] gen:f num:p stt:i cas:n
+At	NSuff-|tK	diac:|tK bw:|t/NSUFF_FEM_PL+K/CASE_INDEF_ACC gloss:[fem.pl.]_+_[indef.acc.] gen:f num:p stt:i cas:a
+At	NSuff-|tK	diac:|tK bw:|t/NSUFF_FEM_PL+K/CASE_INDEF_GEN gloss:[fem.pl.]_+_[indef.gen.] gen:f num:p stt:i cas:g
+Aty	NSuff-|th	diac:|tiy bw:|t/NSUFF_FEM_PL+iy/POSS_PRON_1S gloss:[fem.pl.]_+_my gen:f num:p stt:c enc0:1s_poss
+Ath	NSuff-|th	diac:|tuhu bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM+hu/POSS_PRON_3MS gloss:[fem.pl.]_+_[nom.]_+_its/his gen:f num:p stt:c cas:n enc0:3ms_poss
+AthmA	NSuff-|th	diac:|tuhumA bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM+humA/POSS_PRON_3D gloss:[fem.pl.]_+_[nom.]_+_their gen:f num:p stt:c cas:n enc0:3d_poss
+Athm	NSuff-|th	diac:|tuhum bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM+hum/POSS_PRON_3MP gloss:[fem.pl.]_+_[nom.]_+_their gen:f num:p stt:c cas:n enc0:3mp_poss
+AthA	NSuff-|th	diac:|tuhA bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM+hA/POSS_PRON_3FS gloss:[fem.pl.]_+_[nom.]_+_its/their/her gen:f num:p stt:c cas:n enc0:3fs_poss
+Athn	NSuff-|th	diac:|tuhun~a bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM+hun~a/POSS_PRON_3FP gloss:[fem.pl.]_+_[nom.]_+_their gen:f num:p stt:c cas:n enc0:3fp_poss
+Atk	NSuff-|th	diac:|tuka bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM+ka/POSS_PRON_2MS gloss:[fem.pl.]_+_[nom.]_+_your_[masc.sg.] gen:f num:p stt:c cas:n enc0:2ms_poss
+Atk	NSuff-|th	diac:|tuki bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM+ki/POSS_PRON_2FS gloss:[fem.pl.]_+_[nom.]_+_your_[fem.sg.] gen:f num:p stt:c cas:n enc0:2fs_poss
+AtkmA	NSuff-|th	diac:|tukumA bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM+kumA/POSS_PRON_2D gloss:[fem.pl.]_+_[nom.]_+_your_[du.] gen:f num:p stt:c cas:n enc0:2d_poss
+Atkm	NSuff-|th	diac:|tukum bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM+kum/POSS_PRON_2MP gloss:[fem.pl.]_+_[nom.]_+_your_[masc.pl.] gen:f num:p stt:c cas:n enc0:2mp_poss
+Atkn	NSuff-|th	diac:|tukun~a bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM+kun~a/POSS_PRON_2FP gloss:[fem.pl.]_+_[nom.]_+_your_[fem.pl.] gen:f num:p stt:c cas:n enc0:2fp_poss
+AtnA	NSuff-|th	diac:|tunA bw:|t/NSUFF_FEM_PL+u/CASE_DEF_NOM+nA/POSS_PRON_1P gloss:[fem.pl.]_+_[nom.]_+_our gen:f num:p stt:c cas:n enc0:1p_poss
+Ath	NSuff-|th	diac:|tihi bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC+hi/POSS_PRON_3MS gloss:[fem.pl.]_+_[acc.]_+_its/his gen:f num:p stt:c cas:a enc0:3ms_poss
+AthmA	NSuff-|th	diac:|tihimA bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC+himA/POSS_PRON_3D gloss:[fem.pl.]_+_[acc.]_+_their gen:f num:p stt:c cas:a enc0:3d_poss
+Athm	NSuff-|th	diac:|tihim bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC+him/POSS_PRON_3MP gloss:[fem.pl.]_+_[acc.]_+_their gen:f num:p stt:c cas:a enc0:3mp_poss
+AthA	NSuff-|th	diac:|tihA bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC+hA/POSS_PRON_3FS gloss:[fem.pl.]_+_[acc.]_+_its/their/her gen:f num:p stt:c cas:a enc0:3fs_poss
+Athn	NSuff-|th	diac:|tihin~a bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC+hin~a/POSS_PRON_3FP gloss:[fem.pl.]_+_[acc.]_+_their gen:f num:p stt:c cas:a enc0:3fp_poss
+Atk	NSuff-|th	diac:|tika bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC+ka/POSS_PRON_2MS gloss:[fem.pl.]_+_[acc.]_+_your_[masc.sg.] gen:f num:p stt:c cas:a enc0:2ms_poss
+Atk	NSuff-|th	diac:|tiki bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC+ki/POSS_PRON_2FS gloss:[fem.pl.]_+_[acc.]_+_your_[fem.sg.] gen:f num:p stt:c cas:a enc0:2fs_poss
+AtkmA	NSuff-|th	diac:|tikumA bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC+kumA/POSS_PRON_2D gloss:[fem.pl.]_+_[acc.]_+_your_[du.] gen:f num:p stt:c cas:a enc0:2d_poss
+Atkm	NSuff-|th	diac:|tikum bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC+kum/POSS_PRON_2MP gloss:[fem.pl.]_+_[acc.]_+_your_[masc.pl.] gen:f num:p stt:c cas:a enc0:2mp_poss
+Atkn	NSuff-|th	diac:|tikun~a bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC+kun~a/POSS_PRON_2FP gloss:[fem.pl.]_+_[acc.]_+_your_[fem.pl.] gen:f num:p stt:c cas:a enc0:2fp_poss
+AtnA	NSuff-|th	diac:|tinA bw:|t/NSUFF_FEM_PL+i/CASE_DEF_ACC+nA/POSS_PRON_1P gloss:[fem.pl.]_+_[acc.]_+_our gen:f num:p stt:c cas:a enc0:1p_poss
+Ath	NSuff-|th	diac:|tihi bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN+hi/POSS_PRON_3MS gloss:[fem.pl.]_+_[gen.]_+_its/his gen:f num:p stt:c cas:g enc0:3ms_poss
+AthmA	NSuff-|th	diac:|tihimA bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN+himA/POSS_PRON_3D gloss:[fem.pl.]_+_[gen.]_+_their gen:f num:p stt:c cas:g enc0:3d_poss
+Athm	NSuff-|th	diac:|tihim bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN+him/POSS_PRON_3MP gloss:[fem.pl.]_+_[gen.]_+_their gen:f num:p stt:c cas:g enc0:3mp_poss
+AthA	NSuff-|th	diac:|tihA bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN+hA/POSS_PRON_3FS gloss:[fem.pl.]_+_[gen.]_+_its/their/her gen:f num:p stt:c cas:g enc0:3fs_poss
+Athn	NSuff-|th	diac:|tihin~a bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN+hin~a/POSS_PRON_3FP gloss:[fem.pl.]_+_[gen.]_+_their gen:f num:p stt:c cas:g enc0:3fp_poss
+Atk	NSuff-|th	diac:|tika bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN+ka/POSS_PRON_2MS gloss:[fem.pl.]_+_[gen.]_+_your_[masc.sg.] gen:f num:p stt:c cas:g enc0:2ms_poss
+Atk	NSuff-|th	diac:|tiki bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN+ki/POSS_PRON_2FS gloss:[fem.pl.]_+_[gen.]_+_your_[fem.sg.] gen:f num:p stt:c cas:g enc0:2fs_poss
+AtkmA	NSuff-|th	diac:|tikumA bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN+kumA/POSS_PRON_2D gloss:[fem.pl.]_+_[gen.]_+_your_[du.] gen:f num:p stt:c cas:g enc0:2d_poss
+Atkm	NSuff-|th	diac:|tikum bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN+kum/POSS_PRON_2MP gloss:[fem.pl.]_+_[gen.]_+_your_[masc.pl.] gen:f num:p stt:c cas:g enc0:2mp_poss
+Atkn	NSuff-|th	diac:|tikun~a bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN+kun~a/POSS_PRON_2FP gloss:[fem.pl.]_+_[gen.]_+_your_[fem.pl.] gen:f num:p stt:c cas:g enc0:2fp_poss
+AtnA	NSuff-|th	diac:|tinA bw:|t/NSUFF_FEM_PL+i/CASE_DEF_GEN+nA/POSS_PRON_1P gloss:[fem.pl.]_+_[gen.]_+_our gen:f num:p stt:c cas:g enc0:1p_poss
+h	NSuff-h	diac:hu bw:hu/POSS_PRON_3MS gloss:its/his stt:c enc0:3ms_poss
+hmA	NSuff-h	diac:humA bw:humA/POSS_PRON_3D gloss:their stt:c enc0:3d_poss
+hm	NSuff-h	diac:hum bw:hum/POSS_PRON_3MP gloss:their stt:c enc0:3mp_poss
+hA	NSuff-h	diac:hA bw:hA/POSS_PRON_3FS gloss:its/their/her stt:c enc0:3fs_poss
+hn	NSuff-h	diac:hun~a bw:hun~a/POSS_PRON_3FP gloss:their stt:c enc0:3fp_poss
+k	NSuff-h	diac:ka bw:ka/POSS_PRON_2MS gloss:your_[masc.sg.] stt:c enc0:2ms_poss
+k	NSuff-h	diac:ki bw:ki/POSS_PRON_2FS gloss:your_[fem.sg.] stt:c enc0:2fs_poss
+kmA	NSuff-h	diac:kumA bw:kumA/POSS_PRON_2D gloss:your_[du.] stt:c enc0:2d_poss
+km	NSuff-h	diac:kum bw:kum/POSS_PRON_2MP gloss:your_[masc.pl.] stt:c enc0:2mp_poss
+kn	NSuff-h	diac:kun~a bw:kun~a/POSS_PRON_2FP gloss:your_[fem.pl.] stt:c enc0:2fp_poss
+nA	NSuff-h	diac:nA bw:nA/POSS_PRON_1P gloss:our stt:c enc0:1p_poss
+h	NSuff-hi	diac:hi bw:hi/POSS_PRON_3MS gloss:its/his stt:c enc0:3ms_poss
+hmA	NSuff-hi	diac:himA bw:himA/POSS_PRON_3D gloss:their stt:c enc0:3d_poss
+hm	NSuff-hi	diac:him bw:him/POSS_PRON_3MP gloss:their stt:c enc0:3mp_poss
+hA	NSuff-hi	diac:hA bw:hA/POSS_PRON_3FS gloss:its/their/her stt:c enc0:3fs_poss
+hn	NSuff-hi	diac:hin~a bw:hin~a/POSS_PRON_3FP gloss:their stt:c enc0:3fp_poss
+k	NSuff-hi	diac:ka bw:ka/POSS_PRON_2MS gloss:your_[masc.sg.] stt:c enc0:2ms_poss
+k	NSuff-hi	diac:ki bw:ki/POSS_PRON_2FS gloss:your_[fem.sg.] stt:c enc0:2fs_poss
+kmA	NSuff-hi	diac:kumA bw:kumA/POSS_PRON_2D gloss:your_[du.] stt:c enc0:2d_poss
+km	NSuff-hi	diac:kum bw:kum/POSS_PRON_2MP gloss:your_[masc.pl.] stt:c enc0:2mp_poss
+kn	NSuff-hi	diac:kun~a bw:kun~a/POSS_PRON_2FP gloss:your_[fem.pl.] stt:c enc0:2fp_poss
+nA	NSuff-hi	diac:nA bw:nA/POSS_PRON_1P gloss:our stt:c enc0:1p_poss
+h	NSuff-uh	diac:uhu bw:u/CASE_DEF_NOM+hu/POSS_PRON_3MS gloss:[def.nom]_+_its/his stt:c cas:n enc0:3ms_poss
+hmA	NSuff-uh	diac:uhumA bw:u/CASE_DEF_NOM+humA/POSS_PRON_3D gloss:[def.nom]_+_their stt:c cas:n enc0:3d_poss
+hm	NSuff-uh	diac:uhum bw:u/CASE_DEF_NOM+hum/POSS_PRON_3MP gloss:[def.nom]_+_their stt:c cas:n enc0:3mp_poss
+hA	NSuff-uh	diac:uhA bw:u/CASE_DEF_NOM+hA/POSS_PRON_3FS gloss:[def.nom]_+_its/their/her stt:c cas:n enc0:3fs_poss
+hn	NSuff-uh	diac:uhun~a bw:u/CASE_DEF_NOM+hun~a/POSS_PRON_3FP gloss:[def.nom]_+_their stt:c cas:n enc0:3fp_poss
+k	NSuff-uh	diac:uka bw:u/CASE_DEF_NOM+ka/POSS_PRON_2MS gloss:[def.nom]_+_your_[masc.sg.] stt:c cas:n enc0:2ms_poss
+k	NSuff-uh	diac:uki bw:u/CASE_DEF_NOM+ki/POSS_PRON_2FS gloss:[def.nom]_+_your_[fem.sg.] stt:c cas:n enc0:2fs_poss
+kmA	NSuff-uh	diac:ukumA bw:u/CASE_DEF_NOM+kumA/POSS_PRON_2D gloss:[def.nom]_+_your_[du.] stt:c cas:n enc0:2d_poss
+km	NSuff-uh	diac:ukum bw:u/CASE_DEF_NOM+kum/POSS_PRON_2MP gloss:[def.nom]_+_your_[masc.pl.] stt:c cas:n enc0:2mp_poss
+kn	NSuff-uh	diac:ukun~a bw:u/CASE_DEF_NOM+kun~a/POSS_PRON_2FP gloss:[def.nom]_+_your_[fem.pl.] stt:c cas:n enc0:2fp_poss
+nA	NSuff-uh	diac:unA bw:u/CASE_DEF_NOM+nA/POSS_PRON_1P gloss:[def.nom]_+_our stt:c cas:n enc0:1p_poss
+h	NSuff-ah	diac:ahu bw:a/CASE_DEF_ACC+hu/POSS_PRON_3MS gloss:[def.acc.]_+_its/his stt:c cas:a enc0:3ms_poss
+hmA	NSuff-ah	diac:ahumA bw:a/CASE_DEF_ACC+humA/POSS_PRON_3D gloss:[def.acc.]_+_their stt:c cas:a enc0:3d_poss
+hm	NSuff-ah	diac:ahum bw:a/CASE_DEF_ACC+hum/POSS_PRON_3MP gloss:[def.acc.]_+_their stt:c cas:a enc0:3mp_poss
+hA	NSuff-ah	diac:ahA bw:a/CASE_DEF_ACC+hA/POSS_PRON_3FS gloss:[def.acc.]_+_its/their/her stt:c cas:a enc0:3fs_poss
+hn	NSuff-ah	diac:ahun~a bw:a/CASE_DEF_ACC+hun~a/POSS_PRON_3FP gloss:[def.acc.]_+_their stt:c cas:a enc0:3fp_poss
+k	NSuff-ah	diac:aka bw:a/CASE_DEF_ACC+ka/POSS_PRON_2MS gloss:[def.acc.]_+_your_[masc.sg.] stt:c cas:a enc0:2ms_poss
+k	NSuff-ah	diac:aki bw:a/CASE_DEF_ACC+ki/POSS_PRON_2FS gloss:[def.acc.]_+_your_[fem.sg.] stt:c cas:a enc0:2fs_poss
+kmA	NSuff-ah	diac:akumA bw:a/CASE_DEF_ACC+kumA/POSS_PRON_2D gloss:[def.acc.]_+_your_[du.] stt:c cas:a enc0:2d_poss
+km	NSuff-ah	diac:akum bw:a/CASE_DEF_ACC+kum/POSS_PRON_2MP gloss:[def.acc.]_+_your_[masc.pl.] stt:c cas:a enc0:2mp_poss
+kn	NSuff-ah	diac:akun~a bw:a/CASE_DEF_ACC+kun~a/POSS_PRON_2FP gloss:[def.acc.]_+_your_[fem.pl.] stt:c cas:a enc0:2fp_poss
+nA	NSuff-ah	diac:anA bw:a/CASE_DEF_ACC+nA/POSS_PRON_1P gloss:[def.acc.]_+_our stt:c cas:a enc0:1p_poss
+h	NSuff-ih	diac:ihi bw:i/CASE_DEF_GEN+hi/POSS_PRON_3MS gloss:[def.gen.]_+_its/his stt:c cas:g enc0:3ms_poss
+hmA	NSuff-ih	diac:ihimA bw:i/CASE_DEF_GEN+himA/POSS_PRON_3D gloss:[def.gen.]_+_their stt:c cas:g enc0:3d_poss
+hm	NSuff-ih	diac:ihim bw:i/CASE_DEF_GEN+him/POSS_PRON_3MP gloss:[def.gen.]_+_their stt:c cas:g enc0:3mp_poss
+hA	NSuff-ih	diac:ihA bw:i/CASE_DEF_GEN+hA/POSS_PRON_3FS gloss:[def.gen.]_+_its/their/her stt:c cas:g enc0:3fs_poss
+hn	NSuff-ih	diac:ihin~a bw:i/CASE_DEF_GEN+hin~a/POSS_PRON_3FP gloss:[def.gen.]_+_their stt:c cas:g enc0:3fp_poss
+k	NSuff-ih	diac:ika bw:i/CASE_DEF_GEN+ka/POSS_PRON_2MS gloss:[def.gen.]_+_your_[masc.sg.] stt:c cas:g enc0:2ms_poss
+k	NSuff-ih	diac:iki bw:i/CASE_DEF_GEN+ki/POSS_PRON_2FS gloss:[def.gen.]_+_your_[fem.sg.] stt:c cas:g enc0:2fs_poss
+kmA	NSuff-ih	diac:ikumA bw:i/CASE_DEF_GEN+kumA/POSS_PRON_2D gloss:[def.gen.]_+_your_[du.] stt:c cas:g enc0:2d_poss
+km	NSuff-ih	diac:ikum bw:i/CASE_DEF_GEN+kum/POSS_PRON_2MP gloss:[def.gen.]_+_your_[masc.pl.] stt:c cas:g enc0:2mp_poss
+kn	NSuff-ih	diac:ikun~a bw:i/CASE_DEF_GEN+kun~a/POSS_PRON_2FP gloss:[def.gen.]_+_your_[fem.pl.] stt:c cas:g enc0:2fp_poss
+nA	NSuff-ih	diac:inA bw:i/CASE_DEF_GEN+nA/POSS_PRON_1P gloss:[def.gen.]_+_our stt:c cas:g enc0:1p_poss
+yn	NSuff-iyna_acc	diac:iyna bw:iyna/NSUFF_MASC_PL_ACC gloss:[masc.pl.acc.] gen:m num:p stt:d cas:a
+yn	NSuff-iyna_acc-indef	diac:iyna bw:iyna/NSUFF_MASC_PL_ACC gloss:[masc.pl.acc.] gen:m num:p stt:i cas:a
+yn	NSuff-iyna_gen	diac:iyna bw:iyna/NSUFF_MASC_PL_GEN gloss:[masc.pl.gen.] gen:m num:p stt:d cas:g
+yn	NSuff-iyna_gen-indef	diac:iyna bw:iyna/NSUFF_MASC_PL_GEN gloss:[masc.pl.gen.] gen:m num:p stt:i cas:g
+y	NSuff-iyna_acc	diac:iy bw:iy/NSUFF_MASC_PL_ACC_POSS gloss:[masc.pl.acc.] gen:m num:p stt:c cas:a
+y	NSuff-iyna_gen	diac:iy bw:iy/NSUFF_MASC_PL_GEN_POSS gloss:[masc.pl.gen.] gen:m num:p stt:c cas:g
+yh	NSuff-iyh	diac:iyhi bw:iy/NSUFF_MASC_PL_ACC+hi/POSS_PRON_3MS gloss:[masc.pl.acc.]_+_his;its gen:m num:p stt:c cas:a enc0:3ms_poss
+yhmA	NSuff-iyh	diac:iyhimA bw:iy/NSUFF_MASC_PL_ACC+himA/POSS_PRON_3D gloss:[masc.pl.acc.]_+_their gen:m num:p stt:c cas:a enc0:3d_poss
+yhm	NSuff-iyh	diac:iyhim bw:iy/NSUFF_MASC_PL_ACC+him/POSS_PRON_3MP gloss:[masc.pl.acc.]_+_their gen:m num:p stt:c cas:a enc0:3mp_poss
+yhA	NSuff-iyh	diac:iyhA bw:iy/NSUFF_MASC_PL_ACC+hA/POSS_PRON_3FS gloss:[masc.pl.acc.]_+_its;their;her gen:m num:p stt:c cas:a enc0:3fs_poss
+yhn	NSuff-iyh	diac:iyhin~a bw:iy/NSUFF_MASC_PL_ACC+hin~a/POSS_PRON_3FP gloss:[masc.pl.acc.]_+_their gen:m num:p stt:c cas:a enc0:3fp_poss
+yk	NSuff-iyh	diac:iyka bw:iy/NSUFF_MASC_PL_ACC+ka/POSS_PRON_2MS gloss:[masc.pl.acc.]_+_your_[masc.sg.] gen:m num:p stt:c cas:a enc0:2ms_poss
+yk	NSuff-iyh	diac:iyki bw:iy/NSUFF_MASC_PL_ACC+ki/POSS_PRON_2FS gloss:[masc.pl.acc.]_+_your_[fem.sg.] gen:m num:p stt:c cas:a enc0:2fs_poss
+ykmA	NSuff-iyh	diac:iykumA bw:iy/NSUFF_MASC_PL_ACC+kumA/POSS_PRON_2D gloss:[masc.pl.acc.]_+_your_[du.] gen:m num:p stt:c cas:a enc0:2d_poss
+ykm	NSuff-iyh	diac:iykum bw:iy/NSUFF_MASC_PL_ACC+kum/POSS_PRON_2MP gloss:[masc.pl.acc.]_+_your_[masc.pl.] gen:m num:p stt:c cas:a enc0:2mp_poss
+ykn	NSuff-iyh	diac:iykun~a bw:iy/NSUFF_MASC_PL_ACC+kun~a/POSS_PRON_2FP gloss:[masc.pl.acc.]_+_your_[fem.pl.] gen:m num:p stt:c cas:a enc0:2fp_poss
+y	NSuff-iyh	diac:iy~a bw:iy/NSUFF_MASC_PL_ACC+ya/POSS_PRON_1S gloss:[masc.pl.acc.]_+_my gen:m num:p stt:c cas:a enc0:1s_poss
+ynA	NSuff-iyh	diac:iynA bw:iy/NSUFF_MASC_PL_ACC+nA/POSS_PRON_1P gloss:[masc.pl.acc.]_+_our gen:m num:p stt:c cas:a enc0:1p_poss
+yh	NSuff-iyh	diac:iyhi bw:iy/NSUFF_MASC_PL_GEN+hi/POSS_PRON_3MS gloss:[masc.pl.gen.]_+_his;its gen:m num:p stt:c cas:g enc0:3ms_poss
+yhmA	NSuff-iyh	diac:iyhimA bw:iy/NSUFF_MASC_PL_GEN+himA/POSS_PRON_3D gloss:[masc.pl.gen.]_+_their gen:m num:p stt:c cas:g enc0:3d_poss
+yhm	NSuff-iyh	diac:iyhim bw:iy/NSUFF_MASC_PL_GEN+him/POSS_PRON_3MP gloss:[masc.pl.gen.]_+_their gen:m num:p stt:c cas:g enc0:3mp_poss
+yhA	NSuff-iyh	diac:iyhA bw:iy/NSUFF_MASC_PL_GEN+hA/POSS_PRON_3FS gloss:[masc.pl.gen.]_+_its;their;her gen:m num:p stt:c cas:g enc0:3fs_poss
+yhn	NSuff-iyh	diac:iyhin~a bw:iy/NSUFF_MASC_PL_GEN+hin~a/POSS_PRON_3FP gloss:[masc.pl.gen.]_+_their gen:m num:p stt:c cas:g enc0:3fp_poss
+yk	NSuff-iyh	diac:iyka bw:iy/NSUFF_MASC_PL_GEN+ka/POSS_PRON_2MS gloss:[masc.pl.gen.]_+_your_[masc.sg.] gen:m num:p stt:c cas:g enc0:2ms_poss
+yk	NSuff-iyh	diac:iyki bw:iy/NSUFF_MASC_PL_GEN+ki/POSS_PRON_2FS gloss:[masc.pl.gen.]_+_your_[fem.sg.] gen:m num:p stt:c cas:g enc0:2fs_poss
+ykmA	NSuff-iyh	diac:iykumA bw:iy/NSUFF_MASC_PL_GEN+kumA/POSS_PRON_2D gloss:[masc.pl.gen.]_+_your_[du.] gen:m num:p stt:c cas:g enc0:2d_poss
+ykm	NSuff-iyh	diac:iykum bw:iy/NSUFF_MASC_PL_GEN+kum/POSS_PRON_2MP gloss:[masc.pl.gen.]_+_your_[masc.pl.] gen:m num:p stt:c cas:g enc0:2mp_poss
+ykn	NSuff-iyh	diac:iykun~a bw:iy/NSUFF_MASC_PL_GEN+kun~a/POSS_PRON_2FP gloss:[masc.pl.gen.]_+_your_[fem.pl.] gen:m num:p stt:c cas:g enc0:2fp_poss
+y	NSuff-iyh	diac:iy~a bw:iy/NSUFF_MASC_PL_GEN+ya/POSS_PRON_1S gloss:[masc.pl.gen.]_+_my gen:m num:p stt:c cas:g enc0:1s_poss
+ynA	NSuff-iyh	diac:iynA bw:iy/NSUFF_MASC_PL_GEN+nA/POSS_PRON_1P gloss:[masc.pl.gen.]_+_our gen:m num:p stt:c cas:g enc0:1p_poss
+y	NSuff-iy	diac:iy bw:iy/POSS_PRON_1S gloss:my stt:c enc0:1s_poss
+y	NSuff-ya	diac:ya bw:ya/POSS_PRON_1S gloss:my stt:c enc0:1s_poss
+n	NSuff-|-ni	diac:ni bw:Ani/NSUFF_MASC_DU_NOM gloss:two gen:m num:d stt:d cas:n
+n	NSuff-|-ni-indef	diac:ni bw:Ani/NSUFF_MASC_DU_NOM gloss:two gen:m num:d stt:i cas:n
+	NSuff-|h	bw:A/NSUFF_MASC_DU_NOM_POSS gloss:two gen:m num:d stt:c cas:n
+h	NSuff-|h	diac:hu bw:A/NSUFF_MASC_DU_NOM+hu/POSS_PRON_3MS gloss:two_+_its/his gen:m num:d stt:c cas:n enc0:3ms_poss
+hmA	NSuff-|h	diac:humA bw:A/NSUFF_MASC_DU_NOM+humA/POSS_PRON_3D gloss:two_+_their gen:m num:d stt:c cas:n enc0:3d_poss
+hm	NSuff-|h	diac:hum bw:A/NSUFF_MASC_DU_NOM+hum/POSS_PRON_3MP gloss:two_+_their gen:m num:d stt:c cas:n enc0:3mp_poss
+hA	NSuff-|h	diac:hA bw:A/NSUFF_MASC_DU_NOM+hA/POSS_PRON_3FS gloss:two_+_its/their/her gen:m num:d stt:c cas:n enc0:3fs_poss
+hn	NSuff-|h	diac:hun~a bw:A/NSUFF_MASC_DU_NOM+hun~a/POSS_PRON_3FP gloss:two_+_their gen:m num:d stt:c cas:n enc0:3fp_poss
+k	NSuff-|h	diac:ka bw:A/NSUFF_MASC_DU_NOM+ka/POSS_PRON_2MS gloss:two_+_your_[masc.sg.] gen:m num:d stt:c cas:n enc0:2ms_poss
+k	NSuff-|h	diac:ki bw:A/NSUFF_MASC_DU_NOM+ki/POSS_PRON_2FS gloss:two_+_your_[fem.sg.] gen:m num:d stt:c cas:n enc0:2fs_poss
+kmA	NSuff-|h	diac:kumA bw:A/NSUFF_MASC_DU_NOM+kumA/POSS_PRON_2D gloss:two_+_your_[du.] gen:m num:d stt:c cas:n enc0:2d_poss
+km	NSuff-|h	diac:kum bw:A/NSUFF_MASC_DU_NOM+kum/POSS_PRON_2MP gloss:two_+_your_[masc.pl.] gen:m num:d stt:c cas:n enc0:2mp_poss
+kn	NSuff-|h	diac:kun~a bw:A/NSUFF_MASC_DU_NOM+kun~a/POSS_PRON_2FP gloss:two_+_your_[fem.pl.] gen:m num:d stt:c cas:n enc0:2fp_poss
+y	NSuff-|h	diac:ya bw:A/NSUFF_MASC_DU_NOM+ya/POSS_PRON_1S gloss:two_+_my gen:m num:d stt:c cas:n enc0:1s_poss
+nA	NSuff-|h	diac:nA bw:A/NSUFF_MASC_DU_NOM+nA/POSS_PRON_1P gloss:two_+_our gen:m num:d stt:c cas:n enc0:1p_poss
+wn	NSuff-wn	diac:uwna bw:uwna/NSUFF_MASC_PL_NOM gloss:[masc.pl.] gen:m num:p stt:d cas:n
+wn	NSuff-wn-indef	diac:uwna bw:uwna/NSUFF_MASC_PL_NOM gloss:[masc.pl.] gen:m num:p stt:i cas:n
+w	NSuff-wn	diac:uw bw:uw/NSUFF_MASC_PL_NOM_POSS gloss:[masc.pl.] gen:m num:p stt:c cas:n
+wh	NSuff-wh	diac:uwhu bw:uw/NSUFF_MASC_PL_NOM+hu/POSS_PRON_3MS gloss:[masc.pl.]_+_his;its gen:m num:p stt:c cas:n enc0:3ms_poss
+whmA	NSuff-wh	diac:uwhumA bw:uw/NSUFF_MASC_PL_NOM+humA/POSS_PRON_3D gloss:[masc.pl.]_+_their gen:m num:p stt:c cas:n enc0:3d_poss
+whm	NSuff-wh	diac:uwhum bw:uw/NSUFF_MASC_PL_NOM+hum/POSS_PRON_3MP gloss:[masc.pl.]_+_their gen:m num:p stt:c cas:n enc0:3mp_poss
+whA	NSuff-wh	diac:uwhA bw:uw/NSUFF_MASC_PL_NOM+hA/POSS_PRON_3FS gloss:[masc.pl.]_+_its;their;her gen:m num:p stt:c cas:n enc0:3fs_poss
+whn	NSuff-wh	diac:uwhun~a bw:uw/NSUFF_MASC_PL_NOM+hun~a/POSS_PRON_3FP gloss:[masc.pl.]_+_their gen:m num:p stt:c cas:n enc0:3fp_poss
+wk	NSuff-wh	diac:uwka bw:uw/NSUFF_MASC_PL_NOM+ka/POSS_PRON_2MS gloss:[masc.pl.]_+_your_[masc.sg.] gen:m num:p stt:c cas:n enc0:2ms_poss
+wk	NSuff-wh	diac:uwki bw:uw/NSUFF_MASC_PL_NOM+ki/POSS_PRON_2FS gloss:[masc.pl.]_+_your_[fem.sg.] gen:m num:p stt:c cas:n enc0:2fs_poss
+wkmA	NSuff-wh	diac:uwkumA bw:uw/NSUFF_MASC_PL_NOM+kumA/POSS_PRON_2D gloss:[masc.pl.]_+_your_[du.] gen:m num:p stt:c cas:n enc0:2d_poss
+wkm	NSuff-wh	diac:uwkum bw:uw/NSUFF_MASC_PL_NOM+kum/POSS_PRON_2MP gloss:[masc.pl.]_+_your_[masc.pl.] gen:m num:p stt:c cas:n enc0:2mp_poss
+wkn	NSuff-wh	diac:uwkun~a bw:uw/NSUFF_MASC_PL_NOM+kun~a/POSS_PRON_2FP gloss:[masc.pl.]_+_your_[fem.pl.] gen:m num:p stt:c cas:n enc0:2fp_poss
+y	NSuff-wh	diac:iy~a bw:iy/NSUFF_MASC_PL_NOM+~a/POSS_PRON_1S gloss:[masc.pl.]_+_my gen:m num:p stt:c cas:n enc0:1s_poss
+wnA	NSuff-wh	diac:uwnA bw:uw/NSUFF_MASC_PL_NOM+nA/POSS_PRON_1P gloss:[masc.pl.]_+_our gen:m num:p stt:c cas:n enc0:1p_poss
+h	PVSuff-ah	diac:ahu bw:a/PVSUFF_SUBJ:3MS+hu/PVSUFF_DO:3MS gloss:he/it_[verb]_+_it/him pos:verb per:3 asp:p mod:i gen:m num:s enc0:3ms_dobj
+hmA	PVSuff-ah	diac:ahumA bw:a/PVSUFF_SUBJ:3MS+humA/PVSUFF_DO:3D gloss:he/it_[verb]_+_them_(both) pos:verb per:3 asp:p mod:i gen:m num:s enc0:3d_dobj
+hm	PVSuff-ah	diac:ahum bw:a/PVSUFF_SUBJ:3MS+hum/PVSUFF_DO:3MP gloss:he/it_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:s enc0:3mp_dobj
+hA	PVSuff-ah	diac:ahA bw:a/PVSUFF_SUBJ:3MS+hA/PVSUFF_DO:3FS gloss:he/it_[verb]_+_it/them/her pos:verb per:3 asp:p mod:i gen:m num:s enc0:3fs_dobj
+hn	PVSuff-ah	diac:ahun~a bw:a/PVSUFF_SUBJ:3MS+hun~a/PVSUFF_DO:3FP gloss:he/it_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:s enc0:3fp_dobj
+k	PVSuff-ah	diac:aka bw:a/PVSUFF_SUBJ:3MS+ka/PVSUFF_DO:2MS gloss:he/it_[verb]_+_you_[masc.sg.] pos:verb per:3 asp:p mod:i gen:m num:s enc0:2ms_dobj
+k	PVSuff-ah	diac:aki bw:a/PVSUFF_SUBJ:3MS+ki/PVSUFF_DO:2FS gloss:he/it_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:s enc0:2fs_dobj
+kmA	PVSuff-ah	diac:akumA bw:a/PVSUFF_SUBJ:3MS+kumA/PVSUFF_DO:2D gloss:he/it_[verb]_+_you_(both) pos:verb per:3 asp:p mod:i gen:m num:s enc0:2d_dobj
+km	PVSuff-ah	diac:akum bw:a/PVSUFF_SUBJ:3MS+kum/PVSUFF_DO:2MP gloss:he/it_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:s enc0:2mp_dobj
+kn	PVSuff-ah	diac:akun~a bw:a/PVSUFF_SUBJ:3MS+kun~a/PVSUFF_DO:2FP gloss:he/it_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:s enc0:2fp_dobj
+ny	PVSuff-ah	diac:aniy bw:a/PVSUFF_SUBJ:3MS+niy/PVSUFF_DO:1S gloss:he/it_[verb]_+_me pos:verb per:3 asp:p mod:i gen:m num:s enc0:1s_dobj
+nA	PVSuff-ah	diac:anA bw:a/PVSUFF_SUBJ:3MS+nA/PVSUFF_DO:1P gloss:he/it_[verb]_+_us pos:verb per:3 asp:p mod:i gen:m num:s enc0:1p_dobj
+n	PVSuff-n	diac:ona bw:na/PVSUFF_SUBJ:3FP gloss:they_[fem.pl.]_[verb] pos:verb per:3 asp:p mod:i gen:f num:p
+nA	PVSuff-n	diac:onA bw:nA/PVSUFF_SUBJ:1P gloss:we_[verb] pos:verb per:1 asp:p mod:i num:p
+	PVSuff-~n	diac:~a bw:na/PVSUFF_SUBJ:3FP gloss:they_[fem.pl.]_[verb] pos:verb per:3 asp:p mod:i gen:f num:p
+A	PVSuff-~n	diac:~A bw:nA/PVSUFF_SUBJ:1P gloss:we_[verb] pos:verb per:1 asp:p mod:i num:p
+nh	PVSuff-nh	diac:onahu bw:na/PVSUFF_SUBJ:3FP+hu/PVSUFF_DO:3MS gloss:they_[verb]_+_it/him pos:verb per:3 asp:p mod:i gen:f num:p enc0:3ms_dobj
+nhmA	PVSuff-nh	diac:onahumA bw:na/PVSUFF_SUBJ:3FP+humA/PVSUFF_DO:3D gloss:they_[verb]_+_(both_of)_them pos:verb per:3 asp:p mod:i gen:f num:p enc0:3d_dobj
+nhm	PVSuff-nh	diac:onahum bw:na/PVSUFF_SUBJ:3FP+hum/PVSUFF_DO:3MP gloss:they_[verb]_+_them pos:verb per:3 asp:p mod:i gen:f num:p enc0:3mp_dobj
+nhA	PVSuff-nh	diac:onahA bw:na/PVSUFF_SUBJ:3FP+hA/PVSUFF_DO:3FS gloss:they_[verb]_+_it/them/her pos:verb per:3 asp:p mod:i gen:f num:p enc0:3fs_dobj
+nhn	PVSuff-nh	diac:onahun~a bw:na/PVSUFF_SUBJ:3FP+hun~a/PVSUFF_DO:3FP gloss:they_[verb]_+_them pos:verb per:3 asp:p mod:i gen:f num:p enc0:3fp_dobj
+nk	PVSuff-nh	diac:onaka bw:na/PVSUFF_SUBJ:3FP+ka/PVSUFF_DO:2MS gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:p enc0:2ms_dobj
+nk	PVSuff-nh	diac:onaki bw:na/PVSUFF_SUBJ:3FP+ki/PVSUFF_DO:2FS gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:p enc0:2fs_dobj
+nkmA	PVSuff-nh	diac:onakumA bw:na/PVSUFF_SUBJ:3FP+kumA/PVSUFF_DO:2D gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:p enc0:2d_dobj
+nkm	PVSuff-nh	diac:onakum bw:na/PVSUFF_SUBJ:3FP+kum/PVSUFF_DO:2MP gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:p enc0:2mp_dobj
+nkn	PVSuff-nh	diac:onakun~a bw:na/PVSUFF_SUBJ:3FP+kun~a/PVSUFF_DO:2FP gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:p enc0:2fp_dobj
+nny	PVSuff-nh	diac:onaniy bw:na/PVSUFF_SUBJ:3FP+niy/PVSUFF_DO:1S gloss:they_[verb]_+_me pos:verb per:3 asp:p mod:i gen:f num:p enc0:1s_dobj
+nnA	PVSuff-nh	diac:onanA bw:na/PVSUFF_SUBJ:3FP+nA/PVSUFF_DO:1P gloss:they_[verb]_+_us pos:verb per:3 asp:p mod:i gen:f num:p enc0:1p_dobj
+h	PVSuff-~nh	diac:~ahu bw:na/PVSUFF_SUBJ:3FP+hu/PVSUFF_DO:3MS gloss:they_[verb]_+_it/him pos:verb per:3 asp:p mod:i gen:f num:p enc0:3ms_dobj
+hmA	PVSuff-~nh	diac:~ahumA bw:na/PVSUFF_SUBJ:3FP+humA/PVSUFF_DO:3D gloss:they_[verb]_+_(both_of)_them pos:verb per:3 asp:p mod:i gen:f num:p enc0:3d_dobj
+hm	PVSuff-~nh	diac:~ahum bw:na/PVSUFF_SUBJ:3FP+hum/PVSUFF_DO:3MP gloss:they_[verb]_+_them pos:verb per:3 asp:p mod:i gen:f num:p enc0:3mp_dobj
+hA	PVSuff-~nh	diac:~ahA bw:na/PVSUFF_SUBJ:3FP+hA/PVSUFF_DO:3FS gloss:they_[verb]_+_it/them/her pos:verb per:3 asp:p mod:i gen:f num:p enc0:3fs_dobj
+hn	PVSuff-~nh	diac:~ahun~a bw:na/PVSUFF_SUBJ:3FP+hun~a/PVSUFF_DO:3FP gloss:they_[verb]_+_them pos:verb per:3 asp:p mod:i gen:f num:p enc0:3fp_dobj
+k	PVSuff-~nh	diac:~aka bw:na/PVSUFF_SUBJ:3FP+ka/PVSUFF_DO:2MS gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:p enc0:2ms_dobj
+k	PVSuff-~nh	diac:~aki bw:na/PVSUFF_SUBJ:3FP+ki/PVSUFF_DO:2FS gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:p enc0:2fs_dobj
+kmA	PVSuff-~nh	diac:~akumA bw:na/PVSUFF_SUBJ:3FP+kumA/PVSUFF_DO:2D gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:p enc0:2d_dobj
+km	PVSuff-~nh	diac:~akum bw:na/PVSUFF_SUBJ:3FP+kum/PVSUFF_DO:2MP gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:p enc0:2mp_dobj
+kn	PVSuff-~nh	diac:~akun~a bw:na/PVSUFF_SUBJ:3FP+kun~a/PVSUFF_DO:2FP gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:p enc0:2fp_dobj
+ny	PVSuff-~nh	diac:~aniy bw:na/PVSUFF_SUBJ:3FP+niy/PVSUFF_DO:1S gloss:they_[verb]_+_me pos:verb per:3 asp:p mod:i gen:f num:p enc0:1s_dobj
+nA	PVSuff-~nh	diac:~anA bw:na/PVSUFF_SUBJ:3FP+nA/PVSUFF_DO:1P gloss:they_[verb]_+_us pos:verb per:3 asp:p mod:i gen:f num:p enc0:1p_dobj
+nAh	PVSuff-nh	diac:onAhu bw:nA/PVSUFF_SUBJ:1P+hu/PVSUFF_DO:3MS gloss:we_[verb]_+_it/him pos:verb per:1 asp:p mod:i num:p enc0:3ms_dobj
+nAhmA	PVSuff-nh	diac:onAhumA bw:nA/PVSUFF_SUBJ:1P+humA/PVSUFF_DO:3D gloss:we_[verb]_+_(both_of)_them pos:verb per:1 asp:p mod:i num:p enc0:3d_dobj
+nAhm	PVSuff-nh	diac:onAhum bw:nA/PVSUFF_SUBJ:1P+hum/PVSUFF_DO:3MP gloss:we_[verb]_+_them pos:verb per:1 asp:p mod:i num:p enc0:3mp_dobj
+nAhA	PVSuff-nh	diac:onAhA bw:nA/PVSUFF_SUBJ:1P+hA/PVSUFF_DO:3FS gloss:we_[verb]_+_it/them/her pos:verb per:1 asp:p mod:i num:p enc0:3fs_dobj
+nAhn	PVSuff-nh	diac:onAhun~a bw:nA/PVSUFF_SUBJ:1P+hun~a/PVSUFF_DO:3FP gloss:we_[verb]_+_them pos:verb per:1 asp:p mod:i num:p enc0:3fp_dobj
+nAk	PVSuff-nh	diac:onAka bw:nA/PVSUFF_SUBJ:1P+ka/PVSUFF_DO:2MS gloss:we_[verb]_+_you pos:verb per:1 asp:p mod:i num:p enc0:2ms_dobj
+nAk	PVSuff-nh	diac:onAki bw:nA/PVSUFF_SUBJ:1P+ki/PVSUFF_DO:2FS gloss:we_[verb]_+_you pos:verb per:1 asp:p mod:i num:p enc0:2fs_dobj
+nAkmA	PVSuff-nh	diac:onAkumA bw:nA/PVSUFF_SUBJ:1P+kumA/PVSUFF_DO:2D gloss:we_[verb]_+_you pos:verb per:1 asp:p mod:i num:p enc0:2d_dobj
+nAkm	PVSuff-nh	diac:onAkum bw:nA/PVSUFF_SUBJ:1P+kum/PVSUFF_DO:2MP gloss:we_[verb]_+_you pos:verb per:1 asp:p mod:i num:p enc0:2mp_dobj
+nAkn	PVSuff-nh	diac:onAkun~a bw:nA/PVSUFF_SUBJ:1P+kun~a/PVSUFF_DO:2FP gloss:we_[verb]_+_you pos:verb per:1 asp:p mod:i num:p enc0:2fp_dobj
+Ah	PVSuff-~nh	diac:~Ahu bw:nA/PVSUFF_SUBJ:1P+hu/PVSUFF_DO:3MS gloss:we_[verb]_+_it/him pos:verb per:1 asp:p mod:i num:p enc0:3ms_dobj
+AhmA	PVSuff-~nh	diac:~AhumA bw:nA/PVSUFF_SUBJ:1P+humA/PVSUFF_DO:3D gloss:we_[verb]_+_(both_of)_them pos:verb per:1 asp:p mod:i num:p enc0:3d_dobj
+Ahm	PVSuff-~nh	diac:~Ahum bw:nA/PVSUFF_SUBJ:1P+hum/PVSUFF_DO:3MP gloss:we_[verb]_+_them pos:verb per:1 asp:p mod:i num:p enc0:3mp_dobj
+AhA	PVSuff-~nh	diac:~AhA bw:nA/PVSUFF_SUBJ:1P+hA/PVSUFF_DO:3FS gloss:we_[verb]_+_it/them/her pos:verb per:1 asp:p mod:i num:p enc0:3fs_dobj
+Ahn	PVSuff-~nh	diac:~Ahun~a bw:nA/PVSUFF_SUBJ:1P+hun~a/PVSUFF_DO:3FP gloss:we_[verb]_+_them pos:verb per:1 asp:p mod:i num:p enc0:3fp_dobj
+Ak	PVSuff-~nh	diac:~Aka bw:nA/PVSUFF_SUBJ:1P+ka/PVSUFF_DO:2MS gloss:we_[verb]_+_you pos:verb per:1 asp:p mod:i num:p enc0:2ms_dobj
+Ak	PVSuff-~nh	diac:~Aki bw:nA/PVSUFF_SUBJ:1P+ki/PVSUFF_DO:2FS gloss:we_[verb]_+_you pos:verb per:1 asp:p mod:i num:p enc0:2fs_dobj
+AkmA	PVSuff-~nh	diac:~AkumA bw:nA/PVSUFF_SUBJ:1P+kumA/PVSUFF_DO:2D gloss:we_[verb]_+_you pos:verb per:1 asp:p mod:i num:p enc0:2d_dobj
+Akm	PVSuff-~nh	diac:~Akum bw:nA/PVSUFF_SUBJ:1P+kum/PVSUFF_DO:2MP gloss:we_[verb]_+_you pos:verb per:1 asp:p mod:i num:p enc0:2mp_dobj
+Akn	PVSuff-~nh	diac:~Akun~a bw:nA/PVSUFF_SUBJ:1P+kun~a/PVSUFF_DO:2FP gloss:we_[verb]_+_you pos:verb per:1 asp:p mod:i num:p enc0:2fp_dobj
+t	PVSuff-t	diac:otu bw:tu/PVSUFF_SUBJ:1S gloss:I_[verb] pos:verb per:1 asp:p mod:i num:s
+t	PVSuff-t	diac:ota bw:ta/PVSUFF_SUBJ:2MS gloss:you_[masc.sg.]_[verb] pos:verb per:2 asp:p mod:i gen:m num:s
+t	PVSuff-t	diac:oti bw:ti/PVSUFF_SUBJ:2FS gloss:you_[fem.sg.]_[verb] pos:verb per:2 asp:p mod:i gen:f num:s
+tmA	PVSuff-t	diac:otumA bw:tumA/PVSUFF_SUBJ:2D gloss:you_[du.]_[verb] pos:verb per:2 asp:p mod:i num:d
+tm	PVSuff-t	diac:otum bw:tum/PVSUFF_SUBJ:2MP gloss:you_[masc.pl.]_[verb] pos:verb per:2 asp:p mod:i gen:m num:p
+tn	PVSuff-t	diac:otun~a bw:tun~a/PVSUFF_SUBJ:2FP gloss:you_[fem.pl.]_[verb] pos:verb per:2 asp:p mod:i gen:f num:p
+	PVSuff-~t	diac:~u bw:tu/PVSUFF_SUBJ:1S gloss:I_[verb] pos:verb per:1 asp:p mod:i num:s
+	PVSuff-~t	diac:~a bw:ta/PVSUFF_SUBJ:2MS gloss:you_[masc.sg.]_[verb] pos:verb per:2 asp:p mod:i gen:m num:s
+	PVSuff-~t	diac:~i bw:ti/PVSUFF_SUBJ:2FS gloss:you_[fem.sg.]_[verb] pos:verb per:2 asp:p mod:i gen:f num:s
+mA	PVSuff-~t	diac:~umA bw:tumA/PVSUFF_SUBJ:2D gloss:you_[du.]_[verb] pos:verb per:2 asp:p mod:i num:d
+m	PVSuff-~t	diac:~um bw:tum/PVSUFF_SUBJ:2MP gloss:you_[masc.pl.]_[verb] pos:verb per:2 asp:p mod:i gen:m num:p
+n	PVSuff-~t	diac:~un~a bw:tun~a/PVSUFF_SUBJ:2FP gloss:you_[fem.pl.]_[verb] pos:verb per:2 asp:p mod:i gen:f num:p
+th	PVSuff-th	diac:otuhu bw:tu/PVSUFF_SUBJ:1S+hu/PVSUFF_DO:3MS gloss:I_[verb]_+_it/him pos:verb per:1 asp:p mod:i num:s enc0:3ms_dobj
+thmA	PVSuff-th	diac:otuhumA bw:tu/PVSUFF_SUBJ:1S+humA/PVSUFF_DO:3D gloss:I_[verb]_+_them_(both) pos:verb per:1 asp:p mod:i num:s enc0:3d_dobj
+thm	PVSuff-th	diac:otuhum bw:tu/PVSUFF_SUBJ:1S+hum/PVSUFF_DO:3MP gloss:I_[verb]_+_them pos:verb per:1 asp:p mod:i num:s enc0:3mp_dobj
+thA	PVSuff-th	diac:otuhA bw:tu/PVSUFF_SUBJ:1S+hA/PVSUFF_DO:3FS gloss:I_[verb]_+_it/them/her pos:verb per:1 asp:p mod:i num:s enc0:3fs_dobj
+thn	PVSuff-th	diac:otuhun~a bw:tu/PVSUFF_SUBJ:1S+hun~a/PVSUFF_DO:3FP gloss:I_[verb]_+_them pos:verb per:1 asp:p mod:i num:s enc0:3fp_dobj
+h	PVSuff-~th	diac:~uhu bw:tu/PVSUFF_SUBJ:1S+hu/PVSUFF_DO:3MS gloss:I_[verb]_+_it/him pos:verb per:1 asp:p mod:i num:s enc0:3ms_dobj
+hmA	PVSuff-~th	diac:~uhumA bw:tu/PVSUFF_SUBJ:1S+humA/PVSUFF_DO:3D gloss:I_[verb]_+_them_(both) pos:verb per:1 asp:p mod:i num:s enc0:3d_dobj
+hm	PVSuff-~th	diac:~uhum bw:tu/PVSUFF_SUBJ:1S+hum/PVSUFF_DO:3MP gloss:I_[verb]_+_them pos:verb per:1 asp:p mod:i num:s enc0:3mp_dobj
+hA	PVSuff-~th	diac:~uhA bw:tu/PVSUFF_SUBJ:1S+hA/PVSUFF_DO:3FS gloss:I_[verb]_+_it/them/her pos:verb per:1 asp:p mod:i num:s enc0:3fs_dobj
+hn	PVSuff-~th	diac:~uhun~a bw:tu/PVSUFF_SUBJ:1S+hun~a/PVSUFF_DO:3FP gloss:I_[verb]_+_them pos:verb per:1 asp:p mod:i num:s enc0:3fp_dobj
+th	PVSuff-th	diac:otahu bw:ta/PVSUFF_SUBJ:2MS+hu/PVSUFF_DO:3MS gloss:you_[masc.sg.]_[verb]_+_it/him pos:verb per:2 asp:p mod:i gen:m num:s enc0:3ms_dobj
+thmA	PVSuff-th	diac:otahumA bw:ta/PVSUFF_SUBJ:2MS+humA/PVSUFF_DO:3D gloss:you_[masc.sg.]_[verb]_+_them_(both) pos:verb per:2 asp:p mod:i gen:m num:s enc0:3d_dobj
+thm	PVSuff-th	diac:otahum bw:ta/PVSUFF_SUBJ:2MS+hum/PVSUFF_DO:3MP gloss:you_[masc.sg.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:m num:s enc0:3mp_dobj
+thA	PVSuff-th	diac:otahA bw:ta/PVSUFF_SUBJ:2MS+hA/PVSUFF_DO:3FS gloss:you_[masc.sg.]_[verb]_+_it/them/her pos:verb per:2 asp:p mod:i gen:m num:s enc0:3fs_dobj
+thn	PVSuff-th	diac:otahun~a bw:ta/PVSUFF_SUBJ:2MS+hun~a/PVSUFF_DO:3FP gloss:you_[masc.sg.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:m num:s enc0:3fp_dobj
+h	PVSuff-~th	diac:~ahu bw:ta/PVSUFF_SUBJ:2MS+hu/PVSUFF_DO:3MS gloss:you_[masc.sg.]_[verb]_+_it/him pos:verb per:2 asp:p mod:i gen:m num:s enc0:3ms_dobj
+hmA	PVSuff-~th	diac:~ahumA bw:ta/PVSUFF_SUBJ:2MS+humA/PVSUFF_DO:3D gloss:you_[masc.sg.]_[verb]_+_them_(both) pos:verb per:2 asp:p mod:i gen:m num:s enc0:3d_dobj
+hm	PVSuff-~th	diac:~ahum bw:ta/PVSUFF_SUBJ:2MS+hum/PVSUFF_DO:3MP gloss:you_[masc.sg.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:m num:s enc0:3mp_dobj
+hA	PVSuff-~th	diac:~ahA bw:ta/PVSUFF_SUBJ:2MS+hA/PVSUFF_DO:3FS gloss:you_[masc.sg.]_[verb]_+_it/them/her pos:verb per:2 asp:p mod:i gen:m num:s enc0:3fs_dobj
+hn	PVSuff-~th	diac:~ahun~a bw:ta/PVSUFF_SUBJ:2MS+hun~a/PVSUFF_DO:3FP gloss:you_[masc.sg.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:m num:s enc0:3fp_dobj
+th	PVSuff-th	diac:otihi bw:ti/PVSUFF_SUBJ:2FS+hi/PVSUFF_DO:3MS gloss:you_[fem.sg.]_[verb]_+_it/him pos:verb per:2 asp:p mod:i gen:f num:s enc0:3ms_dobj
+thmA	PVSuff-th	diac:otihimA bw:ti/PVSUFF_SUBJ:2FS+himA/PVSUFF_DO:3D gloss:you_[fem.sg.]_[verb]_+_them_(both) pos:verb per:2 asp:p mod:i gen:f num:s enc0:3d_dobj
+thm	PVSuff-th	diac:otihim bw:ti/PVSUFF_SUBJ:2FS+him/PVSUFF_DO:3MP gloss:you_[fem.sg.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:f num:s enc0:3mp_dobj
+thA	PVSuff-th	diac:otihA bw:ti/PVSUFF_SUBJ:2FS+hA/PVSUFF_DO:3FS gloss:you_[fem.sg.]_[verb]_+_it/them/her pos:verb per:2 asp:p mod:i gen:f num:s enc0:3fs_dobj
+thn	PVSuff-th	diac:otihin~a bw:ti/PVSUFF_SUBJ:2FS+hin~a/PVSUFF_DO:3FP gloss:you_[fem.sg.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:f num:s enc0:3fp_dobj
+h	PVSuff-~th	diac:~ihi bw:ti/PVSUFF_SUBJ:2FS+hi/PVSUFF_DO:3MS gloss:you_[fem.sg.]_[verb]_+_it/him pos:verb per:2 asp:p mod:i gen:f num:s enc0:3ms_dobj
+hmA	PVSuff-~th	diac:~ihimA bw:ti/PVSUFF_SUBJ:2FS+himA/PVSUFF_DO:3D gloss:you_[fem.sg.]_[verb]_+_them_(both) pos:verb per:2 asp:p mod:i gen:f num:s enc0:3d_dobj
+hm	PVSuff-~th	diac:~ihim bw:ti/PVSUFF_SUBJ:2FS+him/PVSUFF_DO:3MP gloss:you_[fem.sg.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:f num:s enc0:3mp_dobj
+hA	PVSuff-~th	diac:~ihA bw:ti/PVSUFF_SUBJ:2FS+hA/PVSUFF_DO:3FS gloss:you_[fem.sg.]_[verb]_+_it/them/her pos:verb per:2 asp:p mod:i gen:f num:s enc0:3fs_dobj
+hn	PVSuff-~th	diac:~ihin~a bw:ti/PVSUFF_SUBJ:2FS+hin~a/PVSUFF_DO:3FP gloss:you_[fem.sg.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:f num:s enc0:3fp_dobj
+tk	PVSuff-th	diac:otuka bw:tu/PVSUFF_SUBJ:1S+ka/PVSUFF_DO:2MS gloss:I_[verb]_+_you pos:verb per:1 asp:p mod:i num:s enc0:2ms_dobj
+tk	PVSuff-th	diac:otuki bw:tu/PVSUFF_SUBJ:1S+ki/PVSUFF_DO:2FS gloss:I_[verb]_+_you pos:verb per:1 asp:p mod:i num:s enc0:2fs_dobj
+tkmA	PVSuff-th	diac:otukumA bw:tu/PVSUFF_SUBJ:1S+kumA/PVSUFF_DO:2D gloss:I_[verb]_+_you_(both) pos:verb per:1 asp:p mod:i num:s enc0:2d_dobj
+tkm	PVSuff-th	diac:otukum bw:tu/PVSUFF_SUBJ:1S+kum/PVSUFF_DO:2MP gloss:I_[verb]_+_you_(pl.) pos:verb per:1 asp:p mod:i num:s enc0:2mp_dobj
+tkn	PVSuff-th	diac:otukun~a bw:tu/PVSUFF_SUBJ:1S+kun~a/PVSUFF_DO:2FP gloss:I_[verb]_+_you_(women) pos:verb per:1 asp:p mod:i num:s enc0:2fp_dobj
+k	PVSuff-~th	diac:~uka bw:tu/PVSUFF_SUBJ:1S+ka/PVSUFF_DO:2MS gloss:I_[verb]_+_you pos:verb per:1 asp:p mod:i num:s enc0:2ms_dobj
+k	PVSuff-~th	diac:~uki bw:tu/PVSUFF_SUBJ:1S+ki/PVSUFF_DO:2FS gloss:I_[verb]_+_you pos:verb per:1 asp:p mod:i num:s enc0:2fs_dobj
+kmA	PVSuff-~th	diac:~ukumA bw:tu/PVSUFF_SUBJ:1S+kumA/PVSUFF_DO:2D gloss:I_[verb]_+_you_(both) pos:verb per:1 asp:p mod:i num:s enc0:2d_dobj
+km	PVSuff-~th	diac:~ukum bw:tu/PVSUFF_SUBJ:1S+kum/PVSUFF_DO:2MP gloss:I_[verb]_+_you_(pl.) pos:verb per:1 asp:p mod:i num:s enc0:2mp_dobj
+kn	PVSuff-~th	diac:~ukun~a bw:tu/PVSUFF_SUBJ:1S+kun~a/PVSUFF_DO:2FP gloss:I_[verb]_+_you_(women) pos:verb per:1 asp:p mod:i num:s enc0:2fp_dobj
+tny	PVSuff-th	diac:otaniy bw:ta/PVSUFF_SUBJ:2MS+niy/PVSUFF_DO:1S gloss:you_[masc.sg.]_[verb]_+_me pos:verb per:2 asp:p mod:i gen:m num:s enc0:1s_dobj
+tnA	PVSuff-th	diac:otanA bw:ta/PVSUFF_SUBJ:2MS+nA/PVSUFF_DO:1P gloss:you_[masc.sg.]_[verb]_+_us pos:verb per:2 asp:p mod:i gen:m num:s enc0:1p_dobj
+ny	PVSuff-~th	diac:~aniy bw:ta/PVSUFF_SUBJ:2MS+niy/PVSUFF_DO:1S gloss:you_[masc.sg.]_[verb]_+_me pos:verb per:2 asp:p mod:i gen:m num:s enc0:1s_dobj
+nA	PVSuff-~th	diac:~anA bw:ta/PVSUFF_SUBJ:2MS+nA/PVSUFF_DO:1P gloss:you_[masc.sg.]_[verb]_+_us pos:verb per:2 asp:p mod:i gen:m num:s enc0:1p_dobj
+tny	PVSuff-th	diac:otiniy bw:ti/PVSUFF_SUBJ:2FS+niy/PVSUFF_DO:1S gloss:you_[fem.sg.]_[verb]_+_me pos:verb per:2 asp:p mod:i gen:f num:s enc0:1s_dobj
+tnA	PVSuff-th	diac:otinA bw:ti/PVSUFF_SUBJ:2FS+nA/PVSUFF_DO:1P gloss:you_[fem.sg.]_[verb]_+_us pos:verb per:2 asp:p mod:i gen:f num:s enc0:1p_dobj
+ny	PVSuff-~th	diac:~iniy bw:ti/PVSUFF_SUBJ:2FS+niy/PVSUFF_DO:1S gloss:you_[fem.sg.]_[verb]_+_me pos:verb per:2 asp:p mod:i gen:f num:s enc0:1s_dobj
+nA	PVSuff-~th	diac:~inA bw:ti/PVSUFF_SUBJ:2FS+nA/PVSUFF_DO:1P gloss:you_[fem.sg.]_[verb]_+_us pos:verb per:2 asp:p mod:i gen:f num:s enc0:1p_dobj
+tmAh	PVSuff-th	diac:otumAhu bw:tumA/PVSUFF_SUBJ:2D+hu/PVSUFF_DO:3MS gloss:you_[du.]_[verb]_+_it/him pos:verb per:2 asp:p mod:i num:d enc0:3ms_dobj
+tmAhmA	PVSuff-th	diac:otumAhumA bw:tumA/PVSUFF_SUBJ:2D+humA/PVSUFF_DO:3D gloss:you_[du.]_[verb]_+_them_(both) pos:verb per:2 asp:p mod:i num:d enc0:3d_dobj
+tmAhm	PVSuff-th	diac:otumAhum bw:tumA/PVSUFF_SUBJ:2D+hum/PVSUFF_DO:3MP gloss:you_[du.]_[verb]_+_them pos:verb per:2 asp:p mod:i num:d enc0:3mp_dobj
+tmAhA	PVSuff-th	diac:otumAhA bw:tumA/PVSUFF_SUBJ:2D+hA/PVSUFF_DO:3FS gloss:you_[du.]_[verb]_+_it/them/her pos:verb per:2 asp:p mod:i num:d enc0:3fs_dobj
+tmAhn	PVSuff-th	diac:otumAhun~a bw:tumA/PVSUFF_SUBJ:2D+hun~a/PVSUFF_DO:3FP gloss:you_[du.]_[verb]_+_them pos:verb per:2 asp:p mod:i num:d enc0:3fp_dobj
+tmAny	PVSuff-th	diac:otumAniy bw:tumA/PVSUFF_SUBJ:2D+niy/PVSUFF_DO:1S gloss:you_[du.]_[verb]_+_me pos:verb per:2 asp:p mod:i num:d enc0:1s_dobj
+tmAnA	PVSuff-th	diac:otumAnA bw:tumA/PVSUFF_SUBJ:2D+nA/PVSUFF_DO:1P gloss:you_[du.]_[verb]_+_us pos:verb per:2 asp:p mod:i num:d enc0:1p_dobj
+mAh	PVSuff-~th	diac:~umAhu bw:tumA/PVSUFF_SUBJ:2D+hu/PVSUFF_DO:3MS gloss:you_[du.]_[verb]_+_it/him pos:verb per:2 asp:p mod:i num:d enc0:3ms_dobj
+mAhmA	PVSuff-~th	diac:~umAhumA bw:tumA/PVSUFF_SUBJ:2D+humA/PVSUFF_DO:3D gloss:you_[du.]_[verb]_+_them_(both) pos:verb per:2 asp:p mod:i num:d enc0:3d_dobj
+mAhm	PVSuff-~th	diac:~umAhum bw:tumA/PVSUFF_SUBJ:2D+hum/PVSUFF_DO:3MP gloss:you_[du.]_[verb]_+_them pos:verb per:2 asp:p mod:i num:d enc0:3mp_dobj
+mAhA	PVSuff-~th	diac:~umAhA bw:tumA/PVSUFF_SUBJ:2D+hA/PVSUFF_DO:3FS gloss:you_[du.]_[verb]_+_it/them/her pos:verb per:2 asp:p mod:i num:d enc0:3fs_dobj
+mAhn	PVSuff-~th	diac:~umAhun~a bw:tumA/PVSUFF_SUBJ:2D+hun~a/PVSUFF_DO:3FP gloss:you_[du.]_[verb]_+_them pos:verb per:2 asp:p mod:i num:d enc0:3fp_dobj
+mAny	PVSuff-~th	diac:~umAniy bw:tumA/PVSUFF_SUBJ:2D+niy/PVSUFF_DO:1S gloss:you_[du.]_[verb]_+_me pos:verb per:2 asp:p mod:i num:d enc0:1s_dobj
+mAnA	PVSuff-~th	diac:~umAnA bw:tumA/PVSUFF_SUBJ:2D+nA/PVSUFF_DO:1P gloss:you_[du.]_[verb]_+_us pos:verb per:2 asp:p mod:i num:d enc0:1p_dobj
+tmwh	PVSuff-th	diac:otumuwhu bw:tum/PVSUFF_SUBJ:2MP+hu/PVSUFF_DO:3MS gloss:you_[masc.pl.]_[verb]_+_it/him pos:verb per:2 asp:p mod:i gen:m num:p enc0:3ms_dobj
+tmwhmA	PVSuff-th	diac:otumuwhumA bw:tum/PVSUFF_SUBJ:2MP+humA/PVSUFF_DO:3D gloss:you_[masc.pl.]_[verb]_+_them_(both) pos:verb per:2 asp:p mod:i gen:m num:p enc0:3d_dobj
+tmwhm	PVSuff-th	diac:otumuwhum bw:tum/PVSUFF_SUBJ:2MP+hum/PVSUFF_DO:3MP gloss:you_[masc.pl.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:m num:p enc0:3mp_dobj
+tmwhA	PVSuff-th	diac:otumuwhA bw:tum/PVSUFF_SUBJ:2MP+hA/PVSUFF_DO:3FS gloss:you_[masc.pl.]_[verb]_+_it/them/her pos:verb per:2 asp:p mod:i gen:m num:p enc0:3fs_dobj
+tmwhn	PVSuff-th	diac:otumuwhun~a bw:tum/PVSUFF_SUBJ:2MP+hun~a/PVSUFF_DO:3FP gloss:you_[masc.pl.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:m num:p enc0:3fp_dobj
+tmwny	PVSuff-th	diac:otumuwniy bw:tum/PVSUFF_SUBJ:2MP+niy/PVSUFF_DO:1S gloss:you_[masc.pl.]_[verb]_+_me pos:verb per:2 asp:p mod:i gen:m num:p enc0:1s_dobj
+tmwnA	PVSuff-th	diac:otumuwnA bw:tum/PVSUFF_SUBJ:2MP+nA/PVSUFF_DO:1P gloss:you_[masc.pl.]_[verb]_+_us pos:verb per:2 asp:p mod:i gen:m num:p enc0:1p_dobj
+mwh	PVSuff-~th	diac:~umuwhu bw:tum/PVSUFF_SUBJ:2MP+hu/PVSUFF_DO:3MS gloss:you_[masc.pl.]_[verb]_+_it/him pos:verb per:2 asp:p mod:i gen:m num:p enc0:3ms_dobj
+mwhmA	PVSuff-~th	diac:~umuwhumA bw:tum/PVSUFF_SUBJ:2MP+humA/PVSUFF_DO:3D gloss:you_[masc.pl.]_[verb]_+_them_(both) pos:verb per:2 asp:p mod:i gen:m num:p enc0:3d_dobj
+mwhm	PVSuff-~th	diac:~umuwhum bw:tum/PVSUFF_SUBJ:2MP+hum/PVSUFF_DO:3MP gloss:you_[masc.pl.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:m num:p enc0:3mp_dobj
+mwhA	PVSuff-~th	diac:~umuwhA bw:tum/PVSUFF_SUBJ:2MP+hA/PVSUFF_DO:3FS gloss:you_[masc.pl.]_[verb]_+_it/them/her pos:verb per:2 asp:p mod:i gen:m num:p enc0:3fs_dobj
+mwhn	PVSuff-~th	diac:~umuwhun~a bw:tum/PVSUFF_SUBJ:2MP+hun~a/PVSUFF_DO:3FP gloss:you_[masc.pl.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:m num:p enc0:3fp_dobj
+mwny	PVSuff-~th	diac:~umuwniy bw:tum/PVSUFF_SUBJ:2MP+niy/PVSUFF_DO:1S gloss:you_[masc.pl.]_[verb]_+_me pos:verb per:2 asp:p mod:i gen:m num:p enc0:1s_dobj
+mwnA	PVSuff-~th	diac:~umuwnA bw:tum/PVSUFF_SUBJ:2MP+nA/PVSUFF_DO:1P gloss:you_[masc.pl.]_[verb]_+_us pos:verb per:2 asp:p mod:i gen:m num:p enc0:1p_dobj
+tnh	PVSuff-th	diac:otun~ahu bw:tun~a/PVSUFF_SUBJ:2FP+hu/PVSUFF_DO:3MS gloss:you_[fem.pl.]_[verb]_+_it/him pos:verb per:2 asp:p mod:i gen:f num:p enc0:3ms_dobj
+tnhmA	PVSuff-th	diac:otun~ahumA bw:tun~a/PVSUFF_SUBJ:2FP+humA/PVSUFF_DO:3D gloss:you_[fem.pl.]_[verb]_+_them_(both) pos:verb per:2 asp:p mod:i gen:f num:p enc0:3d_dobj
+tnhm	PVSuff-th	diac:otun~ahum bw:tun~a/PVSUFF_SUBJ:2FP+hum/PVSUFF_DO:3MP gloss:you_[fem.pl.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:f num:p enc0:3mp_dobj
+tnhA	PVSuff-th	diac:otun~ahA bw:tun~a/PVSUFF_SUBJ:2FP+hA/PVSUFF_DO:3FS gloss:you_[fem.pl.]_[verb]_+_it/them/her pos:verb per:2 asp:p mod:i gen:f num:p enc0:3fs_dobj
+tnhn	PVSuff-th	diac:otun~ahun~a bw:tun~a/PVSUFF_SUBJ:2FP+hun~a/PVSUFF_DO:3FP gloss:you_[fem.pl.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:f num:p enc0:3fp_dobj
+tnny	PVSuff-th	diac:otun~aniy bw:tun~a/PVSUFF_SUBJ:2FP+niy/PVSUFF_DO:1S gloss:you_[fem.pl.]_[verb]_+_me pos:verb per:2 asp:p mod:i gen:f num:p enc0:1s_dobj
+tnnA	PVSuff-th	diac:otun~anA bw:tun~a/PVSUFF_SUBJ:2FP+nA/PVSUFF_DO:1P gloss:you_[fem.pl.]_[verb]_+_us pos:verb per:2 asp:p mod:i gen:f num:p enc0:1p_dobj
+nh	PVSuff-~th	diac:~un~ahu bw:tun~a/PVSUFF_SUBJ:2FP+hu/PVSUFF_DO:3MS gloss:you_[fem.pl.]_[verb]_+_it/him pos:verb per:2 asp:p mod:i gen:f num:p enc0:3ms_dobj
+nhmA	PVSuff-~th	diac:~un~ahumA bw:tun~a/PVSUFF_SUBJ:2FP+humA/PVSUFF_DO:3D gloss:you_[fem.pl.]_[verb]_+_them_(both) pos:verb per:2 asp:p mod:i gen:f num:p enc0:3d_dobj
+nhm	PVSuff-~th	diac:~un~ahum bw:tun~a/PVSUFF_SUBJ:2FP+hum/PVSUFF_DO:3MP gloss:you_[fem.pl.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:f num:p enc0:3mp_dobj
+nhA	PVSuff-~th	diac:~un~ahA bw:tun~a/PVSUFF_SUBJ:2FP+hA/PVSUFF_DO:3FS gloss:you_[fem.pl.]_[verb]_+_it/them/her pos:verb per:2 asp:p mod:i gen:f num:p enc0:3fs_dobj
+nhn	PVSuff-~th	diac:~un~ahun~a bw:tun~a/PVSUFF_SUBJ:2FP+hun~a/PVSUFF_DO:3FP gloss:you_[fem.pl.]_[verb]_+_them pos:verb per:2 asp:p mod:i gen:f num:p enc0:3fp_dobj
+nny	PVSuff-~th	diac:~un~aniy bw:tun~a/PVSUFF_SUBJ:2FP+niy/PVSUFF_DO:1S gloss:you_[fem.pl.]_[verb]_+_me pos:verb per:2 asp:p mod:i gen:f num:p enc0:1s_dobj
+nnA	PVSuff-~th	diac:~un~anA bw:tun~a/PVSUFF_SUBJ:2FP+nA/PVSUFF_DO:1P gloss:you_[fem.pl.]_[verb]_+_us pos:verb per:2 asp:p mod:i gen:f num:p enc0:1p_dobj
+t	PVSuff-at	diac:at bw:at/PVSUFF_SUBJ:3FS gloss:it/they/she_[verb] pos:verb per:3 asp:p mod:i gen:f num:s
+tA	PVSuff-at	diac:atA bw:atA/PVSUFF_SUBJ:3FD gloss:they_(both)_[verb] pos:verb per:3 asp:p mod:i gen:f num:d
+th	PVSuff-ath	diac:atohu bw:at/PVSUFF_SUBJ:3FS+hu/PVSUFF_DO:3MS gloss:it/they/she_[verb]_+_it/him pos:verb per:3 asp:p mod:i gen:f num:s enc0:3ms_dobj
+thmA	PVSuff-ath	diac:atohumA bw:at/PVSUFF_SUBJ:3FS+humA/PVSUFF_DO:3D gloss:it/they/she_[verb]_+_them_(both) pos:verb per:3 asp:p mod:i gen:f num:s enc0:3d_dobj
+thm	PVSuff-ath	diac:atohum bw:at/PVSUFF_SUBJ:3FS+hum/PVSUFF_DO:3MP gloss:it/they/she_[verb]_+_them pos:verb per:3 asp:p mod:i gen:f num:s enc0:3mp_dobj
+thA	PVSuff-ath	diac:atohA bw:at/PVSUFF_SUBJ:3FS+hA/PVSUFF_DO:3FS gloss:it/they/she_[verb]_+_it/them/her pos:verb per:3 asp:p mod:i gen:f num:s enc0:3fs_dobj
+thn	PVSuff-ath	diac:atohun~a bw:at/PVSUFF_SUBJ:3FS+hun~a/PVSUFF_DO:3FP gloss:it/they/she_[verb]_+_them pos:verb per:3 asp:p mod:i gen:f num:s enc0:3fp_dobj
+tk	PVSuff-ath	diac:atoka bw:at/PVSUFF_SUBJ:3FS+ka/PVSUFF_DO:2MS gloss:it/they/she_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:s enc0:2ms_dobj
+tk	PVSuff-ath	diac:atoki bw:at/PVSUFF_SUBJ:3FS+ki/PVSUFF_DO:2FS gloss:it/they/she_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:s enc0:2fs_dobj
+tkmA	PVSuff-ath	diac:atokumA bw:at/PVSUFF_SUBJ:3FS+kumA/PVSUFF_DO:2D gloss:it/they/she_[verb]_+_you_(both) pos:verb per:3 asp:p mod:i gen:f num:s enc0:2d_dobj
+tkm	PVSuff-ath	diac:atokum bw:at/PVSUFF_SUBJ:3FS+kum/PVSUFF_DO:2MP gloss:it/they/she_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:s enc0:2mp_dobj
+tkn	PVSuff-ath	diac:atokun~a bw:at/PVSUFF_SUBJ:3FS+kun~a/PVSUFF_DO:2FP gloss:it/they/she_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:s enc0:2fp_dobj
+tny	PVSuff-ath	diac:atoniy bw:at/PVSUFF_SUBJ:3FS+niy/PVSUFF_DO:1S gloss:it/they/she_[verb]_+_me pos:verb per:3 asp:p mod:i gen:f num:s enc0:1s_dobj
+tnA	PVSuff-ath	diac:atonA bw:at/PVSUFF_SUBJ:3FS+nA/PVSUFF_DO:1P gloss:it/they/she_[verb]_+_us pos:verb per:3 asp:p mod:i gen:f num:s enc0:1p_dobj
+tAh	PVSuff-ath	diac:atAhu bw:atA/PVSUFF_SUBJ:3FD+hu/PVSUFF_DO:3MS gloss:they_(both)_[verb]_+_it/him pos:verb per:3 asp:p mod:i gen:f num:d enc0:3ms_dobj
+tAhmA	PVSuff-ath	diac:atAhumA bw:atA/PVSUFF_SUBJ:3FD+humA/PVSUFF_DO:3D gloss:they_(both)_[verb]_+_them_(both) pos:verb per:3 asp:p mod:i gen:f num:d enc0:3d_dobj
+tAhm	PVSuff-ath	diac:atAhum bw:atA/PVSUFF_SUBJ:3FD+hum/PVSUFF_DO:3MP gloss:they_(both)_[verb]_+_them pos:verb per:3 asp:p mod:i gen:f num:d enc0:3mp_dobj
+tAhA	PVSuff-ath	diac:atAhA bw:atA/PVSUFF_SUBJ:3FD+hA/PVSUFF_DO:3FS gloss:they_(both)_[verb]_+_it/them/her pos:verb per:3 asp:p mod:i gen:f num:d enc0:3fs_dobj
+tAhn	PVSuff-ath	diac:atAhun~a bw:atA/PVSUFF_SUBJ:3FD+hun~a/PVSUFF_DO:3FP gloss:they_(both)_[verb]_+_them pos:verb per:3 asp:p mod:i gen:f num:d enc0:3fp_dobj
+tAk	PVSuff-ath	diac:atAka bw:atA/PVSUFF_SUBJ:3FD+ka/PVSUFF_DO:2MS gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:d enc0:2ms_dobj
+tAk	PVSuff-ath	diac:atAki bw:atA/PVSUFF_SUBJ:3FD+ki/PVSUFF_DO:2FS gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:d enc0:2fs_dobj
+tAkmA	PVSuff-ath	diac:atAkumA bw:atA/PVSUFF_SUBJ:3FD+kumA/PVSUFF_DO:2D gloss:they_(both)_[verb]_+_you_(both) pos:verb per:3 asp:p mod:i gen:f num:d enc0:2d_dobj
+tAkm	PVSuff-ath	diac:atAkum bw:atA/PVSUFF_SUBJ:3FD+kum/PVSUFF_DO:2MP gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:d enc0:2mp_dobj
+tAkn	PVSuff-ath	diac:atAkun~a bw:atA/PVSUFF_SUBJ:3FD+kun~a/PVSUFF_DO:2FP gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:f num:d enc0:2fp_dobj
+tAny	PVSuff-ath	diac:atAniy bw:atA/PVSUFF_SUBJ:3FD+niy/PVSUFF_DO:1S gloss:they_(both)_[verb]_+_me pos:verb per:3 asp:p mod:i gen:f num:d enc0:1s_dobj
+tAnA	PVSuff-ath	diac:atAnA bw:atA/PVSUFF_SUBJ:3FD+nA/PVSUFF_DO:1P gloss:they_(both)_[verb]_+_us pos:verb per:3 asp:p mod:i gen:f num:d enc0:1p_dobj
+A	PVSuff-A	diac:A bw:A/PVSUFF_SUBJ:3MD gloss:they_(both)_[verb] pos:verb per:3 asp:p mod:i gen:m num:d
+	PVSuff-|	bw:A/PVSUFF_SUBJ:3MD gloss:they_(both)_[verb] pos:verb per:3 asp:p mod:i gen:m num:d
+Ah	PVSuff-Ah	diac:Ahu bw:A/PVSUFF_SUBJ:3MD+hu/PVSUFF_DO:3MS gloss:they_(both)_[verb]_+_it/him pos:verb per:3 asp:p mod:i gen:m num:d enc0:3ms_dobj
+AhmA	PVSuff-Ah	diac:AhumA bw:A/PVSUFF_SUBJ:3MD+humA/PVSUFF_DO:3D gloss:they_(both)_[verb]_+_them_(both) pos:verb per:3 asp:p mod:i gen:m num:d enc0:3d_dobj
+Ahm	PVSuff-Ah	diac:Ahum bw:A/PVSUFF_SUBJ:3MD+hum/PVSUFF_DO:3MP gloss:they_(both)_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:d enc0:3mp_dobj
+AhA	PVSuff-Ah	diac:AhA bw:A/PVSUFF_SUBJ:3MD+hA/PVSUFF_DO:3FS gloss:they_(both)_[verb]_+_it/them/her pos:verb per:3 asp:p mod:i gen:m num:d enc0:3fs_dobj
+Ahn	PVSuff-Ah	diac:Ahun~a bw:A/PVSUFF_SUBJ:3MD+hun~a/PVSUFF_DO:3FP gloss:they_(both)_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:d enc0:3fp_dobj
+Ak	PVSuff-Ah	diac:Aka bw:A/PVSUFF_SUBJ:3MD+ka/PVSUFF_DO:2MS gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:d enc0:2ms_dobj
+Ak	PVSuff-Ah	diac:Aki bw:A/PVSUFF_SUBJ:3MD+ki/PVSUFF_DO:2FS gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:d enc0:2fs_dobj
+AkmA	PVSuff-Ah	diac:AkumA bw:A/PVSUFF_SUBJ:3MD+kumA/PVSUFF_DO:2D gloss:they_(both)_[verb]_+_you_(both) pos:verb per:3 asp:p mod:i gen:m num:d enc0:2d_dobj
+Akm	PVSuff-Ah	diac:Akum bw:A/PVSUFF_SUBJ:3MD+kum/PVSUFF_DO:2MP gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:d enc0:2mp_dobj
+Akn	PVSuff-Ah	diac:Akun~a bw:A/PVSUFF_SUBJ:3MD+kun~a/PVSUFF_DO:2FP gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:d enc0:2fp_dobj
+Any	PVSuff-Ah	diac:Aniy bw:A/PVSUFF_SUBJ:3MD+niy/PVSUFF_DO:1S gloss:they_(both)_[verb]_+_me pos:verb per:3 asp:p mod:i gen:m num:d enc0:1s_dobj
+AnA	PVSuff-Ah	diac:AnA bw:A/PVSUFF_SUBJ:3MD+nA/PVSUFF_DO:1P gloss:they_(both)_[verb]_+_us pos:verb per:3 asp:p mod:i gen:m num:d enc0:1p_dobj
+h	PVSuff-|h	diac:hu bw:A/PVSUFF_SUBJ:3MD+hu/PVSUFF_DO:3MS gloss:they_(both)_[verb]_+_it/him pos:verb per:3 asp:p mod:i gen:m num:d enc0:3ms_dobj
+hmA	PVSuff-|h	diac:humA bw:A/PVSUFF_SUBJ:3MD+humA/PVSUFF_DO:3D gloss:they_(both)_[verb]_+_them_(both) pos:verb per:3 asp:p mod:i gen:m num:d enc0:3d_dobj
+hm	PVSuff-|h	diac:hum bw:A/PVSUFF_SUBJ:3MD+hum/PVSUFF_DO:3MP gloss:they_(both)_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:d enc0:3mp_dobj
+hA	PVSuff-|h	diac:hA bw:A/PVSUFF_SUBJ:3MD+hA/PVSUFF_DO:3FS gloss:they_(both)_[verb]_+_it/them/her pos:verb per:3 asp:p mod:i gen:m num:d enc0:3fs_dobj
+hn	PVSuff-|h	diac:hun~a bw:A/PVSUFF_SUBJ:3MD+hun~a/PVSUFF_DO:3FP gloss:they_(both)_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:d enc0:3fp_dobj
+k	PVSuff-|h	diac:ka bw:A/PVSUFF_SUBJ:3MD+ka/PVSUFF_DO:2MS gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:d enc0:2ms_dobj
+k	PVSuff-|h	diac:ki bw:A/PVSUFF_SUBJ:3MD+ki/PVSUFF_DO:2FS gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:d enc0:2fs_dobj
+kmA	PVSuff-|h	diac:kumA bw:A/PVSUFF_SUBJ:3MD+kumA/PVSUFF_DO:2D gloss:they_(both)_[verb]_+_you_(both) pos:verb per:3 asp:p mod:i gen:m num:d enc0:2d_dobj
+km	PVSuff-|h	diac:kum bw:A/PVSUFF_SUBJ:3MD+kum/PVSUFF_DO:2MP gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:d enc0:2mp_dobj
+kn	PVSuff-|h	diac:kun~a bw:A/PVSUFF_SUBJ:3MD+kun~a/PVSUFF_DO:2FP gloss:they_(both)_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:d enc0:2fp_dobj
+ny	PVSuff-|h	diac:niy bw:A/PVSUFF_SUBJ:3MD+niy/PVSUFF_DO:1S gloss:they_(both)_[verb]_+_me pos:verb per:3 asp:p mod:i gen:m num:d enc0:1s_dobj
+nA	PVSuff-|h	diac:nA bw:A/PVSUFF_SUBJ:3MD+nA/PVSUFF_DO:1P gloss:they_(both)_[verb]_+_us pos:verb per:3 asp:p mod:i gen:m num:d enc0:1p_dobj
+wA	PVSuff-uwA	diac:uwA bw:uwA/PVSUFF_SUBJ:3MP gloss:they_[verb] pos:verb per:3 asp:p mod:i gen:m num:p
+wA	PVSuff-awA	diac:awoA bw:awoA/PVSUFF_SUBJ:3MP gloss:they_[verb] pos:verb per:3 asp:p mod:i gen:m num:p
+wA	CVSuff-wA	diac:uwA bw:uwA/CVSUFF_SUBJ:2MP gloss:you_[masc.pl]_[verb] pos:verb per:2 asp:c mod:i gen:m num:p
+wA	CVSuff-awA	diac:awoA bw:awoA/CVSUFF_SUBJ:2MP gloss:you_[masc.pl]_[verb] pos:verb per:2 asp:c mod:i gen:m num:p
+wh	CVSuff-wh	diac:uwhu bw:uw/CVSUFF_SUBJ:2MP+hu/CVSUFF_DO:3MS gloss:you_[masc.pl]_[verb]_+_it/him pos:verb per:2 asp:c mod:i gen:m num:p enc0:3ms_dobj
+whmA	CVSuff-wh	diac:uwhumA bw:uw/CVSUFF_SUBJ:2MP+humA/CVSUFF_DO:3D gloss:you_[masc.pl]_[verb]_+_them_(both) pos:verb per:2 asp:c mod:i gen:m num:p enc0:3d_dobj
+whm	CVSuff-wh	diac:uwhum bw:uw/CVSUFF_SUBJ:2MP+hum/CVSUFF_DO:3MP gloss:you_[masc.pl]_[verb]_+_them pos:verb per:2 asp:c mod:i gen:m num:p enc0:3mp_dobj
+whA	CVSuff-wh	diac:uwhA bw:uw/CVSUFF_SUBJ:2MP+hA/CVSUFF_DO:3FS gloss:you_[masc.pl]_[verb]_+_it/them/her pos:verb per:2 asp:c mod:i gen:m num:p enc0:3fs_dobj
+whn	CVSuff-wh	diac:uwhun~a bw:uw/CVSUFF_SUBJ:2MP+hun~a/CVSUFF_DO:3FP gloss:you_[masc.pl]_[verb]_+_them pos:verb per:2 asp:c mod:i gen:m num:p enc0:3fp_dobj
+wny	CVSuff-wh	diac:uwniy bw:uw/CVSUFF_SUBJ:2MP+niy/CVSUFF_DO:1S gloss:you_[masc.pl]_[verb]_+_me pos:verb per:2 asp:c mod:i gen:m num:p enc0:1s_dobj
+wnA	CVSuff-wh	diac:uwnA bw:uw/CVSUFF_SUBJ:2MP+nA/CVSUFF_DO:1P gloss:you_[masc.pl]_[verb]_+_us pos:verb per:2 asp:c mod:i gen:m num:p enc0:1p_dobj
+wh	CVSuff-awh	diac:awohu bw:awo/CVSUFF_SUBJ:2MP+hu/CVSUFF_DO:3MS gloss:you_[masc.pl]_[verb]_+_it/him pos:verb per:2 asp:c mod:i gen:m num:p enc0:3ms_dobj
+whmA	CVSuff-awh	diac:awohumA bw:awo/CVSUFF_SUBJ:2MP+humA/CVSUFF_DO:3D gloss:you_[masc.pl]_[verb]_+_them_(both) pos:verb per:2 asp:c mod:i gen:m num:p enc0:3d_dobj
+whm	CVSuff-awh	diac:awohum bw:awo/CVSUFF_SUBJ:2MP+hum/CVSUFF_DO:3MP gloss:you_[masc.pl]_[verb]_+_them pos:verb per:2 asp:c mod:i gen:m num:p enc0:3mp_dobj
+whA	CVSuff-awh	diac:awohA bw:awo/CVSUFF_SUBJ:2MP+hA/CVSUFF_DO:3FS gloss:you_[masc.pl]_[verb]_+_it/them/her pos:verb per:2 asp:c mod:i gen:m num:p enc0:3fs_dobj
+whn	CVSuff-awh	diac:awohun~a bw:awo/CVSUFF_SUBJ:2MP+hun~a/CVSUFF_DO:3FP gloss:you_[masc.pl]_[verb]_+_them pos:verb per:2 asp:c mod:i gen:m num:p enc0:3fp_dobj
+wny	CVSuff-awh	diac:awoniy bw:awo/CVSUFF_SUBJ:2MP+niy/CVSUFF_DO:1S gloss:you_[masc.pl]_[verb]_+_me pos:verb per:2 asp:c mod:i gen:m num:p enc0:1s_dobj
+wnA	CVSuff-awh	diac:awonA bw:awo/CVSUFF_SUBJ:2MP+nA/CVSUFF_DO:1P gloss:you_[masc.pl]_[verb]_+_us pos:verb per:2 asp:c mod:i gen:m num:p enc0:1p_dobj
+y	CVSuff-y	diac:iy bw:iy/CVSUFF_SUBJ:2FS gloss:you_[fem.sg.]_[verb] pos:verb per:2 asp:c mod:i gen:f num:s
+y	CVSuff-ay	diac:ayo bw:ayo/CVSUFF_SUBJ:2FS gloss:you_[fem.sg.]_[verb] pos:verb per:2 asp:c mod:i gen:f num:s
+yh	CVSuff-yh	diac:iyhi bw:iy/CVSUFF_SUBJ:2FS+hi/CVSUFF_DO:3MS gloss:you_[fem.sg.]_[verb]_+_it/him pos:verb per:2 asp:c mod:i gen:f num:s enc0:3ms_dobj
+yhmA	CVSuff-yh	diac:iyhimA bw:iy/CVSUFF_SUBJ:2FS+himA/CVSUFF_DO:3D gloss:you_[fem.sg.]_[verb]_+_them_(both) pos:verb per:2 asp:c mod:i gen:f num:s enc0:3d_dobj
+yhm	CVSuff-yh	diac:iyhim bw:iy/CVSUFF_SUBJ:2FS+him/CVSUFF_DO:3MP gloss:you_[fem.sg.]_[verb]_+_them pos:verb per:2 asp:c mod:i gen:f num:s enc0:3mp_dobj
+yhA	CVSuff-yh	diac:iyhA bw:iy/CVSUFF_SUBJ:2FS+hA/CVSUFF_DO:3FS gloss:you_[fem.sg.]_[verb]_+_it/them/her pos:verb per:2 asp:c mod:i gen:f num:s enc0:3fs_dobj
+yhn	CVSuff-yh	diac:iyhin~a bw:iy/CVSUFF_SUBJ:2FS+hin~a/CVSUFF_DO:3FP gloss:you_[fem.sg.]_[verb]_+_them pos:verb per:2 asp:c mod:i gen:f num:s enc0:3fp_dobj
+yny	CVSuff-yh	diac:iyniy bw:iy/CVSUFF_SUBJ:2FS+niy/CVSUFF_DO:1S gloss:you_[fem.sg.]_[verb]_+_me pos:verb per:2 asp:c mod:i gen:f num:s enc0:1s_dobj
+ynA	CVSuff-yh	diac:iynA bw:iy/CVSUFF_SUBJ:2FS+nA/CVSUFF_DO:1P gloss:you_[fem.sg.]_[verb]_+_us pos:verb per:2 asp:c mod:i gen:f num:s enc0:1p_dobj
+yh	CVSuff-ayh	diac:ayohi bw:ayo/CVSUFF_SUBJ:2FS+hi/CVSUFF_DO:3MS gloss:you_[fem.sg.]_[verb]_+_it/him pos:verb per:2 asp:c mod:i gen:f num:s enc0:3ms_dobj
+yhmA	CVSuff-ayh	diac:ayohimA bw:ayo/CVSUFF_SUBJ:2FS+himA/CVSUFF_DO:3D gloss:you_[fem.sg.]_[verb]_+_them_(both) pos:verb per:2 asp:c mod:i gen:f num:s enc0:3d_dobj
+yhm	CVSuff-ayh	diac:ayohim bw:ayo/CVSUFF_SUBJ:2FS+him/CVSUFF_DO:3MP gloss:you_[fem.sg.]_[verb]_+_them pos:verb per:2 asp:c mod:i gen:f num:s enc0:3mp_dobj
+yhA	CVSuff-ayh	diac:ayohA bw:ayo/CVSUFF_SUBJ:2FS+hA/CVSUFF_DO:3FS gloss:you_[fem.sg.]_[verb]_+_it/them/her pos:verb per:2 asp:c mod:i gen:f num:s enc0:3fs_dobj
+yhn	CVSuff-ayh	diac:ayohin~a bw:ayo/CVSUFF_SUBJ:2FS+hin~a/CVSUFF_DO:3FP gloss:you_[fem.sg.]_[verb]_+_them pos:verb per:2 asp:c mod:i gen:f num:s enc0:3fp_dobj
+yny	CVSuff-ayh	diac:ayoniy bw:ayo/CVSUFF_SUBJ:2FS+niy/CVSUFF_DO:1S gloss:you_[fem.sg.]_[verb]_+_me pos:verb per:2 asp:c mod:i gen:f num:s enc0:1s_dobj
+ynA	CVSuff-ayh	diac:ayonA bw:ayo/CVSUFF_SUBJ:2FS+nA/CVSUFF_DO:1P gloss:you_[fem.sg.]_[verb]_+_us pos:verb per:2 asp:c mod:i gen:f num:s enc0:1p_dobj
+wh	PVSuff-uwh	diac:uwhu bw:uw/PVSUFF_SUBJ:3MP+hu/PVSUFF_DO:3MS gloss:they_[verb]_+_it/him pos:verb per:3 asp:p mod:i gen:m num:p enc0:3ms_dobj
+whmA	PVSuff-uwh	diac:uwhumA bw:uw/PVSUFF_SUBJ:3MP+humA/PVSUFF_DO:3D gloss:they_[verb]_+_them_(both) pos:verb per:3 asp:p mod:i gen:m num:p enc0:3d_dobj
+whm	PVSuff-uwh	diac:uwhum bw:uw/PVSUFF_SUBJ:3MP+hum/PVSUFF_DO:3MP gloss:they_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:p enc0:3mp_dobj
+whA	PVSuff-uwh	diac:uwhA bw:uw/PVSUFF_SUBJ:3MP+hA/PVSUFF_DO:3FS gloss:they_[verb]_+_it/them/her pos:verb per:3 asp:p mod:i gen:m num:p enc0:3fs_dobj
+whn	PVSuff-uwh	diac:uwhun~a bw:uw/PVSUFF_SUBJ:3MP+hun~a/PVSUFF_DO:3FP gloss:they_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:p enc0:3fp_dobj
+wk	PVSuff-uwh	diac:uwka bw:uw/PVSUFF_SUBJ:3MP+ka/PVSUFF_DO:2MS gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:p enc0:2ms_dobj
+wk	PVSuff-uwh	diac:uwki bw:uw/PVSUFF_SUBJ:3MP+ki/PVSUFF_DO:2FS gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:p enc0:2fs_dobj
+wkmA	PVSuff-uwh	diac:uwkumA bw:uw/PVSUFF_SUBJ:3MP+kumA/PVSUFF_DO:2D gloss:they_[verb]_+_you_(both) pos:verb per:3 asp:p mod:i gen:m num:p enc0:2d_dobj
+wkm	PVSuff-uwh	diac:uwkum bw:uw/PVSUFF_SUBJ:3MP+kum/PVSUFF_DO:2MP gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:p enc0:2mp_dobj
+wkn	PVSuff-uwh	diac:uwkun~a bw:uw/PVSUFF_SUBJ:3MP+kun~a/PVSUFF_DO:2FP gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:p enc0:2fp_dobj
+wny	PVSuff-uwh	diac:uwniy bw:uw/PVSUFF_SUBJ:3MP+niy/PVSUFF_DO:1S gloss:they_[verb]_+_me pos:verb per:3 asp:p mod:i gen:m num:p enc0:1s_dobj
+wnA	PVSuff-uwh	diac:uwnA bw:uw/PVSUFF_SUBJ:3MP+nA/PVSUFF_DO:1P gloss:they_[verb]_+_us pos:verb per:3 asp:p mod:i gen:m num:p enc0:1p_dobj
+wh	PVSuff-awh	diac:awohu bw:aw/PVSUFF_SUBJ:3MP+hu/PVSUFF_DO:3MS gloss:they_[verb]_+_it/him pos:verb per:3 asp:p mod:i gen:m num:p enc0:3ms_dobj
+whmA	PVSuff-awh	diac:awohumA bw:aw/PVSUFF_SUBJ:3MP+humA/PVSUFF_DO:3D gloss:they_[verb]_+_them_(both) pos:verb per:3 asp:p mod:i gen:m num:p enc0:3d_dobj
+whm	PVSuff-awh	diac:awohum bw:aw/PVSUFF_SUBJ:3MP+hum/PVSUFF_DO:3MP gloss:they_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:p enc0:3mp_dobj
+whA	PVSuff-awh	diac:awohA bw:aw/PVSUFF_SUBJ:3MP+hA/PVSUFF_DO:3FS gloss:they_[verb]_+_it/them/her pos:verb per:3 asp:p mod:i gen:m num:p enc0:3fs_dobj
+whn	PVSuff-awh	diac:awohun~a bw:aw/PVSUFF_SUBJ:3MP+hun~a/PVSUFF_DO:3FP gloss:they_[verb]_+_them pos:verb per:3 asp:p mod:i gen:m num:p enc0:3fp_dobj
+wk	PVSuff-awh	diac:awoka bw:aw/PVSUFF_SUBJ:3MP+ka/PVSUFF_DO:2MS gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:p enc0:2ms_dobj
+wk	PVSuff-awh	diac:awoki bw:aw/PVSUFF_SUBJ:3MP+ki/PVSUFF_DO:2FS gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:p enc0:2fs_dobj
+wkmA	PVSuff-awh	diac:awokumA bw:aw/PVSUFF_SUBJ:3MP+kumA/PVSUFF_DO:2D gloss:they_[verb]_+_you_(both) pos:verb per:3 asp:p mod:i gen:m num:p enc0:2d_dobj
+wkm	PVSuff-awh	diac:awokum bw:aw/PVSUFF_SUBJ:3MP+kum/PVSUFF_DO:2MP gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:p enc0:2mp_dobj
+wkn	PVSuff-awh	diac:awokun~a bw:aw/PVSUFF_SUBJ:3MP+kun~a/PVSUFF_DO:2FP gloss:they_[verb]_+_you pos:verb per:3 asp:p mod:i gen:m num:p enc0:2fp_dobj
+wny	PVSuff-awh	diac:awoniy bw:aw/PVSUFF_SUBJ:3MP+niy/PVSUFF_DO:1S gloss:they_[verb]_+_me pos:verb per:3 asp:p mod:i gen:m num:p enc0:1s_dobj
+wnA	PVSuff-awh	diac:awonA bw:aw/PVSUFF_SUBJ:3MP+nA/PVSUFF_DO:1P gloss:they_[verb]_+_us pos:verb per:3 asp:p mod:i gen:m num:p enc0:1p_dobj
+	IVSuff-0_ind	bw:(null)/IVSUFF_MOOD:I gloss:[ind.] pos:verb asp:i mod:i
+	IVSuff-0_sub	bw:(null)/IVSUFF_MOOD:S gloss:[sub.] pos:verb asp:i mod:s
+	IVSuff-0_jus	bw:(null)/IVSUFF_MOOD:J gloss:[jus.] pos:verb asp:i mod:j
+	IVSuff-u	diac:u bw:u/IVSUFF_MOOD:I gloss:[ind.] pos:verb asp:i mod:i
+	IVSuff-a	diac:a bw:a/IVSUFF_MOOD:S gloss:[sub.] pos:verb asp:i mod:s
+	IVSuff-o	diac:o bw:o/IVSUFF_MOOD:J gloss:[jus.] pos:verb asp:i mod:j
+	IVSuff-a_jus	diac:a bw:a/IVSUFF_MOOD:J gloss:[jus.] pos:verb asp:i mod:j
+h	IVSuff-hi_ind	diac:hi bw:(null)/IVSUFF_MOOD:I+hi/IVSUFF_DO:3MS gloss:[ind.]_+_it/him pos:verb asp:i mod:i enc0:3ms_dobj
+hmA	IVSuff-hi_ind	diac:himA bw:(null)/IVSUFF_MOOD:I+himA/IVSUFF_DO:3D gloss:[ind.]_+_them_(both) pos:verb asp:i mod:i enc0:3d_dobj
+hm	IVSuff-hi_ind	diac:him bw:(null)/IVSUFF_MOOD:I+him/IVSUFF_DO:3MP gloss:[ind.]_+_them pos:verb asp:i mod:i enc0:3mp_dobj
+hA	IVSuff-hi_ind	diac:hA bw:(null)/IVSUFF_MOOD:I+hA/IVSUFF_DO:3FS gloss:[ind.]_+_it/them/her pos:verb asp:i mod:i enc0:3fs_dobj
+hn	IVSuff-hi_ind	diac:hin~a bw:(null)/IVSUFF_MOOD:I+hin~a/IVSUFF_DO:3FP gloss:[ind.]_+_them pos:verb asp:i mod:i enc0:3fp_dobj
+h	IVSuff-hi_jus	diac:hi bw:(null)/IVSUFF_MOOD:J+hi/IVSUFF_DO:3MS gloss:[jus.]_+_it/him pos:verb asp:i mod:j enc0:3ms_dobj
+hmA	IVSuff-hi_jus	diac:himA bw:(null)/IVSUFF_MOOD:J+himA/IVSUFF_DO:3D gloss:[jus.]_+_them_(both) pos:verb asp:i mod:j enc0:3d_dobj
+hm	IVSuff-hi_jus	diac:him bw:(null)/IVSUFF_MOOD:J+him/IVSUFF_DO:3MP gloss:[jus.]_+_them pos:verb asp:i mod:j enc0:3mp_dobj
+hA	IVSuff-hi_jus	diac:hA bw:(null)/IVSUFF_MOOD:J+hA/IVSUFF_DO:3FS gloss:[jus.]_+_it/them/her pos:verb asp:i mod:j enc0:3fs_dobj
+hn	IVSuff-hi_jus	diac:hin~a bw:(null)/IVSUFF_MOOD:J+hin~a/IVSUFF_DO:3FP gloss:[jus.]_+_them pos:verb asp:i mod:j enc0:3fp_dobj
+h	IVSuff-h_ind	diac:hu bw:(null)/IVSUFF_MOOD:I+hu/IVSUFF_DO:3MS gloss:[ind.]_+_it/him pos:verb asp:i mod:i enc0:3ms_dobj
+hmA	IVSuff-h_ind	diac:humA bw:(null)/IVSUFF_MOOD:I+humA/IVSUFF_DO:3D gloss:[ind.]_+_them_(both) pos:verb asp:i mod:i enc0:3d_dobj
+hm	IVSuff-h_ind	diac:hum bw:(null)/IVSUFF_MOOD:I+hum/IVSUFF_DO:3MP gloss:[ind.]_+_them pos:verb asp:i mod:i enc0:3mp_dobj
+hA	IVSuff-h_ind	diac:hA bw:(null)/IVSUFF_MOOD:I+hA/IVSUFF_DO:3FS gloss:[ind.]_+_it/them/her pos:verb asp:i mod:i enc0:3fs_dobj
+hn	IVSuff-h_ind	diac:hun~a bw:(null)/IVSUFF_MOOD:I+hun~a/IVSUFF_DO:3FP gloss:[ind.]_+_them pos:verb asp:i mod:i enc0:3fp_dobj
+h	IVSuff-h_sub	diac:hu bw:(null)/IVSUFF_MOOD:S+hu/IVSUFF_DO:3MS gloss:[sub.]_+_it/him pos:verb asp:i mod:s enc0:3ms_dobj
+hmA	IVSuff-h_sub	diac:humA bw:(null)/IVSUFF_MOOD:S+humA/IVSUFF_DO:3D gloss:[sub.]_+_them_(both) pos:verb asp:i mod:s enc0:3d_dobj
+hm	IVSuff-h_sub	diac:hum bw:(null)/IVSUFF_MOOD:S+hum/IVSUFF_DO:3MP gloss:[sub.]_+_them pos:verb asp:i mod:s enc0:3mp_dobj
+hA	IVSuff-h_sub	diac:hA bw:(null)/IVSUFF_MOOD:S+hA/IVSUFF_DO:3FS gloss:[sub.]_+_it/them/her pos:verb asp:i mod:s enc0:3fs_dobj
+hn	IVSuff-h_sub	diac:hun~a bw:(null)/IVSUFF_MOOD:S+hun~a/IVSUFF_DO:3FP gloss:[sub.]_+_them pos:verb asp:i mod:s enc0:3fp_dobj
+h	IVSuff-h_jus	diac:hu bw:(null)/IVSUFF_MOOD:J+hu/IVSUFF_DO:3MS gloss:[jus.]_+_it/him pos:verb asp:i mod:j enc0:3ms_dobj
+hmA	IVSuff-h_jus	diac:humA bw:(null)/IVSUFF_MOOD:J+humA/IVSUFF_DO:3D gloss:[jus.]_+_them_(both) pos:verb asp:i mod:j enc0:3d_dobj
+hm	IVSuff-h_jus	diac:hum bw:(null)/IVSUFF_MOOD:J+hum/IVSUFF_DO:3MP gloss:[jus.]_+_them pos:verb asp:i mod:j enc0:3mp_dobj
+hA	IVSuff-h_jus	diac:hA bw:(null)/IVSUFF_MOOD:J+hA/IVSUFF_DO:3FS gloss:[jus.]_+_it/them/her pos:verb asp:i mod:j enc0:3fs_dobj
+hn	IVSuff-h_jus	diac:hun~a bw:(null)/IVSUFF_MOOD:J+hun~a/IVSUFF_DO:3FP gloss:[jus.]_+_them pos:verb asp:i mod:j enc0:3fp_dobj
+h	IVSuff-uh	diac:uhu bw:u/IVSUFF_MOOD:I+hu/IVSUFF_DO:3MS gloss:[ind.]_+_it/him pos:verb asp:i mod:i enc0:3ms_dobj
+hmA	IVSuff-uh	diac:uhumA bw:u/IVSUFF_MOOD:I+humA/IVSUFF_DO:3D gloss:[ind.]_+_them_(both) pos:verb asp:i mod:i enc0:3d_dobj
+hm	IVSuff-uh	diac:uhum bw:u/IVSUFF_MOOD:I+hum/IVSUFF_DO:3MP gloss:[ind.]_+_them pos:verb asp:i mod:i enc0:3mp_dobj
+hA	IVSuff-uh	diac:uhA bw:u/IVSUFF_MOOD:I+hA/IVSUFF_DO:3FS gloss:[ind.]_+_it/them/her pos:verb asp:i mod:i enc0:3fs_dobj
+hn	IVSuff-uh	diac:uhun~a bw:u/IVSUFF_MOOD:I+hun~a/IVSUFF_DO:3FP gloss:[ind.]_+_them pos:verb asp:i mod:i enc0:3fp_dobj
+h	IVSuff-ah	diac:ahu bw:a/IVSUFF_MOOD:S+hu/IVSUFF_DO:3MS gloss:[sub.]_+_it/him pos:verb asp:i mod:s enc0:3ms_dobj
+hmA	IVSuff-ah	diac:ahumA bw:a/IVSUFF_MOOD:S+humA/IVSUFF_DO:3D gloss:[sub.]_+_them_(both) pos:verb asp:i mod:s enc0:3d_dobj
+hm	IVSuff-ah	diac:ahum bw:a/IVSUFF_MOOD:S+hum/IVSUFF_DO:3MP gloss:[sub.]_+_them pos:verb asp:i mod:s enc0:3mp_dobj
+hA	IVSuff-ah	diac:ahA bw:a/IVSUFF_MOOD:S+hA/IVSUFF_DO:3FS gloss:[sub.]_+_it/them/her pos:verb asp:i mod:s enc0:3fs_dobj
+hn	IVSuff-ah	diac:ahun~a bw:a/IVSUFF_MOOD:S+hun~a/IVSUFF_DO:3FP gloss:[sub.]_+_them pos:verb asp:i mod:s enc0:3fp_dobj
+h	IVSuff-oh	diac:ohu bw:o/IVSUFF_MOOD:J+hu/IVSUFF_DO:3MS gloss:[jus.]_+_it/him pos:verb asp:i mod:j enc0:3ms_dobj
+hmA	IVSuff-oh	diac:ohumA bw:o/IVSUFF_MOOD:J+humA/IVSUFF_DO:3D gloss:[jus.]_+_them_(both) pos:verb asp:i mod:j enc0:3d_dobj
+hm	IVSuff-oh	diac:ohum bw:o/IVSUFF_MOOD:J+hum/IVSUFF_DO:3MP gloss:[jus.]_+_them pos:verb asp:i mod:j enc0:3mp_dobj
+hA	IVSuff-oh	diac:ohA bw:o/IVSUFF_MOOD:J+hA/IVSUFF_DO:3FS gloss:[jus.]_+_it/them/her pos:verb asp:i mod:j enc0:3fs_dobj
+hn	IVSuff-oh	diac:ohun~a bw:o/IVSUFF_MOOD:J+hun~a/IVSUFF_DO:3FP gloss:[jus.]_+_them pos:verb asp:i mod:j enc0:3fp_dobj
+h	IVSuff-ah_jus	diac:ahu bw:a/IVSUFF_MOOD:J+hu/IVSUFF_DO:3MS gloss:[jus.]_+_it/him pos:verb asp:i mod:j enc0:3ms_dobj
+hmA	IVSuff-ah_jus	diac:ahumA bw:a/IVSUFF_MOOD:J+humA/IVSUFF_DO:3D gloss:[jus.]_+_them_(both) pos:verb asp:i mod:j enc0:3d_dobj
+hm	IVSuff-ah_jus	diac:ahum bw:a/IVSUFF_MOOD:J+hum/IVSUFF_DO:3MP gloss:[jus.]_+_them pos:verb asp:i mod:j enc0:3mp_dobj
+hA	IVSuff-ah_jus	diac:ahA bw:a/IVSUFF_MOOD:J+hA/IVSUFF_DO:3FS gloss:[jus.]_+_it/them/her pos:verb asp:i mod:j enc0:3fs_dobj
+hn	IVSuff-ah_jus	diac:ahun~a bw:a/IVSUFF_MOOD:J+hun~a/IVSUFF_DO:3FP gloss:[jus.]_+_them pos:verb asp:i mod:j enc0:3fp_dobj
+k	IVSuff-k_ind	diac:ka bw:(null)/IVSUFF_MOOD:I+ka/IVSUFF_DO:2MS gloss:[ind.]_+_you_[masc.sg.] pos:verb asp:i mod:i enc0:2ms_dobj
+k	IVSuff-k_ind	diac:ki bw:(null)/IVSUFF_MOOD:I+ki/IVSUFF_DO:2FS gloss:[ind.]_+_you_[fem.sg.] pos:verb asp:i mod:i enc0:2fs_dobj
+kmA	IVSuff-k_ind	diac:kumA bw:(null)/IVSUFF_MOOD:I+kumA/IVSUFF_DO:2D gloss:[ind.]_+_you_[du.] pos:verb asp:i mod:i enc0:2d_dobj
+km	IVSuff-k_ind	diac:kum bw:(null)/IVSUFF_MOOD:I+kum/IVSUFF_DO:2MP gloss:[ind.]_+_you_[masc.pl.] pos:verb asp:i mod:i enc0:2mp_dobj
+kn	IVSuff-k_ind	diac:kun~a bw:(null)/IVSUFF_MOOD:I+kun~a/IVSUFF_DO:2FP gloss:[ind.]_+_you_[fem.pl.] pos:verb asp:i mod:i enc0:2fp_dobj
+k	IVSuff-k_sub	diac:ka bw:(null)/IVSUFF_MOOD:S+ka/IVSUFF_DO:2MS gloss:[sub.]_+_you_[masc.sg.] pos:verb asp:i mod:s enc0:2ms_dobj
+k	IVSuff-k_sub	diac:ki bw:(null)/IVSUFF_MOOD:S+ki/IVSUFF_DO:2FS gloss:[sub.]_+_you_[fem.sg.] pos:verb asp:i mod:s enc0:2fs_dobj
+kmA	IVSuff-k_sub	diac:kumA bw:(null)/IVSUFF_MOOD:S+kumA/IVSUFF_DO:2D gloss:[sub.]_+_you_[du.] pos:verb asp:i mod:s enc0:2d_dobj
+km	IVSuff-k_sub	diac:kum bw:(null)/IVSUFF_MOOD:S+kum/IVSUFF_DO:2MP gloss:[sub.]_+_you_[masc.pl.] pos:verb asp:i mod:s enc0:2mp_dobj
+kn	IVSuff-k_sub	diac:kun~a bw:(null)/IVSUFF_MOOD:S+kun~a/IVSUFF_DO:2FP gloss:[sub.]_+_you_[fem.pl.] pos:verb asp:i mod:s enc0:2fp_dobj
+k	IVSuff-k_jus	diac:ka bw:(null)/IVSUFF_MOOD:J+ka/IVSUFF_DO:2MS gloss:[jus.]_+_you_[masc.sg.] pos:verb asp:i mod:j enc0:2ms_dobj
+k	IVSuff-k_jus	diac:ki bw:(null)/IVSUFF_MOOD:J+ki/IVSUFF_DO:2FS gloss:[jus.]_+_you_[fem.sg.] pos:verb asp:i mod:j enc0:2fs_dobj
+kmA	IVSuff-k_jus	diac:kumA bw:(null)/IVSUFF_MOOD:J+kumA/IVSUFF_DO:2D gloss:[jus.]_+_you_[du.] pos:verb asp:i mod:j enc0:2d_dobj
+km	IVSuff-k_jus	diac:kum bw:(null)/IVSUFF_MOOD:J+kum/IVSUFF_DO:2MP gloss:[jus.]_+_you_[masc.pl.] pos:verb asp:i mod:j enc0:2mp_dobj
+kn	IVSuff-k_jus	diac:kun~a bw:(null)/IVSUFF_MOOD:J+kun~a/IVSUFF_DO:2FP gloss:[jus.]_+_you_[fem.pl.] pos:verb asp:i mod:j enc0:2fp_dobj
+k	IVSuff-uk	diac:uka bw:u/IVSUFF_MOOD:I+ka/IVSUFF_DO:2MS gloss:[ind.]_+_you_[masc.sg.] pos:verb asp:i mod:i enc0:2ms_dobj
+k	IVSuff-uk	diac:uki bw:u/IVSUFF_MOOD:I+ki/IVSUFF_DO:2FS gloss:[ind.]_+_you_[fem.sg.] pos:verb asp:i mod:i enc0:2fs_dobj
+kmA	IVSuff-uk	diac:ukumA bw:u/IVSUFF_MOOD:I+kumA/IVSUFF_DO:2D gloss:[ind.]_+_you_[du.] pos:verb asp:i mod:i enc0:2d_dobj
+km	IVSuff-uk	diac:ukum bw:u/IVSUFF_MOOD:I+kum/IVSUFF_DO:2MP gloss:[ind.]_+_you_[masc.pl.] pos:verb asp:i mod:i enc0:2mp_dobj
+kn	IVSuff-uk	diac:ukun~a bw:u/IVSUFF_MOOD:I+kun~a/IVSUFF_DO:2FP gloss:[ind.]_+_you_[fem.pl.] pos:verb asp:i mod:i enc0:2fp_dobj
+k	IVSuff-ak	diac:aka bw:a/IVSUFF_MOOD:S+ka/IVSUFF_DO:2MS gloss:[sub.]_+_you_[masc.sg.] pos:verb asp:i mod:s enc0:2ms_dobj
+k	IVSuff-ak	diac:aki bw:a/IVSUFF_MOOD:S+ki/IVSUFF_DO:2FS gloss:[sub.]_+_you_[fem.sg.] pos:verb asp:i mod:s enc0:2fs_dobj
+kmA	IVSuff-ak	diac:akumA bw:a/IVSUFF_MOOD:S+kumA/IVSUFF_DO:2D gloss:[sub.]_+_you_[du.] pos:verb asp:i mod:s enc0:2d_dobj
+km	IVSuff-ak	diac:akum bw:a/IVSUFF_MOOD:S+kum/IVSUFF_DO:2MP gloss:[sub.]_+_you_[masc.pl.] pos:verb asp:i mod:s enc0:2mp_dobj
+kn	IVSuff-ak	diac:akun~a bw:a/IVSUFF_MOOD:S+kun~a/IVSUFF_DO:2FP gloss:[sub.]_+_you_[fem.pl.] pos:verb asp:i mod:s enc0:2fp_dobj
+k	IVSuff-ok	diac:oka bw:o/IVSUFF_MOOD:J+ka/IVSUFF_DO:2MS gloss:[jus.]_+_you_[masc.sg.] pos:verb asp:i mod:j enc0:2ms_dobj
+k	IVSuff-ok	diac:oki bw:o/IVSUFF_MOOD:J+ki/IVSUFF_DO:2FS gloss:[jus.]_+_you_[fem.sg.] pos:verb asp:i mod:j enc0:2fs_dobj
+kmA	IVSuff-ok	diac:okumA bw:o/IVSUFF_MOOD:J+kumA/IVSUFF_DO:2D gloss:[jus.]_+_you_[du.] pos:verb asp:i mod:j enc0:2d_dobj
+km	IVSuff-ok	diac:okum bw:o/IVSUFF_MOOD:J+kum/IVSUFF_DO:2MP gloss:[jus.]_+_you_[masc.pl.] pos:verb asp:i mod:j enc0:2mp_dobj
+kn	IVSuff-ok	diac:okun~a bw:o/IVSUFF_MOOD:J+kun~a/IVSUFF_DO:2FP gloss:[jus.]_+_you_[fem.pl.] pos:verb asp:i mod:j enc0:2fp_dobj
+k	IVSuff-ak_jus	diac:aka bw:a/IVSUFF_MOOD:J+ka/IVSUFF_DO:2MS gloss:[jus.]_+_you_[masc.sg.] pos:verb asp:i mod:j enc0:2ms_dobj
+k	IVSuff-ak_jus	diac:aki bw:a/IVSUFF_MOOD:J+ki/IVSUFF_DO:2FS gloss:[jus.]_+_you_[fem.sg.] pos:verb asp:i mod:j enc0:2fs_dobj
+kmA	IVSuff-ak_jus	diac:akumA bw:a/IVSUFF_MOOD:J+kumA/IVSUFF_DO:2D gloss:[jus.]_+_you_[du.] pos:verb asp:i mod:j enc0:2d_dobj
+km	IVSuff-ak_jus	diac:akum bw:a/IVSUFF_MOOD:J+kum/IVSUFF_DO:2MP gloss:[jus.]_+_you_[masc.pl.] pos:verb asp:i mod:j enc0:2mp_dobj
+kn	IVSuff-ak_jus	diac:akun~a bw:a/IVSUFF_MOOD:J+kun~a/IVSUFF_DO:2FP gloss:[jus.]_+_you_[fem.pl.] pos:verb asp:i mod:j enc0:2fp_dobj
+ny	IVSuff-ny-nA_ind	diac:niy bw:(null)/IVSUFF_MOOD:I+niy/IVSUFF_DO:1S gloss:[ind.]_+_me pos:verb asp:i mod:i enc0:1s_dobj
+nA	IVSuff-ny-nA_ind	diac:nA bw:(null)/IVSUFF_MOOD:I+nA/IVSUFF_DO:1P gloss:[ind.]_+_us pos:verb asp:i mod:i enc0:1p_dobj
+ny	IVSuff-ny-nA_sub	diac:niy bw:(null)/IVSUFF_MOOD:S+niy/IVSUFF_DO:1S gloss:[sub.]_+_me pos:verb asp:i mod:s enc0:1s_dobj
+nA	IVSuff-ny-nA_sub	diac:nA bw:(null)/IVSUFF_MOOD:S+nA/IVSUFF_DO:1P gloss:[sub.]_+_us pos:verb asp:i mod:s enc0:1p_dobj
+ny	IVSuff-ny-nA_jus	diac:niy bw:(null)/IVSUFF_MOOD:J+niy/IVSUFF_DO:1S gloss:[ind.]_+_me pos:verb asp:i mod:j enc0:1s_dobj
+nA	IVSuff-ny-nA_jus	diac:nA bw:(null)/IVSUFF_MOOD:J+nA/IVSUFF_DO:1P gloss:[ind.]_+_us pos:verb asp:i mod:j enc0:1p_dobj
+ny	IVSuff-uny-nA	diac:uniy bw:u/IVSUFF_MOOD:I+niy/IVSUFF_DO:1S gloss:[ind.]_+_me pos:verb asp:i mod:i enc0:1s_dobj
+nA	IVSuff-uny-nA	diac:unA bw:u/IVSUFF_MOOD:I+nA/IVSUFF_DO:1P gloss:[ind.]_+_us pos:verb asp:i mod:i enc0:1p_dobj
+ny	IVSuff-any-nA	diac:aniy bw:a/IVSUFF_MOOD:S+niy/IVSUFF_DO:1S gloss:[sub.]_+_me pos:verb asp:i mod:s enc0:1s_dobj
+nA	IVSuff-any-nA	diac:anA bw:a/IVSUFF_MOOD:S+nA/IVSUFF_DO:1P gloss:[sub.]_+_us pos:verb asp:i mod:s enc0:1p_dobj
+ny	IVSuff-ony-nA	diac:oniy bw:o/IVSUFF_MOOD:J+niy/IVSUFF_DO:1S gloss:[jus.]_+_me pos:verb asp:i mod:j enc0:1s_dobj
+nA	IVSuff-ony-nA	diac:onA bw:o/IVSUFF_MOOD:J+nA/IVSUFF_DO:1P gloss:[jus.]_+_us pos:verb asp:i mod:j enc0:1p_dobj
+y	IVSuff-~ny-nA	diac:~iy bw:o/IVSUFF_MOOD:J+niy/IVSUFF_DO:1S gloss:[jus.]_+_me pos:verb asp:i mod:j enc0:1s_dobj
+A	IVSuff-~ny-nA	diac:~A bw:o/IVSUFF_MOOD:J+nA/IVSUFF_DO:1P gloss:[jus.]_+_us pos:verb asp:i mod:j enc0:1p_dobj
+ny	IVSuff-any-nA_jus	diac:aniy bw:a/IVSUFF_MOOD:J+niy/IVSUFF_DO:1S gloss:[jus.]_+_me pos:verb asp:i mod:j enc0:1s_dobj
+nA	IVSuff-any-nA_jus	diac:anA bw:a/IVSUFF_MOOD:J+nA/IVSUFF_DO:1P gloss:[jus.]_+_us pos:verb asp:i mod:j enc0:1p_dobj
+n	IVSuff-n	diac:ona bw:na/IVSUFF_SUBJ:FP gloss:[fem.pl.] pos:verb asp:i gen:f num:p
+	IVSuff-~n	diac:~a bw:na/IVSUFF_SUBJ:FP gloss:[fem.pl.] pos:verb asp:i gen:f num:p
+nh	IVSuff-nh	diac:onahu bw:na/IVSUFF_SUBJ:FP+hu/IVSUFF_DO:3MS gloss:[fem.pl.]_+_it/him pos:verb asp:i gen:f num:p enc0:3ms_dobj
+nhmA	IVSuff-nh	diac:onahumA bw:na/IVSUFF_SUBJ:FP+humA/IVSUFF_DO:3D gloss:[fem.pl.]_+_them_(both) pos:verb asp:i gen:f num:p enc0:3d_dobj
+nhm	IVSuff-nh	diac:onahum bw:na/IVSUFF_SUBJ:FP+hum/IVSUFF_DO:3MP gloss:[fem.pl.]_+_them pos:verb asp:i gen:f num:p enc0:3mp_dobj
+nhA	IVSuff-nh	diac:onahA bw:na/IVSUFF_SUBJ:FP+hA/IVSUFF_DO:3FS gloss:[fem.pl.]_+_it/them/her pos:verb asp:i gen:f num:p enc0:3fs_dobj
+nhn	IVSuff-nh	diac:onahun~a bw:na/IVSUFF_SUBJ:FP+hun~a/IVSUFF_DO:3FP gloss:[fem.pl.]_+_them pos:verb asp:i gen:f num:p enc0:3fp_dobj
+nny	IVSuff-nh	diac:onaniy bw:na/IVSUFF_SUBJ:FP+niy/IVSUFF_DO:1S gloss:[fem.pl.]_+_me pos:verb asp:i gen:f num:p enc0:1s_dobj
+nnA	IVSuff-nh	diac:onanA bw:na/IVSUFF_SUBJ:FP+nA/IVSUFF_DO:1P gloss:[fem.pl.]_+_us pos:verb asp:i gen:f num:p enc0:1p_dobj
+h	IVSuff-~nh	diac:~ahu bw:na/IVSUFF_SUBJ:FP+hu/IVSUFF_DO:3MS gloss:[fem.pl.]_+_it/him pos:verb asp:i gen:f num:p enc0:3ms_dobj
+hmA	IVSuff-~nh	diac:~ahumA bw:na/IVSUFF_SUBJ:FP+humA/IVSUFF_DO:3D gloss:[fem.pl.]_+_them_(both) pos:verb asp:i gen:f num:p enc0:3d_dobj
+hm	IVSuff-~nh	diac:~ahum bw:na/IVSUFF_SUBJ:FP+hum/IVSUFF_DO:3MP gloss:[fem.pl.]_+_them pos:verb asp:i gen:f num:p enc0:3mp_dobj
+hA	IVSuff-~nh	diac:~ahA bw:na/IVSUFF_SUBJ:FP+hA/IVSUFF_DO:3FS gloss:[fem.pl.]_+_it/them/her pos:verb asp:i gen:f num:p enc0:3fs_dobj
+hn	IVSuff-~nh	diac:~ahun~a bw:na/IVSUFF_SUBJ:FP+hun~a/IVSUFF_DO:3FP gloss:[fem.pl.]_+_them pos:verb asp:i gen:f num:p enc0:3fp_dobj
+ny	IVSuff-~nh	diac:~aniy bw:na/IVSUFF_SUBJ:FP+niy/IVSUFF_DO:1S gloss:[fem.pl.]_+_me pos:verb asp:i gen:f num:p enc0:1s_dobj
+nA	IVSuff-~nh	diac:~anA bw:na/IVSUFF_SUBJ:FP+nA/IVSUFF_DO:1P gloss:[fem.pl.]_+_us pos:verb asp:i gen:f num:p enc0:1p_dobj
+nk	IVSuff-nk	diac:onaka bw:na/IVSUFF_SUBJ:3FP+ka/IVSUFF_DO:2MS gloss:[fem.pl.]_+_you_[masc.sg.] pos:verb per:3 asp:i gen:f num:p enc0:2ms_dobj
+nk	IVSuff-nk	diac:onaki bw:na/IVSUFF_SUBJ:3FP+ki/IVSUFF_DO:2FS gloss:[fem.pl.]_+_you_[fem.sg.] pos:verb per:3 asp:i gen:f num:p enc0:2fs_dobj
+nkmA	IVSuff-nk	diac:onakumA bw:na/IVSUFF_SUBJ:3FP+kumA/IVSUFF_DO:2D gloss:[fem.pl.]_+_you_[du.] pos:verb per:3 asp:i gen:f num:p enc0:2d_dobj
+nkm	IVSuff-nk	diac:onakum bw:na/IVSUFF_SUBJ:3FP+kum/IVSUFF_DO:2MP gloss:[fem.pl.]_+_you_[masc.pl.] pos:verb per:3 asp:i gen:f num:p enc0:2mp_dobj
+nkn	IVSuff-nk	diac:onakun~a bw:na/IVSUFF_SUBJ:3FP+kun~a/IVSUFF_DO:2FP gloss:[fem.pl.]_+_you_[fem.pl.] pos:verb per:3 asp:i gen:f num:p enc0:2fp_dobj
+k	IVSuff-~nk	diac:~aka bw:na/IVSUFF_SUBJ:3FP+ka/IVSUFF_DO:2MS gloss:[fem.pl.]_+_you_[masc.sg.] pos:verb per:3 asp:i gen:f num:p enc0:2ms_dobj
+k	IVSuff-~nk	diac:~aki bw:na/IVSUFF_SUBJ:3FP+ki/IVSUFF_DO:2FS gloss:[fem.pl.]_+_you_[fem.sg.] pos:verb per:3 asp:i gen:f num:p enc0:2fs_dobj
+kmA	IVSuff-~nk	diac:~akumA bw:na/IVSUFF_SUBJ:3FP+kumA/IVSUFF_DO:2D gloss:[fem.pl.]_+_you_[du.] pos:verb per:3 asp:i gen:f num:p enc0:2d_dobj
+km	IVSuff-~nk	diac:~akum bw:na/IVSUFF_SUBJ:3FP+kum/IVSUFF_DO:2MP gloss:[fem.pl.]_+_you_[masc.pl.] pos:verb per:3 asp:i gen:f num:p enc0:2mp_dobj
+kn	IVSuff-~nk	diac:~akun~a bw:na/IVSUFF_SUBJ:3FP+kun~a/IVSUFF_DO:2FP gloss:[fem.pl.]_+_you_[fem.pl.] pos:verb per:3 asp:i gen:f num:p enc0:2fp_dobj
+A	IVSuff-A	diac:A bw:A/IVSUFF_SUBJ:D_MOOD:SJ gloss:[du.] pos:verb asp:i num:d
+	IVSuff-|	bw:A/IVSUFF_SUBJ:D_MOOD:SJ gloss:[du.] pos:verb asp:i num:d
+Ah	IVSuff-Ah	diac:Ahu bw:A/IVSUFF_SUBJ:D_MOOD:SJ+hu/IVSUFF_DO:3MS gloss:[du.]_+_it/him pos:verb asp:i num:d enc0:3ms_dobj
+AhmA	IVSuff-Ah	diac:AhumA bw:A/IVSUFF_SUBJ:D_MOOD:SJ+humA/IVSUFF_DO:3D gloss:[du.]_+_them_(both) pos:verb asp:i num:d enc0:3d_dobj
+Ahm	IVSuff-Ah	diac:Ahum bw:A/IVSUFF_SUBJ:D_MOOD:SJ+hum/IVSUFF_DO:3MP gloss:[du.]_+_them pos:verb asp:i num:d enc0:3mp_dobj
+AhA	IVSuff-Ah	diac:AhA bw:A/IVSUFF_SUBJ:D_MOOD:SJ+hA/IVSUFF_DO:3FS gloss:[du.]_+_it/them/her pos:verb asp:i num:d enc0:3fs_dobj
+Ahn	IVSuff-Ah	diac:Ahun~a bw:A/IVSUFF_SUBJ:D_MOOD:SJ+hun~a/IVSUFF_DO:3FP gloss:[du.]_+_them pos:verb asp:i num:d enc0:3fp_dobj
+Any	IVSuff-Ah	diac:Aniy bw:A/IVSUFF_SUBJ:D_MOOD:SJ+niy/IVSUFF_DO:1S gloss:[du.]_+_me pos:verb asp:i num:d enc0:1s_dobj
+AnA	IVSuff-Ah	diac:AnA bw:A/IVSUFF_SUBJ:D_MOOD:SJ+nA/IVSUFF_DO:1P gloss:[du.]_+_us pos:verb asp:i num:d enc0:1p_dobj
+h	IVSuff-|h	diac:hu bw:A/IVSUFF_SUBJ:D_MOOD:SJ+hu/IVSUFF_DO:3MS gloss:[du.]_+_it/him pos:verb asp:i num:d enc0:3ms_dobj
+hmA	IVSuff-|h	diac:humA bw:A/IVSUFF_SUBJ:D_MOOD:SJ+humA/IVSUFF_DO:3D gloss:[du.]_+_them_(both) pos:verb asp:i num:d enc0:3d_dobj
+hm	IVSuff-|h	diac:hum bw:A/IVSUFF_SUBJ:D_MOOD:SJ+hum/IVSUFF_DO:3MP gloss:[du.]_+_them pos:verb asp:i num:d enc0:3mp_dobj
+hA	IVSuff-|h	diac:hA bw:A/IVSUFF_SUBJ:D_MOOD:SJ+hA/IVSUFF_DO:3FS gloss:[du.]_+_it/them/her pos:verb asp:i num:d enc0:3fs_dobj
+hn	IVSuff-|h	diac:hun~a bw:A/IVSUFF_SUBJ:D_MOOD:SJ+hun~a/IVSUFF_DO:3FP gloss:[du.]_+_them pos:verb asp:i num:d enc0:3fp_dobj
+ny	IVSuff-|h	diac:niy bw:A/IVSUFF_SUBJ:D_MOOD:SJ+niy/IVSUFF_DO:1S gloss:[du.]_+_me pos:verb asp:i num:d enc0:1s_dobj
+nA	IVSuff-|h	diac:nA bw:A/IVSUFF_SUBJ:D_MOOD:SJ+nA/IVSUFF_DO:1P gloss:[du.]_+_us pos:verb asp:i num:d enc0:1p_dobj
+Ak	IVSuff-Ak	diac:Aka bw:A/IVSUFF_SUBJ:3D+ka/IVSUFF_DO:2MS gloss:[du.]_+_you_[masc.sg.] pos:verb per:3 asp:i num:d enc0:2ms_dobj
+Ak	IVSuff-Ak	diac:Aki bw:A/IVSUFF_SUBJ:3D+ki/IVSUFF_DO:2FS gloss:[du.]_+_you_[fem.sg.] pos:verb per:3 asp:i num:d enc0:2fs_dobj
+AkmA	IVSuff-Ak	diac:AkumA bw:A/IVSUFF_SUBJ:3D+kumA/IVSUFF_DO:2D gloss:[du.]_+_you_[du.] pos:verb per:3 asp:i num:d enc0:2d_dobj
+Akm	IVSuff-Ak	diac:Akum bw:A/IVSUFF_SUBJ:3D+kum/IVSUFF_DO:2MP gloss:[du.]_+_you_[masc.pl.] pos:verb per:3 asp:i num:d enc0:2mp_dobj
+Akn	IVSuff-Ak	diac:Akun~a bw:A/IVSUFF_SUBJ:3D+kun~a/IVSUFF_DO:2FP gloss:[du.]_+_you_[fem.pl.] pos:verb per:3 asp:i num:d enc0:2fp_dobj
+k	IVSuff-|k	diac:ka bw:A/IVSUFF_SUBJ:3D+ka/IVSUFF_DO:2MS gloss:[du.]_+_you_[masc.sg.] pos:verb per:3 asp:i num:d enc0:2ms_dobj
+k	IVSuff-|k	diac:ki bw:A/IVSUFF_SUBJ:3D+ki/IVSUFF_DO:2FS gloss:[du.]_+_you_[fem.sg.] pos:verb per:3 asp:i num:d enc0:2fs_dobj
+kmA	IVSuff-|k	diac:kumA bw:A/IVSUFF_SUBJ:3D+kumA/IVSUFF_DO:2D gloss:[du.]_+_you_[du.] pos:verb per:3 asp:i num:d enc0:2d_dobj
+km	IVSuff-|k	diac:kum bw:A/IVSUFF_SUBJ:3D+kum/IVSUFF_DO:2MP gloss:[du.]_+_you_[masc.pl.] pos:verb per:3 asp:i num:d enc0:2mp_dobj
+kn	IVSuff-|k	diac:kun~a bw:A/IVSUFF_SUBJ:3D+kun~a/IVSUFF_DO:2FP gloss:[du.]_+_you_[fem.pl.] pos:verb per:3 asp:i num:d enc0:2fp_dobj
+An	IVSuff-An	diac:Ani bw:Ani/IVSUFF_SUBJ:D_MOOD:I gloss:[du.] pos:verb asp:i mod:i num:d
+n	IVSuff-|n	diac:ni bw:Ani/IVSUFF_SUBJ:D_MOOD:I gloss:[du.] pos:verb asp:i mod:i num:d
+Anh	IVSuff-Anh	diac:Anihi bw:Ani/IVSUFF_SUBJ:D_MOOD:I+hi/IVSUFF_DO:3MS gloss:[du.]_+_it/him pos:verb asp:i mod:i num:d enc0:3ms_dobj
+AnhmA	IVSuff-Anh	diac:AnihimA bw:Ani/IVSUFF_SUBJ:D_MOOD:I+himA/IVSUFF_DO:3D gloss:[du.]_+_them_(both) pos:verb asp:i mod:i num:d enc0:3d_dobj
+Anhm	IVSuff-Anh	diac:Anihim bw:Ani/IVSUFF_SUBJ:D_MOOD:I+him/IVSUFF_DO:3MP gloss:[du.]_+_them pos:verb asp:i mod:i num:d enc0:3mp_dobj
+AnhA	IVSuff-Anh	diac:AnihA bw:Ani/IVSUFF_SUBJ:D_MOOD:I+hA/IVSUFF_DO:3FS gloss:[du.]_+_it/them/her pos:verb asp:i mod:i num:d enc0:3fs_dobj
+Anhn	IVSuff-Anh	diac:Anihin~a bw:Ani/IVSUFF_SUBJ:D_MOOD:I+hin~a/IVSUFF_DO:3FP gloss:[du.]_+_them pos:verb asp:i mod:i num:d enc0:3fp_dobj
+Anny	IVSuff-Anh	diac:Aniniy bw:Ani/IVSUFF_SUBJ:D_MOOD:I+niy/IVSUFF_DO:1S gloss:[du.]_+_me pos:verb asp:i mod:i num:d enc0:1s_dobj
+AnnA	IVSuff-Anh	diac:AninA bw:Ani/IVSUFF_SUBJ:D_MOOD:I+nA/IVSUFF_DO:1P gloss:[du.]_+_us pos:verb asp:i mod:i num:d enc0:1p_dobj
+nh	IVSuff-|nh	diac:nihi bw:Ani/IVSUFF_SUBJ:D_MOOD:I+hi/IVSUFF_DO:3MS gloss:[du.]_+_it/him pos:verb asp:i mod:i num:d enc0:3ms_dobj
+nhmA	IVSuff-|nh	diac:nihimA bw:Ani/IVSUFF_SUBJ:D_MOOD:I+himA/IVSUFF_DO:3D gloss:[du.]_+_them_(both) pos:verb asp:i mod:i num:d enc0:3d_dobj
+nhm	IVSuff-|nh	diac:nihim bw:Ani/IVSUFF_SUBJ:D_MOOD:I+him/IVSUFF_DO:3MP gloss:[du.]_+_them pos:verb asp:i mod:i num:d enc0:3mp_dobj
+nhA	IVSuff-|nh	diac:nihA bw:Ani/IVSUFF_SUBJ:D_MOOD:I+hA/IVSUFF_DO:3FS gloss:[du.]_+_it/them/her pos:verb asp:i mod:i num:d enc0:3fs_dobj
+nhn	IVSuff-|nh	diac:nihin~a bw:Ani/IVSUFF_SUBJ:D_MOOD:I+hin~a/IVSUFF_DO:3FP gloss:[du.]_+_them pos:verb asp:i mod:i num:d enc0:3fp_dobj
+nny	IVSuff-|nh	diac:niniy bw:Ani/IVSUFF_SUBJ:D_MOOD:I+niy/IVSUFF_DO:1S gloss:[du.]_+_me pos:verb asp:i mod:i num:d enc0:1s_dobj
+nnA	IVSuff-|nh	diac:ninA bw:Ani/IVSUFF_SUBJ:D_MOOD:I+nA/IVSUFF_DO:1P gloss:[du.]_+_us pos:verb asp:i mod:i num:d enc0:1p_dobj
+Ank	IVSuff-Ank	diac:Anika bw:Ani/IVSUFF_SUBJ:3D_MOOD:I+ka/IVSUFF_DO:2MS gloss:[du.]_+_you_[masc.sg.] pos:verb per:3 asp:i mod:i num:d enc0:2ms_dobj
+Ank	IVSuff-Ank	diac:Aniki bw:Ani/IVSUFF_SUBJ:3D_MOOD:I+ki/IVSUFF_DO:2FS gloss:[du.]_+_you_[fem.sg.] pos:verb per:3 asp:i mod:i num:d enc0:2fs_dobj
+AnkmA	IVSuff-Ank	diac:AnikumA bw:Ani/IVSUFF_SUBJ:3D_MOOD:I+kumA/IVSUFF_DO:2D gloss:[du.]_+_you_[du.] pos:verb per:3 asp:i mod:i num:d enc0:2d_dobj
+Ankm	IVSuff-Ank	diac:Anikum bw:Ani/IVSUFF_SUBJ:3D_MOOD:I+kum/IVSUFF_DO:2MP gloss:[du.]_+_you_[masc.pl.] pos:verb per:3 asp:i mod:i num:d enc0:2mp_dobj
+Ankn	IVSuff-Ank	diac:Anikun~a bw:Ani/IVSUFF_SUBJ:3D_MOOD:I+kun~a/IVSUFF_DO:2FP gloss:[du.]_+_you_[fem.pl.] pos:verb per:3 asp:i mod:i num:d enc0:2fp_dobj
+nk	IVSuff-|nk	diac:nika bw:Ani/IVSUFF_SUBJ:3D_MOOD:I+ka/IVSUFF_DO:2MS gloss:[du.]_+_you_[masc.sg.] pos:verb per:3 asp:i mod:i num:d enc0:2ms_dobj
+nk	IVSuff-|nk	diac:niki bw:Ani/IVSUFF_SUBJ:3D_MOOD:I+ki/IVSUFF_DO:2FS gloss:[du.]_+_you_[fem.sg.] pos:verb per:3 asp:i mod:i num:d enc0:2fs_dobj
+nkmA	IVSuff-|nk	diac:nikumA bw:Ani/IVSUFF_SUBJ:3D_MOOD:I+kumA/IVSUFF_DO:2D gloss:[du.]_+_you_[du.] pos:verb per:3 asp:i mod:i num:d enc0:2d_dobj
+nkm	IVSuff-|nk	diac:nikum bw:Ani/IVSUFF_SUBJ:3D_MOOD:I+kum/IVSUFF_DO:2MP gloss:[du.]_+_you_[masc.pl.] pos:verb per:3 asp:i mod:i num:d enc0:2mp_dobj
+nkn	IVSuff-|nk	diac:nikun~a bw:Ani/IVSUFF_SUBJ:3D_MOOD:I+kun~a/IVSUFF_DO:2FP gloss:[du.]_+_you_[fem.pl.] pos:verb per:3 asp:i mod:i num:d enc0:2fp_dobj
+wA	IVSuff-wA	diac:uwA bw:uwA/IVSUFF_SUBJ:MP_MOOD:SJ gloss:[masc.pl.] pos:verb asp:i gen:m num:p
+wA	IVSuff-awA	diac:awoA bw:awoA/IVSUFF_SUBJ:MP_MOOD:SJ gloss:[masc.pl.] pos:verb asp:i gen:m num:p
+wh	IVSuff-wh	diac:uwhu bw:uw/IVSUFF_SUBJ:MP_MOOD:SJ+hu/IVSUFF_DO:3MS gloss:[masc.pl.]_+_it/him pos:verb asp:i gen:m num:p enc0:3ms_dobj
+whmA	IVSuff-wh	diac:uwhumA bw:uw/IVSUFF_SUBJ:MP_MOOD:SJ+humA/IVSUFF_DO:3D gloss:[masc.pl.]_+_them_(both) pos:verb asp:i gen:m num:p enc0:3d_dobj
+whm	IVSuff-wh	diac:uwhum bw:uw/IVSUFF_SUBJ:MP_MOOD:SJ+hum/IVSUFF_DO:3MP gloss:[masc.pl.]_+_them pos:verb asp:i gen:m num:p enc0:3mp_dobj
+whA	IVSuff-wh	diac:uwhA bw:uw/IVSUFF_SUBJ:MP_MOOD:SJ+hA/IVSUFF_DO:3FS gloss:[masc.pl.]_+_it/them/her pos:verb asp:i gen:m num:p enc0:3fs_dobj
+whn	IVSuff-wh	diac:uwhun~a bw:uw/IVSUFF_SUBJ:MP_MOOD:SJ+hun~a/IVSUFF_DO:3FP gloss:[masc.pl.]_+_them pos:verb asp:i gen:m num:p enc0:3fp_dobj
+wny	IVSuff-wh	diac:uwniy bw:uw/IVSUFF_SUBJ:MP_MOOD:SJ+niy/IVSUFF_DO:1S gloss:[masc.pl.]_+_me pos:verb asp:i gen:m num:p enc0:1s_dobj
+wnA	IVSuff-wh	diac:uwnA bw:uw/IVSUFF_SUBJ:MP_MOOD:SJ+nA/IVSUFF_DO:1P gloss:[masc.pl.]_+_us pos:verb asp:i gen:m num:p enc0:1p_dobj
+wh	IVSuff-awh	diac:awohu bw:awo/IVSUFF_SUBJ:MP_MOOD:SJ+hu/IVSUFF_DO:3MS gloss:[masc.pl.]_+_it/him pos:verb asp:i gen:m num:p enc0:3ms_dobj
+whmA	IVSuff-awh	diac:awohumA bw:awo/IVSUFF_SUBJ:MP_MOOD:SJ+humA/IVSUFF_DO:3D gloss:[masc.pl.]_+_them_(both) pos:verb asp:i gen:m num:p enc0:3d_dobj
+whm	IVSuff-awh	diac:awohum bw:awo/IVSUFF_SUBJ:MP_MOOD:SJ+hum/IVSUFF_DO:3MP gloss:[masc.pl.]_+_them pos:verb asp:i gen:m num:p enc0:3mp_dobj
+whA	IVSuff-awh	diac:awohA bw:awo/IVSUFF_SUBJ:MP_MOOD:SJ+hA/IVSUFF_DO:3FS gloss:[masc.pl.]_+_it/them/her pos:verb asp:i gen:m num:p enc0:3fs_dobj
+whn	IVSuff-awh	diac:awohun~a bw:awo/IVSUFF_SUBJ:MP_MOOD:SJ+hun~a/IVSUFF_DO:3FP gloss:[masc.pl.]_+_them pos:verb asp:i gen:m num:p enc0:3fp_dobj
+wny	IVSuff-awh	diac:awoniy bw:awo/IVSUFF_SUBJ:MP_MOOD:SJ+niy/IVSUFF_DO:1S gloss:[masc.pl.]_+_me pos:verb asp:i gen:m num:p enc0:1s_dobj
+wnA	IVSuff-awh	diac:awonA bw:awo/IVSUFF_SUBJ:MP_MOOD:SJ+nA/IVSUFF_DO:1P gloss:[masc.pl.]_+_us pos:verb asp:i gen:m num:p enc0:1p_dobj
+wk	IVSuff-wk	diac:uwka bw:uw/IVSUFF_SUBJ:3MP_MOOD:SJ+ka/IVSUFF_DO:2MS gloss:[masc.pl.]_+_you_[masc.sg.] pos:verb per:3 asp:i gen:m num:p enc0:2ms_dobj
+wk	IVSuff-wk	diac:uwki bw:uw/IVSUFF_SUBJ:3MP_MOOD:SJ+ki/IVSUFF_DO:2FS gloss:[masc.pl.]_+_you_[fem.sg.] pos:verb per:3 asp:i gen:m num:p enc0:2fs_dobj
+wkmA	IVSuff-wk	diac:uwkumA bw:uw/IVSUFF_SUBJ:3MP_MOOD:SJ+kumA/IVSUFF_DO:2D gloss:[masc.pl.]_+_you_[du.] pos:verb per:3 asp:i gen:m num:p enc0:2d_dobj
+wkm	IVSuff-wk	diac:uwkum bw:uw/IVSUFF_SUBJ:3MP_MOOD:SJ+kum/IVSUFF_DO:2MP gloss:[masc.pl.]_+_you_[masc.pl.] pos:verb per:3 asp:i gen:m num:p enc0:2mp_dobj
+wkn	IVSuff-wk	diac:uwkun~a bw:uw/IVSUFF_SUBJ:3MP_MOOD:SJ+kun~a/IVSUFF_DO:2FP gloss:[masc.pl.]_+_you_[fem.pl.] pos:verb per:3 asp:i gen:m num:p enc0:2fp_dobj
+wk	IVSuff-awk	diac:awoka bw:awo/IVSUFF_SUBJ:3MP_MOOD:SJ+ka/IVSUFF_DO:2MS gloss:[masc.pl.]_+_you_[masc.sg.] pos:verb per:3 asp:i gen:m num:p enc0:2ms_dobj
+wk	IVSuff-awk	diac:awoki bw:awo/IVSUFF_SUBJ:3MP_MOOD:SJ+ki/IVSUFF_DO:2FS gloss:[masc.pl.]_+_you_[fem.sg.] pos:verb per:3 asp:i gen:m num:p enc0:2fs_dobj
+wkmA	IVSuff-awk	diac:awokumA bw:awo/IVSUFF_SUBJ:3MP_MOOD:SJ+kumA/IVSUFF_DO:2D gloss:[masc.pl.]_+_you_[du.] pos:verb per:3 asp:i gen:m num:p enc0:2d_dobj
+wkm	IVSuff-awk	diac:awokum bw:awo/IVSUFF_SUBJ:3MP_MOOD:SJ+kum/IVSUFF_DO:2MP gloss:[masc.pl.]_+_you_[masc.pl.] pos:verb per:3 asp:i gen:m num:p enc0:2mp_dobj
+wkn	IVSuff-awk	diac:awokun~a bw:awo/IVSUFF_SUBJ:3MP_MOOD:SJ+kun~a/IVSUFF_DO:2FP gloss:[masc.pl.]_+_you_[fem.pl.] pos:verb per:3 asp:i gen:m num:p enc0:2fp_dobj
+wn	IVSuff-wn	diac:uwna bw:uwna/IVSUFF_SUBJ:MP_MOOD:I gloss:[masc.pl.] pos:verb asp:i mod:i gen:m num:p
+wn	IVSuff-awn	diac:awona bw:awona/IVSUFF_SUBJ:MP_MOOD:I gloss:[masc.pl.] pos:verb asp:i mod:i gen:m num:p
+wnh	IVSuff-wnh	diac:uwnahu bw:uwna/IVSUFF_SUBJ:MP_MOOD:I+hu/IVSUFF_DO:3MS gloss:[masc.pl.]_+_it/him pos:verb asp:i mod:i gen:m num:p enc0:3ms_dobj
+wnhmA	IVSuff-wnh	diac:uwnahumA bw:uwna/IVSUFF_SUBJ:MP_MOOD:I+humA/IVSUFF_DO:3D gloss:[masc.pl.]_+_them_(both) pos:verb asp:i mod:i gen:m num:p enc0:3d_dobj
+wnhm	IVSuff-wnh	diac:uwnahum bw:uwna/IVSUFF_SUBJ:MP_MOOD:I+hum/IVSUFF_DO:3MP gloss:[masc.pl.]_+_them pos:verb asp:i mod:i gen:m num:p enc0:3mp_dobj
+wnhA	IVSuff-wnh	diac:uwnahA bw:uwna/IVSUFF_SUBJ:MP_MOOD:I+hA/IVSUFF_DO:3FS gloss:[masc.pl.]_+_it/them/her pos:verb asp:i mod:i gen:m num:p enc0:3fs_dobj
+wnhn	IVSuff-wnh	diac:uwnahun~a bw:uwna/IVSUFF_SUBJ:MP_MOOD:I+hun~a/IVSUFF_DO:3FP gloss:[masc.pl.]_+_them pos:verb asp:i mod:i gen:m num:p enc0:3fp_dobj
+wnny	IVSuff-wnh	diac:uwnaniy bw:uwna/IVSUFF_SUBJ:MP_MOOD:I+niy/IVSUFF_DO:1S gloss:[masc.pl.]_+_me pos:verb asp:i mod:i gen:m num:p enc0:1s_dobj
+wnnA	IVSuff-wnh	diac:uwnanA bw:uwna/IVSUFF_SUBJ:MP_MOOD:I+nA/IVSUFF_DO:1P gloss:[masc.pl.]_+_us pos:verb asp:i mod:i gen:m num:p enc0:1p_dobj
+wnh	IVSuff-awnh	diac:awonahu bw:awona/IVSUFF_SUBJ:MP_MOOD:I+hu/IVSUFF_DO:3MS gloss:[masc.pl.]_+_it/him pos:verb asp:i mod:i gen:m num:p enc0:3ms_dobj
+wnhmA	IVSuff-awnh	diac:awonahumA bw:awona/IVSUFF_SUBJ:MP_MOOD:I+humA/IVSUFF_DO:3D gloss:[masc.pl.]_+_them_(both) pos:verb asp:i mod:i gen:m num:p enc0:3d_dobj
+wnhm	IVSuff-awnh	diac:awonahum bw:awona/IVSUFF_SUBJ:MP_MOOD:I+hum/IVSUFF_DO:3MP gloss:[masc.pl.]_+_them pos:verb asp:i mod:i gen:m num:p enc0:3mp_dobj
+wnhA	IVSuff-awnh	diac:awonahA bw:awona/IVSUFF_SUBJ:MP_MOOD:I+hA/IVSUFF_DO:3FS gloss:[masc.pl.]_+_it/them/her pos:verb asp:i mod:i gen:m num:p enc0:3fs_dobj
+wnhn	IVSuff-awnh	diac:awonahun~a bw:awona/IVSUFF_SUBJ:MP_MOOD:I+hun~a/IVSUFF_DO:3FP gloss:[masc.pl.]_+_them pos:verb asp:i mod:i gen:m num:p enc0:3fp_dobj
+wnny	IVSuff-awnh	diac:awonaniy bw:awona/IVSUFF_SUBJ:MP_MOOD:I+niy/IVSUFF_DO:1S gloss:[masc.pl.]_+_me pos:verb asp:i mod:i gen:m num:p enc0:1s_dobj
+wnnA	IVSuff-awnh	diac:awonanA bw:awona/IVSUFF_SUBJ:MP_MOOD:I+nA/IVSUFF_DO:1P gloss:[masc.pl.]_+_us pos:verb asp:i mod:i gen:m num:p enc0:1p_dobj
+wnk	IVSuff-wnk	diac:uwnaka bw:uwna/IVSUFF_SUBJ:3MP_MOOD:I+ka/IVSUFF_DO:2MS gloss:[masc.pl.]_+_you_[masc.sg.] pos:verb per:3 asp:i mod:i gen:m num:p enc0:2ms_dobj
+wnk	IVSuff-wnk	diac:uwnaki bw:uwna/IVSUFF_SUBJ:3MP_MOOD:I+ki/IVSUFF_DO:2FS gloss:[masc.pl.]_+_you_[fem.sg.] pos:verb per:3 asp:i mod:i gen:m num:p enc0:2fs_dobj
+wnkmA	IVSuff-wnk	diac:uwnakumA bw:uwna/IVSUFF_SUBJ:3MP_MOOD:I+kumA/IVSUFF_DO:2D gloss:[masc.pl.]_+_you_[du.] pos:verb per:3 asp:i mod:i gen:m num:p enc0:2d_dobj
+wnkm	IVSuff-wnk	diac:uwnakum bw:uwna/IVSUFF_SUBJ:3MP_MOOD:I+kum/IVSUFF_DO:2MP gloss:[masc.pl.]_+_you_[masc.pl.] pos:verb per:3 asp:i mod:i gen:m num:p enc0:2mp_dobj
+wnkn	IVSuff-wnk	diac:uwnakun~a bw:uwna/IVSUFF_SUBJ:3MP_MOOD:I+kun~a/IVSUFF_DO:2FP gloss:[masc.pl.]_+_you_[fem.pl.] pos:verb per:3 asp:i mod:i gen:m num:p enc0:2fp_dobj
+wnk	IVSuff-awnk	diac:awonaka bw:awona/IVSUFF_SUBJ:3MP_MOOD:I+ka/IVSUFF_DO:2MS gloss:[masc.pl.]_+_you_[masc.sg.] pos:verb per:3 asp:i mod:i gen:m num:p enc0:2ms_dobj
+wnk	IVSuff-awnk	diac:awonaki bw:awona/IVSUFF_SUBJ:3MP_MOOD:I+ki/IVSUFF_DO:2FS gloss:[masc.pl.]_+_you_[fem.sg.] pos:verb per:3 asp:i mod:i gen:m num:p enc0:2fs_dobj
+wnkmA	IVSuff-awnk	diac:awonakumA bw:awona/IVSUFF_SUBJ:3MP_MOOD:I+kumA/IVSUFF_DO:2D gloss:[masc.pl.]_+_you_[du.] pos:verb per:3 asp:i mod:i gen:m num:p enc0:2d_dobj
+wnkm	IVSuff-awnk	diac:awonakum bw:awona/IVSUFF_SUBJ:3MP_MOOD:I+kum/IVSUFF_DO:2MP gloss:[masc.pl.]_+_you_[masc.pl.] pos:verb per:3 asp:i mod:i gen:m num:p enc0:2mp_dobj
+wnkn	IVSuff-awnk	diac:awonakun~a bw:awona/IVSUFF_SUBJ:3MP_MOOD:I+kun~a/IVSUFF_DO:2FP gloss:[masc.pl.]_+_you_[fem.pl.] pos:verb per:3 asp:i mod:i gen:m num:p enc0:2fp_dobj
+y	IVSuff-y	diac:iy bw:iy/IVSUFF_SUBJ:2FS_MOOD:SJ gloss:[fem.sg.] pos:verb per:2 asp:i gen:f num:s
+y	IVSuff-ay	diac:ayo bw:ayo/IVSUFF_SUBJ:2FS_MOOD:SJ gloss:[fem.sg.] pos:verb per:2 asp:i gen:f num:s
+yh	IVSuff-yh	diac:iyhi bw:iy/IVSUFF_SUBJ:2FS_MOOD:SJ+hi/IVSUFF_DO:3MS gloss:[fem.sg.]_+_it/him pos:verb per:2 asp:i gen:f num:s enc0:3ms_dobj
+yhmA	IVSuff-yh	diac:iyhimA bw:iy/IVSUFF_SUBJ:2FS_MOOD:SJ+himA/IVSUFF_DO:3D gloss:[fem.sg.]_+_them_(both) pos:verb per:2 asp:i gen:f num:s enc0:3d_dobj
+yhm	IVSuff-yh	diac:iyhim bw:iy/IVSUFF_SUBJ:2FS_MOOD:SJ+him/IVSUFF_DO:3MP gloss:[fem.sg.]_+_them pos:verb per:2 asp:i gen:f num:s enc0:3mp_dobj
+yhA	IVSuff-yh	diac:iyhA bw:iy/IVSUFF_SUBJ:2FS_MOOD:SJ+hA/IVSUFF_DO:3FS gloss:[fem.sg.]_+_it/them/her pos:verb per:2 asp:i gen:f num:s enc0:3fs_dobj
+yhn	IVSuff-yh	diac:iyhin~a bw:iy/IVSUFF_SUBJ:2FS_MOOD:SJ+hin~a/IVSUFF_DO:3FP gloss:[fem.sg.]_+_them pos:verb per:2 asp:i gen:f num:s enc0:3fp_dobj
+yny	IVSuff-yh	diac:iyniy bw:iy/IVSUFF_SUBJ:2FS_MOOD:SJ+niy/IVSUFF_DO:1S gloss:[fem.sg.]_+_me pos:verb per:2 asp:i gen:f num:s enc0:1s_dobj
+ynA	IVSuff-yh	diac:iynA bw:iy/IVSUFF_SUBJ:2FS_MOOD:SJ+nA/IVSUFF_DO:1P gloss:[fem.sg.]_+_us pos:verb per:2 asp:i gen:f num:s enc0:1p_dobj
+yh	IVSuff-ayh	diac:ayohi bw:ayo/IVSUFF_SUBJ:2FS_MOOD:SJ+hi/IVSUFF_DO:3MS gloss:[fem.sg.]_+_it/him pos:verb per:2 asp:i gen:f num:s enc0:3ms_dobj
+yhmA	IVSuff-ayh	diac:ayohimA bw:ayo/IVSUFF_SUBJ:2FS_MOOD:SJ+himA/IVSUFF_DO:3D gloss:[fem.sg.]_+_them_(both) pos:verb per:2 asp:i gen:f num:s enc0:3d_dobj
+yhm	IVSuff-ayh	diac:ayohim bw:ayo/IVSUFF_SUBJ:2FS_MOOD:SJ+him/IVSUFF_DO:3MP gloss:[fem.sg.]_+_them pos:verb per:2 asp:i gen:f num:s enc0:3mp_dobj
+yhA	IVSuff-ayh	diac:ayohA bw:ayo/IVSUFF_SUBJ:2FS_MOOD:SJ+hA/IVSUFF_DO:3FS gloss:[fem.sg.]_+_it/them/her pos:verb per:2 asp:i gen:f num:s enc0:3fs_dobj
+yhn	IVSuff-ayh	diac:ayohin~a bw:ayo/IVSUFF_SUBJ:2FS_MOOD:SJ+hin~a/IVSUFF_DO:3FP gloss:[fem.sg.]_+_them pos:verb per:2 asp:i gen:f num:s enc0:3fp_dobj
+yny	IVSuff-ayh	diac:ayoniy bw:ayo/IVSUFF_SUBJ:2FS_MOOD:SJ+niy/IVSUFF_DO:1S gloss:[fem.sg.]_+_me pos:verb per:2 asp:i gen:f num:s enc0:1s_dobj
+ynA	IVSuff-ayh	diac:ayonA bw:ayo/IVSUFF_SUBJ:2FS_MOOD:SJ+nA/IVSUFF_DO:1P gloss:[fem.sg.]_+_us pos:verb per:2 asp:i gen:f num:s enc0:1p_dobj
+yn	IVSuff-yn	diac:iyna bw:iyna/IVSUFF_SUBJ:2FS_MOOD:I gloss:[fem.sg.] pos:verb per:2 asp:i mod:i gen:f num:s
+yn	IVSuff-ayn	diac:ayona bw:ayona/IVSUFF_SUBJ:2FS_MOOD:I gloss:[fem.sg.] pos:verb per:2 asp:i mod:i gen:f num:s
+ynh	IVSuff-ynh	diac:iynahu bw:iyna/IVSUFF_SUBJ:2FS_MOOD:I+hu/IVSUFF_DO:3MS gloss:[fem.sg.]_+_it/him pos:verb per:2 asp:i mod:i gen:f num:s enc0:3ms_dobj
+ynhmA	IVSuff-ynh	diac:iynahumA bw:iyna/IVSUFF_SUBJ:2FS_MOOD:I+humA/IVSUFF_DO:3D gloss:[fem.sg.]_+_them_(both) pos:verb per:2 asp:i mod:i gen:f num:s enc0:3d_dobj
+ynhm	IVSuff-ynh	diac:iynahum bw:iyna/IVSUFF_SUBJ:2FS_MOOD:I+hum/IVSUFF_DO:3MP gloss:[fem.sg.]_+_them pos:verb per:2 asp:i mod:i gen:f num:s enc0:3mp_dobj
+ynhA	IVSuff-ynh	diac:iynahA bw:iyna/IVSUFF_SUBJ:2FS_MOOD:I+hA/IVSUFF_DO:3FS gloss:[fem.sg.]_+_it/them/her pos:verb per:2 asp:i mod:i gen:f num:s enc0:3fs_dobj
+ynhn	IVSuff-ynh	diac:iynahun~a bw:iyna/IVSUFF_SUBJ:2FS_MOOD:I+hun~a/IVSUFF_DO:3FP gloss:[fem.sg.]_+_them pos:verb per:2 asp:i mod:i gen:f num:s enc0:3fp_dobj
+ynny	IVSuff-ynh	diac:iynaniy bw:iyna/IVSUFF_SUBJ:2FS_MOOD:I+niy/IVSUFF_DO:1S gloss:[fem.sg.]_+_me pos:verb per:2 asp:i mod:i gen:f num:s enc0:1s_dobj
+ynnA	IVSuff-ynh	diac:iynanA bw:iyna/IVSUFF_SUBJ:2FS_MOOD:I+nA/IVSUFF_DO:1P gloss:[fem.sg.]_+_us pos:verb per:2 asp:i mod:i gen:f num:s enc0:1p_dobj
+ynh	IVSuff-aynh	diac:ayonahu bw:ayona/IVSUFF_SUBJ:2FS_MOOD:I+hu/IVSUFF_DO:3MS gloss:[fem.sg.]_+_it/him pos:verb per:2 asp:i mod:i gen:f num:s enc0:3ms_dobj
+ynhmA	IVSuff-aynh	diac:ayonahumA bw:ayona/IVSUFF_SUBJ:2FS_MOOD:I+humA/IVSUFF_DO:3D gloss:[fem.sg.]_+_them_(both) pos:verb per:2 asp:i mod:i gen:f num:s enc0:3d_dobj
+ynhm	IVSuff-aynh	diac:ayonahum bw:ayona/IVSUFF_SUBJ:2FS_MOOD:I+hum/IVSUFF_DO:3MP gloss:[fem.sg.]_+_them pos:verb per:2 asp:i mod:i gen:f num:s enc0:3mp_dobj
+ynhA	IVSuff-aynh	diac:ayonahA bw:ayona/IVSUFF_SUBJ:2FS_MOOD:I+hA/IVSUFF_DO:3FS gloss:[fem.sg.]_+_it/them/her pos:verb per:2 asp:i mod:i gen:f num:s enc0:3fs_dobj
+ynhn	IVSuff-aynh	diac:ayonahun~a bw:ayona/IVSUFF_SUBJ:2FS_MOOD:I+hun~a/IVSUFF_DO:3FP gloss:[fem.sg.]_+_them pos:verb per:2 asp:i mod:i gen:f num:s enc0:3fp_dobj
+ynny	IVSuff-aynh	diac:ayonaniy bw:ayona/IVSUFF_SUBJ:2FS_MOOD:I+niy/IVSUFF_DO:1S gloss:[fem.sg.]_+_me pos:verb per:2 asp:i mod:i gen:f num:s enc0:1s_dobj
+ynnA	IVSuff-aynh	diac:ayonanA bw:ayona/IVSUFF_SUBJ:2FS_MOOD:I+nA/IVSUFF_DO:1P gloss:[fem.sg.]_+_us pos:verb per:2 asp:i mod:i gen:f num:s enc0:1p_dobj
+h	FWSuff-hi	diac:hi bw:hi/PRON_3MS gloss:it/him enc0:3ms_pron
+hmA	FWSuff-hi	diac:himA bw:himA/PRON_3D gloss:them_(both) enc0:3d_pron
+hm	FWSuff-hi	diac:him bw:him/PRON_3MP gloss:them_[masc.pl.] enc0:3mp_pron
+hA	FWSuff-hi	diac:hA bw:hA/PRON_3FS gloss:it/them/her enc0:3fs_pron
+hn	FWSuff-hi	diac:hin~a bw:hin~a/PRON_3FP gloss:them_[fem.pl.] enc0:3fp_pron
+h	FWSuff-hu-he	diac:hu bw:hu/PRON_3MS gloss:it/he enc0:3ms_pron
+hmA	FWSuff-hu-he	diac:humA bw:humA/PRON_3D gloss:they_(both) enc0:3d_pron
+hm	FWSuff-hu-he	diac:hum bw:hum/PRON_3MP gloss:they_[masc.pl.] enc0:3mp_pron
+hA	FWSuff-hu-he	diac:hA bw:hA/PRON_3FS gloss:it/they/she enc0:3fs_pron
+hn	FWSuff-hu-he	diac:hun~a bw:hun~a/PRON_3FP gloss:they_[fem.pl.] enc0:3fp_pron
+h	FWSuff-hu-him	diac:hu bw:hu/PRON_3MS gloss:it/him enc0:3ms_pron
+hmA	FWSuff-hu-him	diac:humA bw:humA/PRON_3D gloss:them_(both) enc0:3d_pron
+hm	FWSuff-hu-him	diac:hum bw:hum/PRON_3MP gloss:them_[masc.pl.] enc0:3mp_pron
+hA	FWSuff-hu-him	diac:hA bw:hA/PRON_3FS gloss:it/them/her enc0:3fs_pron
+hn	FWSuff-hu-him	diac:hun~a bw:hun~a/PRON_3FP gloss:them_[fem.pl.] enc0:3fp_pron
+k	FWSuff-k	diac:ka bw:ka/PRON_2MS gloss:you_[masc.sg.] enc0:2ms_pron
+k	FWSuff-k	diac:ki bw:ki/PRON_2FS gloss:you_[fem.sg.] enc0:2fs_pron
+kmA	FWSuff-k	diac:kumA bw:kumA/PRON_2D gloss:you_(both) enc0:2d_pron
+km	FWSuff-k	diac:kum bw:kum/PRON_2MP gloss:you_[masc.pl.] enc0:2mp_pron
+kn	FWSuff-k	diac:kun~a bw:kun~a/PRON_2FP gloss:you_[fem.pl.] enc0:2fp_pron
+	FWSuff-~a	diac:~a bw:ya/PRON_1S gloss:me enc0:1s_pron
+y	FWSuff-ya	diac:ya bw:ya/PRON_1S gloss:me enc0:1s_pron
+ny	FWSuff-niy-I	diac:niy bw:niy/PRON_1S gloss:I enc0:1s_pron
+ny	FWSuff-niy-me	diac:niy bw:niy/PRON_1S gloss:me enc0:1s_pron
+y	FWSuff-iy-I	diac:iy bw:iy/PRON_1S gloss:I enc0:1s_pron
+y	FWSuff-iy-me	diac:iy bw:iy/PRON_1S gloss:me enc0:1s_pron
+y	FWSuff-~iy	diac:~iy bw:~iy/PRON_1S gloss:me enc0:1s_pron
+nA	FWSuff-nA-us	diac:nA bw:nA/PRON_1P gloss:us enc0:1p_pron
+nA	FWSuff-nA-we	diac:nA bw:nA/PRON_1P gloss:we enc0:1p_pron
+A	FWSuff-A	diac:A bw:nA/PRON_1P gloss:we enc0:1p_pron
+A	FWSuff-~A	diac:~A bw:nA/PRON_1P gloss:us enc0:1p_pron
