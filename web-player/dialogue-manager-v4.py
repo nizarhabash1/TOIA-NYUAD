@@ -80,7 +80,7 @@ def preprocess(line):
 
 def createModel(characterdict):
 
-	f= open('all_characters.json', 'r',encoding = 'utf-8')
+	f= open('/static/scripts/all_characters.json', 'r',encoding = 'utf-8')
 
 	resp = json.load(f)
 
@@ -152,6 +152,9 @@ def createModel(characterdict):
 					characterdict[character].wordMap[word].append(ID)
 
 			elif(language=="Arabic"):
+
+				StarMorphModules.read_config("/CALIMA-STAR/Code/StarMorph/config_lex.xml")
+				StarMorphModules.initialize_from_file("/CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
 				objWordList = [preprocess(tmp) for tmp in obj.question.split()]+ [preprocess(tmp) for tmp in obj.question.split()]
 
 				for word in objWordList:
@@ -199,6 +202,7 @@ def direct_intersection_match_English(query, characterdict, character):
 	responses={}
 	maxVal=0
 	videoResponse= ''
+
 
 	for direct_string in queryList:
 		if direct_string in characterdict[character].wordMap.keys():
@@ -300,12 +304,12 @@ def stem_intersection_match_Arabic(query, characterdict, character):
 	maxVal=0
 	videoResponse= ''
 
-	#StarMorphModules.read_config("/Users/student/Desktop/Senior year/Capstone/January 2017/CALIMA-STAR/Code/StarMorph/config_stem.xml")
-	#StarMorphModules.initialize_from_file("/Users/student/Desktop/Senior year/Capstone/January 2017/CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
+	StarMorphModules.read_config("/CALIMA-STAR/Code/StarMorph/config_lex.xml")
+	StarMorphModules.initialize_from_file("/CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
 
 	output = "".join(c for c in queryList if c not in ('!','.',':', '’' , '“', '”', '?'))
-	if(isArabic(output)==True):
-		queryList= preprocess(output)
+	
+	queryList= preprocess(output)
 
 	stemmed_query= ""
 	for word in queryList.split():
@@ -340,12 +344,11 @@ def lemma_intersection_match_Arabic(query, characterdict, character):
 	maxVal=0
 	videoResponse= ''
 
-	#StarMorphModules.read_config("/Users/student/Desktop/Senior year/Capstone/January 2017/CALIMA-STAR/Code/StarMorph/config_stem.xml")
-	#StarMorphModules.initialize_from_file("/Users/student/Desktop/Senior year/Capstone/January 2017/CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
+	StarMorphModules.read_config("/CALIMA-STAR/Code/StarMorph/config_lex.xml")
+	StarMorphModules.initialize_from_file("/CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
 
 	output = "".join(c for c in queryList if c not in ('!','.',':', '’' , '“', '”', '?'))
-	if(isArabic(output)==True):
-		queryList= preprocess(output)
+	queryList= preprocess(output)
 
 	lemmatized_query= ""
 	for word in queryList.split():
