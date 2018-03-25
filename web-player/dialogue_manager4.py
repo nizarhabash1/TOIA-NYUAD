@@ -226,7 +226,7 @@ def direct_intersection_match_English(query, characterdict):
 			videoResponse= key
 
 	
-	return videoResponse
+	return characterdict[character].objectMap[videoResponse]
 
 
 
@@ -251,7 +251,7 @@ def stem_intersection_match_English(query, characterdict):
 			maxVal= int(value)
 			videoResponse= key
 
-	return videoResponse
+	return characterdict[character].objectMap[videoResponse]
 
 
 def lemma_intersection_match_English(query, characterdict):
@@ -275,7 +275,7 @@ def lemma_intersection_match_English(query, characterdict):
 			maxVal= int(value)
 			videoResponse= key
 
-	return videoResponse
+	return characterdict[character].objectMap[videoResponse]
 
 def direct_intersection_match_Arabic(query, characterdict):
 	print("Finding Direct Intersection in Arabic")
@@ -300,7 +300,7 @@ def direct_intersection_match_Arabic(query, characterdict):
 			maxVal= int(value)
 			videoResponse= key
 
-	return videoResponse
+	return characterdict[character].objectMap[videoResponse]
 def stem_intersection_match_Arabic(query, characterdict):
 	
 	print("Finding stem Intersection in Arabic")
@@ -340,7 +340,7 @@ def stem_intersection_match_Arabic(query, characterdict):
 			maxVal= int(value)
         	videoResponse= key
 
-	return videoResponse
+	return characterdict[character].objectMap[videoResponse]
 def lemma_intersection_match_Arabic(query, characterdict):
 	
 	print("Finding stem Intersection in Arabic")
@@ -381,7 +381,7 @@ def lemma_intersection_match_Arabic(query, characterdict):
 			maxVal= int(value)
 			videoResponse= key
 
-	return videoResponse
+	return characterdict[character].objectMap[videoResponse]
 
 def findResponse(query, model):
 
