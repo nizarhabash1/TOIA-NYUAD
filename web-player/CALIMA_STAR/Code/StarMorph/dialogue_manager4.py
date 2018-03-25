@@ -1,10 +1,17 @@
+
+# -*- coding: utf-8 -*-
+
 '''Libraries
 '''
+
+
 import string
 import re
 from collections import defaultdict
 from fractions import Fraction
 import json
+
+import StarMorphModules
 
 import nltk
 
@@ -70,7 +77,7 @@ def intersect(a, b):
 
 #preprocessing for Arabic
 def preprocess(line):
-	processed= line.replace("؟" , "")
+	processed= line.encode('utf-8').replace("؟" , "")
 	processed= processed.replace("أ" , "ا")
 	processed= processed.replace("إ", "ا")
 	processed= processed.replace("ى", "ي")
@@ -80,7 +87,7 @@ def preprocess(line):
 
 def createModel(characterdict):
 
-	f= open('/static/scripts/all_characters.json', 'r',encoding = 'utf-8')
+	f= open('static/scripts/all_characters.json', 'r')
 
 	resp = json.load(f)
 
@@ -196,7 +203,7 @@ def createModel(characterdict):
 
 
 
-def direct_intersection_match_English(query, characterdict, character):
+def direct_intersection_match_English(query, characterdict):
 	print("Finding Direct Intersection in English")
 	queryList= query.split()
 	responses={}
@@ -205,100 +212,100 @@ def direct_intersection_match_English(query, characterdict, character):
 
 
 	for direct_string in queryList:
-		if direct_string in characterdict[character].wordMap.keys():
-			for vidResponse in characterdict[character].wordMap[direct_string]:
+		if direct_string in characterdict.wordMap.keys():
+			for vidResponse in characterdict.wordMap[direct_string]:
 				if vidResponse not in responses.keys():
 					responseList[vidResponse]= 0
-				elif vidResponse in responses.keys()
+				elif vidResponse in responses.keys():
 					responseList[vidResponse]+=1
 			
 
 	for key, value in responses.items():
-    	if int (value) > maxVal:
-        	maxVal= int(value)
-        	videoResponse= key
+		if int (value) > maxVal:
+			maxVal= int(value)
+			videoResponse= key
 
 	return videoResponse
 
 
 
-def stem_intersection_match_English(query, characterdict, character):
+def stem_intersection_match_English(query, characterdict):
 	print("Finding Stemmed Intersection Match in English")
-	stemmed_query= porterStemmer.stem(tmp) for tmp in query.split()
+	stemmed_query= [porterStemmer.stem(tmp) for tmp in query.split()]
 	responses={}
 	maxVal=0
 	videoResponse= ''
 
 	for stem in stemmed_query:
-		if stem in characterdict[character].stemmedMap.keys():
-			for vidResponse in characterdict[character].stemmedMap[stem]:
+		if stem in characterdict.stemmedMap.keys():
+			for vidResponse in characterdict.stemmedMap[stem]:
 				if vidResponse not in responses.keys():
 					responseList[vidResponse]= 0
-				elif vidResponse in responses.keys()
+				elif vidResponse in responses.keys():
 					responseList[vidResponse]+=1
 			
 
 	for key, value in responses.items():
-    	if int (value) > maxVal:
-        	maxVal= int(value)
-        	videoResponse= key
+		if int (value) > maxVal:
+			maxVal= int(value)
+			videoResponse= key
 
 	return videoResponse
 
 
-def lemma_intersection_match_English(query, characterdict, character):
+def lemma_intersection_match_English(query, characterdict):
 	print("Finding Lemmatized intersection match in English")
-	lemmatized_query= lemmatizer.lemmatize(tmp) for tmp in query.split()
+	lemmatized_query= [lemmatizer.lemmatize(tmp) for tmp in query.split()]
 	responses={}
 	maxVal=0
 	videoResponse= ''
 
 	for lemma in lemmatized_query:
-		if lemma in characterdict[character].lemmatizedMap.keys():
-			for vidResponse in characterdict[character].lemmatizedMap[lemma]:
+		if lemma in characterdict.lemmatizedMap.keys():
+			for vidResponse in characterdict.lemmatizedMap[lemma]:
 				if vidResponse not in responses.keys():
 					responseList[vidResponse]= 0
-				elif vidResponse in responses.keys()
+				elif vidResponse in responses.keys():
 					responseList[vidResponse]+=1
 			
 
 	for key, value in responses.items():
-    	if int (value) > maxVal:
-        	maxVal= int(value)
-        	videoResponse= key
+		if int (value) > maxVal:
+			maxVal= int(value)
+			videoResponse= key
 
 	return videoResponse
 
-def direct_intersection_match_Arabic(query, characterdict, character):
+def direct_intersection_match_Arabic(query, characterdict):
 	print("Finding Direct Intersection in Arabic")
-	queryList= query.split()
-	queryList.encode('utf-8')
-	queryList.strip('؟')
+	queryList= query.encode('utf-8').strip('؟').split()
+	#queryList.encode('utf-8')
+
 	responses={}
 	maxVal=0
 	videoResponse= ''
 
 	for direct_string in queryList:
-		if direct_string in characterdict[character].wordMap.keys():
-			for vidResponse in characterdict[character].wordMap[direct_string]:
+		if direct_string in characterdict.wordMap.keys():
+			for vidResponse in characterdict.wordMap[direct_string]:
 				if vidResponse not in responses.keys():
 					responseList[vidResponse]= 0
-				elif vidResponse in responses.keys()
+				elif vidResponse in responses.keys():
 					responseList[vidResponse]+=1
 			
 
 	for key, value in responses.items():
-    	if int (value) > maxVal:
-        	maxVal= int(value)
-        	videoResponse= key
+		if int (value) > maxVal:
+			maxVal= int(value)
+			videoResponse= key
 
 	return videoResponse
-def stem_intersection_match_Arabic(query, characterdict, character):
+def stem_intersection_match_Arabic(query, characterdict):
 	
 	print("Finding stem Intersection in Arabic")
-	queryList = query.split()
-	queryList.encode('utf-8')
-	queryList.strip('؟')
+	queryList = query.encode('utf-8').strip('؟').split()
+	#queryList.encode('utf-8')
+
 
 	responses={}
 	maxVal=0
@@ -319,26 +326,26 @@ def stem_intersection_match_Arabic(query, characterdict, character):
 	print(stemmed_query)
 
 	for stem in stemmed_query:
-		if stem in characterdict[character].stemmedMap.keys():
-			for vidResponse in characterdict[character].stemmedMap[stem]:
+		if stem in characterdict.stemmedMap.keys():
+			for vidResponse in characterdict.stemmedMap[stem]:
 				if vidResponse not in responses.keys():
 					responseList[vidResponse]= 0
-				elif vidResponse in responses.keys()
+				elif vidResponse in responses.keys():
 					responseList[vidResponse]+=1
 			
 
 	for key, value in responses.items():
-    	if int (value) > maxVal:
-        	maxVal= int(value)
+		if int (value) > maxVal:
+			maxVal= int(value)
         	videoResponse= key
 
 	return videoResponse
-def lemma_intersection_match_Arabic(query, characterdict, character):
+def lemma_intersection_match_Arabic(query, characterdict):
 	
 	print("Finding stem Intersection in Arabic")
-	queryList = query.split()
-	queryList.encode('utf-8')
-	queryList.strip('؟')
+	queryList = query.encode('utf-8').strip('؟').split()
+	#queryList.encode('utf-8')
+	
 
 	responses={}
 	maxVal=0
@@ -360,31 +367,31 @@ def lemma_intersection_match_Arabic(query, characterdict, character):
 	print(lemmatized_query)
 
 	for lemma in lemmatized_query:
-		if lemma in characterdict[character].lemmatizedMap.keys():
-			for vidResponse in characterdict[character].lemmatizedMap[lemma]:
+		if lemma in characterdict.lemmatizedMap.keys():
+			for vidResponse in characterdict.lemmatizedMap[lemma]:
 				if vidResponse not in responses.keys():
 					responseList[vidResponse]= 0
-				elif vidResponse in responses.keys()
+				elif vidResponse in responses.keys():
 					responseList[vidResponse]+=1
 			
 
 	for key, value in responses.items():
-    	if int (value) > maxVal:
-        	maxVal= int(value)
-        	videoResponse= key
+		if int (value) > maxVal:
+			maxVal= int(value)
+			videoResponse= key
 
 	return videoResponse
 
-def findResponse(query, corpus):
+def findResponse(query, model):
 
 	#different modes of matching
-	direct_match_english= direct_intersection_match_English(query, characterdict, character)
-	stem_match_english= stem_intersection_match_English(query, characterdict, character)
-	lemma_match_english= lemma_intersection_match_English(query, characterdict, character)
+	direct_match_english= direct_intersection_match_English(query, model)
+	stem_match_english= stem_intersection_match_English(query, model)
+	lemma_match_english= lemma_intersection_match_English(query, model)
 	
-	direct_match_arabic= direct_intersection_match_Arabic(query, characterdict, character)
-	stem_match_arabic= stem_intersection_match_Arabic(query, characterdict, character)
-	lemma_match_arabic= lemma_intersection_match_Arabic(query, characterdict, character)
+	direct_match_arabic= direct_intersection_match_Arabic(query, model)
+	stem_match_arabic= stem_intersection_match_Arabic(query, model)
+	lemma_match_arabic= lemma_intersection_match_Arabic(query, model)
 
 	'''right now we have different modes of matching, 
 	but we need to change that to getting top 3 matches 
@@ -392,7 +399,7 @@ def findResponse(query, corpus):
 	'''
 	
 	print("This is a direct match in findResponse", direct_match)
-	return direct_match
+	return direct_match_english
 
 def determineAvatar(query, avatar):
 	if avatar == "":
