@@ -95,14 +95,13 @@ def createModel(characterdict):
 
 		if("question" in resp["rows"][i]["doc"].keys()):
 			# remove all the special characters from both questions and answers
-			question= json.dumps(resp["rows"][i]["doc"]["question"]).strip("؟،,?.")
-			answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip("؟،,?.")
+			question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.")
+			answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.")
 			video= json.dumps(resp["rows"][i]["doc"]["video"])
 			character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
 			#do we wanna give it ID ourselves or use the JSON one?
 			ID= json.dumps(resp["rows"][i]["doc"]["_id"])
-			#added language to the db
-			language=json.dumps(resp["rows"][i]["doc"]["language"])
+			language= json.dumps(resp["rows"][i]["doc"]["language"])
 
 
 			#print(character)
@@ -117,15 +116,11 @@ def createModel(characterdict):
 			if (answer == '""' and video != '""'):
 			 	characterdict[character].fillers[ID] = obj
 
-
-
 			#adds to the character's questions list based on the character key; adds all videos regardless of type to questions
 			characterdict[character].objectMap[ID] = obj
 
-			
-			if(language=="English"):
-			
-				# stemming the question and answer and adding the stems into model.stemmedMap
+			# stemming the question and answer and adding the stems into model.stemmedMap
+			if(language.strip(' " ')=="English"):
 				objStemmedList = [porterStemmer.stem(tmp) for tmp in question.split() ] + [porterStemmer.stem(tmp) for tmp in obj.answer.split() ]
 
 				for stem in objStemmedList:
@@ -144,20 +139,20 @@ def createModel(characterdict):
 					if lemma not in characterdict[character].lemmatizedMap.keys():
 						characterdict[character].lemmatizedMap[lemma] = []
 
-					#adds the question to the list of objects related to the lemma
+					#adds the question to the list of objects related to the stem
 					characterdict[character].lemmatizedMap[lemma].append(ID)
-		
-	            # direct strings
+
+	            # lemmatize the question and answer and adding the stems into model.lemmatizedMap
 				objWordList = question.split() + answer.split()
 
 				for word in objWordList:
 					if word not in characterdict[character].wordMap.keys():
 						characterdict[character].wordMap[word] = []
 
-					#adds the question to the list of objects related to the direct word
+					#adds the question to the list of objects related to the stem
 					characterdict[character].wordMap[word].append(ID)
 
-			'''elif(language=="Arabic"):
+			'''elif(language.strip('"')=="Arabic"):
 
 				StarMorphModules.read_config("/CALIMA-STAR/Code/StarMorph/config_lex.xml")
 				StarMorphModules.initialize_from_file("/CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
@@ -202,31 +197,33 @@ def createModel(characterdict):
 
 
 
-def direct_intersection_match_English(query, characterdict):
+def direct_intersection_match_English(query, characterModel):
 	print("Finding Direct Intersection in English")
 	queryList= query.split()
 	responses={}
 	maxVal=0
 	videoResponse= ''
-
-
+	
+	print(characterModel.wordMap.keys())
 	for direct_string in queryList:
-		if direct_string in characterdict.wordMap.keys():
-			for vidResponse in characterdict.wordMap[direct_string]:
-				print(videoResponse)
-				if vidResponse not in responses.keys():
-					responseList[vidResponse]= 0
-				elif vidResponse in responses.keys():
-					responseList[vidResponse]+=1
+		for key in characterModel.wordMap.keys():
+			if direct_string == key.strip(' " ?!').lower(): 
+				for vidResponse in characterModel.wordMap[key]:
+					print(videoResponse)
+					if vidResponse not in responses.keys():
+						responses[vidResponse]= 1
+					elif vidResponse in responses.keys():
+						responses[vidResponse]+=1
 			
 
 	for key, value in responses.items():
+		print(key, value)
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
 
 	
-	return characterdict[character].objectMap[videoResponse]
+	return characterModel.objectMap[videoResponse]
 
 
 
@@ -238,12 +235,13 @@ def stem_intersection_match_English(query, characterdict):
 	videoResponse= ''
 
 	for stem in stemmed_query:
-		if stem in characterdict.stemmedMap.keys():
-			for vidResponse in characterdict.stemmedMap[stem]:
-				if vidResponse not in responses.keys():
-					responseList[vidResponse]= 0
-				elif vidResponse in responses.keys():
-					responseList[vidResponse]+=1
+		for key in characterModel.stemmedMap.keys():
+			if stem == key.strip(' " ?!').lower(): 
+				for vidResponse in characterdict.stemmedMap[stem]:
+					if vidResponse not in responses.keys():
+						responses[vidResponse]= 1
+					elif vidResponse in responses.keys():
+						responses[vidResponse]+=1
 			
 
 	for key, value in responses.items():
@@ -251,7 +249,7 @@ def stem_intersection_match_English(query, characterdict):
 			maxVal= int(value)
 			videoResponse= key
 
-	return characterdict[character].objectMap[videoResponse]
+	return characterdict.objectMap[videoResponse]
 
 
 def lemma_intersection_match_English(query, characterdict):
@@ -262,20 +260,21 @@ def lemma_intersection_match_English(query, characterdict):
 	videoResponse= ''
 
 	for lemma in lemmatized_query:
-		if lemma in characterdict.lemmatizedMap.keys():
-			for vidResponse in characterdict.lemmatizedMap[lemma]:
-				if vidResponse not in responses.keys():
-					responseList[vidResponse]= 0
-				elif vidResponse in responses.keys():
-					responseList[vidResponse]+=1
-			
+		for key in characterModel.lemmatizedMap.keys():
+			if lemma == key.strip(' " ?!').lower(): 
+				for vidResponse in characterdict.lemmatizedMap[lemma]:
+					if vidResponse not in responses.keys():
+						responses[vidResponse]= 1
+					elif vidResponse in responses.keys():
+						responses[vidResponse]+=1
+				
 
 	for key, value in responses.items():
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
 
-	return characterdict[character].objectMap[videoResponse]
+	return characterdict.objectMap[videoResponse]
 
 def direct_intersection_match_Arabic(query, characterdict):
 	print("Finding Direct Intersection in Arabic")
@@ -288,6 +287,7 @@ def direct_intersection_match_Arabic(query, characterdict):
 
 	for direct_string in queryList:
 		if direct_string in characterdict.wordMap.keys():
+			
 			for vidResponse in characterdict.wordMap[direct_string]:
 				if vidResponse not in responses.keys():
 					responseList[vidResponse]= 0
@@ -296,6 +296,7 @@ def direct_intersection_match_Arabic(query, characterdict):
 			
 
 	for key, value in responses.items():
+		print(key, value)
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
@@ -383,10 +384,10 @@ def lemma_intersection_match_Arabic(query, characterdict):
 
 	return characterdict[character].objectMap[videoResponse]
 
-def findResponse(query, model):
+def findResponse(query, characterModel):
 
 	#different modes of matching
-	direct_match_english= direct_intersection_match_English(query, model)
+	direct_match_english= direct_intersection_match_English(query, characterModel)
 	#stem_match_english= stem_intersection_match_English(query, model)
 	#lemma_match_english= lemma_intersection_match_English(query, model)
 	
