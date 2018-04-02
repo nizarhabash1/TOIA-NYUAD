@@ -39,6 +39,9 @@ lemmatizer = WordNetLemmatizer()
 # Dictionary of all Avatars
 characterdict = {}
 
+#stores information recording the current session
+currentSession = None
+
 #encoding
 str.encode('utf-8')
 
@@ -69,6 +72,12 @@ class videoRecording:
 
 #additions to this model: weight assigned to each video if it was played (save the conversation state)
 
+#the structure of the session
+class session:
+
+	def __init__(self, avatar):
+		self.repetitions = {}
+		self.currentAvatar = avatar
 
 #find the intersection of two lists
 def intersect(a, b):
@@ -85,7 +94,10 @@ def preprocess(line):
 
 	return processed 
 
-def createModel(characterdict):
+def createModel(characterdict, currentSession):
+	#creates the new session
+	currentSession = session('margarita')
+	print(currentSession)
 
 	f= open('static/scripts/all_characters.json', 'r')
 
@@ -121,7 +133,7 @@ def createModel(characterdict):
 
 			# stemming the question and answer and adding the stems into model.stemmedMap
 			if(language.strip(' " ')=="English"):
-				objStemmedList = [porterStemmer.stem(tmp) for tmp in question.split() ] + [porterStemmer.stem(tmp) for tmp in obj.answer.split() ]
+				objStemmedList = [porterStemmer.stem(tmp.strip(' " ?!')) for tmp in question.split() ] + [porterStemmer.stem(tmp) for tmp in obj.answer.split() ]
 
 				for stem in objStemmedList:
 
@@ -133,7 +145,7 @@ def createModel(characterdict):
 					characterdict[character].stemmedMap[stem].append(ID)
 
 				# lemmatize the question and answer and adding the stems into model.lemmatizedMap
-				objLemmatizedList = [lemmatizer.lemmatize(tmp) for tmp in question.split() ] + [lemmatizer.lemmatize(tmp) for tmp in answer.split() ]
+				objLemmatizedList = [lemmatizer.lemmatize(tmp.strip(' " ?!')) for tmp in question.split() ] + [lemmatizer.lemmatize(tmp) for tmp in answer.split() ]
 
 				for lemma in objLemmatizedList:
 					if lemma not in characterdict[character].lemmatizedMap.keys():
@@ -146,11 +158,13 @@ def createModel(characterdict):
 				objWordList = question.split() + answer.split()
 
 				for word in objWordList:
+					word = word.strip(' " ?!')
 					if word not in characterdict[character].wordMap.keys():
 						characterdict[character].wordMap[word] = []
 
 					#adds the question to the list of objects related to the stem
 					characterdict[character].wordMap[word].append(ID)
+	
 
 			'''elif(language.strip('"')=="Arabic"):
 
@@ -193,7 +207,7 @@ def createModel(characterdict):
 
 					#adds the question to the list of objects related to the lemma
 					characterdict[character].lemmatizedMap[lemma].append(ID)'''
-
+	return currentSession
 
 
 
@@ -203,17 +217,24 @@ def direct_intersection_match_English(query, characterModel):
 	responses={}
 	maxVal=0
 	videoResponse= ''
-	
-	print(characterModel.wordMap.keys())
+	#print(characterModel.wordMap.keys())
 	for direct_string in queryList:
-		for key in characterModel.wordMap.keys():
-			if direct_string == key.strip(' " ?!').lower(): 
-				for vidResponse in characterModel.wordMap[key]:
-					print(videoResponse)
-					if vidResponse not in responses.keys():
-						responses[vidResponse]= 1
-					elif vidResponse in responses.keys():
-						responses[vidResponse]+=1
+		direct_string == direct_string.strip(' " ?!').lower()
+		if direct_string in characterModel.wordMap.keys():
+			for vidResponse in characterModel.wordMap[direct_string]:
+				if vidResponse not in responses.keys():
+					responses[vidResponse]= 1
+				elif vidResponse in responses.keys():
+					responses[vidResponse]+=1
+
+		# for key in characterModel.wordMap.keys():
+		# 	if direct_string == key.strip(' " ?!').lower(): 
+		# 		for vidResponse in characterModel.wordMap[key]:
+		# 			print(videoResponse)
+		# 			if vidResponse not in responses.keys():
+		# 				responses[vidResponse]= 1
+		# 			elif vidResponse in responses.keys():
+		# 				responses[vidResponse]+=1
 			
 
 	for key, value in responses.items():
@@ -223,25 +244,34 @@ def direct_intersection_match_English(query, characterModel):
 			videoResponse= key
 
 	
-	return characterModel.objectMap[videoResponse]
+	#return characterModel.objectMap[videoResponse]
+	return responses
 
 
 
-def stem_intersection_match_English(query, characterdict):
+def stem_intersection_match_English(query, characterModel):
 	print("Finding Stemmed Intersection Match in English")
-	stemmed_query= [porterStemmer.stem(tmp) for tmp in query.split()]
+	stemmed_query= [porterStemmer.stem(tmp.strip(' " ?!')) for tmp in query.lower().split()]
 	responses={}
 	maxVal=0
 	videoResponse= ''
+	#print(stemmed_query)
+	for stem_string in stemmed_query:
+		if stem_string in characterModel.stemmedMap.keys():
+			for vidResponse in characterModel.stemmedMap[stem_string]:
+				if vidResponse not in responses.keys():
+					responses[vidResponse]= 1
+				elif vidResponse in responses.keys():
+					responses[vidResponse]+=1
 
-	for stem in stemmed_query:
-		for key in characterModel.stemmedMap.keys():
-			if stem == key.strip(' " ?!').lower(): 
-				for vidResponse in characterdict.stemmedMap[stem]:
-					if vidResponse not in responses.keys():
-						responses[vidResponse]= 1
-					elif vidResponse in responses.keys():
-						responses[vidResponse]+=1
+	# for stem in stemmed_query:
+	# 	for key in characterModel.stemmedMap.keys():
+	# 		if stem == key.strip(' " ?!').lower(): 
+	# 			for vidResponse in characterdict.stemmedMap[stem]:
+	# 				if vidResponse not in responses.keys():
+	# 					responses[vidResponse]= 1
+	# 				elif vidResponse in responses.keys():
+	# 					responses[vidResponse]+=1
 			
 
 	for key, value in responses.items():
@@ -249,24 +279,33 @@ def stem_intersection_match_English(query, characterdict):
 			maxVal= int(value)
 			videoResponse= key
 
-	return characterdict.objectMap[videoResponse]
+	#return characterModel.objectMap[videoResponse]
+	return responses
 
 
-def lemma_intersection_match_English(query, characterdict):
+def lemma_intersection_match_English(query, characterModel):
 	print("Finding Lemmatized intersection match in English")
-	lemmatized_query= [lemmatizer.lemmatize(tmp) for tmp in query.split()]
+	lemmatized_query= [lemmatizer.lemmatize(tmp.strip(' " ?!')) for tmp in query.lower().split()]
 	responses={}
 	maxVal=0
 	videoResponse= ''
 
-	for lemma in lemmatized_query:
-		for key in characterModel.lemmatizedMap.keys():
-			if lemma == key.strip(' " ?!').lower(): 
-				for vidResponse in characterdict.lemmatizedMap[lemma]:
-					if vidResponse not in responses.keys():
-						responses[vidResponse]= 1
-					elif vidResponse in responses.keys():
-						responses[vidResponse]+=1
+	for lemma_string in lemmatized_query:
+		if lemma_string in characterModel.lemmatizedMap.keys():
+			for vidResponse in characterModel.lemmatizedMap[lemma_string]:
+				if vidResponse not in responses.keys():
+					responses[vidResponse]= 1
+				elif vidResponse in responses.keys():
+					responses[vidResponse]+=1
+
+	# for lemma in lemmatized_query:
+	# 	for key in characterModel.lemmatizedMap.keys():
+	# 		if lemma == key.strip(' " ?!').lower(): 
+	# 			for vidResponse in characterdict.lemmatizedMap[lemma]:
+	# 				if vidResponse not in responses.keys():
+	# 					responses[vidResponse]= 1
+	# 				elif vidResponse in responses.keys():
+	# 					responses[vidResponse]+=1
 				
 
 	for key, value in responses.items():
@@ -274,7 +313,8 @@ def lemma_intersection_match_English(query, characterdict):
 			maxVal= int(value)
 			videoResponse= key
 
-	return characterdict.objectMap[videoResponse]
+	#return characterModel.objectMap[videoResponse]
+	return responses
 
 def direct_intersection_match_Arabic(query, characterdict):
 	print("Finding Direct Intersection in Arabic")
@@ -339,9 +379,9 @@ def stem_intersection_match_Arabic(query, characterdict):
 	for key, value in responses.items():
 		if int (value) > maxVal:
 			maxVal= int(value)
-        	videoResponse= key
-
+			videoResponse= key
 	return characterdict[character].objectMap[videoResponse]
+
 def lemma_intersection_match_Arabic(query, characterdict):
 	
 	print("Finding stem Intersection in Arabic")
@@ -384,10 +424,52 @@ def lemma_intersection_match_Arabic(query, characterdict):
 
 	return characterdict[character].objectMap[videoResponse]
 
-def findResponse(query, characterModel):
+def rankAnswers(videoResponses, currentSession):
+	#each repition is a given a weight of 2 e.g if a video has been played once 2 points will be subtracted from its matching score
+
+	# for each possible answer, checks if it has been played it already, and subtract points from its score if has been played already.
+	for res in videoResponses:
+		if res in currentSession.repetitions.keys():
+			negativePoints = currentSession.repetitions[res] * 2
+			videoResponses[res] -= negativePoints
+
+	ranked_list = sorted(videoResponses, key = lambda i:videoResponses[i], reverse = True)
+	#print(videoResponses)
+	#print(ranked_list)
+	# print("Answer's score: ")
+	# print(videoResponses[ranked_list[0]])
+	# print('\n')
+	#print(ranked_list[0])
+	return ranked_list[0]
+
+def findResponse(query, characterModel, currentSession):
 
 	#different modes of matching
-	direct_match_english= direct_intersection_match_English(query, characterModel)
+	stem_match_english_responses= stem_intersection_match_English(query, characterModel)
+
+	# if the responses are empty, play "I can't anser that response"
+	if bool(stem_match_english_responses) == False:
+		if currentSession.currentAvatar == "gabriela":
+			final_answer = '"f85983fc8978aa97dec2132b47cff20c"'
+		elif currentSession.currentAvatar == "margarita":
+			final_answer = '"cc28b6feb31c6d808ca0586a1fd25745"'
+		else:
+			final_answer = '"ef1374bdef2fc36054292623a39bf9bf"'
+
+	else:
+		final_answer = rankAnswers(stem_match_english_responses, currentSession)
+		if final_answer in currentSession.repetitions.keys():
+			print("The ANSWER IS THERE ALREADY")
+			currentSession.repetitions[final_answer] += 1
+		else:
+			currentSession.repetitions[final_answer] = 1
+			print("Number of repetitions: ")
+			print(currentSession.repetitions[final_answer])
+
+	print(characterModel.objectMap[final_answer].answer)
+	return final_answer
+
+	
 	#stem_match_english= stem_intersection_match_English(query, model)
 	#lemma_match_english= lemma_intersection_match_English(query, model)
 	
@@ -400,35 +482,35 @@ def findResponse(query, characterModel):
 	from each mode and getting their intersection 
 	'''
 	
-	print("This is a direct match in findResponse", direct_match_english)
-	return direct_match_english
+	#print("This is a direct match in findResponse", direct_match_english)
+	#return direct_match_english
 
-def determineAvatar(query, avatar):
-	if avatar == "":
-		avatar = "margarita"
+def determineAvatar(query, currentSession):
+	if currentSession.currentAvatar == "":
+		currentSession = session("margarita")
         
     #Changes the avatar
 
 	if query == "toya toya can i talk to margarita":
-		avatar = "margarita"
+		currentSession = session("margarita")
 
 	if query == "toya toya can i talk to katarina":
 		print("you are switching to katarina")
-		avatar = "katarina"
+		currentSession = session("katarina")
 
 	if query == "toya toya can i talk to gabriela":
-		avatar = "gabriela"
+		currentSession = session("gabriela")
 
 
 	if query == "toya toya can i talk to gabriella":
-		avatar = "gabriela"
+		currentSession = session("gabriela")
 
 
 	if query == "toya toya can i talk to someone else":
 		print("you are switching to gabriela")
-		avatar = "gabriela"
+		currentSession = session("gabriela")
 
-	return avatar
+	return currentSession
 
 # the player calls the following functions for greetings and silentVideos, using calls such as dialogue-manager3.sayHi(characterdict[avatar])
 
@@ -442,8 +524,16 @@ def sayBye(corpus):
 		return corpus["greetings"][-1]
 
 def main():
-	createModel(characterdict)
-	print(characterdict["margarita"].lemmatizedMap['speak'])
+	global currentSession
+
+	currentSession = session("muaz")
+	currentSession = createModel(characterdict, currentSession)
+	#print(characterdict["margarita"].lemmatizedMap['speak'])
+	while True:
+		user = input("What do you have to ask\n")
+		currentSession = determineAvatar(user, currentSession)
+		findResponse(user, characterdict[currentSession.currentAvatar], currentSession)
+		print(currentSession.currentAvatar)
 
 
 
