@@ -32,11 +32,12 @@ def my_form_post():
     currentSession = dialogue_manager4.determineAvatar(processed_text, currentSession)
 
     response = dialogue_manager4.findResponse(processed_text, characterModel[currentSession.currentAvatar], currentSession)
+    print("RESPONSE IS ",response)
     response_video_path = '/static/avatar-videos/' + response.videoLink.strip('"')
     response_subtitle_path = '/static/avatar-subtitle-timestamped/' + os.path.splitext(response.videoLink.strip('"'))[0] + '.vtt'
 
     return render_template('index.html',
-                           avatar = currentAvatar,
+                           avatar = currentSession.currentAvatar,
                            avatar_video_path= response_video_path,
                            avatar_response=response.answer,
                            avatar_subtitle = response_subtitle_path,
