@@ -8,11 +8,15 @@ import click
 click.disable_unicode_literals_warning = True
 
 characterModel = {}
-currentSession = None
 currentAvatar = ""
+currentSession = None
 
 @app.route('/')
 def default_page():
+    global currentSession
+    # initiates the model and a new session
+    currentSession = dialogue_manager4.createModel(characterModel, currentSession)
+
     return render_template('index.html')
 
 # THE FOLLOWING TWO FUNCTIONS ARE FOR EITHER TEXT AND SPEECH INPUT.
@@ -22,12 +26,8 @@ def default_page():
 @app.route('/', methods=['POST'])
 def my_form_post():
     global currentSession
-
     text = request.form['text']
     processed_text = text
-
-    # initiates the model and a new session
-    currentSession = dialogue_manager4.createModel(characterModel, currentSession)
 
     currentSession = dialogue_manager4.determineAvatar(processed_text, currentSession)
 
@@ -45,5 +45,5 @@ def my_form_post():
 
 if __name__ == '__main__':
     avatar = ""
-    dialogue_manager4.readJsonFile(characterModel)
+    #dialogue_manager4.readJsonFile(characterModel)
     app.run(debug=True,threaded=True)

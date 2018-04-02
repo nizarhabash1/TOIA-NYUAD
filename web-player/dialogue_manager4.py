@@ -39,9 +39,6 @@ lemmatizer = WordNetLemmatizer()
 # Dictionary of all Avatars
 characterdict = {}
 
-#stores information recording the current session
-currentSession = None
-
 #encoding
 str.encode('utf-8')
 
@@ -94,10 +91,10 @@ def preprocess(line):
 
 	return processed
 
+#Initiates the model and create a new session
 def createModel(characterdict, currentSession):
 	#creates the new session
 	currentSession = session('margarita')
-	print(currentSession)
 
 	f= open('static/scripts/all_characters.json', 'r')
 
@@ -445,6 +442,8 @@ def rankAnswers(videoResponses, currentSession):
 def findResponse(query, characterModel, currentSession):
 
 	#different modes of matching
+	print("My repititions")
+	print(currentSession.repetitions)
 	stem_match_english_responses= stem_intersection_match_English(query, characterModel)
 
 	# if the responses are empty, play "I can't anser that response"
@@ -459,17 +458,15 @@ def findResponse(query, characterModel, currentSession):
 	else:
 		final_answer = rankAnswers(stem_match_english_responses, currentSession)
 		if final_answer in currentSession.repetitions.keys():
-			print("The ANSWER IS THERE ALREADY")
 			currentSession.repetitions[final_answer] += 1
 		else:
 			currentSession.repetitions[final_answer] = 1
-			print("Number of repetitions: ")
-			print(currentSession.repetitions[final_answer])
+		print("Number of repetitions: ")
+		print(currentSession.repetitions[final_answer])
 
-	print("THE OBJECT MAP IS ", characterModel.objectMap)
-    # characterModel.objectMap[final_answer].answer
+
+	print(characterModel.objectMap[final_answer].answer)
 	return characterModel.objectMap[final_answer]
-
 
 	#stem_match_english= stem_intersection_match_English(query, model)
 	#lemma_match_english= lemma_intersection_match_English(query, model)
@@ -525,16 +522,14 @@ def sayBye(corpus):
 		return corpus["greetings"][-1]
 
 def main():
-	global currentSession
+	currentSession = None
 
-	currentSession = session("muaz")
 	currentSession = createModel(characterdict, currentSession)
 	#print(characterdict["margarita"].lemmatizedMap['speak'])
 	while True:
 		user = input("What do you have to ask\n")
 		currentSession = determineAvatar(user, currentSession)
 		findResponse(user, characterdict[currentSession.currentAvatar], currentSession)
-		print(currentSession.currentAvatar)
 
 
 
