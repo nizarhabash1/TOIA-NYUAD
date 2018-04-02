@@ -8,6 +8,7 @@ import click
 click.disable_unicode_literals_warning = True
 
 characterModel = {}
+currentSession = None
 currentAvatar = ""
 
 @app.route('/')
@@ -20,15 +21,17 @@ def default_page():
 # QUERYING ANSWER WITH TEXT INPUT
 @app.route('/', methods=['POST'])
 def my_form_post():
+    global currentSession
+
     text = request.form['text']
     processed_text = text
-    dialogue_manager4.createModel(characterModel)
 
-    global currentAvatar
-    tmpAvatar = dialogue_manager4.determineAvatar(processed_text, currentAvatar)
-    currentAvatar = tmpAvatar
+    # initiates the model and a new session
+    currentSession = dialogue_manager4.createModel(characterModel, currentSession)
 
-    response = dialogue_manager4.findResponse(processed_text, characterModel[currentAvatar])
+    currentSession = dialogue_manager4.determineAvatar(processed_text, currentSession)
+
+    response = dialogue_manager4.findResponse(processed_text, characterModel[currentSession.currentAvatar], currentSession)
     response_video_path = '/static/avatar-videos/' + response.videoLink.strip('"')
     response_subtitle_path = '/static/avatar-subtitle-timestamped/' + os.path.splitext(response.videoLink.strip('"'))[0] + '.vtt'
 
