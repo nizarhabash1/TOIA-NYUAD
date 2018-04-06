@@ -280,6 +280,7 @@ def stem_intersection_match_English(query, characterModel):
 	return responses
 
 
+
 def lemma_intersection_match_English(query, characterModel):
 	print("Finding Lemmatized intersection match in English")
 	lemmatized_query= [lemmatizer.lemmatize(tmp.strip(' " ?!')) for tmp in query.lower().split()]
@@ -312,6 +313,7 @@ def lemma_intersection_match_English(query, characterModel):
 
 	#return characterModel.objectMap[videoResponse]
 	return responses
+
 
 def direct_intersection_match_Arabic(query, characterdict):
 	print("Finding Direct Intersection in Arabic")
@@ -440,14 +442,36 @@ def rankAnswers(videoResponses, currentSession):
 	return ranked_list[0]
 
 def findResponse(query, characterModel, currentSession):
-
+	themax=0
 	#different modes of matching
 	print("My repititions")
 	print(currentSession.repetitions)
 	stem_match_english_responses= stem_intersection_match_English(query, characterModel)
+	lemma_match_english_responses= lemma_intersection_match_English(query, characterModel)
+	direct_match_english_responses= direct_intersection_match_English(query, characterModel)
 
-	# if the responses are empty, play "I can't anser that response"
-	if bool(stem_match_english_responses) == False:
+	#print("stem match: \n",stem_match_english_responses)
+	#print("lemma match: \n",lemma_match_english_responses)
+	#print("direct match: \n", direct_match_english_responses)
+	if(len(stem_match_english_responses)>themax):
+		themax= len(stem_match_english_responses)
+		best_response=stem_match_english_responses
+		print("stem max", themax)
+
+	if(len(lemma_match_english_responses)>themax):
+		themax= len(lemma_match_english_responses)
+		best_response=lemma_match_english_responses
+		print("lemma max", themax)
+
+	if(len(direct_match_english_responses)>themax):
+		themax= len(direct_match_english_responses)
+		best_response=direct_match_english_responses
+		print("direct max", themax)
+	
+
+
+	# if the responses are empty, play "I can't answer that response"
+	if bool(best_response) == False:
 		if currentSession.currentAvatar == "gabriela":
 			final_answer = '"f85983fc8978aa97dec2132b47cff20c"'
 		elif currentSession.currentAvatar == "margarita":
@@ -456,7 +480,7 @@ def findResponse(query, characterModel, currentSession):
 			final_answer = '"ef1374bdef2fc36054292623a39bf9bf"'
 
 	else:
-		final_answer = rankAnswers(stem_match_english_responses, currentSession)
+		final_answer = rankAnswers(best_response, currentSession)
 		if final_answer in currentSession.repetitions.keys():
 			currentSession.repetitions[final_answer] += 1
 		else:
@@ -527,9 +551,9 @@ def main():
 	currentSession = createModel(characterdict, currentSession)
 	#print(characterdict["margarita"].lemmatizedMap['speak'])
 	while True:
-		user = input("What do you have to ask\n")
-		currentSession = determineAvatar(user, currentSession)
-		findResponse(user, characterdict[currentSession.currentAvatar], currentSession)
+		user_input = input("What do you have to ask\n")
+		currentSession = determineAvatar(user_input, currentSession)
+		findResponse(user_input, characterdict[currentSession.currentAvatar], currentSession)
 
 
 
