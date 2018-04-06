@@ -896,7 +896,7 @@
       "key": "0675d24f01246799129eb70ec5177695",
       "doc": {
         "index": 2279,
-	"arabic-answer":"شكرًا"
+	      "arabic-answer":"شكرًا",
         "language": "Arabic",
         "question": "Compliment",
         "_rev": "2-7841a7683366b08fca606b8f9f90a6bf",
@@ -936,7 +936,7 @@
       "key": "0675d24f01246799129eb70ec5645101",
       "doc": {
         "index": 2289,
-	"arabic-answer":"أنا آسفة، لم السؤال عن شيء كهذا"
+	      "arabic-answer":"أنا آسفة، لم السؤال عن شيء كهذا",
         "language": "Arabic",
         "question": "Response to innapropriate comment",
         "_rev": "2-e70813788432661d56315416031826a9",
@@ -1888,7 +1888,7 @@
       "key": "09e85aea9c84a6c85465a192187e48d0",
       "doc": {
         "index": 2276,
-	"arabic-answer":"آسفة هل بإمكانك إعادة السؤال؟"
+	      "arabic-answer":"آسفة هل بإمكانك إعادة السؤال؟",
         "language": "Arabic",
         "question": "Question you didn't hear",
         "_rev": "2-c3441b48eebb5406cd89575c3a7cce32",
@@ -1908,7 +1908,7 @@
       "key": "09e85aea9c84a6c85465a19218b97b8d",
       "doc": {
         "index": 2284,
-	"arabic-answer":"اقرأي",
+	      "arabic-answer":"اقرأي",
         "language": "Arabic",
         "question": "Read ",
         "_rev": "2-c87d30215bc7149aaf20d57506bf9e8c",
@@ -1928,7 +1928,7 @@
       "key": "09e85aea9c84a6c85465a19218cdeb1d",
       "doc": {
         "index": 2285,
-	‫"‬arabic-answer":"أستمع فقط",
+        "‬arabic-answer":"أستمع فقط",
         "language": "Arabic",
         "question": "Listening",
         "_rev": "2-6a97e54fcb9fccb31ab3036f75b551d9",
@@ -1936,7 +1936,7 @@
         "video_saved": true,
         "video": "gabriela_2285_09e85aea9c84a6c85465a19218cdeb1d.mp4",
         "answer": "just listening",
-	"arabic-question":"الاستماع",
+	      "arabic-question":"الاستماع",
         "_id": "09e85aea9c84a6c85465a19218cdeb1d"
       },
       "id": "09e85aea9c84a6c85465a19218cdeb1d",
@@ -4618,7 +4618,7 @@
       "key": "3792386d3488216a787d3261b35ca558",
       "doc": {
         "index": 1113,
-        "arabic-answer": ‫"‬لا يتطلب على الطلاب اختيار تخصصاتهم إلا بعد فصلهم الثالث‫.‬ لا يتطلب على الطلاب اختيار تخصصاتهم قبل بدء الدراسة في جامعة نيويورك أبوظبي‫"‬,
+        "arabic-answer": "‬لا يتطلب على الطلاب اختيار تخصصاتهم إلا بعد فصلهم الثالث‫.‬ لا يتطلب على الطلاب اختيار تخصصاتهم قبل بدء الدراسة في جامعة نيويورك أبوظبي‫",
         "language": "Arabic",
         "character": "katarina",
         "_rev": "2-a65a88dcd962c1cbc8145923aa4a6598",
@@ -5673,7 +5673,7 @@
       "key": "3a91e77640148c090faf1193dc8fcbf3",
       "doc": {
         "index": 1215,
-	"arabic-answer": "الوقت الذي قضيته هنا حتى الآن كان حقًا ممتعًا، لا أندم على القدوم هنا"
+	      "arabic-answer": "الوقت الذي قضيته هنا حتى الآن كان حقًا ممتعًا، لا أندم على القدوم هنا",
         "language": "Arabic",
         "character": "katarina",
         "_rev": "2-6c8fba00167485919c1fff39cab444ed",
@@ -6051,7 +6051,7 @@
       "key": "3a91e77640148c090faf1193dcf5502d",
       "doc": {
         "index": 2123,
-	"arabic-answer":"قلت له ""اذهب وابحث عن قطعة أرضك البائسة، لعل الآلهة تضع في طريقك المزيد من الأعاصير والعقبات التي ستحطمك. أدعو أن تتعذب وأنت تصرخ باسمي، وعندما يصل صراخك إلي في أعماق العالم السفلي، سأعرف عندها أنك قد مت",
+	      "arabic-answer":"قلت له اذهب وابحث عن قطعة أرضك البائسة، لعل الآلهة تضع في طريقك المزيد من الأعاصير والعقبات التي ستحطمك. أدعو أن تتعذب وأنت تصرخ باسمي، وعندما يصل صراخك إلي في أعماق العالم السفلي، سأعرف عندها أنك قد مت",
         "language": "Arabic",
         "question": "What nasty things?",
         "_rev": "2-a258aac5856af418f6f2e8f766811afa",
@@ -7180,7 +7180,7 @@
         "character": "margarita",
         "video": "margarita_219_5d8a5ca99e2ea8cf7bf8d71f0f1643b9.mp4",
         "answer": "My jokes are pretty immature sometimes, but I only make them with friends so I guess that's very mature of me.",
-	"arabic-question":"ما هو أكثر شيء غير ناضج قمت به"
+	      "arabic-question":"ما هو أكثر شيء غير ناضج قمت به",
         "_id": "5d8a5ca99e2ea8cf7bf8d71f0f1643b9"
       },
       "id": "5d8a5ca99e2ea8cf7bf8d71f0f1643b9",
@@ -7484,7 +7484,7 @@
         "character": "margarita",
         "video": "margarita_333_5d8a5ca99e2ea8cf7bf8d71f0f16e17c.mp4",
         "answer": "Very much.",
-	"arabic-question":"قائمة الردود على ""هل تشتاقين إلى x؟:",
+	     "arabic-question":"قائمة الردود على هل تشتاقين إلى x؟:",
         "_id": "5d8a5ca99e2ea8cf7bf8d71f0f16e17c"
       },
       "id": "5d8a5ca99e2ea8cf7bf8d71f0f16e17c",
@@ -7819,7 +7819,7 @@
       "key": "6be11151af2d475f7f56fe99b54070f6",
       "doc": {
         "index": 87,
-	"arabic-answer":"أجد كتابة الأغاني باللغتين الروسية والرومانية أكثر سهولة، لكنني لا أمانع الكتابة ببقية اللغات أيضاً"
+	      "arabic-answer":"أجد كتابة الأغاني باللغتين الروسية والرومانية أكثر سهولة، لكنني لا أمانع الكتابة ببقية اللغات أيضاً",
         "language": "Arabic",
         "question": "What languages do you like writing songs in, though?",
         "_rev": "3-5b60295c36da8ce387a10f4b1fc525cb",
@@ -8142,7 +8142,7 @@
       "key": "6be11151af2d475f7f56fe99b540fa5d",
       "doc": {
         "index": 199,
-	"arabic-answer":"وندر ومن' لأنني دائماً أتساءل ما يجب علي أن أفعله في حياتي في المرحلة القادمة'"
+	      "arabic-answer":"وندر ومن' لأنني دائماً أتساءل ما يجب علي أن أفعله في حياتي في المرحلة القادمة'",
         "language": "Arabic",
         "question": "What movie title best describes your life?",
         "_rev": "3-ad382e20dc87f2e9c26a44cead4e3a26",
@@ -8330,7 +8330,7 @@
       "key": "6be11151af2d475f7f56fe99b54129e3",
       "doc": {
         "index": 243,
-	"arabic-answer":"قال لي أحدهم مؤخراً أنني دائماً ""مفعمة بالحياة"" ومازلت سعيدة جداً بهذا الإطراء",
+	      "arabic-answer":"قال لي أحدهم مؤخراً أنني دائماً مفعمة بالحياة ومازلت سعيدة جداً بهذا الإطراء",
         "language": "Arabic",
         "question": "What is the best compliment you have ever received?",
         "_rev": "3-d25461256aa58d37cfd6cfc2f797ad06",
@@ -8406,7 +8406,7 @@
       "key": "6be11151af2d475f7f56fe99b541481c",
       "doc": {
         "index": 267,
-	"arabic-answer":"كان معسكر 'مغامرة اللغة الإنجليزية' في نيجاتا"
+	      "arabic-answer":"كان معسكر 'مغامرة اللغة الإنجليزية' في نيجاتا",
         "language": "Arabic",
         "question": "What was the name of the summer camp you worked at?",
         "_rev": "3-037f9bcf0c3e141787fc33b6b6cfb9c3",
@@ -8432,7 +8432,7 @@
         "character": "margarita",
         "video": "margarita_271_6be11151af2d475f7f56fe99b54157e9.mp4",
         "answer": "Mixing and mastering, which basically means editing music.",
-	"arabic-question":"ما الذي تهتمين به ولم يسمع به معظم الناس؟",
+	      "arabic-question":"ما الذي تهتمين به ولم يسمع به معظم الناس؟",
         "_id": "6be11151af2d475f7f56fe99b54157e9"
       },
       "id": "6be11151af2d475f7f56fe99b54157e9",
@@ -8444,7 +8444,7 @@
       "key": "6be11151af2d475f7f56fe99b5416756",
       "doc": {
         "index": 278,
-	"arabic-answer":"لا",
+	      "arabic-answer":"لا",
         "language": "Arabic",
         "question": "Do you collect anything?",
         "_rev": "3-53daf68fbfe2df76705629c74ab5f92c",
@@ -8577,7 +8577,7 @@
       "key": "6be11151af2d475f7f56fe99b541b7c9",
       "doc": {
         "index": 319,
-	"arabic-answer":"لا أعرف"
+	      "arabic-answer":"لا أعرف",
         "language": "Arabic",
         "question": "Reply list to 'when somebody asks how I found something': Examples: And did you like it? / Was it fun? / How was it? / How did you find x? / What did you think? / Was it nice? (because usually talk about my past experiences which were good anyway)",
         "_rev": "3-236bb49380d2767fe5572bdd35cffd06",
@@ -8596,7 +8596,7 @@
       "key": "6be11151af2d475f7f56fe99b541c49b",
       "doc": {
         "index": 322,
-	‫"‬arabic-answer":"هذاسؤال جيد",
+	      "‬arabic-answer":"هذاسؤال جيد",
         "language": "Arabic",
         "question": "Reply list to 'when somebody asks how I found something': Examples: And did you like it? / Was it fun? / How was it? / How did you find x? / What did you think? / Was it nice? (because usually talk about my past experiences which were good anyway)",
         "_rev": "3-b139de0783dab411537e7f662d460fb9",
@@ -9921,7 +9921,7 @@
       "key": "9b069d234b0a3c903efacb8a87ea1cdc",
       "doc": {
         "index": 1064,
-	"arabic-answer":"عن طريق التعرف على الطلاب الإماراتيين و عبر الرحلات و الاحداث التي ينظمها مكتب الحياة الطلابية"
+	      "arabic-answer":"عن طريق التعرف على الطلاب الإماراتيين و عبر الرحلات و الاحداث التي ينظمها مكتب الحياة الطلابية",
         "language": "Arabic",
         "character": "katarina",
         "_rev": "3-875578b29145d82ddafc99920226fce0",
@@ -10061,8 +10061,7 @@
       "key": "9b069d234b0a3c903efacb8a87ea647b",
       "doc": {
         "index": 1107,
-	"arabic-answer":"
-"يقوم هدفنا على استقطاب الطلبة المتفوقين بغض النظر عن ظروفهم المالية. في حال تم قبولك، ستكون أولويتنا هي العمل معك ومع عائلتك لضمان التحاقك بالجامعة. سيقوم مكتب الدعم المالي بجامعة نيويورك أبوظبي بتخصيص برامج الدعم المالي السخية التي تقدمها الجامعة لتلبية احتياجاتك الفردية. وسيضمن الدعم المالي ألا تتحملي أنت أو عائلتك أية ديون لدعم تكاليف تعليمك في جامعة نيويورك أبوظبي. كما أن الوضع المالي لعائلتك لا يجب أن يؤثر على قرارك اختيار جامعة نيويورك أبوظبي، حتى لو كنت تفكرين في الالتحاق بمؤسسات تعليمية بديلة ذات تكلفة منخفضة أو بمؤسسات حكومية مجانية أو كنت مستفيدة من مساعدات مالية مقدمة من مؤسسة أخرى. بالإضافة إلى ذلك، لا يغطي الدعم المالي المقدم من جامعة نيويورك أبوظبي تكاليف الدراسة فحسب، بل كذلك العديد من الأنشطة والفرص المتاحة لطلبة جامعة نيويورك أبوظبي."
+	      "arabic-answer":"يقوم هدفنا على استقطاب الطلبة المتفوقين بغض النظر عن ظروفهم المالية. في حال تم قبولك، ستكون أولويتنا هي العمل معك ومع عائلتك لضمان التحاقك بالجامعة. سيقوم مكتب الدعم المالي بجامعة نيويورك أبوظبي بتخصيص برامج الدعم المالي السخية التي تقدمها الجامعة لتلبية احتياجاتك الفردية. وسيضمن الدعم المالي ألا تتحملي أنت أو عائلتك أية ديون لدعم تكاليف تعليمك في جامعة نيويورك أبوظبي. كما أن الوضع المالي لعائلتك لا يجب أن يؤثر على قرارك اختيار جامعة نيويورك أبوظبي، حتى لو كنت تفكرين في الالتحاق بمؤسسات تعليمية بديلة ذات تكلفة منخفضة أو بمؤسسات حكومية مجانية أو كنت مستفيدة من مساعدات مالية مقدمة من مؤسسة أخرى. بالإضافة إلى ذلك، لا يغطي الدعم المالي المقدم من جامعة نيويورك أبوظبي تكاليف الدراسة فحسب، بل كذلك العديد من الأنشطة والفرص المتاحة لطلبة جامعة نيويورك أبوظبي",
         "language": "Arabic",
         "character": "katarina",
         "_rev": "2-7ae83a430b0593d8585322776e5cfaa5",
@@ -10308,7 +10307,7 @@
         "video_saved": true,
         "video": "katarina_1187_9b069d234b0a3c903efacb8a87eabf6f.mp4",
         "answer": "It was very nice.",
-	"arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)"
+	     "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
         "_id": "9b069d234b0a3c903efacb8a87eabf6f"
       },
       "id": "9b069d234b0a3c903efacb8a87eabf6f",
@@ -10998,7 +10997,7 @@
         "video_saved": true,
         "video": "katarina_1208_9cdeb3d285dab2c3a3acbbda9c578adb.mp4",
         "answer": "What did you say?",
-	"arabic-question":"رد على سؤال غير مفهوم"
+	      "arabic-question":"رد على سؤال غير مفهوم",
         "_id": "9cdeb3d285dab2c3a3acbbda9c578adb"
       },
       "id": "9cdeb3d285dab2c3a3acbbda9c578adb",
@@ -11684,7 +11683,7 @@
       "key": "cc28b6feb31c6d808ca0586a1fd1dd68",
       "doc": {
         "index": 222,
-	"arabic-answer":"هورا دين مولدوفا' وهي أغنية مولدوفية وطنية عن الرقص'"
+	     "arabic-answer":"هورا دين مولدوفا' وهي أغنية مولدوفية وطنية عن الرقص'",
         "language": "Arabic",
         "question": "What was the last song that made you dance?",
         "_rev": "3-20e9fb6c01e45ef03bcbb953cb0098ac",
@@ -11956,7 +11955,7 @@
         "character": "margarita",
         "video": "margarita_306_cc28b6feb31c6d808ca0586a1fd23b15.mp4",
         "answer": "Ohhh stop it you!",
-	"arabic-question":"قائمة الردود على ""عندما يجاملني شخص ما"": أمثلة: يعجبني x خاصتك / أحب x خاصتك / أنت x جداً / x جميل! / ذلك مثير للاهتمام!",
+	     "arabic-question":"قائمة الردود على عندما يجاملني شخص ما: أمثلة: يعجبني x خاصتك / أحب x خاصتك / أنت x جداً / x جميل! / ذلك مثير للاهتمام!",
         "_id": "cc28b6feb31c6d808ca0586a1fd23b15"
       },
       "id": "cc28b6feb31c6d808ca0586a1fd23b15",
@@ -12006,7 +12005,7 @@
       "key": "cc28b6feb31c6d808ca0586a1fd25745",
       "doc": {
         "index": 317,
-	"arabic-answer":"لا يمكنني الإجابة عن ذلك"
+	     "arabic-answer":"لا يمكنني الإجابة عن ذلك",
         "language": "Arabic",
         "question": "Reply list to 'when somebody asks how I found something': Examples: And did you like it? / Was it fun? / How was it? / How did you find x? / What did you think? / Was it nice? (because usually talk about my past experiences which were good anyway)",
         "_rev": "3-a1aaf77bc4884d4012ff222c7e7efcb1",
@@ -12088,7 +12087,7 @@
         "character": "margarita",
         "video": "margarita_332_cc28b6feb31c6d808ca0586a1fd28604.mp4",
         "answer": "Yes, a lot.",
-	"arabic-question":"قائمة الردود على ""هل تشتاقين إلى x؟:",
+	      "arabic-question":"قائمة الردود على هل تشتاقين إلى x؟:",
         "_id": "cc28b6feb31c6d808ca0586a1fd28604"
       },
       "id": "cc28b6feb31c6d808ca0586a1fd28604",
@@ -13128,8 +13127,8 @@
         "_rev": "3-4e80c2186121a79c4744f5495c98f4c1",
         "character": "margarita",
         "video": "margarita_76_d7f7dc21cc79877f15bcf4cafa3f6fee.mp4",
-        "answer": "I like different kinds of sushi, but mostly the ones with salmon.",
-	"arabic-question:"ما نوع السوشي الذي تحبينه؟",
+        "answer": "I like different kinds of sushi, but mostly the ones with salmon",
+	      "arabic-question":"ما نوع السوشي الذي تحبينه؟",
         "_id": "d7f7dc21cc79877f15bcf4cafa3f6fee"
       },
       "id": "d7f7dc21cc79877f15bcf4cafa3f6fee",
@@ -13452,7 +13451,7 @@
         "character": "margarita",
         "video": "margarita_181_d7f7dc21cc79877f15bcf4cafa3ff165.mp4",
         "answer": "Because my parents liked it! It's a Russian name actually, and it means pearl",
-	"arabic-question":"لم اسمك مارغاريتا؟"
+	     "arabic-question":"لم اسمك مارغاريتا؟",
         "_id": "d7f7dc21cc79877f15bcf4cafa3ff165"
       },
       "id": "d7f7dc21cc79877f15bcf4cafa3ff165",
@@ -13502,7 +13501,7 @@
       "key": "d7f7dc21cc79877f15bcf4cafa4008a8",
       "doc": {
         "index": 193,
-	"arabic-answer":	q"أحب الخيال العلمي، والكوميديا والأشياء المرعبة",
+	      "arabic-answer":	"أحب الخيال العلمي، والكوميديا والأشياء المرعبة",
         "language": "Arabic",
         "question": "What's your favorite genre of book?",
         "_rev": "3-66a5844840a3cdfeb0f9cce814cd442e",
@@ -14485,7 +14484,7 @@
       "key": "ef1374bdef2fc36054292623a39bf9bf",
       "doc": {
         "index": 1189,
-	"arabic-answer":"لا أستطيع الإجابة عن هذا"
+	      "arabic-answer":"لا أستطيع الإجابة عن هذا",
         "language": "Arabic",
         "character": "katarina",
         "_rev": "2-c18d5665ad996c6caf5000ee04ebbe41",
@@ -14505,7 +14504,7 @@
       "key": "ef1374bdef2fc36054292623a39c00a9",
       "doc": {
         "index": 1194,
-	"arabic-answer":"هذا سؤال جيد"
+	      "arabic-answer":"هذا سؤال جيد",
         "language": "Arabic",
         "character": "katarina",
         "_rev": "2-a17d38eb503ffe13ceeaa7cd351d7524",
@@ -14533,7 +14532,7 @@
         "video_saved": true,
         "video": "katarina_1198_ef1374bdef2fc36054292623a39c0470.mp4",
         "answer": "I'm not sure I can do that.",
-	"arabic-question":"رد على هل تستطيعين"
+	      "arabic-question":"رد على هل تستطيعين",
         "_id": "ef1374bdef2fc36054292623a39c0470"
       },
       "id": "ef1374bdef2fc36054292623a39c0470",
@@ -14892,7 +14891,7 @@
         "video_saved": true,
         "video": "gabriela_2090_f85983fc8978aa97dec2132b47cd01d9.mp4",
         "answer": "Honestly, we just mourn. They don't torture us, most people in the valley of tears were tortured enough while they were alive.",
-	"arabic-question:"ماذا تفعلين في وادي الدموع طوال اليوم؟",
+	      "arabic-question":"ماذا تفعلين في وادي الدموع طوال اليوم؟",
         "_id": "f85983fc8978aa97dec2132b47cd01d9"
       },
       "id": "f85983fc8978aa97dec2132b47cd01d9",
@@ -15399,7 +15398,7 @@
       "key": "f85983fc8978aa97dec2132b47cdfd05",
       "doc": {
         "index": 2230,
-	"arabic-answer":"ينص النظام على أن الشخص يجب أن يكون ""مطرود"" من بلده لكي يعتبر لاجئ. وهذا بكل تأكيد غير منطقي. لا يوجد هناك طرد. إما أن تغادر، أو تقتل",
+	      "arabic-answer":"ينص النظام على أن الشخص يجب أن يكون مطرود من بلده لكي يعتبر لاجئ. وهذا بكل تأكيد غير منطقي. لا يوجد هناك طرد. إما أن تغادر، أو تقتل",
         "language": "Arabic",
         "question": "Why are you not considered a refugee?",
         "_rev": "2-757139ecde1978c0cb02f46ee83a477b",
