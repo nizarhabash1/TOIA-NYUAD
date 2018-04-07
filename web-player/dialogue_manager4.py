@@ -11,7 +11,7 @@ from collections import defaultdict
 from fractions import Fraction
 import json
 
-#import StarMorphModules
+import StarMorphModules
 
 import nltk
 
@@ -163,10 +163,10 @@ def createModel(characterdict, currentSession):
 					characterdict[character].wordMap[word].append(ID)
 
 
-			'''elif(language.strip('"')=="Arabic"):
+			elif(language.strip('"')=="Arabic"):
 
-				StarMorphModules.read_config("/CALIMA-STAR/Code/StarMorph/config_lex.xml")
-				StarMorphModules.initialize_from_file("/CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
+				StarMorphModules.read_config("../CALIMA-STAR/Code/StarMorph/config_lex.xml")
+				StarMorphModules.initialize_from_file("../CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
 				objWordList = [preprocess(tmp) for tmp in obj.question.split()]+ [preprocess(tmp) for tmp in obj.question.split()]
 
 				for word in objWordList:
@@ -203,7 +203,7 @@ def createModel(characterdict, currentSession):
 						characterdict[character].lemmatizedMap[lemma] = []
 
 					#adds the question to the list of objects related to the lemma
-					characterdict[character].lemmatizedMap[lemma].append(ID)'''
+					characterdict[character].lemmatizedMap[lemma].append(ID)
 	return currentSession
 
 
@@ -324,14 +324,15 @@ def direct_intersection_match_Arabic(query, characterdict):
 	maxVal=0
 	videoResponse= ''
 
+
+
 	for direct_string in queryList:
 		if direct_string in characterdict.wordMap.keys():
-
 			for vidResponse in characterdict.wordMap[direct_string]:
 				if vidResponse not in responses.keys():
-					responseList[vidResponse]= 0
+					responses[vidResponse]= 0
 				elif vidResponse in responses.keys():
-					responseList[vidResponse]+=1
+					responses[vidResponse]+=1
 
 
 	for key, value in responses.items():
@@ -340,7 +341,8 @@ def direct_intersection_match_Arabic(query, characterdict):
 			maxVal= int(value)
 			videoResponse= key
 
-	return characterdict[character].objectMap[videoResponse]
+	#return characterdict[character].objectMap[videoResponse]
+	return responses
 def stem_intersection_match_Arabic(query, characterdict):
 
 	print("Finding stem Intersection in Arabic")
@@ -352,8 +354,8 @@ def stem_intersection_match_Arabic(query, characterdict):
 	maxVal=0
 	videoResponse= ''
 
-	StarMorphModules.read_config("/CALIMA-STAR/Code/StarMorph/config_lex.xml")
-	StarMorphModules.initialize_from_file("/CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
+	StarMorphModules.read_config("../CALIMA-STAR/Code/StarMorph/config_lex.xml")
+	StarMorphModules.initialize_from_file("../CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
 
 	output = "".join(c for c in queryList if c not in ('!','.',':', '’' , '“', '”', '?'))
 
@@ -370,16 +372,16 @@ def stem_intersection_match_Arabic(query, characterdict):
 		if stem in characterdict.stemmedMap.keys():
 			for vidResponse in characterdict.stemmedMap[stem]:
 				if vidResponse not in responses.keys():
-					responseList[vidResponse]= 0
+					responses[vidResponse]= 0
 				elif vidResponse in responses.keys():
-					responseList[vidResponse]+=1
-
+					responses[vidResponse]+=1
 
 	for key, value in responses.items():
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
-	return characterdict[character].objectMap[videoResponse]
+	#return characterdict[character].objectMap[videoResponse]
+	return responses
 
 def lemma_intersection_match_Arabic(query, characterdict):
 
@@ -411,9 +413,9 @@ def lemma_intersection_match_Arabic(query, characterdict):
 		if lemma in characterdict.lemmatizedMap.keys():
 			for vidResponse in characterdict.lemmatizedMap[lemma]:
 				if vidResponse not in responses.keys():
-					responseList[vidResponse]= 0
+					responses[vidResponse]= 0
 				elif vidResponse in responses.keys():
-					responseList[vidResponse]+=1
+					responses[vidResponse]+=1
 
 
 	for key, value in responses.items():
@@ -421,7 +423,8 @@ def lemma_intersection_match_Arabic(query, characterdict):
 			maxVal= int(value)
 			videoResponse= key
 
-	return characterdict[character].objectMap[videoResponse]
+	#return characterdict[character].objectMap[videoResponse]
+	return responses
 
 def rankAnswers(videoResponses, currentSession):
 	#each repition is a given a weight of 2 e.g if a video has been played once 2 points will be subtracted from its matching score

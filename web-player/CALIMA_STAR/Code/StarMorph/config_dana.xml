@@ -13,11 +13,9 @@
 
 	<!--feature order: order starts from 1, value is feature name-->
 	<feature_order>
-		<feature order="1" value="diac"/>
 		<feature order="2" value="lex"/>
-		<feature order="4" value="gloss"/>
 		<feature order="23" value="stem"/>
-        <feature order="20" value="source"/>
+    
 	</feature_order>
 
 	<output_match>
