@@ -470,7 +470,7 @@ def findResponse(query, characterModel, currentSession):
 		themax= len(direct_match_english_responses)
 		best_response=direct_match_english_responses
 		print("direct max", themax)
-	
+
 
 
 	# if the responses are empty, play "I can't answer that response"
