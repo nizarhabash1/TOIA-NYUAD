@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, redirect
 import dialogue_manager4
 import logging
@@ -15,7 +16,7 @@ currentSession = None
 def default_page():
     global currentSession
     # initiates the model and a new session
-    currentSession = dialogue_manager4.createModel(characterModel, currentSession)
+    currentSession = dialogue_manager4.createModel(characterModel, currentSession,"Arabic")
 
     return render_template('index.html')
 

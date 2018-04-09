@@ -155,7 +155,7 @@ backoff = 'NONE'
 
 verbose = False
 
-verboseprint = print if verbose else lambda *a, **k:None
+#verboseprint = print if verbose else lambda *a, **k:None
 
 
 # read the config file, and save the variables as needed

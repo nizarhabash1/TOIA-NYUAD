@@ -17,6 +17,10 @@ import nltk
 
 import ssl
 
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
@@ -62,7 +66,7 @@ class videoRecording:
 		self.answer = answer
 		self.videoLink = video
 		self.language= language
-	
+
 
 	def toString(self):
 		print(self.id, ": ", self.character, "\n",self.question,"\n", self.answer, "\n", self.language, "\n")
@@ -95,10 +99,10 @@ def preprocess(line):
 #Initiates the model and create a new session
 def createModel(characterdict, currentSession, mylanguage):
 	#creates the new session
-	
+
 	currentSession = session('margarita')
 
-	f= open('static/scripts/all_characters.json', 'r', encoding='utf-8')
+	f= open('static/scripts/all_characters.json', 'r')
 
 	resp = json.load(f)
 
@@ -110,16 +114,16 @@ def createModel(characterdict, currentSession, mylanguage):
 				question= json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip("،.؟")
 				answer=json.dumps(resp["rows"][i]["doc"]["arabic-answer"],ensure_ascii=False).strip(".؟،")
 				#print("answer ",arabic_answer)
-			elif(mylanguage=="English"):	
+			elif(mylanguage=="English"):
 				question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.")
 				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.")
-			
+
 			video= json.dumps(resp["rows"][i]["doc"]["video"])
 			character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
 			#do we wanna give it ID ourselves or use the JSON one?
 			ID= json.dumps(resp["rows"][i]["doc"]["_id"])
 			language= json.dumps(resp["rows"][i]["doc"]["language"])
-			
+
 			#print(character)
 			obj= videoRecording(question, answer, video, character, language)
 
@@ -175,7 +179,7 @@ def createModel(characterdict, currentSession, mylanguage):
 					'''
 					StarMorphModules.read_config("config_dana.xml")
 					StarMorphModules.initialize_from_file("almor-s31.db","analyze")
-					
+
 					objStemmedList= [StarMorphModules.analyze_word(tmp.strip('؟ ، "'),False)[0].split()[1].replace("stem:", "") for tmp in obj.question.split() ] + [StarMorphModules.analyze_word(tmp.strip('؟ ، "'),False)[0].split()[1].replace("stem:", "") for tmp in obj.answer.split() ]
 					print("stemmed list: ", objStemmedList)
 					for stem in objStemmedList:
@@ -185,7 +189,7 @@ def createModel(characterdict, currentSession, mylanguage):
 
 						#adds the question to the list of objects related to the stem
 						characterdict[character].stemmedMap[stem].append(ID)
-					
+
 					#print(analyze)
 					objLemmatizedList= [StarMorphModules.analyze_word(tmp.strip('؟ ، "'),False)[0].split()[0].replace("lex:", "").split('_', 1)[0] for tmp in obj.question.split() ] + [StarMorphModules.analyze_word(tmp.strip('؟ ، "'),False)[0].split()[0].replace("lex:", "").split('_', 1)[0] for tmp in obj.answer.split() ]
 					print("lemmatized list: ", objLemmatizedList)
@@ -208,7 +212,7 @@ def createModel(characterdict, currentSession, mylanguage):
 
 						#adds the question to the list of objects related to the stem
 						characterdict[character].wordMap[word].append(ID)
-				
+
 
 	return currentSession
 
@@ -290,7 +294,7 @@ def stem_intersection_match_English(query, characterModel):
 
 def lemma_intersection_match_English(query, characterModel):
 	print("Finding Lemmatized intersection match in English")
-	
+
 	lemmatized_query= [lemmatizer.lemmatize(tmp.strip(' " ?!')) for tmp in query.lower().split()]
 	#print("lemmatized query: ", lemmatized_query)
 	responses={}
@@ -481,9 +485,9 @@ def findResponse(query, characterModel, currentSession):
 		best_response=direct_match_english_responses
 
 		print("direct max", themax)'''
-	
 
-		print("direct max", themax)
+
+	print("direct max", themax)
 
 
 
