@@ -479,8 +479,13 @@ def findResponse(query, characterModel, currentSession):
 	if(len(direct_match_english_responses)>themax):
 		themax= len(direct_match_english_responses)
 		best_response=direct_match_english_responses
+
 		print("direct max", themax)'''
 	
+
+		print("direct max", themax)
+
+
 
 
 	# if the responses are empty, play "I can't answer that response"
