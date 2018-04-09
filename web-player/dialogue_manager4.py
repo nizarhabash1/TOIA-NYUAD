@@ -17,10 +17,6 @@ import nltk
 
 import ssl
 
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
-
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
@@ -102,7 +98,7 @@ def createModel(characterdict, currentSession, mylanguage):
 
 	currentSession = session('margarita')
 
-	f= open('static/scripts/all_characters.json', 'r')
+	f= open('static/scripts/all_characters.json', 'r', encoding='utf-8')
 
 	resp = json.load(f)
 
