@@ -62,6 +62,7 @@ class videoRecording:
 		self.answer = answer
 		self.videoLink = video
 		self.language= language
+	
 
 	def toString(self):
 		print(self.id, ": ", self.character, "\n",self.question,"\n", self.answer, "\n", self.language, "\n")
@@ -83,7 +84,7 @@ def intersect(a, b):
 
 #preprocessing for Arabic
 def preprocess(line):
-	processed= line.encode('utf-8').replace("؟" , "")
+	processed= line.replace("؟" , "")
 	processed= processed.replace("أ" , "ا")
 	processed= processed.replace("إ", "ا")
 	processed= processed.replace("ى", "ي")
@@ -92,11 +93,12 @@ def preprocess(line):
 	return processed
 
 #Initiates the model and create a new session
-def createModel(characterdict, currentSession):
+def createModel(characterdict, currentSession, mylanguage):
 	#creates the new session
+	
 	currentSession = session('margarita')
 
-	f= open('static/scripts/all_characters.json', 'r')
+	f= open('static/scripts/all_characters.json', 'r', encoding='utf-8')
 
 	resp = json.load(f)
 
@@ -104,15 +106,20 @@ def createModel(characterdict, currentSession):
 
 		if("question" in resp["rows"][i]["doc"].keys()):
 			# remove all the special characters from both questions and answers
-			question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.")
-			answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.")
+			if(mylanguage== "Arabic" and "arabic-question"in resp["rows"][i]["doc"].keys() and "arabic-answer"in resp["rows"][i]["doc"].keys()):
+				question= json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip("،.؟")
+				answer=json.dumps(resp["rows"][i]["doc"]["arabic-answer"],ensure_ascii=False).strip(".؟،")
+				#print("answer ",arabic_answer)
+			elif(mylanguage=="English"):	
+				question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.")
+				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.")
+			
 			video= json.dumps(resp["rows"][i]["doc"]["video"])
 			character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
 			#do we wanna give it ID ourselves or use the JSON one?
 			ID= json.dumps(resp["rows"][i]["doc"]["_id"])
 			language= json.dumps(resp["rows"][i]["doc"]["language"])
-
-
+			
 			#print(character)
 			obj= videoRecording(question, answer, video, character, language)
 
@@ -129,11 +136,10 @@ def createModel(characterdict, currentSession):
 			characterdict[character].objectMap[ID] = obj
 
 			# stemming the question and answer and adding the stems into model.stemmedMap
-			if(language.strip(' " ')=="English"):
+			if(mylanguage=="English"):
 				objStemmedList = [porterStemmer.stem(tmp.strip(' " ?!')) for tmp in question.split() ] + [porterStemmer.stem(tmp) for tmp in obj.answer.split() ]
-
+				#print("stemmed list: ", objStemmedList)
 				for stem in objStemmedList:
-
 					# creates a list for objects related to the stem if the list does not exist already
 					if stem not in characterdict[character].stemmedMap.keys():
 						characterdict[character].stemmedMap[stem] = []
@@ -143,8 +149,9 @@ def createModel(characterdict, currentSession):
 
 				# lemmatize the question and answer and adding the stems into model.lemmatizedMap
 				objLemmatizedList = [lemmatizer.lemmatize(tmp.strip(' " ?!')) for tmp in question.split() ] + [lemmatizer.lemmatize(tmp) for tmp in answer.split() ]
-
+				#print("lemmatized list: ", objLemmatizedList)
 				for lemma in objLemmatizedList:
+					#print("adding lemmas")
 					if lemma not in characterdict[character].lemmatizedMap.keys():
 						characterdict[character].lemmatizedMap[lemma] = []
 
@@ -153,8 +160,9 @@ def createModel(characterdict, currentSession):
 
 	            # lemmatize the question and answer and adding the stems into model.lemmatizedMap
 				objWordList = question.split() + answer.split()
-
+				print("word list: ", objWordList)
 				for word in objWordList:
+					#print("adding direct words")
 					word = word.strip(' " ?!')
 					if word not in characterdict[character].wordMap.keys():
 						characterdict[character].wordMap[word] = []
@@ -163,47 +171,45 @@ def createModel(characterdict, currentSession):
 					characterdict[character].wordMap[word].append(ID)
 
 
-			elif(language.strip('"')=="Arabic"):
+			elif(mylanguage=="Arabic"):
+					'''
+					StarMorphModules.read_config("config_dana.xml")
+					StarMorphModules.initialize_from_file("almor-s31.db","analyze")
+					
+					objStemmedList= [StarMorphModules.analyze_word(tmp.strip('؟ ، "'),False)[0].split()[1].replace("stem:", "") for tmp in obj.question.split() ] + [StarMorphModules.analyze_word(tmp.strip('؟ ، "'),False)[0].split()[1].replace("stem:", "") for tmp in obj.answer.split() ]
+					print("stemmed list: ", objStemmedList)
+					for stem in objStemmedList:
+						# creates a list for objects related to the stem if the list does not exist already
+						if stem not in characterdict[character].stemmedMap.keys():
+							characterdict[character].stemmedMap[stem] = []
 
-				StarMorphModules.read_config("../CALIMA-STAR/Code/StarMorph/config_lex.xml")
-				StarMorphModules.initialize_from_file("../CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
-				objWordList = [preprocess(tmp) for tmp in obj.question.split()]+ [preprocess(tmp) for tmp in obj.question.split()]
+						#adds the question to the list of objects related to the stem
+						characterdict[character].stemmedMap[stem].append(ID)
+					
+					#print(analyze)
+					objLemmatizedList= [StarMorphModules.analyze_word(tmp.strip('؟ ، "'),False)[0].split()[0].replace("lex:", "").split('_', 1)[0] for tmp in obj.question.split() ] + [StarMorphModules.analyze_word(tmp.strip('؟ ، "'),False)[0].split()[0].replace("lex:", "").split('_', 1)[0] for tmp in obj.answer.split() ]
+					print("lemmatized list: ", objLemmatizedList)
+					for lemma in objLemmatizedList:
+						#print("adding lemmas")
+						if lemma not in characterdict[character].lemmatizedMap.keys():
+							characterdict[character].lemmatizedMap[lemma] = []
 
-				for word in objWordList:
-					#direct strings
-					if word not in characterdict[character].wordMap.keys():
-						characterdict[character].wordMap[word] = []
+						#adds the question to the list of objects related to the stem
+						characterdict[character].lemmatizedMap[lemma].append(ID)'''
 
-					#adds the question to the list of objects related to the direct word
-					characterdict[character].wordMap[word].append(ID)
+		            # lemmatize the question and answer and adding the stems into model.lemmatizedMap
+					objWordList = question.split() + answer.split()
+					print("word list: ", objWordList)
+					for word in objWordList:
+						#print("adding direct words")
+						word = word.strip(' " ?!')
+						if word not in characterdict[character].wordMap.keys():
+							characterdict[character].wordMap[word] = []
 
-					#analyze question and answer pair
-					analyzed= StarMorphModules.analyze_word(word,False)
+						#adds the question to the list of objects related to the stem
+						characterdict[character].wordMap[word].append(ID)
+				
 
-					#stemmed version
-					stemList=(analyzed[0].replace("stem:", ""))
-					objStemmedList+=" "+stemList
-
-					#lemmatized version
-					lemmatizedList=(analyzed[0].replace("lex:", ""))
-					lemmatizedList=lemmatizedList.strip("1_")
-					objLemmatizedList +=" "+lemmatizedQuery
-
-
-				for stem in objStemmedList:
-					# creates a list for objects related to the stem if the list does not exist already
-					if stem not in characterdict[character].stemmedMap.keys():
-						characterdict[character].stemmedMap[stem] = []
-
-					#adds the question to the list of objects related to the stem
-					characterdict[character].stemmedMap[stem].append(ID)
-
-				for lemma in objLemmatizedList:
-					if lemma not in characterdict[character].lemmatizedMap.keys():
-						characterdict[character].lemmatizedMap[lemma] = []
-
-					#adds the question to the list of objects related to the lemma
-					characterdict[character].lemmatizedMap[lemma].append(ID)
 	return currentSession
 
 
@@ -249,6 +255,7 @@ def direct_intersection_match_English(query, characterModel):
 def stem_intersection_match_English(query, characterModel):
 	print("Finding Stemmed Intersection Match in English")
 	stemmed_query= [porterStemmer.stem(tmp.strip(' " ?!')) for tmp in query.lower().split()]
+	#print("stemmed query: ", stemmed_query)
 	responses={}
 	maxVal=0
 	videoResponse= ''
@@ -283,7 +290,9 @@ def stem_intersection_match_English(query, characterModel):
 
 def lemma_intersection_match_English(query, characterModel):
 	print("Finding Lemmatized intersection match in English")
+	
 	lemmatized_query= [lemmatizer.lemmatize(tmp.strip(' " ?!')) for tmp in query.lower().split()]
+	#print("lemmatized query: ", lemmatized_query)
 	responses={}
 	maxVal=0
 	videoResponse= ''
@@ -317,7 +326,7 @@ def lemma_intersection_match_English(query, characterModel):
 
 def direct_intersection_match_Arabic(query, characterdict):
 	print("Finding Direct Intersection in Arabic")
-	queryList= query.encode('utf-8').strip('؟').split()
+	queryList= query.strip('؟').split()
 	#queryList.encode('utf-8')
 
 	responses={}
@@ -325,8 +334,9 @@ def direct_intersection_match_Arabic(query, characterdict):
 	videoResponse= ''
 
 
-
+	print(characterdict.wordMap.keys())
 	for direct_string in queryList:
+		print(direct_string)
 		if direct_string in characterdict.wordMap.keys():
 			for vidResponse in characterdict.wordMap[direct_string]:
 				if vidResponse not in responses.keys():
@@ -346,7 +356,7 @@ def direct_intersection_match_Arabic(query, characterdict):
 def stem_intersection_match_Arabic(query, characterdict):
 
 	print("Finding stem Intersection in Arabic")
-	queryList = query.encode('utf-8').strip('؟').split()
+	queryList = query.strip('؟').split()
 	#queryList.encode('utf-8')
 
 
@@ -354,23 +364,21 @@ def stem_intersection_match_Arabic(query, characterdict):
 	maxVal=0
 	videoResponse= ''
 
-	StarMorphModules.read_config("../CALIMA-STAR/Code/StarMorph/config_lex.xml")
-	StarMorphModules.initialize_from_file("../CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
-
-	output = "".join(c for c in queryList if c not in ('!','.',':', '’' , '“', '”', '?'))
-
-	queryList= preprocess(output)
+	StarMorphModules.read_config("config_stem.xml")
+	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 
 	stemmed_query= ""
-	for word in queryList.split():
+	for word in queryList:
+		print(word)
 		analyzedQuery=StarMorphModules.analyze_word(word,False)
 		stemQuery=(analyzedQuery[0].replace("stem:", ""))
-		stemmed_query+=" "+stemQuery
-	print(stemmed_query)
+		#print(stemQuery)
+		stemmed_query+=stemQuery
+	print(preprocess(stemmed_query))
 
 	for stem in stemmed_query:
-		if stem in characterdict.stemmedMap.keys():
-			for vidResponse in characterdict.stemmedMap[stem]:
+		if stem in characterdict.wordMap.keys():
+			for vidResponse in characterdict.wordMap[stem]:
 				if vidResponse not in responses.keys():
 					responses[vidResponse]= 0
 				elif vidResponse in responses.keys():
@@ -386,7 +394,7 @@ def stem_intersection_match_Arabic(query, characterdict):
 def lemma_intersection_match_Arabic(query, characterdict):
 
 	print("Finding stem Intersection in Arabic")
-	queryList = query.encode('utf-8').strip('؟').split()
+	queryList = query.strip('؟').split()
 	#queryList.encode('utf-8')
 
 
@@ -394,18 +402,17 @@ def lemma_intersection_match_Arabic(query, characterdict):
 	maxVal=0
 	videoResponse= ''
 
-	StarMorphModules.read_config("/CALIMA-STAR/Code/StarMorph/config_lex.xml")
-	StarMorphModules.initialize_from_file("/CALIMA-STAR/Code/StarMorph/almor-s31.db","analyze")
+	StarMorphModules.read_config("config_lex.xml")
+	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 
-	output = "".join(c for c in queryList if c not in ('!','.',':', '’' , '“', '”', '?'))
-	queryList= preprocess(output)
 
 	lemmatized_query= ""
-	for word in queryList.split():
+	for word in queryList:
 		analyzedQuery=StarMorphModules.analyze_word(word,False)
+		#print(analyzedQuery)
 		lexQuery=(analyzedQuery[0].replace("lex:", ""))
 		lexQuery=lexQuery.strip("1_")
-		lemmatized_query+=" "+llexQuery
+		lemmatized_query+=lexQuery
 
 	print(lemmatized_query)
 
@@ -424,6 +431,7 @@ def lemma_intersection_match_Arabic(query, characterdict):
 			videoResponse= key
 
 	#return characterdict[character].objectMap[videoResponse]
+	print(responses)
 	return responses
 
 def rankAnswers(videoResponses, currentSession):
@@ -446,9 +454,11 @@ def rankAnswers(videoResponses, currentSession):
 
 def findResponse(query, characterModel, currentSession):
 	themax=0
+	best_response=''
 	#different modes of matching
 	print("My repititions")
 	print(currentSession.repetitions)
+	'''
 	stem_match_english_responses= stem_intersection_match_English(query, characterModel)
 	lemma_match_english_responses= lemma_intersection_match_English(query, characterModel)
 	direct_match_english_responses= direct_intersection_match_English(query, characterModel)
@@ -469,11 +479,12 @@ def findResponse(query, characterModel, currentSession):
 	if(len(direct_match_english_responses)>themax):
 		themax= len(direct_match_english_responses)
 		best_response=direct_match_english_responses
-		print("direct max", themax)
+		print("direct max", themax)'''
 	
 
 
 	# if the responses are empty, play "I can't answer that response"
+	best_response= lemma_intersection_match_Arabic(query, characterModel)
 	if bool(best_response) == False:
 		if currentSession.currentAvatar == "gabriela":
 			final_answer = '"f85983fc8978aa97dec2132b47cff20c"'
@@ -551,7 +562,7 @@ def sayBye(corpus):
 def main():
 	currentSession = None
 
-	currentSession = createModel(characterdict, currentSession)
+	currentSession = createModel(characterdict, currentSession, "Arabic" )
 	#print(characterdict["margarita"].lemmatizedMap['speak'])
 	while True:
 		user_input = input("What do you have to ask\n")
