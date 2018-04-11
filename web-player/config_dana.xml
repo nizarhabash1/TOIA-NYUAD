@@ -13,9 +13,35 @@
 
 	<!--feature order: order starts from 1, value is feature name-->
 	<feature_order>
-		<feature order="2" value="lex"/>
-		<feature order="23" value="stem"/>
-    
+		<feature order="1" value="lex"/>
+		<feature order="2" value="stem"/>
+		<feature order="3" value="diac"/>
+		<feature order="4" value="bw"/>
+		<feature order="5" value="gloss"/>
+		<feature order="6" value="pos"/>
+		<feature order="7" value="prc3"/>
+		<feature order="8" value="prc2"/>
+		<feature order="9" value="prc1"/>
+		<feature order="10" value="prc0"/>
+		<feature order="11" value="per"/>
+		<feature order="12" value="asp"/>
+		<feature order="13" value="vox"/>
+		<feature order="14" value="mod"/>
+		<feature order="15" value="gen"/>
+		<feature order="16" value="num"/>
+		<feature order="17" value="form_gen"/>
+		<feature order="18" value="form_num"/>
+		<feature order="19" value="stt"/>
+		<feature order="20" value="cas"/>
+		<feature order="21" value="enc0"/>
+		<feature order="22" value="rat"/>
+		<feature order="23" value="source"/>
+		<feature order="24" value="stemcat"/>
+		<feature order="25" value="atbtok"/>
+		<feature order="26" value="d3seg"/>
+		<feature order="27" value="ud"/>
+		<feature order="28" value="root"/>
+		<feature order="29" value="pattern"/>    
 	</feature_order>
 
 	<output_match>

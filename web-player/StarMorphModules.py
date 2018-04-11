@@ -1,12 +1,12 @@
-# -*- coding: utf-8 -*-
-
 import sys
 import pickle
 import re
 import xml.etree.ElementTree as ET
+import io
 import os
 import CalimaStarUtils
 import inspect
+from collections import deque
 
 # the hash of the define values from the db file - used to store valid values for each feature
 define_hash = {}
@@ -47,7 +47,7 @@ prefix_suffix_compatibility = {}
 
 # the list of features that will not be taken into consideration when generating words in the generate and reinflect
 # functions
-features_not_for_generation = ['diac', 'lex', 'bw', 'gloss', 'source', 'stem', 'stemcat', 'lmm', 'dediac', 'seg', 'tok']
+features_not_for_generation = ['diac', 'lex', 'bw', 'gloss', 'source', 'stem', 'stemcat', 'lmm', 'dediac', 'caphi', 'catib6', 'ud', 'd3seg', 'atbseg', 'd2seg', 'd1seg', 'd1tok', 'd2tok', 'atbtok', 'd3tok', 'root', 'pattern', 'freq', 'POS_prob']
 # the list of features that will not be taken into consideration when generating words in the reinflect function when a
 # proclitic or enclitic is given
 special_case_features_not_for_generation = ["stt", "cas", "mod"]
@@ -65,7 +65,7 @@ generation_memo_hash = {}
 reinflection_memo_hash = {}
 
 # features which should be concatinated when generating analysis
-concatinating_features = ['diac', 'bw', 'gloss', 'seg', 'tok', 'pattern', 'caphi']
+concatinating_features = ['diac', 'bw', 'gloss', 'pattern', 'caphi', 'catib6', 'ud', 'd3seg', 'atbseg', 'd2seg', 'd1seg', 'd1tok', 'd2tok', 'atbtok', 'd3tok']
 # features which will be overwritten in suffix > prefix > stem order when generating analyses
 overwritten_features = ['lex', 'pos', 'prc3', 'prc2', 'prc1', 'prc0', 'per', 'asp', 'vox', 'mod', 'gen', 'num', 'stt',
                         'cas', 'enc0', 'rat', 'form_gen', 'form_num']
@@ -81,7 +81,7 @@ encoding_values = ['bw', 'safebw', 'utf8', 'hsb', 'arabtex']
 # the possible values for features
 feature_values = ['diac', 'lex', 'root', 'bw', 'pattern', 'pos', 'gloss', 'prc3', 'prc2', 'prc1', 'prc0', 'per', 'asp',
                   'vox', 'mod', 'gen', 'num', 'stt', 'cas', 'enc0', 'rat', 'source', 'stem', 'stemcat', 'lmm',
-                  'dediac', 'seg', 'tok', 'caphi', 'freq', 'form_gen', 'form_num']
+                  'dediac', 'caphi', 'freq','POS_prob', 'form_gen', 'form_num', 'catib6', 'ud', 'd3seg', 'atbseg', 'd2seg', 'd1seg', 'd1tok', 'd2tok', 'atbtok', 'd3tok']
 # the possible values for matching options
 output_match_values = ['diac_match', 'orthographic_match']
 # the possible values for diac_match
@@ -111,13 +111,14 @@ clean_up_doc = False
 # the features and order in which they will be printed in the output file
 feature_order = ['diac', 'lex', 'root', 'bw', 'pattern', 'pos', 'gloss', 'prc3', 'prc2', 'prc1', 'prc0', 'per', 'asp',
                  'vox', 'mod', 'gen', 'num', 'form_gen', 'form_num', 'stt', 'cas', 'enc0', 'rat', 'source', 'stem', 'stemcat', 'lmm',
-                 'dediac', 'seg', 'tok', 'caphi', 'freq']
+                 'dediac', 'caphi', 'freq', 'catib6', 'ud', 'd3seg', 'atbseg', 'd2seg', 'd1seg', 'd1tok', 'd2tok', 'atbtok', 'd3tok']
 # the extent of diac_match for generating and sorting output
 diac_match = 'none'
 # the extent of ortho_match for generating and sorting output
 orthographic_match = 'none'
 # the hash of the characters that need to be normalized
 normalization = {}
+normalization_re = {}
 # the order in which the analyses will be sorted for display purposes
 analysis_order = 'random'
 # the hash in which the tokenization options and schemes will be saved - key: tokenization option, value: list of
@@ -157,6 +158,21 @@ verbose = False
 
 verboseprint = print if verbose else lambda *a, **k:None
 
+# A hash for the BW POS probability unigram model 
+POS_prob_hash = {}
+
+diac_pattern = re.compile("^(\s|[aiuo~`FKN])*$")  # to match words containing only diacs
+digit_pattern = re.compile("\d+")
+punct_pattern = re.compile("^\s*[\-=\"_:#@!?^/()\[\]%;\\\+.,]+\s*$")
+
+analyze_with_backoff_re = re.compile(r'NOAN')
+
+FA_re = re.compile("FA")
+FY_re = re.compile("FY")
+AF_re = re.compile("AF")
+YF_re = re.compile("YF")
+
+split_lemma = re.compile('([_-])')
 
 # read the config file, and save the variables as needed
 def read_config(config_file):
@@ -173,12 +189,14 @@ def read_config(config_file):
     global diac_match
     global orthographic_match
     global normalization
+    global normalization_re
     global analysis_order
     global tokenization
     global tnwyn_ftH
     global ftHp_Alf
     global memoization
     global backoff
+    global POS_prob_hash
 
     tree = ET.parse(os.path.abspath(config_file))
     root = tree.getroot()
@@ -239,6 +257,13 @@ def read_config(config_file):
             feature_order = []
             for order in orders:
                 feature_order.append(feat_order[order])
+            if 'POS_prob' in feature_order:
+                POS_text = open('clitic_only_bw_POS.lm', 'r').readlines()
+                POS_prob_hash = {}
+                for POS_line in POS_text:
+                    POS = POS_line.rstrip().split('\t')[1]
+                    freq = POS_line.rstrip().split('\t')[0]
+                    POS_prob_hash[POS] = freq
             print()
         elif tag == 'output_match':
             for grand_child in child:
@@ -265,6 +290,7 @@ def read_config(config_file):
                 if original in xml_special_char_values:
                     original = xml_special_char_values[original]
                 normalization[original] = normalized
+            normalization_re = CalimaStarUtils.gen_normalize_re(normalization)
         elif tag == 'analysis_order':
             value = attrib['value'].lower()
             if value not in analysis_order_values:
@@ -314,6 +340,7 @@ def read_config(config_file):
                 backoff = value
             else:
                 print("WARNING: 'backoff' value is invalid. Default value 'NONE' will be assumed.")
+    # print(feat_order)
 
 # initialize from a db file
 # no need to previously install db prior to this initialize
@@ -347,171 +374,183 @@ def initialize_from_file(database, mode):
         print("database cannot be opened\n")
         sys.exit(2)
 
-    line = db_file.readline().rstrip()
+    line = db_file.readline()
     while "DEFAULT" not in line:
         if line.startswith("#"):
-            line = db_file.readline().rstrip()
-            pass
+            line = db_file.readline().strip()
+
         elements = line.split(" ")
-        key = elements[1].rstrip()
+        key = elements[1]
         define_hash[key] = []
         for value in elements[2:]:
-            feature_value = value.split(":")[1].rstrip()
+            feature_value = value.split(":")[1]
             define_hash[key].append(feature_value)
-        line = db_file.readline().rstrip()
+        line = db_file.readline().strip()
 
     while "ORDER" not in line:
         if line.startswith("#"):
-            line = db_file.readline().rstrip()
-            pass
+            line = db_file.readline().strip()
+
         elements = line.split(" ")
-        key = elements[1].split(":")[1].rstrip()
+        key = elements[1].split(":")[1]
         default_hash[key] = {}
         for element in elements[2:]:
             element_key = element.split(":")[0]
             element_value = element.split(":")[1]
             default_hash[key][element_key] = element_value
-        line = db_file.readline().rstrip()
+        line = db_file.readline().strip()
 
     while "STEMBACKOFF" not in line:
         line = db_file.readline()
-        pass
 
     while "PREFIX" not in line:
         if line.startswith("#"):
-            line = db_file.readline().rstrip()
-            pass
+            line = db_file.readline().strip()
+
         elements = line.split(" ")
         key = elements[1]
         backoff_hash[key] = []
         for element in elements[2:]:
             backoff_hash[key].append(element)
-        line = db_file.readline().rstrip()
+        line = db_file.readline().strip()
 
 
     while "SUFFIX" not in line:
         if line.startswith("#"):
-            line = db_file.readline().rstrip()
-            pass
+            line = db_file.readline()
+
         elements = line.split("\t")
 
         if mode == 'analyze' or mode == 'reinflect':
-            key = elements[0].rstrip()
+            key = elements[0]
 
             if len(elements) == 2:
+                temp_list = (elements[1], {})
                 if key in prefix_hash:
-                    temp_list = []
-                    temp_list.append(elements[1])
-                    temp_list.append(' ')
                     prefix_hash[key].append(temp_list)
                 else:
-                    prefix_hash[key] = []
-                    temp_list = []
-                    temp_list.append(elements[1])
-                    temp_list.append(' ')
-                    prefix_hash[key].append(temp_list)
+                    prefix_hash[key] = [temp_list]
             else:
+                temp_list = (elements[1], __get_features_hash(elements[2]))
                 if key in prefix_hash:
-                    prefix_hash[key].append(elements[1:])
+                    prefix_hash[key].append(temp_list)
                 else:
-                    prefix_hash[key] = []
-                    prefix_hash[key].append(elements[1:])
+                    prefix_hash[key] = [temp_list]
 
         # todo: rewrite the code to fix the structure of prefix_cat_hash
         if mode == 'generate' or mode == 'reinflect':
-            key = elements[1].rstrip()
+            key = elements[1]
 
             if len(elements) == 2:
+                # if key in prefix_hash:
+                #     temp_list = []
+                #     temp_list.append(' ')
+                #     prefix_cat_hash[key].append(temp_list)
+                # else:
+                #     prefix_cat_hash[key] = []
+                #     temp_list = []
+                #     temp_list.append(' ')
+                #     prefix_cat_hash[key].append(temp_list)
+                temp_list = ()
                 if key in prefix_hash:
-                    temp_list = []
-                    temp_list.append(' ')
                     prefix_cat_hash[key].append(temp_list)
                 else:
-                    prefix_cat_hash[key] = []
-                    temp_list = []
-                    temp_list.append(' ')
-                    prefix_cat_hash[key].append(temp_list)
+                    prefix_cat_hash[key] = [temp_list]
             else:
+                # if key in prefix_cat_hash:
+                #     for element in elements[2:]:
+                #         if element not in prefix_cat_hash[key]:
+                #             prefix_cat_hash[key].append(elements[2:])
+                # else:
+                #     prefix_cat_hash[key] = []
+                #     prefix_cat_hash[key].append(elements[2:])
+                temp_list = (__get_features_hash(elements[2]))
                 if key in prefix_cat_hash:
                     for element in elements[2:]:
                         if element not in prefix_cat_hash[key]:
-                            prefix_cat_hash[key].append(elements[2:])
+                            prefix_cat_hash[key].append(temp_list)
                 else:
-                    prefix_cat_hash[key] = []
-                    prefix_cat_hash[key].append(elements[2:])
+                    prefix_cat_hash[key] = [temp_list]
+                    
 
-        line = db_file.readline().rstrip()
+        line = db_file.readline()
 
     while "STEM" not in line:
         if line.startswith("#"):
-            line = db_file.readline().rstrip()
-            pass
+            line = db_file.readline()
+
         elements = line.split("\t")
         if mode == 'analyze' or mode == 'reinflect':
-            key = elements[0].rstrip()
+            key = elements[0]
 
             if len(elements) == 2:
+                temp_list = (elements[1], {})
                 if key in suffix_hash:
-                    temp_list = []
-                    temp_list.append(elements[1])
-                    temp_list.append(' ')
                     suffix_hash[key].append(temp_list)
                 else:
-                    suffix_hash[key] = []
-                    temp_list = []
-                    temp_list.append(elements[1])
-                    temp_list.append(' ')
-                    suffix_hash[key].append(temp_list)
+                    suffix_hash[key] = [temp_list]
             else:
+                temp_list = (elements[1], __get_features_hash(elements[2]))
                 if key in suffix_hash:
-                    suffix_hash[key].append(elements[1:])
+                    suffix_hash[key].append(temp_list)
                 else:
-                    suffix_hash[key] = []
-                    suffix_hash[key].append(elements[1:])
+                    suffix_hash[key] = [temp_list]
 
         # todo: rewrite the code to fix the structure of suffix_cat_hash
         if mode == 'generate' or mode == 'reinflect':
-            key = elements[1].rstrip()
+            key = elements[1]
 
             if len(elements) == 2:
+                # if key in suffix_cat_hash:
+                #     temp_list = []
+                #     temp_list.append(' ')
+                #     suffix_cat_hash[key].append(temp_list)
+                # else:
+                #     suffix_cat_hash[key] = []
+                #     temp_list = []
+                #     temp_list.append(' ')
+                #     suffix_cat_hash[key].append(temp_list)
+                temp_list = ()
                 if key in suffix_cat_hash:
-                    temp_list = []
-                    temp_list.append(' ')
                     suffix_cat_hash[key].append(temp_list)
                 else:
-                    suffix_cat_hash[key] = []
-                    temp_list = []
-                    temp_list.append(' ')
-                    suffix_cat_hash[key].append(temp_list)
+                    suffix_cat_hash[key] = [temp_list]
             else:
+                # if key in suffix_cat_hash:
+                #     for element in elements[2:]:
+                #         if element not in suffix_cat_hash[key]:
+                #             suffix_cat_hash[key].append(elements[2:])
+                # else:
+                #     suffix_cat_hash[key] = []
+                #     suffix_cat_hash[key].append(elements[2:])
+                temp_list = (__get_features_hash(elements[2]))
                 if key in suffix_cat_hash:
                     for element in elements[2:]:
                         if element not in suffix_cat_hash[key]:
-                            suffix_cat_hash[key].append(elements[2:])
+                            suffix_cat_hash[key].append(temp_list)
                 else:
-                    suffix_cat_hash[key] = []
-                    suffix_cat_hash[key].append(elements[2:])
+                    suffix_cat_hash[key] = [temp_list]
 
-        line = db_file.readline().rstrip()
+        line = db_file.readline()
 
     while "TABLE AB" not in line:
         if line.startswith("#"):
-            line = db_file.readline().rstrip()
+            line = db_file.readline()
             pass
         elements = line.split("\t")
 
         if mode == 'analyze' or mode == 'reinflect':
-            key = elements[0].rstrip()
+            key = elements[0]
+            temp_list = (elements[1], __get_features_hash(elements[2]))
             if key in stem_hash:
-                stem_hash[key].append(elements[1:])
+                stem_hash[key].append(temp_list)
             else:
-                stem_hash[key] = []
-                stem_hash[key].append(elements[1:])
+                stem_hash[key] = [temp_list]
 
         if mode == 'generate' or mode == 'reinflect':
             feature_toks = elements[2].split(' ')
             key = feature_toks[1].split(":")[1]
-            key = re.split('[_-]', key)[0].rstrip()
+            key = re.split('[_-]', key)[0]
             if key in lemma_hash:
                 if element not in lemma_hash[key]:
                     lemma_hash[key].append(elements[2] + " " + "stemcat:" + elements[1])
@@ -519,19 +558,18 @@ def initialize_from_file(database, mode):
                 lemma_hash[key] = []
                 lemma_hash[key].append(elements[2] + " " + "stemcat:" + elements[1])
 
-        line = db_file.readline().rstrip()
+        line = db_file.readline()
 
     while "TABLE BC" not in line:
         if line.startswith("#"):
-            line = db_file.readline().rstrip()
-            pass
+            line = db_file.readline()
 
         if mode == 'analyze' or mode == 'reinflect':
             prefix_stem_compatibility[line.rstrip()] = None
 
         if mode == 'generate' or mode == 'reinflect':
             elements = line.split(" ")
-            key = elements[1]
+            key = elements[1].rstrip()
             value = elements[0]
             if key in stem_prefix_compatibility_hash:
                 stem_prefix_compatibility_hash[key].append(value)
@@ -540,12 +578,10 @@ def initialize_from_file(database, mode):
                 temp_list.append(value)
                 stem_prefix_compatibility_hash[key] = temp_list
 
-        line = db_file.readline().rstrip()
-
+        line = db_file.readline()
     while "TABLE AC" not in line:
         if line.startswith("#"):
-            line = db_file.readline().rstrip()
-            pass
+            line = db_file.readline()
 
         if mode == 'analyze' or mode == 'reinflect':
             stem_suffix_compatibility[line.rstrip()] = None
@@ -553,7 +589,8 @@ def initialize_from_file(database, mode):
         if mode == 'generate' or mode == 'reinflect':
             elements = line.split(" ")
             key = elements[0]
-            value = elements[1]
+            value = elements[1].rstrip()
+            # temp_list = (value)
             if key in stem_suffix_compatibility_hash:
                 stem_suffix_compatibility_hash[key].append(value)
             else:
@@ -561,15 +598,15 @@ def initialize_from_file(database, mode):
                 temp_list.append(value)
                 stem_suffix_compatibility_hash[key] = temp_list
 
-        line = db_file.readline().rstrip()
-
+        line = db_file.readline()
+    
     while line:
         if line.startswith("#"):
-            line = db_file.readline().rstrip()
-            pass
+            line = db_file.readline()
+
         prefix_suffix_compatibility[line.rstrip()] = None
 
-        line = db_file.readline().rstrip()
+        line = db_file.readline()
 
     if mode == 'analyze' or mode == 'reinflect':
         prefix_keys = list(prefix_hash.keys())
@@ -641,7 +678,7 @@ def analyze_word(input_word, v):
     verbose = v
 
     if clean_up_doc:
-        clean_words = CalimaStarUtils.clean_line(input_word).split(' ')
+        clean_words = CalimaStarUtils.clean_line(input_word).split()
         all_analyses = []
         if len(clean_words) > 1:
             for clean_word in clean_words:
@@ -656,15 +693,10 @@ def analyze_word(input_word, v):
         if word in analysis_memo_hash:
             return analysis_memo_hash[word]
 
-    analyses = []
-
-    word = word.rstrip()
-
-    diac_pattern = re.compile("^(\s|[aiuo~`FKN])*$")  # to match words containing only diacs
-    digit_pattern = re.compile("\d+")
-    punct_pattern = re.compile("^\s*[\-=\"_:#@!?^/()\[\]%;\\\+.,]+\s*$")
+    analyses = deque()
 
     if word is None or word is '':
+        # print('{} - No word!!!!'.format(input_word))
         return None
 
     elif (not extended_alpha and any(x in word for x in non_bw)) or (
@@ -676,6 +708,7 @@ def analyze_word(input_word, v):
         default_analysis["gloss"] = word
         default_analysis["source"] = "foreign"
         analyses.append(CalimaStarUtils.printer(default_analysis, output_encoding, feature_order, tokenization))
+        # analyses.append(default_analysis)
         return analyses
 
     elif digit_pattern.search(word) is not None:
@@ -686,6 +719,7 @@ def analyze_word(input_word, v):
         default_analysis["gloss"] = word
         default_analysis["source"] = "punc"
         analyses.append(CalimaStarUtils.printer(default_analysis, output_encoding, feature_order, tokenization))
+        # analyses.append(default_analysis)
         return analyses
 
     elif punct_pattern.search(word) is not None:
@@ -696,6 +730,7 @@ def analyze_word(input_word, v):
         default_analysis["gloss"] = word
         default_analysis["source"] = "digit"
         analyses.append(CalimaStarUtils.printer(default_analysis, output_encoding, feature_order, tokenization))
+        # analyses.append(default_analysis)
         return analyses
 
     match_word = word
@@ -703,53 +738,58 @@ def analyze_word(input_word, v):
 
     unvoc_word = match_word
 
-    match_word = CalimaStarUtils.normalize(match_word, normalization)
+    match_word = CalimaStarUtils.normalize(match_word, normalization, normalization_re)
 
     segmentations = __segment(match_word)
 
     for segmentation in segmentations:
         tokens = segmentation.split("\t")
-        prefix = tokens[0].rstrip()
-        stem = tokens[1].rstrip()
-        suffix = tokens[2].rstrip()
+        prefix = tokens[0]
+        stem = tokens[1]
+        suffix = tokens[2]
 
         if stem in stem_hash:
             for stem_value in stem_hash[stem]:
-                stem_cat = stem_value[0].rstrip()
-                stem_analysis = stem_value[1].rstrip()
+                stem_cat = stem_value[0]
+                stem_analysis = stem_value[1]
 
                 for prefix_value in prefix_hash[prefix]:
-                    prefix_cat = prefix_value[0].rstrip()
-                    prefix_analysis = prefix_value[1].rstrip()
+                    prefix_cat = prefix_value[0]
+                    prefix_analysis = prefix_value[1]
 
                     prefix_stem_cat = prefix_cat + ' ' + stem_cat
                     if prefix_stem_cat in prefix_stem_compatibility:
                         for suffix_value in suffix_hash[suffix]:
-                            suffix_cat = suffix_value[0].rstrip()
-                            suffix_analysis = suffix_value[1].rstrip()
+                            suffix_cat = suffix_value[0]
+                            suffix_analysis = suffix_value[1]
 
                             stem_suffix_cat = stem_cat + ' ' + suffix_cat
                             if stem_suffix_cat in stem_suffix_compatibility:
                                 prefix_suffix_cat = prefix_cat + ' ' + suffix_cat
                                 if prefix_suffix_cat in prefix_suffix_compatibility:
-                                    prefix_analysis_hash = __get_features_hash(prefix_analysis)
-                                    stem_analysis_hash = __get_features_hash(stem_analysis)
-                                    suffix_analysis_hash = __get_features_hash(suffix_analysis)
-
-                                    combined_analyses_hash = __merge_features(prefix_analysis_hash, stem_analysis_hash,
-                                                                              suffix_analysis_hash)
+                                    combined_analyses_hash = __merge_features(prefix_analysis, stem_analysis,
+                                                                              suffix_analysis)
 
                                     unvoc_str = CalimaStarUtils.dediac(combined_analyses_hash["diac"], input_encoding)
 
                                     if unvoc_str != unvoc_word:
                                         combined_analyses_hash["source"] = "spvar"
 
-                                    combined_analyses_hash["stem"] = stem_analysis_hash["diac"]
+                                    combined_analyses_hash["stem"] = stem_analysis['diac']
                                     combined_analyses_hash["stemcat"] = stem_cat
 
                                     if __valid_analysis(combined_analyses_hash['diac'], word):
+                                        # SALAM: add the POS prob
+                                        if "POS_prob" in feature_order:
+                                            # TODO: create the below funtion
+                                            BW_semi_lex = CalimaStarUtils.get_BW_semi_lex(combined_analyses_hash["bw"])
+                                            if BW_semi_lex in POS_prob_hash:
+                                                combined_analyses_hash["POS_prob"] = POS_prob_hash[BW_semi_lex]
+                                            else:
+                                                combined_analyses_hash["POS_prob"] = "-99"
                                         analyses.append(CalimaStarUtils.printer(combined_analyses_hash, output_encoding,
                                                                                 feature_order, tokenization))
+                                        # analyses.append(combined_analyses_hash)
     if 'ADD' in backoff:
         backoff_analyses = __analyze_with_backoff(segmentations, word)
         for analysis in backoff_analyses:
@@ -759,35 +799,99 @@ def analyze_word(input_word, v):
 
     if memoization:
         analysis_memo_hash[word] = analyses
-    return __sort(analyses, word)
 
+    return __sort(analyses, word)
+    # return analyses
+
+# def write_to_file(analysis, output_encoding, output_file, feature_order, tokenization):
+
+#     if 'diac' in analysis:
+#         analysis['diac'] = CalimaStarUtils.encode('bw', output_encoding, analysis['diac'])
+#     if 'stem' in analysis:
+#         analysis['stem'] = CalimaStarUtils.encode('bw', output_encoding, analysis['stem'])
+#     if 'lex' in analysis:
+#         lemma_toks = split_lemma.split(analysis['lex'])
+#         lemma_stripped = CalimaStarUtils.encode('bw', output_encoding, lemma_toks[0].rstrip())
+#         analysis['lex'] = lemma_stripped + ''.join(lemma_toks[1:])
+
+#     if 'bw' in analysis:
+#         bw_encoded = ''
+#         bw_toks = analysis['bw'].split('+')
+#         bw_tok = bw_toks[0]
+#         if bw_tok:
+#             morpheme = CalimaStarUtils.encode('bw', output_encoding, bw_tok.split('/')[0])
+#             bw = bw_tok.split('/')[1]
+#             bw_encoded = morpheme + '/' + bw
+
+
+#         for bw_tok in bw_toks[1:]:
+#             if bw_tok:
+#                 morpheme = CalimaStarUtils.encode('bw', output_encoding, bw_tok.split('/')[0])
+#                 bw = bw_tok.split('/')[1]
+#                 bw_encoded = bw_encoded + '+' + morpheme + '/' + bw
+
+#         if len(bw_encoded.split("+")) < 3:
+#             bw_encoded = bw_encoded + "+"
+
+#         analysis['bw'] = bw_encoded
+
+#     buff = io.StringIO()
+#     output_string = ''
+
+#     for order in feature_order:
+#         if order in analysis:
+#             # todo: test with extended db
+#             if (order == 'seg' or order == 'tok') and order in tokenization:
+#                 for ttype in tokenization[order]:
+#                     # buff.write(order)
+#                     # buff.write('_')
+#                     # buff.write(ttype)
+#                     # buff.write(analysis['{}_{} '.format(order, ttype)])
+#                     output_string = output_string + order + '_' + ttype + analysis[order + '_' + ttype] + ' '
+#             else:
+#                 # buff.write(order)
+#                 # buff.write(':')
+#                 # buff.write(analysis[order])
+#                 # buff.write(' ')
+#                 output_string = output_string + order + ":" + analysis[order] + " "
+
+#     # buff.write('\n')
+#     output_string += '\n'
+
+#     output_file.write(output_string)
 
 # read a file of words, and generate all possible analyses for every word in the file
 # output is written directly in a file
 def analyze_file(input_file, output_path, v):
     verbose = v
-    line = input_file.readline().rstrip()
-
-    if clean_up_doc:
-        line = CalimaStarUtils.clean_line(line)
+    line = input_file.readline()
 
     output_path = open(output_path, 'w')
 
-    while line:
-        words = line.split(" ")
+    for line in input_file:
+        if clean_up_doc:
+            line = CalimaStarUtils.clean_line(line)
+        # print("Line {}".format(linenum))
+        words = line.strip().split()
         for word in words:
             analyses = analyze_word(word, v)
             output_path.write("#WORD: " + CalimaStarUtils.encode(input_encoding, output_encoding, word) + "\n")
+            # sys.stdout.write("#WORD: " + CalimaStarUtils.encode(input_encoding, output_encoding, word) + "\n")
+            # output_path.write('#WORD: {}\n'.format(CalimaStarUtils.encode(input_encoding, output_encoding, word)))
             if analyses:
                 for analysis in analyses:
+                    # write_to_file(analysis, output_encoding, output_path, feature_order, tokenization)
                     output_path.write(analysis + "\n")
+                    # sys.stdout.write(analysis + "\n")
+                    # output_path.write("{}\n".format(analysis))
             else:
-                output_path.write("NO_ANALYSIS" + "\n")
+                output_path.write("NO_ANALYSIS\n")
+                # sys.stdout.write("NO_ANALYSIS\n")
+            # output_path.write("\n")
             output_path.write("\n")
-        line = input_file.readline().rstrip()
-        if clean_up_doc:
-            line = CalimaStarUtils.clean_line(line)
 
+    output_path.flush()
+    # sys.stdout.flush()
     output_path.close()
 
 
@@ -846,7 +950,7 @@ def generate_word(lemma, features, v):
     # pos is used to produce error messages when an incompatible feature is specified
     # e.g. noun and vox or verb and stt
     pos = features_hash["pos"]
-
+    
     if pos not in define_hash["pos"]:
         errorList = []
         errorList.append("ERROR: The pos value " + pos + " is not a valid pos")
@@ -866,7 +970,6 @@ def generate_word(lemma, features, v):
             return errorList
 
     stem_list = lemma_hash[lemma]
-
     for stem_entry in stem_list:
         stem_features = __get_features_hash(stem_entry)
 
@@ -880,13 +983,15 @@ def generate_word(lemma, features, v):
             continue
 
         stemcat = stem_features['stemcat']
+
         potential_prefixes = stem_prefix_compatibility_hash[stemcat]
         potential_suffixes = stem_suffix_compatibility_hash[stemcat]
 
         for prefix in potential_prefixes:
             prefix_list_features = prefix_cat_hash[prefix]
             for prefix_list_entry in prefix_list_features:
-                prefix_features = __get_features_hash(prefix_list_entry[0])
+                # prefix_features = __get_features_hash(prefix_list_entry[0])
+                prefix_features = prefix_list_entry
                 prefix_flag = True
                 for feature in features_hash:
                     if "prc" in feature:
@@ -905,7 +1010,9 @@ def generate_word(lemma, features, v):
                             suffix_list_features = suffix_cat_hash[suffix]
 
                             for suffix_list_entry in suffix_list_features:
-                                suffix_features = __get_features_hash(suffix_list_entry[0])
+                                # suffix_features = __get_features_hash(suffix_list_entry[0])
+                                suffix_features = suffix_list_entry
+
                                 suffix_flag = True
                                 for feature in features_hash:
                                     if "enc" in feature:
@@ -1132,12 +1239,17 @@ def __segment(word):
 def __get_features_hash(line):
     features_hash = {}
 
-    tokens = line.split(' ')
+    tokens = line.split()
 
     for token in tokens:
-        key = token.split(":")[0].rstrip()
-        value = ':'.join(token.split(":")[1:])
-        features_hash[key] = value
+        subtoks = token.split(":")
+        if len(subtoks) != 2:
+            # Salam Jan 15th 2018
+            # This happens when the BW of the Gloss tag have a ':' in the feature value
+            features_hash[subtoks[0]] = ':'.join(subtoks[1:])
+            # continue
+        else:
+            features_hash[subtoks[0]] = subtoks[1]
 
     return features_hash
 
@@ -1158,32 +1270,50 @@ def __merge_features(prefix_features, stem_features, suffix_features):
     merged_features_hash = {}
 
     for key in stem_features:
-        merged_features_hash[key] = __get_feature(stem_features, key)
+        if key in feature_order:
+            merged_features_hash[key] = stem_features.get(key, '')
 
-        if key in suffix_features:
-            if __get_feature(suffix_features, key) != '-' and __get_feature(suffix_features, key) != '':
-                merged_features_hash[key] = __get_feature(suffix_features, key)
+            if key in suffix_features:
+                suff_feat = suffix_features.get(key, '')
+                if suff_feat != '-' and suff_feat != '':
+                    merged_features_hash[key] = suff_feat
 
-        if key in prefix_features:
-            if __get_feature(prefix_features, key) != '-' and __get_feature(prefix_features, key) != '':
-                merged_features_hash[key] = __get_feature(prefix_features, key)
+            if key in prefix_features:
+                pref_feat = prefix_features.get(key, '')
+                if pref_feat != '-' and pref_feat != '':
+                    merged_features_hash[key] = pref_feat
 
     for feature in concatinating_features:
-        if feature in stem_features:
-            merged_features_hash[feature] = __get_feature(prefix_features, feature) + "+" \
-                                            + __get_feature(stem_features, feature) + "+" \
-                                            + __get_feature(suffix_features, feature)
+        if feature in feature_order:
+            if feature in stem_features:
+                if 'seg' in feature or 'tok' in feature:
+                    merged_features_hash[feature] = '{}{}{}'.format(prefix_features.get(feature, ''),
+                                                stem_features.get(feature, ''),
+                                                suffix_features.get(feature, ''))
+                else:
+                    merged_features_hash[feature] = '{}+{}+{}'.format(prefix_features.get(feature, ''),
+                                                stem_features.get(feature, ''),
+                                                suffix_features.get(feature, ''))
 
-    voc_str = __rewrite_rules(merged_features_hash["diac"])
-    merged_features_hash["diac"] = voc_str
+    if "diac" in feature_order:
+        voc_str = __rewrite_rules(merged_features_hash["diac"])
 
-    merged_features_hash["stem"] = stem_features["diac"]
+        merged_features_hash["diac"] = voc_str
 
-    if merged_features_hash["gen"] == '-':
-        merged_features_hash["gen"] = merged_features_hash["form_gen"]
-
-    if merged_features_hash["num"] == '-':
-        merged_features_hash["num"] = merged_features_hash["form_num"]
+    # Salam addition for caphi
+    if "caphi" in feature_order:
+        caphi_str = __rewrite_rules_caphi(merged_features_hash["caphi"])
+        merged_features_hash["caphi"] = caphi_str
+    if "stem" in feature_order:
+        merged_features_hash["stem"] = stem_features["diac"]
+    if "gen" in feature_order:
+        if merged_features_hash["gen"] == '-':
+            merged_features_hash["gen"] = merged_features_hash["form_gen"]
+    if "num" in feature_order:
+        if merged_features_hash["num"] == '-':
+            merged_features_hash["num"] = merged_features_hash["form_num"]
+    if "pattern" in feature_order:
+        merged_features_hash["pattern"] = '{}+{}+{}'.format(prefix_features.get('diac', ''), stem_features.get('pattern', ''), suffix_features.get('diac', ''))
 
     return merged_features_hash
 
@@ -1200,14 +1330,20 @@ def __rewrite_rules(word):
 
     if tnwyn_ftH == "AF":
         if word.endswith("FA"):
-            word = re.sub("FA", "AF", word)
+            word = FA_re.sub("AF", word)
         if word.endswith("FY"):
-            word = re.sub("FY", "YF", word)
+            word = FY_re.sub("YF", word)
     elif tnwyn_ftH == "FA":
         if word.endswith("AF"):
-            word = re.sub("AF", "FA", word)
+            word = AF_re.sub("FA", word)
         if word.endswith("YF"):
-            word = re.sub("YF", "FY", word)
+            word = YF_re.sub("FY", word)
+
+    return word
+
+# Salam addition to caphi
+def __rewrite_rules_caphi(word):
+    word = CalimaStarUtils.rewrite_rules_caphi(word)
 
     return word
 
@@ -1270,8 +1406,8 @@ def __valid_diacritized_analysis(diac, word):
     elif diac_match == 'full':
         return diac == word
     else:
-        for aset in __editops(CalimaStarUtils.normalize(word, normalization), CalimaStarUtils.normalize(diac,
-                                                                                                        normalization)):
+        for aset in __editops(CalimaStarUtils.normalize(word, normalization, normalization_re), CalimaStarUtils.normalize(diac,
+                                                                                                        normalization, normalization_re)):
             if aset[0] != 'insert':
                 return False
     return True
@@ -1288,17 +1424,18 @@ def __sort(analyses, word):
     if analysis_order == 'random':
         return analyses
     else:
+        # TODO: sort in hash not string 
         output_analyses_hash = {}
         for analysis in analyses:
             analysis_hash = __get_features_hash(analysis)
             if analysis_order == 'frequency':
-                freq = __get_feature(analysis_hash, 'freq')
+                freq = analysis_hash.get('freq', '')
                 output_analyses_hash[analysis] = freq
             elif analysis_order == 'diac':  # Levenshtein distance
-                diac = __get_feature(analysis_hash, 'diac')
+                diac = analysis_hash.get('diac', '')
                 output_analyses_hash[analysis] = __distance(word, diac)
             elif analysis_order == 'alphabetical':
-                diac = __get_feature(analysis_hash, 'diac')
+                diac = analysis_hash.get('diac', '')
                 output_analyses_hash[analysis] = diac
 
         # sort hashes according to value instead of key, and generate the sorted analyses list
@@ -1399,17 +1536,17 @@ def __analyze_with_backoff(segmentations, word):
     analyses = []
     for segmentation in segmentations:
         tokens = segmentation.split("\t")
-        prefix = tokens[0].rstrip()
-        stem = tokens[1].rstrip()
-        suffix = tokens[2].rstrip()
+        prefix = tokens[0]
+        stem = tokens[1]
+        suffix = tokens[2]
 
         for prefix_value in prefix_hash[prefix]:
-            prefix_cat = prefix_value[0].rstrip()
-            prefix_analysis = prefix_value[1].rstrip()
+            prefix_cat = prefix_value[0]
+            prefix_analysis = prefix_value[1]
 
             for suffix_value in suffix_hash[suffix]:
-                suffix_cat = suffix_value[0].rstrip()
-                suffix_analysis = suffix_value[1].rstrip()
+                suffix_cat = suffix_value[0]
+                suffix_analysis = suffix_value[1]
 
                 prefix_suffix_cat = prefix_cat + ' ' + suffix_cat
                 if prefix_suffix_cat in prefix_suffix_compatibility:
@@ -1419,31 +1556,28 @@ def __analyze_with_backoff(segmentations, word):
                     elif 'PROP' in backoff:
                         stem_cats = backoff_hash['PROP']
                     for stem_value in stem_hash['NOAN']:
-                        stem_cat = stem_value[0].rstrip()
-                        stem_analysis = stem_value[1].rstrip()
+                        stem_cat = stem_value[0]
+                        stem_analysis = stem_value[1]
                         if stem_cat in stem_cats:
                             prefix_stem_cat = prefix_cat + ' ' + stem_cat
                             if prefix_stem_cat in prefix_stem_compatibility:
                                 stem_suffix_cat = stem_cat + ' ' + suffix_cat
                                 if stem_suffix_cat in stem_suffix_compatibility:
-                                    prefix_analysis_hash = __get_features_hash(prefix_analysis)
-                                    stem_analysis_hash = __get_features_hash(stem_analysis)
-                                    suffix_analysis_hash = __get_features_hash(suffix_analysis)
 
-                                    if 'PROP' in backoff and 'NOUN_PROP' not in stem_analysis_hash['bw']:
+                                    if 'PROP' in backoff and 'NOUN_PROP' not in stem_analysis['bw']:
                                         continue
 
-                                    stem_analysis_hash['bw'] = re.sub(r'NOAN', stem, stem_analysis_hash['bw'])
-                                    stem_analysis_hash['diac'] = re.sub(r'NOAN', stem, stem_analysis_hash['diac'])
-                                    stem_analysis_hash['lex'] = re.sub(r'NOAN', stem, stem_analysis_hash['lex'])
+                                    stem_analysis['bw'] = analyze_with_backoff_re.sub(stem, stem_analysis['bw'])
+                                    stem_analysis['diac'] = analyze_with_backoff_re.sub(stem, stem_analysis['diac'])
+                                    stem_analysis['lex'] = analyze_with_backoff_re.sub(stem, stem_analysis['lex'])
 
-                                    combined_analyses_hash = __merge_features(prefix_analysis_hash, stem_analysis_hash,
-                                                                              suffix_analysis_hash)
+                                    combined_analyses_hash = __merge_features(prefix_analysis, stem_analysis,
+                                                                              suffix_analysis)
 
-                                    combined_analyses_hash["stem"] = stem_analysis_hash["diac"]
+                                    combined_analyses_hash["stem"] = stem_analysis["diac"]
                                     combined_analyses_hash["stemcat"] = stem_cat
                                     combined_analyses_hash["source"] = "backoff"
-                                    combined_analyses_hash["gloss"] = stem_analysis_hash["gloss"]
+                                    combined_analyses_hash["gloss"] = stem_analysis["gloss"]
 
                                     if combined_analyses_hash['bw'] == 'ka/PREP+tb/NOUN+K/CASE_INDEF_GEN':
                                         print()
@@ -1451,6 +1585,7 @@ def __analyze_with_backoff(segmentations, word):
                                     if __valid_analysis(combined_analyses_hash['diac'], word):
                                         analyses.append(CalimaStarUtils.printer(combined_analyses_hash, output_encoding,
                                                                                 feature_order, tokenization))
+                                        # analyses.append(combined_analyses_hash)
     return analyses
 
 
