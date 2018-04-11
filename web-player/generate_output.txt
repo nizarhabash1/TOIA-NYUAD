@@ -1,0 +1,23 @@
+#LEMMA: كَتَب
+#FEATURES: pos:verb num:d gen:f prc2:wa_conj enc0:3ms_dobj vox:a
+diac:وَكَتَبَتاهُ lex:كَتَب-u_1 bw:وَ/CONJ+كَتَب/PV+َتا/PVSUFF_SUBJ:3FD+هُ/PVSUFF_DO:3MS pos:verb gloss:and+write+they_(both)_[verb]_+_it/him prc3:0 prc2:wa_conj prc1:0 prc0:0 per:3 asp:p vox:a mod:i gen:f num:d stt:na cas:na enc0:3ms_dobj rat:na source:lex stem:كَتَب stemcat:PV
+diac:وَتَكْتُباهُ lex:كَتَب-u_1 bw:وَ/CONJ+تَ/IV3FD+كْتُب/IV+ا/IVSUFF_SUBJ:D_MOOD:SJ+هُ/IVSUFF_DO:3MS pos:verb gloss:and_+_they_(both)_[fem.du.]+write+[du.]_+_it/him prc3:0 prc2:wa_conj prc1:0 prc0:0 per:3 asp:i vox:a mod:u gen:f num:d stt:na cas:na enc0:3ms_dobj rat:na source:lex stem:كْتُب stemcat:IV
+diac:وَتَكْتُبانِهِ lex:كَتَب-u_1 bw:وَ/CONJ+تَ/IV3FD+كْتُب/IV+انِ/IVSUFF_SUBJ:D_MOOD:I+هِ/IVSUFF_DO:3MS pos:verb gloss:and_+_they_(both)_[fem.du.]+write+[du.]_+_it/him prc3:0 prc2:wa_conj prc1:0 prc0:0 per:3 asp:i vox:a mod:i gen:f num:d stt:na cas:na enc0:3ms_dobj rat:na source:lex stem:كْتُب stemcat:IV
+
+#LEMMA: شَمْس
+#FEATURES: pos:noun stt:d cas:a prc2:wa_conj prc1:bi_prep prc0:Al_det
+NO_POSSIBLE_GENERATIONS
+
+#LEMMA: شَمْس
+#FEATURES: pos:noun stt:d cas:g prc2:wa_conj prc1:bi_prep prc0:Al_det
+diac:وَبِالشَّمْسِ lex:شَمْس_1 bw:وَ/CONJ+بِ/PREP+ال/DET+شَمْس/NOUN+ِ/CASE_DEF_GEN pos:noun gloss:and_+_with/by_+_the+sun+[def.gen.] prc3:0 prc2:wa_conj prc1:bi_prep prc0:Al_det per:na asp:na vox:na mod:na gen:m num:s stt:d cas:g enc0:0 rat:y source:lex stem:شَمْس stemcat:N
+diac:وَبِالشُّمُوسِ lex:شَمْس_1 bw:وَ/CONJ+بِ/PREP+ال/DET+شُمُوس/NOUN+ِ/CASE_DEF_GEN pos:noun gloss:and_+_with/by_+_the+suns+[def.gen.] prc3:0 prc2:wa_conj prc1:bi_prep prc0:Al_det per:na asp:na vox:na mod:na gen:m num:s stt:d cas:g enc0:0 rat:y source:lex stem:شُمُوس stemcat:N
+
+#LEMMA: كاتِب
+#FEATURES: pos:noun num:p gen:m
+NO_POSSIBLE_GENERATIONS
+
+#LEMMA: وَلَد
+#FEATURES: pos:noun enc1:Al_det
+The feature enc1 is not a valid feature
+

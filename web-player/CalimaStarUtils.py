@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import sys
 import re
 
@@ -8,6 +7,27 @@ diac_bw = re.compile("[aiuo~`FKN_]")
 diac_sbw = re.compile("[aiuoXeFKN_]")
 diac_hsb = re.compile("[aiu.~áãũĩ_]")
 
+rewrite_rules_re1 = re.compile(r'^((wa|fa)?(bi|ka)?Al)\+([tvd*rzs$SDTZln])')
+rewrite_rules_re2 = re.compile(r'^((wa|fa)?lil)\+([tvd*rzs$SDTZln])')
+rewrite_rules_re3 = re.compile(r'A\+a([pt])')
+rewrite_rules_re4 = re.compile(r'{')
+rewrite_rules_re5 = re.compile(r'\+')
+
+rewrite_rules_caphi_re1 = re.compile(r'^((w_a_|f_a_|2_a_)?(b_i_|k_a_|l_i_)?l)\+(t_|th_|d_|th._|r_|z_|s_|sh_|s\._|d\._|t\._|dh\._|l_|n_|)')
+rewrite_rules_caphi_re2 = re.compile(r'(\S)\+~')
+rewrite_rules_caphi_re3 = re.compile(r'\+')
+rewrite_rules_caphi_re4 = re.compile(r'(^_|_$)')
+
+split_lemma = re.compile('([_-])')
+
+BW_tag_re1 = re.compile('(.*)\/(.*)')
+BW_tag_re2 = re.compile('CONJ|CONNEC\_PART|DEM\_PRON|DET|EMPHATIC\_PART|FUT\_PART|PROG\_PART|INTERROG\_PART|JUS\_'
+                        'PART|NEG\_PART|PART|PREP|PSEUDO\_VERB|RC\_PART|REL\_PRON|SUB\_CONJ|VOC\_PART|'
+                        '[PIC]VSUFF\_DO:|POSS\_PRON\_|PRON\_[123][MF]?[SDP]|NEG\_PART|REL\_PRON|SUB\_CONJ|'
+                        'VOC\_PART|INTERROG\_PRON|PREP$/')
+BW_tag_re3 = re.compile('.*\/')
+BW_tag_re4 = re.compile('^\+')
+BW_tag_re5 = re.compile('\+$')
 
 def encode(input_enc, output_enc, word):
 
@@ -141,14 +161,22 @@ def encode_file(input_enc, output_enc, input_file):
 # adding ftHp before Alf and Alf mqSwrY
 # modifying the orthography of tnwyn ftH before or after Alf
 def rewrite_rules(word):
-    word = re.sub(r'^((wa|fa)?(bi|ka)?Al)\+([tvd*rzs$SDTZln])', r'\1\4~', word)
-    word = re.sub(r'^((wa|fa)?lil)\+([tvd*rzs$SDTZln])', r'\1\3~', word)
-    word = re.sub(r'A\+a([pt])', r'A\1', word)
-    word = re.sub(r'{', r'A', word)
-    word = re.sub(r'\+', r'', word)
+    word = rewrite_rules_re1.sub(r'\1\4~', word)
+    word = rewrite_rules_re2.sub(r'\1\3~', word)
+    word = rewrite_rules_re3.sub(r'A\1', word)
+    word = rewrite_rules_re4.sub(r'A', word)
+    word = rewrite_rules_re5.sub(r'', word)
 
     return word
 
+
+def rewrite_rules_caphi(word):
+    word = rewrite_rules_caphi_re1.sub(r'\2\3\4\4', word)
+    word = rewrite_rules_caphi_re2.sub(r'\1_\1', word)
+    word = rewrite_rules_caphi_re3.sub(r'_', word)
+    word = rewrite_rules_caphi_re4.sub('', word)
+
+    return word
 
 # return a string with all the features in feature_order list, ordered, and separated by spaces
 def printer(analysis, output_encoding, feature_order, tokenization):
@@ -159,7 +187,7 @@ def printer(analysis, output_encoding, feature_order, tokenization):
     if 'stem' in analysis:
         analysis['stem'] = encode('bw', output_encoding, analysis['stem'])
     if 'lex' in analysis:
-        lemma_toks = re.split('([_-])', analysis['lex'])
+        lemma_toks = split_lemma.split(analysis['lex'])
         lemma_stripped = encode('bw', output_encoding, lemma_toks[0].rstrip())
         analysis['lex'] = lemma_stripped + ''.join(lemma_toks[1:])
 
@@ -192,31 +220,54 @@ def printer(analysis, output_encoding, feature_order, tokenization):
     for order in feature_order:
         if order in analysis:
             # todo: test with extended db
-            if (order == 'seg' or order == 'tok') and order in tokenization:
-                for type in tokenization[order]:
-                    output_string = output_string + order + '_' + type + analysis[order + '_' + type] + ' '
-            else:
-                output_string = output_string + order + ":" + analysis[order] + " "
+            # if (order == 'seg' or order == 'tok') and order in tokenization:
+            #     for ttype in tokenization[order]:
+            #         output_string = output_string + order + '_' + ttype + analysis[order + '_' + ttype] + ' '
+            # else:
+            output_string = output_string + order + ":" + analysis[order] + " "
 
     return output_string.rstrip()
+
+def get_BW_semi_lex(bw_tag):
+    bw_tag = BW_tag_re4.sub('', bw_tag)
+    bw_tag = BW_tag_re5.sub('', bw_tag)
+
+    semi_tag = bw_tag.split('+')
+
+    for i in range(len(semi_tag)):
+
+        match = BW_tag_re1.match(semi_tag[i])
+        temp = BW_tag_re2.match(match.group(2))
+        if temp:
+            semi_tag[i] = semi_tag[i]
+        else:
+            semi_tag[i] = BW_tag_re3.sub('',semi_tag[i])
+
+    semi_tag = '+'.join(semi_tag)
+    return semi_tag
 
 
 # return the word without the diacritics (aiuo~`FKN_)
 def dediac(diac_word, encoding):
     if encoding == 'bw':
-        return re.sub(diac_bw, r'', diac_word)
+        return diac_bw.sub(r'', diac_word)
     elif encoding == 'utf8':
-        return re.sub(diac_utf8, r'', diac_word)
+        return diac_utf8.sub(r'', diac_word)
     elif encoding == 'safebw':
-        return re.sub(diac_sbw, r'', diac_word)
+        return diac_sbw.sub(r'', diac_word)
     elif encoding == 'hsb':
-        return re.sub(diac_hsb, r'', diac_word)
+        return diac_hsb.sub(r'', diac_word)
 
-
-def normalize(match_word, normalization):
+def gen_normalize_re(normalization):
+    normalization_re = {}
     for char in normalization:
-        orig = re.compile(re.escape(char))
-        match_word = re.sub(orig, normalization[char], match_word)
+        normalization_re[char] = re.compile(re.escape(char))
+    return normalization_re
+
+def normalize(match_word, normalization, norm_re):
+    for char in normalization:
+        # orig = re.compile(re.escape(char))
+        match_word = norm_re[char].sub(normalization[char], match_word)
     return match_word
 
 
