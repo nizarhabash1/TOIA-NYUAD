@@ -110,12 +110,7 @@ def createModel(characterdict, currentSession, mylanguage):
 			if(mylanguage== "Arabic" and "arabic-question"in resp["rows"][i]["doc"].keys() and "arabic-answer"in resp["rows"][i]["doc"].keys()):
 				question= json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
 				answer=json.dumps(resp["rows"][i]["doc"]["arabic-answer"],ensure_ascii=False).strip('،.؟"')
-				video= json.dumps(resp["rows"][i]["doc"]["video"])
-				character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
-				#do we wanna give it ID ourselves or use the JSON one?
-				ID= json.dumps(resp["rows"][i]["doc"]["_id"])
-				language= json.dumps(resp["rows"][i]["doc"]["language"])
-				#arabic_txt.write(question+" ")
+		
 				#arabic_txt.write(answer+"\n")
 			
 			StarMorphModules.read_config("config_dana.xml")
@@ -128,18 +123,21 @@ def createModel(characterdict, currentSession, mylanguage):
 				
 			
 			
-				#print("answer ",arabic_answer)
+				
 			if(mylanguage=="English" and "question" in resp["rows"][i]["doc"].keys()):
 				question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.")
 				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.")
 
-				video= json.dumps(resp["rows"][i]["doc"]["video"])
-				character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
-				#do we wanna give it ID ourselves or use the JSON one?
-				ID= json.dumps(resp["rows"][i]["doc"]["_id"])
-				language= json.dumps(resp["rows"][i]["doc"]["language"])
+				
 
-			#print(character)
+			video= json.dumps(resp["rows"][i]["doc"]["video"])
+			character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
+			#do we wanna give it ID ourselves or use the JSON one?
+			ID= json.dumps(resp["rows"][i]["doc"]["_id"])
+			language= json.dumps(resp["rows"][i]["doc"]["language"])
+				
+
+			print(character)
 			obj= videoRecording(question, answer, video, character, language)
 
 
