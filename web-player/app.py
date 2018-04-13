@@ -11,12 +11,13 @@ click.disable_unicode_literals_warning = True
 characterModel = {}
 currentAvatar = ""
 currentSession = None
+currentLanguage = "English"
 
 @app.route('/')
 def default_page():
     global currentSession
     # initiates the model and a new session
-    currentSession = dialogue_manager4.createModel(characterModel, currentSession,"Arabic")
+    currentSession = dialogue_manager4.createModel(characterModel, currentSession,currentLanguage)
 
     return render_template('index.html')
 
