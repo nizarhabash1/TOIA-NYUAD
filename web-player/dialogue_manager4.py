@@ -102,37 +102,29 @@ def createModel(characterdict, currentSession, mylanguage):
 
 	resp = json.load(f)
 
+	StarMorphModules.read_config("config_dana.xml")
+	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
+
 	for i in range (0, len(resp["rows"])-1, 1):
+
 			
 			if(mylanguage== "Arabic" and "arabic-question"in resp["rows"][i]["doc"].keys() and "arabic-answer"in resp["rows"][i]["doc"].keys()):
 				question= json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
 				answer=json.dumps(resp["rows"][i]["doc"]["arabic-answer"],ensure_ascii=False).strip('،.؟"')
-		
-				#arabic_txt.write(answer+"\n")
-			
-			StarMorphModules.read_config("config_dana.xml")
-			StarMorphModules.initialize_from_file("almor-s31.db","analyze")
-			
 
-			#print("answer ",arabic_answer)
-
+			
 			if(mylanguage=="English" and "question" in resp["rows"][i]["doc"].keys()):
 				question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.")
-				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.")
+				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.")	
 
-				
-
-			video= json.dumps(resp["rows"][i]["doc"]["video"])
-			character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
-			#do we wanna give it ID ourselves or use the JSON one?
-			ID= json.dumps(resp["rows"][i]["doc"]["_id"])
-			language= json.dumps(resp["rows"][i]["doc"]["language"])
-				
-
-
-			print(character)
-
-			obj= videoRecording(question, answer, video, character, language)
+			if "question" in resp["rows"][i]["doc"].keys():
+				#do we wanna give it ID ourselves or use the JSON one?
+				ID= json.dumps(resp["rows"][i]["doc"]["_id"])
+				print(ID)
+				video= json.dumps(resp["rows"][i]["doc"]["video"])
+				character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
+				language= json.dumps(resp["rows"][i]["doc"]["language"])
+				obj= videoRecording(question, answer, video, character, language)
 
 			# Creates the chracter list in the dictionary if it does not exist already
 			if character not in characterdict.keys():
@@ -181,7 +173,6 @@ def createModel(characterdict, currentSession, mylanguage):
 
 					#adds the question to the list of objects related to the stem
 					characterdict[character].wordMap[word].append(ID)
-
 			
 			elif(mylanguage=="Arabic"):
 				
@@ -470,10 +461,8 @@ def rankAnswers(videoResponses, currentSession):
 def findResponse(query, characterModel, currentSession):
 	themax=0
 	best_response=''
-	#different modes of matching
-	print("My repititions")
-	print(currentSession.repetitions)
-	
+
+	#different modes of matching	
 	stem_match_english_responses= stem_intersection_match_English(query, characterModel)
 	lemma_match_english_responses= lemma_intersection_match_English(query, characterModel)
 	direct_match_english_responses= direct_intersection_match_English(query, characterModel)
@@ -561,14 +550,16 @@ def sayBye(corpus):
 		return corpus["greetings"][-1]
 
 def main():
-
+	global characterdict
+	global currentSession
 	currentSession = None
-	currentSession = createModel(characterdict, currentSession, "Arabic" )
+	currentSession = createModel(characterdict, currentSession, "English" )
 
-	while True:
+	for i in range(4):
 		user_input = input("What do you have to ask\n")
 		currentSession = determineAvatar(user_input, currentSession)
-		findResponse(user_input, characterdict['gabriela'], currentSession)
+		response = findResponse(user_input, characterdict[currentSession.currentAvatar], currentSession)
+		print(response.answer)
 
 if __name__ == "__main__":
 	""" This is executed when run from the command line """
