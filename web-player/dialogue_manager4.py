@@ -67,9 +67,6 @@ class videoRecording:
 	def toString(self):
 		print(self.id, ": ", self.character, "\n",self.question,"\n", self.answer, "\n", self.language, "\n")
 
-
-#additions to this model: weight assigned to each video if it was played (save the conversation state)
-
 #the structure of the session
 class session:
 
@@ -94,8 +91,8 @@ def preprocess(line):
 
 #Initiates the model and create a new session
 def createModel(characterdict, currentSession, mylanguage):
+	
 	#creates the new session
-
 	currentSession = session('margarita')
 
 	f= open('static/scripts/all_characters.json', 'r', encoding='utf-8')
@@ -121,14 +118,7 @@ def createModel(characterdict, currentSession, mylanguage):
 			StarMorphModules.read_config("config_dana.xml")
 			StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 			
-			
-			
-				
-						 
-				
-			
-			
-				#print("answer ",arabic_answer)
+			#print("answer ",arabic_answer)
 			if(mylanguage=="English" and "question" in resp["rows"][i]["doc"].keys()):
 				question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.")
 				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.")
@@ -139,10 +129,7 @@ def createModel(characterdict, currentSession, mylanguage):
 				ID= json.dumps(resp["rows"][i]["doc"]["_id"])
 				language= json.dumps(resp["rows"][i]["doc"]["language"])
 
-			#print(character)
 			obj= videoRecording(question, answer, video, character, language)
-
-
 
 			# Creates the chracter list in the dictionary if it does not exist already
 			if character not in characterdict.keys():
@@ -157,7 +144,6 @@ def createModel(characterdict, currentSession, mylanguage):
 			characterdict[character].objectMap[ID] = obj
 
 			# stemming the question and answer and adding the stems into model.stemmedMap
-
 			
 			if(mylanguage=="English"):
 				objStemmedList = [porterStemmer.stem(tmp.strip(' " ?!')) for tmp in question.split() ] + [porterStemmer.stem(tmp) for tmp in obj.answer.split() ]
@@ -205,20 +191,13 @@ def createModel(characterdict, currentSession, mylanguage):
 								
 								analysis=[StarMorphModules.analyze_word(word,False)] 
 								
-								#print(analysis[0][0].split()[1])
-								#print(analysis[0][0].split()[1].replace("stem:", ""))
-								#print(analysis[0][0].split()[0].replace("lex:", "").split('_', 1)[0])
 								objStemmedList.append(analysis[0][0].split()[1].replace("stem:", ""))
 								objLemmatizedList.append(analysis[0][0].split()[0].replace("lex:", "").split('_', 1)[0])
 								objWordList.append(word)
-							#print("lemmatized list: ", objLemmatizedList)
-							#print("stemmed list: ", objStemmedList)
-							#print("word list: ", objWordList)
 
 
 							for stem in objStemmedList:
 							# creates a list for objects related to the stem if the list does not exist already
-							#print(stem)
 								if stem not in characterdict[character].stemmedMap.keys():
 									characterdict[character].stemmedMap[stem] = []
 
@@ -227,7 +206,7 @@ def createModel(characterdict, currentSession, mylanguage):
 
 
 							for lemma in objLemmatizedList:
-								#print("adding lemmas")
+
 								if lemma not in characterdict[character].lemmatizedMap.keys():
 									characterdict[character].lemmatizedMap[lemma] = []
 
@@ -235,7 +214,7 @@ def createModel(characterdict, currentSession, mylanguage):
 								characterdict[character].lemmatizedMap[lemma].append(ID)
 
 							for word in objWordList:
-								#print("adding direct words")
+
 								word = word.strip(' " ?!')
 								if word not in characterdict[character].wordMap.keys():
 									characterdict[character].wordMap[word] = []
@@ -300,15 +279,6 @@ def direct_intersection_match_English(query, characterModel):
 				elif vidResponse in responses.keys():
 					responses[vidResponse]+=1
 
-		# for key in characterModel.wordMap.keys():
-		# 	if direct_string == key.strip(' " ?!').lower():
-		# 		for vidResponse in characterModel.wordMap[key]:
-		# 			print(videoResponse)
-		# 			if vidResponse not in responses.keys():
-		# 				responses[vidResponse]= 1
-		# 			elif vidResponse in responses.keys():
-		# 				responses[vidResponse]+=1
-
 
 	for key, value in responses.items():
 		print(key, value)
@@ -316,8 +286,6 @@ def direct_intersection_match_English(query, characterModel):
 			maxVal= int(value)
 			videoResponse= key
 
-
-	#return characterModel.objectMap[videoResponse]
 	return responses
 
 
@@ -338,22 +306,11 @@ def stem_intersection_match_English(query, characterModel):
 				elif vidResponse in responses.keys():
 					responses[vidResponse]+=1
 
-	# for stem in stemmed_query:
-	# 	for key in characterModel.stemmedMap.keys():
-	# 		if stem == key.strip(' " ?!').lower():
-	# 			for vidResponse in characterdict.stemmedMap[stem]:
-	# 				if vidResponse not in responses.keys():
-	# 					responses[vidResponse]= 1
-	# 				elif vidResponse in responses.keys():
-	# 					responses[vidResponse]+=1
-
-
 	for key, value in responses.items():
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
 
-	#return characterModel.objectMap[videoResponse]
 	return responses
 
 
@@ -375,22 +332,11 @@ def lemma_intersection_match_English(query, characterModel):
 				elif vidResponse in responses.keys():
 					responses[vidResponse]+=1
 
-	# for lemma in lemmatized_query:
-	# 	for key in characterModel.lemmatizedMap.keys():
-	# 		if lemma == key.strip(' " ?!').lower():
-	# 			for vidResponse in characterdict.lemmatizedMap[lemma]:
-	# 				if vidResponse not in responses.keys():
-	# 					responses[vidResponse]= 1
-	# 				elif vidResponse in responses.keys():
-	# 					responses[vidResponse]+=1
-
-
 	for key, value in responses.items():
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
 
-	#return characterModel.objectMap[videoResponse]
 	return responses
 
 
@@ -421,49 +367,47 @@ def direct_intersection_match_Arabic(query, characterdict):
 			maxVal= int(value)
 			videoResponse= key
 
-	#return characterdict[character].objectMap[videoResponse]
 	return responses
+
 def stem_intersection_match_Arabic(query, characterdict):
+
 	StarMorphModules.read_config("config_stem.xml")
 	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 
 	print("Finding stem Intersection in Arabic")
 	queryList = query.strip('؟').split()
-	
-
-
 	responses={}
 	maxVal=0
 	videoResponse= ''
-
-	
-
 	stemmed_query= []
+
 	for word in queryList:
-		#print(word)
+
 		StarMorphModules.read_config("config_stem.xml")
 		StarMorphModules.initialize_from_file("almor-s31.db","analyze")
-		analysis=StarMorphModules.analyze_word(word,False)
-
-		
+		analysis=StarMorphModules.analyze_word(word,False)		
 		stemmed_query.append(analysis[0].split()[1].replace("stem:", ""))
 
-	
-
 	for stem in stemmed_query:
+
 		if stem in characterdict.wordMap.keys():
+
 			for vidResponse in characterdict.wordMap[stem]:
+
 				if vidResponse not in responses.keys():
+
 					responses[vidResponse]= 0
+				
 				elif vidResponse in responses.keys():
+
 					responses[vidResponse]+=1
 
 	for key, value in responses.items():
+
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
-	#return characterdict[character].objectMap[videoResponse]
-	print("responses ", responses)
+	
 	return responses
 
 def lemma_intersection_match_Arabic(query, characterdict):
@@ -518,12 +462,6 @@ def rankAnswers(videoResponses, currentSession):
 			videoResponses[res] -= negativePoints
 
 	ranked_list = sorted(videoResponses, key = lambda i:videoResponses[i], reverse = True)
-	#print(videoResponses)
-	#print(ranked_list)
-	# print("Answer's score: ")
-	# print(videoResponses[ranked_list[0]])
-	# print('\n')
-	#print(ranked_list[0])
 	return ranked_list[0]
 
 def findResponse(query, characterModel, currentSession):
@@ -532,14 +470,11 @@ def findResponse(query, characterModel, currentSession):
 	#different modes of matching
 	print("My repititions")
 	print(currentSession.repetitions)
-	'''
+	
 	stem_match_english_responses= stem_intersection_match_English(query, characterModel)
 	lemma_match_english_responses= lemma_intersection_match_English(query, characterModel)
 	direct_match_english_responses= direct_intersection_match_English(query, characterModel)
 
-	#print("stem match: \n",stem_match_english_responses)
-	#print("lemma match: \n",lemma_match_english_responses)
-	#print("direct match: \n", direct_match_english_responses)
 	if(len(stem_match_english_responses)>themax):
 		themax= len(stem_match_english_responses)
 		best_response=stem_match_english_responses
@@ -554,16 +489,14 @@ def findResponse(query, characterModel, currentSession):
 		themax= len(direct_match_english_responses)
 		best_response=direct_match_english_responses
 
-		print("direct max", themax)'''
+		print("direct max", themax)
 
 
 	print("direct max", themax)
 
-
-
-
+	#best_response= lemma_intersection_match_Arabic(query, characterModel)
+	
 	# if the responses are empty, play "I can't answer that response"
-	best_response= lemma_intersection_match_Arabic(query, characterModel)
 	if bool(best_response) == False:
 		if currentSession.currentAvatar == "gabriela":
 			final_answer = '"f85983fc8978aa97dec2132b47cff20c"'
@@ -585,20 +518,6 @@ def findResponse(query, characterModel, currentSession):
 	print(characterModel.objectMap[final_answer].answer)
 	return characterModel.objectMap[final_answer]
 
-	#stem_match_english= stem_intersection_match_English(query, model)
-	#lemma_match_english= lemma_intersection_match_English(query, model)
-
-	'''direct_match_arabic= direct_intersection_match_Arabic(query, model)
-	stem_match_arabic= stem_intersection_match_Arabic(query, model)
-	lemma_match_arabic= lemma_intersection_match_Arabic(query, model)'''
-
-	'''right now we have different modes of matching,
-	but we need to change that to getting top 3 matches
-	from each mode and getting their intersection
-	'''
-
-	#print("This is a direct match in findResponse", direct_match_english)
-	#return direct_match_english
 
 def determineAvatar(query, currentSession):
 	if currentSession.currentAvatar == "":
@@ -639,18 +558,14 @@ def sayBye(corpus):
 		return corpus["greetings"][-1]
 
 def main():
-	currentSession = None
 
+	currentSession = None
 	currentSession = createModel(characterdict, currentSession, "Arabic" )
-	#print(characterdict["margarita"].lemmatizedMap['speak'])
+
 	while True:
 		user_input = input("What do you have to ask\n")
 		currentSession = determineAvatar(user_input, currentSession)
 		findResponse(user_input, characterdict['gabriela'], currentSession)
-
-
-
-
 
 if __name__ == "__main__":
 	""" This is executed when run from the command line """
