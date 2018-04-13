@@ -120,7 +120,6 @@ def createModel(characterdict, currentSession, mylanguage):
 			if "question" in resp["rows"][i]["doc"].keys():
 				#do we wanna give it ID ourselves or use the JSON one?
 				ID= json.dumps(resp["rows"][i]["doc"]["_id"])
-				print(ID)
 				video= json.dumps(resp["rows"][i]["doc"]["video"])
 				character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
 				language= json.dumps(resp["rows"][i]["doc"]["language"])
@@ -142,7 +141,6 @@ def createModel(characterdict, currentSession, mylanguage):
 			
 			if(mylanguage=="English"):
 				objStemmedList = [porterStemmer.stem(tmp.strip(' " ?!')) for tmp in question.split() ] + [porterStemmer.stem(tmp) for tmp in obj.answer.split() ]
-				#print("stemmed list: ", objStemmedList)
 				for stem in objStemmedList:
 					# creates a list for objects related to the stem if the list does not exist already
 					if stem not in characterdict[character].stemmedMap.keys():
@@ -153,9 +151,8 @@ def createModel(characterdict, currentSession, mylanguage):
 
 				# lemmatize the question and answer and adding the stems into model.lemmatizedMap
 				objLemmatizedList = [lemmatizer.lemmatize(tmp.strip(' " ?!')) for tmp in question.split() ] + [lemmatizer.lemmatize(tmp) for tmp in answer.split() ]
-				#print("lemmatized list: ", objLemmatizedList)
+				
 				for lemma in objLemmatizedList:
-					#print("adding lemmas")
 					if lemma not in characterdict[character].lemmatizedMap.keys():
 						characterdict[character].lemmatizedMap[lemma] = []
 
@@ -164,9 +161,9 @@ def createModel(characterdict, currentSession, mylanguage):
 
 	            # lemmatize the question and answer and adding the stems into model.lemmatizedMap
 				objWordList = question.split() + answer.split()
-				#print("word list: ", objWordList)
+
 				for word in objWordList:
-					#print("adding direct words")
+
 					word = word.strip(' " ?!')
 					if word not in characterdict[character].wordMap.keys():
 						characterdict[character].wordMap[word] = []
@@ -258,12 +255,12 @@ def createModel(characterdict, currentSession, mylanguage):
 
 
 def direct_intersection_match_English(query, characterModel):
-	print("Finding Direct Intersection in English")
+
 	queryList= query.split()
 	responses={}
 	maxVal=0
 	videoResponse= ''
-	#print(characterModel.wordMap.keys())
+
 	for direct_string in queryList:
 		direct_string == direct_string.strip(' " ?!').lower()
 		if direct_string in characterModel.wordMap.keys():
@@ -275,7 +272,7 @@ def direct_intersection_match_English(query, characterModel):
 
 
 	for key, value in responses.items():
-		print(key, value)
+
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
@@ -285,13 +282,13 @@ def direct_intersection_match_English(query, characterModel):
 
 
 def stem_intersection_match_English(query, characterModel):
-	print("Finding Stemmed Intersection Match in English")
+
 	stemmed_query= [porterStemmer.stem(tmp.strip(' " ?!')) for tmp in query.lower().split()]
-	#print("stemmed query: ", stemmed_query)
+
 	responses={}
 	maxVal=0
 	videoResponse= ''
-	#print(stemmed_query)
+
 	for stem_string in stemmed_query:
 		if stem_string in characterModel.stemmedMap.keys():
 			for vidResponse in characterModel.stemmedMap[stem_string]:
@@ -310,10 +307,9 @@ def stem_intersection_match_English(query, characterModel):
 
 
 def lemma_intersection_match_English(query, characterModel):
-	print("Finding Lemmatized intersection match in English")
 
 	lemmatized_query= [lemmatizer.lemmatize(tmp.strip(' " ?!')) for tmp in query.lower().split()]
-	#print("lemmatized query: ", lemmatized_query)
+
 	responses={}
 	maxVal=0
 	videoResponse= ''
@@ -442,8 +438,6 @@ def lemma_intersection_match_Arabic(query, characterdict):
 			maxVal= int(value)
 			videoResponse= key
 
-	#return characterdict[character].objectMap[videoResponse]
-	print(responses)
 	return responses
 
 def rankAnswers(videoResponses, currentSession):
@@ -503,9 +497,6 @@ def findResponse(query, characterModel, currentSession):
 			currentSession.repetitions[final_answer] += 1
 		else:
 			currentSession.repetitions[final_answer] = 1
-		print("Number of repetitions: ")
-		print(currentSession.repetitions[final_answer])
-
 
 	print(characterModel.objectMap[final_answer].answer)
 	return characterModel.objectMap[final_answer]
@@ -548,6 +539,9 @@ def sayHi(corpus):
 
 def sayBye(corpus):
 		return corpus["greetings"][-1]
+
+def create_new_session(avatar):
+	return session(avatar)
 
 def main():
 	global characterdict
