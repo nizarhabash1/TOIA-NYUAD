@@ -17,6 +17,9 @@ import nltk
 
 import ssl
 
+import math
+from textblob import TextBlob as tb
+
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
@@ -54,6 +57,7 @@ class model:
 		self.greetings = {}
 		self.questionsMap ={}
 
+
 #The Structure for a video Object
 class videoRecording:
 	def __init__(self, question, answer, video, character, language):
@@ -63,6 +67,8 @@ class videoRecording:
 		self.answer = answer
 		self.videoLink = video
 		self.language= language
+		self.questionLength= len(question.split())
+		self.answerLength= len(answer.split())
 
 
 	def toString(self):
@@ -469,7 +475,7 @@ def lemma_intersection_match_English(query, characterModel):
 
 def direct_intersection_match_Arabic(query, characterModel):
 	print("Finding Direct Intersection in Arabic")
-	queryList= query.strip('؟').split()
+	queryList= [tmp.strip('،!؟."') for tmp in query.split()]
 	#queryList.encode('utf-8')
 
 	responses={}
@@ -481,19 +487,31 @@ def direct_intersection_match_Arabic(query, characterModel):
 		if direct_string in characterModel.wordMap.keys():
 			for vidResponse in characterModel.wordMap[direct_string]:
 				if vidResponse not in responses.keys():
-					responses[vidResponse]= 0
+					responses[vidResponse]= 1
 				elif vidResponse in responses.keys():
+			
 					responses[vidResponse]+=1
+			'''		
+			if(characterModel.objectMap[vidResponse].answerLength):
+				recall = responses[vidResponse]/(characterModel.objectMap[vidResponse].questionLength)
+				precision= responses[vidResponse]/(characterModel.objectMap[vidResponse].questionLength+characterModel.objectMap[vidResponse].answerLength)
+				#f-score
+				responses[vidResponse]= responses[vidResponse]/((recall+precision)/2)
+			'''
+	for key, value in responses.items():
 
+		if int (value) > maxVal:
+			maxVal= int(value)
+			videoResponse= key
 
+	return responses
 
 	for key, value in responses.items():
 		#print(key, value)
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
-
-	#print(responses)
+	#print("responses:" , responses)
 	return responses
 
 def stem_intersection_match_Arabic(query, characterModel):
@@ -501,8 +519,8 @@ def stem_intersection_match_Arabic(query, characterModel):
 	#StarMorphModules.read_config("config_stem.xml")
 	#StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 
-	print("Finding stem Intersection in Arabic")
-	queryList = query.strip('؟!،"').split()
+	#print("Finding stem Intersection in Arabic")
+	queryList = query.strip('؟!،" ً').split()
 	responses={}
 	maxVal=0
 	videoResponse= ''
@@ -515,32 +533,27 @@ def stem_intersection_match_Arabic(query, characterModel):
 
 		stemmed_query.append(analysis[0].split()[1].replace("stem:", "").split('d', 1)[0])
 
-	for stem in stemmed_query:
-
-		if stem in characterModel.wordMap.keys():
-
-			for vidResponse in characterModel.wordMap[stem]:
-
+	for stem_string in stemmed_query:
+		if stem_string in characterModel.stemmedMap.keys():
+			for vidResponse in characterModel.stemmedMap[stem_string]:
 				if vidResponse not in responses.keys():
-
-					responses[vidResponse]= 0
-				
+					responses[vidResponse]= 1
 				elif vidResponse in responses.keys():
-
 					responses[vidResponse]+=1
 
 	for key, value in responses.items():
-
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
-	
+		value= value/len(query)
+
 	return responses
+
 
 def lemma_intersection_match_Arabic(query, characterModel):
 
-	print("Finding lemma Intersection in Arabic")
-	queryList = query.strip('؟').split()
+	#print("Finding lemma Intersection in Arabic")
+	queryList = query.strip('؟!.،" ً').split()
 	#queryList.encode('utf-8')
 
 
@@ -549,41 +562,57 @@ def lemma_intersection_match_Arabic(query, characterModel):
 	videoResponse= ''
 
 
-
-
 	lemmatized_query= []
 	for word in queryList:
 		#print(word)
 		analysis=StarMorphModules.analyze_word(word,False)
-		lemmatized_query.append(analysis[0].split()[0].replace("lex:", "").split('_', 1)[0])
+		lemma= analysis[0].split()[0].replace("lex:", "").split('_', 1)[0]
+		lemma=re.sub(r'[^\u0621-\u064A]', '', lemma, flags=re.UNICODE)
+		lemmatized_query.append(lemma)
 
-	
-
-	for lemma in lemmatized_query:
-		if lemma in characterModel.lemmatizedMap.keys():
-			for vidResponse in characterModel.lemmatizedMap[lemma]:
+	for lemma_string in lemmatized_query:
+		if lemma_string in characterModel.lemmatizedMap.keys():
+			for vidResponse in characterModel.lemmatizedMap[lemma_string]:
 				if vidResponse not in responses.keys():
-					responses[vidResponse]= 0
+					responses[vidResponse]= 1
 				elif vidResponse in responses.keys():
 					responses[vidResponse]+=1
-
 
 	for key, value in responses.items():
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
-
-	#print(responses)
+		value= value/len(query)
 	return responses
 
+	
+
 def calculateTFIDF(token, characterModel):
+	#are we using each question as a "doc" or each character model?
+
 	totalDocs = len(characterModel.objectMap)
+
+	#tf: term frequency
+    tf= doc.words.count(token) / len(doc.words)
+
+    #number of docs containing the token
+	n_containing= sum(1 for doc in doclist if token in doc.words)
+
+	#idf: inverse document frequency
+	idf= math.log(len(doclist) / (1 + n_containing(token, doclist)))
+
+	#tfifd
+	tfidf= tf * idf
+
+	return tfidf
+
 
 def rankAnswers(videoResponses, currentSession):
 	#each repition is a given a weight of 2 e.g if a video has been played once 2 points will be subtracted from its matching score
 
 	# for each possible answer, checks if it has been played it already, and subtract points from its score if has been played already.
 	for res in videoResponses:
+
 		if res in currentSession.repetitions.keys():
 			negativePoints = currentSession.repetitions[res] * 2
 			videoResponses[res] -= negativePoints
@@ -629,8 +658,9 @@ def findResponse(query, characterModel, currentSession):
 	# 	print("direct max", themax)
 
 
-	best_response= lemma_intersection_match_English(query, characterModel)
+	#best_response= lemma_intersection_match_English(query, characterModel)
 
+	best_response= direct_intersection_match_Arabic(query, characterModel)
 	# if the responses are empty, play "I can't answer that response"
 	if bool(best_response) == False:
 		if currentSession.currentAvatar == "gabriela":
