@@ -1,14 +1,19 @@
 import dialogue_manager4
 import os
 
+import StarMorphModules
+
 characterModel = {}
 currentAvatar = ""
 currentSession = None
 
 def initiate():
+	StarMorphModules.read_config("config_dana.xml")
+	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 	global currentSession
 	global characterModel
 	# initiates the model and a new session
+
 	currentSession = dialogue_manager4.createModel(characterModel, currentSession, "Arabic")
 
 def test_oracle_questions():
@@ -26,6 +31,7 @@ def test_oracle_questions():
 				response_answer = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
 				if answer != response_answer.answer:
 					incorrect += 1
+					print("incorrect")
 					print("Question: ",question)
 					print("Actual Answer: ",answer)
 					print("Response: ",response_answer.answer, "\n")

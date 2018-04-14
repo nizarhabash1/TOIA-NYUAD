@@ -9108,7 +9108,7 @@
       "key": "7e694549c1740062fc1f5b0a73518795",
       "doc": {
         "index": 2117,
-	"arabic-answer":"هربت من المخيم بعد أن سرقت ورقة من مكتب ضابطة الهجرة وزورت توقيعها. كان من المفترق أن ألتقي بممثل عن السلطة في المدينة. ومن ثم، وجدت مكان لأنام فيه في المدينة وبقيت هناك",
+	     "arabic-answer":"هربت من المخيم بعد أن سرقت ورقة من مكتب ضابطة الهجرة وزورت توقيعها. كان من المفترق أن ألتقي بممثل عن السلطة في المدينة. ومن ثم، وجدت مكان لأنام فيه في المدينة وبقيت هناك",
         "language": "Arabic",
         "question": "How did you escape the camp?",
         "_rev": "2-881e87ce1cfbf089fe84c9fb7897f541",
@@ -15797,7 +15797,7 @@
       "key": "f995946d1d8462bc94f06fdf8ad762fe",
       "doc": {
         "index": 1077,
-        "arabic-answer": "نعم",
+        "arabic-answer": "نعم", 
         "language": "Arabic",
         "character": "katarina",
         "_rev": "2-9f05fad80602abf3d2248935f4c47b65",
@@ -15884,7 +15884,7 @@
         "question": "Am I able to change campus location after I enroll? ",
         "video_saved": true,
         "video": "katarina_1105_f995946d1d8462bc94f06fdf8ad79044.mp4",
-        "answer": "NYU is fully committed to the well-being of our students, and we will do everything we can to make sure a student's experience is both academically and socially fulfilling. However, should a student decide that the campus at which they matriculate is not the right fit for him or her, a request for a change of campus will be given consideration. If a request for change of campus is approved, the Financial Aid office will evaluate a student's financial circumstances in the context of financial aid packages offered at the new campus. Financial aid packages vary greatly among our three campuses, so students should be aware of this reality should transferring become a consideration.",
+        "answer": "NYU is fully committed to the well-being of our students, and we will do everything we can to make sure a student's experience is both academically and socially fulfilling. However, should a student decide that the campus at which they matriculate is not the right fit for him or her, a request for a change of campus will be given consideration. If a request for change of campus is approved, the Financial Aid office will evaluate a student's financial circumstances in the context of financial aid packages offered at the new campus. الpackages vary greatly among our three campuses, so students should be aware of this reality should transferring become a consideration.",
         "arabic-question": "هل بإمكاني تغيير مقر دراستي بعد الالتحاق بالجامعة؟",
         "_id": "f995946d1d8462bc94f06fdf8ad79044"
       },
@@ -16065,7 +16065,7 @@
         "video_saved": true,
         "video": "katarina_1151_f995946d1d8462bc94f06fdf8ad7c96c.mp4",
         "answer": "The Career Development Centre supports students in building their professional skills througout their four years through workshops, events and one-on-one couseling sessions and by helping them in their search, selection and sometimes funding of opportunities including internships throughout the year including the summer, on-campus jobs and more. ",
-        "arabic-question": "كيف تساعد جامعة نيويورك أبوظبي الطلاب على التكيف مع الحياة في الإمارات العربية المتحدة؟",
+        "arabic-question": "كيف تدعم جامعة نيويورك أبوظبي الطلاب فيما يتعلق بتطورهم المهني طوال فترة دراستهم في الجامعة؟",
         "_id": "f995946d1d8462bc94f06fdf8ad7c96c"
       },
       "id": "f995946d1d8462bc94f06fdf8ad7c96c",
