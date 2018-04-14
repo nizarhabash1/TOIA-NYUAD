@@ -14,7 +14,11 @@ def initiate():
 	global characterModel
 	# initiates the model and a new session
 
+
 	currentSession = dialogue_manager4.createModel(characterModel, currentSession, "Arabic")
+
+	#currentSession = dialogue_manager4.createModel(characterModel, currentSession, "English")
+
 
 def test_oracle_questions():
 	global currentSession
@@ -24,23 +28,24 @@ def test_oracle_questions():
 		if avatar == "gabriela" or avatar == "margarita" or avatar == "katarina":
 			#print("\n\n\n\n")
 			currentSession = dialogue_manager4.create_new_session(avatar)
-			for question_id in characterModel[avatar].objectMap.keys():
+			for question_id in characterModel[avatar].questionsMap.keys():
 				#print(avatar)
 				question = characterModel[avatar].objectMap[question_id].question
 				answer = characterModel[avatar].objectMap[question_id].answer
-				response_answer = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
-				if answer != response_answer.answer:
+				response = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
+				if answer == response.answer or response.question == question:
+					correct += 1
+					#print("Question: ",question)
+					#print("Actual Answer: ",answer)
+					#print("Response: ",response.answer, "\n")
+				else:
 					incorrect += 1
 					print("incorrect")
 					print("Question: ",question)
 					print("Actual Answer: ",answer)
-					print("Response: ",response_answer.answer, "\n")
-				else:
-					#print("Question: ",question)
-					#print("Actual Answer: ",answer)
-					#print("Response: ",response_answer.answer, "\n")
+					print("Response: ",response.answer, "\n")
 
-					correct += 1
+					
 	print("correct: ", correct)
 	print("incorrect: ", incorrect)
 

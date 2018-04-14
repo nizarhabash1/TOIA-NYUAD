@@ -52,6 +52,7 @@ class model:
 		self.objectMap = {}
 		self.fillers = {}
 		self.greetings = {}
+		self.questionsMap ={}
 
 #The Structure for a video Object
 class videoRecording:
@@ -106,10 +107,30 @@ def createModel(characterdict, currentSession, mylanguage):
 	#StarMorphModules.read_config("config_dana.xml")
 	#StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 
-	id_count=0
+	totalQuestions = 0
 
 	for i in range (0, len(resp["rows"])-1, 1):
+
+		# Depending on the language, the question is parsed
+		id_count=0
+
+	for i in range (0, len(resp["rows"])-1, 1):
+			
 			id_count+=1
+
+			# If object is a queastion-answer pair, the relevant information is extracted
+			if "question" in resp["rows"][i]["doc"].keys():
+				totalQuestions +=1
+				#do we wanna give it ID ourselves or use the JSON one?
+				#ID= json.dumps(resp["rows"][i]["doc"]["_id"])
+				video= json.dumps(resp["rows"][i]["doc"]["video"])
+				#character= json.dumps(resp["rows"][i]["doc"]["character"])
+				character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
+				language= json.dumps(resp["rows"][i]["doc"]["language"])
+				ID= id_count;
+			
+			else:
+				continue
 			
 			if(mylanguage== "Arabic" and "arabic-question"in resp["rows"][i]["doc"].keys() and "arabic-answer"in resp["rows"][i]["doc"].keys()):
 				question= json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
@@ -117,68 +138,121 @@ def createModel(characterdict, currentSession, mylanguage):
 
 			
 			if(mylanguage=="English" and "question" in resp["rows"][i]["doc"].keys()):
-				question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.")
-				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.")	
+				question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(',?."!')
+				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(',?."!')
 
-			if "question" in resp["rows"][i]["doc"].keys():
-				#do we wanna give it ID ourselves or use the JSON one?
-				#ID= json.dumps(resp["rows"][i]["doc"]["_id"])
-				video= json.dumps(resp["rows"][i]["doc"]["video"])
-				#character= json.dumps(resp["rows"][i]["doc"]["character"])
-				character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
-				language= json.dumps(resp["rows"][i]["doc"]["language"])
-				obj= videoRecording(question, answer, video, character, language)
-				ID= id_count;
-				
-			
-			# Creates the chracter list in the dictionary if it does not exist already
-			if character not in characterdict.keys():
-				
-				#characterdict[character] is a dictionary of the following lists of videos: silences, greetings, questions
+			# Creates a new character model in the character dictionary if it does not exist already
+			if character not in characterdict.keys():				
+				#characterdict[character] is the model of the respective character
 				characterdict[character] = model()
-				#print(character)
 
-			 	# if the video is for silence
+			#adds to the character's questions list based on the character key; adds all videos regardless of type to questions
+			obj= videoRecording(question, answer, video, character, language)
+			characterdict[character].objectMap[ID] = obj
+			
+			# if the video is for silence
 			if (answer == '""' and video != '""'):
 			 	characterdict[character].fillers[ID] = obj
 
-			#adds to the character's questions list based on the character key; adds all videos regardless of type to questions
-			characterdict[character].objectMap[ID] = obj
+			else:
+				characterdict[character].questionsMap[ID] = obj
 
-			# stemming the question and answer and adding the stems into model.stemmedMap
-			
+			# stemming the question and answer and adding the stems, their bigrams and trigrams into model.stemmedMap			
 			if(mylanguage=="English"):
-				objStemmedList = [porterStemmer.stem(tmp.strip(' " ?!')) for tmp in question.split() ] + [porterStemmer.stem(tmp) for tmp in obj.answer.split() ]
-				for stem in objStemmedList:
-					# creates a list for objects related to the stem if the list does not exist already
+				question = question.lower()
+				answer = answer.lower()
+
+				objStemmedList = [porterStemmer.stem(tmp.strip(', " ?.!')) for tmp in question.split() ] + [porterStemmer.stem(tmp.strip(', " ?.!')) for tmp in obj.answer.split() ]
+				totalStems = len(objStemmedList)
+				
+				for i in range(totalStems):
+
+					stem = objStemmedList[i]
 					if stem not in characterdict[character].stemmedMap.keys():
 						characterdict[character].stemmedMap[stem] = []
 
 					#adds the question to the list of objects related to the stem
-					characterdict[character].stemmedMap[stem].append(ID)
+					if (ID not in characterdict[character].stemmedMap[stem] ):
+						characterdict[character].stemmedMap[stem].append(ID)
 
-				# lemmatize the question and answer and adding the stems into model.lemmatizedMap
-				objLemmatizedList = [lemmatizer.lemmatize(tmp.strip(' " ?!')) for tmp in question.split() ] + [lemmatizer.lemmatize(tmp) for tmp in answer.split() ]
+					if i < totalStems -1:
+						bigram = stem + " " + objStemmedList[i+1]
+						if bigram not in characterdict[character].stemmedMap.keys():
+							characterdict[character].stemmedMap[bigram] = []
+
+						if (ID not in characterdict[character].stemmedMap[bigram] ):
+							characterdict[character].stemmedMap[bigram].append(ID)
+
+					if i < totalStems -2: 
+						trigram = stem + " " + objStemmedList[i+1] + " " + objStemmedList[i+2]
+						if trigram not in characterdict[character].stemmedMap.keys():
+							characterdict[character].stemmedMap[trigram] = []
+
+						if (ID not in characterdict[character].stemmedMap[trigram] ):
+							characterdict[character].stemmedMap[trigram].append(ID)
+
+
+				# lemmatize the question and answer and adding the lemmas, their bigrams and trigramsinto model.lemmatizedMap
+				objLemmatizedList = [lemmatizer.lemmatize(tmp.strip(', " ?.!')) for tmp in question.split() ] + [lemmatizer.lemmatize(tmp.strip(', " ?.!')) for tmp in answer.split() ]
+				totalLemmas = len(objLemmatizedList)
 				
-				for lemma in objLemmatizedList:
+				for i in range(totalLemmas):
+
+					lemma = objLemmatizedList[i]
 					if lemma not in characterdict[character].lemmatizedMap.keys():
 						characterdict[character].lemmatizedMap[lemma] = []
 
 					#adds the question to the list of objects related to the stem
-					characterdict[character].lemmatizedMap[lemma].append(ID)
+					if (ID not in characterdict[character].lemmatizedMap[lemma] ):
+						characterdict[character].lemmatizedMap[lemma].append(ID)
 
-	            # lemmatize the question and answer and adding the stems into model.lemmatizedMap
-				objWordList = question.split() + answer.split()
+					if i < totalLemmas -1:
+						bigram = lemma + " " + objLemmatizedList[i+1]
+						if bigram not in characterdict[character].lemmatizedMap.keys():
+							characterdict[character].lemmatizedMap[bigram] = []
 
-				for word in objWordList:
+						if (ID not in characterdict[character].lemmatizedMap[bigram] ):
+							characterdict[character].lemmatizedMap[bigram].append(ID)
 
-					word = word.strip(' " ?!')
+					if i < totalLemmas -2: 
+						trigram = lemma + " " + objLemmatizedList[i+1] + " " +  objLemmatizedList[i+2]
+						if trigram not in characterdict[character].lemmatizedMap.keys():
+							characterdict[character].lemmatizedMap[trigram] = []
+
+						if (ID not in characterdict[character].lemmatizedMap[trigram] ):
+							characterdict[character].lemmatizedMap[trigram].append(ID)
+
+
+	            # splitting the question and answer and adding the words, their bigrams and trigrams into model.WordMap
+				objWordList = [tmp.strip(', " ?.!') for tmp in question.split()] + [tmp.strip(', " ?.!') for tmp in answer.split()]
+				totalWords = len(objWordList)
+				
+				for i in range(totalWords):
+
+					word = objWordList[i]
 					if word not in characterdict[character].wordMap.keys():
 						characterdict[character].wordMap[word] = []
 
 					#adds the question to the list of objects related to the stem
-					characterdict[character].wordMap[word].append(ID)
-				print("word list", characterdict[character].wordMap)
+					if (ID not in characterdict[character].wordMap[word] ):
+						characterdict[character].wordMap[word].append(ID)
+
+					if i < totalWords -1:
+						bigram = word + " " + objWordList[i+1]
+						if bigram not in characterdict[character].wordMap.keys():
+							characterdict[character].wordMap[bigram] = []
+
+						if (ID not in characterdict[character].wordMap[bigram] ):
+							characterdict[character].wordMap[bigram].append(ID)
+
+					if i < totalWords -2: 
+						trigram = word + " " + objWordList[i+1] +  " " + objWordList[i+2]
+						if trigram not in characterdict[character].wordMap.keys():
+							characterdict[character].wordMap[trigram] = []
+
+						if (ID not in characterdict[character].wordMap[trigram] ):
+							characterdict[character].wordMap[trigram].append(ID)
+
 			
 			elif(mylanguage=="Arabic"):
 
@@ -248,6 +322,7 @@ def createModel(characterdict, currentSession, mylanguage):
 
 
 							for stem in objStemmedList:
+								#print(character)
 								#print(stem)
 							# creates a list for objects related to the stem if the list does not exist already
 								if stem not in characterdict[character].stemmedMap.keys():
@@ -288,33 +363,43 @@ def createModel(characterdict, currentSession, mylanguage):
 								#adds the question to the list of objects related to the stem
 								if(ID not in characterdict[character].wordMap[word]):
 									characterdict[character].wordMap[word].append(ID)
-								print("word: " + word + "\n" )
-								print(characterdict[character].wordMap[word])
-								print("\n")
+
+								#print("word: " + word + "\n" )
+								#print(characterdict[character].wordMap[word])
+								#print("\n")
 							#print("word list", characterdict[character].wordMap)
 			           
 						#arabic_read.close()
 					except:
-						print("")
+						#print("Exception given")
+						continue
 						#break;
+
 				 	'''
 				
-					
+	#print("Character: ", character) 
+			#print("ID: ", str(id_count))
+			#print("Question: ", str(question))
+			#print("Answer: ", str(answer))
+			#print("\n")
 
+
+			
+	print("Total Questions: ", str(totalQuestions))
 	print("done")
+	#print(characterdict["gabriela"].wordMap)
 	return currentSession
 
 
 
 def direct_intersection_match_English(query, characterModel):
 
-	queryList= query.split()
+	queryList= [tmp.strip(', " ?.!') for tmp in query.split()]
 	responses={}
 	maxVal=0
 	videoResponse= ''
 
 	for direct_string in queryList:
-		direct_string == direct_string.strip(' " ?!').lower()
 		if direct_string in characterModel.wordMap.keys():
 			for vidResponse in characterModel.wordMap[direct_string]:
 				if vidResponse not in responses.keys():
@@ -335,7 +420,7 @@ def direct_intersection_match_English(query, characterModel):
 
 def stem_intersection_match_English(query, characterModel):
 
-	stemmed_query= [porterStemmer.stem(tmp.strip(' " ?!')) for tmp in query.lower().split()]
+	stemmed_query= [porterStemmer.stem(tmp.strip(', " ?.!')) for tmp in query.split()]
 
 	responses={}
 	maxVal=0
@@ -360,7 +445,7 @@ def stem_intersection_match_English(query, characterModel):
 
 def lemma_intersection_match_English(query, characterModel):
 
-	lemmatized_query= [lemmatizer.lemmatize(tmp.strip(' " ?!')) for tmp in query.lower().split()]
+	lemmatized_query= [lemmatizer.lemmatize(tmp.strip(', " ?.!')) for tmp in query.split()]
 
 	responses={}
 	maxVal=0
@@ -391,7 +476,6 @@ def direct_intersection_match_Arabic(query, characterModel):
 	maxVal=0
 	videoResponse= ''
 
-	
 	for direct_string in queryList:
 		#print(direct_string)
 		if direct_string in characterModel.wordMap.keys():
@@ -492,6 +576,9 @@ def lemma_intersection_match_Arabic(query, characterModel):
 	#print(responses)
 	return responses
 
+def calculateTFIDF(token, characterModel):
+	totalDocs = len(characterModel.objectMap)
+
 def rankAnswers(videoResponses, currentSession):
 	#each repition is a given a weight of 2 e.g if a video has been played once 2 points will be subtracted from its matching score
 
@@ -511,6 +598,7 @@ def findResponse(query, characterModel, currentSession):
 
 	themax=0
 	best_response=''
+	query = query.lower().strip(',?."!')
 
 	#different modes of matching	
 	# stem_match_english_responses= stem_intersection_match_English(query, characterModel)
@@ -520,24 +608,29 @@ def findResponse(query, characterModel, currentSession):
 	# if(len(stem_match_english_responses)>themax):
 	# 	themax= len(stem_match_english_responses)
 	# 	best_response=stem_match_english_responses
+
 	# 	print("stem max", themax)
+
+	
 
 	# if(len(lemma_match_english_responses)>themax):
 	# 	themax= len(lemma_match_english_responses)
 	# 	best_response=lemma_match_english_responses
+
 	# 	print("lemma max", themax)
+
+
 
 	# if(len(direct_match_english_responses)>themax):
 	# 	themax= len(direct_match_english_responses)
 	# 	best_response=direct_match_english_responses
 
+
 	# 	print("direct max", themax)
 
 
-	# print("direct max", themax)
+	best_response= lemma_intersection_match_English(query, characterModel)
 
-	best_response= direct_intersection_match_Arabic(query, characterModel)
-	
 	# if the responses are empty, play "I can't answer that response"
 	if bool(best_response) == False:
 		if currentSession.currentAvatar == "gabriela":
@@ -546,7 +639,8 @@ def findResponse(query, characterModel, currentSession):
 			final_answer = 618
 		else:
 			final_answer = 746
-	
+
+
 	else:
 		final_answer = rankAnswers(best_response, currentSession)
 		if final_answer in currentSession.repetitions.keys():
@@ -555,6 +649,7 @@ def findResponse(query, characterModel, currentSession):
 			currentSession.repetitions[final_answer] = 1
 
 	#print(characterModel.objectMap[final_answer].answer)
+
 	return characterModel.objectMap[final_answer]
 
 
