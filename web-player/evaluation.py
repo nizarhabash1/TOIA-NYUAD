@@ -9,7 +9,7 @@ def initiate():
 	global currentSession
 	global characterModel
 	# initiates the model and a new session
-	currentSession = dialogue_manager4.createModel(characterModel, currentSession, "English")
+	currentSession = dialogue_manager4.createModel(characterModel, currentSession, "Arabic")
 
 def test_oracle_questions():
 	global currentSession
