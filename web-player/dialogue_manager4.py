@@ -105,19 +105,23 @@ def createModel(characterdict, currentSession, mylanguage):
 	StarMorphModules.read_config("config_dana.xml")
 	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 
+	totalQuestions = 0
+
 	for i in range (0, len(resp["rows"])-1, 1):
 
-			
+			# Depending on the language, the question is parsed
 			if(mylanguage== "Arabic" and "arabic-question"in resp["rows"][i]["doc"].keys() and "arabic-answer"in resp["rows"][i]["doc"].keys()):
 				question= json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
 				answer=json.dumps(resp["rows"][i]["doc"]["arabic-answer"],ensure_ascii=False).strip('،.؟"')
 
 			
 			if(mylanguage=="English" and "question" in resp["rows"][i]["doc"].keys()):
-				question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(",?.")
-				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(",?.")	
+				question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(',?."!')
+				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(',?."!')	
 
+			# If object is a queastion-answer pair, the relevant information is extracted
 			if "question" in resp["rows"][i]["doc"].keys():
+				totalQuestions +=1
 				#do we wanna give it ID ourselves or use the JSON one?
 				ID= json.dumps(resp["rows"][i]["doc"]["_id"])
 				video= json.dumps(resp["rows"][i]["doc"]["video"])
@@ -125,9 +129,9 @@ def createModel(characterdict, currentSession, mylanguage):
 				language= json.dumps(resp["rows"][i]["doc"]["language"])
 				obj= videoRecording(question, answer, video, character, language)
 
-			# Creates the chracter list in the dictionary if it does not exist already
+			# Creates a new character model in the character dictionary if it does not exist already
 			if character not in characterdict.keys():
-				#characterdict[character] is a dictionary of the following lists of videos: silences, greetings, questions
+				#characterdict[character] is the model of the respective character
 				characterdict[character] = model()
 
 			 	# if the video is for silence
@@ -147,7 +151,8 @@ def createModel(characterdict, currentSession, mylanguage):
 						characterdict[character].stemmedMap[stem] = []
 
 					#adds the question to the list of objects related to the stem
-					characterdict[character].stemmedMap[stem].append(ID)
+					if (ID not in characterdict[character].stemmedMap[stem] ):
+						characterdict[character].stemmedMap[stem].append(ID)
 
 				# lemmatize the question and answer and adding the stems into model.lemmatizedMap
 				objLemmatizedList = [lemmatizer.lemmatize(tmp.strip(' " ?!')) for tmp in question.split() ] + [lemmatizer.lemmatize(tmp) for tmp in answer.split() ]
@@ -157,7 +162,8 @@ def createModel(characterdict, currentSession, mylanguage):
 						characterdict[character].lemmatizedMap[lemma] = []
 
 					#adds the question to the list of objects related to the stem
-					characterdict[character].lemmatizedMap[lemma].append(ID)
+					if (ID not in characterdict[character].lemmatizedMap[lemma] ):
+						characterdict[character].lemmatizedMap[lemma].append(ID)
 
 	            # lemmatize the question and answer and adding the stems into model.lemmatizedMap
 				objWordList = question.split() + answer.split()
@@ -169,7 +175,8 @@ def createModel(characterdict, currentSession, mylanguage):
 						characterdict[character].wordMap[word] = []
 
 					#adds the question to the list of objects related to the stem
-					characterdict[character].wordMap[word].append(ID)
+					if (ID not in characterdict[character].wordMap[word] ):
+						characterdict[character].wordMap[word].append(ID)
 			
 			elif(mylanguage=="Arabic"):
 				
@@ -248,7 +255,7 @@ def createModel(characterdict, currentSession, mylanguage):
 					print("stemmed list: ", objStemmedList)'''
 				
 					
-
+	print("Total Questions: ", str(totalQuestions))
 	print("done")
 	return currentSession
 
@@ -340,7 +347,7 @@ def direct_intersection_match_Arabic(query, characterdict):
 	videoResponse= ''
 
 
-	print(characterdict.wordMap.keys())
+	#print(characterdict.wordMap.keys())
 	for direct_string in queryList:
 		print(direct_string)
 		if direct_string in characterdict.wordMap.keys():
@@ -440,6 +447,9 @@ def lemma_intersection_match_Arabic(query, characterdict):
 
 	return responses
 
+def calculateTFIDF(token, characterModel):
+	totalDocs = len(characterModel.objectMap)
+
 def rankAnswers(videoResponses, currentSession):
 	#each repition is a given a weight of 2 e.g if a video has been played once 2 points will be subtracted from its matching score
 
@@ -455,32 +465,32 @@ def rankAnswers(videoResponses, currentSession):
 def findResponse(query, characterModel, currentSession):
 	themax=0
 	best_response=''
+	query = query.strip(',?."!')
 
 	#different modes of matching	
-	stem_match_english_responses= stem_intersection_match_English(query, characterModel)
-	lemma_match_english_responses= lemma_intersection_match_English(query, characterModel)
-	direct_match_english_responses= direct_intersection_match_English(query, characterModel)
+	# stem_match_english_responses= stem_intersection_match_English(query, characterModel)
+	# lemma_match_english_responses= lemma_intersection_match_English(query, characterModel)
+	# direct_match_english_responses= direct_intersection_match_English(query, characterModel)
 
-	if(len(stem_match_english_responses)>themax):
-		themax= len(stem_match_english_responses)
-		best_response=stem_match_english_responses
-		print("stem max", themax)
+	# if(len(stem_match_english_responses)>themax):
+	# 	themax= len(stem_match_english_responses)
+	# 	best_response=stem_match_english_responses
+	# 	#print("stem max", themax)
 
-	if(len(lemma_match_english_responses)>themax):
-		themax= len(lemma_match_english_responses)
-		best_response=lemma_match_english_responses
-		print("lemma max", themax)
+	# if(len(lemma_match_english_responses)>themax):
+	# 	themax= len(lemma_match_english_responses)
+	# 	best_response=lemma_match_english_responses
+	# 	#print("lemma max", themax)
 
-	if(len(direct_match_english_responses)>themax):
-		themax= len(direct_match_english_responses)
-		best_response=direct_match_english_responses
+	# if(len(direct_match_english_responses)>themax):
+	# 	themax= len(direct_match_english_responses)
+	# 	best_response=direct_match_english_responses
 
-		print("direct max", themax)
+		#print("direct max", themax)
 
+	#print("direct max", themax)
 
-	print("direct max", themax)
-
-	#best_response= lemma_intersection_match_Arabic(query, characterModel)
+	best_response= direct_intersection_match_English(query, characterModel)
 	
 	# if the responses are empty, play "I can't answer that response"
 	if bool(best_response) == False:
@@ -498,7 +508,6 @@ def findResponse(query, characterModel, currentSession):
 		else:
 			currentSession.repetitions[final_answer] = 1
 
-	print(characterModel.objectMap[final_answer].answer)
 	return characterModel.objectMap[final_answer]
 
 
