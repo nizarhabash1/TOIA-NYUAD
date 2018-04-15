@@ -17,6 +17,9 @@ import nltk
 
 import ssl
 
+import math
+from textblob import TextBlob as tb
+
 try:
     _create_unverified_https_context = ssl._create_unverified_context
 except AttributeError:
@@ -54,6 +57,7 @@ class model:
 		self.greetings = {}
 		self.questionsMap ={}
 
+
 #The Structure for a video Object
 class videoRecording:
 	def __init__(self, question, answer, video, character, language):
@@ -63,6 +67,8 @@ class videoRecording:
 		self.answer = answer
 		self.videoLink = video
 		self.language= language
+		self.questionLength= len(question.split())
+		self.answerLength= len(answer.split())
 
 
 	def toString(self):
@@ -104,8 +110,8 @@ def createModel(characterdict, currentSession, mylanguage):
 	resp = json.load(f)
 	#print(resp)
 
-	StarMorphModules.read_config("config_dana.xml")
-	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
+	#StarMorphModules.read_config("config_dana.xml")
+	#StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 
 	totalQuestions = 0
 
@@ -255,7 +261,57 @@ def createModel(characterdict, currentSession, mylanguage):
 
 			
 			elif(mylanguage=="Arabic"):
+
+				'''objLemmatizedList=[]
+				objStemmedList=[]
+				objWordList=[]'''
+				#print(StarMorphModules.analyze_word("كيف",False)[0].split()[0].replace("lex:", "").split('_', 1)[0])
+				#print(StarMorphModules.analyze_word("كيف",False)[0].split()[1].replace("stem:", "").split('d', 1)[0])
+				objStemmedList = [StarMorphModules.analyze_word(tmp,False)[0].split()[1].replace("stem:", "").split('d', 1)[0] for tmp in question.split() ] + [StarMorphModules.analyze_word(tmp,False)[0].split()[1].replace("stem:", "").split('d', 1)[0]for tmp in obj.answer.split() ]
+
+
+				for stem in objStemmedList:
+						#print(stem)
+					# creates a list for objects related to the stem if the list does not exist already
+						if stem not in characterdict[character].stemmedMap.keys():
+							characterdict[character].stemmedMap[stem] = []
+
+						#adds the question to the list of objects related to the stem
+						if(ID not in characterdict[character].stemmedMap[stem]): 
+							characterdict[character].stemmedMap[stem].append(ID)
+					#print(characterdict[character].stemmedMap)
 				
+				objLemmatizedList = [StarMorphModules.analyze_word(tmp,False)[0].split()[0].replace("lex:", "").split('_', 1)[0] for tmp in question.split() ] + [StarMorphModules.analyze_word(tmp,False)[0].split()[0].replace("lex:", "").split('_', 1)[0] for tmp in obj.answer.split() ]
+				
+				for lemma in objLemmatizedList:
+						lemma=re.sub(r'[^\u0621-\u064A]', '', lemma, flags=re.UNICODE)
+
+						if lemma not in characterdict[character].lemmatizedMap.keys():
+							
+							characterdict[character].lemmatizedMap[lemma] = []
+
+						#adds the question to the list of objects related to the stem
+						#print(ID)
+						if(ID not in characterdict[character].lemmatizedMap[lemma]):
+							characterdict[character].lemmatizedMap[lemma].append(ID)
+						#print("lemma: " + lemma + "\n" )
+						#print(characterdict[character].lemmatizedMap[lemma])
+						#print("\n")
+
+				objWordList = question.split() + answer.split()
+
+				for word in objWordList:
+
+					word = word.strip(' " ?!')
+					if word not in characterdict[character].wordMap.keys():
+						characterdict[character].wordMap[word] = []
+
+					#adds the question to the list of objects related to the stem
+					characterdict[character].wordMap[word].append(ID)
+				#print("word list", characterdict[character].wordMap)
+					#print(characterdict[character].lemmatizedMap.keys())
+					#print("lemmatized list", characterdict[character].lemmatizedMap)
+				'''
 					try:
 						for line in arabic_read:
 							objLemmatizedList=[]
@@ -324,11 +380,15 @@ def createModel(characterdict, currentSession, mylanguage):
 						#print("Exception given")
 						continue
 						#break;
-			#print("Character: ", character) 
+
+				 	'''
+				
+	#print("Character: ", character) 
 			#print("ID: ", str(id_count))
 			#print("Question: ", str(question))
 			#print("Answer: ", str(answer))
 			#print("\n")
+
 
 			
 	print("Total Questions: ", str(totalQuestions))
@@ -415,7 +475,7 @@ def lemma_intersection_match_English(query, characterModel):
 
 def direct_intersection_match_Arabic(query, characterModel):
 	print("Finding Direct Intersection in Arabic")
-	queryList= query.strip('؟').split()
+	queryList= [tmp.strip('،!؟."') for tmp in query.split()]
 	#queryList.encode('utf-8')
 
 	responses={}
@@ -427,28 +487,40 @@ def direct_intersection_match_Arabic(query, characterModel):
 		if direct_string in characterModel.wordMap.keys():
 			for vidResponse in characterModel.wordMap[direct_string]:
 				if vidResponse not in responses.keys():
-					responses[vidResponse]= 0
+					responses[vidResponse]= 1
 				elif vidResponse in responses.keys():
+			
 					responses[vidResponse]+=1
-
-
-
+			'''		
+			if(characterModel.objectMap[vidResponse].answerLength):
+				recall = responses[vidResponse]/(characterModel.objectMap[vidResponse].questionLength)
+				precision= responses[vidResponse]/(characterModel.objectMap[vidResponse].questionLength+characterModel.objectMap[vidResponse].answerLength)
+				#f-score
+				responses[vidResponse]= responses[vidResponse]/((recall+precision)/2)
+			'''
 	for key, value in responses.items():
-		print(key, value)
+
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
 
-	print(responses)
+	return responses
+
+	for key, value in responses.items():
+		#print(key, value)
+		if int (value) > maxVal:
+			maxVal= int(value)
+			videoResponse= key
+	#print("responses:" , responses)
 	return responses
 
 def stem_intersection_match_Arabic(query, characterModel):
 
-	StarMorphModules.read_config("config_stem.xml")
-	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
+	#StarMorphModules.read_config("config_stem.xml")
+	#StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 
-	print("Finding stem Intersection in Arabic")
-	queryList = query.strip('؟').split()
+	#print("Finding stem Intersection in Arabic")
+	queryList = query.strip('؟!،" ً').split()
 	responses={}
 	maxVal=0
 	videoResponse= ''
@@ -457,35 +529,31 @@ def stem_intersection_match_Arabic(query, characterModel):
 	for word in queryList:
 
 		
-		analysis=StarMorphModules.analyze_word(word,False)		
-		stemmed_query.append(analysis[0].split()[1].replace("stem:", ""))
+		analysis=StarMorphModules.analyze_word(word,False)	
 
-	for stem in stemmed_query:
+		stemmed_query.append(analysis[0].split()[1].replace("stem:", "").split('d', 1)[0])
 
-		if stem in characterModel.wordMap.keys():
-
-			for vidResponse in characterModel.wordMap[stem]:
-
+	for stem_string in stemmed_query:
+		if stem_string in characterModel.stemmedMap.keys():
+			for vidResponse in characterModel.stemmedMap[stem_string]:
 				if vidResponse not in responses.keys():
-
-					responses[vidResponse]= 0
-				
+					responses[vidResponse]= 1
 				elif vidResponse in responses.keys():
-
 					responses[vidResponse]+=1
 
 	for key, value in responses.items():
-
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
-	
+		value= value/len(query)
+
 	return responses
+
 
 def lemma_intersection_match_Arabic(query, characterModel):
 
-	print("Finding lemma Intersection in Arabic")
-	queryList = query.strip('؟').split()
+	#print("Finding lemma Intersection in Arabic")
+	queryList = query.strip('؟!.،" ً').split()
 	#queryList.encode('utf-8')
 
 
@@ -493,46 +561,58 @@ def lemma_intersection_match_Arabic(query, characterModel):
 	maxVal=0
 	videoResponse= ''
 
-	StarMorphModules.read_config("config_lex.xml")
-	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
-
 
 	lemmatized_query= []
 	for word in queryList:
 		#print(word)
 		analysis=StarMorphModules.analyze_word(word,False)
-		lemmatized_query.append(analysis[0].split()[0].replace("lex:", "").split('_', 1)[0])
+		lemma= analysis[0].split()[0].replace("lex:", "").split('_', 1)[0]
+		lemma=re.sub(r'[^\u0621-\u064A]', '', lemma, flags=re.UNICODE)
+		lemmatized_query.append(lemma)
 
-	print(lemmatized_query)
-
-	for key in characterModel.lemmatizedMap.keys():
-		print(key)
-
-	for lemma in lemmatized_query:
-		if lemma in characterModel.lemmatizedMap.keys():
-			for vidResponse in characterModel.lemmatizedMap[lemma]:
+	for lemma_string in lemmatized_query:
+		if lemma_string in characterModel.lemmatizedMap.keys():
+			for vidResponse in characterModel.lemmatizedMap[lemma_string]:
 				if vidResponse not in responses.keys():
-					responses[vidResponse]= 0
+					responses[vidResponse]= 1
 				elif vidResponse in responses.keys():
 					responses[vidResponse]+=1
-
 
 	for key, value in responses.items():
 		if int (value) > maxVal:
 			maxVal= int(value)
 			videoResponse= key
-
-	print(responses)
+		value= value/len(query)
 	return responses
 
+	
+
 def calculateTFIDF(token, characterModel):
+	#are we using each question as a "doc" or each character model?
+
 	totalDocs = len(characterModel.objectMap)
+
+	#tf: term frequency
+    tf= doc.words.count(token) / len(doc.words)
+
+    #number of docs containing the token
+	n_containing= sum(1 for doc in doclist if token in doc.words)
+
+	#idf: inverse document frequency
+	idf= math.log(len(doclist) / (1 + n_containing(token, doclist)))
+
+	#tfifd
+	tfidf= tf * idf
+
+	return tfidf
+
 
 def rankAnswers(videoResponses, currentSession):
 	#each repition is a given a weight of 2 e.g if a video has been played once 2 points will be subtracted from its matching score
 
 	# for each possible answer, checks if it has been played it already, and subtract points from its score if has been played already.
 	for res in videoResponses:
+
 		if res in currentSession.repetitions.keys():
 			negativePoints = currentSession.repetitions[res] * 2
 			videoResponses[res] -= negativePoints
@@ -541,6 +621,10 @@ def rankAnswers(videoResponses, currentSession):
 	return ranked_list[0]
 
 def findResponse(query, characterModel, currentSession):
+	
+	#StarMorphModules.read_config("config_lex.xml")
+	#StarMorphModules.initialize_from_file("almor-s31.db","analyze")
+
 	themax=0
 	best_response=''
 	query = query.lower().strip(',?."!')
@@ -553,24 +637,30 @@ def findResponse(query, characterModel, currentSession):
 	# if(len(stem_match_english_responses)>themax):
 	# 	themax= len(stem_match_english_responses)
 	# 	best_response=stem_match_english_responses
-	# 	#print("stem max", themax)
+
+	# 	print("stem max", themax)
+
+	
 
 	# if(len(lemma_match_english_responses)>themax):
 	# 	themax= len(lemma_match_english_responses)
 	# 	best_response=lemma_match_english_responses
-	# 	#print("lemma max", themax)
+
+	# 	print("lemma max", themax)
+
+
 
 	# if(len(direct_match_english_responses)>themax):
 	# 	themax= len(direct_match_english_responses)
 	# 	best_response=direct_match_english_responses
 
-		#print("direct max", themax)
 
-	#print("direct max", themax)
+	# 	print("direct max", themax)
 
 
-	best_response= lemma_intersection_match_English(query, characterModel)
+	#best_response= lemma_intersection_match_English(query, characterModel)
 
+	best_response= direct_intersection_match_Arabic(query, characterModel)
 	# if the responses are empty, play "I can't answer that response"
 	if bool(best_response) == False:
 		if currentSession.currentAvatar == "gabriela":
@@ -580,12 +670,15 @@ def findResponse(query, characterModel, currentSession):
 		else:
 			final_answer = 746
 
+
 	else:
 		final_answer = rankAnswers(best_response, currentSession)
 		if final_answer in currentSession.repetitions.keys():
 			currentSession.repetitions[final_answer] += 1
 		else:
 			currentSession.repetitions[final_answer] = 1
+
+	#print(characterModel.objectMap[final_answer].answer)
 
 	return characterModel.objectMap[final_answer]
 

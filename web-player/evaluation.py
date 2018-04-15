@@ -4,15 +4,24 @@ import random
 from random_words import RandomWords
 
 
+import StarMorphModules
+
 characterModel = {}
 currentAvatar = ""
 currentSession = None
 
 def initiate():
+	StarMorphModules.read_config("config_dana.xml")
+	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 	global currentSession
 	global characterModel
 	# initiates the model and a new session
-	currentSession = dialogue_manager4.createModel(characterModel, currentSession, "English")
+
+
+	currentSession = dialogue_manager4.createModel(characterModel, currentSession, "Arabic")
+
+	#currentSession = dialogue_manager4.createModel(characterModel, currentSession, "English")
+
 
 def noisify(inputString, percentage, noiseType):
 	rw = RandomWords()
@@ -63,25 +72,22 @@ def test_oracle_questions():
 			for question_id in characterModel[avatar].questionsMap.keys():
 				#print(avatar)
 				question = characterModel[avatar].objectMap[question_id].question
-				replaced = noisify(question, 50, "drop")
 				#print("Question: ",question)
-				#print("Replace: ",replaced, "\n")
 
 				answer = characterModel[avatar].objectMap[question_id].answer
 
-				response = dialogue_manager4.findResponse(replaced, characterModel[avatar], currentSession)
+				response = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
 				if answer == response.answer or response.question == question:
 					correct += 1
-					print("Question: ",question)
-					print("Replace: ",replaced)
-					print("Actual Answer: ",answer)
-					print("Response: ",response.answer, "\n")
+					#print("Question: ",question)
+					#print("Actual Answer: ",answer)
+					#print("Response: ",response.answer, "\n")
 				else:
 					incorrect += 1
-					# print("Question: ",question)
-					# print("Replace: ",replaced, "\n")
-					# print("Actual Answer: ",answer)
-					# print("Response: ",response.answer, "\n")
+
+					print("Question: ",question)
+					print("Actual Answer: ",answer)
+					print("Response: ",response.answer, "\n")
 
 					
 	print("correct: ", correct)
