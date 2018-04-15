@@ -1,5 +1,8 @@
 import dialogue_manager4
 import os
+import random
+from random_words import RandomWords
+
 
 characterModel = {}
 currentAvatar = ""
@@ -10,6 +13,44 @@ def initiate():
 	global characterModel
 	# initiates the model and a new session
 	currentSession = dialogue_manager4.createModel(characterModel, currentSession, "English")
+
+def noisify(inputString, percentage, noiseType):
+	rw = RandomWords()
+	queryList= [tmp.strip(', " ?.!') for tmp in inputString.lower().split()]
+	queryLength = len(queryList)
+	changes = round(percentage * queryLength/100)
+	
+	#replacing	
+	if noiseType == "replace":
+		indexReplaced = []
+		for i in range(changes):
+			index = 0
+			while (True):
+				randomWord = rw.random_word()
+				index = random.randint(0,queryLength-1)
+				if (index not in indexReplaced):
+					print(index)
+					indexReplaced.append(index)
+					break
+			queryList[index] = randomWord
+		return " ".join(queryList)
+	
+	#dropping
+	else:
+		indexDeleted = []
+		for i in range(changes):
+			index = 0
+			while (True):
+				index = random.randint(0,queryLength-1)
+				#makes sure that the same index
+				if (index not in indexDeleted):
+					indexDeleted.append(index)
+					break
+		newList = []
+		for index in range(queryLength):
+			if index not in indexDeleted:
+				newList.append(queryList[index])
+		return " ".join(newList)		
 
 def test_oracle_questions():
 	global currentSession
@@ -22,18 +63,25 @@ def test_oracle_questions():
 			for question_id in characterModel[avatar].questionsMap.keys():
 				#print(avatar)
 				question = characterModel[avatar].objectMap[question_id].question
+				replaced = noisify(question, 50, "drop")
+				#print("Question: ",question)
+				#print("Replace: ",replaced, "\n")
+
 				answer = characterModel[avatar].objectMap[question_id].answer
-				response = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
+
+				response = dialogue_manager4.findResponse(replaced, characterModel[avatar], currentSession)
 				if answer == response.answer or response.question == question:
 					correct += 1
-					#print("Question: ",question)
-					#print("Actual Answer: ",answer)
-					#print("Response: ",response.answer, "\n")
-				else:
-					incorrect += 1
 					print("Question: ",question)
+					print("Replace: ",replaced)
 					print("Actual Answer: ",answer)
 					print("Response: ",response.answer, "\n")
+				else:
+					incorrect += 1
+					# print("Question: ",question)
+					# print("Replace: ",replaced, "\n")
+					# print("Actual Answer: ",answer)
+					# print("Response: ",response.answer, "\n")
 
 					
 	print("correct: ", correct)
