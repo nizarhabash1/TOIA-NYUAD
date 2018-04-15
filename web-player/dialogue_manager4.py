@@ -14,6 +14,8 @@ import json
 import StarMorphModules
 
 import nltk
+#nltk.download('punkt')
+#nltk.download('averaged_perceptron_tagger')
 
 import ssl
 
@@ -657,9 +659,6 @@ def findResponse(query, characterModel, currentSession):
 
 	# 	print("direct max", themax)
 
-
-	#best_response= lemma_intersection_match_English(query, characterModel)
-
 	best_response= direct_intersection_match_Arabic(query, characterModel)
 	# if the responses are empty, play "I can't answer that response"
 	if bool(best_response) == False:
@@ -728,13 +727,17 @@ def main():
 	global characterdict
 	global currentSession
 	currentSession = None
-	currentSession = createModel(characterdict, currentSession, "Arabic" )
+	# mytext = nltk.word_tokenize("This is my sentence")
+	# mytext = nltk.pos_tag(mytext)
+	# print(mytext)
 
-	for i in range(4):
-		user_input = input("What do you have to ask\n")
-		currentSession = determineAvatar(user_input, currentSession)
-		response = findResponse(user_input, characterdict[currentSession.currentAvatar], currentSession)
-		print(response.answer)
+	# currentSession = createModel(characterdict, currentSession, "Arabic" )
+
+	# for i in range(4):
+	# 	user_input = input("What do you have to ask\n")
+	# 	currentSession = determineAvatar(user_input, currentSession)
+	# 	response = findResponse(user_input, characterdict[currentSession.currentAvatar], currentSession)
+	# 	print(response.answer)
 
 if __name__ == "__main__":
 	""" This is executed when run from the command line """

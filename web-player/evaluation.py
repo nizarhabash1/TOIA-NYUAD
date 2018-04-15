@@ -24,28 +24,36 @@ def initiate():
 
 
 def noisify(inputString, percentage, noiseType):
+	# random word generator
 	rw = RandomWords()
+	# breaks the query down to different words
 	queryList= [tmp.strip(', " ?.!') for tmp in inputString.lower().split()]
 	queryLength = len(queryList)
-	changes = round(percentage * queryLength/100)
-	
-	#replacing	
+	#the number of words in the inputString which will be changed based on the percentage
+	changes = round(percentage * queryLength/100)	
+	# if noise is added by replacing the words in the original query with random words
 	if noiseType == "replace":
+		#keeps track of all the indexes of words which are replaced to make sure that the same index is not replaced more than once
 		indexReplaced = []
+
 		for i in range(changes):
+			randomWord = rw.random_word()
 			index = 0
+			# runs until an index is identified which has not been changed yet
 			while (True):
-				randomWord = rw.random_word()
 				index = random.randint(0,queryLength-1)
+				#checks if the index has already been replaced
 				if (index not in indexReplaced):
-					print(index)
 					indexReplaced.append(index)
 					break
+			#the word at the index is replaced by the new random word
 			queryList[index] = randomWord
+		#joins the noisified query back into a string
 		return " ".join(queryList)
 	
 	#dropping
 	else:
+		#keeps track of all the indexes of words which are to be removed. Makes sure that the same word is not dropped more than once
 		indexDeleted = []
 		for i in range(changes):
 			index = 0
@@ -57,8 +65,10 @@ def noisify(inputString, percentage, noiseType):
 					break
 		newList = []
 		for index in range(queryLength):
+			#skips the words at the indexes which are to be dropped
 			if index not in indexDeleted:
 				newList.append(queryList[index])
+		#retuns the noisified query with the changed words.
 		return " ".join(newList)		
 
 def test_oracle_questions():
