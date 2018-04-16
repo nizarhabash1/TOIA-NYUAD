@@ -1,14 +1,20 @@
 import dialogue_manager4
 import os
 import random
-#from random_words import RandomWords
+
+from random_words import RandomWords
+import json
+
 
 
 import StarMorphModules
 
-characterModel = {}
+oracleCharacterDict = {}
+automaticCharacterDict = {}
+manualCharacterDict = {}
 currentAvatar = ""
 currentSession = None
+#.strip(',?."!')
 
 #f= open('manual-questions.txt', 'r', encoding='utf-8')
 
@@ -16,13 +22,102 @@ def initiate():
 	StarMorphModules.read_config("config_dana.xml")
 	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 	global currentSession
-	global characterModel
+	global oracleCharacterDict
 	# initiates the model and a new session
 
 
-	currentSession = dialogue_manager4.createModel(characterModel, currentSession, "Arabic")
+	currentSession = dialogue_manager4.createModel(oracleCharacterDict, currentSession, "English")
 
-	#currentSession = dialogue_manager4.createModel(characterModel, currentSession, "English")
+	#currentSession = dialogue_manager4.createModel(characterdict, currentSession, "English")
+
+def readManualQuestions(characterdict):
+	count = 0
+	f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
+	character = "margarita"
+	language = "English"
+	video = ""
+	characterdict[character] = dialogue_manager4.model()
+	lines = f.readlines()
+	del lines[0]
+
+	for line in lines:
+		count = count + 1
+		#print(count)
+		line_split = line.split("\t")
+		if line_split[2] != "":
+			question1 = line_split[2].strip(',?."!')
+			question2 = line_split[3].strip(',?."!')
+			question3 = line_split[4].strip(',?."!')
+			answer = line_split[1].strip(',?."!')
+			obj_1= dialogue_manager4.videoRecording(question1, answer, video, character, language)
+			obj_2= dialogue_manager4.videoRecording(question2, answer, video, character, language)
+			obj_3= dialogue_manager4.videoRecording(question3, answer, video, character, language)
+			characterdict[character].questionsMap[count + 1] = obj_1
+			characterdict[character].questionsMap[count + 2] = obj_2
+			characterdict[character].questionsMap[count + 3] = obj_3
+			count = count + 3
+
+			#print(line_split)
+			#print(line)
+
+def readAutomaticQuestions(characterdict):
+
+	f= open('static/scripts/automatic_questions.json', 'r', encoding='utf-8')
+
+	resp = json.load(f)
+	#print(resp)
+
+	totalQuestions = 0
+
+	for i in range (0, len(resp["rows"])-1, 1):
+
+		# Depending on the language, the question is parsed
+		id_count=0
+
+	for i in range (0, len(resp["rows"])-1, 1):
+			
+			id_count+=1
+
+			# If object is a queastion-answer pair, the relevant information is extracted
+			if "question" in resp["rows"][i]["doc"].keys():
+				totalQuestions +=1
+				#do we wanna give it ID ourselves or use the JSON one?
+				#ID= json.dumps(resp["rows"][i]["doc"]["_id"])
+				video= json.dumps(resp["rows"][i]["doc"]["video"])
+				#character= json.dumps(resp["rows"][i]["doc"]["character"])
+				character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
+				language= "English"
+				ID= id_count;
+			
+			else:
+				continue
+
+			
+			question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(',?."!')
+			answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(',?."!')
+
+			# Creates a new character model in the character dictionary if it does not exist already
+			if character not in characterdict.keys():				
+				#characterdict[character] is the model of the respective character
+				characterdict[character] = dialogue_manager4.model()
+
+			#adds to the character's questions list based on the character key; adds all videos regardless of type to questions
+			obj= dialogue_manager4.videoRecording(question, answer, video, character, language)
+			characterdict[character].objectMap[ID] = obj
+			
+			# if the video is for silence
+			if (answer == '""' and video != '""'):
+			 	characterdict[character].fillers[ID] = obj
+
+			else:
+				characterdict[character].questionsMap[ID] = obj
+
+			
+
+			
+	print("Total Questions: ", str(totalQuestions))
+	print("done")
+
 
 
 def noisify(inputString, percentage, noiseType):
@@ -80,16 +175,16 @@ def noisify(inputString, percentage, noiseType):
 
 		return " ".join(newList)		
 
-def test_oracle_questions():
+def test_questions(characterdict):
 	global currentSession
 	incorrect = 0
 	correct = 0
-	for avatar in characterModel.keys():
+	for avatar in characterdict.keys():
 		if avatar == "gabriela" or avatar == "margarita" or avatar == "katarina":
-			#print("\n\n\n\n")
 			currentSession = dialogue_manager4.create_new_session(avatar)
-			for question_id in characterModel[avatar].questionsMap.keys():
+			for question_id in characterdict[avatar].questionsMap.keys():
 				#print(avatar)
+
 				question = characterModel[avatar].objectMap[question_id].question
 				noisifiedq= noisify(question, 0.25, "replace")
 				print("regular", question)
@@ -103,6 +198,14 @@ def test_oracle_questions():
 				#response = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
 
 				response= dialogue_manager4.findResponse(noisifiedq, characterModel[avatar], currentSession)
+
+
+				question = characterdict[avatar].questionsMap[question_id].question
+				#print("Question: ",question)
+
+				answer = characterdict[avatar].questionsMap[question_id].answer
+
+				response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
 
 				if answer == response.answer or response.question == question:
 					correct += 1
@@ -120,18 +223,18 @@ def test_oracle_questions():
 	print("correct: ", correct)
 	print("incorrect: ", incorrect)
 
-def repeating_question():
+def repeating_question(characterdict):
 	global currentSession
 	new_line = False
-	for avatar in characterModel.keys():
+	for avatar in characterdict.keys():
 		mentioned_question = {}
-		for question_id in characterModel[avatar].objectMap.keys():
+		for question_id in characterdict[avatar].objectMap.keys():
 			
-			ori_question = characterModel[avatar].objectMap[question_id].question
+			ori_question = characterdict[avatar].objectMap[question_id].question
 			
-			for tmp_question_id in characterModel[avatar].objectMap.keys():	
+			for tmp_question_id in characterdict[avatar].objectMap.keys():	
 				
-				tmp_question = characterModel[avatar].objectMap[tmp_question_id].question
+				tmp_question = characterdict[avatar].objectMap[tmp_question_id].question
 				if tmp_question == ori_question and tmp_question_id != question_id:
 
 					if question_id not in mentioned_question.keys():
@@ -149,6 +252,13 @@ def repeating_question():
 if __name__ == '__main__':
 	
 	initiate()
-	test_oracle_questions()
-	#characterModel["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()
-	#repeating_question()
+	readAutomaticQuestions(automaticCharacterDict)
+	#test_questions(oracleCharacterDict)
+	test_questions(automaticCharacterDict)
+	#readManualQuestions(manualCharacterDict)
+	#print(manualCharacterDict["margarita"].objectMap)
+	#test_questions(manualCharacterDict)
+
+
+	#characterdict["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()
+	#repeating_question(oracleCharacterDict)
