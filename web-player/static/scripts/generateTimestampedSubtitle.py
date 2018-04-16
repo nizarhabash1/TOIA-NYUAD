@@ -3,7 +3,7 @@ import json
 import os
 import math
 
-# Generate timestamped WebVTT files based on
+# Generate timestamped WebVTT files based on word counts in each sentence
 
 # JsonToVtt reads from all_characters.json and maps each sentence
 # to webVTT format based on an equal spacing dividing total duration
