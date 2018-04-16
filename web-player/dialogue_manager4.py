@@ -14,11 +14,13 @@ import json
 import StarMorphModules
 
 import nltk
+#nltk.download('punkt')
+#nltk.download('averaged_perceptron_tagger')
 
 import ssl
 
 import math
-from textblob import TextBlob as tb
+#from textblob import TextBlob as tb
 
 try:
     _create_unverified_https_context = ssl._create_unverified_context
@@ -31,6 +33,10 @@ else:
 nltk.download('wordnet')
 from nltk.stem.porter import PorterStemmer
 from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
+from string import punctuation
+nltk.download('stopwords')
+stop_words = stopwords.words('english') + list(punctuation)
 
 '''
 Global Variables
@@ -165,10 +171,15 @@ def createModel(characterdict, currentSession, mylanguage):
 
 			# stemming the question and answer and adding the stems, their bigrams and trigrams into model.stemmedMap			
 			if(mylanguage=="English"):
-				question = question.lower()
-				answer = answer.lower()
 
-				objStemmedList = [porterStemmer.stem(tmp.strip(', " ?.!')) for tmp in question.split() ] + [porterStemmer.stem(tmp.strip(', " ?.!')) for tmp in obj.answer.split() ]
+				question_split = question.lower().split()
+				answer_split = answer.lower().split()
+
+				#removes stop words
+				question_split = [tmp.strip(', " ?.!') for tmp in question_split if tmp not in stop_words]
+				answer_split = [tmp.strip(', " ?.!') for tmp in answer_split if tmp not in stop_words]
+
+				objStemmedList = [porterStemmer.stem(tmp) for tmp in question_split] + [porterStemmer.stem(tmp) for tmp in answer_split]
 				totalStems = len(objStemmedList)
 				
 				for i in range(totalStems):
@@ -199,7 +210,7 @@ def createModel(characterdict, currentSession, mylanguage):
 
 
 				# lemmatize the question and answer and adding the lemmas, their bigrams and trigramsinto model.lemmatizedMap
-				objLemmatizedList = [lemmatizer.lemmatize(tmp.strip(', " ?.!')) for tmp in question.split() ] + [lemmatizer.lemmatize(tmp.strip(', " ?.!')) for tmp in answer.split() ]
+				objLemmatizedList = [lemmatizer.lemmatize(tmp) for tmp in question_split ] + [lemmatizer.lemmatize(tmp) for tmp in answer_split]
 				totalLemmas = len(objLemmatizedList)
 				
 				for i in range(totalLemmas):
@@ -230,7 +241,7 @@ def createModel(characterdict, currentSession, mylanguage):
 
 
 	            # splitting the question and answer and adding the words, their bigrams and trigrams into model.WordMap
-				objWordList = [tmp.strip(', " ?.!') for tmp in question.split()] + [tmp.strip(', " ?.!') for tmp in answer.split()]
+				objWordList = [tmp for tmp in question_split] + [tmp  for tmp in answer.split() if tmp not in answer_split]
 				totalWords = len(objWordList)
 				
 				for i in range(totalWords):
@@ -405,8 +416,8 @@ def direct_intersection_match_English(query, characterModel):
 	maxVal=0
 	videoResponse= ''
 
-	for direct_string in queryList:
-		if direct_string in characterModel.wordMap.keys():
+	for direct_string in queryList :
+		if direct_string in characterModel.wordMap.keys() and direct_string not in stop_words:
 			for vidResponse in characterModel.wordMap[direct_string]:
 				if vidResponse not in responses.keys():
 					responses[vidResponse]= 1
@@ -474,7 +485,6 @@ def lemma_intersection_match_English(query, characterModel):
 
 
 def direct_intersection_match_Arabic(query, characterModel):
-	print("Finding Direct Intersection in Arabic")
 	queryList= [tmp.strip('،!؟."') for tmp in query.split()]
 	#queryList.encode('utf-8')
 
@@ -593,9 +603,9 @@ def calculateTFIDF(token, characterModel):
 	totalDocs = len(characterModel.objectMap)
 
 	#tf: term frequency
-    tf= doc.words.count(token) / len(doc.words)
+	tf= doc.words.count(token) / len(doc.words)
 
-    #number of docs containing the token
+	#number of docs containing the token
 	n_containing= sum(1 for doc in doclist if token in doc.words)
 
 	#idf: inverse document frequency
@@ -630,37 +640,34 @@ def findResponse(query, characterModel, currentSession):
 	query = query.lower().strip(',?."!')
 
 	#different modes of matching	
-	# stem_match_english_responses= stem_intersection_match_English(query, characterModel)
-	# lemma_match_english_responses= lemma_intersection_match_English(query, characterModel)
-	# direct_match_english_responses= direct_intersection_match_English(query, characterModel)
+	stem_match_english_responses= stem_intersection_match_English(query, characterModel)
+	lemma_match_english_responses= lemma_intersection_match_English(query, characterModel)
+	direct_match_english_responses= direct_intersection_match_English(query, characterModel)
 
-	# if(len(stem_match_english_responses)>themax):
-	# 	themax= len(stem_match_english_responses)
-	# 	best_response=stem_match_english_responses
+	if(len(stem_match_english_responses)>themax):
+		themax= len(stem_match_english_responses)
+		best_response=stem_match_english_responses
 
-	# 	print("stem max", themax)
+		print("stem max", themax)
 
 	
 
-	# if(len(lemma_match_english_responses)>themax):
-	# 	themax= len(lemma_match_english_responses)
-	# 	best_response=lemma_match_english_responses
+	if(len(lemma_match_english_responses)>themax):
+		themax= len(lemma_match_english_responses)
+		best_response=lemma_match_english_responses
 
-	# 	print("lemma max", themax)
-
-
-
-	# if(len(direct_match_english_responses)>themax):
-	# 	themax= len(direct_match_english_responses)
-	# 	best_response=direct_match_english_responses
+		print("lemma max", themax)
 
 
-	# 	print("direct max", themax)
 
+	if(len(direct_match_english_responses)>themax):
+		themax= len(direct_match_english_responses)
+		best_response=direct_match_english_responses
+
+
+		print("direct max", themax)
 
 	#best_response= lemma_intersection_match_English(query, characterModel)
-
-	best_response= direct_intersection_match_Arabic(query, characterModel)
 	# if the responses are empty, play "I can't answer that response"
 	if bool(best_response) == False:
 		if currentSession.currentAvatar == "gabriela":
@@ -728,13 +735,19 @@ def main():
 	global characterdict
 	global currentSession
 	currentSession = None
-	currentSession = createModel(characterdict, currentSession, "Arabic" )
+	for tmp in (stop_words + list(punctuation)):
+		print(tmp)
+	# mytext = nltk.word_tokenize("This is my sentence")
+	# mytext = nltk.pos_tag(mytext)
+	# print(mytext)
 
-	for i in range(4):
-		user_input = input("What do you have to ask\n")
-		currentSession = determineAvatar(user_input, currentSession)
-		response = findResponse(user_input, characterdict[currentSession.currentAvatar], currentSession)
-		print(response.answer)
+	# currentSession = createModel(characterdict, currentSession, "Arabic" )
+
+	# for i in range(4):
+	# 	user_input = input("What do you have to ask\n")
+	# 	currentSession = determineAvatar(user_input, currentSession)
+	# 	response = findResponse(user_input, characterdict[currentSession.currentAvatar], currentSession)
+	# 	print(response.answer)
 
 if __name__ == "__main__":
 	""" This is executed when run from the command line """
