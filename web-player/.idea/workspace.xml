@@ -24,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/static/scripts/singleOutCharacterFromAll.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="e#25#42#0" expanded="true" />
               </folding>
@@ -32,11 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rashid_with_english.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rashid_with_english.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/scripts/rashid_with_english.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+            <state relative-caret-position="52">
+              <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -44,17 +44,17 @@
       <file leaf-file-name="rashid.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/scripts/rashid.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
+            <state relative-caret-position="767">
+              <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="all_characters.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="all_characters.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/scripts/all_characters.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72020">
-              <caret line="5540" column="27" selection-start-line="5540" selection-start-column="27" selection-end-line="5540" selection-end-column="27" />
+            <state relative-caret-position="161">
+              <caret line="5198" column="49" lean-forward="true" selection-start-line="5198" selection-start-column="49" selection-end-line="5198" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -82,8 +82,8 @@
       <find>3195</find>
       <find>303</find>
       <find>3031</find>
-      <find>3170</find>
       <find>1171</find>
+      <find>3170</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot;arabic-answer&quot;</replace>
@@ -93,11 +93,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/scripts/all_characters.json" />
         <option value="$PROJECT_DIR$/static/scripts/rashid.json" />
         <option value="$PROJECT_DIR$/static/scripts/singleOutCharacterFromAll.py" />
         <option value="$PROJECT_DIR$/static/scripts/add_english_entries_for_rashid.py" />
         <option value="$PROJECT_DIR$/static/scripts/rashid_with_english.json" />
+        <option value="$PROJECT_DIR$/static/scripts/all_characters.json" />
       </list>
     </option>
   </component>
@@ -206,7 +206,7 @@
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="0" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.23903178" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.36913767" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -273,13 +273,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/scripts/rashid.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="48" column="48" selection-start-line="48" selection-start-column="48" selection-end-line="48" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/scripts/add_english_entries_for_rashid.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -287,17 +280,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/scripts/all_characters.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72020">
-          <caret line="5540" column="27" selection-start-line="5540" selection-start-column="27" selection-end-line="5540" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/scripts/singleOutCharacterFromAll.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="e#25#42#0" expanded="true" />
           </folding>
@@ -306,8 +292,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/scripts/rashid_with_english.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="13" column="31" lean-forward="true" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        <state relative-caret-position="52">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/scripts/rashid.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="767">
+          <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/scripts/all_characters.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="5198" column="49" lean-forward="true" selection-start-line="5198" selection-start-column="49" selection-end-line="5198" selection-end-column="49" />
         </state>
       </provider>
     </entry>
