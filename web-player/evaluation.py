@@ -32,6 +32,7 @@ def initiate():
 
 def readManualQuestions(characterdict):
 	count = 0
+	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
 	f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
 	character = "margarita"
 	language = "English"
