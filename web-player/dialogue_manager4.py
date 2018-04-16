@@ -20,7 +20,7 @@ import nltk
 import ssl
 
 import math
-from textblob import TextBlob as tb
+#from textblob import TextBlob as tb
 
 try:
     _create_unverified_https_context = ssl._create_unverified_context
@@ -595,7 +595,8 @@ def calculateTFIDF(token, characterModel):
 	totalDocs = len(characterModel.objectMap)
 
 	#tf: term frequency
-    tf= doc.words.count(token) / len(doc.words)
+
+	tf= doc.words.count(token) / len(doc.words)
 
     #number of docs containing the token
 	n_containing= sum(1 for doc in doclist if token in doc.words)
@@ -659,7 +660,7 @@ def findResponse(query, characterModel, currentSession):
 
 	# 	print("direct max", themax)
 
-	best_response= direct_intersection_match_Arabic(query, characterModel)
+	best_response= stem_intersection_match_Arabic(query, characterModel)
 	# if the responses are empty, play "I can't answer that response"
 	if bool(best_response) == False:
 		if currentSession.currentAvatar == "gabriela":
@@ -726,12 +727,15 @@ def create_new_session(avatar):
 def main():
 	global characterdict
 	global currentSession
-	currentSession = None
+	#currentSession = None
 	# mytext = nltk.word_tokenize("This is my sentence")
 	# mytext = nltk.pos_tag(mytext)
 	# print(mytext)
 
-	# currentSession = createModel(characterdict, currentSession, "Arabic" )
+	currentSession = createModel(characterdict, currentSession, "Arabic" )
+
+	currentSession = determineAvatar(user_input, currentSession)
+	response = findResponse(user_input, characterdict[currentSession.currentAvatar], currentSession)
 
 	# for i in range(4):
 	# 	user_input = input("What do you have to ask\n")

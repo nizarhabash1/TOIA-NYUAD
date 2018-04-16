@@ -1,7 +1,7 @@
 import dialogue_manager4
 import os
 import random
-from random_words import RandomWords
+#from random_words import RandomWords
 
 
 import StarMorphModules
@@ -9,6 +9,8 @@ import StarMorphModules
 characterModel = {}
 currentAvatar = ""
 currentSession = None
+
+#f= open('manual-questions.txt', 'r', encoding='utf-8')
 
 def initiate():
 	StarMorphModules.read_config("config_dana.xml")
@@ -25,19 +27,24 @@ def initiate():
 
 def noisify(inputString, percentage, noiseType):
 	# random word generator
-	rw = RandomWords()
+	#rw = RandomWords()
 	# breaks the query down to different words
 	queryList= [tmp.strip(', " ?.!') for tmp in inputString.lower().split()]
+
 	queryLength = len(queryList)
+
 	#the number of words in the inputString which will be changed based on the percentage
-	changes = round(percentage * queryLength/100)	
+	#changes = round(percentage * queryLength/100)
+	changes= round((1/4)*queryLength)
+	#print(changes)	
 	# if noise is added by replacing the words in the original query with random words
 	if noiseType == "replace":
 		#keeps track of all the indexes of words which are replaced to make sure that the same index is not replaced more than once
 		indexReplaced = []
 
 		for i in range(changes):
-			randomWord = rw.random_word()
+			randomWord= "مرحبا"
+			#randomWord = rw.random_word()
 			index = 0
 			# runs until an index is identified which has not been changed yet
 			while (True):
@@ -59,6 +66,7 @@ def noisify(inputString, percentage, noiseType):
 			index = 0
 			while (True):
 				index = random.randint(0,queryLength-1)
+				
 				#makes sure that the same index
 				if (index not in indexDeleted):
 					indexDeleted.append(index)
@@ -69,6 +77,7 @@ def noisify(inputString, percentage, noiseType):
 			if index not in indexDeleted:
 				newList.append(queryList[index])
 		#retuns the noisified query with the changed words.
+
 		return " ".join(newList)		
 
 def test_oracle_questions():
@@ -82,11 +91,19 @@ def test_oracle_questions():
 			for question_id in characterModel[avatar].questionsMap.keys():
 				#print(avatar)
 				question = characterModel[avatar].objectMap[question_id].question
+				noisifiedq= noisify(question, 0.25, "replace")
+				print("regular", question)
+				print("noisified", noisifiedq)
+				
 				#print("Question: ",question)
 
 				answer = characterModel[avatar].objectMap[question_id].answer
+				
 
-				response = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
+				#response = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
+
+				response= dialogue_manager4.findResponse(noisifiedq, characterModel[avatar], currentSession)
+
 				if answer == response.answer or response.question == question:
 					correct += 1
 					#print("Question: ",question)
@@ -130,6 +147,7 @@ def repeating_question():
 				new_line= False
 
 if __name__ == '__main__':
+	
 	initiate()
 	test_oracle_questions()
 	#characterModel["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()
