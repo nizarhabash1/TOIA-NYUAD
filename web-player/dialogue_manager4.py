@@ -110,8 +110,7 @@ def createModel(characterdict, currentSession, mylanguage):
 
 	f= open('static/scripts/all_characters.json', 'r', encoding='utf-8')
 
-	#arabic_txt= open('arabic.txt', 'w', encoding='utf-8')
-	arabic_read= open('arabic.txt', 'r', encoding='utf-8')
+	
 
 	resp = json.load(f)
 	#print(resp)
@@ -611,7 +610,7 @@ def calculateTFIDF(token, characterModel):
 
 	#idf: inverse document frequency
 	idf= math.log(len(doclist) / (1 + n_containing(token, doclist)))
-
+	# totaldocs/number of docs the word appears in (don't use the log because it's not a large number of documents)
 	#tfifd
 	tfidf= tf * idf
 

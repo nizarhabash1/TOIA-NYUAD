@@ -2,7 +2,7 @@ import dialogue_manager4
 import os
 import random
 
-from random_words import RandomWords
+#from random_words import RandomWords
 import json
 
 
@@ -26,14 +26,14 @@ def initiate():
 	# initiates the model and a new session
 
 
-	currentSession = dialogue_manager4.createModel(oracleCharacterDict, currentSession, "English")
+	currentSession = dialogue_manager4.createModel(oracleCharacterDict, currentSession, "Arabic")
 
 	#currentSession = dialogue_manager4.createModel(characterdict, currentSession, "English")
 
 def readManualQuestions(characterdict):
 	count = 0
 	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
-	f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
+	f= open('static/scripts/manual_questions_arabic.csv', 'r', encoding='utf-8')
 	character = "margarita"
 	language = "English"
 	video = ""
@@ -42,14 +42,17 @@ def readManualQuestions(characterdict):
 	del lines[0]
 
 	for line in lines:
+		#print(line.split(",")[0])
 		count = count + 1
 		#print(count)
-		line_split = line.split("\t")
+		line_split = line.split(",")
+		#print(line_split)
 		if line_split[2] != "":
 			question1 = line_split[2].strip(',?."!')
 			question2 = line_split[3].strip(',?."!')
 			question3 = line_split[4].strip(',?."!')
 			answer = line_split[1].strip(',?."!')
+			
 			obj_1= dialogue_manager4.videoRecording(question1, answer, video, character, language)
 			obj_2= dialogue_manager4.videoRecording(question2, answer, video, character, language)
 			obj_3= dialogue_manager4.videoRecording(question3, answer, video, character, language)
@@ -59,7 +62,7 @@ def readManualQuestions(characterdict):
 			count = count + 3
 
 			#print(line_split)
-			#print(line)
+			#print(line)'''
 
 def readAutomaticQuestions(characterdict):
 
@@ -253,12 +256,12 @@ def repeating_question(characterdict):
 if __name__ == '__main__':
 	
 	initiate()
-	readAutomaticQuestions(automaticCharacterDict)
+	#readAutomaticQuestions(automaticCharacterDict)
 	#test_questions(oracleCharacterDict)
-	test_questions(automaticCharacterDict)
-	#readManualQuestions(manualCharacterDict)
+	#test_questions(automaticCharacterDict)
+	readManualQuestions(manualCharacterDict)
 	#print(manualCharacterDict["margarita"].objectMap)
-	#test_questions(manualCharacterDict)
+	test_questions(manualCharacterDict)
 
 
 	#characterdict["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()

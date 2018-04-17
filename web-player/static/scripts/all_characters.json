@@ -8828,7 +8828,7 @@
       "key": "6be11151af2d475f7f56fe99b5417599",
       "doc": {
         "index": 285,
-	"arabic-answer":"لا، لكنني أؤمن بوجود شيء ما لم نكتشفه نحن البشر بعد",
+	       "arabic-answer":"لا، لكنني أؤمن بوجود شيء ما لم نكتشفه نحن البشر بعد",
 
         "language": "English",
         "english-question": "Are you religious?",
