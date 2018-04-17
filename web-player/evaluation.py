@@ -14,6 +14,7 @@ currentAvatar = ""
 currentSession = None
 #.strip(',?."!')
 
+
 def initiate():
 	StarMorphModules.read_config("config_dana.xml")
 	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
@@ -41,10 +42,10 @@ def readManualQuestions(characterdict):
 		#print(count)
 		line_split = line.split("\t")
 		if line_split[2] != "":
-			question1 = line_split[2].strip(',?."!')
-			question2 = line_split[3].strip(',?."!')
-			question3 = line_split[4].strip(',?."!')
-			answer = line_split[1].strip(',?."!')
+			question1 = line_split[2].strip(',?."!)')
+			question2 = line_split[3].strip(',?."!)')
+			question3 = line_split[4].strip(',?."!)')
+			answer = line_split[1].strip(',?."!)')
 			obj_1= dialogue_manager4.videoRecording(question1, answer, video, character, language)
 			obj_2= dialogue_manager4.videoRecording(question2, answer, video, character, language)
 			obj_3= dialogue_manager4.videoRecording(question3, answer, video, character, language)
@@ -89,8 +90,8 @@ def readAutomaticQuestions(characterdict):
 				continue
 
 			
-			question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(',?."!')
-			answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(',?."!')
+			question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(',?."!)')
+			answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(',?."!)')
 
 			# Creates a new character model in the character dictionary if it does not exist already
 			if character not in characterdict.keys():				
@@ -120,7 +121,7 @@ def noisify(inputString, percentage, noiseType):
 	# random word generator
 	rw = RandomWords()
 	# breaks the query down to different words
-	queryList= [tmp.strip(', " ?.!') for tmp in inputString.lower().split()]
+	queryList= [tmp.strip(', " ?.!)') for tmp in inputString.lower().split()]
 	queryLength = len(queryList)
 	#the number of words in the inputString which will be changed based on the percentage
 	changes = round(percentage * queryLength/100)	
@@ -174,26 +175,34 @@ def test_questions(characterdict):
 			for question_id in characterdict[avatar].questionsMap.keys():
 				#print(avatar)
 				question = characterdict[avatar].questionsMap[question_id].question
+				#replaced = noisify(question, 50, "replace")
 				#print("Question: ",question)
+				if question != "":
+					answer = characterdict[avatar].questionsMap[question_id].answer
 
-				answer = characterdict[avatar].questionsMap[question_id].answer
+					response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
 
-				response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
-				if answer == response.answer or response.question == question:
-					correct += 1
-					#print("Question: ",question)
-					#print("Actual Answer: ",answer)
-					#print("Response: ",response.answer, "\n")
-				else:
-					incorrect += 1
-
-					print("Question: ",question)
-					print("Actual Answer: ",answer)
-					print("Response: ",response.answer, "\n")
-
+					answer_list = [tmp.strip(',?."!)') for tmp in answer.lower().split()]
+					response_answer = response.answer
+					response_list = [tmp.strip(',?."!)') for tmp in response_answer.lower().split()]
+					response_answer = " ".join(response_list).replace("'","")
+					answer = " ".join(answer_list).replace("’","")
 					
-	print("correct: ", correct)
-	print("incorrect: ", incorrect)
+					if (answer == response_answer or response.question == question):
+						correct += 1
+						# print("Question: ",question)
+						# print("Actual Answer: ",answer)
+						# print("Response: ",response.answer, "\n")
+					else:
+						incorrect += 1
+
+						#print("Question: ",question)
+						#print("Actual Answer: ",answer)
+						#print("Response: ",response_answer, "\n")
+
+	print(correct*100/(correct+incorrect))				
+	#print("correct: ", correct)
+	#print("incorrect: ", incorrect)
 
 def repeating_question(characterdict):
 	global currentSession
@@ -223,12 +232,13 @@ def repeating_question(characterdict):
 
 if __name__ == '__main__':
 	initiate()
-	readAutomaticQuestions(automaticCharacterDict)
+	#readAutomaticQuestions(automaticCharacterDict)
 	#test_questions(oracleCharacterDict)
-	test_questions(automaticCharacterDict)
-	#readManualQuestions(manualCharacterDict)
-	#print(manualCharacterDict["margarita"].objectMap)
-	#test_questions(manualCharacterDict)
+	#test_questions(automaticCharacterDict)
+	readManualQuestions(manualCharacterDict)
+	#print(oracleCharacterDict["margarita"].lemmatizedMap.keys())
+	#print(manualCharacterDict["margarita"].wordMap.keys())
+	test_questions(manualCharacterDict)
 
 
 	#characterdict["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()
