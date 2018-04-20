@@ -2,6 +2,7 @@
 **.pyc
 /web-player/static/avatar-videos
 /web-player/venv
+/web-player/.idea/workspace.xml
 __pycache__
 *.DS_Store
 **.DS_Store
