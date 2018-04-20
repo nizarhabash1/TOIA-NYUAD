@@ -28,14 +28,14 @@ def initiate():
 
 
 	currentSession = dialogue_manager4.createModel(oracleCharacterDict, currentSession, "Arabic")
-
+	
 	#currentSession = dialogue_manager4.createModel(characterdict, currentSession, "English")
 
 def readManualQuestions(characterdict):
 	count = 0
 	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
 	f= open('static/scripts/manual_questions_arabic.csv', 'r', encoding='utf-8')
-	character = "margarita"
+	character = 'margarita'
 	language = "Arabic"
 	video = ""
 	characterdict[character] = dialogue_manager4.model()
@@ -195,27 +195,27 @@ def test_questions(characterdict):
 	incorrect = 0
 	correct = 0
 	for avatar in characterdict.keys():
+		print(avatar)
 		if avatar == "gabriela" or avatar == "margarita" or avatar == "katarina":
 			currentSession = dialogue_manager4.create_new_session(avatar)
 			for question_id in characterdict[avatar].questionsMap.keys():
 				print(question_id)
 
-				question = characterdict[avatar].objectMap[question_id].question
+				question = characterdict[avatar].questionsMap[question_id].question
 				noisifiedq= noisify(question, 0.25, "replace")
 				print("regular", question)
 				print("noisified", noisifiedq)
 				
 				#print("Question: ",question)
 
-				answer = characterdict[avatar].objectMap[question_id].answer
+				#answer = characterdict[avatar].questionsMap[question_id].answer
 				
 
 				#response = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
 
-				response= dialogue_manager4.findResponse(noisifiedq, characterModel[avatar], currentSession)
+				#response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
 
-
-				question = characterdict[avatar].questionsMap[question_id].question
+				#question = characterdict[avatar].questionsMap[question_id].question
 				#replaced = noisify(question, 50, "replace")
 				#print("Question: ",question)
 				if question != "":
@@ -224,9 +224,16 @@ def test_questions(characterdict):
 
 				answer = characterdict[avatar].questionsMap[question_id].answer
 
+
 				response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
 
-				if answer == response.answer or response.question == question:
+				answer_list = [tmp.strip(',?."!)') for tmp in answer.lower().split()]
+				response_answer = response.answer
+				response_list = [tmp.strip(',?."!)') for tmp in response_answer.lower().split()]
+				response_answer = " ".join(response_list).replace("'","")
+				answer = " ".join(answer_list).replace("’","")
+
+				if(answer == response_answer or response.question == question):
 					correct += 1
 					#print("Question: ",question)
 					#print("Actual Answer: ",answer)
@@ -234,30 +241,7 @@ def test_questions(characterdict):
 				else:
 					incorrect += 1
 
-					print("Question: ",question)
-					print("Actual Answer: ",answer)
-					print("Response: ",response.answer, "\n")
-
-					response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
-
-
-					answer_list = [tmp.strip(',?."!)') for tmp in answer.lower().split()]
-					response_answer = response.answer
-					response_list = [tmp.strip(',?."!)') for tmp in response_answer.lower().split()]
-					response_answer = " ".join(response_list).replace("'","")
-					answer = " ".join(answer_list).replace("’","")
 					
-					if (answer == response_answer or response.question == question):
-						correct += 1
-						# print("Question: ",question)
-						# print("Actual Answer: ",answer)
-						# print("Response: ",response.answer, "\n")
-					else:
-						incorrect += 1
-
-						#print("Question: ",question)
-						#print("Actual Answer: ",answer)
-						#print("Response: ",response_answer, "\n")
 
 	print(correct*100/(correct+incorrect))				
 	#print("correct: ", correct)
