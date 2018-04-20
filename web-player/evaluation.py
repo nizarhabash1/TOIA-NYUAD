@@ -16,10 +16,8 @@ currentAvatar = ""
 currentSession = None
 #.strip(',?."!')
 
-<<<<<<< HEAD
 #f= open('manual-questions.txt', 'r', encoding='utf-8')
-=======
->>>>>>> b66f003ad8cc4ae0d6463fdad736025f0a2b855f
+
 
 def initiate():
 	StarMorphModules.read_config("config_dana.xml")
@@ -44,25 +42,26 @@ def readManualQuestions(characterdict):
 	lines = f.readlines()
 	del lines[0]
 
+
 	for line in lines:
-		#print(line.split(",")[0])
+		#line_split = line.split("\t")
 		count = count + 1
 		#print(count)
 		line_split = line.split(",")
 		#print(line_split)
 		if line_split[2] != "":
-<<<<<<< HEAD
+
 			question1 = line_split[2].strip(',?."!')
 			question2 = line_split[3].strip(',?."!')
 			question3 = line_split[4].strip(',?."!')
 			answer = line_split[1].strip(',?."!')
 			
-=======
+
 			question1 = line_split[2].strip(',?."!)')
 			question2 = line_split[3].strip(',?."!)')
 			question3 = line_split[4].strip(',?."!)')
 			answer = line_split[1].strip(',?."!)')
->>>>>>> b66f003ad8cc4ae0d6463fdad736025f0a2b855f
+
 			obj_1= dialogue_manager4.videoRecording(question1, answer, video, character, language)
 			obj_2= dialogue_manager4.videoRecording(question2, answer, video, character, language)
 			obj_3= dialogue_manager4.videoRecording(question3, answer, video, character, language)
@@ -131,7 +130,6 @@ def readAutomaticQuestions(characterdict):
 			
 	print("Total Questions: ", str(totalQuestions))
 	print("done")
-
 
 
 def noisify(inputString, percentage, noiseType):
