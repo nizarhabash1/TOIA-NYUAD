@@ -1,7 +1,14 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, redirect
+import sys
+import pprint
+
+pprint.pprint(sys.path)
+
 import dialogue_manager4
 import logging
+
+
 import os
 app = Flask(__name__)
 
@@ -17,7 +24,7 @@ currentLanguage = "English"
 def default_page():
     global currentSession
     # initiates the model and a new session
-    currentSession = dialogue_manager4.createModel(characterModel, currentSession,currentLanguage)
+    currentSession = dialogue_manager4.createModel(characterModel, currentSession, currentLanguage)
 
     return render_template('index.html')
 
@@ -32,6 +39,7 @@ def my_form_post():
     processed_text = text
 
     currentSession = dialogue_manager4.determineAvatar(processed_text, currentSession)
+    #currentSession = dialogue_manager4.create_new_session(avatar, language)
 
     response = dialogue_manager4.findResponse(processed_text, characterModel[currentSession.currentAvatar], currentSession)
     print("RESPONSE IS ",response)

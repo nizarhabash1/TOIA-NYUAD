@@ -8410,8 +8410,7 @@
       "key": "6be11151af2d475f7f56fe99b540d48b",
       "doc": {
         "index": 178,
-	"arabic-question":"لا أحب أن يقاطع الناس حديثي",
-
+	      "arabic-answer":"لا أحب أن يقاطع الناس حديثي",
         "language": "English",
         "english-question": "Do you have a pet peeve?",
         "_rev": "3-ed9bc0059fcdae3fe87501c43d414ca1",
@@ -8828,7 +8827,7 @@
       "key": "6be11151af2d475f7f56fe99b5417599",
       "doc": {
         "index": 285,
-	"arabic-answer":"لا، لكنني أؤمن بوجود شيء ما لم نكتشفه نحن البشر بعد",
+	       "arabic-answer":"لا، لكنني أؤمن بوجود شيء ما لم نكتشفه نحن البشر بعد",
 
         "language": "English",
         "english-question": "Are you religious?",
@@ -17702,7 +17701,7 @@
             "arabic-question": "\u0645\u0627 \u0635\u0641\u062a\u0643\u061f",
             "character": "rashid",
             "english-question":"Who are you?",
-            "english_answer":"-",
+            "english-answer":"-",
             "date": "2018-04-03T11:55:04.792Z",
             "index": 3006,
             "language": "Arabic",

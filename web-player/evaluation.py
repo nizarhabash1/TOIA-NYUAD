@@ -1,8 +1,10 @@
 import dialogue_manager4
 import os
 import random
-from random_words import RandomWords
+
+#from random_words import RandomWords
 import json
+
 
 
 import StarMorphModules
@@ -14,6 +16,8 @@ currentAvatar = ""
 currentSession = None
 #.strip(',?."!')
 
+#f= open('manual-questions.txt', 'r', encoding='utf-8')
+
 
 def initiate():
 	StarMorphModules.read_config("config_dana.xml")
@@ -24,28 +28,41 @@ def initiate():
 
 
 	currentSession = dialogue_manager4.createModel(oracleCharacterDict, currentSession, "English")
-
+	return currentSession
+	
 	#currentSession = dialogue_manager4.createModel(characterdict, currentSession, "English")
 
 def readManualQuestions(characterdict):
 	count = 0
 	f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
-	character = "margarita"
-	language = "English"
+	#f= open('static/scripts/manual_questions_arabic.csv', 'r', encoding='utf-8')
+	character = 'margarita'
+	language = "Arabic"
 	video = ""
 	characterdict[character] = dialogue_manager4.model()
 	lines = f.readlines()
 	del lines[0]
 
+
 	for line in lines:
+		line_split = line.split("\t")
 		count = count + 1
 		#print(count)
-		line_split = line.split("\t")
+		#line_split = line.split(",")
+		#print(line_split)
 		if line_split[2] != "":
+
+			question1 = line_split[2].strip(',?."!')
+			question2 = line_split[3].strip(',?."!')
+			question3 = line_split[4].strip(',?."!')
+			answer = line_split[1].strip(',?."!')
+			
+
 			question1 = line_split[2].strip(',?."!)')
 			question2 = line_split[3].strip(',?."!)')
 			question3 = line_split[4].strip(',?."!)')
 			answer = line_split[1].strip(',?."!)')
+
 			obj_1= dialogue_manager4.videoRecording(question1, answer, video, character, language)
 			obj_2= dialogue_manager4.videoRecording(question2, answer, video, character, language)
 			obj_3= dialogue_manager4.videoRecording(question3, answer, video, character, language)
@@ -55,7 +72,7 @@ def readManualQuestions(characterdict):
 			count = count + 3
 
 			#print(line_split)
-			#print(line)
+			#print(line)'''
 
 def readAutomaticQuestions(characterdict):
 
@@ -116,22 +133,29 @@ def readAutomaticQuestions(characterdict):
 	print("done")
 
 
-
 def noisify(inputString, percentage, noiseType):
 	# random word generator
-	rw = RandomWords()
+	#rw = RandomWords()
 	# breaks the query down to different words
+
+
+
 	queryList= [tmp.strip(', " ?.!)') for tmp in inputString.lower().split()]
+
 	queryLength = len(queryList)
+
 	#the number of words in the inputString which will be changed based on the percentage
-	changes = round(percentage * queryLength/100)	
+	#changes = round(percentage * queryLength/100)
+	changes= round((1/4)*queryLength)
+	#print(changes)	
 	# if noise is added by replacing the words in the original query with random words
 	if noiseType == "replace":
 		#keeps track of all the indexes of words which are replaced to make sure that the same index is not replaced more than once
 		indexReplaced = []
 
 		for i in range(changes):
-			randomWord = rw.random_word()
+			randomWord= "مرحبا"
+			#randomWord = rw.random_word()
 			index = 0
 			# runs until an index is identified which has not been changed yet
 			while (True):
@@ -153,6 +177,7 @@ def noisify(inputString, percentage, noiseType):
 			index = 0
 			while (True):
 				index = random.randint(0,queryLength-1)
+				
 				#makes sure that the same index
 				if (index not in indexDeleted):
 					indexDeleted.append(index)
@@ -163,42 +188,65 @@ def noisify(inputString, percentage, noiseType):
 			if index not in indexDeleted:
 				newList.append(queryList[index])
 		#retuns the noisified query with the changed words.
+
 		return " ".join(newList)		
 
-def test_questions(characterdict):
+def test_questions(characterdict, language):
 	global currentSession
+	global oracleCharacterDict
 	incorrect = 0
 	correct = 0
 	for avatar in characterdict.keys():
+		print(avatar)
 		if avatar == "gabriela" or avatar == "margarita" or avatar == "katarina":
-			currentSession = dialogue_manager4.create_new_session(avatar)
+			currentSession = dialogue_manager4.create_new_session(avatar, language)
 			for question_id in characterdict[avatar].questionsMap.keys():
-				#print(avatar)
+				#print(question_id)
+
 				question = characterdict[avatar].questionsMap[question_id].question
+				noisifiedq= noisify(question, 0.25, "replace")
+				#print("regular", question)
+				#print("noisified", noisifiedq)
+				
+				#print("Question: ",question)
+
+				#answer = characterdict[avatar].questionsMap[question_id].answer
+				
+
+				#response = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
+
+				#response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
+
+				#question = characterdict[avatar].questionsMap[question_id].question
 				#replaced = noisify(question, 50, "replace")
 				#print("Question: ",question)
 				if question != "":
 					answer = characterdict[avatar].questionsMap[question_id].answer
 
-					response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
 
-					answer_list = [tmp.strip(',?."!)') for tmp in answer.lower().split()]
-					response_answer = response.answer
-					response_list = [tmp.strip(',?."!)') for tmp in response_answer.lower().split()]
-					response_answer = " ".join(response_list).replace("'","")
-					answer = " ".join(answer_list).replace("’","")
+				answer = characterdict[avatar].questionsMap[question_id].answer
+
+
+				response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
+
+				answer_list = [tmp.strip(',?."!)') for tmp in answer.lower().split()]
+				response_answer = response.answer
+				response_list = [tmp.strip(',?."!)') for tmp in response_answer.lower().split()]
+				response_answer = " ".join(response_list).replace("'","")
+				answer = " ".join(answer_list).replace("’","")
+
+				if(answer == response_answer or response.question == question):
+					correct += 1
+					#print("Question: ",question)
+					#print("Actual Answer: ",answer)
+					#print("Response: ",response.answer, "\n")
+				else:
+					incorrect += 1
+					print("Question: ",question)
+					print("Actual Answer: ",answer)
+					print("Response: ",response.answer, "\n")
+
 					
-					if (answer == response_answer or response.question == question):
-						correct += 1
-						# print("Question: ",question)
-						# print("Actual Answer: ",answer)
-						# print("Response: ",response.answer, "\n")
-					else:
-						incorrect += 1
-
-						#print("Question: ",question)
-						#print("Actual Answer: ",answer)
-						#print("Response: ",response_answer, "\n")
 
 	print(correct*100/(correct+incorrect))				
 	#print("correct: ", correct)
@@ -231,14 +279,17 @@ def repeating_question(characterdict):
 				new_line= False
 
 if __name__ == '__main__':
-	initiate()
+	
+	session = initiate()
 	#readAutomaticQuestions(automaticCharacterDict)
-	#test_questions(oracleCharacterDict)
+	#test_questions(oracleCharacterDict, "English")
 	#test_questions(automaticCharacterDict)
 	readManualQuestions(manualCharacterDict)
+
+	#print(manualCharacterDict["margarita"].objectMap)
+
 	#print(oracleCharacterDict["margarita"].lemmatizedMap.keys())
-	#print(manualCharacterDict["margarita"].wordMap.keys())
-	test_questions(manualCharacterDict)
+	test_questions(manualCharacterDict, "English")
 
 
 	#characterdict["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()
