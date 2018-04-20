@@ -16,7 +16,10 @@ currentAvatar = ""
 currentSession = None
 #.strip(',?."!')
 
+<<<<<<< HEAD
 #f= open('manual-questions.txt', 'r', encoding='utf-8')
+=======
+>>>>>>> b66f003ad8cc4ae0d6463fdad736025f0a2b855f
 
 def initiate():
 	StarMorphModules.read_config("config_dana.xml")
@@ -48,11 +51,18 @@ def readManualQuestions(characterdict):
 		line_split = line.split(",")
 		#print(line_split)
 		if line_split[2] != "":
+<<<<<<< HEAD
 			question1 = line_split[2].strip(',?."!')
 			question2 = line_split[3].strip(',?."!')
 			question3 = line_split[4].strip(',?."!')
 			answer = line_split[1].strip(',?."!')
 			
+=======
+			question1 = line_split[2].strip(',?."!)')
+			question2 = line_split[3].strip(',?."!)')
+			question3 = line_split[4].strip(',?."!)')
+			answer = line_split[1].strip(',?."!)')
+>>>>>>> b66f003ad8cc4ae0d6463fdad736025f0a2b855f
 			obj_1= dialogue_manager4.videoRecording(question1, answer, video, character, language)
 			obj_2= dialogue_manager4.videoRecording(question2, answer, video, character, language)
 			obj_3= dialogue_manager4.videoRecording(question3, answer, video, character, language)
@@ -97,8 +107,8 @@ def readAutomaticQuestions(characterdict):
 				continue
 
 			
-			question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(',?."!')
-			answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(',?."!')
+			question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(',?."!)')
+			answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(',?."!)')
 
 			# Creates a new character model in the character dictionary if it does not exist already
 			if character not in characterdict.keys():				
@@ -128,7 +138,10 @@ def noisify(inputString, percentage, noiseType):
 	# random word generator
 	#rw = RandomWords()
 	# breaks the query down to different words
-	queryList= [tmp.strip(', " ?.!') for tmp in inputString.lower().split()]
+
+
+
+	queryList= [tmp.strip(', " ?.!)') for tmp in inputString.lower().split()]
 
 	queryLength = len(queryList)
 
@@ -205,7 +218,11 @@ def test_questions(characterdict):
 
 
 				question = characterdict[avatar].questionsMap[question_id].question
+				#replaced = noisify(question, 50, "replace")
 				#print("Question: ",question)
+				if question != "":
+					answer = characterdict[avatar].questionsMap[question_id].answer
+
 
 				answer = characterdict[avatar].questionsMap[question_id].answer
 
@@ -223,9 +240,30 @@ def test_questions(characterdict):
 					print("Actual Answer: ",answer)
 					print("Response: ",response.answer, "\n")
 
+					response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
+
+
+					answer_list = [tmp.strip(',?."!)') for tmp in answer.lower().split()]
+					response_answer = response.answer
+					response_list = [tmp.strip(',?."!)') for tmp in response_answer.lower().split()]
+					response_answer = " ".join(response_list).replace("'","")
+					answer = " ".join(answer_list).replace("’","")
 					
-	print("correct: ", correct)
-	print("incorrect: ", incorrect)
+					if (answer == response_answer or response.question == question):
+						correct += 1
+						# print("Question: ",question)
+						# print("Actual Answer: ",answer)
+						# print("Response: ",response.answer, "\n")
+					else:
+						incorrect += 1
+
+						#print("Question: ",question)
+						#print("Actual Answer: ",answer)
+						#print("Response: ",response_answer, "\n")
+
+	print(correct*100/(correct+incorrect))				
+	#print("correct: ", correct)
+	#print("incorrect: ", incorrect)
 
 def repeating_question(characterdict):
 	global currentSession
@@ -260,7 +298,11 @@ if __name__ == '__main__':
 	#test_questions(oracleCharacterDict)
 	#test_questions(automaticCharacterDict)
 	readManualQuestions(manualCharacterDict)
+
 	#print(manualCharacterDict["margarita"].objectMap)
+
+	#print(oracleCharacterDict["margarita"].lemmatizedMap.keys())
+
 	test_questions(manualCharacterDict)
 
 
