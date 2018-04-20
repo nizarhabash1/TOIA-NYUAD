@@ -35,7 +35,7 @@ def readManualQuestions(characterdict):
 	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
 	f= open('static/scripts/manual_questions_arabic.csv', 'r', encoding='utf-8')
 	character = "margarita"
-	language = "English"
+	language = "Arabic"
 	video = ""
 	characterdict[character] = dialogue_manager4.model()
 	lines = f.readlines()
@@ -187,16 +187,16 @@ def test_questions(characterdict):
 		if avatar == "gabriela" or avatar == "margarita" or avatar == "katarina":
 			currentSession = dialogue_manager4.create_new_session(avatar)
 			for question_id in characterdict[avatar].questionsMap.keys():
-				#print(avatar)
+				print(question_id)
 
-				question = characterModel[avatar].objectMap[question_id].question
+				question = characterdict[avatar].objectMap[question_id].question
 				noisifiedq= noisify(question, 0.25, "replace")
 				print("regular", question)
 				print("noisified", noisifiedq)
 				
 				#print("Question: ",question)
 
-				answer = characterModel[avatar].objectMap[question_id].answer
+				answer = characterdict[avatar].objectMap[question_id].answer
 				
 
 				#response = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
