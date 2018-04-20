@@ -35,6 +35,8 @@ from nltk.stem.porter import PorterStemmer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 from string import punctuation
+from nltk.corpus import wordnet as wn
+
 nltk.download('stopwords')
 stop_words = stopwords.words('english') + list(punctuation)
 
@@ -150,8 +152,8 @@ def createModel(characterdict, currentSession, mylanguage):
 
 			
 			if(mylanguage=="English" and "question" in resp["rows"][i]["doc"].keys()):
-				question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(',?."!')
-				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(',?."!')
+				question= json.dumps(resp["rows"][i]["doc"]["question"]).strip(',?."!)')
+				answer= json.dumps(resp["rows"][i]["doc"]["answer"]).strip(',?."!)')
 
 			# Creates a new character model in the character dictionary if it does not exist already
 			if character not in characterdict.keys():				
@@ -172,103 +174,206 @@ def createModel(characterdict, currentSession, mylanguage):
 			# stemming the question and answer and adding the stems, their bigrams and trigrams into model.stemmedMap			
 			if(mylanguage=="English"):
 
-				question_split = question.lower().split()
-				answer_split = answer.lower().split()
+				unigram_split = question.lower().split() + answer.lower().split()
+				unigram_list = [tmp.strip(',?."!)') for tmp in unigram_split]
+				unigram_synonyms_list = []
+				
+				#expands the unigram model by adding synonyms
+				for word in unigram_list:
+					if word not in stop_words:
+						for synset in wn.synsets(word):
+							for lemma in synset.lemmas():
+								if lemma.name() not in unigram_synonyms_list:
+									unigram_synonyms_list.append(lemma.name())
+
+
+				#add the bigrams and trigrams into the three representations				
+				totalUnigrams = len(unigram_list)
+				for i in range(totalUnigrams):
+					
+					#creates bigrams, their stems and lemmas and adds them to the respective maps
+					if i < totalUnigrams -1:
+						
+						bigram = unigram_list[i] + "_" + unigram_list[i+1]
+						if bigram not in characterdict[character].wordMap.keys():
+							characterdict[character].wordMap[bigram] = {}
+						if ID not in characterdict[character].wordMap[bigram]:
+							characterdict[character].wordMap[bigram][ID] = 1
+						else:
+							characterdict[character].wordMap[bigram][ID] += 1
+
+
+						bigram_stem = porterStemmer.stem(unigram_list[i])+ "_" + porterStemmer.stem(unigram_list[i+1])
+						if bigram_stem not in characterdict[character].stemmedMap.keys():
+							characterdict[character].stemmedMap[bigram_stem] = {}
+						if ID not in characterdict[character].stemmedMap[bigram_stem]:
+							characterdict[character].stemmedMap[bigram_stem][ID] = 1
+						else:
+							characterdict[character].wordMap[bigram][ID] += 1
+
+
+						bigram_lemma = lemmatizer.lemmatize(unigram_list[i])+ "_" + lemmatizer.lemmatize(unigram_list[i+1])
+						if bigram_lemma not in characterdict[character].lemmatizedMap.keys():
+							characterdict[character].lemmatizedMap[bigram_lemma] = {}
+						if ID not in characterdict[character].lemmatizedMap[bigram_lemma]:
+							characterdict[character].lemmatizedMap[bigram_lemma][ID]=1
+						else:
+							characterdict[character].lemmatizedMap[bigram_lemma][ID]+=1
+
+					#creates trigrams, their stems and lemmas and add them to the respective maps
+					if i < totalUnigrams -2:
+
+						trigram = unigram_list[i] + "_" + unigram_list[i+1] + "_" + unigram_list[i+2]
+						if trigram not in characterdict[character].wordMap.keys():
+							characterdict[character].wordMap[trigram] = {}
+						if ID not in characterdict[character].wordMap[trigram]:
+							characterdict[character].wordMap[trigram][ID] = 1
+						else:
+							characterdict[character].wordMap[trigram][ID] = +1						
+
+
+						trigram_stem = porterStemmer.stem(unigram_list[i])+ "_" + porterStemmer.stem(unigram_list[i+1]) + "_" + porterStemmer.stem(unigram_list[i+2])
+						if trigram_stem not in characterdict[character].stemmedMap.keys():
+							characterdict[character].stemmedMap[trigram_stem] = {}
+						if ID not in characterdict[character].stemmedMap[trigram_stem]:
+							characterdict[character].stemmedMap[trigram_stem][ID] = 1
+						else:
+							characterdict[character].stemmedMap[trigram_stem][ID] += 1
+
+
+						trigram_lemma = lemmatizer.lemmatize(unigram_list[i])+ "_" + lemmatizer.lemmatize(unigram_list[i+1]) + "_" + lemmatizer.lemmatize(unigram_list[i+2])
+						if trigram_lemma not in characterdict[character].lemmatizedMap.keys():
+							characterdict[character].lemmatizedMap[trigram_lemma] = {}
+						if ID not in characterdict[character].lemmatizedMap[trigram_lemma]:
+							characterdict[character].lemmatizedMap[trigram_lemma][ID] = 1
+						else:
+							characterdict[character].lemmatizedMap[trigram_lemma][ID] += 1
 
 				#removes stop words
-				question_split = [tmp.strip(', " ?.!') for tmp in question_split if tmp not in stop_words]
-				answer_split = [tmp.strip(', " ?.!') for tmp in answer_split if tmp not in stop_words]
+				#question_split = [tmp.strip(', " ?.!') for tmp in question_split if tmp not in stop_words]
+				#answer_split = [tmp.strip(', " ?.!') for tmp in answer_split if tmp not in stop_words]
 
-				objStemmedList = [porterStemmer.stem(tmp) for tmp in question_split] + [porterStemmer.stem(tmp) for tmp in answer_split]
-				totalStems = len(objStemmedList)
-				
-				for i in range(totalStems):
 
-					stem = objStemmedList[i]
+				#adds the unigrams and their synonyms into the three hashmaps - stems, lemmas and direct:
+				for token in (unigram_list + unigram_synonyms_list):
+					
+					stem = porterStemmer.stem(token)
+					lemma = lemmatizer.lemmatize(token)
+					
+					if token not in characterdict[character].wordMap.keys():
+						characterdict[character].wordMap[token] = {}
+					if ID not in characterdict[character].wordMap[token]:
+						characterdict[character].wordMap[token][ID]=1
+					else:
+						characterdict[character].wordMap[token][ID]+=1
+
 					if stem not in characterdict[character].stemmedMap.keys():
-						characterdict[character].stemmedMap[stem] = []
+						characterdict[character].stemmedMap[stem] = {}
+					if ID not in characterdict[character].stemmedMap[stem]:
+						characterdict[character].stemmedMap[stem][ID] = 1
+					else:
+						characterdict[character].stemmedMap[stem][ID] += 1
 
-					#adds the question to the list of objects related to the stem
-					if (ID not in characterdict[character].stemmedMap[stem] ):
-						characterdict[character].stemmedMap[stem].append(ID)
-
-					if i < totalStems -1:
-						bigram = stem + " " + objStemmedList[i+1]
-						if bigram not in characterdict[character].stemmedMap.keys():
-							characterdict[character].stemmedMap[bigram] = []
-
-						if (ID not in characterdict[character].stemmedMap[bigram] ):
-							characterdict[character].stemmedMap[bigram].append(ID)
-
-					if i < totalStems -2: 
-						trigram = stem + " " + objStemmedList[i+1] + " " + objStemmedList[i+2]
-						if trigram not in characterdict[character].stemmedMap.keys():
-							characterdict[character].stemmedMap[trigram] = []
-
-						if (ID not in characterdict[character].stemmedMap[trigram] ):
-							characterdict[character].stemmedMap[trigram].append(ID)
-
-
-				# lemmatize the question and answer and adding the lemmas, their bigrams and trigramsinto model.lemmatizedMap
-				objLemmatizedList = [lemmatizer.lemmatize(tmp) for tmp in question_split ] + [lemmatizer.lemmatize(tmp) for tmp in answer_split]
-				totalLemmas = len(objLemmatizedList)
-				
-				for i in range(totalLemmas):
-
-					lemma = objLemmatizedList[i]
 					if lemma not in characterdict[character].lemmatizedMap.keys():
-						characterdict[character].lemmatizedMap[lemma] = []
-
-					#adds the question to the list of objects related to the stem
-					if (ID not in characterdict[character].lemmatizedMap[lemma] ):
-						characterdict[character].lemmatizedMap[lemma].append(ID)
-
-					if i < totalLemmas -1:
-						bigram = lemma + " " + objLemmatizedList[i+1]
-						if bigram not in characterdict[character].lemmatizedMap.keys():
-							characterdict[character].lemmatizedMap[bigram] = []
-
-						if (ID not in characterdict[character].lemmatizedMap[bigram] ):
-							characterdict[character].lemmatizedMap[bigram].append(ID)
-
-					if i < totalLemmas -2: 
-						trigram = lemma + " " + objLemmatizedList[i+1] + " " +  objLemmatizedList[i+2]
-						if trigram not in characterdict[character].lemmatizedMap.keys():
-							characterdict[character].lemmatizedMap[trigram] = []
-
-						if (ID not in characterdict[character].lemmatizedMap[trigram] ):
-							characterdict[character].lemmatizedMap[trigram].append(ID)
+						characterdict[character].lemmatizedMap[lemma] = {}
+					if ID not in characterdict[character].lemmatizedMap[lemma]:
+						characterdict[character].lemmatizedMap[lemma][ID] = 1
+					else:
+						characterdict[character].lemmatizedMap[lemma][ID] += 1
 
 
-	            # splitting the question and answer and adding the words, their bigrams and trigrams into model.WordMap
-				objWordList = [tmp for tmp in question_split] + [tmp  for tmp in answer.split() if tmp not in answer_split]
-				totalWords = len(objWordList)
+
+
+				# objStemmedList = [porterStemmer.stem(tmp) for tmp in pair_list]
+				# totalStems = len(objStemmedList)
 				
-				for i in range(totalWords):
+				# for i in range(totalStems):
 
-					word = objWordList[i]
-					if word not in characterdict[character].wordMap.keys():
-						characterdict[character].wordMap[word] = []
+				# 	stem = objStemmedList[i]
+				# 	if stem not in characterdict[character].stemmedMap.keys():
+				# 		characterdict[character].stemmedMap[stem] = []
 
-					#adds the question to the list of objects related to the stem
-					if (ID not in characterdict[character].wordMap[word] ):
-						characterdict[character].wordMap[word].append(ID)
+				# 	#adds the question to the list of objects related to the stem
+				# 	if (ID not in characterdict[character].stemmedMap[stem] ):
+				# 		characterdict[character].stemmedMap[stem].append(ID)
 
-					if i < totalWords -1:
-						bigram = word + " " + objWordList[i+1]
-						if bigram not in characterdict[character].wordMap.keys():
-							characterdict[character].wordMap[bigram] = []
+				# 	if i < totalStems -1:
+				# 		bigram = stem + "_" + objStemmedList[i+1]
+				# 		if bigram not in characterdict[character].stemmedMap.keys():
+				# 			characterdict[character].stemmedMap[bigram] = []
 
-						if (ID not in characterdict[character].wordMap[bigram] ):
-							characterdict[character].wordMap[bigram].append(ID)
+				# 		if (ID not in characterdict[character].stemmedMap[bigram] ):
+				# 			characterdict[character].stemmedMap[bigram].append(ID)
 
-					if i < totalWords -2: 
-						trigram = word + " " + objWordList[i+1] +  " " + objWordList[i+2]
-						if trigram not in characterdict[character].wordMap.keys():
-							characterdict[character].wordMap[trigram] = []
+				# 	if i < totalStems -2: 
+				# 		trigram = stem + "_" + objStemmedList[i+1] + "_" + objStemmedList[i+2]
+				# 		if trigram not in characterdict[character].stemmedMap.keys():
+				# 			characterdict[character].stemmedMap[trigram] = []
 
-						if (ID not in characterdict[character].wordMap[trigram] ):
-							characterdict[character].wordMap[trigram].append(ID)
+				# 		if (ID not in characterdict[character].stemmedMap[trigram] ):
+				# 			characterdict[character].stemmedMap[trigram].append(ID)
+
+
+				# # lemmatize the question and answer and adding the lemmas, their bigrams and trigramsinto model.lemmatizedMap
+				# objLemmatizedList = [lemmatizer.lemmatize(tmp) for tmp in unigram_list ]
+				# totalLemmas = len(objLemmatizedList)
+				
+				# for i in range(totalLemmas):
+
+				# 	lemma = objLemmatizedList[i]
+				# 	if lemma not in characterdict[character].lemmatizedMap.keys():
+				# 		characterdict[character].lemmatizedMap[lemma] = []
+
+				# 	#adds the question to the list of objects related to the stem
+				# 	if (ID not in characterdict[character].lemmatizedMap[lemma] ):
+				# 		characterdict[character].lemmatizedMap[lemma].append(ID)
+
+				# 	if i < totalLemmas -1:
+				# 		bigram = lemma + "_" + objLemmatizedList[i+1]
+				# 		if bigram not in characterdict[character].lemmatizedMap.keys():
+				# 			characterdict[character].lemmatizedMap[bigram] = []
+
+				# 		if (ID not in characterdict[character].lemmatizedMap[bigram] ):
+				# 			characterdict[character].lemmatizedMap[bigram].append(ID)
+
+				# 	if i < totalLemmas -2: 
+				# 		trigram = lemma + "_" + objLemmatizedList[i+1] + "_" +  objLemmatizedList[i+2]
+				# 		if trigram not in characterdict[character].lemmatizedMap.keys():
+				# 			characterdict[character].lemmatizedMap[trigram] = []
+
+				# 		if (ID not in characterdict[character].lemmatizedMap[trigram] ):
+				# 			characterdict[character].lemmatizedMap[trigram].append(ID)
+
+
+	   #          # splitting the question and answer and adding the words, their bigrams and trigrams into model.WordMap
+				# objWordList = [tmp for tmp in unigram_list]
+				# totalWords = len(objWordList)
+				
+				# for i in range(totalWords):
+
+				# 	word = objWordList[i]
+				# 	if word not in characterdict[character].wordMap.keys():
+				# 		characterdict[character].wordMap[word] = []
+
+				# 	#adds the question to the list of objects related to the stem
+				# 	if (ID not in characterdict[character].wordMap[word] ):
+				# 		characterdict[character].wordMap[word].append(ID)
+
+				# 	if i < totalWords -1:
+				# 		bigram = word + "_" + objWordList[i+1]
+				# 		if bigram not in characterdict[character].wordMap.keys():
+				# 			characterdict[character].wordMap[bigram] = []
+
+				# 		if (ID not in characterdict[character].wordMap[bigram] ):
+				# 			characterdict[character].wordMap[bigram].append(ID)
+
+				# 	if i < totalWords -2: 
+				# 		trigram = word + "_" + objWordList[i+1] +  "_" + objWordList[i+2]
+				# 		if trigram not in characterdict[character].wordMap.keys():
+				# 			characterdict[character].wordMap[trigram] = []
+
+				# 		if (ID not in characterdict[character].wordMap[trigram] ):
+				# 			characterdict[character].wordMap[trigram].append(ID)
 
 			
 			elif(mylanguage=="Arabic"):
@@ -313,7 +418,7 @@ def createModel(characterdict, currentSession, mylanguage):
 
 				for word in objWordList:
 
-					word = word.strip(' " ?!')
+					word = word.strip(' " ?!)')
 					if word not in characterdict[character].wordMap.keys():
 						characterdict[character].wordMap[word] = []
 
@@ -405,24 +510,34 @@ def createModel(characterdict, currentSession, mylanguage):
 	print("Total Questions: ", str(totalQuestions))
 	print("done")
 	#print(characterdict["gabriela"].wordMap)
+	calculateTFIDF(characterdict )
 	return currentSession
 
 
 
 def direct_intersection_match_English(query, characterModel):
 
-	queryList= [tmp.strip(', " ?.!') for tmp in query.split()]
+	queryList= [tmp.strip(', " ?.!)') for tmp in query.split()]
 	responses={}
 	maxVal=0
-	videoResponse= ''
-
+	# videoResponse= ''
+	# newList = []
+	
+	# #expands the unigram model by adding synonyms
+	# for word in queryList:
+	# 	#if word not in stop_words:
+	# 	for synset in wn.synsets(word):
+	# 		for lemma in synset.lemmas():
+	# 			if lemma.name() not in newList:
+	# 				newList.append(lemma.name())
+	
 	for direct_string in queryList :
-		if direct_string in characterModel.wordMap.keys() and direct_string not in stop_words:
+		if direct_string in characterModel.wordMap.keys(): #and direct_string not in stop_words:
 			for vidResponse in characterModel.wordMap[direct_string]:
 				if vidResponse not in responses.keys():
-					responses[vidResponse]= 1
+					responses[vidResponse]= characterModel.wordMap[direct_string][vidResponse]
 				elif vidResponse in responses.keys():
-					responses[vidResponse]+=1
+					responses[vidResponse]+=characterModel.wordMap[direct_string][vidResponse]
 
 
 	for key, value in responses.items():
@@ -437,7 +552,7 @@ def direct_intersection_match_English(query, characterModel):
 
 def stem_intersection_match_English(query, characterModel):
 
-	stemmed_query= [porterStemmer.stem(tmp.strip(', " ?.!')) for tmp in query.split()]
+	stemmed_query= [porterStemmer.stem(tmp.strip(', " ?.!)')) for tmp in query.split()]
 
 	responses={}
 	maxVal=0
@@ -447,9 +562,9 @@ def stem_intersection_match_English(query, characterModel):
 		if stem_string in characterModel.stemmedMap.keys():
 			for vidResponse in characterModel.stemmedMap[stem_string]:
 				if vidResponse not in responses.keys():
-					responses[vidResponse]= 1
+					responses[vidResponse]= characterModel.stemmedMap[stem_string][vidResponse]
 				elif vidResponse in responses.keys():
-					responses[vidResponse]+=1
+					responses[vidResponse]+=characterModel.stemmedMap[stem_string][vidResponse]
 
 	for key, value in responses.items():
 		if int (value) > maxVal:
@@ -462,7 +577,7 @@ def stem_intersection_match_English(query, characterModel):
 
 def lemma_intersection_match_English(query, characterModel):
 
-	lemmatized_query= [lemmatizer.lemmatize(tmp.strip(', " ?.!')) for tmp in query.split()]
+	lemmatized_query= [lemmatizer.lemmatize(tmp.strip(', " ?.!)')) for tmp in query.split()]
 
 	responses={}
 	maxVal=0
@@ -472,9 +587,9 @@ def lemma_intersection_match_English(query, characterModel):
 		if lemma_string in characterModel.lemmatizedMap.keys():
 			for vidResponse in characterModel.lemmatizedMap[lemma_string]:
 				if vidResponse not in responses.keys():
-					responses[vidResponse]= 1
+					responses[vidResponse]= characterModel.lemmatizedMap[lemma_string][vidResponse]
 				elif vidResponse in responses.keys():
-					responses[vidResponse]+=1
+					responses[vidResponse]+=characterModel.lemmatizedMap[lemma_string][vidResponse]
 
 	for key, value in responses.items():
 		if int (value) > maxVal:
@@ -597,35 +712,69 @@ def lemma_intersection_match_Arabic(query, characterModel):
 
 	
 
-def calculateTFIDF(token, characterModel):
-	#are we using each question as a "doc" or each character model?
+def calculateTFIDF(characterdict):
+	# #are we using each question as a "doc" or each character model?
 
-	totalDocs = len(characterModel.objectMap)
+	# totalDocs = len(characterModel.objectMap)
 
-	#tf: term frequency
-	tf= doc.words.count(token) / len(doc.words)
+	# #tf: term frequency
+	# tf= doc.words.count(token) / len(doc.words)
 
-	#number of docs containing the token
-	n_containing= sum(1 for doc in doclist if token in doc.words)
+	# #number of docs containing the token
+	# n_containing= sum(1 for doc in doclist if token in doc.words)
 
-	#idf: inverse document frequency
-	idf= math.log(len(doclist) / (1 + n_containing(token, doclist)))
+	# #idf: inverse document frequency
+	# idf= math.log(len(doclist) / (1 + n_containing(token, doclist)))
 
-	#tfifd
-	tfidf= tf * idf
+	# #tfifd
+	# tfidf= tf * idf
 
-	return tfidf
+	# return tfidf
+
+	for avatar in characterdict:
+		totalDocs = len(characterdict[avatar].objectMap)
+		for lemma in characterdict[avatar].lemmatizedMap.keys():
+			idf = totalDocs/len(characterdict[avatar].lemmatizedMap[lemma])
+			for doc in  characterdict[avatar].lemmatizedMap[lemma].keys():
+				tf = characterdict[avatar].lemmatizedMap[lemma][doc]
+				tfidf = tf * idf
+				characterdict[avatar].lemmatizedMap[lemma][doc] = tfidf
+
+		for stem in characterdict[avatar].stemmedMap.keys():
+			idf = totalDocs/len(characterdict[avatar].stemmedMap[stem])
+			for doc in  characterdict[avatar].stemmedMap[stem].keys():
+				tf = characterdict[avatar].stemmedMap[stem][doc]
+				tfidf = tf * idf
+				characterdict[avatar].stemmedMap[stem][doc] = tfidf
+
+		for word in characterdict[avatar].wordMap.keys():
+			idf = totalDocs/len(characterdict[avatar].wordMap[word])
+			for doc in  characterdict[avatar].wordMap[word].keys():
+				tf = characterdict[avatar].wordMap[word][doc]
+				tfidf = tf * idf
+				characterdict[avatar].wordMap[word][doc] = tfidf
 
 
-def rankAnswers(videoResponses, currentSession):
+def rankAnswers(query, videoResponses, currentSession, characterModel):
+	
+	query_len = len(query.split())
+
 	#each repition is a given a weight of 2 e.g if a video has been played once 2 points will be subtracted from its matching score
 
 	# for each possible answer, checks if it has been played it already, and subtract points from its score if has been played already.
 	for res in videoResponses:
 
+
+		videoObjLen = characterModel.objectMap[res].questionLength + characterModel.objectMap[res].answerLength
+		precision = videoResponses[res]/videoObjLen
+		recall = videoResponses[res]/query_len
+		f_score = (precision + recall)/2
+
 		if res in currentSession.repetitions.keys():
 			negativePoints = currentSession.repetitions[res] * 2
-			videoResponses[res] -= negativePoints
+			#videoResponses[res] -= negativePoints
+
+
 
 	ranked_list = sorted(videoResponses, key = lambda i:videoResponses[i], reverse = True)
 	return ranked_list[0]
@@ -637,37 +786,37 @@ def findResponse(query, characterModel, currentSession):
 
 	themax=0
 	best_response=''
-	query = query.lower().strip(',?."!')
+	query = query.lower().strip(',?.")!')
 
 	#different modes of matching	
 	stem_match_english_responses= stem_intersection_match_English(query, characterModel)
 	lemma_match_english_responses= lemma_intersection_match_English(query, characterModel)
 	direct_match_english_responses= direct_intersection_match_English(query, characterModel)
 
-	if(len(stem_match_english_responses)>themax):
-		themax= len(stem_match_english_responses)
-		best_response=stem_match_english_responses
+	# if(len(stem_match_english_responses)>themax):
+	# 	themax= len(stem_match_english_responses)
+	# 	best_response=stem_match_english_responses
 
-		print("stem max", themax)
+	# 	print("stem max", themax)
 
 	
 
-	if(len(lemma_match_english_responses)>themax):
-		themax= len(lemma_match_english_responses)
-		best_response=lemma_match_english_responses
+	# if(len(lemma_match_english_responses)>themax):
+	# 	themax= len(lemma_match_english_responses)
+	# 	best_response=lemma_match_english_responses
 
-		print("lemma max", themax)
-
-
-
-	if(len(direct_match_english_responses)>themax):
-		themax= len(direct_match_english_responses)
-		best_response=direct_match_english_responses
+	# 	print("lemma max", themax)
 
 
-		print("direct max", themax)
 
-	#best_response= lemma_intersection_match_English(query, characterModel)
+	# if(len(direct_match_english_responses)>themax):
+	# 	themax= len(direct_match_english_responses)
+	# 	best_response=direct_match_english_responses
+
+
+	# 	print("direct max", themax)
+
+	best_response= stem_intersection_match_English(query, characterModel)
 	# if the responses are empty, play "I can't answer that response"
 	if bool(best_response) == False:
 		if currentSession.currentAvatar == "gabriela":
@@ -679,7 +828,7 @@ def findResponse(query, characterModel, currentSession):
 
 
 	else:
-		final_answer = rankAnswers(best_response, currentSession)
+		final_answer = rankAnswers(query, best_response, currentSession, characterModel)
 		if final_answer in currentSession.repetitions.keys():
 			currentSession.repetitions[final_answer] += 1
 		else:
@@ -735,8 +884,15 @@ def main():
 	global characterdict
 	global currentSession
 	currentSession = None
+
 	for tmp in (stop_words + list(punctuation)):
 		print(tmp)
+		for synset in wn.synsets(tmp): # Each synset represents a diff concept.
+			for lemma in synset.lemmas():
+				print(lemma.name())
+
+		print("\n\n\n")
+		
 	# mytext = nltk.word_tokenize("This is my sentence")
 	# mytext = nltk.pos_tag(mytext)
 	# print(mytext)
