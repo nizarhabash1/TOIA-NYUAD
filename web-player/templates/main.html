@@ -18,7 +18,7 @@
     </div> -->
 
     <div id="speech_query">{{query_text}}</div>
-    <p>{{language}}</p>
+    <div id="language_field" display = "none">{{language}}</div>
     <video id = 'avatar_video' class='center' width="640" height="480" align="middle" controls autoplay
     preload = "auto">
       <source src="{{avatar_video_path}}" type="video/mp4">
@@ -36,15 +36,14 @@
     // speech recognition using annyang
       function detectSpeech(){
         if (annyang) {
-        <!--console.log(language);-->
-          // set langauge to be English
-          annyang.setLanguage('ar');
-          <!--if(language=="English" || langauge == "english"){-->
-            <!--annyang.setLanguage('en-US');-->
-          <!--}-->
-          <!--if(language=="Arabic" || language == "arabic"){-->
-            <!--annyang.setLanguage('ar');-->
-          <!--}-->
+          let currentLanguage = document.getElementById('language_field').innerHTML;
+          annyang.setLanguage('en-US');
+          if(currentLanguage == "English" || currentLanguage == "english"){
+            annyang.setLanguage('en-US');
+          }
+          if(currentLanguage=="Arabic" || currentLanguage == "arabic"){
+            annyang.setLanguage('ar');
+          }
           
           // set langauge to be MSA
           // annyang.setLanguage('ar')
