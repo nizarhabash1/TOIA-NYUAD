@@ -35,8 +35,10 @@ def with_avatar(avatar):
 @app.route('/<avatar>/<language>')
 def with_language(avatar, language):
     global currentSession
+    global characterModel
     language = str(language).title()
-    currentSession = dialogue_manager4.createModel(characterModel, currentSession, language)
+    dialogue_manager4.createModel(characterModel, currentSession, language)
+    currentSession = dialogue_manager4.create_new_session(avatar, language)
     return render_template('main.html', avatar=avatar, language=language)
 
 # When interactor enters a query

@@ -138,9 +138,7 @@ def arabicSyn():
 
 	return synonymDict
 # Initiates the model and create a new session
-def createModel(characterdict, currentSession, mylanguage, avatar):
-    # creates the new session
-    currentSession = session(avatar, mylanguage)
+def createModel(characterdict, currentSession, mylanguage):
 
     arabic_synonyms= arabicSyn()
 
