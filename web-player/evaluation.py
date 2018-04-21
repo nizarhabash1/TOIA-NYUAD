@@ -289,13 +289,14 @@ if __name__ == '__main__':
 	session = initiate()
 	#readAutomaticQuestions(automaticCharacterDict)
 	#test_questions(oracleCharacterDict, "English")
+	test_questions(oracleCharacterDict, "Arabic")
 	#test_questions(automaticCharacterDict)
-	readManualQuestions(manualCharacterDict)
+	#readManualQuestions(manualCharacterDict)
 
 	#print(manualCharacterDict["margarita"].objectMap)
 
 	#print(oracleCharacterDict["margarita"].lemmatizedMap.keys())
-	test_questions(manualCharacterDict, "Arabic")
+	#test_questions(manualCharacterDict, "Arabic")
 
 
 	#characterdict["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()
