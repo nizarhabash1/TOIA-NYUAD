@@ -148,10 +148,11 @@ def createModel(characterdict, currentSession, mylanguage):
 				continue
 			
 			if(mylanguage== "Arabic" and "arabic-question"in resp["rows"][i]["doc"].keys() and "arabic-answer"in resp["rows"][i]["doc"].keys()):
-				question= json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
-				answer=json.dumps(resp["rows"][i]["doc"]["arabic-answer"],ensure_ascii=False).strip('،.؟"')
+				question= json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"\/x').replace("/", "").replace("x", " ")
+				answer=json.dumps(resp["rows"][i]["doc"]["arabic-answer"],ensure_ascii=False).strip('،.؟"\/x').replace("/", "").replace("x", " ")
 
-			
+		
+
 			if(mylanguage=="English" and "english-question" in resp["rows"][i]["doc"].keys()):
 				question= json.dumps(resp["rows"][i]["doc"]["english-question"]).strip(',?."!)')
 				answer= json.dumps(resp["rows"][i]["doc"]["english-answer"]).strip(',?."!)')
@@ -285,12 +286,15 @@ def createModel(characterdict, currentSession, mylanguage):
 			
 			elif(mylanguage=="Arabic"):
 
-				'''objLemmatizedList=[]
-				objStemmedList=[]
-				objWordList=[]'''
-				#print(StarMorphModules.analyze_word("كيف",False)[0].split()[0].replace("lex:", "").split('_', 1)[0])
-				#print(StarMorphModules.analyze_word("كيف",False)[0].split()[1].replace("stem:", "").split('d', 1)[0])
-				objStemmedList = [StarMorphModules.analyze_word(tmp,False)[0].split()[1].replace("stem:", "").split('d', 1)[0] for tmp in question.split() ] + [StarMorphModules.analyze_word(tmp,False)[0].split()[1].replace("stem:", "").split('d', 1)[0]for tmp in obj.answer.split() ]
+				
+				#StarMorphModules.analyze_word(tmp,False)[0].split()[1].replace('stem:', ' ').split('d', 1)[0]
+				#StarMorphModules.analyze_word(tmp,False)[0].split()[1].replace('stem:', ' ').split('d', 1)[0]
+				for tmp in question:
+					tmp= tmp.encode("utf-8")
+
+				for tmp in answer:
+					tmp= tmp.encode("utf-8")
+				objStemmedList = [StarMorphModules.analyze_word(tmp,False)[0].split()[1].replace('stem:', ' ').split('d', 1)[0] for tmp in question.split() ] + [StarMorphModules.analyze_word(tmp,False)[0].split()[1].replace('stem:', ' ').split('d', 1)[0]for tmp in answer.split() ]
 
 
 				for stem in objStemmedList:
@@ -304,7 +308,7 @@ def createModel(characterdict, currentSession, mylanguage):
 							characterdict[character].stemmedMap[stem].append(ID)
 					#print(characterdict[character].stemmedMap)
 				
-				objLemmatizedList = [StarMorphModules.analyze_word(tmp,False)[0].split()[0].replace("lex:", "").split('_', 1)[0] for tmp in question.split() ] + [StarMorphModules.analyze_word(tmp,False)[0].split()[0].replace("lex:", "").split('_', 1)[0] for tmp in obj.answer.split() ]
+				objLemmatizedList = [StarMorphModules.analyze_word(tmp,False)[0].split()[0].replace('lex:', ' ').split('_', 1)[0] for tmp in question.split() ] + [StarMorphModules.analyze_word(tmp,False)[0].split()[0].replace('lex:', ' ').split('_', 1)[0] for tmp in answer.split() ]
 				
 				for lemma in objLemmatizedList:
 						lemma=re.sub(r'[^\u0621-\u064A]', '', lemma, flags=re.UNICODE)
@@ -331,93 +335,14 @@ def createModel(characterdict, currentSession, mylanguage):
 
 					#adds the question to the list of objects related to the stem
 					characterdict[character].wordMap[word].append(ID)
-				#print("word list", characterdict[character].wordMap)
-					#print(characterdict[character].lemmatizedMap.keys())
-					#print("lemmatized list", characterdict[character].lemmatizedMap)
-				'''
-					try:
-						for line in arabic_read:
-							objLemmatizedList=[]
-							objStemmedList=[]
-							objWordList=[]
-							for word in line.split(): 
-								word= word.strip('،/')
-								analysis=[StarMorphModules.analyze_word(word,False)]
-								#print(analysis) 
-								
-								objStemmedList.append(analysis[0][0].split()[1].replace("stem:", "").split('d', 1)[0])
-								objLemmatizedList.append(analysis[0][0].split()[0].replace("lex:", "").split('_', 1)[0])
-								objWordList.append(word)
-
-
-							for stem in objStemmedList:
-								#print(character)
-								#print(stem)
-							# creates a list for objects related to the stem if the list does not exist already
-								if stem not in characterdict[character].stemmedMap.keys():
-									characterdict[character].stemmedMap[stem] = []
-
-								#adds the question to the list of objects related to the stem
-								if(ID not in characterdict[character].stemmedMap[stem]): 
-									characterdict[character].stemmedMap[stem].append(ID)
-							#print(characterdict[character].stemmedMap)
-
-
-							for lemma in objLemmatizedList:
-								lemma=re.sub(r'[^\u0621-\u064A]', '', lemma, flags=re.UNICODE)
-
-								if lemma not in characterdict[character].lemmatizedMap.keys():
-									
-									characterdict[character].lemmatizedMap[lemma] = []
-
-								#adds the question to the list of objects related to the stem
-								#print(ID)
-								if(ID not in characterdict[character].lemmatizedMap[lemma]):
-									characterdict[character].lemmatizedMap[lemma].append(ID)
-								#print("lemma: " + lemma + "\n" )
-								#print(characterdict[character].lemmatizedMap[lemma])
-								#print("\n")
-							#print(characterdict[character].lemmatizedMap.keys())
-							#print("lemmatized list", characterdict[character].lemmatizedMap)
-
-
-							objWordList = line.split()
-							
-							for word in objWordList:
-
-								word = word.strip(' ؟.،')
-								if word not in characterdict[character].wordMap.keys():
-									characterdict[character].wordMap[word] = []
-
-								#adds the question to the list of objects related to the stem
-								if(ID not in characterdict[character].wordMap[word]):
-									characterdict[character].wordMap[word].append(ID)
-
-								#print("word: " + word + "\n" )
-								#print(characterdict[character].wordMap[word])
-								#print("\n")
-							#print("word list", characterdict[character].wordMap)
-			           
-						#arabic_read.close()
-					except:
-						#print("Exception given")
-						continue
-						#break;
-
-				 	'''
 				
-	#print("Character: ", character) 
-			#print("ID: ", str(id_count))
-			#print("Question: ", str(question))
-			#print("Answer: ", str(answer))
-			#print("\n")
 
 
 			
 	print("Total Questions: ", str(totalQuestions))
 	print("done")
 	#print(characterdict["gabriela"].wordMap)
-	calculateTFIDF(characterdict )
+	#calculateTFIDF(characterdict )
 	return currentSession
 
 
@@ -683,7 +608,7 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
 
 		if res in currentSession.repetitions.keys():
 			negativePoints = currentSession.repetitions[res] * 0.4 * videoResponses[res]
-			videoResponses[res] -= negativePoints
+			#videoResponses[res] -= negativePoints
 
 
 
