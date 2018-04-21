@@ -103,11 +103,45 @@ def preprocess(line):
 
     return processed
 
+def arabicSyn():
+	glossDict={}
+	synonymDict={}
+	unigram_synonyms_list = []
 
+	f = open('static/scripts/all_characters.json', 'r', encoding='utf-8')
+
+	resp = json.load(f)
+
+	for i in range(0, len(resp["rows"]) - 1, 1):
+		if ("arabic-question" in resp["rows"][i]["doc"].keys() and "arabic-answer" in resp["rows"][i]["doc"].keys()):
+			question = json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
+			answer = json.dumps(resp["rows"][i]["doc"]["arabic-answer"], ensure_ascii=False).strip('،.؟"')
+
+			pair= question.split()+answer.split()
+
+			for tmp in pair:
+
+				gloss=StarMorphModules.analyze_word(tmp, False)[0].split()[4].split(";")[0].replace("gloss:", "")
+				if gloss not in glossDict.keys() and gloss != "NO_ANALYSIS":
+					glossDict[gloss]= []
+					glossDict[gloss].append(tmp)
+				elif gloss in glossDict.keys() and gloss != "NO_ANALYSIS":
+					if tmp not in glossDict[gloss]:
+						glossDict[gloss].append(tmp)
+
+	for key in glossDict.keys():
+		if len(glossDict[key])>1:
+			for i in glossDict[key]:
+				if i not in synonymDict.keys():
+					synonymDict[i]=[j for j in glossDict[key]]
+
+	return synonymDict
 # Initiates the model and create a new session
 def createModel(characterdict, currentSession, mylanguage):
     # creates the new session
     currentSession = session('margarita', mylanguage)
+
+    arabic_synonyms= arabicSyn()
 
     try:
         f = open('static/scripts/all_characters.json', 'r', encoding='utf-8')
@@ -282,13 +316,18 @@ def createModel(characterdict, currentSession, mylanguage):
         	unigram_split = question.strip('،"!؟/)').replace("،", " ").replace("/", " ").split() + answer.strip('،"!؟/)').replace("،", " ").replace("/", " ").split()
 
         	unigram_list = [tmp.strip('،"!؟/)').replace('/', '') for tmp in unigram_split]
-        	#print(unigram_list)
+      
         	unigram_synonyms_list = []
 
-             # expands the unigram model by adding synonyms
-             
-            #for word in unigram_list:
-               #unigram_synonyms_list.append(synonym)
+        	
+        	# expands the unigram model by adding synonyms
+        	for word in unigram_list:
+	        	if word in arabic_synonyms.keys():
+	        		for tmp in arabic_synonyms[word]:
+	        			if tmp not in unigram_synonyms_list:
+	        				unigram_synonyms_list.append(tmp)
+        	
+           
 
             # add the bigrams and trigrams into the three representations
         	totalUnigrams = len(unigram_list)
@@ -351,8 +390,8 @@ def createModel(characterdict, currentSession, mylanguage):
         			else:
         				characterdict[character].lemmatizedMap[trigram_lemma][ID] += 1
 	        # adds the unigrams and their synonyms into the three hashmaps - stems, lemmas and direct + unigram_synonyms_list:
-	        for token in (unigram_list):
-
+	        for token in (unigram_list+ unigram_synonyms_list):
+	            #print(token)
 	            stem = StarMorphModules.analyze_word(token, False)[0].split()[1].replace("stem:", "").split('d',1)[0]
 	            lemma = StarMorphModules.analyze_word(token, False)[0].split()[0].replace("lex:", "").split('_',1)[0]
 
