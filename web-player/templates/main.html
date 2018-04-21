@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel = "stylesheet" href="static/scripts/styles.css">
   </head>
   <body>
     <h1>TOIA: Interactive Story Telling Done Right</h1>
@@ -19,6 +18,7 @@
     </div> -->
 
     <div id="speech_query">{{query_text}}</div>
+    <p>{{language}}</p>
     <video id = 'avatar_video' class='center' width="640" height="480" align="middle" controls autoplay
     preload = "auto">
       <source src="{{avatar_video_path}}" type="video/mp4">
@@ -36,12 +36,13 @@
     // speech recognition using annyang
       function detectSpeech(){
         if (annyang) {
+        <!--console.log(language);-->
           // set langauge to be English
-          annyang.setLanguage('en-US');
-          <!--if(language=="English"){-->
+          annyang.setLanguage('ar');
+          <!--if(language=="English" || langauge == "english"){-->
             <!--annyang.setLanguage('en-US');-->
           <!--}-->
-          <!--if(language=="Arabic"){-->
+          <!--if(language=="Arabic" || language == "arabic"){-->
             <!--annyang.setLanguage('ar');-->
           <!--}-->
           
