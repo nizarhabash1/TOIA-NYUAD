@@ -712,6 +712,9 @@ def determineAvatar(query, currentSession):
     if query == "toya toya can i talk to margarita":
         currentSession = session("margarita", currentSession.language)
 
+    if query == "toya toya can i talk to rashid":
+        currentSession = session("rashid", currentSession.language)
+
     if query == "toya toya can i talk to katarina":
         print("you are switching to katarina")
         currentSession = session("katarina", currentSession.language)

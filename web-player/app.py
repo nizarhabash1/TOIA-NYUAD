@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect
 import sys
 import pprint
 
+sys.path.insert(0, '/web-player/')
 pprint.pprint(sys.path)
 
 import dialogue_manager4
