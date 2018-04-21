@@ -61,7 +61,8 @@ def my_form_post(avatar,language):
                            avatar_video_path=response_video_path,
                            avatar_response=response.answer,
                            avatar_subtitle=response_subtitle_path,
-                           query_text=processed_text)
+                           query_text=processed_text,
+                           language = language)
 
 
 

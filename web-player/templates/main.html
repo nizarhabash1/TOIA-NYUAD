@@ -18,7 +18,9 @@
     </div> -->
 
     <div id="speech_query">{{query_text}}</div>
-    <p>{{language}}</p>
+    <div id="language_field" style="display:none">{{language}}</div>
+
+    <div id="video_container" class="">
     <video id = 'avatar_video' class='center' width="640" height="480" align="middle" controls autoplay
     preload = "auto">
       <source src="{{avatar_video_path}}" type="video/mp4">
@@ -27,6 +29,7 @@
       <source src="{{avatar_video_path}}" type="video/ogg">
       <track label="English" kind="subtitles" srclang="en" src= {{avatar_subtitle}} default>
     </video>
+    </div>
     <div><button id="stop_button">Stop speech recognition</button></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -35,25 +38,18 @@
 
     // speech recognition using annyang
       function detectSpeech(){
+        console.log('speech recognition is listening');
         if (annyang) {
-        <!--console.log(language);-->
-          // set langauge to be English
-          annyang.setLanguage('ar');
-          <!--if(language=="English" || langauge == "english"){-->
-            <!--annyang.setLanguage('en-US');-->
-          <!--}-->
-          <!--if(language=="Arabic" || language == "arabic"){-->
-            <!--annyang.setLanguage('ar');-->
-          <!--}-->
-          
-          // set langauge to be MSA
-          // annyang.setLanguage('ar')
-          // set langauge to be emirati dialect
-          // annyang.setLanguage('ar-AE');
-          // set language to be Jordanian dialect
-          // annyang.setLanguage('ar-JO');
+          let currentLanguage = document.getElementById('language_field').innerHTML;
+          annyang.setLanguage('en-US');
+          if(currentLanguage == "English" || currentLanguage == "english"){
+            annyang.setLanguage('en-US');
+          }
+          if(currentLanguage=="Arabic" || currentLanguage == "arabic"){
+            annyang.setLanguage('ar');
+          }
 
-          annyang.start();
+          annyang.resume();
           var sayThis = function(result) {
             document.getElementById('messageText').value = result;
             document.getElementById('chatbot-form-btn').click();
@@ -66,23 +62,114 @@
         };
         }
 
-      //start or pause speech recognition depending on if video is playing
-      $(document).ready(function() {
-        document.getElementById('stop_button').onclick = function(){
-          if(annyang)
-            annyang.abort();
-        }
-
         var vid = document.getElementById('avatar_video');
         var vid_src = document.getElementById('avatar_video').src;
 
-        switch ("{{avatar}}"){
+        var vid_container = document.getElementById('video_container');
+
+
+    var margarita_filler_videos = [
+    "../static/avatar-videos/margarita_338_6be11151af2d475f7f56fe99b547c810.mp4",
+    "../static/avatar-videos/margarita_339_d7f7dc21cc79877f15bcf4cafa473541.mp4",
+    "../static/avatar-videos/margarita_340_16a41b8cddc767f444e773b35832e812.mp4",
+    "../static/avatar-videos/margarita_341_20db0faf8cab7d8916a976d26065df3f.mp4",
+    "../static/avatar-videos/margarita_342_d7f7dc21cc79877f15bcf4cafa476083.mp4"
+    ]
+
+
+    var gabriela_filler_videos = [
+    "../static/avatar-videos/gabriela_2269_0675d24f01246799129eb70ec51746f8.mp4",
+    "../static/avatar-videos/gabriela_2270_09e85aea9c84a6c85465a192187e30af.mp4",
+    "../static/avatar-videos/gabriela_2271_0675d24f01246799129eb70ec5174de1.mp4",
+    "../static/avatar-videos/gabriela_2272_09e85aea9c84a6c85465a192187e40a7.mp4",
+    "../static/avatar-videos/gabriela_2273_3a91e77640148c090faf1193dcf7add6.mp4",
+    "../static/avatar-videos/gabriela_2284_09e85aea9c84a6c85465a19218b97b8d.mp4",
+    "../static/avatar-videos/gabriela_2285_09e85aea9c84a6c85465a19218cdeb1d.mp4",
+    "../static/avatar-videos/gabriela_2286_0c8c50e692628216e86515e14c119033.mp4",
+    "../static/avatar-videos/gabriela_2288_09e85aea9c84a6c85465a19218cdfe37.mp4"
+    ]
+
+    var katarina_filler_videos = [
+    "../static/avatar-videos/katarina_1210_3792386d3488216a787d3261b35d302e.mp4",
+    "../static/avatar-videos/katarina_1211_9cdeb3d285dab2c3a3acbbda9c579320.mp4",
+    "../static/avatar-videos/katarina_1212_3a91e77640148c090faf1193dc588413.mp4"
+    ]
+
+
+    var rashid_filler_videos = [
+    "../static/avatar-videos/rashid_3210_817fa7ca9dc82cdd71696044df086c08.mp4",
+    "../static/avatar-videos/rashid_3211_17a0f962a4b53cf47f3bd315beae8252.mp4",
+    "../static/avatar-videos/rashid_3212_d46e0a70b99cc97d4595abe7b3906eac.mp4",
+    "../static/avatar-videos/rashid_3213_6f6c4e1d16544cdad6d3e2fef69d29e2.mp4"
+    ]
+
+
+    var all_character_filler_videos = [
+    "http://localhost:5000/static/avatar-videos/margarita_338_6be11151af2d475f7f56fe99b547c810.mp4",
+    "http://localhost:5000/static/avatar-videos/margarita_339_d7f7dc21cc79877f15bcf4cafa473541.mp4",
+    "http://localhost:5000/static/avatar-videos/margarita_340_16a41b8cddc767f444e773b35832e812.mp4",
+    "http://localhost:5000/static/avatar-videos/margarita_341_20db0faf8cab7d8916a976d26065df3f.mp4",
+    "http://localhost:5000/static/avatar-videos/margarita_342_d7f7dc21cc79877f15bcf4cafa476083.mp4",
+    "http://localhost:5000/static/avatar-videos/katarina_1210_3792386d3488216a787d3261b35d302e.mp4",
+    "http://localhost:5000/static/avatar-videos/katarina_1211_9cdeb3d285dab2c3a3acbbda9c579320.mp4",
+    "http://localhost:5000/static/avatar-videos/katarina_1212_3a91e77640148c090faf1193dc588413.mp4",
+    "http://localhost:5000/static/avatar-videos/katarina_1214_cdc6248b097f84b68b97bc341f149911.mp4",
+    "http://localhost:5000/static/avatar-videos/gabriela_2269_0675d24f01246799129eb70ec51746f8.mp4",
+    "http://localhost:5000/static/avatar-videos/gabriela_2270_09e85aea9c84a6c85465a192187e30af.mp4",
+    "http://localhost:5000/static/avatar-videos/gabriela_2271_0675d24f01246799129eb70ec5174de1.mp4",
+    "http://localhost:5000/static/avatar-videos/gabriela_2272_09e85aea9c84a6c85465a192187e40a7.mp4",
+    "http://localhost:5000/static/avatar-videos/gabriela_2273_3a91e77640148c090faf1193dcf7add6.mp4",
+    "http://localhost:5000/static/avatar-videos/gabriela_2284_09e85aea9c84a6c85465a19218b97b8d.mp4",
+    "http://localhost:5000/static/avatar-videos/gabriela_2285_09e85aea9c84a6c85465a19218cdeb1d.mp4",
+    "http://localhost:5000/static/avatar-videos/gabriela_2286_0c8c50e692628216e86515e14c119033.mp4",
+    "http://localhost:5000/static/avatar-videos/gabriela_2288_09e85aea9c84a6c85465a19218cdfe37.mp4",
+    "http://localhost:5000/static/avatar-videos/rashid_3210_817fa7ca9dc82cdd71696044df086c08.mp4",
+    "http://localhost:5000/static/avatar-videos/rashid_3211_17a0f962a4b53cf47f3bd315beae8252.mp4",
+    "http://localhost:5000/static/avatar-videos/rashid_3212_d46e0a70b99cc97d4595abe7b3906eac.mp4",
+    "http://localhost:5000/static/avatar-videos/rashid_3213_6f6c4e1d16544cdad6d3e2fef69d29e2.mp4"
+    ]
+
+
+
+    function playFillerVideo(){
+            $('#avatar_video track').attr('src',"");
+                  switch("{{avatar}}"){
+              case "margarita":
+                vid.src = margarita_filler_videos[Math.floor(Math.random()*margarita_filler_videos.length)];
+                break;
+              case "katarina":
+                vid.src = katarina_filler_videos[Math.floor(Math.random()*katarina_filler_videos.length)];
+                break;
+              case "gabriela":
+                vid.src = gabriela_filler_videos[Math.floor(Math.random()*gabriela_filler_videos.length)];
+                break;
+              case "rashid":
+                vid.src =  rashid_filler_videos[Math.floor(Math.random()*rashid_filler_videos.length)];
+                break;
+                }
+    }
+
+
+    function playFillerVideoAtStart(){
+        switch ("{{avatar_video_path}}"){
           case "":
-            vid.src = "../static/avatar-videos/margarita_338_6be11151af2d475f7f56fe99b547c810.mp4"
-            console.log("no avatar yet");
-            break;
-          case "margarita":
-            break;
+              playFillerVideo();
+            }
+        }
+
+     function playFillerVideoInBetween(){
+
+           playFillerVideo();
+        }
+
+
+      //start or pause speech recognition depending on if video is playing
+      $(document).ready(function() {
+        playFillerVideoAtStart();
+        detectSpeech();
+        document.getElementById('stop_button').onclick = function(){
+          if(annyang)
+            annyang.abort();
         }
 
         $('#avatar_video').bind('playing', function(e) {
@@ -91,22 +178,42 @@
 
         var player = document.getElementById('avatar_video');
 
+      // TALKING MODE
+      // Video is playing we are in talking mode, which means speech recognition will be paused.
         player.addEventListener('playing', function(e) {
-          annyang.pause();
-          console.log('addEventListener - playing') ;
-
+          console.log(vid.src);
+          if(!all_character_filler_videos.includes(vid.src)){
+          console.log("we are not playing a filler video");
+            annyang.abort();
+            console.log('Video is now playing and we stopped speech recognition') ;
+           }
         });
 
+      // LISTENING MODE
+      // If video is not playing, we are in listening mode, which means we will enable speech recognition
+      // and we will play a filler video
+
         player.addEventListener('pause', function(e) {
-          console.log('addEventListener - pause') ;
+          console.log('Video is now paused') ;
+          playFillerVideoInBetween();
           detectSpeech();
         });
 
         player.addEventListener('ended', function(e) {
-          console.log('addEventListener - ended') ;
+          console.log('Video has ended') ;
+          playFillerVideoInBetween();
           detectSpeech();
         });
       });
+
+          // Below are helper codes for the speech recognition if we want to use dialects
+          // set langauge to be MSA
+          // annyang.setLanguage('ar')
+          // set langauge to be emirati dialect
+          // annyang.setLanguage('ar-AE');
+          // set language to be Jordanian dialect
+          // annyang.setLanguage('ar-JO');
+
     </script>
   </body>
 </html>
