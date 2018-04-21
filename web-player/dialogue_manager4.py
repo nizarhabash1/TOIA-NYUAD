@@ -181,6 +181,8 @@ def createModel(characterdict, currentSession, mylanguage):
                 resp["rows"][i]["doc"].keys()):
             question = json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
             answer = json.dumps(resp["rows"][i]["doc"]["arabic-answer"], ensure_ascii=False).strip('،.؟"')
+            question= preprocess(question)
+            answer= preprocess(answer)
 
         if (mylanguage == "English" and "english-question" in resp["rows"][i]["doc"].keys()):
             question = json.dumps(resp["rows"][i]["doc"]["english-question"]).strip(',?."!)')
@@ -209,7 +211,7 @@ def createModel(characterdict, currentSession, mylanguage):
             unigram_list = [tmp.strip(',?."!)') for tmp in unigram_split]
             unigram_synonyms_list = []
 
-            # expands the unigram model by adding synonyms
+            #expands the unigram model by adding synonyms
             for word in unigram_list:
                 if word not in stop_words:
                     for synset in wn.synsets(word):
@@ -320,13 +322,13 @@ def createModel(characterdict, currentSession, mylanguage):
 
         	
         	# expands the unigram model by adding synonyms
-        	for word in unigram_list:
-	        	if word in arabic_synonyms.keys():
-	        		for tmp in arabic_synonyms[word]:
-	        			if tmp not in unigram_synonyms_list:
-	        				unigram_synonyms_list.append(tmp)
+        	# for word in unigram_list:
+	        # 	if word in arabic_synonyms.keys():
+	        # 		for tmp in arabic_synonyms[word]:
+	        # 			if tmp not in unigram_synonyms_list:
+	        # 				unigram_synonyms_list.append(tmp)
         	
-           
+          
 
             # add the bigrams and trigrams into the three representations
         	totalUnigrams = len(unigram_list)
@@ -448,23 +450,23 @@ def direct_intersection_match_English(query, characterModel):
                 elif vidResponse in responses.keys():
                     responses[vidResponse] += characterModel.wordMap[unigram_string][vidResponse]
 
-        if i < queryLen - 2:
-            bigram_string = queryList[i] + "_" + queryList[i+1]
-            if bigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                for vidResponse in characterModel.wordMap[bigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.wordMap[bigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.wordMap[bigram_string][vidResponse]
+        # if i < queryLen - 2:
+        #     bigram_string = queryList[i] + "_" + queryList[i+1]
+        #     if bigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
+        #         for vidResponse in characterModel.wordMap[bigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.wordMap[bigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.wordMap[bigram_string][vidResponse]
             
-        if i < queryLen - 3:
-            trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
-            if trigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                for vidResponse in characterModel.wordMap[trigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.wordMap[trigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.wordMap[trigram_string][vidResponse]
+        # if i < queryLen - 3:
+        #     trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
+        #     if trigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
+        #         for vidResponse in characterModel.wordMap[trigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.wordMap[trigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.wordMap[trigram_string][vidResponse]
     
     # for direct_string in queryList:
     #     if direct_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
@@ -494,23 +496,23 @@ def stem_intersection_match_English(query, characterModel):
                 elif vidResponse in responses.keys():
                     responses[vidResponse] += characterModel.stemmedMap[unigram_string][vidResponse]
 
-        if i < queryLen - 2:
-            bigram_string = queryList[i] + "_" + queryList[i+1]
-            if bigram_string in characterModel.stemmedMap.keys():
-                for vidResponse in characterModel.stemmedMap[bigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.stemmedMap[bigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.stemmedMap[bigram_string][vidResponse]
+        # if i < queryLen - 2:
+        #     bigram_string = queryList[i] + "_" + queryList[i+1]
+        #     if bigram_string in characterModel.stemmedMap.keys():
+        #         for vidResponse in characterModel.stemmedMap[bigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.stemmedMap[bigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.stemmedMap[bigram_string][vidResponse]
                 
-        if i < queryLen - 3:
-            trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
-            if trigram_string in characterModel.stemmedMap.keys():
-                for vidResponse in characterModel.stemmedMap[trigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.stemmedMap[trigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.stemmedMap[trigram_string][vidResponse]
+        # if i < queryLen - 3:
+        #     trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
+        #     if trigram_string in characterModel.stemmedMap.keys():
+        #         for vidResponse in characterModel.stemmedMap[trigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.stemmedMap[trigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.stemmedMap[trigram_string][vidResponse]
     
     # for stem_string in queryList:
     #     if stem_string in characterModel.stemmedMap.keys():
@@ -539,24 +541,24 @@ def lemma_intersection_match_English(query, characterModel):
                 elif vidResponse in responses.keys():
                     responses[vidResponse] += characterModel.lemmatizedMap[unigram_string][vidResponse]
 
-        if i < queryLen - 2:
-            bigram_string = queryList[i] + "_" + queryList[i+1]
-            if bigram_string in characterModel.lemmatizedMap.keys():
-                for vidResponse in characterModel.lemmatizedMap[bigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.lemmatizedMap[bigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.lemmatizedMap[bigram_string][vidResponse]
+        # if i < queryLen - 2:
+        #     bigram_string = queryList[i] + "_" + queryList[i+1]
+        #     if bigram_string in characterModel.lemmatizedMap.keys():
+        #         for vidResponse in characterModel.lemmatizedMap[bigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.lemmatizedMap[bigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.lemmatizedMap[bigram_string][vidResponse]
 
             
-        if i < queryLen - 3:
-            trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
-            if trigram_string in characterModel.lemmatizedMap.keys():
-                for vidResponse in characterModel.lemmatizedMap[trigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.lemmatizedMap[trigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.lemmatizedMap[trigram_string][vidResponse]
+        # if i < queryLen - 3:
+        #     trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
+        #     if trigram_string in characterModel.lemmatizedMap.keys():
+        #         for vidResponse in characterModel.lemmatizedMap[trigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.lemmatizedMap[trigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.lemmatizedMap[trigram_string][vidResponse]
 
     # for lemma_string in queryList:
     #     if lemma_string in characterModel.lemmatizedMap.keys():
@@ -586,32 +588,24 @@ def direct_intersection_match_Arabic(query, characterModel):
                 elif vidResponse in responses.keys():
                     responses[vidResponse] += characterModel.wordMap[unigram_string][vidResponse]
 
-        if i < queryLen - 2:
-            bigram_string = queryList[i] + "_" + queryList[i+1]
-            if bigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                for vidResponse in characterModel.wordMap[bigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.wordMap[bigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.wordMap[bigram_string][vidResponse]
+        # if i < queryLen - 2:
+        #     bigram_string = queryList[i] + "_" + queryList[i+1]
+        #     if bigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
+        #         for vidResponse in characterModel.wordMap[bigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.wordMap[bigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.wordMap[bigram_string][vidResponse]
             
-        if i < queryLen - 3:
-            trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
-            if trigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                for vidResponse in characterModel.wordMap[trigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.wordMap[trigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.wordMap[trigram_string][vidResponse]
+        # if i < queryLen - 3:
+        #     trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
+        #     if trigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
+        #         for vidResponse in characterModel.wordMap[trigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.wordMap[trigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.wordMap[trigram_string][vidResponse]
 
-
-            '''		
-            if(characterModel.objectMap[vidResponse].answerLength):
-                recall = responses[vidResponse]/(characterModel.objectMap[vidResponse].questionLength)
-                precision= responses[vidResponse]/(characterModel.objectMap[vidResponse].questionLength+characterModel.objectMap[vidResponse].answerLength)
-                #f-score
-                responses[vidResponse]= responses[vidResponse]/((recall+precision)/2)
-            '''
 
     return responses
 
@@ -641,30 +635,24 @@ def stem_intersection_match_Arabic(query, characterModel):
                 elif vidResponse in responses.keys():
                     responses[vidResponse] += characterModel.stemmedMap[unigram_string][vidResponse]
 
-        if i < queryLen - 2:
-            bigram_string = stemmed_query[i] + "_" + stemmed_query[i+1]
-            if bigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                for vidResponse in characterModel.wordMap[bigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.wordMap[bigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.wordMap[bigram_string][vidResponse]
+        # if i < queryLen - 2:
+        #     bigram_string = stemmed_query[i] + "_" + stemmed_query[i+1]
+        #     if bigram_string in characterModel.stemmedMap.keys():  
+        #         for vidResponse in characterModel.stemmedMap[bigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.stemmedMap[bigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.stemmedMap[bigram_string][vidResponse]
             
-        if i < queryLen - 3:
-            trigram_string = stemmed_query[i] + "_" + stemmed_query[i+1] + "_" + stemmed_query[i+2]
-            if trigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                for vidResponse in characterModel.wordMap[trigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.wordMap[trigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.wordMap[trigram_string][vidResponse]
-   # for stem_string in stemmed_query:
-    #     if stem_string in characterModel.stemmedMap.keys():
-    #         for vidResponse in characterModel.stemmedMap[stem_string]:
-    #             if vidResponse not in responses.keys():
-    #                 responses[vidResponse] = 1
-    #             elif vidResponse in responses.keys():
-    #                 responses[vidResponse] += 1
+        # if i < queryLen - 3:
+        #     trigram_string = stemmed_query[i] + "_" + stemmed_query[i+1] + "_" + stemmed_query[i+2]
+        #     if trigram_string in characterModel.stemmedMap.keys():  # and direct_string not in stop_words:
+        #         for vidResponse in characterModel.stemmedMap[trigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.stemmedMap[trigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.stemmedMap[trigram_string][vidResponse]
+
 
     return responses
 
@@ -675,7 +663,7 @@ def lemma_intersection_match_Arabic(query, characterModel):
     # queryList.encode('utf-8')
 
     responses = {}
-    queryLen = len(queryList)
+   
 
     lemmatized_query = []
     for word in queryList:
@@ -685,43 +673,36 @@ def lemma_intersection_match_Arabic(query, characterModel):
         lemma = re.sub(r'[^\u0621-\u064A]', '', lemma, flags=re.UNICODE)
         lemmatized_query.append(lemma)
 
+    queryLen = len(lemmatized_query)
 
     for i in range(queryLen):
 
         unigram_string = lemmatized_query[i]
-        if unigram_string in characterModel.stemmedMap.keys():
-            for vidResponse in characterModel.stemmedMap[unigram_string]:
+        if unigram_string in characterModel.lemmatizedMap.keys():
+            for vidResponse in characterModel.lemmatizedMap[unigram_string]:
                 if vidResponse not in responses.keys():
-                    responses[vidResponse] = characterModel.stemmedMap[unigram_string][vidResponse]
+                    responses[vidResponse] = characterModel.lemmatizedMap[unigram_string][vidResponse]
                 elif vidResponse in responses.keys():
-                    responses[vidResponse] += characterModel.stemmedMap[unigram_string][vidResponse]
+                    responses[vidResponse] += characterModel.lemmatizedMap[unigram_string][vidResponse]
 
-        if i < queryLen - 2:
-            bigram_string = lemmatized_query[i] + "_" + lemmatized_query[i+1]
-            if bigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                for vidResponse in characterModel.wordMap[bigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.wordMap[bigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.wordMap[bigram_string][vidResponse]
+        # if i < queryLen - 2:
+        #     bigram_string = lemmatized_query[i] + "_" + lemmatized_query[i+1]
+        #     if bigram_string in characterModel.lemmatizedMap.keys():  # and direct_string not in stop_words:
+        #         for vidResponse in characterModel.lemmatizedMap[bigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.lemmatizedMap[bigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.lemmatizedMap[bigram_string][vidResponse]
             
-        if i < queryLen - 3:
-            trigram_string = lemmatized_query[i] + "_" + lemmatized_query[i+1] + "_" + lemmatized_query[i+2]
-            if trigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                for vidResponse in characterModel.wordMap[trigram_string]:
-                    if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.wordMap[trigram_string][vidResponse]
-                    elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.wordMap[trigram_string][vidResponse]
+        # if i < queryLen - 3:
+        #     trigram_string = lemmatized_query[i] + "_" + lemmatized_query[i+1] + "_" + lemmatized_query[i+2]
+        #     if trigram_string in characterModel.lemmatizedMap.keys():  # and direct_string not in stop_words:
+        #         for vidResponse in characterModel.lemmatizedMap[trigram_string]:
+        #             if vidResponse not in responses.keys():
+        #                 responses[vidResponse] = characterModel.lemmatizedMap[trigram_string][vidResponse]
+        #             elif vidResponse in responses.keys():
+        #                 responses[vidResponse] += characterModel.lemmatizedMap[trigram_string][vidResponse]
     
-
-    # for lemma_string in lemmatized_query:
-    #     if lemma_string in characterModel.lemmatizedMap.keys():
-    #         for vidResponse in characterModel.lemmatizedMap[lemma_string]:
-    #             if vidResponse not in responses.keys():
-    #                 responses[vidResponse] = 1
-    #             elif vidResponse in responses.keys():
-    #                 responses[vidResponse] += 1
 
     return responses
 
@@ -815,13 +796,13 @@ def findResponse(query, characterModel, currentSession):
         direct_match_responses = direct_intersection_match_English(query, characterModel)
 
     elif language == "Arabic":
-        stem_match__responses = stem_intersection_match_Arabic(query, characterModel)
+        stem_match_responses = stem_intersection_match_Arabic(query, characterModel)
         lemma_match_responses = lemma_intersection_match_Arabic(query, characterModel)
         direct_match_responses = direct_intersection_match_Arabic(query, characterModel)
     else:
         print("language not recognised")
         return
-    '''
+   
     for key in stem_match_responses.keys():
         if key not in best_responses.keys():
             best_responses[key] = stem_match_responses[key]
@@ -836,10 +817,11 @@ def findResponse(query, characterModel, currentSession):
         if key not in best_responses.keys():
             best_responses[key] = direct_match_responses[key]
         else:
-            best_responses[key] += direct_match_responses[key]'''
-
-    best_responses = direct_match_responses 
-    
+            best_responses[key] += direct_match_responses[key]
+	
+    #best_responses = stem_match_responses 
+    #best_responses= lemma_match_responses
+    #best_responses= direct_match_responses
     # if the responses are empty, play "I can't answer that response"
     if bool(best_responses) == False: 
         if currentSession.currentAvatar == "gabriela":

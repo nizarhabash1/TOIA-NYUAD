@@ -17,7 +17,7 @@ currentSession = None
 #.strip(',?."!')
 
 #f= open('manual-questions.txt', 'r', encoding='utf-8')
-
+'''
 class test_parameters:
 	self.unigram = False
 	self.bigram = False
@@ -28,7 +28,7 @@ class test_parameters:
 	self.TFID = False
 	self.synonym_expansion = False
 	self.test_set = False
-
+'''
 
 def initiate(mylanguage):
 	StarMorphModules.read_config("config_dana.xml")
@@ -55,9 +55,9 @@ def readManualQuestions(characterdict, mylanguage):
 	count = 0
 	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
 	if mylanguage == "Arabic":
-		f= open('static/scripts/manual_questions_arabic.csv', 'r', encoding='utf-8')
+		f= open('static/scripts/experiment-set.csv', 'r', encoding='utf-8')
 	else:
-		f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
+		f= open('static/scripts/experiment-set.tsv', 'r', encoding='utf-8')
 	character = 'margarita'
 	language = mylanguage
 	video = ""
@@ -305,13 +305,13 @@ if __name__ == '__main__':
 	
 	session = initiate("Arabic")
 	#for character in oracleCharacterDict.keys():
-	print(oracleCharacterDict["rashid"].objectMap)
+	#print(oracleCharacterDict["rashid"].objectMap)
 	#readAutomaticQuestions(automaticCharacterDict)
 	#test_questions(oracleCharacterDict, "English")
 
 	#test_questions(oracleCharacterDict, "English")
 	#test_questions(automaticCharacterDict)
-	readManualQuestions(manualCharacterDict)
+	readManualQuestions(manualCharacterDict, "Arabic")
 
 	#print(manualCharacterDict["margarita"].objectMap)
 
@@ -321,7 +321,7 @@ if __name__ == '__main__':
 
 
 	#print(oracleCharacterDict["margarita"].lemmatizedMap.keys())
-	test_questions(manualCharacterDict, "English")
+	test_questions(manualCharacterDict, "Arabic")
 
 
 	#characterdict["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()
