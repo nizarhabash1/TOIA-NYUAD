@@ -17,13 +17,6 @@
       {{ avatar_response }}
     </label>
     </div> -->
-    <div class="dropdown-hover">
-      <button id="language-button">Select language</button>
-      <div class="dropdown-content">
-        <div class="dropdown-item" id="language-English">English</div>
-        <div class="dropdown-item" id="language-Arabic">Arabic</div>
-      </div>
-    </div>
 
     <div id="speech_query">{{query_text}}</div>
     <video id = 'avatar_video' class='center' width="640" height="480" align="middle" controls autoplay
@@ -40,38 +33,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script>
 
-      if($("#language-button".text == "English" || "Arabic")){
-         $("#language-button").click(function(){
-           $('#language-button').text("Select language");
-           $('#language-button').css("background-color","black");
-           $('#language-English').show();
-           $('#language-Arabic').show();
-           language = null;
-         });
-         $("#language-button").hover(function(){
-           $('#language-button').css("background-color","#009688");
-         });
-       }
-
-       $("#language-English").click(function(){
-         $('#language-button').text("English");
-         $('#language-button').css("background-color","#3b5998");
-         $('#language-English').hide();
-         $('#language-Arabic').hide();
-         console.log("hi English");
-         language = "English";
-       });
-
-       $("#language-Arabic").click(function(){
-         $('#language-button').text("Arabic");
-         $('#language-button').css("background-color","#3b5998");
-         $('#language-English').hide();
-         $('#language-Arabic').hide();
-         console.log("hi Arabic");
-         language = "Arabic";
-       });
-
-
     // speech recognition using annyang
       function detectSpeech(){
         if (annyang) {
@@ -83,9 +44,7 @@
           <!--if(language=="Arabic"){-->
             <!--annyang.setLanguage('ar');-->
           <!--}-->
-
-          // set langauge to be Chinese
-          // annyang.setLanguage('zh-CN');
+          
           // set langauge to be MSA
           // annyang.setLanguage('ar')
           // set langauge to be emirati dialect

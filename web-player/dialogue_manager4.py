@@ -798,6 +798,7 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
     return ranked_list[0]
 
 
+
 def findResponse(query, characterModel, currentSession):
 
     language = currentSession.language
