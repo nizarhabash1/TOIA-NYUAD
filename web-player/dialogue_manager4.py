@@ -823,7 +823,7 @@ def findResponse(query, characterModel, currentSession):
     else:
         print("language not recognised")
         return
-
+    '''
     for key in stem_match_responses.keys():
         if key not in best_responses.keys():
             best_responses[key] = stem_match_responses[key]
@@ -838,9 +838,9 @@ def findResponse(query, characterModel, currentSession):
         if key not in best_responses.keys():
             best_responses[key] = direct_match_responses[key]
         else:
-            best_responses[key] += direct_match_responses[key]
+            best_responses[key] += direct_match_responses[key]'''
 
-    #best_responses = direct_intersection_match_English(query, characterModel)
+    best_responses = direct_match_responses 
     
     # if the responses are empty, play "I can't answer that response"
     if bool(best_responses) == False:
