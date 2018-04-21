@@ -18,7 +18,9 @@
     </div> -->
 
     <div id="speech_query">{{query_text}}</div>
-    <div id="language_field" display = "none">{{language}}</div>
+    <div id="language_field" stype="display:none">{{language}}</div>
+
+    <div id="video_container" class="">
     <video id = 'avatar_video' class='center' width="640" height="480" align="middle" controls autoplay
     preload = "auto">
       <source src="{{avatar_video_path}}" type="video/mp4">
@@ -27,6 +29,7 @@
       <source src="{{avatar_video_path}}" type="video/ogg">
       <track label="English" kind="subtitles" srclang="en" src= {{avatar_subtitle}} default>
     </video>
+    </div>
     <div><button id="stop_button">Stop speech recognition</button></div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -44,13 +47,6 @@
           if(currentLanguage=="Arabic" || currentLanguage == "arabic"){
             annyang.setLanguage('ar');
           }
-          
-          // set langauge to be MSA
-          // annyang.setLanguage('ar')
-          // set langauge to be emirati dialect
-          // annyang.setLanguage('ar-AE');
-          // set language to be Jordanian dialect
-          // annyang.setLanguage('ar-JO');
 
           annyang.start();
           var sayThis = function(result) {
@@ -65,23 +61,58 @@
         };
         }
 
-      //start or pause speech recognition depending on if video is playing
-      $(document).ready(function() {
-        document.getElementById('stop_button').onclick = function(){
-          if(annyang)
-            annyang.abort();
-        }
-
         var vid = document.getElementById('avatar_video');
         var vid_src = document.getElementById('avatar_video').src;
 
-        switch ("{{avatar}}"){
+        var vid_container = document.getElementById('video_container');
+
+
+    function playFillerVideoAtStart(){
+        switch ("{{avatar_video_path}}"){
           case "":
-            vid.src = "../static/avatar-videos/margarita_338_6be11151af2d475f7f56fe99b547c810.mp4"
-            console.log("no avatar yet");
-            break;
-          case "margarita":
-            break;
+            switch("{{avatar}}"){
+              case "margarita":
+                vid.src = "../static/avatar-videos/margarita_338_6be11151af2d475f7f56fe99b547c810.mp4"
+                break;
+              case "katarina":
+                vid.src = "../static/avatar-videos/katarina_1210_3792386d3488216a787d3261b35d302e.mp4"
+                break;
+              case "gabriela":
+                vid.src = "../static/avatar-videos/gabriela_2269_0675d24f01246799129eb70ec51746f8.mp4"
+                break;
+              case "rashid":
+                vid.src = "../static/avatar-videos/rashid_3210_817fa7ca9dc82cdd71696044df086c08.mp4"
+                break;
+                }
+            }
+        }
+
+     function playFillerVideoInBetween(){
+
+            switch("{{avatar}}"){
+              case "margarita":
+                vid.src = "../static/avatar-videos/margarita_338_6be11151af2d475f7f56fe99b547c810.mp4"
+                break;
+              case "katarina":
+                vid.src = "../static/avatar-videos/katarina_1210_3792386d3488216a787d3261b35d302e.mp4"
+                break;
+              case "gabriela":
+                vid.src = "../static/avatar-videos/gabriela_2269_0675d24f01246799129eb70ec51746f8.mp4"
+                break;
+              case "rashid":
+                vid.src = "../static/avatar-videos/rashid_3210_817fa7ca9dc82cdd71696044df086c08.mp4"
+                break;
+
+            }
+        }
+
+
+      //start or pause speech recognition depending on if video is playing
+      $(document).ready(function() {
+        playFillerVideoAtStart();
+        document.getElementById('stop_button').onclick = function(){
+          if(annyang)
+            annyang.abort();
         }
 
         $('#avatar_video').bind('playing', function(e) {
@@ -90,22 +121,41 @@
 
         var player = document.getElementById('avatar_video');
 
+      // TALKING MODE
+      // Video is playing we are in talking mode, which means speech recognition will be paused.
         player.addEventListener('playing', function(e) {
-          annyang.pause();
-          console.log('addEventListener - playing') ;
-
+          console.log(vid.src);
+          if(vid.src != "http://localhost:5000/static/avatar-videos/katarina_1210_3792386d3488216a787d3261b35d302e.mp4"){
+            annyang.pause();
+            console.log('Video is now playing') ;
+           }
         });
 
+      // LISTENING MODE
+      // If video is not playing, we are in listening mode, which means we will enable speech recognition
+      // and we will play a filler video
+
         player.addEventListener('pause', function(e) {
-          console.log('addEventListener - pause') ;
+          console.log('Video is now paused') ;
+          playFillerVideoInBetween();
           detectSpeech();
         });
 
         player.addEventListener('ended', function(e) {
-          console.log('addEventListener - ended') ;
+          console.log('Video has ended') ;
+          playFillerVideoInBetween();
           detectSpeech();
         });
       });
+
+          // Below are helper codes for the speech recognition if we want to use dialects
+          // set langauge to be MSA
+          // annyang.setLanguage('ar')
+          // set langauge to be emirati dialect
+          // annyang.setLanguage('ar-AE');
+          // set language to be Jordanian dialect
+          // annyang.setLanguage('ar-JO');
+
     </script>
   </body>
 </html>
