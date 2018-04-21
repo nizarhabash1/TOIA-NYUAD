@@ -77,7 +77,7 @@ class videoRecording:
         self.answerLength = len(answer.split())
 
     def toString(self):
-        print(self.id, ": ", self.character, "\n", self.question, "\n", self.answer, "\n", self.language, "\n")
+        print( self.character, ": \n", self.question, "\n", self.answer, "\n", self.language, "\n")
 
 
 # the structure of the session
@@ -139,8 +139,6 @@ def arabicSyn():
 	return synonymDict
 # Initiates the model and create a new session
 def createModel(characterdict, currentSession, mylanguage):
-    # creates the new session
-    currentSession = session('margarita', mylanguage)
 
     arabic_synonyms= arabicSyn()
 
@@ -843,11 +841,13 @@ def findResponse(query, characterModel, currentSession):
     best_responses = direct_match_responses 
     
     # if the responses are empty, play "I can't answer that response"
-    if bool(best_responses) == False:
+    if bool(best_responses) == False: 
         if currentSession.currentAvatar == "gabriela":
             final_answer = 798
         elif currentSession.currentAvatar == "margarita":
             final_answer = 618
+        elif currentSession.currentAvatar == "rashid":
+            final_answer = 938
         else:
             final_answer = 746
 
