@@ -15,6 +15,7 @@ import nltk
 # nltk.download('punkt')
 # nltk.download('averaged_perceptron_tagger')
 
+
 import ssl
 
 import math
@@ -103,11 +104,45 @@ def preprocess(line):
 
     return processed
 
+def arabicSyn():
+	glossDict={}
+	synonymDict={}
+	unigram_synonyms_list = []
 
+	f = open('static/scripts/all_characters.json', 'r', encoding='utf-8')
+
+	resp = json.load(f)
+
+	for i in range(0, len(resp["rows"]) - 1, 1):
+		if ("arabic-question" in resp["rows"][i]["doc"].keys() and "arabic-answer" in resp["rows"][i]["doc"].keys()):
+			question = json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
+			answer = json.dumps(resp["rows"][i]["doc"]["arabic-answer"], ensure_ascii=False).strip('،.؟"')
+
+			pair= question.split()+answer.split()
+
+			for tmp in pair:
+
+				gloss=StarMorphModules.analyze_word(tmp, False)[0].split()[4].split(";")[0].replace("gloss:", "")
+				if gloss not in glossDict.keys() and gloss != "NO_ANALYSIS":
+					glossDict[gloss]= []
+					glossDict[gloss].append(tmp)
+				elif gloss in glossDict.keys() and gloss != "NO_ANALYSIS":
+					if tmp not in glossDict[gloss]:
+						glossDict[gloss].append(tmp)
+
+	for key in glossDict.keys():
+		if len(glossDict[key])>1:
+			for i in glossDict[key]:
+				if i not in synonymDict.keys():
+					synonymDict[i]=[j for j in glossDict[key]]
+
+	return synonymDict
 # Initiates the model and create a new session
 def createModel(characterdict, currentSession, mylanguage):
     # creates the new session
     currentSession = session('margarita', mylanguage)
+
+    arabic_synonyms= arabicSyn()
 
     try:
         f = open('static/scripts/all_characters.json', 'r', encoding='utf-8')
@@ -278,141 +313,111 @@ def createModel(characterdict, currentSession, mylanguage):
                     characterdict[character].lemmatizedMap[lemma][ID] += 1
 
         elif (mylanguage == "Arabic"):
+        	
+        	unigram_split = question.strip('،"!؟/)').replace("،", " ").replace("/", " ").split() + answer.strip('،"!؟/)').replace("،", " ").replace("/", " ").split()
 
-            '''objLemmatizedList=[]
-            objStemmedList=[]
-            objWordList=[]'''
-            # print(StarMorphModules.analyze_word("كيف",False)[0].split()[0].replace("lex:", "").split('_', 1)[0])
-            # print(StarMorphModules.analyze_word("كيف",False)[0].split()[1].replace("stem:", "").split('d', 1)[0])
-            objStemmedList = [StarMorphModules.analyze_word(tmp, False)[0].split()[1].replace("stem:", "").split('d',
-                                                                                                                 1)[0]
-                              for tmp in question.split()] + [
-                                 StarMorphModules.analyze_word(tmp, False)[0].split()[1].replace("stem:", "").split('d',
-                                                                                                                    1)[
-                                     0] for tmp in obj.answer.split()]
+        	unigram_list = [tmp.strip('،"!؟/)').replace('/', '') for tmp in unigram_split]
+      
+        	unigram_synonyms_list = []
 
-            for stem in objStemmedList:
-                # print(stem)
-                # creates a list for objects related to the stem if the list does not exist already
-                if stem not in characterdict[character].stemmedMap.keys():
-                    characterdict[character].stemmedMap[stem] = []
+        	
+        	# expands the unigram model by adding synonyms
+        	for word in unigram_list:
+	        	if word in arabic_synonyms.keys():
+	        		for tmp in arabic_synonyms[word]:
+	        			if tmp not in unigram_synonyms_list:
+	        				unigram_synonyms_list.append(tmp)
+        	
+           
 
-                # adds the question to the list of objects related to the stem
-                if (ID not in characterdict[character].stemmedMap[stem]):
-                    characterdict[character].stemmedMap[stem].append(ID)
-            # print(characterdict[character].stemmedMap)
+            # add the bigrams and trigrams into the three representations
+        	totalUnigrams = len(unigram_list)
 
-            objLemmatizedList = [StarMorphModules.analyze_word(tmp, False)[0].split()[0].replace("lex:", "").split('_',
-                                                                                                                   1)[0]
-                                 for tmp in question.split()] + [
-                                    StarMorphModules.analyze_word(tmp, False)[0].split()[0].replace("lex:", "").split(
-                                        '_', 1)[0] for tmp in obj.answer.split()]
+        	for i in range(totalUnigrams):
 
-            for lemma in objLemmatizedList:
-                lemma = re.sub(r'[^\u0621-\u064A]', '', lemma, flags=re.UNICODE)
+                # creates bigrams, their stems and lemmas and adds them to the respective maps
+        		if (i < totalUnigrams - 1):
+        			bigram = unigram_list[i] + "_" + unigram_list[i + 1]
+        			if bigram not in characterdict[character].wordMap.keys():
+        				characterdict[character].wordMap[bigram] = {}
+        			if ID not in characterdict[character].wordMap[bigram]:
+        				characterdict[character].wordMap[bigram][ID] = 1
+        			else:
+        			 	characterdict[character].wordMap[bigram][ID] += 1
 
-                if lemma not in characterdict[character].lemmatizedMap.keys():
-                    characterdict[character].lemmatizedMap[lemma] = []
+        			bigram_stem = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
+        			                                                                                
+        			if bigram_stem not in characterdict[character].stemmedMap.keys():
+        				characterdict[character].stemmedMap[bigram_stem] = {}
+        			if ID not in characterdict[character].stemmedMap[bigram_stem]:
+        				characterdict[character].stemmedMap[bigram_stem][ID] = 1
+        			else:
+        				characterdict[character].wordMap[bigram][ID] += 1
+					
+        			bigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
+	                
+        			if bigram_lemma not in characterdict[character].lemmatizedMap.keys():
+        				characterdict[character].lemmatizedMap[bigram_lemma] = {}
 
-                # adds the question to the list of objects related to the stem
-                # print(ID)
-                if (ID not in characterdict[character].lemmatizedMap[lemma]):
-                    characterdict[character].lemmatizedMap[lemma].append(ID)
-            # print("lemma: " + lemma + "\n" )
-            # print(characterdict[character].lemmatizedMap[lemma])
-            # print("\n")
+        			if ID not in characterdict[character].lemmatizedMap[bigram_lemma]:
+        				characterdict[character].lemmatizedMap[bigram_lemma][ID] = 1
+        			else:
+        				characterdict[character].lemmatizedMap[bigram_lemma][ID] += 1
 
-            objWordList = question.split() + answer.split()
+	        	 # creates trigrams, their stems and lemmas and add them to the respective maps
+        		if i < totalUnigrams - 2:
+        			trigram = unigram_list[i] + "_" + unigram_list[i + 1] + "_" + unigram_list[i + 2]
+	                
+        			if trigram not in characterdict[character].wordMap.keys():
+        				characterdict[character].wordMap[trigram] = {}
+        			if ID not in characterdict[character].wordMap[trigram]:
+        				characterdict[character].wordMap[trigram][ID] = 1
+        			else:
+        				characterdict[character].wordMap[trigram][ID] = +1
 
-            for word in objWordList:
+        			trigram_stem =  StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]+ "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
+        			if trigram_stem not in characterdict[character].stemmedMap.keys():
+        				characterdict[character].stemmedMap[trigram_stem] = {}
+        			if ID not in characterdict[character].stemmedMap[trigram_stem]:
+        				characterdict[character].stemmedMap[trigram_stem][ID] = 1
+        			else:
+        				characterdict[character].stemmedMap[trigram_stem][ID] += 1
+        			
+        			trigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
+        			if trigram_lemma not in characterdict[character].lemmatizedMap.keys():
+        				characterdict[character].lemmatizedMap[trigram_lemma] = {}
+        			if ID not in characterdict[character].lemmatizedMap[trigram_lemma]:
+        				characterdict[character].lemmatizedMap[trigram_lemma][ID] = 1
+        			else:
+        				characterdict[character].lemmatizedMap[trigram_lemma][ID] += 1
+	        # adds the unigrams and their synonyms into the three hashmaps - stems, lemmas and direct + unigram_synonyms_list:
+	        for token in (unigram_list+ unigram_synonyms_list):
+	            #print(token)
+	            stem = StarMorphModules.analyze_word(token, False)[0].split()[1].replace("stem:", "").split('d',1)[0]
+	            lemma = StarMorphModules.analyze_word(token, False)[0].split()[0].replace("lex:", "").split('_',1)[0]
 
-                word = word.strip(' " ?!)')
-                if word not in characterdict[character].wordMap.keys():
-                    characterdict[character].wordMap[word] = []
+	            if token not in characterdict[character].wordMap.keys():
+	                characterdict[character].wordMap[token] = {}
+	            if ID not in characterdict[character].wordMap[token]:
+	                characterdict[character].wordMap[token][ID] = 1
+	            else:
+	                characterdict[character].wordMap[token][ID] += 1
 
-                # adds the question to the list of objects related to the stem
-                characterdict[character].wordMap[word].append(ID)
-            # print("word list", characterdict[character].wordMap)
-            # print(characterdict[character].lemmatizedMap.keys())
-            # print("lemmatized list", characterdict[character].lemmatizedMap)
-            '''
-                try:
-                    for line in arabic_read:
-                        objLemmatizedList=[]
-                        objStemmedList=[]
-                        objWordList=[]
-                        for word in line.split(): 
-                            word= word.strip('،/')
-                            analysis=[StarMorphModules.analyze_word(word,False)]
-                            #print(analysis) 
-                            
-                            objStemmedList.append(analysis[0][0].split()[1].replace("stem:", "").split('d', 1)[0])
-                            objLemmatizedList.append(analysis[0][0].split()[0].replace("lex:", "").split('_', 1)[0])
-                            objWordList.append(word)
+	            if stem not in characterdict[character].stemmedMap.keys():
+	                characterdict[character].stemmedMap[stem] = {}
+	            if ID not in characterdict[character].stemmedMap[stem]:
+	                characterdict[character].stemmedMap[stem][ID] = 1
+	            else:
+	                characterdict[character].stemmedMap[stem][ID] += 1
 
+	            if lemma not in characterdict[character].lemmatizedMap.keys():
+	                characterdict[character].lemmatizedMap[lemma] = {}
+	            if ID not in characterdict[character].lemmatizedMap[lemma]:
+	                characterdict[character].lemmatizedMap[lemma][ID] = 1
+	            else:
+	                characterdict[character].lemmatizedMap[lemma][ID] += 1 
 
-                        for stem in objStemmedList:
-                            #print(character)
-                            #print(stem)
-                        # creates a list for objects related to the stem if the list does not exist already
-                            if stem not in characterdict[character].stemmedMap.keys():
-                                characterdict[character].stemmedMap[stem] = []
-
-                            #adds the question to the list of objects related to the stem
-                            if(ID not in characterdict[character].stemmedMap[stem]): 
-                                characterdict[character].stemmedMap[stem].append(ID)
-                        #print(characterdict[character].stemmedMap)
-
-
-                        for lemma in objLemmatizedList:
-                            lemma=re.sub(r'[^\u0621-\u064A]', '', lemma, flags=re.UNICODE)
-
-                            if lemma not in characterdict[character].lemmatizedMap.keys():
-                                
-                                characterdict[character].lemmatizedMap[lemma] = []
-
-                            #adds the question to the list of objects related to the stem
-                            #print(ID)
-                            if(ID not in characterdict[character].lemmatizedMap[lemma]):
-                                characterdict[character].lemmatizedMap[lemma].append(ID)
-                            #print("lemma: " + lemma + "\n" )
-                            #print(characterdict[character].lemmatizedMap[lemma])
-                            #print("\n")
-                        #print(characterdict[character].lemmatizedMap.keys())
-                        #print("lemmatized list", characterdict[character].lemmatizedMap)
-
-
-                        objWordList = line.split()
-                        
-                        for word in objWordList:
-
-                            word = word.strip(' ؟.،')
-                            if word not in characterdict[character].wordMap.keys():
-                                characterdict[character].wordMap[word] = []
-
-                            #adds the question to the list of objects related to the stem
-                            if(ID not in characterdict[character].wordMap[word]):
-                                characterdict[character].wordMap[word].append(ID)
-
-                            #print("word: " + word + "\n" )
-                            #print(characterdict[character].wordMap[word])
-                            #print("\n")
-                        #print("word list", characterdict[character].wordMap)
-                   
-                    #arabic_read.close()
-                except:
-                    #print("Exception given")
-                    continue
-                    #break;
-
-                 '''
-
-    # print("Character: ", character)
-    # print("ID: ", str(id_count))
-    # print("Question: ", str(question))
-    # print("Answer: ", str(answer))
-    # print("\n")
-
+	        
     print("Total Questions: ", str(totalQuestions))
     print("done")
     # print(characterdict["gabriela"].wordMap)
@@ -667,10 +672,17 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
 
         if res in currentSession.repetitions.keys():
             negativePoints = currentSession.repetitions[res] * 0.4 * videoResponses[res]
-            videoResponses[res] -= negativePoints
+            #videoResponses[res] -= negativePoints
+
+
 
     ranked_list = sorted(videoResponses, key=lambda i: videoResponses[i], reverse=True)
     return ranked_list[0]
+
+<<<<<<< Updated upstream
+=======
+	best_response= stem_intersection_match_English(query, characterModel)
+>>>>>>> Stashed changes
 
 
 def findResponse(query, characterModel, currentSession):
@@ -743,6 +755,9 @@ def determineAvatar(query, currentSession):
 
     if query == "toya toya can i talk to margarita":
         currentSession = session("margarita", currentSession.language)
+
+    if query == "toya toya can i talk to rashid":
+        currentSession = session("rashid", currentSession.language)
 
     if query == "toya toya can i talk to katarina":
         print("you are switching to katarina")
