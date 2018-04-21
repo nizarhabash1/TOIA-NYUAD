@@ -57,35 +57,33 @@ def test_wrapper(mylanguage):
 	testSet_mode = ["manual"]
 
 	#unigram_par, bigram_par, trigram_par, tfidf_par, synonym_par, testSet_par, noise_par, automatic_par)
-	test_par = test_parameters(True, False, False, True, True, "manual", "None", True)
-	test_results = run_test(mylanguage, test_par)
-	print(test_results)
+	#test_par = test_parameters(True, False, False, True, False, "manual", "None", False)
+	#test_results = run_test(mylanguage, test_par)
+	#print(test_results)
 
-	#f = open("test_results.csv" , "a")
-	#count = 1
-	#f.write("Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result\n")
-	# for testSet_par in testSet_mode:
-	# 	for unigram_par in unigram_mode:
-	# 		for bigram_par in bigram_mode:
-	# 			for trigram_par in trigram_mode:
-	# 				for synonym_par in synonym_mode:
-	# 					for tfidf_par in tfidf_mode:
-	# 						for automatic_par in automatic_mode:
-	# 							for noise_par in noise_mode:
-	# 								count += 1
-	# 								test_par = test_parameters(unigram_par, bigram_par, trigram_par, tfidf_par, synonym_par, testSet_par, noise_par, automatic_par)
-	# 								initiate("English", test_par)	
-	# 								test_result = run_test(test_par, mylanguage)
-	# 								new_line = test_par.toString() + "," + test_result + "\n"
-	# 								f.write(new_line)
+	f = open("test_results.csv" , "a")
+	count = 1
+	f.write("Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result\n")
+	for testSet_par in testSet_mode:
+		for unigram_par in unigram_mode:
+			for bigram_par in bigram_mode:
+				for trigram_par in trigram_mode:
+					for synonym_par in synonym_mode:
+						for tfidf_par in tfidf_mode:
+							for automatic_par in automatic_mode:
+								for noise_par in noise_mode:
+									count += 1
+									test_par = test_parameters(unigram_par, bigram_par, trigram_par, tfidf_par, synonym_par, testSet_par, noise_par, automatic_par)
+									initiate(mylanguage)
+									test_result = run_test(mylanguage, test_par)
+									new_line = test_par.toString() + "," + str(test_result) + "\n"
+									f.write(new_line)
 
-	#f.close()
+	f.close()
 def initiate(mylanguage):
 	global oracleCharacterDict
 
 	if mylanguage == "Arabic":
-		StarMorphModules.read_config("config_dana.xml")
-		StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 		readManualQuestions(manualCharacterDict, "Arabic")
 
 	else:
@@ -312,13 +310,14 @@ def test_questions(characterdict, language, test_par):
 					#print("Response: ",response.answer, "\n")
 				else:
 					incorrect += 1
-					print("Question: ",question)
-					print("Actual Answer: ",answer)
-					print("Response: ",response.answer, "\n")
+					#print("Question: ",question)
+					#print("Actual Answer: ",answer)
+					#print("Response: ",response.answer, "\n")
 
 					
 
-	print(correct*100/(correct+incorrect))				
+	percentage_correct  = correct*100/(correct+incorrect)
+	return percentage_correct
 	#print("correct: ", correct)
 	#print("incorrect: ", incorrect)
 
@@ -349,8 +348,11 @@ def repeating_question(characterdict):
 				new_line= False
 
 if __name__ == '__main__':
+	#StarMorphModules.read_config("config_dana.xml")
+	#StarMorphModules.initialize_from_file("almor-s31.db", "analyze")
 
-	readManualQuestions(manualCharacterDict, "English")
+	#readManualQuestions(manualCharacterDict, "Arabic")
+	initiate("English")
 	test_wrapper("English")
 	#for character in oracleCharacterDict.keys():
 	#print(oracleCharacterDict["rashid"].objectMap)

@@ -144,8 +144,8 @@ def arabicSyn():
 def createModel(characterdict, currentSession, mylanguage, test_par):
     if mylanguage == "Arabic":
         arabic_synonyms = arabicSyn()
-
-    if test_par.automatic_par == False:
+    print(test_par.automatic)
+    if test_par.automatic == False:
         try:
             f = open('static/scripts/all_characters.json', 'r', encoding='utf-8')
         except IOError:
@@ -174,7 +174,7 @@ def createModel(characterdict, currentSession, mylanguage, test_par):
         if "english-question" in resp["rows"][i]["doc"].keys() or "arabic-question" in resp["rows"][i]["doc"].keys():
             totalQuestions += 1
             # do we wanna give it ID ourselves or use the JSON one?
-            uni_ID= json.dumps(resp["rows"][i]["doc"]["_id"])
+            #uni_ID= json.dumps(resp["rows"][i]["doc"]["_id"])
             # print(uni_ID)
             video = json.dumps(resp["rows"][i]["doc"]["video"])
             # character= json.dumps(resp["rows"][i]["doc"]["character"])
@@ -203,7 +203,7 @@ def createModel(characterdict, currentSession, mylanguage, test_par):
             characterdict[character] = model()
 
         # adds to the character's questions list based on the character key; adds all videos regardless of type to questions
-        print(uni_ID)
+        #print(uni_ID)
         obj = videoRecording(question, answer, video, character, language)
         characterdict[character].objectMap[ID] = obj
 
@@ -749,32 +749,32 @@ def lemma_intersection_match_Arabic(query, characterModel, test_par):
     for i in range(queryLen):
         if test_par.unigram == True:
             unigram_string = lemmatized_query[i]
-            if unigram_string in characterModel.lemmatized_query.keys():
-                for vidResponse in characterModel.lemmatized_query[unigram_string]:
+            if unigram_string in characterModel.lemmatizedMap.keys():
+                for vidResponse in characterModel.lemmatizedMap[unigram_string]:
                     if vidResponse not in responses.keys():
-                        responses[vidResponse] = characterModel.lemmatized_query[unigram_string][vidResponse]
+                        responses[vidResponse] = characterModel.lemmatizedMap[unigram_string][vidResponse]
                     elif vidResponse in responses.keys():
-                        responses[vidResponse] += characterModel.lemmatized_query[unigram_string][vidResponse]
+                        responses[vidResponse] += characterModel.lemmatizedMap[unigram_string][vidResponse]
 
         if test_par.bigram == True:
             if i < queryLen - 2:
                 bigram_string = lemmatized_query[i] + "_" + lemmatized_query[i + 1]
-                if bigram_string in characterModel.lemmatized_query.keys():  # and direct_string not in stop_words:
-                    for vidResponse in characterModel.lemmatized_query[bigram_string]:
+                if bigram_string in characterModel.lemmatizedMap.keys():  # and direct_string not in stop_words:
+                    for vidResponse in characterModel.lemmatizedMap[bigram_string]:
                         if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.lemmatized_query[bigram_string][vidResponse]
+                            responses[vidResponse] = characterModel.lemmatizedMap[bigram_string][vidResponse]
                         elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.lemmatized_query[bigram_string][vidResponse]
+                            responses[vidResponse] += characterModel.lemmatizedMap[bigram_string][vidResponse]
 
         if test_par.trigram == True:
             if i < queryLen - 3:
                 trigram_string = lemmatized_query[i] + "_" + lemmatized_query[i + 1] + "_" + lemmatized_query[i + 2]
-                if trigram_string in characterModel.lemmatized_query.keys():  # and direct_string not in stop_words:
-                    for vidResponse in characterModel.lemmatized_query[trigram_string]:
+                if trigram_string in characterModel.lemmatizedMap.keys():  # and direct_string not in stop_words:
+                    for vidResponse in characterModel.lemmatizedMap[trigram_string]:
                         if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.lemmatized_query[trigram_string][vidResponse]
+                            responses[vidResponse] = characterModel.lemmatizedMap[trigram_string][vidResponse]
                         elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.lemmatized_query[trigram_string][vidResponse]
+                            responses[vidResponse] += characterModel.lemmatizedMap[trigram_string][vidResponse]
 
     # for lemma_string in lemmatized_query:
     #     if lemma_string in characterModel.lemmatizedMap.keys():
