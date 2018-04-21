@@ -679,10 +679,6 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
     ranked_list = sorted(videoResponses, key=lambda i: videoResponses[i], reverse=True)
     return ranked_list[0]
 
-<<<<<<< Updated upstream
-=======
-	best_response= stem_intersection_match_English(query, characterModel)
->>>>>>> Stashed changes
 
 
 def findResponse(query, characterModel, currentSession):

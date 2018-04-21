@@ -23,6 +23,7 @@ currentLanguage = "English"
 
 @app.route('/')
 def index():
+
     global currentSession
     currentSession = dialogue_manager4.createModel(characterModel, currentSession, currentLanguage)
     return render_template('home.html')
@@ -61,4 +62,6 @@ def my_form_post():
 if __name__ == '__main__':
     avatar = ""
     #dialogue_manager4.readJsonFile(characterModel)
+    StarMorphModules.read_config("config_dana.xml")
+    StarMorphModules.initialize_from_file("almor-s31.db","analyze")
     app.run(debug=True,threaded=True)
