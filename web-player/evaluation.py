@@ -308,12 +308,20 @@ if __name__ == '__main__':
 	print(oracleCharacterDict["rashid"].objectMap)
 	#readAutomaticQuestions(automaticCharacterDict)
 	#test_questions(oracleCharacterDict, "English")
+
+	#test_questions(oracleCharacterDict, "English")
+	#test_questions(automaticCharacterDict)
+	readManualQuestions(manualCharacterDict)
+
+	#print(manualCharacterDict["margarita"].objectMap)
+
 	#test_questions(oracleCharacterDict, "Arabic")
 	#test_questions(automaticCharacterDict)
 	#readManualQuestions(manualCharacterDict, "Arabic")
 
+
 	#print(oracleCharacterDict["margarita"].lemmatizedMap.keys())
-	#test_questions(manualCharacterDict, "Arabic")
+	test_questions(manualCharacterDict, "English")
 
 
 	#characterdict["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()
