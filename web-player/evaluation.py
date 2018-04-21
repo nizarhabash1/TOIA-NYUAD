@@ -27,15 +27,15 @@ def initiate():
 	# initiates the model and a new session
 
 
-	currentSession = dialogue_manager4.createModel(oracleCharacterDict, currentSession, "English")
+	currentSession = dialogue_manager4.createModel(oracleCharacterDict, currentSession, "Arabic")
 	return currentSession
 	
 	#currentSession = dialogue_manager4.createModel(characterdict, currentSession, "English")
 
 def readManualQuestions(characterdict):
 	count = 0
-	f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
-	#f= open('static/scripts/manual_questions_arabic.csv', 'r', encoding='utf-8')
+	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
+	f= open('static/scripts/manual_questions_arabic.csv', 'r', encoding='utf-8')
 	character = 'margarita'
 	language = "Arabic"
 	video = ""
@@ -45,10 +45,10 @@ def readManualQuestions(characterdict):
 
 
 	for line in lines:
-		line_split = line.split("\t")
+		#line_split = line.split("\t")
 		count = count + 1
 		#print(count)
-		#line_split = line.split(",")
+		line_split = line.split(",")
 		#print(line_split)
 		if line_split[2] != "":
 
@@ -289,7 +289,7 @@ if __name__ == '__main__':
 	#print(manualCharacterDict["margarita"].objectMap)
 
 	#print(oracleCharacterDict["margarita"].lemmatizedMap.keys())
-	test_questions(manualCharacterDict, "English")
+	test_questions(manualCharacterDict, "Arabic")
 
 
 	#characterdict["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()
