@@ -18,8 +18,19 @@ currentSession = None
 
 #f= open('manual-questions.txt', 'r', encoding='utf-8')
 
+class test_parameters:
+	self.unigram = False
+	self.bigram = False
+	self.trigram = False
+	self.stem = False
+	self.direct = False
+	self.lemma = False
+	self.TFID = False
+	self.synonym_expansion = False
+	self.test_set = False
 
-def initiate():
+
+def initiate(mylanguage):
 	StarMorphModules.read_config("config_dana.xml")
 	StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 	global currentSession
@@ -27,7 +38,7 @@ def initiate():
 	# initiates the model and a new session
 
 
-	currentSession = dialogue_manager4.createModel(oracleCharacterDict, currentSession, "Arabic")
+	currentSession = dialogue_manager4.createModel(oracleCharacterDict, currentSession, mylanguage)
 	return currentSession
 	
 	#currentSession = dialogue_manager4.createModel(characterdict, currentSession, "English")
@@ -40,12 +51,15 @@ def preprocess(line):
 	processed= processed.replace("ة" , "ه")
 
 	return processed
-def readManualQuestions(characterdict):
+def readManualQuestions(characterdict, mylanguage):
 	count = 0
 	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
-	f= open('static/scripts/manual_questions_arabic.csv', 'r', encoding='utf-8')
+	if mylanguage == "Arabic":
+		f= open('static/scripts/manual_questions_arabic.csv', 'r', encoding='utf-8')
+	else:
+		f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
 	character = 'margarita'
-	language = "Arabic"
+	language = mylanguage
 	video = ""
 	characterdict[character] = dialogue_manager4.model()
 	lines = f.readlines()
@@ -53,10 +67,13 @@ def readManualQuestions(characterdict):
 
 
 	for line in lines:
-		#line_split = line.split("\t")
+
 		count = count + 1
 		#print(count)
-		line_split = line.split(",")
+		if mylanguage == "English":
+			line_split = line.split("\t")
+		if mylanguage == "Arabic":
+			line_split = line.split(",")
 		#print(line_split)
 		if line_split[2] != "":
 
@@ -286,14 +303,14 @@ def repeating_question(characterdict):
 
 if __name__ == '__main__':
 	
-	session = initiate()
+	session = initiate("Arabic")
+	#for character in oracleCharacterDict.keys():
+	print(oracleCharacterDict["rashid"].objectMap)
 	#readAutomaticQuestions(automaticCharacterDict)
 	#test_questions(oracleCharacterDict, "English")
-	test_questions(oracleCharacterDict, "Arabic")
+	#test_questions(oracleCharacterDict, "Arabic")
 	#test_questions(automaticCharacterDict)
-	#readManualQuestions(manualCharacterDict)
-
-	#print(manualCharacterDict["margarita"].objectMap)
+	#readManualQuestions(manualCharacterDict, "Arabic")
 
 	#print(oracleCharacterDict["margarita"].lemmatizedMap.keys())
 	#test_questions(manualCharacterDict, "Arabic")
