@@ -37,7 +37,7 @@ def with_language(avatar, language):
     global currentSession
     language = str(language).title()
     currentSession = dialogue_manager4.createModel(characterModel, currentSession, language)
-    return render_template('main.html',avatar=avatar,language=language)
+    return render_template('main.html', avatar=avatar, language=language)
 
 # When interactor enters a query
 @app.route('/<avatar>/<language>', methods=['POST'])
