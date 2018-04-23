@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div class = "whole_container">
+<div class = "whole_container" id="whole_container">
 
 <div class="messages">
 <div class="avatar_message">Hello you are going to talk to {{avatar|capitalize}}</div>
@@ -31,6 +31,24 @@
     </div>
 
   </div>
+</div>
+  <div class="loading">
+    <img src="https://media.giphy.com/media/w61xWPJ7xKPBk6GH25/giphy.gif">
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <script>
+  $(".loading").hide();
+
+    $(".individual_form").click(function(){
+      $(".loading").show();
+      $(".whole_container").hide();
+
+    })
+
+  </script>
 
 </body>
+
 </html>

@@ -48,3 +48,7 @@ input {
     font-size: 15px;
     font-weight: lighter;
 }
+
+.loading{
+  margin-top: 0px;
+}
