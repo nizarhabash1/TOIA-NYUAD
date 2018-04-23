@@ -6,7 +6,7 @@ body{
 }
 
 .avatar_image :hover{
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
 .message{
@@ -40,10 +40,7 @@ body{
   margin-top:0px;
 }
 
-
 img{
-  /* float:left;
-  margin:10px; */
   max-width: 50%;
   height: auto;
   width:auto;
