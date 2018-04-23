@@ -769,7 +769,7 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
 
         if res in currentSession.repetitions.keys():
             negativePoints = currentSession.repetitions[res] * 0.4 * videoResponses[res]
-            #videoResponses[res] -= negativePoints
+            videoResponses[res] -= negativePoints
 
 
 
