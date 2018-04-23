@@ -1,0 +1,52 @@
+body{
+  color:black;
+  font-family: 'Assistant', sans-serif;
+  text-align: center;
+  background-color: #EFEFEF;
+}
+
+.avatar_image :hover{
+  transform: scale(1.15);
+}
+
+.message{
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 17px;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-right:195px;
+  margin-left:195px;
+  font-size: 15px;
+}
+
+.avatar_container{
+  margin: 4px auto;
+}
+
+.image_form{
+  max-width:350px;
+  margin:10px auto;
+}
+
+.caption{
+  text-align: center;
+  margin: 10px auto;
+  margin-top:0px;
+}
+
+
+img{
+  /* float:left;
+  margin:10px; */
+  max-width: 50%;
+  height: auto;
+  width:auto;
+  padding:5px;
+  border:3px solid #021a40;
+}
