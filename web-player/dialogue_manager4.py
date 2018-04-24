@@ -8,6 +8,8 @@ import re
 from collections import defaultdict
 from fractions import Fraction
 import json
+import time
+import datetime
 
 import StarMorphModules
 
@@ -212,12 +214,12 @@ def createModel(characterdict, currentSession, mylanguage):
             unigram_synonyms_list = []
 
             #expands the unigram model by adding synonyms
-            for word in unigram_list:
-                if word not in stop_words:
-                    for synset in wn.synsets(word):
-                        for lemma in synset.lemmas():
-                            if lemma.name() not in unigram_synonyms_list:
-                                unigram_synonyms_list.append(lemma.name())
+            # for word in unigram_list:
+            #     if word not in stop_words:
+            #         for synset in wn.synsets(word):
+            #             for lemma in synset.lemmas():
+            #                 if lemma.name() not in unigram_synonyms_list:
+            #                     unigram_synonyms_list.append(lemma.name())
 
             # add the bigrams and trigrams into the three representations
             totalUnigrams = len(unigram_list)
@@ -425,8 +427,8 @@ def createModel(characterdict, currentSession, mylanguage):
     return currentSession
 
 
-def direct_intersection_match_English(query, characterModel):
-    queryList = [tmp.strip(', " ?.!)') for tmp in query.split()]
+def direct_intersection_match_English(query, characterModel, logger):
+    queryList = [tmp.strip(', " ?.!)') for tmp in query.split() if tmp not in stop_words and tmp != "tell" and tmp != "me" and tmp != "about"]
     responses = {}
     queryLen = len(queryList)
 
@@ -447,8 +449,17 @@ def direct_intersection_match_English(query, characterModel):
             for vidResponse in characterModel.wordMap[unigram_string]:
                 if vidResponse not in responses.keys():
                     responses[vidResponse] = characterModel.wordMap[unigram_string][vidResponse]
-                elif vidResponse in responses.keys():
+                else:
                     responses[vidResponse] += characterModel.wordMap[unigram_string][vidResponse]
+                if vidResponse not in logger.keys():
+                    logger[vidResponse] = {}
+                    logger[vidResponse][unigram_string] = characterModel.wordMap[unigram_string][vidResponse]
+                else:
+                    if unigram_string in logger[vidResponse]:
+                        logger[vidResponse][unigram_string] += characterModel.wordMap[unigram_string][vidResponse]
+                    else:
+                        logger[vidResponse][unigram_string] = characterModel.wordMap[unigram_string][vidResponse]
+                    
 
         # if i < queryLen - 2:
         #     bigram_string = queryList[i] + "_" + queryList[i+1]
@@ -479,8 +490,8 @@ def direct_intersection_match_English(query, characterModel):
     return responses
 
 
-def stem_intersection_match_English(query, characterModel):
-    queryList = [porterStemmer.stem(tmp.strip(', " ?.!)')) for tmp in query.split()]
+def stem_intersection_match_English(query, characterModel, logger):
+    queryList = [porterStemmer.stem(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words and tmp != "tell" and tmp != "me" and tmp != "about"]
 
     responses = {}
 
@@ -493,8 +504,16 @@ def stem_intersection_match_English(query, characterModel):
             for vidResponse in characterModel.stemmedMap[unigram_string]:
                 if vidResponse not in responses.keys():
                     responses[vidResponse] = characterModel.stemmedMap[unigram_string][vidResponse]
-                elif vidResponse in responses.keys():
+                else:
                     responses[vidResponse] += characterModel.stemmedMap[unigram_string][vidResponse]
+                if vidResponse not in logger.keys():
+                    logger[vidResponse] = {}
+                    logger[vidResponse][unigram_string] = characterModel.stemmedMap[unigram_string][vidResponse]
+                else:
+                    if unigram_string in logger[vidResponse]:
+                        logger[vidResponse][unigram_string] += characterModel.stemmedMap[unigram_string][vidResponse]
+                    else:
+                        logger[vidResponse][unigram_string] = characterModel.stemmedMap[unigram_string][vidResponse]
 
         # if i < queryLen - 2:
         #     bigram_string = queryList[i] + "_" + queryList[i+1]
@@ -525,8 +544,8 @@ def stem_intersection_match_English(query, characterModel):
     return responses
 
 
-def lemma_intersection_match_English(query, characterModel):
-    queryList = [lemmatizer.lemmatize(tmp.strip(', " ?.!)')) for tmp in query.split()]
+def lemma_intersection_match_English(query, characterModel, logger):
+    queryList = [lemmatizer.lemmatize(tmp.strip(', " ?.!)')) for tmp in query.split() ]
 
     responses = {}
     queryLen = len(queryList)
@@ -538,8 +557,19 @@ def lemma_intersection_match_English(query, characterModel):
             for vidResponse in characterModel.lemmatizedMap[unigram_string]:
                 if vidResponse not in responses.keys():
                     responses[vidResponse] = characterModel.lemmatizedMap[unigram_string][vidResponse]
-                elif vidResponse in responses.keys():
+
+                    
+                else:
                     responses[vidResponse] += characterModel.lemmatizedMap[unigram_string][vidResponse]
+
+                if vidResponse not in logger.keys():
+                    logger[vidResponse] = {}
+                    logger[vidResponse][unigram_string] = characterModel.lemmatizedMap[unigram_string][vidResponse]
+                else:
+                    if unigram_string in logger[vidResponse]:
+                        logger[vidResponse][unigram_string] += characterModel.lemmatizedMap[unigram_string][vidResponse]
+                    else:
+                        logger[vidResponse][unigram_string] = characterModel.lemmatizedMap[unigram_string][vidResponse]
 
         # if i < queryLen - 2:
         #     bigram_string = queryList[i] + "_" + queryList[i+1]
@@ -779,6 +809,9 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
 
 
 def findResponse(query, characterModel, currentSession):
+    currentTime = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
+    
+    f = open('log.tsv', 'a', encoding='utf-8')
 
     language = currentSession.language
     themax = 0
@@ -786,19 +819,20 @@ def findResponse(query, characterModel, currentSession):
     stem_match_responses = {}
     lemma_match_responses = {}
     direct_match_responses = {}
+    logger = {}
 
     query = query.lower().strip(',?.")!')
 
     if language == "English":
         # different modes of matching
-        stem_match_responses = stem_intersection_match_English(query, characterModel)
-        lemma_match_responses = lemma_intersection_match_English(query, characterModel)
-        direct_match_responses = direct_intersection_match_English(query, characterModel)
+        stem_match_responses = stem_intersection_match_English(query, characterModel, logger)
+        lemma_match_responses = lemma_intersection_match_English(query, characterModel, logger)
+        direct_match_responses = direct_intersection_match_English(query, characterModel, logger)
 
     elif language == "Arabic":
-        stem_match_responses = stem_intersection_match_Arabic(query, characterModel)
-        lemma_match_responses = lemma_intersection_match_Arabic(query, characterModel)
-        direct_match_responses = direct_intersection_match_Arabic(query, characterModel)
+        stem_match_responses = stem_intersection_match_Arabic(query, characterModel, logger)
+        lemma_match_responses = lemma_intersection_match_Arabic(query, characterModel, logger)
+        direct_match_responses = direct_intersection_match_Arabic(query, characterModel, logger)
     else:
         print("language not recognised")
         return
@@ -836,10 +870,15 @@ def findResponse(query, characterModel, currentSession):
 
     else:
         final_answer = rankAnswers(query, best_responses, currentSession, characterModel)
+        log_string = currentTime + "\t" + query + "\t" + characterModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +"\n"
+        print(log_string)
+        f.write(log_string)
+        f.close()
         if final_answer in currentSession.repetitions.keys():
             currentSession.repetitions[final_answer] += 1
         else:
             currentSession.repetitions[final_answer] = 1
+
 
     return characterModel.objectMap[final_answer]
 
@@ -896,5 +935,11 @@ def main():
 
 
 if __name__ == "__main__":
+
+
+
+    for synset in wn.synsets("family"):
+        for lemma in synset.lemmas():
+                print(lemma.name())
     """ This is executed when run from the command line """
     main()
