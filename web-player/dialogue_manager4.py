@@ -37,7 +37,9 @@ from string import punctuation
 from nltk.corpus import wordnet as wn
 
 nltk.download('stopwords')
-stop_words = stopwords.words('english') + list(punctuation)
+#stop_words = stopwords.words('english') + list(punctuation)
+stop_words= ["on", "in", "tell", "me", "about", "a", "an", "the", "of", "and", "or", "but"]
+stop_words_arabic= ["ما", "ماذا", "هي", "هو"]
 
 '''
 Global Variables
@@ -426,7 +428,7 @@ def createModel(characterdict, currentSession, mylanguage):
 
 
 def direct_intersection_match_English(query, characterModel):
-    queryList = [tmp.strip(', " ?.!)') for tmp in query.split()]
+    queryList = [tmp.strip(', " ?.!)') for tmp in query.split() if tmp not in stop_words ]
     responses = {}
     queryLen = len(queryList)
 
@@ -480,7 +482,7 @@ def direct_intersection_match_English(query, characterModel):
 
 
 def stem_intersection_match_English(query, characterModel):
-    queryList = [porterStemmer.stem(tmp.strip(', " ?.!)')) for tmp in query.split()]
+    queryList = [porterStemmer.stem(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}
 
@@ -526,7 +528,7 @@ def stem_intersection_match_English(query, characterModel):
 
 
 def lemma_intersection_match_English(query, characterModel):
-    queryList = [lemmatizer.lemmatize(tmp.strip(', " ?.!)')) for tmp in query.split()]
+    queryList = [lemmatizer.lemmatize(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}
     queryLen = len(queryList)
@@ -572,7 +574,7 @@ def lemma_intersection_match_English(query, characterModel):
 
 
 def direct_intersection_match_Arabic(query, characterModel):
-    queryList = [tmp.strip('،!؟."') for tmp in query.split()]
+    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in stop_words_arabic]
     # queryList.encode('utf-8')
 
     responses = {}
@@ -615,7 +617,7 @@ def stem_intersection_match_Arabic(query, characterModel):
     # StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 
     # print("Finding stem Intersection in Arabic")
-    queryList = query.strip('؟!،" ً').split()
+    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in stop_words_arabic]
     responses = {}
     stemmed_query = []
     queryLen = len(queryList)
@@ -659,7 +661,7 @@ def stem_intersection_match_Arabic(query, characterModel):
 
 def lemma_intersection_match_Arabic(query, characterModel):
     # print("Finding lemma Intersection in Arabic")
-    queryList = query.strip('؟!.،" ً').split()
+    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in stop_words_arabic]
     # queryList.encode('utf-8')
 
     responses = {}
@@ -761,11 +763,12 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
 
     # for each possible answer, checks if it has been played it already, and subtract points from its score if has been played already.
     for res in videoResponses:
-
         videoObjLen = characterModel.objectMap[res].questionLength + characterModel.objectMap[res].answerLength
         precision = videoResponses[res] / videoObjLen
         recall = videoResponses[res] / query_len
         f_score = (precision + recall) / 2
+        if (videoObjLen >40):
+             videoResponses[res] = res/ videoObjLen
 
         if res in currentSession.repetitions.keys():
             negativePoints = currentSession.repetitions[res] * 0.4 * videoResponses[res]
