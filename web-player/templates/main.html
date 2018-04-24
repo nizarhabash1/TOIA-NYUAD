@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel = "stylesheet" type="text/css" href="{{url_for('static',filename='styles/main.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
   </head>
   <body>
-    <h1>TOIA: Interactive Story Telling Done Right</h1>
-    <p>Hi I'm your friend from TOIA! Ask anything you want to know from me :)</p>
-    <form method="POST">
+
+    <h2>TOIA: An Interactive Human Digital Avatar</h2>
+    <p>Hi I'm your friend TOIA! Feel free to talk to me :)</p>
+    <form method="POST" class="query_form">
       <input name="text" id = "messageText">
       <input type="submit" id = "chatbot-form-btn">
     </form>
@@ -17,11 +20,11 @@
     </label>
     </div> -->
 
-    <div id="speech_query">{{query_text}}</div>
+    <div id="speech_query">You asked: {{query_text|capitalize}}</div>
     <div id="language_field" style="display:none">{{language}}</div>
 
     <div id="video_container" class="">
-    <video id = 'avatar_video' class='center' width="640" height="480" align="middle" controls autoplay
+    <video id = 'avatar_video' class='center' width="640" height="400" align="middle" controls autoplay
     preload = "auto">
       <source src="{{avatar_video_path}}" type="video/mp4">
       <source src="{{avatar_video_path}}" type="video/webm">
@@ -36,6 +39,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script>
 
+    $("#stop_button").hide();
+    $(".query_form").hide();
     // speech recognition using annyang
       function detectSpeech(){
         console.log('speech recognition is listening');
@@ -132,21 +137,21 @@
 
 
     function playFillerVideo(){
-            $('#avatar_video track').attr('src',"");
-                  switch("{{avatar}}"){
-              case "margarita":
-                vid.src = margarita_filler_videos[Math.floor(Math.random()*margarita_filler_videos.length)];
-                break;
-              case "katarina":
-                vid.src = katarina_filler_videos[Math.floor(Math.random()*katarina_filler_videos.length)];
-                break;
-              case "gabriela":
-                vid.src = gabriela_filler_videos[Math.floor(Math.random()*gabriela_filler_videos.length)];
-                break;
-              case "rashid":
-                vid.src =  rashid_filler_videos[Math.floor(Math.random()*rashid_filler_videos.length)];
-                break;
-                }
+      $('#avatar_video track').attr('src',"");
+            switch("{{avatar}}"){
+        case "margarita":
+          vid.src = margarita_filler_videos[Math.floor(Math.random()*margarita_filler_videos.length)];
+          break;
+        case "katarina":
+          vid.src = katarina_filler_videos[Math.floor(Math.random()*katarina_filler_videos.length)];
+          break;
+        case "gabriela":
+          vid.src = gabriela_filler_videos[Math.floor(Math.random()*gabriela_filler_videos.length)];
+          break;
+        case "rashid":
+          vid.src =  rashid_filler_videos[Math.floor(Math.random()*rashid_filler_videos.length)];
+          break;
+          }
     }
 
 
@@ -158,7 +163,6 @@
         }
 
      function playFillerVideoInBetween(){
-
            playFillerVideo();
         }
 

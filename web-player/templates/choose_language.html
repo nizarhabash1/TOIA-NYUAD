@@ -2,19 +2,53 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <link rel = "stylesheet" type="text/css" href="{{url_for('static',filename='styles/choose_language.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
+    <title>Choose your language</title>
 </head>
 <body>
 
-<p>Hello you are going to talk to {{avatar}}</p>
-<h3>What language will you be speaking? </h3>
-<form action="{{avatar}}/english">
-    <input type="submit" value="English"/>
-</form>
+<div class = "whole_container" id="whole_container">
 
-<form action="{{avatar}}/arabic">
-    <input type="submit" value="Arabic"/>
-</form>
+<div class="messages">
+<div class="avatar_message">Hello you are going to talk to {{avatar|capitalize}}</div>
+<div class="language_message">What language will you be speaking? </div>
+</div>
+
+
+  <div class="form_container">
+
+    <div class="individual_form">
+      <form action="{{avatar}}/english" class = "language_english">
+        <input type="submit" value="English"/>
+      </form>
+    </div>
+
+    <div class="individual_form">
+      <form action="{{avatar}}/arabic" class = "language_arabic">
+        <input type="submit" value="Arabic"/>
+      </form>
+    </div>
+
+  </div>
+</div>
+  <div class="loading">
+    <img src="https://media.giphy.com/media/w61xWPJ7xKPBk6GH25/giphy.gif">
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <script>
+  $(".loading").hide();
+
+    $(".individual_form").click(function(){
+      $(".loading").show();
+      $(".whole_container").hide();
+
+    })
+
+  </script>
 
 </body>
+
 </html>
