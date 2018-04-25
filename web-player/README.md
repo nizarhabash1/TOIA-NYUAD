@@ -7,7 +7,7 @@ For more instruction on virtual env, checkout https://help.pythonanywhere.com/pa
 Create a folder `avatar-videos` under `/static` directory and upload all avatar videos there
 
 #### Export and run flask app
-Do `export FLASK_APP=app.py` and `flask run` inside venv
+Run `python3 app.py`
 
 Go to http://127.0.0.1:5000/ to view the application
 
