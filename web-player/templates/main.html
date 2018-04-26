@@ -180,6 +180,10 @@
           console.log('bind - playing');
         });
 
+        $('#avatar_video').on('canplay', function() {
+          $('#avatar_video').css('visibility', 'visible')
+        });
+
         var player = document.getElementById('avatar_video');
 
       // TALKING MODE
