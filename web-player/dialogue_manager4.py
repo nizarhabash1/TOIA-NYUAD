@@ -39,7 +39,10 @@ from string import punctuation
 from nltk.corpus import wordnet as wn
 
 nltk.download('stopwords')
-stop_words = stopwords.words('english') + list(punctuation)
+#stop_words = stopwords.words('english') + list(punctuation)
+stop_words= ["on", "in", "tell", "me", "about", "a", "an", "the", "of", "and", "or", "but"]
+stop_words = []
+#stop_words_arabic= ["ما", "ماذا", "هي", "هو"]
 
 '''
 Global Variables
@@ -214,12 +217,12 @@ def createModel(characterdict, currentSession, mylanguage):
             unigram_synonyms_list = []
 
             #expands the unigram model by adding synonyms
-            # for word in unigram_list:
-            #     if word not in stop_words:
-            #         for synset in wn.synsets(word):
-            #             for lemma in synset.lemmas():
-            #                 if lemma.name() not in unigram_synonyms_list:
-            #                     unigram_synonyms_list.append(lemma.name())
+            for word in unigram_list:
+                if word not in stop_words:
+                    for synset in wn.synsets(word):
+                        for lemma in synset.lemmas():
+                            if lemma.name() not in unigram_synonyms_list:
+                                unigram_synonyms_list.append(lemma.name())
 
             # add the bigrams and trigrams into the three representations
             totalUnigrams = len(unigram_list)
@@ -427,8 +430,9 @@ def createModel(characterdict, currentSession, mylanguage):
     return currentSession
 
 
+
 def direct_intersection_match_English(query, characterModel, logger):
-    queryList = [tmp.strip(', " ?.!)') for tmp in query.split() if tmp not in stop_words and tmp != "tell" and tmp != "me" and tmp != "about"]
+    queryList = [tmp.strip(', " ?.!)') for tmp in query.split() if tmp not in stop_words ]
     responses = {}
     queryLen = len(queryList)
 
@@ -470,14 +474,14 @@ def direct_intersection_match_English(query, characterModel, logger):
         #             elif vidResponse in responses.keys():
         #                 responses[vidResponse] += characterModel.wordMap[bigram_string][vidResponse]
             
-        # if i < queryLen - 3:
-        #     trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
-        #     if trigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-        #         for vidResponse in characterModel.wordMap[trigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = characterModel.wordMap[trigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += characterModel.wordMap[trigram_string][vidResponse]
+        if i < queryLen - 3:
+            trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
+            if trigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
+                for vidResponse in characterModel.wordMap[trigram_string]:
+                    if vidResponse not in responses.keys():
+                        responses[vidResponse] = characterModel.wordMap[trigram_string][vidResponse]
+                    elif vidResponse in responses.keys():
+                        responses[vidResponse] += characterModel.wordMap[trigram_string][vidResponse]
     
     # for direct_string in queryList:
     #     if direct_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
@@ -491,7 +495,7 @@ def direct_intersection_match_English(query, characterModel, logger):
 
 
 def stem_intersection_match_English(query, characterModel, logger):
-    queryList = [porterStemmer.stem(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words and tmp != "tell" and tmp != "me" and tmp != "about"]
+    queryList = [porterStemmer.stem(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}
 
@@ -524,14 +528,14 @@ def stem_intersection_match_English(query, characterModel, logger):
         #             elif vidResponse in responses.keys():
         #                 responses[vidResponse] += characterModel.stemmedMap[bigram_string][vidResponse]
                 
-        # if i < queryLen - 3:
-        #     trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
-        #     if trigram_string in characterModel.stemmedMap.keys():
-        #         for vidResponse in characterModel.stemmedMap[trigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = characterModel.stemmedMap[trigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += characterModel.stemmedMap[trigram_string][vidResponse]
+        if i < queryLen - 3:
+            trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
+            if trigram_string in characterModel.stemmedMap.keys():
+                for vidResponse in characterModel.stemmedMap[trigram_string]:
+                    if vidResponse not in responses.keys():
+                        responses[vidResponse] = characterModel.stemmedMap[trigram_string][vidResponse]
+                    elif vidResponse in responses.keys():
+                        responses[vidResponse] += characterModel.stemmedMap[trigram_string][vidResponse]
     
     # for stem_string in queryList:
     #     if stem_string in characterModel.stemmedMap.keys():
@@ -544,8 +548,9 @@ def stem_intersection_match_English(query, characterModel, logger):
     return responses
 
 
+
 def lemma_intersection_match_English(query, characterModel, logger):
-    queryList = [lemmatizer.lemmatize(tmp.strip(', " ?.!)')) for tmp in query.split() ]
+    queryList = [lemmatizer.lemmatize(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}
     queryLen = len(queryList)
@@ -581,14 +586,14 @@ def lemma_intersection_match_English(query, characterModel, logger):
         #                 responses[vidResponse] += characterModel.lemmatizedMap[bigram_string][vidResponse]
 
             
-        # if i < queryLen - 3:
-        #     trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
-        #     if trigram_string in characterModel.lemmatizedMap.keys():
-        #         for vidResponse in characterModel.lemmatizedMap[trigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = characterModel.lemmatizedMap[trigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += characterModel.lemmatizedMap[trigram_string][vidResponse]
+        if i < queryLen - 3:
+            trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
+            if trigram_string in characterModel.lemmatizedMap.keys():
+                for vidResponse in characterModel.lemmatizedMap[trigram_string]:
+                    if vidResponse not in responses.keys():
+                        responses[vidResponse] = characterModel.lemmatizedMap[trigram_string][vidResponse]
+                    elif vidResponse in responses.keys():
+                        responses[vidResponse] += characterModel.lemmatizedMap[trigram_string][vidResponse]
 
     # for lemma_string in queryList:
     #     if lemma_string in characterModel.lemmatizedMap.keys():
@@ -602,7 +607,7 @@ def lemma_intersection_match_English(query, characterModel, logger):
 
 
 def direct_intersection_match_Arabic(query, characterModel):
-    queryList = [tmp.strip('،!؟."') for tmp in query.split()]
+    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in stop_words_arabic]
     # queryList.encode('utf-8')
 
     responses = {}
@@ -645,7 +650,7 @@ def stem_intersection_match_Arabic(query, characterModel):
     # StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 
     # print("Finding stem Intersection in Arabic")
-    queryList = query.strip('؟!،" ً').split()
+    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in stop_words_arabic]
     responses = {}
     stemmed_query = []
     queryLen = len(queryList)
@@ -689,7 +694,7 @@ def stem_intersection_match_Arabic(query, characterModel):
 
 def lemma_intersection_match_Arabic(query, characterModel):
     # print("Finding lemma Intersection in Arabic")
-    queryList = query.strip('؟!.،" ً').split()
+    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in stop_words_arabic]
     # queryList.encode('utf-8')
 
     responses = {}
@@ -791,15 +796,16 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
 
     # for each possible answer, checks if it has been played it already, and subtract points from its score if has been played already.
     for res in videoResponses:
-
         videoObjLen = characterModel.objectMap[res].questionLength + characterModel.objectMap[res].answerLength
         precision = videoResponses[res] / videoObjLen
         recall = videoResponses[res] / query_len
         f_score = (precision + recall) / 2
+        #if (videoObjLen >40):
+            #videoResponses[res] = res/ videoObjLen
 
         if res in currentSession.repetitions.keys():
             negativePoints = currentSession.repetitions[res] * 0.4 * videoResponses[res]
-            videoResponses[res] -= negativePoints
+            #videoResponses[res] -= negativePoints
 
 
 
@@ -811,7 +817,7 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
 def findResponse(query, characterModel, currentSession):
     currentTime = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
     
-    f = open('log.tsv', 'a', encoding='utf-8')
+    #f = open('log.tsv', 'a', encoding='utf-8')
 
     language = currentSession.language
     themax = 0
@@ -870,10 +876,10 @@ def findResponse(query, characterModel, currentSession):
 
     else:
         final_answer = rankAnswers(query, best_responses, currentSession, characterModel)
-        log_string = currentTime + "\t" + query + "\t" + characterModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +"\n"
-        print(log_string)
-        f.write(log_string)
-        f.close()
+        #log_string = currentTime + "\t" + query + "\t" + characterModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +"\n"
+        #print(log_string)
+        #f.write(log_string)
+        #f.close()
         if final_answer in currentSession.repetitions.keys():
             currentSession.repetitions[final_answer] += 1
         else:

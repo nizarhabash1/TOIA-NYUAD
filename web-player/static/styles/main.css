@@ -1,0 +1,10 @@
+body{
+  color:black;
+  font-family: 'Assistant', sans-serif;
+  text-align: center;
+  background-color: #EFEFEF;
+}
+
+.query_form{
+  margin-bottom: 10px;
+}
