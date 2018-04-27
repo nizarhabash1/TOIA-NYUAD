@@ -55,7 +55,7 @@ def readManualQuestions(characterdict, mylanguage):
 	count = 0
 	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
 	if mylanguage == "Arabic":
-		f= open('static/scripts/experiment-set.csv', 'r', encoding='utf-8')
+		f= open('static/scripts/test-set.csv', 'r', encoding='utf-8')
 	else:
 		f= open('static/scripts/experiment-set.tsv', 'r', encoding='utf-8')
 	character = 'margarita'
@@ -247,7 +247,7 @@ def test_questions(characterdict, language):
 				answer = characterdict[avatar].questionsMap[question_id].answer
 
 
-				response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
+				response = dialogue_manager4.findResponse(noisifiedq, oracleCharacterDict[avatar], currentSession)
 
 				answer_list = [tmp.strip(',?."!)') for tmp in answer.lower().split()]
 				response_answer = response.answer
@@ -269,7 +269,7 @@ def test_questions(characterdict, language):
 					print("Actual Answer: ",answer)
 					print("Response: ",response.answer, "\n")
 
-					
+				print(incorrect+correct)	
 
 	print(correct*100/(correct+incorrect))				
 	#print("correct: ", correct)

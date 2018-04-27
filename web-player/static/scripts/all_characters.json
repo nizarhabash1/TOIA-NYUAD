@@ -8070,7 +8070,7 @@
         "character": "margarita",
         "video": "margarita_17_6be11151af2d475f7f56fe99b5400880.mp4",
         "english-answer": "I have a brother.",
-        "arabic-question": "هل لديك أي أشقاء؟",
+        "arabic-question": "هل لديك أي اخوان؟",
         "_id": "6be11151af2d475f7f56fe99b5400880",
         "video-type": "regular"
       },
@@ -12864,7 +12864,7 @@
         "video_saved": true,
         "video": "gabriela_2013_cdc6248b097f84b68b97bc341f91230d.mp4",
         "english-answer": "I did have siblings. A younger brother and sister. They were killed a few years before I came here.",
-        "arabic-question": "هل لديك أي أشقاء؟",
+        "arabic-question": "هل لديك أي اخوان؟",
         "_id": "cdc6248b097f84b68b97bc341f91230d",
         "video-type": "regular"
       },
@@ -18539,7 +18539,7 @@
         "_id": "13229efe208bce14c4f8c99bd4d5cc47",
         "_rev": "2-833bd9a18ef3eb7e1cbc45833300f1d5",
         "arabic-answer": "اسمي راشد الزرعوني. ",
-        "arabic-question": "ما اسمك؟",
+        "arabic-question": "مرحبا",
         "character": "rashid",
         "english-answer": "I am an avatar of an NYUAD student who can answer any questions you may have about the university. ",
         "english-question": "Hello",
