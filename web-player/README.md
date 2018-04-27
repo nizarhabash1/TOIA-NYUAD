@@ -9,7 +9,7 @@ Create a folder `avatar-videos` under `/static` directory and upload all avatar 
 #### Export and run flask app
 Run `python3 app.py`
 
-Go to http://127.0.0.1:5000/ to view the application
+Go to http://localhost:5000/ to view the application
 
 #### Dialogue Manager TODO
 - Make sure direct matching works when the query is exactly the same
