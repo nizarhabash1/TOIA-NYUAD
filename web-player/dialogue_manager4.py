@@ -326,11 +326,11 @@ def createModel(characterdict, currentSession, mylanguage):
 
         	
         	# expands the unigram model by adding synonyms
-        	# for word in unigram_list:
-	        # 	if word in arabic_synonyms.keys():
-	        # 		for tmp in arabic_synonyms[word]:
-	        # 			if tmp not in unigram_synonyms_list:
-	        # 				unigram_synonyms_list.append(tmp)
+        	for word in unigram_list:
+	        	if word in arabic_synonyms.keys():
+	        		for tmp in arabic_synonyms[word]:
+	        			if tmp not in unigram_synonyms_list:
+	        				unigram_synonyms_list.append(tmp)
         	
           
 
