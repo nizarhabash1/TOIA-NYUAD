@@ -18554,6 +18554,26 @@
         "rev": "2-833bd9a18ef3eb7e1cbc45833300f1d5"
       }
     },
+    {
+      "doc": {
+        "_id": "13229efe208bce14c4f8c99bd4d5cc47",
+        "_rev": "2-833bd9a18ef3eb7e1cbc45833300f1d5",
+        "arabic-answer": "اسمي راشد الزرعوني. ",
+        "arabic-question": "السلام عليكم",
+        "character": "rashid",
+        "english-answer": "I am an avatar of an NYUAD student who can answer any questions you may have about the university. ",
+        "english-question": "Hello",
+        "index": 3214,
+        "video": "rashid_3002_109628a7ada02ed0bcd861897a236f7d.mp4",
+        "video_saved": true,
+        "video-type": "filler"
+      },
+      "id": "13229efe208bce14c4f8c99bd4d5cc47",
+      "key": "13229efe208bce14c4f8c99bd4d5cc47",
+      "value": {
+        "rev": "2-833bd9a18ef3eb7e1cbc45833300f1d5"
+      }
+    },
      {
       "doc": {
         "_id": "13229efe208bce14c4f8c99bd4d5cc47",

@@ -832,7 +832,7 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
         precision = videoResponses[res] / videoObjLen
         recall = videoResponses[res] / query_len
         f_score = (precision + recall) / 2
-        if (videoObjLen >40):
+        if (videoObjLen >50):
             videoResponses[res] = res/ videoObjLen
 
         if res in currentSession.repetitions.keys():
