@@ -57,7 +57,7 @@ def readManualQuestions(characterdict, mylanguage):
 	if mylanguage == "Arabic":
 		f= open('static/scripts/experiment-set.csv', 'r', encoding='utf-8')
 	else:
-		f= open('static/scripts/experiment-set.tsv', 'r', encoding='utf-8')
+		f= open('static/scripts/test-set.tsv', 'r', encoding='utf-8')
 	character = 'margarita'
 	language = mylanguage
 	video = ""
@@ -247,7 +247,7 @@ def test_questions(characterdict, language):
 				answer = characterdict[avatar].questionsMap[question_id].answer
 
 
-				response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
+				response = dialogue_manager4.findResponse(noisifiedq, oracleCharacterDict[avatar], currentSession)
 
 				answer_list = [tmp.strip(',?."!)') for tmp in answer.lower().split()]
 				response_answer = response.answer
@@ -267,7 +267,7 @@ def test_questions(characterdict, language):
 					incorrect += 1
 					print("Question: ",question)
 					print("Actual Answer: ",answer)
-					print("Response: ",response.answer, "\n")
+					print("Response: ",response_answer, "\n")
 
 					
 
@@ -303,7 +303,7 @@ def repeating_question(characterdict):
 
 if __name__ == '__main__':
 	
-	session = initiate("Arabic")
+	session = initiate("English")
 	#for character in oracleCharacterDict.keys():
 	#print(oracleCharacterDict["rashid"].objectMap)
 	#readAutomaticQuestions(automaticCharacterDict)
@@ -311,7 +311,7 @@ if __name__ == '__main__':
 
 	#test_questions(oracleCharacterDict, "English")
 	#test_questions(automaticCharacterDict)
-	readManualQuestions(manualCharacterDict, "Arabic")
+	readManualQuestions(manualCharacterDict, "English")
 
 	#print(manualCharacterDict["margarita"].objectMap)
 
@@ -321,7 +321,7 @@ if __name__ == '__main__':
 
 
 	#print(oracleCharacterDict["margarita"].lemmatizedMap.keys())
-	test_questions(manualCharacterDict, "Arabic")
+	test_questions(manualCharacterDict, "English")
 
 
 	#characterdict["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()
