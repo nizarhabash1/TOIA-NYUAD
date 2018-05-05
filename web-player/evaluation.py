@@ -58,6 +58,7 @@ def readManualQuestions(characterdict, mylanguage):
 		f= open('static/scripts/test-set.csv', 'r', encoding='utf-8')
 	else:
 		f= open('static/scripts/test-set.tsv', 'r', encoding='utf-8')
+		#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
 	character = 'margarita'
 	language = mylanguage
 	video = ""
@@ -301,6 +302,37 @@ def repeating_question(characterdict):
 				print("\n")
 				new_line= False
 
+def testInterviewQuestions(language):
+	global currentSession
+	global oracleCharacterDict
+
+	character = ""
+	
+	if language == "English":
+		f= open('english_log.tsv', 'r', encoding='utf-8')
+	else:
+		f= open('arabic_log.tsv', 'r', encoding='utf-8')
+	
+	lines = f.readlines()
+
+	for line in lines:
+		line_split = line.split("\t")
+		if line_split[0] == "":
+			continue
+		else:
+			query = line_split[2]
+			new_character = line_split[1]
+
+			if new_character != character:
+				currentSession = dialogue_manager4.create_new_session(new_character, language)
+				character = new_character
+			response = dialogue_manager4.findResponse(query, oracleCharacterDict[character], currentSession)
+
+
+
+
+
+
 if __name__ == '__main__':
 	
 	session = initiate("English")
@@ -310,8 +342,9 @@ if __name__ == '__main__':
 	#test_questions(oracleCharacterDict, "English")
 
 	#test_questions(oracleCharacterDict, "English")
-	#test_questions(automaticCharacterDict)
-	readManualQuestions(manualCharacterDict, "English")
+	#test_questions(automaticCharacterDict, "English")
+	#readManualQuestions(manualCharacterDict, "English")
+	testInterviewQuestions("English")
 
 	#print(manualCharacterDict["margarita"].objectMap)
 
@@ -321,7 +354,7 @@ if __name__ == '__main__':
 
 
 	#print(oracleCharacterDict["margarita"].lemmatizedMap.keys())
-	test_questions(manualCharacterDict, "English")
+	#test_questions(manualCharacterDict, "English")
 
 
 	#characterdict["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()
