@@ -22,6 +22,7 @@
 
     <div id="speech_query">You asked: {{query_text|capitalize}}</div>
     <div id="language_field" style="display:none">{{language}}</div>
+    <div><button id="stop_avatar">Restart Conversation</button></div>
 
     <div id="video_container" class="">
     <video id = 'avatar_video' class='center' width="640" height="400" align="middle" controls autoplay
@@ -34,6 +35,7 @@
     </video>
     </div>
     <div><button id="stop_button">Stop speech recognition</button></div>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
@@ -175,6 +177,9 @@
       $(document).ready(function() {
         playFillerVideoAtStart();
         detectSpeech();
+        document.getElementById('stop_avatar').onclick = function(){
+          $('#avatar_video').get(0).pause();
+        }
         document.getElementById('stop_button').onclick = function(){
           if(annyang)
             annyang.abort();
