@@ -22,8 +22,9 @@
 
     <div id="speech_query">You asked: {{query_text|capitalize}}</div>
     <div id="language_field" style="display:none">{{language}}</div>
-    <div><button class = "top_button" id="stop_avatar">Skip video</button></div>
-    <div><button class = "top_button" id="pause_speech">Pause speech recognition</button></div>
+    <div id="container">
+      <button class = "top_button" id="stop_avatar">Skip video</button><button class = "top_button" id="pause_speech">Pause speech recognition</button>
+    </div>
 
     <div id="video_container" class="">
     <video id = 'avatar_video' class='center' width="640" height="400" align="middle" controls autoplay

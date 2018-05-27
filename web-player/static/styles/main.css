@@ -9,6 +9,14 @@ body{
   margin-bottom: 10px;
 }
 
+#container{
+  text-align:center;
+  font-size:0;
+  border:0px;
+  padding:0;
+  margin:0;
+  vertical-align:top;
+}
 
 .top_button {
     background-color: #4CAF50;
@@ -17,8 +25,12 @@ body{
     padding: 10px 20px;
     text-decoration: none;
     cursor: pointer;
+    width:200px;
     font-size: 13px;
     font-weight: lighter;
+    display: inline-block;  
+    vertical-align:top;
+
 }
 
 .top_button:hover {
@@ -33,8 +45,9 @@ body{
 #pause_speech {
     margin: 4px 2px;
     margin-top: 20px;
-    cursor: pointer;
 }
+
+
 
 
 
