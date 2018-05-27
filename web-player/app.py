@@ -39,14 +39,26 @@ def with_language(avatar, language):
     global characterModel
     language = str(language).title()
     dialogue_manager4.createModel(characterModel, currentSession, language, avatar)
+
     currentSession = dialogue_manager4.create_new_session(avatar, language)
+
+
     return render_template('main.html', avatar=avatar, language=language)
+
+
+@app.route('/<avatar>/<language>/recreate', methods=['POST'])
+def recreate(avatar,language):
+        currentSession = dialogue_manager4.create_new_session(avatar, language)
+        return 'OK'
 
 
 # When avatar page receives a POST request
 @app.route('/<avatar>/<language>', methods=['POST'])
 def my_form_post(avatar,language):
     global currentSession
+
+
+    print(" querying")
     text = request.form['text']
     processed_text = text
 
@@ -58,14 +70,13 @@ def my_form_post(avatar,language):
 
     response_subtitle_path = '/static/avatar-subtitle-timestamped/' + language + '_' + os.path.splitext(response.videoLink.strip('"'))[0] + '.vtt'
 
-
     return render_template('main.html',
-                           avatar=avatar,
-                           avatar_video_path=response_video_path,
-                           avatar_response=response.answer,
-                           avatar_subtitle=response_subtitle_path,
-                           query_text=processed_text,
-                           language=language)
+                   avatar=avatar,
+                   avatar_video_path=response_video_path,
+                   avatar_response=response.answer,
+                   avatar_subtitle=response_subtitle_path,
+                   query_text=processed_text,
+                   language=language)
 
 
 if __name__ == '__main__':

@@ -26,14 +26,19 @@
     <div><button class = "top_button" id="pause_speech">Pause speech recognition</button></div>
 
     <div id="video_container" class="">
-    <video id = 'avatar_video' class='center' width="640" height="400" align="middle" controls autoplay
-    preload = "auto">
+    <!-- <video id = 'avatar_video' class='center' width="640" height="400" align="middle" autoplay="" poster="../static/images/margarita_still.png"> -->
+    <video id = 'avatar_video' class='center' width="640" height="400" align="middle" autoplay="" controls autoplay poster="../static/images/margarita_still.png">
       <source src="{{avatar_video_path}}" type="video/mp4">
       <source src="{{avatar_video_path}}" type="video/webm">
       <source src="{{avatar_video_path}}" type="video/ogv">
       <source src="{{avatar_video_path}}" type="video/ogg">
       <track label="English" kind="subtitles" srclang="en" src= {{avatar_subtitle}} default>
     </video>
+    </div>
+
+    <div>
+        <button id = "recreate_session">Recreate Session</button>
+
     </div>
     <div><button id="stop_button">Stop speech recognition</button></div>
 
@@ -80,6 +85,9 @@
 
         var vid_container = document.getElementById('video_container');
 
+        vid.oncanplaythrough=function(){
+          vid.play();
+        };
 
     var margarita_filler_videos = [
     "../static/avatar-videos/margarita_338_6be11151af2d475f7f56fe99b547c810.mp4",
@@ -110,7 +118,6 @@
 
 
     var rashid_filler_videos = [
-    "../static/avatar-videos/rashid_3210_817fa7ca9dc82cdd71696044df086c08.mp4",
     "../static/avatar-videos/rashid_3211_17a0f962a4b53cf47f3bd315beae8252.mp4",
     "../static/avatar-videos/rashid_3212_d46e0a70b99cc97d4595abe7b3906eac.mp4",
     "../static/avatar-videos/rashid_3213_6f6c4e1d16544cdad6d3e2fef69d29e2.mp4"
@@ -191,6 +198,7 @@
             annyang.abort();
         }
 
+        // Pause or restart speech recognition
         var speech_button = document.getElementById('pause_speech');
 
         document.getElementById('pause_speech').onclick = function(){
@@ -198,10 +206,10 @@
           if (speech_button.textContent == "Pause speech recognition") {
             console.log("paused speech recognition");
             if(annyang) {
-              annyang.abort();   
+              annyang.abort();
               paused = true;
               speech_button.textContent = "Restart speech recognition";
-            }    
+            }
           } else if (speech_button.textContent == "Restart speech recognition") {
             console.log("restarted speech recognition");
             annyang.start({autoRestart: false});
@@ -209,6 +217,16 @@
             speech_button.textContent = "Pause speech recognition";
           }
         }
+
+        var recreate_session_button = document.getElementById('recreate_session');
+        recreate_session_button.onclick = function(){
+          $.ajax({
+            type:'POST',
+            url:"/{{avatar}}/{{language}}/recreate"
+
+          })
+        }
+
 
         $('#avatar_video').bind('playing', function(e) {
           console.log('bind - playing');
@@ -246,6 +264,16 @@
           playFillerVideoInBetween();
           detectSpeech();
         });
+
+        // below is failed attempt to fix the flash screen :()
+        // player.addEventListener('timeupdate',function(e){
+        //   // console.log('updating time ' + player.currentTime);
+        //
+        //   if(player.currentTime >= player.duration-0.5){
+        //     player.pause();
+        //   }
+        // });
+
       });
 
           // Below are helper codes for the speech recognition if we want to use dialects
