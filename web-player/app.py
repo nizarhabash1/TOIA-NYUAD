@@ -39,10 +39,7 @@ def with_language(avatar, language):
     global characterModel
     language = str(language).title()
     dialogue_manager4.createModel(characterModel, currentSession, language, avatar)
-
     currentSession = dialogue_manager4.create_new_session(avatar, language)
-
-
     return render_template('main.html', avatar=avatar, language=language)
 
 
