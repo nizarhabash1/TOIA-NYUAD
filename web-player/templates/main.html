@@ -28,7 +28,7 @@
 
     <div id="video_container" class="">
     <!-- <video id = 'avatar_video' class='center' width="640" height="400" align="middle" autoplay="" poster="../static/images/margarita_still.png"> -->
-    <video id = 'avatar_video' class='center' width="640" height="400" align="middle" autoplay="" controls autoplay poster="../static/images/margarita_still.png">
+    <video id = 'avatar_video' class='center' width="640" height="400" align="middle" autoplay="" controls autoplay>
       <source src="{{avatar_video_path}}" type="video/mp4">
       <source src="{{avatar_video_path}}" type="video/webm">
       <source src="{{avatar_video_path}}" type="video/ogv">
@@ -162,15 +162,19 @@
             switch("{{avatar}}"){
         case "margarita":
           vid.src = margarita_filler_videos[Math.floor(Math.random()*margarita_filler_videos.length)];
+          vid.setAttribute('poster','../static/images/margarita_still.png');
           break;
         case "katarina":
           vid.src = katarina_filler_videos[Math.floor(Math.random()*katarina_filler_videos.length)];
+          vid.setAttribute('poster','../static/images/katarina_still.png');
           break;
         case "gabriela":
           vid.src = gabriela_filler_videos[Math.floor(Math.random()*gabriela_filler_videos.length)];
+          vid.setAttribute('poster','../static/images/gabriela_still.png');
           break;
         case "rashid":
           vid.src =  rashid_filler_videos[Math.floor(Math.random()*rashid_filler_videos.length)];
+          vid.setAttribute('poster','../static/images/rashid_still.png');
           break;
           }
     }
