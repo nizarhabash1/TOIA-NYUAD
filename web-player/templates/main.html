@@ -22,7 +22,8 @@
 
     <div id="speech_query">You asked: {{query_text|capitalize}}</div>
     <div id="language_field" style="display:none">{{language}}</div>
-    <div><button id="stop_avatar">Skip video</button></div>
+    <div><button class = "top_button" id="stop_avatar">Skip video</button></div>
+    <div><button class = "top_button" id="pause_speech">Pause speech recognition</button></div>
 
     <div id="video_container" class="">
     <video id = 'avatar_video' class='center' width="640" height="400" align="middle" controls autoplay
@@ -41,33 +42,38 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script>
 
+    // variable that is used to detect whether speech recognigiton is paused or not
+    var paused = false;
+
     $("#stop_button").hide();
     $(".query_form").hide();
     // speech recognition using annyang
       function detectSpeech(){
-        console.log('speech recognition is listening');
-        if (annyang) {
-          let currentLanguage = document.getElementById('language_field').innerHTML;
-          annyang.setLanguage('en-US');
-          if(currentLanguage == "English" || currentLanguage == "english"){
+        if (paused == false) {
+          console.log('speech recognition is listening');
+          if (annyang) {
+            let currentLanguage = document.getElementById('language_field').innerHTML;
             annyang.setLanguage('en-US');
-          }
-          if(currentLanguage=="Arabic" || currentLanguage == "arabic"){
-            annyang.setLanguage('ar');
-          }
+            if(currentLanguage == "English" || currentLanguage == "english"){
+              annyang.setLanguage('en-US');
+            }
+            if(currentLanguage=="Arabic" || currentLanguage == "arabic"){
+              annyang.setLanguage('ar');
+            }
 
-          annyang.resume();
-          var sayThis = function(result) {
-            document.getElementById('messageText').value = result;
-            document.getElementById('chatbot-form-btn').click();
-            speech_detected = result;
+            annyang.resume();
+            var sayThis = function(result) {
+              document.getElementById('messageText').value = result;
+              document.getElementById('chatbot-form-btn').click();
+              speech_detected = result;
 
-            console.log(result);
-          }
-          var commands = {'*say': sayThis};
-          annyang.addCommands(commands);
-        };
+              console.log(result);
+            }
+            var commands = {'*say': sayThis};
+            annyang.addCommands(commands);
+          };
         }
+      }
 
         var vid = document.getElementById('avatar_video');
         var vid_src = document.getElementById('avatar_video').src;
@@ -183,6 +189,25 @@
         document.getElementById('stop_button').onclick = function(){
           if(annyang)
             annyang.abort();
+        }
+
+        var speech_button = document.getElementById('pause_speech');
+
+        document.getElementById('pause_speech').onclick = function(){
+          console.log("clicked speech button");
+          if (speech_button.textContent == "Pause speech recognition") {
+            console.log("paused speech recognition");
+            if(annyang) {
+              annyang.abort();   
+              paused = true;
+              speech_button.textContent = "Restart speech recognition";
+            }    
+          } else if (speech_button.textContent == "Restart speech recognition") {
+            console.log("restarted speech recognition");
+            annyang.start({autoRestart: false});
+            paused = false;
+            speech_button.textContent = "Pause speech recognition";
+          }
         }
 
         $('#avatar_video').bind('playing', function(e) {

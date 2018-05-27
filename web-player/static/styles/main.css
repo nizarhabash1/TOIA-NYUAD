@@ -10,20 +10,32 @@ body{
 }
 
 
-
-#stop_avatar {
+.top_button {
     background-color: #4CAF50;
     border: none;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
-    margin: 4px 2px;
-    margin-top: 20px;
     cursor: pointer;
     font-size: 13px;
     font-weight: lighter;
 }
 
-#stop_avatar:hover{
+.top_button:hover {
   transform:scale(1.15);
 }
+
+#stop_avatar {
+    margin: 4px 2px;
+    margin-top: 20px;
+}
+
+#pause_speech {
+    margin: 4px 2px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+
+
+
