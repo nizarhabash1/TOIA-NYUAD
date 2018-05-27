@@ -37,7 +37,7 @@
   </div>
 </div>
   <div class="loading">
-    <img src="https://media.giphy.com/media/w61xWPJ7xKPBk6GH25/giphy.gif">
+    <img id="gif" src="">
 
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -50,6 +50,18 @@
       $(".whole_container").hide();
 
     })
+
+  if("{{avatar}}" == "margarita") {
+    document.getElementById("gif").src = "https://media.giphy.com/media/3gVoGlhH4cQvAjTZrO/giphy.gif";
+  } else if ("{{avatar}}" == "rashid") {
+    document.getElementById("gif").src = "https://media.giphy.com/media/fnASLfpw1bsMuZGtQ7/giphy.gif";
+  } else if("{{avatar}}" == "katarina") {
+    document.getElementById("gif").src = "https://media.giphy.com/media/405kjIrribkQM8ZTAU/giphy.gif";
+  } else if("{{avatar}}" == "gabriela") {
+    document.getElementById("gif").src = "https://media.giphy.com/media/1rSRzRcmY7HXuSIQRm/giphy.gif";
+  }
+
+  console.log("{{avatar}}");
 
   </script>
 
