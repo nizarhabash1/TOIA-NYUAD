@@ -193,6 +193,21 @@
 
       //start or pause speech recognition depending on if video is playing
       $(document).ready(function() {
+        switch("{{avatar}}"){
+        case "margarita":
+          vid.setAttribute('poster','../static/images/margarita_still.png');
+          break;
+        case "katarina":
+          vid.setAttribute('poster','../static/images/katarina_still.png');
+          break;
+        case "gabriela":
+          vid.setAttribute('poster','../static/images/gabriela_still.png');
+          break;
+        case "rashid":
+          vid.setAttribute('poster','../static/images/rashid_still.png');
+          break;
+          }
+
         playFillerVideoAtStart();
         detectSpeech();
         document.getElementById('stop_avatar').onclick = function(){
