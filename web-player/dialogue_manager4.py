@@ -52,6 +52,8 @@ lemmatizer = WordNetLemmatizer()
 # Dictionary of all Avatars
 characterdict = {}
 
+#database filename
+db= ''
 # encoding
 str.encode('utf-8')
 
@@ -108,46 +110,69 @@ def preprocess(line):
 
     return processed
 
-def arabicSyn():
-	glossDict={}
-	synonymDict={}
-	unigram_synonyms_list = []
+def arabicSyn(myavatar):
+    if(myavatar=="margarita"):
+        db= 'static/scripts/margarita2.json'
 
-	f = open('static/scripts/all_characters.json', 'r', encoding='utf-8')
+    elif(myavatar=="rashid"):
+        db= 'static/scripts/rashid2.json'
 
-	resp = json.load(f)
+    elif(myavatar=="gabriela"):
+        db= 'static/scripts/gabriela1.json'
 
-	for i in range(0, len(resp["rows"]) - 1, 1):
-		if ("arabic-question" in resp["rows"][i]["doc"].keys() and "arabic-answer" in resp["rows"][i]["doc"].keys()):
-			question = json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
-			answer = json.dumps(resp["rows"][i]["doc"]["arabic-answer"], ensure_ascii=False).strip('،.؟"')
+    elif(myavatar=="katarina"):
+        db= 'static/scripts/katarina1.json'
+	
+    glossDict={}
+    synonymDict={}
+    unigram_synonyms_list = []
 
-			pair= question.split()+answer.split()
+    f = open(db, 'r', encoding='utf-8')
 
-			for tmp in pair:
+    resp = json.load(f)
 
-				gloss=StarMorphModules.analyze_word(tmp, False)[0].split()[4].split(";")[0].replace("gloss:", "")
-				if gloss not in glossDict.keys() and gloss != "NO_ANALYSIS":
-					glossDict[gloss]= []
-					glossDict[gloss].append(tmp)
-				elif gloss in glossDict.keys() and gloss != "NO_ANALYSIS":
-					if tmp not in glossDict[gloss]:
-						glossDict[gloss].append(tmp)
+    for i in range(0, len(resp["rows"]) - 1, 1):
+        if ("arabic-question" in resp["rows"][i]["doc"].keys() and "arabic-answer" in resp["rows"][i]["doc"].keys()):
+            question = json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
+            answer = json.dumps(resp["rows"][i]["doc"]["arabic-answer"], ensure_ascii=False).strip('،.؟"')
 
-	for key in glossDict.keys():
-		if len(glossDict[key])>1:
-			for i in glossDict[key]:
-				if i not in synonymDict.keys():
-					synonymDict[i]=[j for j in glossDict[key]]
+            pair= question.split()+answer.split()
 
-	return synonymDict
+            for tmp in pair:
+                gloss=StarMorphModules.analyze_word(tmp, False)[0].split()[4].split(";")[0].replace("gloss:", "")
+                if gloss not in glossDict.keys() and gloss != "NO_ANALYSIS":
+                    glossDict[gloss]= []
+                    glossDict[gloss].append(tmp)
+                elif gloss in glossDict.keys() and gloss != "NO_ANALYSIS":
+                    if tmp not in glossDict[gloss]:
+                        glossDict[gloss].append(tmp)
+
+    for key in glossDict.keys():
+        if len(glossDict[key])>1:
+            for i in glossDict[key]:
+                if i not in synonymDict.keys():
+                    synonymDict[i]=[j for j in glossDict[key]]
+    return synonymDict
 # Initiates the model and create a new session
-def createModel(characterdict, currentSession, mylanguage):
+def createModel(characterdict, currentSession, mylanguage, myavatar):
 
-    arabic_synonyms= arabicSyn()
+    if(mylanguage=="Arabic"):
+        arabic_synonyms= arabicSyn(myavatar)
+
+    if(myavatar=="margarita"):
+        db= 'static/scripts/margarita2.json'
+
+    elif(myavatar=="rashid"):
+        db= 'static/scripts/rashid2.json'
+
+    elif(myavatar=="gabriela"):
+        db= 'static/scripts/gabriela1.json'
+
+    elif(myavatar=="katarina"):
+        db= 'static/scripts/katarina1.json'
 
     try:
-        f = open('static/scripts/all_characters.json', 'r', encoding='utf-8')
+        f = open(db, 'r', encoding='utf-8')
     except IOError:
         print("Error: File does not appear to exist.")
 
