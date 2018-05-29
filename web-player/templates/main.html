@@ -6,8 +6,8 @@
   </head>
   <body>
 
-    <h2>TOIA: An Interactive Human Digital Avatar</h2>
-    <p>Hi I'm your friend TOIA! Feel free to talk to me :)</p>
+    <h2 id="title">TOIA: An Interactive Human Digital Avatar</h2>
+    <p id="subtitle">Hi I'm your friend TOIA! Feel free to talk to me :)</p>
     <form method="POST" class="query_form">
       <input name="text" id = "messageText">
       <input type="submit" id = "chatbot-form-btn">
@@ -20,7 +20,7 @@
     </label>
     </div> -->
 
-    <div id="speech_query">You asked: {{query_text|capitalize}}</div>
+    <div id="speech_query">{{query_text|capitalize}}</div>
     <div id="language_field" style="display:none">{{language}}</div>
     <div id="container">
       <button class = "top_button" id="stop_avatar">Skip video</button><button class = "top_button" id="pause_speech">Mute mic</button>
@@ -52,7 +52,9 @@
     {
       document.getElementById("recreate_session").textContent = "مستخدم جديد";
       document.getElementById("stop_avatar").textContent = "تخطى الفيديو";
-      document.getElementById("pause_speech").textContent = "اكتم المايكروفون"
+      document.getElementById("pause_speech").textContent = "اكتم المايكروفون";
+      document.getElementById("title").innerText = "تويا: افاتار رقمي متفاعل";
+      document.getElementById("subtitle").innerText = "مرحبا أنا صديقتك تويا، تفضل بالحديث معي";
     }
     // variable that is used to detect whether speech recognigiton is paused or not
     var paused = false;
