@@ -23,7 +23,7 @@
     <div id="speech_query">You asked: {{query_text|capitalize}}</div>
     <div id="language_field" style="display:none">{{language}}</div>
     <div id="container">
-      <button class = "top_button" id="stop_avatar">Skip video</button><button class = "top_button" id="pause_speech">Pause speech recognition</button>
+      <button class = "top_button" id="stop_avatar">Skip video</button><button class = "top_button" id="pause_speech">Mute mic</button>
     </div>
 
     <div id="video_container" class="">
@@ -38,20 +38,25 @@
     </div>
 
     <div>
-        <button id = "recreate_session">Recreate Session</button>
+        <button id = "recreate_session">New user</button>
 
     </div>
-    <div><button id="stop_button">Stop speech recognition</button></div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <script>
 
+    // change button names to Arabic
+    if(document.getElementById('language_field').innerHTML == 'Arabic' || document.getElementById('language_field').innerHTML == "arabic")
+    {
+      document.getElementById("recreate_session").textContent = "مستخدم جديد";
+      document.getElementById("stop_avatar").textContent = "تخطى الفيديو";
+      document.getElementById("pause_speech").textContent = "اكتم المايكروفون"
+    }
     // variable that is used to detect whether speech recognigiton is paused or not
     var paused = false;
 
-    $("#stop_button").hide();
     $(".query_form").hide();
     // speech recognition using annyang
       function detectSpeech(){
@@ -191,7 +196,7 @@
            playFillerVideo();
         }
 
-      //start or pause speech recognition depending on if video is playing
+      //start or Mute mic depending on if video is playing
       $(document).ready(function() {
         switch("{{avatar}}"){
         case "margarita":
@@ -213,28 +218,33 @@
         document.getElementById('stop_avatar').onclick = function(){
           $('#avatar_video').get(0).pause();
         }
-        document.getElementById('stop_button').onclick = function(){
-          if(annyang)
-            annyang.abort();
-        }
 
-        // Pause or restart speech recognition
+        // Pause or Unmute mic
         var speech_button = document.getElementById('pause_speech');
 
         document.getElementById('pause_speech').onclick = function(){
           console.log("clicked speech button");
-          if (speech_button.textContent == "Pause speech recognition") {
+          if (speech_button.textContent == "Mute mic") {
             console.log("paused speech recognition");
             if(annyang) {
               annyang.abort();
               paused = true;
-              speech_button.textContent = "Restart speech recognition";
+              let currentLanguage = document.getElementById('language_field').innerHTML;
+              if(currentLanguage=="Arabic" || currentLanguage == "arabic") {
+                speech_button.textContent = "شغل المايكروفون";
+              } else {
+                speech_button.textContent = "Unmute mic";
+              }
             }
-          } else if (speech_button.textContent == "Restart speech recognition") {
+          } else if (speech_button.textContent == "Unmute mic") {
             console.log("restarted speech recognition");
             annyang.start({autoRestart: false});
             paused = false;
-            speech_button.textContent = "Pause speech recognition";
+            if(currentLanguage=="Arabic" || currentLanguage == "arabic") {
+                speech_button.textContent = "اكتم المايكروفون";
+            } else {
+              speech_button.textContent = "Mute mic";
+            }
           }
         }
 
