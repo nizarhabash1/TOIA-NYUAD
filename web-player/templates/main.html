@@ -224,24 +224,27 @@
 
         document.getElementById('pause_speech').onclick = function(){
           console.log("clicked speech button");
-          if (speech_button.textContent == "Mute mic") {
+          let currentLanguage = document.getElementById('language_field').innerHTML;
+          console.log(currentLanguage);
+          if (speech_button.textContent == "Mute mic" || speech_button.textContent == "اكتم المايكروفون") {
             console.log("paused speech recognition");
             if(annyang) {
               annyang.abort();
               paused = true;
-              let currentLanguage = document.getElementById('language_field').innerHTML;
               if(currentLanguage=="Arabic" || currentLanguage == "arabic") {
                 speech_button.textContent = "شغل المايكروفون";
+                console.log("DID THIS");
               } else {
                 speech_button.textContent = "Unmute mic";
               }
             }
-          } else if (speech_button.textContent == "Unmute mic") {
+          } else {
             console.log("restarted speech recognition");
             annyang.start({autoRestart: false});
             paused = false;
             if(currentLanguage=="Arabic" || currentLanguage == "arabic") {
                 speech_button.textContent = "اكتم المايكروفون";
+                console.log("DID THIS TOO");
             } else {
               speech_button.textContent = "Mute mic";
             }
