@@ -27,12 +27,13 @@ $.ajax({
 			console.log(data);
 
 			/* The length of the current database */
-			current_question_len = data.length;
+			current_question_len = data.rows.length;
+      console.log("data length is " + current_question_len);
 			/* If we add a question, the new index will be */
-			new_question_index = data[current_question_len-1].doc.index+1;
+			new_question_index = data.rows[current_question_len-1].doc.index+1;
 			console.log("new question index is " + new_question_index);
 			//You could do this on the server
-			allData = data.map(function(d){
+			allData = data.rows.map(function(d){
 				return d;
 			});
 			//Clear out current data on the page if any
