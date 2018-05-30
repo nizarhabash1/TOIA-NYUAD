@@ -100,22 +100,28 @@ app.post("/save", function(req,res){
 
 //GET objects from the database
 //Also a JSON Serving route (ALL Data)
+var all_json = require('../web-recorder/public/margarita2.json');
+
 app.get("/api/all", function(req,res){
-	console.log('Making a db request for all entries');
-	// Use the Request lib to GET the data in the CouchDB on Cloudant
-	Request.get({
-		url: cloudant_URL + "/_all_docs?include_docs=true",
-		auth: {
-			user: cloudant_KEY,
-			pass: cloudant_PASSWORD
-		},
-		json: true
-	},
-	function (error, response, body){
-		var theRows = body.rows;
-		//Send the data
-		res.json(theRows);
-	});
+  //
+	// console.log('Making a db request for all entries');
+  // console.log(all_json);
+  res.json(all_json.rows);
+
+	// // Use the Request lib to GET the data in the CouchDB on Cloudant
+	// Request.get({
+	// 	url: cloudant_URL + "/_all_docs?include_docs=true",
+	// 	auth: {
+	// 		user: cloudant_KEY,
+	// 		pass: cloudant_PASSWORD
+	// 	},
+	// 	json: true
+	// },
+	// function (error, response, body){
+	// 	var theRows = body.rows;
+	// 	//Send the data
+	// 	res.json(theRows);
+	// });
 });
 
 app.get("/api/sorted", function(req, res) {
