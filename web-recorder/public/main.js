@@ -67,16 +67,16 @@ function makeHTML(theData){
 	theData.forEach(function(d){
 		htmlString += '<li id='+ d.doc.index + '>' + d.doc.index + '. ' + d.doc['english-question']
 		+ ' <br> ' + d.doc['english-answer'];
-		htmlString += '<br><button id=' + d._rev + ' class="updateButton">UPDATE</button>';
-		htmlString += '<button id=' + d._id + ' class="deleteButton">DELETE</button>';
+		htmlString += '<br><button id=' + d.doc._rev + ' class="updateButton">UPDATE</button>';
+		htmlString += '<button id=' + d.doc._id + ' class="deleteButton">DELETE</button>';
 		// console.log("The video is " + d.video);
 		if(d.video!=""){
-			htmlString += '<button id=' + 'save_' + d.index + ' class="saveButton" style="background-color:#e7e7e7">SAVE</button>';
-			htmlString += '<button id=' + 'play_' + d.index + ' class="playButton" >PLAY</button>';
+			htmlString += '<button id=' + 'save_' + d.doc.index + ' class="saveButton" style="background-color:#e7e7e7">SAVE</button>';
+			htmlString += '<button id=' + 'play_' + d.doc.index + ' class="playButton" >PLAY</button>';
 		}
 		else{
-			htmlString += '<button id=' + 'save_' + d.index + ' class="saveButton">SAVE</button>';
-			htmlString += '<button id=' + 'play_' + d.index + ' class="playButton" style="display:none">PLAY</button>';
+			htmlString += '<button id=' + 'save_' + d.doc.index + ' class="saveButton">SAVE</button>';
+			htmlString += '<button id=' + 'play_' + d.doc.index + ' class="playButton" style="display:none">PLAY</button>';
 		}
 
 
