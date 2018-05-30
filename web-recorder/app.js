@@ -106,7 +106,7 @@ app.get("/api/all", function(req,res){
   //
 	// console.log('Making a db request for all entries');
   // console.log(all_json);
-  res.json(all_json.rows);
+  res.json(all_json);
 
 	// // Use the Request lib to GET the data in the CouchDB on Cloudant
 	// Request.get({

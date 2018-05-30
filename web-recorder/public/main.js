@@ -27,12 +27,12 @@ $.ajax({
 			console.log(data);
 
 			/* The length of the current database */
-			current_question_len = data.docs.length;
+			current_question_len = data.length;
 			/* If we add a question, the new index will be */
-			new_question_index = data.docs[current_question_len-1].index+1;
+			new_question_index = data[current_question_len-1].doc.index+1;
 			console.log("new question index is " + new_question_index);
 			//You could do this on the server
-			allData = data.docs.map(function(d){
+			allData = data.map(function(d){
 				return d;
 			});
 			//Clear out current data on the page if any
@@ -64,8 +64,8 @@ function makeHTML(theData){
 
 	var htmlString = '<ul id="theDataList">';
 	theData.forEach(function(d){
-		htmlString += '<li id='+ d.index + '>' + d.index + '. ' + d.question
-		+ ' <br> ' + d.answer ;
+		htmlString += '<li id='+ d.doc.index + '>' + d.doc.index + '. ' + d.doc['english-question']
+		+ ' <br> ' + d.doc['english-answer'];
 		htmlString += '<br><button id=' + d._rev + ' class="updateButton">UPDATE</button>';
 		htmlString += '<button id=' + d._id + ' class="deleteButton">DELETE</button>';
 		// console.log("The video is " + d.video);
