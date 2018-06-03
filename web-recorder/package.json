@@ -9,11 +9,11 @@
     "start": "node app.js"
   },
   "dependencies": {
-    "body-parser": "^1.5.2",
+    "body-parser": "^1.18.3",
     "ejs": "*",
-    "express": "4.x",
+    "express": "^4.16.3",
     "nodemon": "^1.13.3",
-    "request": "^2.47.0",
-    "underscore": "^1.7.0"
+    "request": "^2.87.0",
+    "underscore": "^1.9.0"
   }
 }

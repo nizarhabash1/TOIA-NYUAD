@@ -109,15 +109,15 @@ function saveData(obj){
 
 
 function setSaveEvent(data){
-		var theID = '#save_' + data.index;
-		scroll_id = '#save_' + data.index;
+		var theID = '#save_' + data.doc.index;
+		scroll_id = '#save_' + data.doc.index;
 		$(theID).click(function(){
 			var theObj = _.find(allData, function(d){
-				return d.index == data.index;
+				return d.index == data.doc.index;
 			});
-			console.log("we are SAVING " + data.index);
+			console.log("we are SAVING " + data.doc.index);
 			//Change a value
-			this_video_name= this_character + "_" + data.index +
+			this_video_name= this_character + "_" + data.doc.index +
                             "_"+ theObj._id + ".mp4";
 			$("#save-to-disk").trigger('click');
 			theObj.video = this_video_name;

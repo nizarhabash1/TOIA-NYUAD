@@ -418,6 +418,7 @@ btnStartRecording.onclick = function(event) {
       recordingPlayer.parentNode.parentNode.querySelector('h2').innerHTML = '<img src="https://cdn.webrtc-experiment.com/images/progress.gif">';
     };
   }
+}
 
 function captureAudioPlusVideo(config) {
   captureUserMedia({video: true, audio: true}, function(audioVideoStream) {
