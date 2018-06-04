@@ -6,13 +6,6 @@ var scroll_id;
 
 var this_character="test";
 
-// recordingPlayer.addEventListener('ended', function() {
-//
-//     // ADDED funciontality of streaming after a playback
-//     navigator.mediaDevices.getUserMedia(constraints).
-//         then(handleSuccess).catch(handleError);
-//         });
-
 function getAllData(){
 $.ajax({
 		url: '/api/all',

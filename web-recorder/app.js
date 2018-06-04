@@ -100,7 +100,7 @@ app.post("/save", function(req,res){
 
 //GET objects from the database
 //Also a JSON Serving route (ALL Data)
-var all_json = require('../web-recorder/public/margarita2.json');
+var all_json = require('../web-recorder/public/test.json');
 
 // sort json here too
 app.get("/api/all", function(req,res){
