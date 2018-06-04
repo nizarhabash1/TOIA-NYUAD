@@ -39,6 +39,46 @@
             "value": {
                 "rev": "3-2281131e01b7f8be222e85975419264c"
             }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582a8af9",
+            "doc": {
+                "index": 19,
+                "arabic-answer": "أخي أكبر مني في العمر.",
+                "language": "English",
+                "english-question": "Is your brother older or younger than you?",
+                "_rev": "3-6ab29d1c38f4dc2ce365cb14cd17745e",
+                "character": "margarita",
+                "video": "margarita_19_16a41b8cddc767f444e773b3582a8af9.mp4",
+                "english-answer": "My brother is older.",
+                "arabic-question": "هل أخوك أكبر أم أصغر منك في العمر؟",
+                "_id": "16a41b8cddc767f444e773b3582a8af9",
+                "video-type": "regular"
+            },
+            "id": "16a41b8cddc767f444e773b3582a8af9",
+            "value": {
+                "rev": "3-6ab29d1c38f4dc2ce365cb14cd17745e"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582a8dc0",
+            "doc": {
+                "index": 29,
+                "arabic-answer": "حسناً، تقدم جامعة نيويورك أبوظبي منحة دراسية جيدة كما أنها جامعة جيدة",
+                "language": "English",
+                "english-question": "Why did you choose to study at NYU Abu Dhabi?",
+                "_rev": "3-55d4ed63dc3dcb25b5eebe8ea9410428",
+                "character": "margarita",
+                "video": "margarita_29_16a41b8cddc767f444e773b3582a8dc0.mp4",
+                "english-answer": "Well, NYUAD offers a good scholarship and it's a good university.",
+                "arabic-question": "لماذا اخترت الدراسة في جامعة نيويورك أبوظبي؟",
+                "_id": "16a41b8cddc767f444e773b3582a8dc0",
+                "video-type": "regular"
+            },
+            "id": "16a41b8cddc767f444e773b3582a8dc0",
+            "value": {
+                "rev": "3-55d4ed63dc3dcb25b5eebe8ea9410428"
+            }
         }
     ],
     "total_rows": 335,
