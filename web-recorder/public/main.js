@@ -79,21 +79,7 @@ function makeHTML(theData){
 }
 
 function saveData(obj){
-	$.ajax({
-		url: '/save',
-		type: 'POST',
-		contentType: 'application/json',
-		data: JSON.stringify(obj),
-		error: function(resp){
-			console.log("Oh no...");
-			console.log(resp);
-		},
-		success: function(resp){
-			console.log('WooHoo!');
-			console.log(resp);
-			getAllData();
-		}
-	});
+  //TODO: replace with code to add entries to JSON on the go from browser
 }
 
 
@@ -124,6 +110,7 @@ function setPlayEvent(data){
 				return d.index == data.index;
 			});
 			console.log("we are PLAYING " + data.index);
+      //TODO: maybe you need to update the following video name
 			//Change a value
 			var play_video_name= this_character + "-videos/" + this_character+"_" + data.index +
                             "_"+ theObj._id + ".mp4";
@@ -165,21 +152,7 @@ function setUpdateEvent(data){
 function sendUpdateRequest(obj){
 	$('#questionContainer').html('<div id="loading">Data is being updated...</div>');
 	console.log(obj);
-	$.ajax({
-		url: '/update',
-		type: 'POST',
-		contentType: 'application/json',
-		data: JSON.stringify(obj),
-		error: function(resp){
-			console.log("Oh no...");
-			console.log(resp);
-		},
-		success: function(resp){
-			console.log('Updated!');
-			console.log(resp);
-			getAllData();
-		}
-	});
+  //TODO: add replace entry in Json here
 }
 
 
@@ -201,38 +174,7 @@ function sendDeleteRequest(obj){
 	if (!conf) return;
 	//Proceed if confirm is true
 	$('#dataContainer').html('<div id="loading">Data is being deleted...</div>');
-	$.ajax({
-		url: '/delete',
-		type: 'POST',
-		contentType: 'application/json',
-		data: JSON.stringify(obj),
-		error: function(resp){
-			console.log("Oh no...");
-			console.log(resp);
-		},
-		success: function(resp){
-			console.log('Deleted!');
-			console.log(resp);
-			getAllData();
-
-			/*----------------------------------------
-			//ALT APPROACH - Avoid extra request to db
-			//Remove deleted obj from allData array
-			allData = _.reject(allData, function(d){
-				return d._id == obj._id;
-			});
-			//Clear out current data on the page if any
-			$('#dataContainer').html('');
-			var htmlString = makeHTML(allData);
-			$('#dataContainer').append(htmlString);
-			//Bind events to each object
-			allData.forEach(function(d){
-				setDeleteEvent(d);
-				setUpdateEvent(d);
-			});
-			----------------------------------------*/
-		}
-	});
+  //TODO: fill in deleting entry in JSON file
 }
 
 $(document).ready(function(){
