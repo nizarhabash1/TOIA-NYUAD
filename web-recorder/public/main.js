@@ -46,8 +46,6 @@ $.ajax({
 			allData.forEach(function(d){
 				setDeleteEvent(d);
 				setUpdateEvent(d);
-				// d.blob="";
-				// setUpdateBlobEvent(d);
 				setSaveEvent(d);
 				setPlayEvent(d);
 			});
@@ -78,8 +76,6 @@ function makeHTML(theData){
 			htmlString += '<button id=' + 'save_' + d.doc.index + ' class="saveButton">SAVE</button>';
 			htmlString += '<button id=' + 'play_' + d.doc.index + ' class="playButton" style="display:none">PLAY</button>';
 		}
-
-
 
 		// var blob_id = "blob_" + d.index;
 		// htmlString += '<button id=' + blob_id + ' class="playBackButton">PLAYBACK</button>';
@@ -118,9 +114,10 @@ function setSaveEvent(data){
 			console.log("we are SAVING " + data.doc.index);
 			//Change a value
 			this_video_name= this_character + "_" + data.doc.index +
-                            "_"+ theObj._id + ".mp4";
+                            "_.mp4";
 			$("#save-to-disk").trigger('click');
-			theObj.video = this_video_name;
+      //TODO:Please add this line back with correct format
+			// theObj.video = this_video_name;
 			sendUpdateRequest(theObj);
 
 
@@ -142,8 +139,6 @@ function setPlayEvent(data){
             // gumVideo.play();
 			recordingPlayer.src = play_video_name;
 			recordingPlayer.play();
-
-
 	});
 }
 
@@ -193,35 +188,6 @@ function sendUpdateRequest(obj){
 		}
 	});
 }
-
-
-// function setUpdateBlobEvent(data){
-// 		var theID = '#blob' + data.index;
-// 		var theObj = _.find(allData, function(d){
-// 			return d.index == data.index;
-// 		});
-// 		recordingPlayer.src = theObj.blob;
-// }
-
-// function sendUpdateBlobRequest(obj){
-// 	$('#questionContainer').html('<div id="loading">Blob data is being updated...</div>');
-// 	console.log(obj);
-// 	$.ajax({
-// 		url: '/update',
-// 		type: 'POST',
-// 		contentType: 'application/json',
-// 		data: JSON.stringify(obj),
-// 		error: function(resp){
-// 			console.log("Oh no...");
-// 			console.log(resp);
-// 		},
-// 		success: function(resp){
-// 			console.log('Updated!');
-// 			console.log(resp);
-// 			getAllData();
-// 		}
-// 	});
-// }
 
 
 function setDeleteEvent(data){

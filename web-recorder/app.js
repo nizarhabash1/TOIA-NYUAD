@@ -54,12 +54,12 @@ app.use(bodyParser.json());
 // var cloudant_PASSWORD = 'af79f43826f9067910f4f08b6dea917be3a06abb';
 
 // Below is the cloudant database
-var cloudant_USER = 'mh3833';
-var cloudant_DB = 'toia';
-var cloudant_KEY = 'froactsingeoverfutyrecea';
-var cloudant_PASSWORD = '226b5468fc05661c704be400b468308d3d4fe291';
-
-var cloudant_URL = "https://" + cloudant_USER + ".cloudant.com/" + cloudant_DB;
+// var cloudant_USER = 'mh3833';
+// var cloudant_DB = 'toia';
+// var cloudant_KEY = 'froactsingeoverfutyrecea';
+// var cloudant_PASSWORD = '226b5468fc05661c704be400b468308d3d4fe291';
+//
+// var cloudant_URL = "https://" + cloudant_USER + ".cloudant.com/" + cloudant_DB;
 
 //Main Page Route - Show ALL data VIEW
 app.get("/", function(req, res){
@@ -102,52 +102,9 @@ app.post("/save", function(req,res){
 //Also a JSON Serving route (ALL Data)
 var all_json = require('../web-recorder/public/margarita2.json');
 
+// sort json here too
 app.get("/api/all", function(req,res){
-  //
-	// console.log('Making a db request for all entries');
-  // console.log(all_json);
   res.json(all_json);
-
-	// // Use the Request lib to GET the data in the CouchDB on Cloudant
-	// Request.get({
-	// 	url: cloudant_URL + "/_all_docs?include_docs=true",
-	// 	auth: {
-	// 		user: cloudant_KEY,
-	// 		pass: cloudant_PASSWORD
-	// 	},
-	// 	json: true
-	// },
-	// function (error, response, body){
-	// 	var theRows = body.rows;
-	// 	//Send the data
-	// 	res.json(theRows);
-	// });
-});
-
-app.get("/api/sorted", function(req, res) {
-	console.log('get dem sorts yay');
-	Request.post({
-		url: cloudant_URL + '/_find',
-		auth: {
-			user: cloudant_KEY,
-			pass: cloudant_PASSWORD
-		},
-		json: true,
-		body: sortQuery
-	},
-	function(err, response, body) {
-		// do shit
-		if (res.statusCode == 201 || res.statusCode == 200){
-			console.log("Updated!");
-			res.json(body);
-		}
-		else{
-			console.log("Uh oh...");
-			console.log("Error: " + res.statusCode);
-			res.send("Something went wrong...");
-		}
-	});
-
 });
 
 
