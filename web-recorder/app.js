@@ -29,6 +29,9 @@ var express = require("express");
 var Request = require('request');
 var bodyParser = require('body-parser');
 var _ = require('underscore');
+var jsonfile = require('jsonfile');
+var fs = require('fs')
+
 
 //Create an 'express' object
 var app = express();
@@ -61,7 +64,14 @@ app.get("/api/all", function(req,res){
   res.json(all_json);
 });
 
-
+app.post("/delete", function(req,res){
+	console.log("Deleting an object");
+	var theObj = req.body;
+  var file = '../web-recorder/testing_deleting.json'
+  jsonfile.writeFileSync(file,theObj,function(err){
+    console.error(err);
+  });
+});
 
 app.listen(3000);
 console.log('Express started on port 3000');

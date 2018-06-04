@@ -12,6 +12,9 @@
     "body-parser": "^1.18.3",
     "ejs": "*",
     "express": "^4.16.3",
+    "filesystem": "^1.0.1",
+    "fs": "0.0.1-security",
+    "jsonfile": "^4.0.0",
     "nodemon": "^1.13.3",
     "request": "^2.87.0",
     "underscore": "^1.9.0"

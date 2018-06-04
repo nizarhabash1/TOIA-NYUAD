@@ -597,16 +597,7 @@
     <script src="https://apis.google.com/js/client:plusone.js"></script>
 
     <!-- <script src="https://cdn.webrtc-experiment.com/getScreenId.js"></script> -->
-    <script>
-        var chromeMediaSource = 'screen';
-        window.addEventListener('message', function(message) {
-            if(message.origin.toString().indexOf(MY_DOMAIN) === -1) return;
-            chromeMediaSource = 'desktop';
-            if(typeof getScreenId == 'function' && !!message.data.sourceId) {
-                getScreenId(chromeMediaSource, message.data.sourceId);
-            }
-        });
-    </script>
+
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 
 var allData = [];
+var jsonData = [];
 var current_question_len;
 var new_question_index;
 var scroll_id;
@@ -26,12 +27,13 @@ $.ajax({
 			new_question_index = data.rows[current_question_len-1].doc.index+1;
 			console.log("new question index is " + new_question_index);
 			//You could do this on the server
+      jsonData = data;
 			allData = data.rows.map(function(d){
 				return d;
 			});
 			//Clear out current data on the page if any
 			$('#questionContainer').html('');
-      console.log("your all data  is ")
+      console.log("your all data is ")
       console.log(allData);
 			var htmlString = makeHTML(allData);
 
@@ -175,6 +177,23 @@ function setDeleteEvent(data){
     console.log(allData);
 
     //TODO: rewrite the allData object into the pre-existing json file at a specified location
+
+    $.ajax({
+		url: '/delete',
+		type: 'POST',
+		contentType: 'application/json',
+		data: JSON.stringify({"unicorn3":"rainbow3"}),
+		error: function(resp){
+			console.log("Oh no...");
+			console.log(resp);
+		},
+		success: function(resp){
+			console.log('Deleted!');
+			console.log(resp);
+			// getAllData();
+		}
+	});
+
 
 	});
 }
