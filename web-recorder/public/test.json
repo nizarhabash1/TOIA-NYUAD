@@ -1,0 +1,86 @@
+{
+    "rows": [
+        {
+            "key": "16a41b8cddc767f444e773b3582a6d1a",
+            "doc": {
+                "index": 3,
+                "arabic-answer": "اسمي مارغاريتا.",
+                "language": "English",
+                "english-question": "What's your name?",
+                "_rev": "3-f448a5b13e182f3a54314a6ed1554555",
+                "character": "margarita",
+                "video": "margarita_3_16a41b8cddc767f444e773b3582a6d1a.mp4",
+                "english-answer": "My name is Margarita",
+                "arabic-question": "ما اسمك؟",
+                "_id": "16a41b8cddc767f444e773b3582a6d1a",
+                "video-type": "regular"
+            },
+            "id": "16a41b8cddc767f444e773b3582a6d1a",
+            "value": {
+                "rev": "3-f448a5b13e182f3a54314a6ed1554555"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582a82b0",
+            "doc": {
+                "index": 18,
+                "arabic-answer": "أنا الأخت الصغرى.",
+                "language": "English",
+                "english-question": "Is your brother older or younger than you?",
+                "_rev": "3-2281131e01b7f8be222e85975419264c",
+                "character": "margarita",
+                "video": "margarita_18_16a41b8cddc767f444e773b3582a82b0.mp4",
+                "english-answer": "I am the younger sibling.",
+                "arabic-question": "هل أخوك أكبر أم أصغر منك في العمر؟",
+                "_id": "16a41b8cddc767f444e773b3582a82b0",
+                "video-type": "regular"
+            },
+            "id": "16a41b8cddc767f444e773b3582a82b0",
+            "value": {
+                "rev": "3-2281131e01b7f8be222e85975419264c"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582a8af9",
+            "doc": {
+                "index": 19,
+                "arabic-answer": "أخي أكبر مني في العمر.",
+                "language": "English",
+                "english-question": "Is your brother older or younger than you?",
+                "_rev": "3-6ab29d1c38f4dc2ce365cb14cd17745e",
+                "character": "margarita",
+                "video": "margarita_19_16a41b8cddc767f444e773b3582a8af9.mp4",
+                "english-answer": "My brother is older.",
+                "arabic-question": "هل أخوك أكبر أم أصغر منك في العمر؟",
+                "_id": "16a41b8cddc767f444e773b3582a8af9",
+                "video-type": "regular"
+            },
+            "id": "16a41b8cddc767f444e773b3582a8af9",
+            "value": {
+                "rev": "3-6ab29d1c38f4dc2ce365cb14cd17745e"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582a8dc0",
+            "doc": {
+                "index": 29,
+                "arabic-answer": "حسناً، تقدم جامعة نيويورك أبوظبي منحة دراسية جيدة كما أنها جامعة جيدة",
+                "language": "English",
+                "english-question": "Why did you choose to study at NYU Abu Dhabi?",
+                "_rev": "3-55d4ed63dc3dcb25b5eebe8ea9410428",
+                "character": "margarita",
+                "video": "margarita_29_16a41b8cddc767f444e773b3582a8dc0.mp4",
+                "english-answer": "Well, NYUAD offers a good scholarship and it's a good university.",
+                "arabic-question": "لماذا اخترت الدراسة في جامعة نيويورك أبوظبي؟",
+                "_id": "16a41b8cddc767f444e773b3582a8dc0",
+                "video-type": "regular"
+            },
+            "id": "16a41b8cddc767f444e773b3582a8dc0",
+            "value": {
+                "rev": "3-55d4ed63dc3dcb25b5eebe8ea9410428"
+            }
+        }
+    ],
+    "total_rows": 335,
+    "offset": 0
+}

@@ -388,8 +388,8 @@ btnStartRecording.onclick = function(event) {
         if(recorderType == WhammyRecorder || recorderType == GifRecorder) {
           options.canvas = options.video = {
             // UPDATE TO YOUR OWN RESOLUTION NEEDED
-            width: defaultWidth || 1920,
-            height: defaultHeight || 1080
+            width: defaultWidth || 640,
+            height: defaultHeight || 480
           };
         }
       }
@@ -418,6 +418,7 @@ btnStartRecording.onclick = function(event) {
       recordingPlayer.parentNode.parentNode.querySelector('h2').innerHTML = '<img src="https://cdn.webrtc-experiment.com/images/progress.gif">';
     };
   }
+}
 
 function captureAudioPlusVideo(config) {
   captureUserMedia({video: true, audio: true}, function(audioVideoStream) {
@@ -520,8 +521,8 @@ function getVideoResolutions(mediaConstraints) {
   // var value = select.value;
 
   // UPDATE TO YOUR OWN RESOLUTION
-  var value = "1920x1080";
-  // var value = "640x480";
+  // var value = "1920x1080";
+  var value = "640x480";
   // var value = "1280x720";
 
 
@@ -808,9 +809,9 @@ function saveToDiskOrOpenNewTab(recordRTC) {
       return d.index == current_selection_id;
     });
 
-
+    //TODO: add the following lines back
     /* getting the unique id for each entry from cloudant */
-    var database_unique_id = theObj._id;
+    // var database_unique_id = theObj._id;
 
     // this_video_name= "margarita_" + current_selection_id +
     //         "_"+ database_unique_id + ".mp4";
@@ -818,11 +819,11 @@ function saveToDiskOrOpenNewTab(recordRTC) {
     /* We need to update background based on the question just saved */
     /* We update the boolean value if we save a video */
 
-    finished_video_id = current_selection_id;
-    /* update the corresponding value in allData */
-    var clicked_index_in_allData = allData.indexOf(theObj);
-
-    allData[clicked_index_in_allData]["video_saved"] = true;
+    // finished_video_id = current_selection_id;
+    // /* update the corresponding value in allData */
+    // var clicked_index_in_allData = allData.indexOf(theObj);
+    //
+    // allData[clicked_index_in_allData]["video_saved"] = true;
 
     var file = new File([recordRTC.getBlob()], this_video_name, {
       type: mimeType
@@ -839,7 +840,7 @@ function getFileName(fileExtension) {
   var year = d.getUTCFullYear();
   var month = d.getUTCMonth();
   var date = d.getUTCDate();
-  return 'RecordRTC-' + year + month + date + '-' + getRandomString() + '.' + fileExtension;
+  return 'RecordRTC-';
 }
 
 function SaveFileURLToDisk(fileUrl, fileName) {
