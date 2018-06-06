@@ -22,7 +22,14 @@ import ssl
 
 import math
 
-# from textblob import TextBlob as tb
+from configparser import ConfigParser
+
+# Set up configuation connection.
+c = ConfigParser(allow_no_value=False)
+c.readfp(open('config.ini'))
+maxLength= c.get('customization','max_response')
+
+#maxLength=50
 
 try:
     _create_unverified_https_context = ssl._create_unverified_context
@@ -853,11 +860,11 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
 
     # for each possible answer, checks if it has been played it already, and subtract points from its score if has been played already.
     for res in videoResponses:
-        videoObjLen = characterModel.objectMap[res].questionLength + characterModel.objectMap[res].answerLength
+        videoObjLen = characterModel.objectMap[res].answerLength
         precision = videoResponses[res] / videoObjLen
         recall = videoResponses[res] / query_len
         f_score = (precision + recall) / 2
-        if (videoObjLen >50):
+        if (videoObjLen >int(maxLength)):
             videoResponses[res] = res/ videoObjLen
 
         if res in currentSession.repetitions.keys():
