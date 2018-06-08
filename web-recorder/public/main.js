@@ -35,12 +35,12 @@ $.ajax({
 			$('#questionContainer').html('');
       console.log("your all data is ")
       console.log(allData);
-			var htmlString = makeHTML(allData);
+			var htmlString = makeHTML(jsonData);
 
 			// console.log(htmlString);
 			$('#questionContainer').append(htmlString);
 			//Bind events to each object
-			allData.forEach(function(d){
+			jsonData.rows.forEach(function(d){
 				setDeleteEvent(d);
 				// setUpdateEvent(d);
 				// setSaveEvent(d);
@@ -59,7 +59,7 @@ $.ajax({
 function makeHTML(theData){
 
 	var htmlString = '<ul id="theDataList">';
-	theData.forEach(function(data_with_id_and_key){
+	theData.rows.forEach(function(data_with_id_and_key){
     d = data_with_id_and_key.doc;
 		htmlString += '<li id='+ d.index + '>' + d.index + '. ' + d['english-question']
 		+ ' <br> ' + d['english-answer'];
@@ -163,18 +163,16 @@ function setDeleteEvent(data){
 	var theID = '#' + data.id;
   // if the delete button is clicked
 	$(theID).click(function(){
-
-
-    $.each(allData,function(i){
-      if(allData[i].id == data.id){
-        var conf = confirm("Are you sure you want to delete '" + allData[i].doc["english-question"] + " : " + allData[i].doc["english-answer"] + "' ?");
+    $.each(jsonData.rows,function(i){
+      if(jsonData.rows[i].id == data.id){
+        var conf = confirm("Are you sure you want to delete '" + jsonData.rows[i].doc["english-question"] + " : " + jsonData.rows[i].doc["english-answer"] + "' ?");
         if (!conf) return;
-        allData.splice(i,1);
+        jsonData.rows.splice(i,1);
         return false;
       }
     })
     console.log("after deletion");
-    console.log(allData);
+    console.log(jsonData);
 
     //TODO: rewrite the allData object into the pre-existing json file at a specified location
 
@@ -182,7 +180,7 @@ function setDeleteEvent(data){
 		url: '/delete',
 		type: 'POST',
 		contentType: 'application/json',
-		data: JSON.stringify({"unicorn3":"rainbow3"}),
+		data: JSON.stringify(jsonData),
 		error: function(resp){
 			console.log("Oh no...");
 			console.log(resp);
