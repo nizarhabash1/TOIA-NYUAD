@@ -148,6 +148,7 @@ function setUpdateEvent(data){
 			sendDeleteOrUpdateRequest();
 			getAllData();
 		});
+	}
 
 
 function setDeleteEvent(data){
