@@ -21,30 +21,32 @@ $.ajax({
 
 			/* The length of the current database */
 			current_question_len = data.rows.length;
-			if(data.rows.length == 0) return;
-
-      console.log("data length is " + current_question_len);
-			/* If we add a question, the new index will be */
-			new_question_index = data.rows[current_question_len-1].doc.index+1;
-			console.log("new question index is " + new_question_index);
-			//You could do this on the server
-      jsonData = data;
-			//Clear out current data on the page if any
-			$('#questionContainer').html('');
-			var htmlString = makeHTML(jsonData);
-			$('#questionContainer').append(htmlString);
-			//Bind events to each object
-			jsonData.rows.forEach(function(d){
-				setDeleteEvent(d);
-				// setUpdateEvent(d);
-				// setSaveEvent(d);
-				// setPlayEvent(d);
-			});
+			if(data.rows.length == 0){
+				$('#questionContainer').innerText = "";
+			}
+			else{
+				/* If we add a question, the new index will be */
+				new_question_index = data.rows[current_question_len-1].doc.index+1;
+				console.log("new question index is " + new_question_index);
+				//You could do this on the server
+	      jsonData = data;
+				//Clear out current data on the page if any
+				$('#questionContainer').html('');
+				var htmlString = makeHTML(jsonData);
+				$('#questionContainer').append(htmlString);
+				//Bind events to each object
+				jsonData.rows.forEach(function(d){
+					setDeleteEvent(d);
+					// setUpdateEvent(d);
+					// setSaveEvent(d);
+					// setPlayEvent(d);
+				});
 			/* Scroll to last saved video */
 			// $('#questionContainer').animate({
 		  //       scrollTop: $(scroll_id).offset().top
 		  //   });
 		    //updateCharacter();
+			}
 		}
 	});
 
