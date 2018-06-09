@@ -1,7 +1,7 @@
 
 var jsonData = [];
 var current_question_len;
-var new_question_index;
+var UpdateJSONstion_index;
 var scroll_id;
 
 var this_character="test";
@@ -26,16 +26,10 @@ $.ajax({
 			}
 			else{
 				/* If we add a question, the new index will be */
-				new_question_index = data.rows[current_question_len-1].doc.index+1;
-				console.log("new question index is " + new_question_index);
+				UpdateJSONstion_index = data.rows[current_question_len-1].doc.index+1;
+				console.log("new question index is " + UpdateJSONstion_index);
 				//You could do this on the server
 	      jsonData = data;
-
-				// sort and update the json so objects are sorted based on index number
-				jsonData.rows.sort(function(a,b){
-					return a.doc.index - b.doc.index;
-				});
-				sendDeleteOrUpdateRequest();
 
 				//Clear out current data on the page if any
 				$('#questionContainer').html('');
@@ -149,7 +143,6 @@ function setUpdateEvent(data){
 				}
 			})
 			sendDeleteOrUpdateRequest();
-			getAllData();
 		});
 	}
 
@@ -167,7 +160,6 @@ function setDeleteEvent(data){
       }
     })
 		sendDeleteOrUpdateRequest();
-		getAllData();
 	});
 }
 
@@ -186,11 +178,9 @@ function sendDeleteOrUpdateRequest(){
 			console.log(resp);
 		}
 	});
+	getAllData();
 }
 
-function saveData(obj){
-  //TODO: replace with code to add entries to JSON on the go from browser
-}
 
 function addNewEntry(){
 	var newQuestion = $('#new-question').val();
@@ -199,25 +189,56 @@ function addNewEntry(){
 		alert("Please enter question and answer");
 	}
 	else{
-		/* update later */
+
+		// sort jsonData
+		jsonData.rows.sort(function(a,b){
+			return a.doc.index - b.doc.index;
+		});
+
+		// generate 32 digit unique id and unique rev
+		function s4() {
+			return Math.floor((1 + Math.random()) * 0x10000)
+				.toString(16)
+				.substring(1);
+		}
+		function unique_id(){
+			return s4()+s4()+s4()+s4()+s4()+s4()+s4()+s4();
+		}
+
+		var new_unique_id = unique_id();
+		var new_unique_rev = "3-" + unique_id();
+		// the new index number will be one increment from the largest one so far
+		var new_index_number = jsonData.rows[jsonData.rows.length-1].doc.index+1;
+
+		// currently defaulting to english
 		var data = {
-			index: new_question_index,
-				character:this_character,
-				video:"",
-				question:newQuestion,
-				answer:newAnswer
+			key:new_unique_id,
+			doc:{
+					index: new_index_number,
+					character:this_character,
+					video:"",
+					"english-question":newQuestion,
+					"english-answer":newAnswer,
+					"arabic-question":"",
+					"arabic-answer":"",
+					"video-type":"regular",
+					language:"English",
+					_id: new_unique_id,
+					_rev: new_unique_rev
+				},
+			id:new_unique_id,
+			value:{rev:new_unique_rev}
 		};
 
-		//TODO add this data to json addNewEntry
+		jsonData.rows.push(data);
+		console.log("inside add new entry");
+		sendDeleteOrUpdateRequest();
 
-		// questions[questions.length]=newQuestion;
-		// console.log(questions.length);
-		// console.log(data);
-		// saveData(data);
 		$('#new-question').val('');
 		$('#new-answer').val('');
+	}
 }
-}
+
 
 $(document).ready(function(){
 	if (page === 'get all data'){
@@ -226,5 +247,6 @@ $(document).ready(function(){
     //add new question here
     $("#add-question-button").click(function(){
 			addNewEntry();
+
     });
 });

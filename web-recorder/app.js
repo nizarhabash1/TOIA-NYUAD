@@ -49,7 +49,6 @@ app.use(bodyParser.json());
 
 //Main Page Route - Show ALL data VIEW
 app.get("/", function(req, res){
-	console.log(req.params);
 	res.render('index', {page: 'get all data'});
 });
 
@@ -62,7 +61,6 @@ app.get("/api/all", function(req,res){
 });
 
 app.post("/update", function(req,res){
-	console.log("Deleting or updating an object");
 	var theObj = req.body;
   jsonfile.writeFileSync(file,theObj,function(err){
     console.error(err);
