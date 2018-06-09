@@ -30,6 +30,13 @@ $.ajax({
 				console.log("new question index is " + new_question_index);
 				//You could do this on the server
 	      jsonData = data;
+
+				// sort and update the json so objects are sorted based on index number
+				jsonData.rows.sort(function(a,b){
+					return a.doc.index - b.doc.index;
+				});
+				sendDeleteOrUpdateRequest();
+
 				//Clear out current data on the page if any
 				$('#questionContainer').html('');
 				var htmlString = makeHTML(jsonData);
@@ -79,11 +86,7 @@ function makeHTML(theData){
 	return htmlString;
 }
 
-// function saveData(obj){
-//   //TODO: replace with code to add entries to JSON on the go from browser
-// }
-//
-//
+
 // function setSaveEvent(data){
 // 		var theID = '#save_' + data.doc.index;
 // 		scroll_id = '#save_' + data.doc.index;
@@ -185,35 +188,43 @@ function sendDeleteOrUpdateRequest(){
 	});
 }
 
-$(document).ready(function(){
+function saveData(obj){
+  //TODO: replace with code to add entries to JSON on the go from browser
+}
 
+function addNewEntry(){
+	var newQuestion = $('#new-question').val();
+	var newAnswer = $('#new-answer').val();
+	if(!newQuestion || !newAnswer){
+		alert("Please enter question and answer");
+	}
+	else{
+		/* update later */
+		var data = {
+			index: new_question_index,
+				character:this_character,
+				video:"",
+				question:newQuestion,
+				answer:newAnswer
+		};
+
+		//TODO add this data to json addNewEntry
+
+		// questions[questions.length]=newQuestion;
+		// console.log(questions.length);
+		// console.log(data);
+		// saveData(data);
+		$('#new-question').val('');
+		$('#new-answer').val('');
+}
+}
+
+$(document).ready(function(){
 	if (page === 'get all data'){
 		getAllData();
 	}
     //add new question here
     $("#add-question-button").click(function(){
-        var newQuestion = $('#new-question').val();
-        var newAnswer = $('#new-answer').val();
-        if(!newQuestion || !newAnswer){
-        	alert("Please enter question and answer");
-        }
-        else{
-	        var timeStamp = new Date();
-	        /* update later */
-	        var data = {
-	        	index: new_question_index,
-	            character:this_character,
-	            video:"",
-	            question:newQuestion,
-	            answer:newAnswer,
-	            date:timeStamp,
-	        };
-	        questions[questions.length]=newQuestion;
-	        console.log(questions.length);
-	        console.log(data);
-	        saveData(data);
-	        $('#new-question').val('');
-	        $('#new-answer').val('');
-	    }
+			addNewEntry();
     });
 });

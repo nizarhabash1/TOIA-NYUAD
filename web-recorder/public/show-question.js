@@ -4,8 +4,6 @@ var current_selection_id=null;
 var prev_selection_id=null;
 var finished_video_id = null;
 
-var questions = [];
-var answers = [];
 $(document).ready(function() {
     /* When a question is clicked, we need to change the background color of UI to blue and
         change the text color to white, we also need to keep track of which question it is */
