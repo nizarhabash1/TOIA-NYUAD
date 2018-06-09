@@ -99,14 +99,6 @@ function setSaveEvent(data){
 				}
 			})
 			sendUpdateJSONRequest();
-
-			// var theObj = _.find(jsonData.rows, function(d){
-			// 	return d.doc.index == data.doc.index;
-			// });
-
-      //TODO: UPDATE VIDEO NAME IN JSON FILE
-			// theObj.video = this_video_name;
-			// sendUpdateRequest(theObj);
 	});
 }
 
