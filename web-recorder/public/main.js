@@ -22,6 +22,7 @@ $.ajax({
 			/* The length of the current database */
 			current_question_len = data.rows.length;
 			if(data.rows.length == 0){
+				$('#questionContainer').html('');
 				$('#questionContainer').innerText = "";
 			}
 			else{
@@ -167,8 +168,6 @@ function setDeleteEvent(data){
         return false;
       }
     })
-    console.log("after deletion");
-    console.log(jsonData);
 
     //TODO: rewrite the allData object into the pre-existing json file at a specified location
 
