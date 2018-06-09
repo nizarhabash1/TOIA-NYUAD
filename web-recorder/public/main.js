@@ -85,14 +85,25 @@ function setSaveEvent(data){
 		var theID = '#save_' + data.doc.index;
 		scroll_id = '#save_' + data.doc.index;
 		$(theID).click(function(){
-			var theObj = _.find(jsonData.rows, function(d){
-				return d.index == data.doc.index;
-			});
-			console.log("we are SAVING " + data.doc.index);
-			//Change a value
-			this_video_name= this_character + "_" + data.doc.index +
-                            "_.mp4";
-			$("#save-to-disk").trigger('click');
+
+			$.each(jsonData.rows,function(i){
+				if(jsonData.rows[i].doc.index == data.doc.index){
+					console.log("we are SAVING " + data.doc.index);
+					// Update the video name to JSON database
+					this_video_name= this_character + "_" + data.doc.index +
+							"_" + data.id + ".mp4";
+					$("#save-to-disk").trigger('click');
+
+					jsonData.rows[i].doc["video"] = this_video_name;
+					return false;
+				}
+			})
+			sendUpdateJSONRequest();
+
+			// var theObj = _.find(jsonData.rows, function(d){
+			// 	return d.doc.index == data.doc.index;
+			// });
+
       //TODO: UPDATE VIDEO NAME IN JSON FILE
 			// theObj.video = this_video_name;
 			// sendUpdateRequest(theObj);
@@ -142,7 +153,7 @@ function setUpdateEvent(data){
 					return false;
 				}
 			})
-			sendDeleteOrUpdateRequest();
+			sendUpdateJSONRequest();
 		});
 	}
 
@@ -159,11 +170,11 @@ function setDeleteEvent(data){
         return false;
       }
     })
-		sendDeleteOrUpdateRequest();
+		sendUpdateJSONRequest();
 	});
 }
 
-function sendDeleteOrUpdateRequest(){
+function sendUpdateJSONRequest(){
 	$.ajax({
 		url: '/update',
 		type: 'POST',
@@ -232,7 +243,7 @@ function addNewEntry(){
 
 		jsonData.rows.push(data);
 		console.log("inside add new entry");
-		sendDeleteOrUpdateRequest();
+		sendUpdateJSONRequest();
 
 		$('#new-question').val('');
 		$('#new-answer').val('');
@@ -244,9 +255,8 @@ $(document).ready(function(){
 	if (page === 'get all data'){
 		getAllData();
 	}
-    //add new question here
+    //add new question and answer pair
     $("#add-question-button").click(function(){
 			addNewEntry();
-
     });
 });
