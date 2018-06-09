@@ -39,7 +39,7 @@ $.ajax({
 				jsonData.rows.forEach(function(d){
 					setDeleteEvent(d);
 					setUpdateEvent(d);
-					// setSaveEvent(d);
+					setSaveEvent(d);
 					// setPlayEvent(d);
 				});
 			/* Scroll to last saved video */
@@ -81,23 +81,23 @@ function makeHTML(theData){
 }
 
 
-// function setSaveEvent(data){
-// 		var theID = '#save_' + data.doc.index;
-// 		scroll_id = '#save_' + data.doc.index;
-// 		$(theID).click(function(){
-// 			var theObj = _.find(allData, function(d){
-// 				return d.index == data.doc.index;
-// 			});
-// 			console.log("we are SAVING " + data.doc.index);
-// 			//Change a value
-// 			this_video_name= this_character + "_" + data.doc.index +
-//                             "_.mp4";
-// 			$("#save-to-disk").trigger('click');
-//       //TODO:Please add this line back with correct format
-// 			// theObj.video = this_video_name;
-// 			sendUpdateRequest(theObj);
-// 	});
-// }
+function setSaveEvent(data){
+		var theID = '#save_' + data.doc.index;
+		scroll_id = '#save_' + data.doc.index;
+		$(theID).click(function(){
+			var theObj = _.find(jsonData.rows, function(d){
+				return d.index == data.doc.index;
+			});
+			console.log("we are SAVING " + data.doc.index);
+			//Change a value
+			this_video_name= this_character + "_" + data.doc.index +
+                            "_.mp4";
+			$("#save-to-disk").trigger('click');
+      //TODO: UPDATE VIDEO NAME IN JSON FILE
+			// theObj.video = this_video_name;
+			// sendUpdateRequest(theObj);
+	});
+}
 
 // function setPlayEvent(data){
 // 		var theID = '#play_' + data.index;
