@@ -12,7 +12,6 @@ $.ajax({
 		type: 'GET',
 		dataType: 'json',
 		error: function(data){
-			console.log(data);
 			alert("Oh No! Try a refresh?");
 		},
 		success: function(data){
@@ -38,7 +37,7 @@ $.ajax({
 				//Bind events to each object
 				jsonData.rows.forEach(function(d){
 					setDeleteEvent(d);
-					// setUpdateEvent(d);
+					setUpdateEvent(d);
 					// setSaveEvent(d);
 					// setPlayEvent(d);
 				});
@@ -135,25 +134,20 @@ function makeHTML(theData){
 // }
 
 //
-// function setUpdateEvent(data){
-// 		var theID = '#' + data._rev;
-// 		$(theID).click(function(){
-// 			var theObj = _.find(allData, function(d){
-// 				return d._rev == data._rev;
-// 			});
-// 			//Change a value
-// 			var promptVal = prompt('Enter a new answer to the question "' + theObj.question + '":');
-// 			if (!promptVal) return;
-// 			theObj.answer = promptVal;
-// 			sendUpdateRequest(theObj);
-// 	});
-// }
-//
-// function sendUpdateRequest(obj){
-// 	$('#questionContainer').html('<div id="loading">Data is being updated...</div>');
-// 	console.log(obj);
-//   //TODO: add replace entry in Json here
-// }
+function setUpdateEvent(data){
+		var theID = '#' + data.doc._rev;
+		$(theID).click(function(){
+			$.each(jsonData.rows,function(i){
+				if(jsonData.rows[i]._rev == data._rev){
+					var promptVal = prompt('Enter a new answer to the question "'
+					   + jsonData.rows[i].doc["english-question"] + '":');
+					jsonData.rows[i].doc["english-answer"] = promptVal;
+					return false;
+				}
+			})
+			sendDeleteOrUpdateRequest();
+			getAllData();
+		});
 
 
 function setDeleteEvent(data){
@@ -168,11 +162,14 @@ function setDeleteEvent(data){
         return false;
       }
     })
+		sendDeleteOrUpdateRequest();
+		getAllData();
+	});
+}
 
-    //TODO: rewrite the allData object into the pre-existing json file at a specified location
-
-    $.ajax({
-		url: '/delete',
+function sendDeleteOrUpdateRequest(){
+	$.ajax({
+		url: '/update',
 		type: 'POST',
 		contentType: 'application/json',
 		data: JSON.stringify(jsonData),
@@ -185,21 +182,7 @@ function setDeleteEvent(data){
 			console.log(resp);
 		}
 	});
-
-				getAllData();
-
-
-	});
 }
-
-// function sendDeleteRequest(obj){
-// 	//Make sure you want to delete
-// 	var conf = confirm("Are you sure you want to delete '" + obj.doc["english-question"] + " : " + obj.doc["english-answer"] + "' ?");
-// 	if (!conf) return;
-// 	//Proceed if confirm is true
-// 	$('#dataContainer').html('<div id="loading">Data is being deleted...</div>');
-//   //TODO: fill in deleting entry in JSON file
-// }
 
 $(document).ready(function(){
 

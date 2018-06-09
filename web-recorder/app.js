@@ -54,7 +54,6 @@ app.get("/", function(req, res){
 });
 
 
-
 //GET objects from the database
 //Also a JSON Serving route (ALL Data)
 // sort json here too
@@ -62,8 +61,8 @@ app.get("/api/all", function(req,res){
   res.json(jsonfile.readFileSync(file));
 });
 
-app.post("/delete", function(req,res){
-	console.log("Deleting an object");
+app.post("/update", function(req,res){
+	console.log("Deleting or updating an object");
 	var theObj = req.body;
   jsonfile.writeFileSync(file,theObj,function(err){
     console.error(err);
