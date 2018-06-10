@@ -101,25 +101,18 @@ function setSaveEvent(data){
 	});
 }
 
+// This function is called in camera.js after a blob file is recorded
 function triggerSaveRequest(this_file){
-	console.log("triggering save reqeust");
-	$.ajax({
-		url: '/save',
-		type: 'POST',
-		contentType: 'mp4',
-		data: "",
-		error: function(resp){
-			console.log("Oh no...");
-			console.log(resp);
-		},
-		success: function(resp){
-			console.log('Deleted!');
-			console.log(resp);
-		}
+	var fd = new FormData();
+	fd.append('upl', this_file, 'blobby.txt');
+	fetch('/save',
+	{
+	    method: 'post',
+	    body: fd
 	});
 }
 
-//TODO: fix play video
+// TODO: fix play video with correct folder directory and name
 function setPlayEvent(data){
 		var theID = '#play_' + data.doc.index;
 		$(theID).click(function(){

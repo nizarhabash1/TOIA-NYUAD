@@ -11,6 +11,8 @@ var _ = require('underscore');
 var jsonfile = require('jsonfile');
 var fs = require('fs')
 var file = '../web-recorder/public/test.json'
+var Buffer = require('buffer');
+var multer  = require('multer');
 
 //Create an 'express' object
 var app = express();
@@ -26,11 +28,14 @@ app.use(express.static(__dirname + '/public'));
 // Enable json body parsing of application/json
 app.use(bodyParser.json());
 
+
+var upload = multer({ dest: __dirname + '/public/uploads/' });
+var type = upload.single('upl');
+
 //Main Page Route - Show ALL data VIEW
 app.get("/", function(req, res){
 	res.render('index', {page: 'get all data'});
 });
-
 
 //GET objects from the database
 //Also a JSON Serving route (ALL Data)
@@ -46,13 +51,16 @@ app.post("/update", function(req,res){
   });
 });
 
-app.post("/save",function(req,res){
-  console.log(req.query);
-  fs.writeFile('message.txt', "hi", (err) => {
+// TODO: save videos under a specific avatar's directory
+// TODO: update video's name to match previous format and suffix
+app.post("/save",type, function(req,res){
+  console.log("your request is ");
+  console.log(req.file);
+  console.log(req.body);
+  fs.writeFile('test.webm', req.file, (err) => {
     if (err) throw err;
     console.log('The file has been saved!');
   });
-
 })
 
 app.listen(3000);
