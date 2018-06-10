@@ -805,7 +805,7 @@ function saveToDiskOrOpenNewTab(recordRTC) {
   document.querySelector('#save-to-disk').onclick = function() {
     if(!recordRTC) return alert('No recording found.');
 
-    var theObj = _.find(allData, function(d){
+    var theObj = _.find(jsonData.rows, function(d){
       return d.index == current_selection_id;
     });
 
@@ -927,11 +927,11 @@ function setVideoURL(arg, forceNonImage) {
     recordingPlayer.src = url;
     /* add an if statement here to check the selected is a thing but not a button */
     /* from current_selection_id we need to find the id in allData */
-    var theObj = _.find(allData, function(d){
-      return d.index == current_selection_id;
+    var theObj = _.find(jsonData.rows, function(d){
+      return d.doc.index == current_selection_id;
     });
 
-    var clicked_index_in_allData = allData.indexOf(theObj);
+    var clicked_index_in_allData = jsonData.rows.indexOf(theObj);
     /* display the corresponding playbackbutton button */
     // allData[clicked_index_in_allData].blob=url;
     // $('#blob_'+current_selection_id).show();

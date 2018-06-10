@@ -1,8 +1,7 @@
 
-var allData = [];
 var jsonData = [];
 var current_question_len;
-var new_question_index;
+var UpdateJSONstion_index;
 var scroll_id;
 
 var this_character="test";
@@ -13,7 +12,6 @@ $.ajax({
 		type: 'GET',
 		dataType: 'json',
 		error: function(data){
-			console.log(data);
 			alert("Oh No! Try a refresh?");
 		},
 		success: function(data){
@@ -22,35 +20,34 @@ $.ajax({
 
 			/* The length of the current database */
 			current_question_len = data.rows.length;
-      console.log("data length is " + current_question_len);
-			/* If we add a question, the new index will be */
-			new_question_index = data.rows[current_question_len-1].doc.index+1;
-			console.log("new question index is " + new_question_index);
-			//You could do this on the server
-      jsonData = data;
-			allData = data.rows.map(function(d){
-				return d;
-			});
-			//Clear out current data on the page if any
-			$('#questionContainer').html('');
-      console.log("your all data is ")
-      console.log(allData);
-			var htmlString = makeHTML(allData);
+			if(data.rows.length == 0){
+				$('#questionContainer').html('');
+				$('#questionContainer').innerText = "";
+			}
+			else{
+				/* If we add a question, the new index will be */
+				UpdateJSONstion_index = data.rows[current_question_len-1].doc.index+1;
+				console.log("new question index is " + UpdateJSONstion_index);
+				//You could do this on the server
+	      jsonData = data;
 
-			// console.log(htmlString);
-			$('#questionContainer').append(htmlString);
-			//Bind events to each object
-			allData.forEach(function(d){
-				setDeleteEvent(d);
-				// setUpdateEvent(d);
-				// setSaveEvent(d);
-				// setPlayEvent(d);
-			});
+				//Clear out current data on the page if any
+				$('#questionContainer').html('');
+				var htmlString = makeHTML(jsonData);
+				$('#questionContainer').append(htmlString);
+				//Bind events to each object
+				jsonData.rows.forEach(function(d){
+					setDeleteEvent(d);
+					setUpdateEvent(d);
+					setSaveEvent(d);
+					// setPlayEvent(d);
+				});
 			/* Scroll to last saved video */
 			// $('#questionContainer').animate({
 		  //       scrollTop: $(scroll_id).offset().top
 		  //   });
 		    //updateCharacter();
+			}
 		}
 	});
 
@@ -59,7 +56,7 @@ $.ajax({
 function makeHTML(theData){
 
 	var htmlString = '<ul id="theDataList">';
-	theData.forEach(function(data_with_id_and_key){
+	theData.rows.forEach(function(data_with_id_and_key){
     d = data_with_id_and_key.doc;
 		htmlString += '<li id='+ d.index + '>' + d.index + '. ' + d['english-question']
 		+ ' <br> ' + d['english-answer'];
@@ -83,28 +80,27 @@ function makeHTML(theData){
 	return htmlString;
 }
 
-// function saveData(obj){
-//   //TODO: replace with code to add entries to JSON on the go from browser
-// }
-//
-//
-// function setSaveEvent(data){
-// 		var theID = '#save_' + data.doc.index;
-// 		scroll_id = '#save_' + data.doc.index;
-// 		$(theID).click(function(){
-// 			var theObj = _.find(allData, function(d){
-// 				return d.index == data.doc.index;
-// 			});
-// 			console.log("we are SAVING " + data.doc.index);
-// 			//Change a value
-// 			this_video_name= this_character + "_" + data.doc.index +
-//                             "_.mp4";
-// 			$("#save-to-disk").trigger('click');
-//       //TODO:Please add this line back with correct format
-// 			// theObj.video = this_video_name;
-// 			sendUpdateRequest(theObj);
-// 	});
-// }
+
+function setSaveEvent(data){
+		var theID = '#save_' + data.doc.index;
+		scroll_id = '#save_' + data.doc.index;
+		$(theID).click(function(){
+
+			$.each(jsonData.rows,function(i){
+				if(jsonData.rows[i].doc.index == data.doc.index){
+					console.log("we are SAVING " + data.doc.index);
+					// Update the video name to JSON database
+					this_video_name= this_character + "_" + data.doc.index +
+							"_" + data.id + ".mp4";
+					$("#save-to-disk").trigger('click');
+
+					jsonData.rows[i].doc["video"] = this_video_name;
+					return false;
+				}
+			})
+			sendUpdateJSONRequest();
+	});
+}
 
 // function setPlayEvent(data){
 // 		var theID = '#play_' + data.index;
@@ -138,51 +134,44 @@ function makeHTML(theData){
 // }
 
 //
-// function setUpdateEvent(data){
-// 		var theID = '#' + data._rev;
-// 		$(theID).click(function(){
-// 			var theObj = _.find(allData, function(d){
-// 				return d._rev == data._rev;
-// 			});
-// 			//Change a value
-// 			var promptVal = prompt('Enter a new answer to the question "' + theObj.question + '":');
-// 			if (!promptVal) return;
-// 			theObj.answer = promptVal;
-// 			sendUpdateRequest(theObj);
-// 	});
-// }
-//
-// function sendUpdateRequest(obj){
-// 	$('#questionContainer').html('<div id="loading">Data is being updated...</div>');
-// 	console.log(obj);
-//   //TODO: add replace entry in Json here
-// }
+function setUpdateEvent(data){
+		var theID = '#' + data.doc._rev;
+		$(theID).click(function(){
+			$.each(jsonData.rows,function(i){
+				if(jsonData.rows[i]._rev == data._rev){
+					var promptVal = prompt('Enter a new answer to the question "'
+					   + jsonData.rows[i].doc["english-question"] + '":');
+					jsonData.rows[i].doc["english-answer"] = promptVal;
+					return false;
+				}
+			})
+			sendUpdateJSONRequest();
+		});
+	}
 
 
 function setDeleteEvent(data){
 	var theID = '#' + data.id;
   // if the delete button is clicked
 	$(theID).click(function(){
-
-
-    $.each(allData,function(i){
-      if(allData[i].id == data.id){
-        var conf = confirm("Are you sure you want to delete '" + allData[i].doc["english-question"] + " : " + allData[i].doc["english-answer"] + "' ?");
+    $.each(jsonData.rows,function(i){
+      if(jsonData.rows[i].id == data.id){
+        var conf = confirm("Are you sure you want to delete '" + jsonData.rows[i].doc["english-question"] + " : " + jsonData.rows[i].doc["english-answer"] + "' ?");
         if (!conf) return;
-        allData.splice(i,1);
+        jsonData.rows.splice(i,1);
         return false;
       }
     })
-    console.log("after deletion");
-    console.log(allData);
+		sendUpdateJSONRequest();
+	});
+}
 
-    //TODO: rewrite the allData object into the pre-existing json file at a specified location
-
-    $.ajax({
-		url: '/delete',
+function sendUpdateJSONRequest(){
+	$.ajax({
+		url: '/update',
 		type: 'POST',
 		contentType: 'application/json',
-		data: JSON.stringify({"unicorn3":"rainbow3"}),
+		data: JSON.stringify(jsonData),
 		error: function(resp){
 			console.log("Oh no...");
 			console.log(resp);
@@ -190,52 +179,76 @@ function setDeleteEvent(data){
 		success: function(resp){
 			console.log('Deleted!');
 			console.log(resp);
-			// getAllData();
 		}
 	});
-
-
-	});
+	getAllData();
 }
 
-// function sendDeleteRequest(obj){
-// 	//Make sure you want to delete
-// 	var conf = confirm("Are you sure you want to delete '" + obj.doc["english-question"] + " : " + obj.doc["english-answer"] + "' ?");
-// 	if (!conf) return;
-// 	//Proceed if confirm is true
-// 	$('#dataContainer').html('<div id="loading">Data is being deleted...</div>');
-//   //TODO: fill in deleting entry in JSON file
-// }
+
+function addNewEntry(){
+	var newQuestion = $('#new-question').val();
+	var newAnswer = $('#new-answer').val();
+	if(!newQuestion || !newAnswer){
+		alert("Please enter question and answer");
+	}
+	else{
+
+		// sort jsonData
+		jsonData.rows.sort(function(a,b){
+			return a.doc.index - b.doc.index;
+		});
+
+		// generate 32 digit unique id and unique rev
+		function s4() {
+			return Math.floor((1 + Math.random()) * 0x10000)
+				.toString(16)
+				.substring(1);
+		}
+		function unique_id(){
+			return s4()+s4()+s4()+s4()+s4()+s4()+s4()+s4();
+		}
+
+		var new_unique_id = unique_id();
+		var new_unique_rev = "3-" + unique_id();
+		// the new index number will be one increment from the largest one so far
+		var new_index_number = jsonData.rows[jsonData.rows.length-1].doc.index+1;
+
+		// currently defaulting to english
+		var data = {
+			key:new_unique_id,
+			doc:{
+					index: new_index_number,
+					character:this_character,
+					video:"",
+					"english-question":newQuestion,
+					"english-answer":newAnswer,
+					"arabic-question":"",
+					"arabic-answer":"",
+					"video-type":"regular",
+					language:"English",
+					_id: new_unique_id,
+					_rev: new_unique_rev
+				},
+			id:new_unique_id,
+			value:{rev:new_unique_rev}
+		};
+
+		jsonData.rows.push(data);
+		console.log("inside add new entry");
+		sendUpdateJSONRequest();
+
+		$('#new-question').val('');
+		$('#new-answer').val('');
+	}
+}
+
 
 $(document).ready(function(){
-
 	if (page === 'get all data'){
 		getAllData();
 	}
-    //add new question here
+    //add new question and answer pair
     $("#add-question-button").click(function(){
-        var newQuestion = $('#new-question').val();
-        var newAnswer = $('#new-answer').val();
-        if(!newQuestion || !newAnswer){
-        	alert("Please enter question and answer");
-        }
-        else{
-	        var timeStamp = new Date();
-	        /* update later */
-	        var data = {
-	        	index: new_question_index,
-	            character:this_character,
-	            video:"",
-	            question:newQuestion,
-	            answer:newAnswer,
-	            date:timeStamp,
-	        };
-	        questions[questions.length]=newQuestion;
-	        console.log(questions.length);
-	        console.log(data);
-	        saveData(data);
-	        $('#new-question').val('');
-	        $('#new-answer').val('');
-	    }
+			addNewEntry();
     });
 });

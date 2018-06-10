@@ -31,7 +31,7 @@ var bodyParser = require('body-parser');
 var _ = require('underscore');
 var jsonfile = require('jsonfile');
 var fs = require('fs')
-
+var file = '../web-recorder/public/test.json'
 
 //Create an 'express' object
 var app = express();
@@ -49,25 +49,19 @@ app.use(bodyParser.json());
 
 //Main Page Route - Show ALL data VIEW
 app.get("/", function(req, res){
-	console.log(req.params);
 	res.render('index', {page: 'get all data'});
 });
 
 
-
 //GET objects from the database
 //Also a JSON Serving route (ALL Data)
-var all_json = require('../web-recorder/public/test.json');
-
 // sort json here too
 app.get("/api/all", function(req,res){
-  res.json(all_json);
+  res.json(jsonfile.readFileSync(file));
 });
 
-app.post("/delete", function(req,res){
-	console.log("Deleting an object");
+app.post("/update", function(req,res){
 	var theObj = req.body;
-  var file = '../web-recorder/testing_deleting.json'
   jsonfile.writeFileSync(file,theObj,function(err){
     console.error(err);
   });
