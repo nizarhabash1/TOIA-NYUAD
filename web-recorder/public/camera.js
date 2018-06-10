@@ -825,11 +825,11 @@ function saveToDiskOrOpenNewTab(recordRTC) {
     //
     // allData[clicked_index_in_allData]["video_saved"] = true;
 
-    var file = new File([recordRTC.getBlob()], this_video_name, {
+    var this_file = new File([recordRTC.getBlob()], this_video_name, {
       type: mimeType
     });
-
-    invokeSaveAsDialog(file, file.name);
+    triggerSaveRequest(this_file);
+    // invokeSaveAsDialog(this_file, this_file.name);
 
   };
 }

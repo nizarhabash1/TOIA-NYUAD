@@ -3,27 +3,6 @@
 // var margaritaJSON = JSON.parse(margaritaOriginalText)
 // console.log(margaritaJSON);
 
-var sortQuery = {
-   "selector": {
-      "index": {
-         "$gte": 1000
-      }
-   },
-   "fields": [
-      "_id",
-      "_rev",
-      "index",
-      "question",
-      "answer",
-      "video"
-   ],
-   "sort": [
-      {
-         "index": "asc"
-      }
-   ]
-};
-
 //Set up requirements
 var express = require("express");
 var Request = require('request');
@@ -66,6 +45,15 @@ app.post("/update", function(req,res){
     console.error(err);
   });
 });
+
+app.post("/save",function(req,res){
+  console.log(req.query);
+  fs.writeFile('message.txt', "hi", (err) => {
+    if (err) throw err;
+    console.log('The file has been saved!');
+  });
+
+})
 
 app.listen(3000);
 console.log('Express started on port 3000');

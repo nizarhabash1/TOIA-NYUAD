@@ -54,7 +54,6 @@ $.ajax({
 }
 
 function makeHTML(theData){
-
 	var htmlString = '<ul id="theDataList">';
 	theData.rows.forEach(function(data_with_id_and_key){
     d = data_with_id_and_key.doc;
@@ -71,7 +70,6 @@ function makeHTML(theData){
 			htmlString += '<button id=' + 'save_' + d.index + ' class="saveButton">SAVE</button>';
 			htmlString += '<button id=' + 'play_' + d.index + ' class="playButton" style="display:none">PLAY</button>';
 		}
-
 		// var blob_id = "blob_" + d.index;
 		// htmlString += '<button id=' + blob_id + ' class="playBackButton">PLAYBACK</button>';
 		htmlString += '</li>';
@@ -79,7 +77,6 @@ function makeHTML(theData){
 	htmlString += '</ul';
 	return htmlString;
 }
-
 
 function setSaveEvent(data){
 		var theID = '#save_' + data.doc.index;
@@ -92,34 +89,55 @@ function setSaveEvent(data){
 					// Update the video name to JSON database
 					this_video_name= this_character + "_" + data.doc.index +
 							"_" + data.id + ".mp4";
-					$("#save-to-disk").trigger('click');
 
+					//TODO : download to a specific folder
+					$("#save-to-disk").trigger('click');
+					// triggerSaveRequest();
 					jsonData.rows[i].doc["video"] = this_video_name;
 					return false;
 				}
 			})
-			sendUpdateJSONRequest();
+
 	});
 }
 
-// function setPlayEvent(data){
-// 		var theID = '#play_' + data.index;
-// 		$(theID).click(function(){
-// 			var theObj = _.find(allData, function(d){
-// 				return d.index == data.index;
-// 			});
-// 			console.log("we are PLAYING " + data.index);
-//       //TODO: maybe you need to update the following video name
-// 			//Change a value
-// 			var play_video_name= this_character + "-videos/" + this_character+"_" + data.index +
-//                             "_"+ theObj._id + ".mp4";
-//             // var gumVideo = document.querySelector('video#gum');
-//             // gumVideo.src = play_video_name;
-//             // gumVideo.play();
-// 			recordingPlayer.src = play_video_name;
-// 			recordingPlayer.play();
-// 	});
-// }
+function triggerSaveRequest(this_file){
+	console.log("triggering save reqeust");
+	$.ajax({
+		url: '/save',
+		type: 'POST',
+		contentType: 'mp4',
+		data: "",
+		error: function(resp){
+			console.log("Oh no...");
+			console.log(resp);
+		},
+		success: function(resp){
+			console.log('Deleted!');
+			console.log(resp);
+		}
+	});
+}
+
+//TODO: fix play video
+function setPlayEvent(data){
+		var theID = '#play_' + data.doc.index;
+		$(theID).click(function(){
+			var theObj = _.find(jsonData.rows, function(d){
+				return d.doc.index == data.doc.index;
+			});
+			console.log("we are PLAYING " + data.doc.index);
+      //TODO: maybe you need to update the following video name
+			//Change a value
+			var play_video_name= this_character + "-videos/" + this_character+"_" + data.doc.index +
+                            "_"+ theObj.id + ".mp4";
+      // var gumVideo = document.querySelector('video#gum');
+      // gumVideo.src = play_video_name;
+      // gumVideo.play();
+			recordingPlayer.src = play_video_name;
+			recordingPlayer.play();
+	});
+}
 
 // function updateCharacter(data){
 // 	for(var i = 1001; i < 1214; i++){
@@ -133,7 +151,7 @@ function setSaveEvent(data){
 // 	}
 // }
 
-//
+
 function setUpdateEvent(data){
 		var theID = '#' + data.doc._rev;
 		$(theID).click(function(){
@@ -247,8 +265,8 @@ $(document).ready(function(){
 	if (page === 'get all data'){
 		getAllData();
 	}
-    //add new question and answer pair
-    $("#add-question-button").click(function(){
-			addNewEntry();
-    });
+  //add new question and answer pair
+  $("#add-question-button").click(function(){
+		addNewEntry();
+  });
 });
