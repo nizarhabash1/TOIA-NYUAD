@@ -104,7 +104,7 @@ function setSaveEvent(data){
 // This function is called in camera.js after a blob file is recorded
 function triggerSaveRequest(this_file){
 	var fd = new FormData();
-	fd.append('upl', this_file, 'blobby.txt');
+	fd.append('blob', this_file, 'blobby.mp4');
 	fetch('/save',
 	{
 	    method: 'post',

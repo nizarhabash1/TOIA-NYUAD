@@ -28,9 +28,21 @@ app.use(express.static(__dirname + '/public'));
 // Enable json body parsing of application/json
 app.use(bodyParser.json());
 
+// ADDED
 
-var upload = multer({ dest: __dirname + '/public/uploads/' });
-var type = upload.single('upl');
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './')
+  },
+  filename: function (req, file, cb) {
+    crypto.pseudoRandomBytes(16, function (err, raw) {
+      cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
+    });
+  }
+});
+
+var upload = multer({ dest: __dirname + '/public/uploads/' },{storage:storage});
+var type = upload.single('blob');
 
 //Main Page Route - Show ALL data VIEW
 app.get("/", function(req, res){
@@ -54,13 +66,12 @@ app.post("/update", function(req,res){
 // TODO: save videos under a specific avatar's directory
 // TODO: update video's name to match previous format and suffix
 app.post("/save",type, function(req,res){
-  console.log("your request is ");
-  console.log(req.file);
-  console.log(req.body);
-  fs.writeFile('test.webm', req.file, (err) => {
-    if (err) throw err;
-    console.log('The file has been saved!');
-  });
+  console.log("hello");
+  console.log(req.file.filename);
+  fs.rename(__dirname + '/public/uploads/' + req.file.filename, __dirname + '/public/uploads/testing.mp4', (err) => {
+      if (err) throw err;
+      console.log('Rename complete!');
+    });
 })
 
 app.listen(3000);

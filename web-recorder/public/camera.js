@@ -824,7 +824,10 @@ function saveToDiskOrOpenNewTab(recordRTC) {
     // var clicked_index_in_allData = allData.indexOf(theObj);
     //
     // allData[clicked_index_in_allData]["video_saved"] = true;
-    
+
+    console.log("your blob ")
+    console.log(recordRTC.getBlob());
+
     var this_file = new File([recordRTC.getBlob()], this_video_name, {
       type: mimeType
     });
