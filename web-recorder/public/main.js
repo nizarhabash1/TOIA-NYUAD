@@ -103,13 +103,16 @@ function setSaveEvent(data){
 
 // This function is called in camera.js after a blob file is recorded
 function triggerSaveRequest(this_file){
+	console.log("your file info is ");
+	console.log(this_file);
 	var fd = new FormData();
-	fd.append('blob', this_file, 'blobby.mp4');
+	fd.append('blob', this_file, this_video_name);
 	fetch('/save',
 	{
 	    method: 'post',
 	    body: fd
 	});
+
 }
 
 // TODO: fix play video with correct folder directory and name

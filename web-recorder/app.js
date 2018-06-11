@@ -66,9 +66,8 @@ app.post("/update", function(req,res){
 // TODO: save videos under a specific avatar's directory
 // TODO: update video's name to match previous format and suffix
 app.post("/save",type, function(req,res){
-  console.log("hello");
-  console.log(req.file.filename);
-  fs.rename(__dirname + '/public/uploads/' + req.file.filename, __dirname + '/public/uploads/testing.mp4', (err) => {
+  console.log(req.file);
+  fs.rename(__dirname + '/public/uploads/'  + req.file.filename, __dirname + '/public/uploads/' + req.file.originalname, (err) => {
       if (err) throw err;
       console.log('Rename complete!');
     });
