@@ -21,6 +21,7 @@ $.ajax({
 			/* The length of the current database */
 			current_question_len = data.rows.length;
 			if(data.rows.length == 0){
+				jsonData = data;
 				$('#questionContainer').html('');
 				$('#questionContainer').innerText = "";
 			}
@@ -194,11 +195,13 @@ function addNewEntry(){
 		alert("Please enter question and answer");
 	}
 	else{
-
+		console.log(jsonData.rows);
 		// sort jsonData
-		jsonData.rows.sort(function(a,b){
-			return a.doc.index - b.doc.index;
-		});
+		if(jsonData.length != 0){
+			jsonData.rows.sort(function(a,b){
+				return a.doc.index - b.doc.index;
+			});
+		}
 
 		// generate 32 digit unique id and unique rev
 		function s4() {
@@ -213,7 +216,12 @@ function addNewEntry(){
 		var new_unique_id = unique_id();
 		var new_unique_rev = "3-" + unique_id();
 		// the new index number will be one increment from the largest one so far
-		var new_index_number = jsonData.rows[jsonData.rows.length-1].doc.index+1;
+		if(jsonData.rows.length != 0){
+			var new_index_number = jsonData.rows[jsonData.rows.length-1].doc.index+1;
+		}
+		else{
+			new_index_number = 1;
+		}
 
 		// currently defaulting to english
 		var data = {
