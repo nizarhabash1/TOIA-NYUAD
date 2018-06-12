@@ -6,6 +6,7 @@ var scroll_id;
 
 var this_character="test";
 
+// Display all the question and answer entries retrieved from Node back-end
 function getAllData(){
 $.ajax({
 		url: '/api/all',
@@ -29,7 +30,6 @@ $.ajax({
 				/* If we add a question, the new index will be */
 				UpdateJSONstion_index = data.rows[current_question_len-1].doc.index+1;
 				console.log("new question index is " + UpdateJSONstion_index);
-				//You could do this on the server
 	      jsonData = data;
 
 				//Clear out current data on the page if any
@@ -43,6 +43,7 @@ $.ajax({
 					setSaveEvent(d);
 					setPlayEvent(d);
 				});
+			// TODO: add the following functionality back
 			/* Scroll to last saved video */
 			// $('#questionContainer').animate({
 		  //       scrollTop: $(scroll_id).offset().top
@@ -54,6 +55,7 @@ $.ajax({
 
 }
 
+// Making HTML texts based on information retrieved from JSON db
 function makeHTML(theData){
 	var htmlString = '<ul id="theDataList">';
 	theData.rows.forEach(function(data_with_id_and_key){
@@ -71,14 +73,16 @@ function makeHTML(theData){
 			htmlString += '<button id=' + 'save_' + d.index + ' class="saveButton">SAVE</button>';
 			htmlString += '<button id=' + 'play_' + d.index + ' class="playButton" style="display:none">PLAY</button>';
 		}
-		// var blob_id = "blob_" + d.index;
-		// htmlString += '<button id=' + blob_id + ' class="playBackButton">PLAYBACK</button>';
 		htmlString += '</li>';
 	});
 	htmlString += '</ul';
 	return htmlString;
 }
 
+// Setting save events for all the SAVE buttons on the page
+// If a save button is clicked, it will trigger camera.js
+// and fetch to save the video to local file system
+// as well as save the new video name to the JSON db
 function setSaveEvent(data){
 		var theID = '#save_' + data.doc.index;
 		scroll_id = '#save_' + data.doc.index;
@@ -92,11 +96,8 @@ function setSaveEvent(data){
 							"_" + data.doc._id + ".mp4";
 
 					$("#save-to-disk").trigger('click');
-
 					jsonData.rows[i].doc["video"] = this_video_name;
-
 					sendUpdateJSONRequest();
-
 					return false;
 				}
 			})
@@ -115,9 +116,9 @@ function triggerSaveRequest(this_file){
 	    method: 'post',
 	    body: fd
 	});
-
 }
 
+// Setting playback functionality for all the entries with videos recorded
 function setPlayEvent(data){
 		var theID = '#play_' + data.doc.index;
 
@@ -135,7 +136,7 @@ function setPlayEvent(data){
 	});
 }
 
-
+// Setting update functionality for avatar creater to update the answer of a question
 function setUpdateEvent(data){
 		var theID = '#' + data.doc._rev;
 
@@ -152,7 +153,7 @@ function setUpdateEvent(data){
 		});
 	}
 
-
+// Seeting deleting functionality for all question/ answer pairs
 function setDeleteEvent(data){
 	var theID = '#' + data.id;
   // if the delete button is clicked
@@ -169,6 +170,7 @@ function setDeleteEvent(data){
 	});
 }
 
+// Call this function when we need to sync the jsonData and write it to the actual JSON file
 function sendUpdateJSONRequest(){
 	$.ajax({
 		url: '/update',
@@ -187,7 +189,8 @@ function sendUpdateJSONRequest(){
 	getAllData();
 }
 
-
+// This function allows avatar makers to add new question and answer entry
+// Also sorts the jsonData
 function addNewEntry(){
 	var newQuestion = $('#new-question').val();
 	var newAnswer = $('#new-answer').val();
@@ -196,14 +199,14 @@ function addNewEntry(){
 	}
 	else{
 		console.log(jsonData.rows);
-		// sort jsonData
+		// sort jsonData, call this following lines if needed to sort jsonData
 		if(jsonData.length != 0){
 			jsonData.rows.sort(function(a,b){
 				return a.doc.index - b.doc.index;
 			});
 		}
 
-		// generate 32 digit unique id and unique rev
+		// s4 and unique_id generate 32 digit random characters for unique id and unique rev
 		function s4() {
 			return Math.floor((1 + Math.random()) * 0x10000)
 				.toString(16)
@@ -223,6 +226,7 @@ function addNewEntry(){
 			new_index_number = 1;
 		}
 
+		// TODO: get the language option from avatar maker
 		// currently defaulting to english
 		var data = {
 			key:new_unique_id,

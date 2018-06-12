@@ -1,8 +1,3 @@
-// var fs = require('fs');
-// var margaritaOriginalText = fs.readFileSync('public/avatar-json/margarita.json');
-// var margaritaJSON = JSON.parse(margaritaOriginalText)
-// console.log(margaritaJSON);
-
 //Set up requirements
 var express = require("express");
 var Request = require('request');
@@ -10,6 +5,7 @@ var bodyParser = require('body-parser');
 var _ = require('underscore');
 var jsonfile = require('jsonfile');
 var fs = require('fs')
+// Change this file to actual json file!
 var file = '../web-recorder/public/test.json'
 var Buffer = require('buffer');
 var multer  = require('multer');
@@ -27,8 +23,6 @@ app.use(express.static(__dirname + '/public'));
 
 // Enable json body parsing of application/json
 app.use(bodyParser.json());
-
-// ADDED
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -56,6 +50,7 @@ app.get("/api/all", function(req,res){
   res.json(jsonfile.readFileSync(file));
 });
 
+// Update an answer entry in the JSON database
 app.post("/update", function(req,res){
 	var theObj = req.body;
   jsonfile.writeFileSync(file,theObj,function(err){
@@ -63,6 +58,7 @@ app.post("/update", function(req,res){
   });
 });
 
+// Save a recorded video in the file system as specified by multer upload, see above
 app.post("/save",type, function(req,res){
   console.log(req.file);
   fs.rename(__dirname + '/public/uploads/'  + req.file.filename, __dirname + '/public/uploads/' + req.file.originalname, (err) => {
