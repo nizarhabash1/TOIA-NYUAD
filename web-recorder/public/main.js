@@ -125,7 +125,7 @@ function setPlayEvent(data){
 			console.log("we are PLAYING " + data.doc.index);
 
 			var play_video_name= "uploads/" + this_character+"_" + data.doc.index +
-                            "_"+ theObj.doc.id + ".mp4";
+                            "_"+ theObj.doc._id + ".mp4";
 
 			recordingPlayer.src = play_video_name;
 			recordingPlayer.play();
