@@ -88,7 +88,7 @@ function setSaveEvent(data){
 					console.log("we are SAVING " + data.doc.index);
 					// Update the video name to JSON database
 					this_video_name= this_character + "_" + data.doc.index +
-							"_" + data.doc.id + ".mp4";
+							"_" + data.doc._id + ".mp4";
 
 					$("#save-to-disk").trigger('click');
 
