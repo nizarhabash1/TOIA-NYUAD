@@ -40,7 +40,7 @@ $.ajax({
 					setDeleteEvent(d);
 					setUpdateEvent(d);
 					setSaveEvent(d);
-					// setPlayEvent(d);
+					setPlayEvent(d);
 				});
 			/* Scroll to last saved video */
 			// $('#questionContainer').animate({
@@ -88,11 +88,10 @@ function setSaveEvent(data){
 					console.log("we are SAVING " + data.doc.index);
 					// Update the video name to JSON database
 					this_video_name= this_character + "_" + data.doc.index +
-							"_" + data.id + ".mp4";
+							"_" + data.doc.id + ".mp4";
 
-					//TODO : download to a specific folder
 					$("#save-to-disk").trigger('click');
-					// triggerSaveRequest();
+
 					jsonData.rows[i].doc["video"] = this_video_name;
 					return false;
 				}
@@ -116,6 +115,7 @@ function triggerSaveRequest(this_file){
 }
 
 // TODO: fix play video with correct folder directory and name
+
 function setPlayEvent(data){
 		var theID = '#play_' + data.doc.index;
 		$(theID).click(function(){
@@ -125,8 +125,8 @@ function setPlayEvent(data){
 			console.log("we are PLAYING " + data.doc.index);
       //TODO: maybe you need to update the following video name
 			//Change a value
-			var play_video_name= this_character + "-videos/" + this_character+"_" + data.doc.index +
-                            "_"+ theObj.id + ".mp4";
+			var play_video_name= "uploads/" + this_character+"_" + data.doc.index +
+                            "_"+ theObj.doc.id + ".mp4";
       // var gumVideo = document.querySelector('video#gum');
       // gumVideo.src = play_video_name;
       // gumVideo.play();
@@ -134,18 +134,6 @@ function setPlayEvent(data){
 			recordingPlayer.play();
 	});
 }
-
-// function updateCharacter(data){
-// 	for(var i = 1001; i < 1214; i++){
-// 		var theObj = _.find(allData, function(d){
-// 				return d.index == i;
-// 			});
-// 		if(theObj){
-// 			//theObj.character="katarina";
-// 			// sendUpdateRequest(theObj);
-// 		}
-// 	}
-// }
 
 
 function setUpdateEvent(data){
