@@ -94,6 +94,9 @@ function setSaveEvent(data){
 					$("#save-to-disk").trigger('click');
 
 					jsonData.rows[i].doc["video"] = this_video_name;
+
+					sendUpdateJSONRequest();
+
 					return false;
 				}
 			})
