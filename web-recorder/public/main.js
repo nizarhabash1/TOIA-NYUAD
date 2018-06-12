@@ -115,22 +115,18 @@ function triggerSaveRequest(this_file){
 
 }
 
-// TODO: fix play video with correct folder directory and name
-
 function setPlayEvent(data){
 		var theID = '#play_' + data.doc.index;
+
 		$(theID).click(function(){
 			var theObj = _.find(jsonData.rows, function(d){
 				return d.doc.index == data.doc.index;
 			});
 			console.log("we are PLAYING " + data.doc.index);
-      //TODO: maybe you need to update the following video name
-			//Change a value
+
 			var play_video_name= "uploads/" + this_character+"_" + data.doc.index +
                             "_"+ theObj.doc.id + ".mp4";
-      // var gumVideo = document.querySelector('video#gum');
-      // gumVideo.src = play_video_name;
-      // gumVideo.play();
+
 			recordingPlayer.src = play_video_name;
 			recordingPlayer.play();
 	});
@@ -139,9 +135,10 @@ function setPlayEvent(data){
 
 function setUpdateEvent(data){
 		var theID = '#' + data.doc._rev;
+
 		$(theID).click(function(){
 			$.each(jsonData.rows,function(i){
-				if(jsonData.rows[i]._rev == data._rev){
+				if(jsonData.rows[i].doc._rev == data.doc._rev){
 					var promptVal = prompt('Enter a new answer to the question "'
 					   + jsonData.rows[i].doc["english-question"] + '":');
 					jsonData.rows[i].doc["english-answer"] = promptVal;
