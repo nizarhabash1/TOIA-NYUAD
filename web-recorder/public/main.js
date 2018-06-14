@@ -242,6 +242,43 @@ function addNewEntry(){
 	}
 }
 
+$("#scriptType").submit(function(e) {
+	console.log("HI");
+    e.preventDefault();
+});
+
+$("#templateType").submit(function(e) {
+	console.log("YOS");
+    e.preventDefault();
+});
+
+function scriptOptions(){
+	var scriptType = document.querySelector('input[name="script"]:checked').value;
+	document.getElementById("scriptType").style.display= "none";
+    if(scriptType === "Scratch") {
+    	var empty_dict={};
+    	document.getElementById("scratchScript").style.display="";
+    } else if (scriptType === "Template") {
+    	document.getElementById("templateScript").style.display="";
+    } else if (scriptType === "Continue") {
+    	document.getElementById("continueScript").style.display="";
+    }
+}
+
+function templateOptions(){
+	var templateType = document.querySelector('input[name="template"]:checked').value;
+	document.getElementById("templateType").style.display= "none";
+    if(templateType === "FactualEnglish") {
+    	
+    } else if (templateType === "NarrativeEnglish") {
+
+    } else if (templateType === "FactualArabic") {
+
+    } else if (templateType === "NarrativeArabic") {
+
+    }
+}
+
 
 $(document).ready(function(){
 	if (page === 'get all data'){
@@ -252,3 +289,12 @@ $(document).ready(function(){
 			addNewEntry();
     });
 });
+
+
+$("#selectFiles").change(function() {
+  filename = this.files[0].name;
+  console.log(filename);
+});
+
+
+

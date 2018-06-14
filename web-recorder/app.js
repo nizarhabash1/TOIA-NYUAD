@@ -52,6 +52,11 @@ app.get("/", function(req, res){
 	res.render('index', {page: 'get all data'});
 });
 
+//Script Page Route - Show ALL data VIEW
+app.get("/script", function(req, res){
+  res.render('pick-script', {page: 'get all data'});
+});
+
 
 //GET objects from the database
 //Also a JSON Serving route (ALL Data)
