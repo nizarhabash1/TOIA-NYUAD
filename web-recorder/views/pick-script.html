@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TOIA Recorder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <link rel="stylesheet" href="https://cdn.webrtc-experiment.com/style.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="http://gregfranko.com/jquery.selectBoxIt.js/css/jquery.selectBoxIt.css" />
+
+
+    <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+
+    <!-- for Edge/FF/Chrome/Opera/etc. getUserMedia support -->
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="https://cdn.webrtc-experiment.com/DetectRTC.js"> </script>
+
+    <!-- video element -->
+    <link href="https://cdn.webrtc-experiment.com/getHTMLMediaElement.css" rel="stylesheet">
+    <script src="https://cdn.webrtc-experiment.com/getHTMLMediaElement.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <script src="main.js"></script>
+
+    <!-- <script src="http://gregfranko.com/jquery.selectBoxIt.js/js/jquery.selectBoxIt.min.js"></script> -->
+</head>
+
+<body>
+    <div>
+        <header style="text-align: center;">
+            <h1>
+                TOIA Recording
+            </h1>
+        </header>
+        <br>
+        <form id="scriptType" onsubmit="scriptOptions(); return false;"" style="padding-left:50px;">
+          <legend> Pick your script type: </legend>
+          <input type="radio" name="script" value="Scratch"> Start script from scratch<br>
+          <input type="radio" name="script" value="Template" > Pick template script<br>
+          <input type="radio" name="script" value="Continue" > Continue working on previous script<br>
+          <br>
+          <input type="submit" value="Submit"></input>
+        </form>
+        <div id="continueScript" style="padding-left:50px; display:none">
+          <label for="selectFiles" class="btn" style="text-align:center;" >Select Script</label>
+          <input type="file" id="selectFiles" style="display:none; text-align:center;" value="Import" /><br/>
+          <button id="import">Import Script</button>
+        </div>
+        <div id="scratchScript" style="padding-left:50px; display: none">
+          <p> You just created a script from scratch! </p>
+        </div>
+        <div id="templateScript" style="display:none">
+          <form id="templateType" onsubmit="templateOptions(); return false;"" style="padding-left:50px;">
+            <legend> Pick your template script: </legend>
+            <input type="radio" name="template" value="FactualEnglish"> Factual Script in English <br>
+            <input type="radio" name="template" value="NarrativeEnglish"> Narrative Script in English <br>
+            <input type="radio" name="template" value="FactualArabic"> Factual Script in Arabic <br>
+            <input type="radio" name="template" value="NarrativeArabic"> Factual Script in Arabic <br>
+            <br>
+            <input type="submit"value="Submit"></input>
+          </form>
+        </div>
+
+
+    </div>
+    <script src="https://apis.google.com/js/client:plusone.js"></script>
+    <!-- <script src="https://cdn.webrtc-experiment.com/getScreenId.js"></script> -->
+</body>
+</html>

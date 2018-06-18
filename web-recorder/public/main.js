@@ -6,6 +6,7 @@ var scroll_id;
 
 var this_character="test";
 
+// Display all the question and answer entries retrieved from Node back-end
 function getAllData(){
 $.ajax({
 		url: '/api/all',
@@ -21,6 +22,7 @@ $.ajax({
 			/* The length of the current database */
 			current_question_len = data.rows.length;
 			if(data.rows.length == 0){
+				jsonData = data;
 				$('#questionContainer').html('');
 				$('#questionContainer').innerText = "";
 			}
@@ -28,7 +30,6 @@ $.ajax({
 				/* If we add a question, the new index will be */
 				UpdateJSONstion_index = data.rows[current_question_len-1].doc.index+1;
 				console.log("new question index is " + UpdateJSONstion_index);
-				//You could do this on the server
 	      jsonData = data;
 
 				//Clear out current data on the page if any
@@ -40,8 +41,9 @@ $.ajax({
 					setDeleteEvent(d);
 					setUpdateEvent(d);
 					setSaveEvent(d);
-					// setPlayEvent(d);
+					setPlayEvent(d);
 				});
+			// TODO: add the following functionality back
 			/* Scroll to last saved video */
 			// $('#questionContainer').animate({
 		  //       scrollTop: $(scroll_id).offset().top
@@ -53,8 +55,8 @@ $.ajax({
 
 }
 
+// Making HTML texts based on information retrieved from JSON db
 function makeHTML(theData){
-
 	var htmlString = '<ul id="theDataList">';
 	theData.rows.forEach(function(data_with_id_and_key){
     d = data_with_id_and_key.doc;
@@ -71,16 +73,16 @@ function makeHTML(theData){
 			htmlString += '<button id=' + 'save_' + d.index + ' class="saveButton">SAVE</button>';
 			htmlString += '<button id=' + 'play_' + d.index + ' class="playButton" style="display:none">PLAY</button>';
 		}
-
-		// var blob_id = "blob_" + d.index;
-		// htmlString += '<button id=' + blob_id + ' class="playBackButton">PLAYBACK</button>';
 		htmlString += '</li>';
 	});
 	htmlString += '</ul';
 	return htmlString;
 }
 
-
+// Setting save events for all the SAVE buttons on the page
+// If a save button is clicked, it will trigger camera.js
+// and fetch to save the video to local file system
+// as well as save the new video name to the JSON db
 function setSaveEvent(data){
 		var theID = '#save_' + data.doc.index;
 		scroll_id = '#save_' + data.doc.index;
@@ -91,54 +93,56 @@ function setSaveEvent(data){
 					console.log("we are SAVING " + data.doc.index);
 					// Update the video name to JSON database
 					this_video_name= this_character + "_" + data.doc.index +
-							"_" + data.id + ".mp4";
-					$("#save-to-disk").trigger('click');
+							"_" + data.doc._id + ".mp4";
 
+					$("#save-to-disk").trigger('click');
 					jsonData.rows[i].doc["video"] = this_video_name;
+					sendUpdateJSONRequest();
 					return false;
 				}
 			})
-			sendUpdateJSONRequest();
+
 	});
 }
 
-// function setPlayEvent(data){
-// 		var theID = '#play_' + data.index;
-// 		$(theID).click(function(){
-// 			var theObj = _.find(allData, function(d){
-// 				return d.index == data.index;
-// 			});
-// 			console.log("we are PLAYING " + data.index);
-//       //TODO: maybe you need to update the following video name
-// 			//Change a value
-// 			var play_video_name= this_character + "-videos/" + this_character+"_" + data.index +
-//                             "_"+ theObj._id + ".mp4";
-//             // var gumVideo = document.querySelector('video#gum');
-//             // gumVideo.src = play_video_name;
-//             // gumVideo.play();
-// 			recordingPlayer.src = play_video_name;
-// 			recordingPlayer.play();
-// 	});
-// }
+// This function is called in camera.js after a blob file is recorded
+function triggerSaveRequest(this_file){
+	console.log("your file info is ");
+	console.log(this_file);
+	var fd = new FormData();
+	fd.append('blob', this_file, this_video_name);
+	fetch('/save',
+	{
+	    method: 'post',
+	    body: fd
+	});
+}
 
-// function updateCharacter(data){
-// 	for(var i = 1001; i < 1214; i++){
-// 		var theObj = _.find(allData, function(d){
-// 				return d.index == i;
-// 			});
-// 		if(theObj){
-// 			//theObj.character="katarina";
-// 			// sendUpdateRequest(theObj);
-// 		}
-// 	}
-// }
+// Setting playback functionality for all the entries with videos recorded
+function setPlayEvent(data){
+		var theID = '#play_' + data.doc.index;
 
-//
+		$(theID).click(function(){
+			var theObj = _.find(jsonData.rows, function(d){
+				return d.doc.index == data.doc.index;
+			});
+			console.log("we are PLAYING " + data.doc.index);
+
+			var play_video_name= "uploads/" + this_character+"_" + data.doc.index +
+                            "_"+ theObj.doc._id + ".mp4";
+
+			recordingPlayer.src = play_video_name;
+			recordingPlayer.play();
+	});
+}
+
+// Setting update functionality for avatar creater to update the answer of a question
 function setUpdateEvent(data){
 		var theID = '#' + data.doc._rev;
+
 		$(theID).click(function(){
 			$.each(jsonData.rows,function(i){
-				if(jsonData.rows[i]._rev == data._rev){
+				if(jsonData.rows[i].doc._rev == data.doc._rev){
 					var promptVal = prompt('Enter a new answer to the question "'
 					   + jsonData.rows[i].doc["english-question"] + '":');
 					jsonData.rows[i].doc["english-answer"] = promptVal;
@@ -149,7 +153,7 @@ function setUpdateEvent(data){
 		});
 	}
 
-
+// Seeting deleting functionality for all question/ answer pairs
 function setDeleteEvent(data){
 	var theID = '#' + data.id;
   // if the delete button is clicked
@@ -166,6 +170,7 @@ function setDeleteEvent(data){
 	});
 }
 
+// Call this function when we need to sync the jsonData and write it to the actual JSON file
 function sendUpdateJSONRequest(){
 	$.ajax({
 		url: '/update',
@@ -184,7 +189,8 @@ function sendUpdateJSONRequest(){
 	getAllData();
 }
 
-
+// This function allows avatar makers to add new question and answer entry
+// Also sorts the jsonData
 function addNewEntry(){
 	var newQuestion = $('#new-question').val();
 	var newAnswer = $('#new-answer').val();
@@ -192,13 +198,15 @@ function addNewEntry(){
 		alert("Please enter question and answer");
 	}
 	else{
+		console.log(jsonData.rows);
+		// sort jsonData, call this following lines if needed to sort jsonData
+		if(jsonData.length != 0){
+			jsonData.rows.sort(function(a,b){
+				return a.doc.index - b.doc.index;
+			});
+		}
 
-		// sort jsonData
-		jsonData.rows.sort(function(a,b){
-			return a.doc.index - b.doc.index;
-		});
-
-		// generate 32 digit unique id and unique rev
+		// s4 and unique_id generate 32 digit random characters for unique id and unique rev
 		function s4() {
 			return Math.floor((1 + Math.random()) * 0x10000)
 				.toString(16)
@@ -211,8 +219,14 @@ function addNewEntry(){
 		var new_unique_id = unique_id();
 		var new_unique_rev = "3-" + unique_id();
 		// the new index number will be one increment from the largest one so far
-		var new_index_number = jsonData.rows[jsonData.rows.length-1].doc.index+1;
+		if(jsonData.rows.length != 0){
+			var new_index_number = jsonData.rows[jsonData.rows.length-1].doc.index+1;
+		}
+		else{
+			new_index_number = 1;
+		}
 
+		// TODO: get the language option from avatar maker
 		// currently defaulting to english
 		var data = {
 			key:new_unique_id,
@@ -242,13 +256,59 @@ function addNewEntry(){
 	}
 }
 
+$("#scriptType").submit(function(e) {
+	console.log("HI");
+    e.preventDefault();
+});
+
+$("#templateType").submit(function(e) {
+	console.log("YOS");
+    e.preventDefault();
+});
+
+function scriptOptions(){
+	var scriptType = document.querySelector('input[name="script"]:checked').value;
+	document.getElementById("scriptType").style.display= "none";
+    if(scriptType === "Scratch") {
+    	var empty_dict={};
+    	document.getElementById("scratchScript").style.display="";
+    } else if (scriptType === "Template") {
+    	document.getElementById("templateScript").style.display="";
+    } else if (scriptType === "Continue") {
+    	document.getElementById("continueScript").style.display="";
+    }
+}
+
+function templateOptions(){
+	var templateType = document.querySelector('input[name="template"]:checked').value;
+	document.getElementById("templateType").style.display= "none";
+    if(templateType === "FactualEnglish") {
+    	
+    } else if (templateType === "NarrativeEnglish") {
+
+    } else if (templateType === "FactualArabic") {
+
+    } else if (templateType === "NarrativeArabic") {
+
+    }
+}
+
 
 $(document).ready(function(){
 	if (page === 'get all data'){
 		getAllData();
 	}
-    //add new question and answer pair
-    $("#add-question-button").click(function(){
-			addNewEntry();
-    });
+  //add new question and answer pair
+  $("#add-question-button").click(function(){
+		addNewEntry();
+  });
 });
+
+
+$("#selectFiles").change(function() {
+  filename = this.files[0].name;
+  console.log(filename);
+});
+
+
+
