@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>TOIA Recorder</title>
+    <title id="title">TOIA Recorder</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -32,22 +32,55 @@
 
 <body>
     <header style="text-align: center;">
-        <h1>
+        <h1 id="pageTitle">
             TOIA Recording
         </h1>
     </header>
-    <div id="selectScript" style="display:''">
-      <br>
-      <form id="scriptType" onsubmit="scriptOptions(); return false;"" style="padding-left:50px;">
-        <legend> Pick a script: </legend>
+    <br>
+    <div id="nameForSaving" style="display:none"></div>
+    <div id="selectAvatarType" style="display:''">
+      <form id="avatarType" onsubmit="avatarOptions(); return false;" style="padding-left:50px">
+        <legend> Pick an avatar type: </legend>
+        <label class="scriptRadio"><input type="radio" name="avatar" value="previousAvatar">Edit previously created avatar</label>
+        <label class="scriptRadio"><input type="radio" name="avatar" value="newAvatar">Create new avatar</label>
+        <br><br>
+        <input type="submit" value="Submit">
       </form>
     </div>
+
+    <div id="selectPrevious" style="display:none">
+      <form id="previousAvatar" onsubmit="chosenAvatar();" style="padding-left:50px;">
+        <legend> Which avatar do you want to work on? </legend>
+      </form>
+    </div>
+
+    <div id="selectScript" style="display:none">
+      <form id="nameAvatar" onsubmit="nameAvatar(); return false;" style="padding-left:50px; display: ''">
+        <legend> What do you want to call your avatar? </legend>
+        <input type="text" name="avatarName" id="avatarName">
+        <br> <br>
+        <input type="submit" value="Submit">
+      </form> 
+      <form id="scriptType" onsubmit="scriptOptions(); return false;" style="padding-left:50px; display: none">
+        <legend> Where do you want to start your avatar from? </legend>
+        <label class="scriptRadio"><input type="radio" name="script" value="scratch">Start avatar from scratch</label>
+        <label class="scriptRadio"><input type="radio" name="script" value="template-narrative">Start with a narrative template</label>
+        <label class="scriptRadio"><input type="radio" name="script" value="template-factual">Start with a factual template</label>
+        <br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
     <div id="recorder" style="display: none">
         <div class="row">
         <div class="col-sm-4" >
+            <div style="padding-left:50px; display:none" >
+              <p id="nameOfAvatar" style="font-weight: bold">Current avatar: </p>
+            </div>
             <div class = "left-column" id = "questionContainer"></div>
 <!--                 <ul size="10" class="question-column" id="left-container"></ul> -->
               <div class="add-question-container">
+                <button id="save-script">Save Script</button>
                 <div>
                   Question:<input type='text' id='new-question'/>
                 </div>

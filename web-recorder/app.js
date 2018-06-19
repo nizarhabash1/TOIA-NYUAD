@@ -1,14 +1,17 @@
 //Set up requirements
 var express = require("express");
 var Request = require('request');
+var mkdirp = require('mkdirp');
 var bodyParser = require('body-parser');
 var _ = require('underscore');
 var jsonfile = require('jsonfile');
-var fs = require('fs')
+var fs = require('fs');
 // Change this file to actual json file!
 //var file = '../web-recorder/public/test.json'
 
-var file = '../web-recorder/public/templates/template-narrative.json';
+// NEED TO FIGURE OUT HOW TO SAVE TO NEW FILE - ask user to give name and save to it
+// make button through which can save json file to new thing
+var file = '../web-recorder/public/templates/temp_file.json';
 var Buffer = require('buffer');
 var multer  = require('multer');
 
@@ -27,6 +30,8 @@ app.use(express.static(__dirname + '/public'));
 
 // Enable json body parsing of application/json
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}))
+
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -51,6 +56,7 @@ app.get("/", function(req, res){
 //Also a JSON Serving route (ALL Data)
 // sort json here too
 app.get("/api/all", function(req,res){
+  console.log(file);
   res.json(jsonfile.readFileSync(file));
 });
 
@@ -60,7 +66,7 @@ app.get("/script", function(req,res){
 
 app.get("/scripts", function(req,res){
   console.log("DID THIS");
-  const scriptFolder = './public/templates/';
+  const scriptFolder = './public/avatars/';
   const fs = require('fs');
   const scriptPaths = [];
   fs.readdir(scriptFolder, (err, files) => {
@@ -77,10 +83,14 @@ app.get("/scripts", function(req,res){
 });
 
 app.post("/filename", function(req,res) {
-  console.log("WTF");
   console.log(req.body.name);
-  file = '../web-recorder/public/templates/'+req.body.name;
+  file = req.body.name;
+  var fs = require('fs');
+  var json = JSON.parse(fs.readFileSync(file));
   console.log(file);
+  json = JSON.stringify(json);
+  fs.writeFile("../web-recorder/public/templates/temp_file.json",json);
+  file = "../web-recorder/public/templates/temp_file.json";
 });
 
 // Update an answer entry in the JSON database
@@ -88,6 +98,13 @@ app.post("/update", function(req,res){
 	var theObj = req.body;
   jsonfile.writeFileSync(file,theObj,function(err){
     console.error(err);
+  });
+});
+
+app.post("/makedir", function(req,res) {
+  var directoryName = req.body.name;
+  mkdirp('../web-recorder/public/avatars/'+directoryName, function(err) { 
+    console.log("MADE DIRECTORY");
   });
 });
 
@@ -99,6 +116,16 @@ app.post("/save",type, function(req,res){
       console.log('Rename complete!');
     });
 })
+
+app.post("/saveAvatar", function(req,res) {
+  console.log(req.body.name);
+  folder = req.body.name;
+  var json = jsonfile.readFileSync("../web-recorder/public/templates/temp_file.json");
+  json = JSON.stringify(json);
+  console.log(json);
+  var fs = require('fs');
+  fs.writeFile("../web-recorder/public/avatars/"+folder+"/script.json",json);
+});
 
 app.listen(3000);
 console.log('Express started on port 3000');
