@@ -99,7 +99,7 @@ function setSaveEvent(data){
 				if(jsonData.rows[i].doc.index == data.doc.index){
 					console.log("we are SAVING " + data.doc.index);
 					// Update the video name to JSON database
-					this_video_name= this_character + "_" + data.doc.index +
+					this_video_name= document.getElementById("nameForSaving").innerHTML + "_" + data.doc.index +
 							"_" + data.doc._id + ".mp4";
 
 					$("#save-to-disk").trigger('click');
@@ -135,7 +135,7 @@ function setPlayEvent(data){
 			});
 			console.log("we are PLAYING " + data.doc.index);
 
-			var play_video_name= "uploads/" + this_character+"_" + data.doc.index +
+			var play_video_name= "uploads/" + document.getElementById("nameForSaving").innerHTML+"_" + data.doc.index +
                             "_"+ theObj.doc._id + ".mp4";
 
 			recordingPlayer.src = play_video_name;
@@ -259,7 +259,7 @@ function addNewEntry(){
 			key:new_unique_id,
 			doc:{
 					index: new_index_number,
-					character:this_character,
+					character:document.getElementById("nameForSaving").innerHTML,
 					video:"",
 					"english-question":newQuestion,
 					"english-answer":newAnswer,
@@ -385,7 +385,7 @@ function scriptOptions(){
 	document.getElementById("recorder").style.display="";
 	scriptName = document.querySelector('input[name="script"]:checked').value;
 	if(scriptName === "scratch") {
-		scriptName = '../web-recorder/public/templates/new.json';
+		scriptName = '../web-recorder/public/templates/template-empty.json';
 	} else if(scriptName === "template-narrative") {
 		scriptName = '../web-recorder/public/templates/template-narrative.json';
 	} else if (scriptName === "template-factual") {
