@@ -28,7 +28,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
     <script src="main.js"></script>
-
     <!-- <script src="http://gregfranko.com/jquery.selectBoxIt.js/js/jquery.selectBoxIt.min.js"></script> -->
 </head>
 
@@ -41,12 +40,11 @@
         </header>
         <br>
         <form id="scriptType" onsubmit="scriptOptions(); return false;"" style="padding-left:50px;">
-          <legend> Pick your script type: </legend>
+          <legend> Pick a script: </legend>
           <input type="radio" name="script" value="Scratch"> Start script from scratch<br>
           <input type="radio" name="script" value="Template" > Pick template script<br>
           <input type="radio" name="script" value="Continue" > Continue working on previous script<br>
           <br>
-          <input type="submit" value="Submit"></input>
         </form>
         <div id="continueScript" style="padding-left:50px; display:none">
           <label for="selectFiles" class="btn" style="text-align:center;" >Select Script</label>
@@ -66,6 +64,9 @@
             <br>
             <input type="submit"value="Submit"></input>
           </form>
+        </div>
+        <div id="recorderButton" style="padding-left:50px; display:none">
+          <button onclick="goToRecorder()">Go to recorder</button>
         </div>
 
 

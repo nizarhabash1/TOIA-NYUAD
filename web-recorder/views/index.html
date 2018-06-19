@@ -31,12 +31,18 @@
 </head>
 
 <body>
-    <div>
-        <header style="text-align: center;">
-            <h1>
-                Katarina TOIA Recording
-            </h1>
-        </header>
+    <header style="text-align: center;">
+        <h1>
+            TOIA Recording
+        </h1>
+    </header>
+    <div id="selectScript" style="display:''">
+      <br>
+      <form id="scriptType" onsubmit="scriptOptions(); return false;"" style="padding-left:50px;">
+        <legend> Pick a script: </legend>
+      </form>
+    </div>
+    <div id="recorder" style="display: none">
         <div class="row">
         <div class="col-sm-4" >
             <div class = "left-column" id = "questionContainer"></div>
@@ -167,6 +173,8 @@
         <script src="buttons-script.js"></script>
         <script src="show-question.js"></script>
         <script src="main.js"></script>
+        <script> var exports = {}; </script>
+        <script src="filename.js"></script>
         <script>
       //Grab the response object var
             var page = '<%=page%>';

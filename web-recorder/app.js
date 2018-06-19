@@ -6,9 +6,13 @@ var _ = require('underscore');
 var jsonfile = require('jsonfile');
 var fs = require('fs')
 // Change this file to actual json file!
-var file = '../web-recorder/public/test.json'
+//var file = '../web-recorder/public/test.json'
+
+var file = '../web-recorder/public/templates/template-narrative.json';
 var Buffer = require('buffer');
 var multer  = require('multer');
+
+//console.log(main.file_name);
 
 //Create an 'express' object
 var app = express();
@@ -48,6 +52,35 @@ app.get("/", function(req, res){
 // sort json here too
 app.get("/api/all", function(req,res){
   res.json(jsonfile.readFileSync(file));
+});
+
+app.get("/script", function(req,res){
+  res.render('pick-script', {page: 'get all data'});
+});
+
+app.get("/scripts", function(req,res){
+  console.log("DID THIS");
+  const scriptFolder = './public/templates/';
+  const fs = require('fs');
+  const scriptPaths = [];
+  fs.readdir(scriptFolder, (err, files) => {
+    files.forEach(file => {
+      scriptPaths.push(String(file));
+      console.log(scriptPaths);
+      console.log(file);
+    });
+  })
+  setTimeout(function(){
+    console.log(scriptPaths);
+    res.send(JSON.stringify(scriptPaths));
+  }, 1000);
+});
+
+app.post("/filename", function(req,res) {
+  console.log("WTF");
+  console.log(req.body.name);
+  file = '../web-recorder/public/templates/'+req.body.name;
+  console.log(file);
 });
 
 // Update an answer entry in the JSON database

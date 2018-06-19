@@ -1,10 +1,9 @@
-
 var jsonData = [];
 var current_question_len;
 var UpdateJSONstion_index;
 var scroll_id;
-
-var this_character="test";
+var file_name = '../web-recorder/public/templates/template-narrative.json';
+var scriptName;
 
 // Display all the question and answer entries retrieved from Node back-end
 function getAllData(){
@@ -266,32 +265,86 @@ $("#templateType").submit(function(e) {
     e.preventDefault();
 });
 
+$("#selectScript").submit(function(e) {
+	console.log("HI");
+    e.preventDefault();
+});
+
+// Call this function when we need to sync the jsonData and write it to the actual JSON file
+function sendFileName(){
+	console.log("YEAH IN HERE");
+	console.log(scriptName);
+	var data_to_send={"name": scriptName};
+	$.ajax({
+		url: '/filename',
+		type: 'POST',
+		dataType: "json",
+		contentType: "application/json",
+		data: JSON.stringify(data_to_send),
+		error: function(resp){
+			console.log("Oh no...");
+			console.log(resp);
+		},
+		success: function(resp){
+			console.log('Sent file name!');
+			console.log(resp);
+		}
+	});
+	console.log("YEAH OUT OF HERE");
+	getAllData();
+}
+
 function scriptOptions(){
-	var scriptType = document.querySelector('input[name="script"]:checked').value;
-	document.getElementById("scriptType").style.display= "none";
-    if(scriptType === "Scratch") {
-    	var empty_dict={};
-    	document.getElementById("scratchScript").style.display="";
-    } else if (scriptType === "Template") {
-    	document.getElementById("templateScript").style.display="";
-    } else if (scriptType === "Continue") {
-    	document.getElementById("continueScript").style.display="";
-    }
+	document.getElementById("selectScript").style.display="none";
+	document.getElementById("recorder").style.display="";
+	scriptName = document.querySelector('input[name="script"]:checked').value;
+	console.log(scriptName);
+	sendFileName();
+	console.log("YO");
 }
 
-function templateOptions(){
-	var templateType = document.querySelector('input[name="template"]:checked').value;
-	document.getElementById("templateType").style.display= "none";
-    if(templateType === "FactualEnglish") {
-    	
-    } else if (templateType === "NarrativeEnglish") {
-
-    } else if (templateType === "FactualArabic") {
-
-    } else if (templateType === "NarrativeArabic") {
-
-    }
+function goToRecorder() {
+	window.location.replace("/");
 }
+
+function makeRadioButton(name, value, text) {
+	var label = document.createElement("label");
+	var radio = document.createElement("input");
+	radio.type = "radio";
+	radio.name = name;
+	radio.value = value;
+	label.appendChild(radio);
+	label.appendChild(document.createTextNode(text));
+	return label;
+}
+
+// Get the script names
+function getScripts(){
+$.ajax({
+		url: '/scripts',
+		type: 'GET',
+		datatype: 'json',
+		error: function(data){
+			alert("Oh No! Try a refresh?");
+		},
+		success: function(data){
+			console.log("We have data!");
+			console.log(data);
+			console.log(typeof data );
+			var data = JSON.parse(data);
+			console.log(data);
+			var scriptForm = document.getElementById("scriptType");
+			for (var i = 0; i < data.length; i++ ) {
+				var scriptName = makeRadioButton("script",data[i],data[i]);
+				scriptForm.appendChild(scriptName);
+				scriptForm.innerHTML += "<br>";
+			}
+			scriptForm.innerHTML += '<input type="submit" value="Submit"></input>';
+		}
+	});
+}
+
+getScripts();
 
 
 $(document).ready(function(){
@@ -303,7 +356,6 @@ $(document).ready(function(){
 		addNewEntry();
   });
 });
-
 
 $("#selectFiles").change(function() {
   filename = this.files[0].name;
