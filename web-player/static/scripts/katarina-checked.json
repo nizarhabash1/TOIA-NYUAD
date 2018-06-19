@@ -422,7 +422,8 @@
                 "video-type": "regular",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-answer": ""
             },
             "id": "3792386d3488216a787d3261b35cc8d3",
             "value": {
@@ -733,7 +734,8 @@
                 "video-type": "filler",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-answer": ""
             },
             "id": "3792386d3488216a787d3261b35d302e",
             "value": {
@@ -1761,7 +1763,8 @@
                 "video-type": "regular",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-answer": "فعالية نهاية الأسبوع للمرشحين كانت رائعة و عامل مهم في قراري بالقدوم إلى جامعة نيويورك أبوظبي"
             },
             "id": "9b069d234b0a3c903efacb8a87e9d6e4",
             "value": {
@@ -1808,7 +1811,8 @@
                 "video-type": "regular",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-answer": "لدى جامعة نيويورك أبوظبي ثلاثة حرم جامعية موجودة في كل من نيويورك و شانغهاي و أبوظبي. لديها أيضًا مراكز عالمية في واشنطن في الولايات المتحدة الأمريكي، بوينس ايريس في الأرجنتين، برلين في المانيا، فلورنسا في ايطاليا، لندن في انجلترا، مدريد في اسبانيا، باريس في فرنسا، براغ في التشيك، اكرا في غانا، سيدني في استراليا"
             },
             "id": "9b069d234b0a3c903efacb8a87e9f4e8",
             "value": {
@@ -2404,7 +2408,8 @@
                 "video-type": "regular",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-answer": "كان جميل جدًا"
             },
             "id": "9b069d234b0a3c903efacb8a87eabf6f",
             "value": {
@@ -3000,7 +3005,8 @@
                 "video-type": "regular",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-answer": ""
             },
             "id": "9cdeb3d285dab2c3a3acbbda9c574d9c",
             "value": {
@@ -3214,7 +3220,9 @@
                 "video-type": "filler",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-question": "اشربي الماء",
+                "arabic-answer": ""
             },
             "id": "9cdeb3d285dab2c3a3acbbda9c579320",
             "value": {
@@ -3236,7 +3244,9 @@
                 "video-type": "filler",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-question": "انظري حولك",
+                "arabic-answer": ""
             },
             "id": "cdc6248b097f84b68b97bc341f149911",
             "value": {
@@ -3858,7 +3868,8 @@
                 "video-type": "regular",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-question": "ما هي الفرص التي توفرها جامعة نيويورك أبوظبي للطلاب ليتمكنوا من التعرف على الإمارات"
             },
             "id": "ef1374bdef2fc36054292623a39bcfa3",
             "value": {
@@ -3882,7 +3893,8 @@
                 "video-type": "regular",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-question": "عدنما يجاملني أحد"
             },
             "id": "ef1374bdef2fc36054292623a39bd1b4",
             "value": {
@@ -3906,7 +3918,8 @@
                 "video-type": "regular",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-question": "عندما يجاملني أحد"
             },
             "id": "ef1374bdef2fc36054292623a39bd9bd",
             "value": {
@@ -4624,7 +4637,8 @@
                 "video-type": "regular",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-question": "ويستم"
             },
             "arabic-question": "ويستيم",
             "id": "f995946d1d8462bc94f06fdf8ad7c385",
@@ -4697,7 +4711,8 @@
                 "video-type": "regular",
                 "playing frequency": "multiple",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-question": "هل توفر جامعة نيويورك أبوظبي السكن الجامعي لطلابها؟"
             },
             "id": "f995946d1d8462bc94f06fdf8ad7d18a",
             "value": {
@@ -4745,7 +4760,8 @@
                 "video-type": "regular",
                 "playing frequency": "never",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-question": "عندما يجاملني أحد"
             },
             "id": "f995946d1d8462bc94f06fdf8ad7ef07",
             "value": {
@@ -4769,7 +4785,8 @@
                 "video-type": "regular",
                 "playing frequency": "once",
                 "minimum required accuracy": "low",
-                "length constant": "40"
+                "length constant": "40",
+                "arabic-question": "عندما يجاملني أحد"
             },
             "id": "f995946d1d8462bc94f06fdf8ad7f860",
             "value": {
