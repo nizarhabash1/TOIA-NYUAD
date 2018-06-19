@@ -4743,7 +4743,7 @@
                 "_id": "f995946d1d8462bc94f06fdf8ad7ef07",
                 "arabic_question": "قائمة الردود على عندما يجاملني شخص ما: أمثلة: يعجبني x خاصتك / أحب x خاصتك / أنت x جداً / x جميل! / ذلك مثير للاهتمام",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -4767,7 +4767,7 @@
                 "_id": "f995946d1d8462bc94f06fdf8ad7f860",
                 "arabic_question": "قائمة الردود على عندما يجاملني شخص ما: أمثلة: يعجبني x خاصتك / أحب x خاصتك / أنت x جداً / x جميل! / ذلك مثير للاهتمام",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "once",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -4791,7 +4791,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "f995946d1d8462bc94f06fdf8ad8001b",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "once",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -4815,7 +4815,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "f995946d1d8462bc94f06fdf8ad80978",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "once",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -4839,7 +4839,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "f995946d1d8462bc94f06fdf8ad8151a",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "once",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -4863,7 +4863,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "f995946d1d8462bc94f06fdf8ad823a9",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "once",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -4887,7 +4887,7 @@
                 "arabic-question": "قائمة الردود على هل يمكنك فعل x؟: (ولا وجود لمثل هذا السؤال في المكتبة)",
                 "_id": "f995946d1d8462bc94f06fdf8ad82891",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "once",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -4911,7 +4911,7 @@
                 "arabic-question": "قائمة الردود على هل يمكنك فعل x؟: (ولا وجود لمثل هذا السؤال في المكتبة)",
                 "_id": "f995946d1d8462bc94f06fdf8ad8335d",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "once",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -4935,7 +4935,7 @@
                 "arabic-question": "قائمة الردود على هل تشتاقين إلى x ",
                 "_id": "f995946d1d8462bc94f06fdf8ad8400d",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "once",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },

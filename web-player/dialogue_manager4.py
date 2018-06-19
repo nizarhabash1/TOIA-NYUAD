@@ -64,6 +64,9 @@ db= ''
 # encoding
 str.encode('utf-8')
 
+av_length=0
+av_accuracy=0
+
 
 # The Structure for an avatar's model
 class model:
@@ -80,12 +83,13 @@ class model:
 
 # The Structure for a video Object
 class videoRecording:
-    def __init__(self, question, answer, video, character, language):
+    def __init__(self, question, answer, video, character, language, frequency):
         self.character = character
         self.question = question
         self.answer = answer
         self.videoLink = video
         self.language = language
+        self.frequency = frequency
         self.questionLength = len(question.split())
         self.answerLength = len(answer.split())
 
@@ -100,6 +104,7 @@ class session:
         self.repetitions = {}
         self.currentAvatar = avatar
         self.language = language
+       
 
 
 # find the intersection of two lists
@@ -116,6 +121,26 @@ def preprocess(line):
     processed = processed.replace("ة", "ه")
 
     return processed
+
+def configure(avatar_accuracy, avatar_length):
+    
+    # if (avatar_frequency=="multiple"):
+    #     av_frequency=2
+    # elif(avatar_frequency=="once"):
+    #     av_frequency=1
+    # elif(avatar_frequency=="never"):
+    #     av_frequency=0
+
+    if (avatar_accuracy=="high"):
+        av_accuracy= 0.1
+    elif (avatar_accuracy=="low"):
+        av_accuracy= 0.001
+    else:
+        av_accuracy=0
+    
+    av_length=avatar_length 
+
+    return av_length, av_accuracy
 
 def arabicSyn(myavatar):
     if(myavatar=="margarita"):
@@ -167,16 +192,16 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         arabic_synonyms= arabicSyn(myavatar)
 
     if(myavatar=="margarita"):
-        db= 'static/scripts/margarita2.json'
+        db= 'static/scripts/margarita-new.json'
 
     elif(myavatar=="rashid"):
-        db= 'static/scripts/rashid2.json'
+        db= 'static/scripts/rashid-new.json'
 
     elif(myavatar=="gabriela"):
-        db= 'static/scripts/gabriela1.json'
+        db= 'static/scripts/gabriela-new.json'
 
     elif(myavatar=="katarina"):
-        db= 'static/scripts/katarina1.json'
+        db= 'static/scripts/katarina-new.json'
 
     try:
         f = open(db, 'r', encoding='utf-8')
@@ -210,6 +235,8 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
             language = mylanguage
             ID = id_count;
 
+            frequency= json.dumps(resp["rows"][i]["doc"]["playing frequency"])
+
         else:
             continue
 
@@ -229,8 +256,15 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
             # characterdict[character] is the model of the respective character
             characterdict[character] = model()
 
+
+        #save configuration variables
+        accuracy= json.dumps(resp["rows"][i]["doc"]["minimum required accuracy"])
+        maxLength= json.dumps(resp["rows"][i]["doc"]["length constant"])
+
+        configure(accuracy, maxLength)
+
         # adds to the character's questions list based on the character key; adds all videos regardless of type to questions
-        obj = videoRecording(question, answer, video, character, language)
+        obj = videoRecording(question, answer, video, character, language, frequency)
         characterdict[character].objectMap[ID] = obj
 
         # if the video is for silence
@@ -855,25 +889,57 @@ def calculateTFIDF(characterdict):
 
 def rankAnswers(query, videoResponses, currentSession, characterModel):
     query_len = len(query.split())
+    allowed=1
+    rep=0
 
     # each repition is a given a weight of 2 e.g if a video has been played once 2 points will be subtracted from its matching score
 
     # for each possible answer, checks if it has been played it already, and subtract points from its score if has been played already.
     for res in videoResponses:
         videoObjLen = characterModel.objectMap[res].answerLength
-        precision = videoResponses[res] / videoObjLen
-        recall = videoResponses[res] / query_len
-        f_score = (precision + recall) / 2
-        if (videoObjLen >int(maxLength)):
+        # precision = videoResponses[res] / videoObjLen
+        # recall = videoResponses[res] / query_len
+        # f_score = (precision + recall) / 2
+        pref_frequency= characterModel.objectMap[res].frequency
+        print("frequency", pref_frequency)
+        total_iterations= len(currentSession.repetitions.keys())
+        
+        if (videoObjLen >int(av_length)):
             videoResponses[res] = res/ videoObjLen
+        
+        if (pref_frequency=='"never"'):
+            print("yes never")
+            allowed=0
+        elif(pref_frequency=='"multiple"' or pref_frequency=='"once"'):
+            print("multiple or once")
+            allowed=1
 
         if res in currentSession.repetitions.keys():
-            negativePoints = currentSession.repetitions[res] * 0.4 * videoResponses[res]
-            videoResponses[res] -= negativePoints
+            if (pref_frequency=='"multiple"'):
+                print("multiple")
+                allowed=1
+            elif(pref_frequency=='"once"'):
+                if currentSession.repetitions[res]>1:
+                    allowed=0
+                    print("once done")
+                else:
+                    allowed=1
+                    print("once allowed")
+            elif (pref_frequency=='"never"'):
+                allowed=0
+                print("never")
+            
+            rep= currentSession.repetitions[res]
 
+        #print("score",  videoResponses[res])
+        videoResponses[res]=videoResponses[res]*videoObjLen*(1-rep/(total_iterations+1))*allowed
+
+        
+        
 
 
     ranked_list = sorted(videoResponses, key=lambda i: videoResponses[i], reverse=True)
+    print("final_score", ranked_list[0])
     return ranked_list
 
 
@@ -971,33 +1037,33 @@ def findResponse(query, characterModel, currentSession):
     return characterModel.objectMap[final_answer]
 
 
-def determineAvatar(query, currentSession):
-    if currentSession.currentAvatar == "":
-        currentSession = session("margarita", currentSession.language)
+# def determineAvatar(query, currentSession):
+#     if currentSession.currentAvatar == "":
+#         currentSession = session("margarita", currentSession.language)
 
-    # Changes the avatar
+#     # Changes the avatar
 
-    if query == "toya toya can i talk to margarita":
-        currentSession = session("margarita", currentSession.language)
+#     if query == "toya toya can i talk to margarita":
+#         currentSession = session("margarita", currentSession.language)
 
-    if query == "toya toya can i talk to rashid":
-        currentSession = session("rashid", currentSession.language)
+#     if query == "toya toya can i talk to rashid":
+#         currentSession = session("rashid", currentSession.language)
 
-    if query == "toya toya can i talk to katarina":
-        print("you are switching to katarina")
-        currentSession = session("katarina", currentSession.language)
+#     if query == "toya toya can i talk to katarina":
+#         print("you are switching to katarina")
+#         currentSession = session("katarina", currentSession.language)
 
-    if query == "toya toya can i talk to gabriela":
-        currentSession = session("gabriela", currentSession.language)
+#     if query == "toya toya can i talk to gabriela":
+#         currentSession = session("gabriela", currentSession.language)
 
-    if query == "toya toya can i talk to gabriella":
-        currentSession = session("gabriela", currentSession.language)
+#     if query == "toya toya can i talk to gabriella":
+#         currentSession = session("gabriela", currentSession.language)
 
-    if query == "toya toya can i talk to someone else":
-        print("you are switching to gabriela")
-        currentSession = session("gabriela", currentSession.language)
+#     if query == "toya toya can i talk to someone else":
+#         print("you are switching to gabriela")
+#         currentSession = session("gabriela", currentSession.language)
 
-    return currentSession
+#     return currentSession
 
 
 # the player calls the following functions for greetings and silentVideos, using calls such as dialogue-manager3.sayHi(characterdict[avatar])
