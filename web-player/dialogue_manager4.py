@@ -192,16 +192,16 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         arabic_synonyms= arabicSyn(myavatar)
 
     if(myavatar=="margarita"):
-        db= 'static/scripts/margarita-new.json'
+        db= 'static/scripts/margarita-checked.json'
 
     elif(myavatar=="rashid"):
-        db= 'static/scripts/rashid-new.json'
+        db= 'static/scripts/rashid-checked.json'
 
     elif(myavatar=="gabriela"):
-        db= 'static/scripts/gabriela-new.json'
+        db= 'static/scripts/gabriela-checked.json'
 
     elif(myavatar=="katarina"):
-        db= 'static/scripts/katarina-new.json'
+        db= 'static/scripts/katarina-checked.json'
 
     try:
         f = open(db, 'r', encoding='utf-8')
@@ -933,6 +933,9 @@ def rankAnswers(query, videoResponses, currentSession, characterModel):
 
         #print("score",  videoResponses[res])
         videoResponses[res]=videoResponses[res]*videoObjLen*(1-rep/(total_iterations+1))*allowed
+        if videoResponses[res]< av_accuracy:
+            videoResponses[res]=0
+
 
         
         
