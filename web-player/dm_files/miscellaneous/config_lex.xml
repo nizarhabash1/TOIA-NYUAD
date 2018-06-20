@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<starmorph_configuration>
+	<!--encoding takes the values: bw, safebw, utf8, hsb, arabtex-->
+	<encoding source="input" value="utf8"/>
+	<encoding source="output" value="utf8"/>
+
+	<!--extended alphabet: true for including the letters P, J, V, G, false for excluding them-->
+	<extended_alpha value="false"/>
+
+	<!--clean up doc: separate punctuation and numbers (ST tokenization)-->
+	<clean_up_doc value="false"/>
+
+	<!--feature order: order starts from 1, value is feature name-->
+	<feature_order>
+		
+		<feature order="2" value="lex"/>
+		
+	</feature_order>
+
+	<output_match>
+		<!--diac for matching takes the values: full, partial, none-->
+		<match type="diac_match" value="none"/>
+		<!--orthography for matching takes the values: full, normalized, none-->
+		<match type="orthographic_match" value="none"/>
+	</output_match>
+	<!--NOTE: undiac match means diac_match is none, and orthographic_match is full or normalized-->
+
+	<!--normalization lists letters that need to be normalized and the letters that they are normalized to-->
+	<normalization>
+		<normalize original="&lt;" normalized="A"/>
+		<normalize original="&gt;" normalized="A"/>
+		<normalize original="|" normalized="A"/>
+		<normalize original="{" normalized="A"/>
+		<normalize original="Y" normalized="y"/>
+		<normalize original="p" normalized="h"/>
+	</normalization>
+
+	<!--order output can take the values: random, alphabetical, diac for diacritic match,
+	frequency for frequency based on a given language model-->
+	<analysis_order value="random"/>
+
+	<!--tokenization type can be tok for tokenization or seg for segmentation
+		tokenization value can be ST, ON, D1, D2, D3, WA, TB, S1, S2, MR, LEM, ENX-->
+	<tokenization>
+	 	<tok_option type="seg" scheme="d3"/>
+	 	<tok_option type="tok" scheme="TB"/>
+	</tokenization>
+
+	<spelling_variants>
+		<!--value can be either AF or FA-->
+		<spelling type="tnwyn_ftH" value="AF"/>
+		<!--true means ftHp is always added before the Alif, false doesn't add it unless it is part of the stem-->
+		<spelling type="ftHp_Alf" value="false"/>
+	</spelling_variants>
+
+	<!--true uses memoization, false does not-->
+	<memoization value="true"/>
+
+	<!--backoff values: NONE, NOAN_ALL, ADD_ALL, NOAN_PROP, ADD_PROP-->
+	<backoff value="NOAN_PROP"/>
+
+</starmorph_configuration>

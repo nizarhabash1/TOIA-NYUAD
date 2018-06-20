@@ -1,5 +1,0 @@
-katab pos:verb num:d gen:f prc2:wa_conj enc0:3ms_dobj vox:a
-$amos pos:noun stt:d cas:a prc2:wa_conj prc1:bi_prep prc0:Al_det
-$amos pos:noun stt:d cas:g prc2:wa_conj prc1:bi_prep prc0:Al_det
-kAtib pos:noun num:p gen:m
-walad pos:noun enc1:Al_det

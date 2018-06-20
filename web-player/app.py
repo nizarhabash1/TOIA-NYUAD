@@ -6,7 +6,7 @@ import pprint
 sys.path.insert(0, '/web-player/')
 pprint.pprint(sys.path)
 
-import dialogue_manager5
+import dialogue_manager
 import StarMorphModules
 
 import os
@@ -42,14 +42,14 @@ def with_language(avatar, language):
     global characterModel
     global counter
     language = str(language).title()
-    dialogue_manager5.createModel(characterModel, currentSession, language, avatar)
-    currentSession = dialogue_manager5.create_new_session(avatar, language)
+    dialogue_manager.createModel(characterModel, currentSession, language, avatar)
+    currentSession = dialogue_manager.create_new_session(avatar, language)
     return render_template('main.html', avatar=avatar, language=language)
 
 
 @app.route('/<avatar>/<language>/recreate', methods=['POST'])
 def recreate(avatar,language):
-        currentSession = dialogue_manager5.create_new_session(avatar, language)
+        currentSession = dialogue_manager.create_new_session(avatar, language)
         return 'OK'
         counter=0
 
@@ -65,7 +65,7 @@ def my_form_post(avatar,language):
     text = request.form['text']
     processed_text = text
     counter +=1
-    response = dialogue_manager5.findResponse(processed_text, characterModel[avatar], currentSession, counter)
+    response = dialogue_manager.findResponse(processed_text, characterModel[avatar], currentSession, counter)
     print("RESPONSE IS ", response)
 
     response_video_path = '/static/avatar-videos/' + avatar + '-videos/' + response.videoLink.strip('"');
@@ -85,6 +85,6 @@ def my_form_post(avatar,language):
 
 if __name__ == '__main__':
     avatar = ""
-    StarMorphModules.read_config("config_dana.xml")
-    StarMorphModules.initialize_from_file("almor-s31.db", "analyze")
+    StarMorphModules.read_config("dm_files/CalimaStar_files/config_dana.xml")
+    StarMorphModules.initialize_from_file("dm_files/CalimaStar_files/almor-s31.db", "analyze")
     app.run(debug=True,threaded=True)

@@ -1,5 +1,0 @@
-katab num:d prc2:wa_conj
-kutub num:d prc2:wa_conj
-wbiAlmdrs num:p
-$amos prc2:wa_conj prc1:bi_prep prc0:Al_det
-kutiba vox:a
