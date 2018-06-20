@@ -48,7 +48,7 @@ from nltk.corpus import wordnet as wn
 
 nltk.download('stopwords')
 #stop_words = stopwords.words('english') + list(punctuation)
-stop_words= ["on", "in", "tell", "me", "about", "a", "an", "the", "of", "and", "or", "but", "what"]
+stop_words= ["on", "in", "tell", "me", "about", "a", "an", "the", "of", "and", "or", "but", "what", "are", "you", "your", "is", "was" , "do"]
 stop_words_arabic= ["ما", "ماذا", "هي", "هو"]
 
 '''
@@ -504,10 +504,10 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
     print("Total Questions: ", str(totalQuestions))
     print("done")
     # print(characterdict["gabriela"].wordMap)
-    print("before",characterdict['margarita'].wordMap['hello'])
+    #print("before",characterdict['margarita'].wordMap['hello'])
     calculateTFIDF(characterdict)
     #print("character dictionary", characterdict['margarita'])
-    print("after", characterdict['margarita'].wordMap['hello'])
+    #print("after", characterdict['margarita'].wordMap['hello'])
     return currentSession
 
 
@@ -991,7 +991,7 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
         #     print("key", key)
 
         if res in currentSession.repetitions.keys():
-            print("repeats", currentSession.repetitions[res])
+            #print("repeats", currentSession.repetitions[res])
             if (pref_frequency=='"multiple"'):
                 #print("multiple")
                 allowed=1
@@ -1009,9 +1009,9 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
             
             rep= currentSession.repetitions[res]
 
-        #print("score",  videoResponses[res])
+        print("score",  videoResponses[res])
         print("allowed", allowed)
-        videoResponses[res]=videoResponses[res]*(1-rep/(total_iterations+1))*allowed
+        videoResponses[res]=(videoResponses[res]*(1-rep/(total_iterations+1)))*allowed
         if videoResponses[res]< av_accuracy:
             videoResponses[res]=0
 
@@ -1027,7 +1027,7 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
         
         
 
-    #print("responses", videoResponses)
+    print("responses", videoResponses)
     ranked_list = sorted(videoResponses, key=lambda i: videoResponses[i], reverse=True)
     #print("final_score", ranked_list[0])
     return ranked_list
