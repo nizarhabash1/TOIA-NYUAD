@@ -2,8 +2,15 @@ var jsonData = [];
 var current_question_len;
 var UpdateJSONstion_index;
 var scroll_id;
-var file_name = '../web-recorder/public/templates/template-narrative.json';
 var scriptName;
+var data_to_send;
+var scriptList;
+
+getScripts();
+
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
 
 // Display all the question and answer entries retrieved from Node back-end
 function getAllData(){
@@ -11,6 +18,7 @@ $.ajax({
 		url: '/api/all',
 		type: 'GET',
 		dataType: 'json',
+		contentType: 'application/json; charset=UTF-8',
 		error: function(data){
 			alert("Oh No! Try a refresh?");
 		},
@@ -91,7 +99,7 @@ function setSaveEvent(data){
 				if(jsonData.rows[i].doc.index == data.doc.index){
 					console.log("we are SAVING " + data.doc.index);
 					// Update the video name to JSON database
-					this_video_name= this_character + "_" + data.doc.index +
+					this_video_name= document.getElementById("nameForSaving").innerHTML + "_" + data.doc.index +
 							"_" + data.doc._id + ".mp4";
 
 					$("#save-to-disk").trigger('click');
@@ -110,6 +118,7 @@ function triggerSaveRequest(this_file){
 	console.log(this_file);
 	var fd = new FormData();
 	fd.append('blob', this_file, this_video_name);
+	console.log(fd);
 	fetch('/save',
 	{
 	    method: 'post',
@@ -127,7 +136,7 @@ function setPlayEvent(data){
 			});
 			console.log("we are PLAYING " + data.doc.index);
 
-			var play_video_name= "uploads/" + this_character+"_" + data.doc.index +
+			var play_video_name= "avatars/" + document.getElementById("nameForSaving").innerHTML + "/" + document.getElementById("nameForSaving").innerHTML+"_" + data.doc.index +
                             "_"+ theObj.doc._id + ".mp4";
 
 			recordingPlayer.src = play_video_name;
@@ -188,6 +197,26 @@ function sendUpdateJSONRequest(){
 	getAllData();
 }
 
+// Call this function to make a directory
+// Call this function when we need to sync the jsonData and write it to the actual JSON file
+function makeDirectory(avatarName){
+	jsonData = {"name": avatarName};
+	$.ajax({
+		url: '/makedir',
+		type: 'POST',
+		contentType: 'application/json',
+		data: JSON.stringify(jsonData),
+		error: function(resp){
+			console.log("Oh no...");
+			console.log(resp);
+		},
+		success: function(resp){
+			console.log('Created directory!');
+			console.log(resp);
+		}
+	});
+}
+
 // This function allows avatar makers to add new question and answer entry
 // Also sorts the jsonData
 function addNewEntry(){
@@ -231,7 +260,7 @@ function addNewEntry(){
 			key:new_unique_id,
 			doc:{
 					index: new_index_number,
-					character:this_character,
+					character:document.getElementById("nameForSaving").innerHTML,
 					video:"",
 					"english-question":newQuestion,
 					"english-answer":newAnswer,
@@ -270,19 +299,35 @@ $("#selectScript").submit(function(e) {
     e.preventDefault();
 });
 
+$("#avatarOptions").submit(function(e) {
+	console.log("HI");
+    e.preventDefault();
+});
+
+$("#nameAvatar").submit(function(e) {
+	console.log("HI");
+    e.preventDefault();
+});
+
+$("#selectPrevious").submit(function(e) {
+	console.log("HI");
+    e.preventDefault();
+});
+
 // Call this function when we need to sync the jsonData and write it to the actual JSON file
 function sendFileName(){
 	console.log("YEAH IN HERE");
 	console.log(scriptName);
-	var data_to_send={"name": scriptName};
+	data_to_send={"name": scriptName};
+	data_to_send=JSON.stringify(data_to_send);
 	$.ajax({
 		url: '/filename',
 		type: 'POST',
-		dataType: "json",
-		contentType: "application/json",
-		data: JSON.stringify(data_to_send),
+		data: data_to_send,
+		contentType: 'application/json; charset=utf-8',
 		error: function(resp){
 			console.log("Oh no...");
+			console.log(data_to_send);
 			console.log(resp);
 		},
 		success: function(resp){
@@ -290,14 +335,63 @@ function sendFileName(){
 			console.log(resp);
 		}
 	});
-	console.log("YEAH OUT OF HERE");
+
 	getAllData();
+}
+
+function avatarOptions() {
+	console.log("YO WTF");
+	var avatarType = document.querySelector('input[name="avatar"]:checked').value;
+	if (avatarType === "previousAvatar") {
+		document.getElementById("selectAvatarType").style.display='none';
+		document.getElementById("selectPrevious").style.display='';
+	} else if (avatarType === "newAvatar") {
+		document.getElementById("selectAvatarType").style.display='none';
+		document.getElementById("selectScript").style.display='';
+	}
+}
+
+function chosenAvatar() {
+	scriptFolder = document.querySelector('input[name="avatarFolderName"]:checked').value;
+	console.log(document.querySelector('input[name="avatarFolderName"]:checked').value);
+	document.getElementById("nameForSaving").innerHTML = scriptFolder;
+	document.getElementById("title").innerHTML += ": "+ capitalize(scriptFolder);
+	document.getElementById("pageTitle").innerHTML += ": "+ capitalize(scriptFolder);
+	scriptName = '../web-recorder/public/avatars/'+scriptFolder+'/script.json';
+	console.log(scriptName);
+	document.getElementById("selectPrevious").style.display="none";
+	document.getElementById("recorder").style.display='';
+	sendFileName();
+	console.log("YES");
+}
+
+function nameAvatar() {
+	var avatarName = document.getElementById("avatarName").value.toLowerCase();
+	console.log(avatarName);
+	console.log(scriptList);
+	if($.inArray(avatarName, scriptList) != -1){
+     	alert('Name already in use! Pick new name.');
+	} else {
+    	makeDirectory(avatarName);
+    	document.getElementById("nameForSaving").innerHTML = avatarName;
+    	document.getElementById("title").innerHTML += ": "+ capitalize(avatarName);
+    	document.getElementById("pageTitle").innerHTML += ": "+ capitalize(avatarName);
+    	document.getElementById("nameAvatar").style.display='none';
+    	document.getElementById("scriptType").style.display='';
+	}
 }
 
 function scriptOptions(){
 	document.getElementById("selectScript").style.display="none";
 	document.getElementById("recorder").style.display="";
 	scriptName = document.querySelector('input[name="script"]:checked').value;
+	if(scriptName === "scratch") {
+		scriptName = '../web-recorder/public/templates/template-empty.json';
+	} else if(scriptName === "template-narrative") {
+		scriptName = '../web-recorder/public/templates/template-narrative.json';
+	} else if (scriptName === "template-factual") {
+		scriptName = '../web-recorder/public/templates/template-factual.json';
+	}
 	console.log(scriptName);
 	sendFileName();
 	console.log("YO");
@@ -310,6 +404,7 @@ function goToRecorder() {
 function makeRadioButton(name, value, text) {
 	var label = document.createElement("label");
 	var radio = document.createElement("input");
+	label.classList.add("scriptRadio");
 	radio.type = "radio";
 	radio.name = name;
 	radio.value = value;
@@ -320,7 +415,8 @@ function makeRadioButton(name, value, text) {
 
 // Get the script names
 function getScripts(){
-$.ajax({
+	console.log("IN HERE");
+	$.ajax({
 		url: '/scripts',
 		type: 'GET',
 		datatype: 'json',
@@ -332,25 +428,45 @@ $.ajax({
 			console.log(data);
 			console.log(typeof data );
 			var data = JSON.parse(data);
+			scriptList = data;
 			console.log(data);
-			var scriptForm = document.getElementById("scriptType");
+			var scriptForm = document.getElementById("previousAvatar");
 			for (var i = 0; i < data.length; i++ ) {
-				var scriptName = makeRadioButton("script",data[i],data[i]);
-				scriptForm.appendChild(scriptName);
-				scriptForm.innerHTML += "<br>";
+				if (data[i] != ".DS_Store") {
+					var scriptName = makeRadioButton("avatarFolderName",data[i],data[i]);
+					scriptForm.appendChild(scriptName);
+					scriptForm.innerHTML += "<br>";
+				}
 			}
-			scriptForm.innerHTML += '<input type="submit" value="Submit"></input>';
+			scriptForm.innerHTML += '<br> <input type="submit" value="Submit"></input>';
 		}
 	});
 }
 
-getScripts();
+//getScripts();
 
+$("#save-script").click(function() {
+	var saveAvatar = {"name":document.getElementById("nameForSaving").innerHTML};
+	$.ajax({
+		url: '/saveAvatar',
+		type: 'POST',
+		data: JSON.stringify(saveAvatar),
+		contentType: 'application/json; charset=utf-8',
+		error: function(resp){
+			console.log("Oh no...");
+			console.log(resp);
+		},
+		success: function(resp){
+			console.log('Sent folder name!');
+			console.log(resp);
+		}
+	});
+});
 
 $(document).ready(function(){
-	if (page === 'get all data'){
+	/*if (page === 'get all data'){
 		getAllData();
-	}
+	}*/
   //add new question and answer pair
   $("#add-question-button").click(function(){
 		addNewEntry();

@@ -143,7 +143,7 @@
             "english-question": "How large are the class sizes at NYUAD?",
             "english-answer": "Classes at NYU Abu Dhabi are relatively small. Most classes range between 10 and 30 students.",
             "arabic-question": "ما مدى حجم الصفوف في جامعة نيويورك أبوظبي؟",
-        	"index": 9,
+         "index": 9,
             "language": "English",
             "_id": "16a41b8cddc767f444e773b3582a6d1i",
             "_rev": "3-f448a5b13e182f3a54314a6ed1554513"
@@ -160,7 +160,7 @@
             "english-question": "Do I have to decide my major before coming to NYUAD? ",
             "english-answer": "Students at NYUAD need to declare their majors only by the end of their third semester.",
             "arabic-question": "هل علي اختيار تخصصي قبل القدوم إلى جامعة نيويورك أبوظبي؟",
-        	"index": 10,
+         "index": 10,
             "language": "English",
             "_id": "16a41b8cddc767f444e773b3582a6d1j",
             "_rev": "3-f448a5b13e182f3a54314a6ed1554514"
