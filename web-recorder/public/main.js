@@ -118,6 +118,7 @@ function triggerSaveRequest(this_file){
 	console.log(this_file);
 	var fd = new FormData();
 	fd.append('blob', this_file, this_video_name);
+	console.log(fd);
 	fetch('/save',
 	{
 	    method: 'post',

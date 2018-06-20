@@ -111,7 +111,10 @@ app.post("/makedir", function(req,res) {
 // Save a recorded video in the file system as specified by multer upload, see above
 app.post("/save",type, function(req,res){
   console.log(req.file);
-  fs.rename(__dirname + '/public/uploads/'  + req.file.filename, __dirname + '/public/uploads/' + req.file.originalname, (err) => {
+  console.log("SAVING");
+  console.log(req.file.originalname.substr(0,req.file.originalname.indexOf('_')));
+  var avatarName = req.file.originalname.substr(0,req.file.originalname.indexOf('_'));
+  fs.rename(__dirname + '/public/uploads/' + req.file.filename, __dirname + '/public/avatars/' + avatarName + '/' + req.file.originalname, (err) => {
       if (err) throw err;
       console.log('Rename complete!');
     });
