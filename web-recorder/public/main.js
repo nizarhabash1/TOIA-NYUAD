@@ -136,7 +136,7 @@ function setPlayEvent(data){
 			});
 			console.log("we are PLAYING " + data.doc.index);
 
-			var play_video_name= "uploads/" + document.getElementById("nameForSaving").innerHTML+"_" + data.doc.index +
+			var play_video_name= "avatars/" + document.getElementById("nameForSaving").innerHTML + "/" + document.getElementById("nameForSaving").innerHTML+"_" + data.doc.index +
                             "_"+ theObj.doc._id + ".mp4";
 
 			recordingPlayer.src = play_video_name;
@@ -432,9 +432,11 @@ function getScripts(){
 			console.log(data);
 			var scriptForm = document.getElementById("previousAvatar");
 			for (var i = 0; i < data.length; i++ ) {
-				var scriptName = makeRadioButton("avatarFolderName",data[i],data[i]);
-				scriptForm.appendChild(scriptName);
-				scriptForm.innerHTML += "<br>";
+				if (data[i] != ".DS_Store") {
+					var scriptName = makeRadioButton("avatarFolderName",data[i],data[i]);
+					scriptForm.appendChild(scriptName);
+					scriptForm.innerHTML += "<br>";
+				}
 			}
 			scriptForm.innerHTML += '<br> <input type="submit" value="Submit"></input>';
 		}
