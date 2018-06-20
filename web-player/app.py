@@ -29,6 +29,7 @@ def home():
 # Page where you go to select a language
 @app.route('/<avatar>')
 def with_avatar(avatar):
+    print(avatar);
     return render_template('choose_language.html', avatar=avatar)
 
 
@@ -62,16 +63,7 @@ def my_form_post(avatar,language):
     response = dialogue_manager4.findResponse(processed_text, characterModel[avatar], currentSession)
     print("RESPONSE IS ", response)
 
-    if(avatar=="katarina"):
-        response_video_path = '/static/avatar-videos/katarina-videos/' + response.videoLink.strip('"')
-    elif(avatar=="rashid"):
-        response_video_path = '/static/avatar-videos/rashid-videos/' + response.videoLink.strip('"')
-    elif(avatar=="margarita"):
-        response_video_path = '/static/avatar-videos/margarita-videos/' + response.videoLink.strip('"')
-    elif(avatar=="gabriela"):
-        response_video_path = '/static/avatar-videos/gabriela-videos/' + response.videoLink.strip('"')
-
-
+    response_video_path = '/static/avatar-videos/' + avatar + '-videos/' + response.videoLink.strip('"');
 
     # response_subtitle_path = '/static/avatar-subtitle-timestamped/' + os.path.splitext(response.videoLink.strip('"'))[0] + '.vtt'
 
