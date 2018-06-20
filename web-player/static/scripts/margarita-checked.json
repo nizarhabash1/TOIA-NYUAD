@@ -14,7 +14,7 @@
                 "arabic-question": "ما اسمك؟",
                 "_id": "16a41b8cddc767f444e773b3582a6d1a",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "once",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -1233,7 +1233,7 @@
                 "arabic-question": "قائمة الردود على عندما يجاملني شخص ما: أمثلة: يعجبني x خاصتك / أحب x خاصتك / أنت x جداً / x جميل! / ذلك مثير للاهتمام!",
                 "_id": "16a41b8cddc767f444e773b3582c1a84",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -1256,7 +1256,7 @@
                 "arabic-question": "قائمة الردود على عندما يجاملني شخص ما: أمثلة: يعجبني x خاصتك / أحب x خاصتك / أنت x جداً / x جميل! / ذلك مثير للاهتمام!",
                 "_id": "16a41b8cddc767f444e773b3582c278b",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -1279,7 +1279,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "16a41b8cddc767f444e773b3582c29db",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -1302,7 +1302,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "16a41b8cddc767f444e773b3582c2caf",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -1325,7 +1325,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "16a41b8cddc767f444e773b3582c359b",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -1348,7 +1348,7 @@
                 "arabic-question": "قائمة الردود على هل يمكنك فعل x؟: (ولا وجود لمثل هذا السؤال في المكتبة)",
                 "_id": "16a41b8cddc767f444e773b3582c3f94",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -1363,7 +1363,7 @@
                 "index": 334,
                 "arabic-answer": "بالطبع.",
                 "language": "English",
-                "english-question": "Reply list to 'Do you miss x?:'",
+                "english-question": "Do you miss'",
                 "_rev": "3-97554fb2b8ecda4d9dd03a03e6998dae",
                 "character": "margarita",
                 "video": "margarita_334_16a41b8cddc767f444e773b3582c49d3.mp4",
@@ -1371,7 +1371,7 @@
                 "arabic-question": "'قائمة الردود على 'هل تشتاقين إلى x",
                 "_id": "16a41b8cddc767f444e773b3582c49d3",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -1394,7 +1394,7 @@
                 "arabic-question": "(قائمة الردود على سؤال محير)",
                 "_id": "16a41b8cddc767f444e773b3582c4c17",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -2651,7 +2651,7 @@
                 "index": 305,
                 "arabic-answer": "هذا لطف منك",
                 "language": "English",
-                "english-question": "Reply list to 'when somebody compliments me': Examples: I like your x / I love your x / You are so x / Nice x! / That's interesting!",
+                "english-question": "That's interesting!",
                 "_rev": "3-64fb199b46fa17384b08ee74afa20c2a",
                 "character": "margarita",
                 "video": "margarita_305_20db0faf8cab7d8916a976d2605f4e3e.mp4",
@@ -2958,7 +2958,7 @@
                 "arabic-question": "هل يمكنك قول شيء ما في اللغة الرومانية؟",
                 "_id": "5d8a5ca99e2ea8cf7bf8d71f0f15a41a",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "once",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -3758,7 +3758,7 @@
                 "index": 302,
                 "arabic-answer": "شكراً! / شكراً.",
                 "language": "English",
-                "english-question": "Reply list to 'when somebody compliments me': Examples: I like your x / I love your x / You are so x / Nice x! / That's interesting!",
+                "english-question": "Nice",
                 "_rev": "3-c9c7f4a7ca1feb1644dd8811205b7234",
                 "character": "margarita",
                 "video": "margarita_302_5d8a5ca99e2ea8cf7bf8d71f0f16c457.mp4",
@@ -3789,7 +3789,7 @@
                 "arabic-question": "قائمة الردود على هل تشتاقين إلى x؟:",
                 "_id": "5d8a5ca99e2ea8cf7bf8d71f0f16e17c",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -3812,7 +3812,7 @@
                 "arabic-question": "(قائمة الردود على سؤال محير)",
                 "_id": "5d8a5ca99e2ea8cf7bf8d71f0f16e467",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -5054,7 +5054,7 @@
                 "arabic-question": "قائمة الردود على عندما يجاملني شخص ما: أمثلة: يعجبني x خاصتك / أحب x خاصتك / أنت x جداً / x جميل! / ذلك مثير للاهتمام!",
                 "_id": "6be11151af2d475f7f56fe99b5418c4b",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -5077,7 +5077,7 @@
                 "arabic-question": "قائمة الردود على عندما يجاملني شخص ما: أمثلة: يعجبني x خاصتك / أحب x خاصتك / أنت x جداً / x جميل! / ذلك مثير للاهتمام!",
                 "_id": "6be11151af2d475f7f56fe99b5419893",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -5100,7 +5100,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "6be11151af2d475f7f56fe99b5419d65",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -5123,7 +5123,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "6be11151af2d475f7f56fe99b541b7c9",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -5147,7 +5147,7 @@
                 "_id": "6be11151af2d475f7f56fe99b541c49b",
                 "video-type": "regular",
                 "arabic-answer": "هذاسؤال جيد",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -5170,7 +5170,7 @@
                 "arabic-question": "قائمة الردود على هل تشتاقين إلى x؟:",
                 "_id": "6be11151af2d475f7f56fe99b541ccc8",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -6266,7 +6266,7 @@
                 "index": 306,
                 "arabic-answer": "أووه كفي عن ذلك!",
                 "language": "English",
-                "english-question": "Reply list to 'when somebody compliments me': Examples: I like your x / I love your x / You are so x / Nice x! / That's interesting!",
+                "english-question": "I like your hair!",
                 "_rev": "3-f66894ef489afe30319109952b1d5692",
                 "character": "margarita",
                 "video": "margarita_306_cc28b6feb31c6d808ca0586a1fd23b15.mp4",
@@ -6297,7 +6297,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "cc28b6feb31c6d808ca0586a1fd2430b",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -6312,7 +6312,7 @@
                 "index": 314,
                 "arabic-answer": "كان ظريف جداً.",
                 "language": "English",
-                "english-question": "Reply list to 'when somebody asks how I found something': Examples: And did you like it? / Was it fun? / How was it? / How did you find x? / What did you think? / Was it nice? (because usually talk about my past experiences which were good anyway)",
+                "english-question": "Was it nice",
                 "_rev": "3-74e6db052712599a2a1dbace3fce887b",
                 "character": "margarita",
                 "video": "margarita_314_cc28b6feb31c6d808ca0586a1fd25077.mp4",
@@ -6343,7 +6343,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "cc28b6feb31c6d808ca0586a1fd25745",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -6366,7 +6366,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "cc28b6feb31c6d808ca0586a1fd263ae",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -6389,7 +6389,7 @@
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "cc28b6feb31c6d808ca0586a1fd27353",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -6411,7 +6411,7 @@
                 "english-answer": "Sorry, not really!",
                 "_id": "cc28b6feb31c6d808ca0586a1fd27c5d",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40",
                 "arabic-question": "هل تستطيعين"
@@ -6435,7 +6435,7 @@
                 "arabic-question": "قائمة الردود على هل تشتاقين إلى x؟:",
                 "_id": "cc28b6feb31c6d808ca0586a1fd28604",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40"
             },
@@ -7561,7 +7561,7 @@
                 "english-answer": "Thank you so much",
                 "_id": "d7f7dc21cc79877f15bcf4cafa405a13",
                 "video-type": "regular",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40",
                 "arabic-question": "عندما يجاملني أحد"
@@ -7584,7 +7584,7 @@
                 "_id": "d7f7dc21cc79877f15bcf4cafa405ed9",
                 "video-type": "regular",
                 "arabic-answer": "",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40",
                 "arabic-question": "كيف وجدت "
@@ -7607,7 +7607,7 @@
                 "_id": "d7f7dc21cc79877f15bcf4cafa40667b",
                 "video-type": "regular",
                 "arabic-answer": "",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40",
                 "arabic-question": "كيف وجدت"
@@ -7630,7 +7630,7 @@
                 "_id": "d7f7dc21cc79877f15bcf4cafa407487",
                 "video-type": "regular",
                 "arabic-answer": "",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40",
                 "arabic-question": "كيف وجيدت"
@@ -7653,7 +7653,7 @@
                 "_id": "d7f7dc21cc79877f15bcf4cafa407a82",
                 "video-type": "regular",
                 "arabic-answer": "",
-                "playing frequency": "multiple",
+                "playing frequency": "never",
                 "minimum required accuracy": "low",
                 "length constant": "40",
                 "arabic-question": "هل تشتاقين إلى"

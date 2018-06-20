@@ -6,7 +6,7 @@ import pprint
 sys.path.insert(0, '/web-player/')
 pprint.pprint(sys.path)
 
-import dialogue_manager4
+import dialogue_manager5
 import StarMorphModules
 
 import os
@@ -18,6 +18,8 @@ click.disable_unicode_literals_warning = True
 characterModel = {}
 currentAvatar = ""
 currentSession = None
+
+counter=0
 
 
 # Home page where you go to select an avatar
@@ -37,29 +39,32 @@ def with_avatar(avatar):
 def with_language(avatar, language):
     global currentSession
     global characterModel
+    global counter
     language = str(language).title()
-    dialogue_manager4.createModel(characterModel, currentSession, language, avatar)
-    currentSession = dialogue_manager4.create_new_session(avatar, language)
+    dialogue_manager5.createModel(characterModel, currentSession, language, avatar)
+    currentSession = dialogue_manager5.create_new_session(avatar, language)
     return render_template('main.html', avatar=avatar, language=language)
 
 
 @app.route('/<avatar>/<language>/recreate', methods=['POST'])
 def recreate(avatar,language):
-        currentSession = dialogue_manager4.create_new_session(avatar, language)
+        currentSession = dialogue_manager5.create_new_session(avatar, language)
         return 'OK'
+        counter=0
 
 
 # When avatar page receives a POST request
 @app.route('/<avatar>/<language>', methods=['POST'])
 def my_form_post(avatar,language):
     global currentSession
+    global counter
 
 
     print(" querying")
     text = request.form['text']
     processed_text = text
-
-    response = dialogue_manager4.findResponse(processed_text, characterModel[avatar], currentSession)
+    counter +=1
+    response = dialogue_manager5.findResponse(processed_text, characterModel[avatar], currentSession, counter)
     print("RESPONSE IS ", response)
 
     if(avatar=="katarina"):
