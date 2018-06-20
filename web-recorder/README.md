@@ -14,3 +14,7 @@ To use different resolution (for a Web cam), update `value` in the `getVideoReso
 ### Run
 To run the app, do `npm install` and `nodemon`
 
+Go to http://localhost:3000/ to view the application.
+
+You will need to grant access for microphone and camera to browser.
+
