@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="72664544-b1bb-4edf-a937-a0af4661eb6b" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="all_characters.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/scripts/all_characters.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4467">
+              <caret line="17163" column="28" selection-start-line="17163" selection-start-column="22" selection-end-line="17163" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="generateTimestampedSubtitle.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/generateTimestampedSubtitle.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-750">
+              <caret line="32" column="50" lean-forward="true" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
+              <folding>
+                <element signature="e#365#382#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>3195</find>
+      <find>303</find>
+      <find>3031</find>
+      <find>1171</find>
+      <find>&gt;&gt;&gt;&gt;&gt;&gt;&gt; Stashed changes</find>
+      <find>3170</find>
+      <find>video-</find>
+      <find>filler</find>
+      <find>3210</find>
+      <find>question</find>
+      <find>annyang</find>
+      <find>charactermodel</find>
+      <find>language</find>
+      <find>style</find>
+      <find>playing</find>
+      <find>player</find>
+      <find>determine</find>
+      <find>video_container</find>
+      <find>vid</find>
+      <find>all_filler</find>
+      <find>pause</find>
+      <find>subtitle_file</find>
+      <find>number_of</find>
+      <find>number_of_segment</find>
+      <find>print</find>
+      <find>avatar_subtitle</find>
+      <find>subtitle</find>
+      <find>jesus</find>
+      <find>unicode</find>
+      <find>rashid</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>&quot;arabic-answer&quot;</replace>
+      <replace>&quot;English&quot;</replace>
+      <replace>all_filler_videos</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/static/scripts/rashid.json" />
+        <option value="$PROJECT_DIR$/static/scripts/singleOutCharacterFromAll.py" />
+        <option value="$PROJECT_DIR$/static/scripts/add_english_entries_for_rashid.py" />
+        <option value="$PROJECT_DIR$/static/scripts/rashid_with_english.json" />
+        <option value="$PROJECT_DIR$/dialogue_manager4.py" />
+        <option value="$PROJECT_DIR$/static/scripts/all_characters-new.json" />
+        <option value="$PROJECT_DIR$/static/scripts/convert.py" />
+        <option value="$PROJECT_DIR$/static/scripts/unicode-to-character.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/frontpage.html" />
+        <option value="$PROJECT_DIR$/templates/home.html" />
+        <option value="$PROJECT_DIR$/templates/choose_avatar.html" />
+        <option value="$PROJECT_DIR$/templates/choose_language.html" />
+        <option value="$PROJECT_DIR$/static/scripts/speech_rec.js" />
+        <option value="$PROJECT_DIR$/templates/main.html" />
+        <option value="$PROJECT_DIR$/static/scripts/generateTimestampedSubtitle.py" />
+        <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/static/avatar-subtitle-timestamped/arabic_gabriela_2049_0675d24f01246799129eb70ec513f419.vtt" />
+        <option value="$PROJECT_DIR$/static/scripts/all_characters.json" />
+        <option value="$PROJECT_DIR$/static/avatar-subtitle-timestamped/generateTimestampedSubtitle.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1" />
+    <option name="y" value="22" />
+    <option name="width" value="1201" />
+    <option name="height" value="736" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="web-player" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-player" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-player" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-player" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-player" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-player" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-player" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-player" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web-player" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web-player" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="singleOutCharacterFromAll" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="web-player" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/static/scripts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/static/scripts/singleOutCharacterFromAll.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.singleOutCharacterFromAll" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="72664544-b1bb-4edf-a937-a0af4661eb6b" name="Default" comment="" />
+      <created>1523728642529</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1523728642529</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="1" y="22" width="1201" height="736" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="1" weight="0.2722813" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.26172465" />
+      <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Python Console" order="0" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.36875665" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="5" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.26172465" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2722813" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Python Console" order="0" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.36875665" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+    </layout-to-restore>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="4" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/templates/choose_avatar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/scripts/generateTimestampedSubtitle.py" />
+    <entry file="file://$PROJECT_DIR$/static/scripts/singleOutCharacterFromAll.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/gabriela_2004_0675d24f01246799129eb70ec513c587.vtt" />
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/gabriela_2021_0675d24f01246799129eb70ec513c7f6.vtt" />
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/gabriela_2041_0675d24f01246799129eb70ec513e6bc.vtt" />
+    <entry file="file://$PROJECT_DIR$/templates/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="29" column="81" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="62" column="41" selection-start-line="62" selection-start-column="41" selection-end-line="62" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/english_katarina_1044_9b069d234b0a3c903efacb8a87e9fe8b.vtt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/english_rashid_3157_13229efe208bce14c4f8c99bd48e3280.vtt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharmCE2018.1/python_stubs/1469180191/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="477" column="4" selection-start-line="477" selection-start-column="4" selection-end-line="477" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/arabic_gabriela_2049_0675d24f01246799129eb70ec513f419.vtt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39">
+          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/english_rashid_3211_17a0f962a4b53cf47f3bd315beae8252.vtt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/arabic_gabriela_2045_0675d24f01246799129eb70ec513eac3.vtt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="297" lean-forward="true" selection-start-column="297" selection-end-column="297" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/arabic_gabriela_2041_0675d24f01246799129eb70ec513e6bc.vtt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="338" lean-forward="true" selection-start-column="338" selection-end-column="338" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/arabic_gabriela_2024_0675d24f01246799129eb70ec513d4ca.vtt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="45" selection-start-column="45" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/arabic_gabriela_2034_0675d24f01246799129eb70ec513ddfe.vtt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="42" lean-forward="true" selection-start-column="42" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/arabic_gabriela_2004_0675d24f01246799129eb70ec513c587.vtt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/arabic_gabriela_2008_0675d24f01246799129eb70ec513c6c4.vtt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/scripts/all_characters.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4467">
+          <caret line="17163" column="28" selection-start-line="17163" selection-start-column="22" selection-end-line="17163" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/avatar-subtitle-timestamped/generateTimestampedSubtitle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-750">
+          <caret line="32" column="50" lean-forward="true" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
+          <folding>
+            <element signature="e#365#382#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
