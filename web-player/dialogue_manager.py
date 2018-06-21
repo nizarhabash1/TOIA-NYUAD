@@ -11,6 +11,7 @@ import json
 import time
 import datetime
 import copy
+import random
 
 import os
 import sys
@@ -81,6 +82,7 @@ class model:
         self.fillers = {}
         self.greetings = {}
         self.questionsMap = {}
+        self.noAnswer= {}
 
 
 # The Structure for a video Object
@@ -200,30 +202,29 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         id_count += 1
 
         # If object is a question-answer pair, the relevant information is extracted
-        if "english-question" in resp["rows"][i]["doc"].keys() or "arabic-question" in resp["rows"][i]["doc"].keys():
-            totalQuestions += 1
-            # uni_ID= json.dumps(resp["rows"][i]["doc"]["_id"])
-            # print(uni_ID)
-            video = json.dumps(resp["rows"][i]["doc"]["video"])
-            # character= json.dumps(resp["rows"][i]["doc"]["character"])
-            character = json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
-            # language= json.dumps(resp["rows"][i]["doc"]["language"])
-            language = mylanguage
-            ID = id_count;
+        #if "english-question" in resp["rows"][i]["doc"].keys() or "arabic-question" in resp["rows"][i]["doc"].keys():
+        totalQuestions += 1
+        # uni_ID= json.dumps(resp["rows"][i]["doc"]["_id"])
+        # print(uni_ID)
+        video = json.dumps(resp["rows"][i]["doc"]["video"])
+        # character= json.dumps(resp["rows"][i]["doc"]["character"])
+        character = json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
+        # language= json.dumps(resp["rows"][i]["doc"]["language"])
+        language = mylanguage
+        ID = id_count;
 
-            frequency= json.dumps(resp["rows"][i]["doc"]["playing frequency"])
+        frequency= json.dumps(resp["rows"][i]["doc"]["playing frequency"])
 
-        else:
-            continue
+        # else:
+        #     continue
 
-        if (mylanguage == "Arabic" and "arabic-question" in resp["rows"][i]["doc"].keys() and "arabic-answer" in
-                resp["rows"][i]["doc"].keys()):
+        if (mylanguage == "Arabic"):
             question = json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
             answer = json.dumps(resp["rows"][i]["doc"]["arabic-answer"], ensure_ascii=False).strip('،.؟"')
             question= preprocess(question)
             answer= preprocess(answer)
 
-        if (mylanguage == "English" and "english-question" in resp["rows"][i]["doc"].keys()):
+        if (mylanguage == "English"):
             question = json.dumps(resp["rows"][i]["doc"]["english-question"]).strip(',?."!)')
             answer = json.dumps(resp["rows"][i]["doc"]["english-answer"]).strip(',?."!)')
 
@@ -236,6 +237,7 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         #save configuration variables
         accuracy= json.dumps(resp["rows"][i]["doc"]["minimum required accuracy"])
         maxLength= json.dumps(resp["rows"][i]["doc"]["length constant"])
+        videoType= json.dumps(resp["rows"][i]["doc"]["video-type"])
 
         configure(accuracy, maxLength)
 
@@ -246,6 +248,11 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         # if the video is for silence
         if (answer == '""' and video != '""'):
             characterdict[character].fillers[ID] = obj
+
+        #if it's an "I don't have answer for that" video
+        if(videoType== '"no-answer"'):
+            characterdict[character].noAnswer[ID] = obj
+            print("no answer", characterdict[character].noAnswer.keys())
 
         else:
             characterdict[character].questionsMap[ID] = obj
@@ -380,12 +387,12 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         	unigram_synonyms_list = []
 
 
-        	# expands the unigram model by adding synonyms
-        	for word in unigram_list:
-	        	if word in arabic_synonyms.keys():
-	        		for tmp in arabic_synonyms[word]:
-	        			if tmp not in unigram_synonyms_list:
-	        				unigram_synonyms_list.append(tmp)
+        	# # expands the unigram model by adding synonyms
+        	# for word in unigram_list:
+	        # 	if word in arabic_synonyms.keys():
+	        # 		for tmp in arabic_synonyms[word]:
+	        # 			if tmp not in unigram_synonyms_list:
+	        # 				unigram_synonyms_list.append(tmp)
 
 
 
@@ -489,7 +496,7 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
 
 def findLemmaScore(lemma):
     score=0
-    lookup= open('lookup-table.txt', 'r', encoding='utf-8')
+    lookup= open('dm_files/CalimaStar_files/lookup-table.txt', 'r', encoding='utf-8')
     for line in lookup:
         if lemma== line[0]:
             score= line[1]
@@ -1098,20 +1105,15 @@ def findResponse(query, characterModel, currentSession, counter):
 
    
     # if the responses are empty, play "I can't answer that response"
-
    
     if bool(best_responses) == False:
-        if currentSession.currentAvatar == "gabriela":
-            final_answer = 798
-        elif currentSession.currentAvatar == "margarita":
-            final_answer = 618
-        elif currentSession.currentAvatar == "rashid":
-            final_answer = 938
-        else:
-            final_answer = 746
+        noAnswerList= characterModel.noAnswer.keys()
+        final_answer= random.choice(list(noAnswerList))
+      
 
 
     else:
+       
         ranked_responses = rankAnswers(query, best_responses, currentSession, characterModel, counter)
         final_answer = ranked_responses[0]
 
