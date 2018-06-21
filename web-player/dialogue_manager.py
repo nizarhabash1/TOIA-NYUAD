@@ -20,7 +20,6 @@ import sys
 
 sys.path.insert(0, 'dm_files/CalimaStar_files/')
 
-#sys.path[0:0] = 'dm_files/CalimaStar_files/StarMorphModules.py' # puts the /foo directory at the start of your path
 
 import StarMorphModules
 
@@ -146,17 +145,8 @@ def configure(avatar_accuracy, avatar_length):
     return av_length, av_accuracy
 
 def arabicSyn(myavatar):
-    if(myavatar=="margarita"):
-        db= 'static/scripts/margarita2.json'
 
-    elif(myavatar=="rashid"):
-        db= 'static/scripts/rashid2.json'
-
-    elif(myavatar=="gabriela"):
-        db= 'static/scripts/gabriela1.json'
-
-    elif(myavatar=="katarina"):
-        db= 'static/scripts/katarina1.json'
+    db= 'static/avatar-garden/' + myavatar +'/script.json'
 
     glossDict={}
     synonymDict={}
@@ -191,31 +181,15 @@ def arabicSyn(myavatar):
 # Initiates the model and create a new session
 def createModel(characterdict, currentSession, mylanguage, myavatar):
 
-    if(mylanguage=="Arabic"):
-        arabic_synonyms= arabicSyn(myavatar)
 
-    if(myavatar=="margarita"):
-        db= 'static/scripts/margarita-checked.json'
-
-    elif(myavatar=="rashid"):
-        db= 'static/scripts/rashid-checked.json'
-
-    elif(myavatar=="gabriela"):
-        db= 'static/scripts/gabriela-checked.json'
-
-    elif(myavatar=="katarina"):
-        db= 'static/scripts/katarina-checked.json'
-
+    db= 'static/avatar-garden/' + myavatar +'/script.json'
     try:
         f = open(db, 'r', encoding='utf-8')
     except IOError:
         print("Error: File does not appear to exist.")
 
     resp = json.load(f)
-    # print(resp)
-
-    # StarMorphModules.read_config("config_dana.xml")
-    # StarMorphModules.initialize_from_file("almor-s31.db","analyze")
+   
 
     totalQuestions = 0
 
@@ -1122,9 +1096,7 @@ def findResponse(query, characterModel, currentSession, counter):
             
            
 
-    #best_responses = stem_match_responses
-    #best_responses= lemma_match_responses
-    #best_responses= direct_match_responses
+   
     # if the responses are empty, play "I can't answer that response"
 
    
@@ -1168,33 +1140,6 @@ def findResponse(query, characterModel, currentSession, counter):
     return characterModel.objectMap[final_answer]
 
 
-# def determineAvatar(query, currentSession):
-#     if currentSession.currentAvatar == "":
-#         currentSession = session("margarita", currentSession.language)
-
-#     # Changes the avatar
-
-#     if query == "toya toya can i talk to margarita":
-#         currentSession = session("margarita", currentSession.language)
-
-#     if query == "toya toya can i talk to rashid":
-#         currentSession = session("rashid", currentSession.language)
-
-#     if query == "toya toya can i talk to katarina":
-#         print("you are switching to katarina")
-#         currentSession = session("katarina", currentSession.language)
-
-#     if query == "toya toya can i talk to gabriela":
-#         currentSession = session("gabriela", currentSession.language)
-
-#     if query == "toya toya can i talk to gabriella":
-#         currentSession = session("gabriela", currentSession.language)
-
-#     if query == "toya toya can i talk to someone else":
-#         print("you are switching to gabriela")
-#         currentSession = session("gabriela", currentSession.language)
-
-#     return currentSession
 
 
 # the player calls the following functions for greetings and silentVideos, using calls such as dialogue-manager3.sayHi(characterdict[avatar])
