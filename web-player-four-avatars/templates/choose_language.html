@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" type="text/css" href="{{url_for('static',filename='styles/choose_language.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
+    <title>Choose your language</title>
+</head>
+<body>
+
+<div class = "whole_container" id="whole_container">
+
+<div class="messages">
+<div class="avatar_message">Hello you are going to talk to {{avatar|capitalize}}</div>
+
+<div class="language_message">What language will you be speaking?<br>
+ما اللغة التي ستتحدث بها؟
+</div>
+
+</div>
+
+
+  <div class="form_container">
+
+    <div class="individual_form">
+      <form action="{{avatar}}/english" class = "language_english">
+        <input type="submit" value="English"/>
+      </form>
+    </div>
+
+    <div class="individual_form">
+      <form action="{{avatar}}/arabic" class = "language_arabic">
+        <input type="submit" value="عربي"/>
+      </form>
+    </div>
+
+  </div>
+</div>
+  <div class="loading">
+    <img id="gif" src="">
+
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <script>
+  $(".loading").hide();
+
+    $(".individual_form").click(function(){
+      $(".loading").show();
+      $(".whole_container").hide();
+
+    })
+
+  if("{{avatar}}" == "margarita") {
+    document.getElementById("gif").src = "https://media.giphy.com/media/3gVoGlhH4cQvAjTZrO/giphy.gif";
+  } else if ("{{avatar}}" == "rashid") {
+    document.getElementById("gif").src = "https://media.giphy.com/media/fnASLfpw1bsMuZGtQ7/giphy.gif";
+  } else if("{{avatar}}" == "katarina") {
+    document.getElementById("gif").src = "https://media.giphy.com/media/405kjIrribkQM8ZTAU/giphy.gif";
+  } else if("{{avatar}}" == "gabriela") {
+    document.getElementById("gif").src = "https://media.giphy.com/media/1rSRzRcmY7HXuSIQRm/giphy.gif";
+  }
+
+  console.log("{{avatar}}");
+
+  </script>
+
+</body>
+
+</html>

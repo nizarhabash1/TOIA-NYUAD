@@ -68,7 +68,7 @@ def my_form_post(avatar,language):
     response = dialogue_manager.findResponse(processed_text, characterModel[avatar], currentSession, counter)
     print("RESPONSE IS ", response)
 
-    response_video_path = '/static/avatar-videos/' + avatar + '-videos/' + response.videoLink.strip('"');
+    response_video_path = '/static/avatar-garden/' + avatar + '/videos/' + response.videoLink.strip('"');
 
     # response_subtitle_path = '/static/avatar-subtitle-timestamped/' + os.path.splitext(response.videoLink.strip('"'))[0] + '.vtt'
 

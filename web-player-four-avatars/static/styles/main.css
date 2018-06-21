@@ -1,0 +1,48 @@
+body{
+  color:black;
+  font-family: 'Assistant', sans-serif;
+  text-align: center;
+  background-color: #EFEFEF;
+}
+
+.query_form{
+  margin-bottom: 10px;
+}
+
+#container{
+  text-align:center;
+  font-size:0;
+  border:0px;
+  padding:0;
+  margin:0;
+  vertical-align:top;
+}
+
+.top_button, #recreate_session {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    width:250px;
+    font-size: 13px;
+    font-weight: lighter;
+    display: inline-block;
+    vertical-align:top;
+
+}
+
+.top_button:hover , #recreate_session{
+  transform:scale(1.15);
+}
+
+#stop_avatar {
+    margin: 4px 2px;
+    margin-top: 20px;
+}
+
+#pause_speech {
+    margin: 4px 2px;
+    margin-top: 20px;
+}

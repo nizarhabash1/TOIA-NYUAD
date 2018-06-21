@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel = "stylesheet" type="text/css" href="{{url_for('static',filename='styles/main.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Assistant" rel="stylesheet">
+  </head>
+  <body>
+
+    <h2 id="title">TOIA: An Interactive Human Digital Avatar</h2>
+    <p id="subtitle">Hi I'm your friend TOIA! Feel free to talk to me :)</p>
+    <form method="POST" class="query_form">
+      <input name="text" id = "messageText">
+      <input type="submit" id = "chatbot-form-btn">
+    </form>
+
+    <!-- USE FOLLOWING CODE TO DISPLAY AVATAR RESPONSE -->
+    <!-- <div id="place_for_avatar_response">
+      <label>
+      {{ avatar_response }}
+    </label>
+    </div> -->
+
+    <div id="speech_query">{{query_text|capitalize}}</div>
+    <div id="language_field" style="display:none">{{language}}</div>
+    <div id="container">
+      <button class = "top_button" id="stop_avatar">Skip video</button><button class = "top_button" id="pause_speech">Mute mic</button>
+    </div>
+
+    <div id="video_container" class="">
+    <!-- <video id = 'avatar_video' class='center' width="640" height="400" align="middle" autoplay="" poster="../static/images/margarita_still.png"> -->
+    <video id = 'avatar_video' class='center' width="640" height="400" align="middle" autoplay="" controls autoplay>
+      <source src="{{avatar_video_path}}" type="video/mp4">
+      <source src="{{avatar_video_path}}" type="video/webm">
+      <source src="{{avatar_video_path}}" type="video/ogv">
+      <source src="{{avatar_video_path}}" type="video/ogg">
+      <track label="English" kind="subtitles" srclang="en" src= {{avatar_subtitle}} default>
+    </video>
+    </div>
+
+    <div>
+        <button id = "recreate_session">New user</button>
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script>
+
+    // change button names to Arabic
+    if(document.getElementById('language_field').innerHTML == 'Arabic' || document.getElementById('language_field').innerHTML == "arabic")
+    {
+      document.getElementById("recreate_session").textContent = "مستخدم جديد";
+      document.getElementById("stop_avatar").textContent = "تخطى الفيديو";
+      document.getElementById("pause_speech").textContent = "اكتم المايكروفون";
+      document.getElementById("title").innerText = "تويا: افاتار رقمي متفاعل";
+      document.getElementById("subtitle").innerText = "مرحبا أنا تويا، تفضل بالحديث معي";
+    }
+    // variable that is used to detect whether speech recognigiton is paused or not
+    var paused = false;
+
+    $(".query_form").hide();
+    // speech recognition using annyang
+      function detectSpeech(){
+        if (paused == false) {
+          console.log('speech recognition is listening');
+          if (annyang) {
+            let currentLanguage = document.getElementById('language_field').innerHTML;
+            annyang.setLanguage('en-US');
+            if(currentLanguage == "English" || currentLanguage == "english"){
+              annyang.setLanguage('en-US');
+            }
+            if(currentLanguage=="Arabic" || currentLanguage == "arabic"){
+              annyang.setLanguage('ar');
+            }
+
+            annyang.resume();
+            var sayThis = function(result) {
+              document.getElementById('messageText').value = result;
+              document.getElementById('chatbot-form-btn').click();
+              speech_detected = result;
+
+              console.log(result);
+            }
+            var commands = {'*say': sayThis};
+            annyang.addCommands(commands);
+          };
+        }
+      }
+
+        var vid = document.getElementById('avatar_video');
+        var vid_src = document.getElementById('avatar_video').src;
+
+        var vid_container = document.getElementById('video_container');
+
+        vid.oncanplaythrough=function(){
+          vid.play();
+        };
+
+    var margarita_filler_videos = [
+    "../static/avatar-videos/margarita_338_6be11151af2d475f7f56fe99b547c810.mp4",
+    "../static/avatar-videos/margarita_339_d7f7dc21cc79877f15bcf4cafa473541.mp4",
+    "../static/avatar-videos/margarita_340_16a41b8cddc767f444e773b35832e812.mp4",
+    "../static/avatar-videos/margarita_341_20db0faf8cab7d8916a976d26065df3f.mp4",
+    "../static/avatar-videos/margarita_342_d7f7dc21cc79877f15bcf4cafa476083.mp4"
+    ]
+
+
+    var gabriela_filler_videos = [
+    "../static/avatar-videos/gabriela_2269_0675d24f01246799129eb70ec51746f8.mp4",
+    "../static/avatar-videos/gabriela_2270_09e85aea9c84a6c85465a192187e30af.mp4",
+    "../static/avatar-videos/gabriela_2271_0675d24f01246799129eb70ec5174de1.mp4",
+    "../static/avatar-videos/gabriela_2272_09e85aea9c84a6c85465a192187e40a7.mp4",
+    "../static/avatar-videos/gabriela_2273_3a91e77640148c090faf1193dcf7add6.mp4",
+    "../static/avatar-videos/gabriela_2284_09e85aea9c84a6c85465a19218b97b8d.mp4",
+    "../static/avatar-videos/gabriela_2285_09e85aea9c84a6c85465a19218cdeb1d.mp4",
+    "../static/avatar-videos/gabriela_2286_0c8c50e692628216e86515e14c119033.mp4",
+    "../static/avatar-videos/gabriela_2288_09e85aea9c84a6c85465a19218cdfe37.mp4"
+    ]
+
+    var katarina_filler_videos = [
+    "../static/avatar-videos/katarina_1210_3792386d3488216a787d3261b35d302e.mp4",
+    "../static/avatar-videos/katarina_1211_9cdeb3d285dab2c3a3acbbda9c579320.mp4",
+    "../static/avatar-videos/katarina_1212_3a91e77640148c090faf1193dc588413.mp4"
+    ]
+
+
+    var rashid_filler_videos = [
+    "../static/avatar-videos/rashid_3211_17a0f962a4b53cf47f3bd315beae8252.mp4",
+    "../static/avatar-videos/rashid_3212_d46e0a70b99cc97d4595abe7b3906eac.mp4",
+    "../static/avatar-videos/rashid_3213_6f6c4e1d16544cdad6d3e2fef69d29e2.mp4"
+    ]
+
+    page_protocol = window.location.protocol;
+    page_host = window.location.host;
+    var partial_url = page_protocol + "//" + page_host;
+
+    var all_character_filler_videos = [
+    partial_url + "/static/avatar-videos/margarita_338_6be11151af2d475f7f56fe99b547c810.mp4",
+    partial_url + "/static/avatar-videos/margarita_339_d7f7dc21cc79877f15bcf4cafa473541.mp4",
+    partial_url + "/static/avatar-videos/margarita_340_16a41b8cddc767f444e773b35832e812.mp4",
+    partial_url + "/static/avatar-videos/margarita_341_20db0faf8cab7d8916a976d26065df3f.mp4",
+    partial_url + "/static/avatar-videos/margarita_342_d7f7dc21cc79877f15bcf4cafa476083.mp4",
+    partial_url + "/static/avatar-videos/katarina_1210_3792386d3488216a787d3261b35d302e.mp4",
+    partial_url + "/static/avatar-videos/katarina_1211_9cdeb3d285dab2c3a3acbbda9c579320.mp4",
+    partial_url + "/static/avatar-videos/katarina_1212_3a91e77640148c090faf1193dc588413.mp4",
+    partial_url + "/static/avatar-videos/katarina_1214_cdc6248b097f84b68b97bc341f149911.mp4",
+    partial_url + "/static/avatar-videos/gabriela_2269_0675d24f01246799129eb70ec51746f8.mp4",
+    partial_url + "/static/avatar-videos/gabriela_2270_09e85aea9c84a6c85465a192187e30af.mp4",
+    partial_url + "/static/avatar-videos/gabriela_2271_0675d24f01246799129eb70ec5174de1.mp4",
+    partial_url + "/static/avatar-videos/gabriela_2272_09e85aea9c84a6c85465a192187e40a7.mp4",
+    partial_url + "/static/avatar-videos/gabriela_2273_3a91e77640148c090faf1193dcf7add6.mp4",
+    partial_url + "/static/avatar-videos/gabriela_2284_09e85aea9c84a6c85465a19218b97b8d.mp4",
+    partial_url + "/static/avatar-videos/gabriela_2285_09e85aea9c84a6c85465a19218cdeb1d.mp4",
+    partial_url + "/static/avatar-videos/gabriela_2286_0c8c50e692628216e86515e14c119033.mp4",
+    partial_url + "/static/avatar-videos/gabriela_2288_09e85aea9c84a6c85465a19218cdfe37.mp4",
+    partial_url + "/static/avatar-videos/rashid_3210_817fa7ca9dc82cdd71696044df086c08.mp4",
+    partial_url + "/static/avatar-videos/rashid_3211_17a0f962a4b53cf47f3bd315beae8252.mp4",
+    partial_url + "/static/avatar-videos/rashid_3212_d46e0a70b99cc97d4595abe7b3906eac.mp4",
+    partial_url + "/static/avatar-videos/rashid_3213_6f6c4e1d16544cdad6d3e2fef69d29e2.mp4"
+    ]
+
+
+    // console.log("your document url is: ");
+    // console.log(document.URL);
+
+    function playFillerVideo(){
+      $('#avatar_video track').attr('src',"");
+            switch("{{avatar}}"){
+        case "margarita":
+          vid.src = margarita_filler_videos[Math.floor(Math.random()*margarita_filler_videos.length)];
+          vid.setAttribute('poster','../static/images/margarita_still.png');
+          break;
+        case "katarina":
+          vid.src = katarina_filler_videos[Math.floor(Math.random()*katarina_filler_videos.length)];
+          vid.setAttribute('poster','../static/images/katarina_still.png');
+          break;
+        case "gabriela":
+          vid.src = gabriela_filler_videos[Math.floor(Math.random()*gabriela_filler_videos.length)];
+          vid.setAttribute('poster','../static/images/gabriela_still.png');
+          break;
+        case "rashid":
+          vid.src =  rashid_filler_videos[Math.floor(Math.random()*rashid_filler_videos.length)];
+          vid.setAttribute('poster','../static/images/rashid_still.png');
+          break;
+          }
+    }
+
+
+    function playFillerVideoAtStart(){
+        switch ("{{avatar_video_path}}"){
+          case "":
+              playFillerVideo();
+            }
+        }
+
+     function playFillerVideoInBetween(){
+           playFillerVideo();
+        }
+
+      //start or Mute mic depending on if video is playing
+      $(document).ready(function() {
+        switch("{{avatar}}"){
+        case "margarita":
+          vid.setAttribute('poster','../static/images/margarita_still.png');
+          break;
+        case "katarina":
+          vid.setAttribute('poster','../static/images/katarina_still.png');
+          break;
+        case "gabriela":
+          vid.setAttribute('poster','../static/images/gabriela_still.png');
+          break;
+        case "rashid":
+          vid.setAttribute('poster','../static/images/rashid_still.png');
+          break;
+          }
+
+        playFillerVideoAtStart();
+        detectSpeech();
+        document.getElementById('stop_avatar').onclick = function(){
+          $('#avatar_video').get(0).pause();
+        }
+
+        // Pause or Unmute mic
+        var speech_button = document.getElementById('pause_speech');
+
+        document.getElementById('pause_speech').onclick = function(){
+          console.log("clicked speech button");
+          let currentLanguage = document.getElementById('language_field').innerHTML;
+          console.log(currentLanguage);
+          if (speech_button.textContent == "Mute mic" || speech_button.textContent == "اكتم المايكروفون") {
+            console.log("paused speech recognition");
+            if(annyang) {
+              annyang.abort();
+              paused = true;
+              if(currentLanguage=="Arabic" || currentLanguage == "arabic") {
+                speech_button.textContent = "شغل المايكروفون";
+                console.log("DID THIS");
+              } else {
+                speech_button.textContent = "Unmute mic";
+              }
+            }
+          } else {
+            console.log("restarted speech recognition");
+            annyang.start({autoRestart: false});
+            paused = false;
+            if(currentLanguage=="Arabic" || currentLanguage == "arabic") {
+                speech_button.textContent = "اكتم المايكروفون";
+                console.log("DID THIS TOO");
+            } else {
+              speech_button.textContent = "Mute mic";
+            }
+          }
+        }
+
+        var recreate_session_button = document.getElementById('recreate_session');
+        recreate_session_button.onclick = function(){
+          $.ajax({
+            type:'POST',
+            url:"/{{avatar}}/{{language}}/recreate"
+
+          })
+        }
+
+
+        $('#avatar_video').bind('playing', function(e) {
+          console.log('bind - playing');
+        });
+
+        $('#avatar_video').on('canplay', function() {
+          $('#avatar_video').css('visibility', 'visible')
+        });
+
+        var player = document.getElementById('avatar_video');
+
+      // TALKING MODE
+      // Video is playing we are in talking mode, which means speech recognition will be paused.
+        player.addEventListener('playing', function(e) {
+          console.log(vid.src);
+          if(!all_character_filler_videos.includes(vid.src)){
+          console.log("we are not playing a filler video");
+            annyang.abort();
+            console.log('Video is now playing and we stopped speech recognition') ;
+           }
+        });
+
+      // LISTENING MODE
+      // If video is not playing, we are in listening mode, which means we will enable speech recognition
+      // and we will play a filler video
+
+        player.addEventListener('pause', function(e) {
+          console.log('Video is now paused') ;
+          playFillerVideoInBetween();
+          detectSpeech();
+        });
+
+        player.addEventListener('ended', function(e) {
+          console.log('Video has ended') ;
+          playFillerVideoInBetween();
+          detectSpeech();
+        });
+
+
+      });
+
+          // Below are helper codes for the speech recognition if we want to use dialects
+          // set langauge to be MSA
+          // annyang.setLanguage('ar')
+          // set langauge to be emirati dialect
+          // annyang.setLanguage('ar-AE');
+          // set language to be Jordanian dialect
+          // annyang.setLanguage('ar-JO');
+
+    </script>
+  </body>
+</html>

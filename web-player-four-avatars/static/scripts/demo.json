@@ -1,0 +1,116 @@
+{
+  "total_rows": 843,
+  "offset": 0,
+  "rows": [
+    {
+      "id": "3a91e77640148c090faf1193dc5715b1",
+      "key": "3a91e77640148c090faf1193dc5715b1",
+      "value": {
+        "rev": "4-155bbc8debf73be92b7fa63490582271"
+      },
+      "doc": {
+        "_id": "3a91e77640148c090faf1193dc5715b1",
+        "_rev": "4-155bbc8debf73be92b7fa63490582271",
+        "index": 1002,
+        "question": "Who are you?",
+        "answer": "I am an avatar of an NYUAD student who can answer any questions you may have about the university.",
+        "video": "katarina_1002_3a91e77640148c090faf1193dc5715b1.mp4",
+        "video_saved": true
+      }
+    },
+    {
+      "id": "9b069d234b0a3c903efacb8a87e9cee4",
+      "key": "9b069d234b0a3c903efacb8a87e9cee4",
+      "value": {
+        "rev": "3-0850a2a4e16779f4bb47954ae64900ed"
+      },
+      "doc": {
+        "_id": "9b069d234b0a3c903efacb8a87e9cee4",
+        "_rev": "3-0850a2a4e16779f4bb47954ae64900ed",
+        "index": 1007,
+        "question": "What can I talk to you about? ",
+        "answer": "You can to talk me about anything relating to Academics, Admissions, life in Abu Dhabi, and NYUAD in general. Feel free to ask me about my expierences here.",
+        "video": "katarina_1007_9b069d234b0a3c903efacb8a87e9cee4.mp4",
+        "video_saved": true
+      }
+    },
+    {
+      "id": "ef1374bdef2fc36054292623a39b64dc",
+      "key": "ef1374bdef2fc36054292623a39b64dc",
+      "value": {
+        "rev": "2-b137ef10c73a74c1f94cec1df7dc223c"
+      },
+      "doc": {
+        "_id": "ef1374bdef2fc36054292623a39b64dc",
+        "_rev": "2-b137ef10c73a74c1f94cec1df7dc223c",
+        "index": 1114,
+        "question": "What are the different majors offered at your university?",
+        "answer": "NYUAD offers 22 majors, and numerous multidisciplinary minors and specializations. Arab Crossroads Studies, Art and Art History, Biology, Chemistry, Computer Science, Economics, Film and New media, History,Literature and Creative Writing, Mathematics, Music,Philosophy, Physics Political Science, Psychology, Social Research and Public Policy, Theatre. In addition to 5 Engineering majors, Civil, Computer, Electrical, General and Mechanical Enigineering.",
+        "video": "katarina_1114_ef1374bdef2fc36054292623a39b64dc.mp4",
+        "video_saved": true
+      }
+    },
+    {
+      "id": "f995946d1d8462bc94f06fdf8ad72efc",
+      "key": "f995946d1d8462bc94f06fdf8ad72efc",
+      "value": {
+        "rev": "2-fff8e15670d55e4e20e6e9924147a873"
+      },
+      "doc": {
+        "_id": "f995946d1d8462bc94f06fdf8ad72efc",
+        "_rev": "2-fff8e15670d55e4e20e6e9924147a873",
+        "index": 1041,
+        "question": "Can you tell me more about Abu Dhabi? ",
+        "answer": "Abu Dhabi is the largest of the seven emirates that make up the United Arab Emirates. It occupies nearly 87 percent of the country's total landmass and includes the capital - the city of Abu Dhabi - and a second major city named Al Ain, located near the emirate's border with Oman. According to the 2005 census, the Emirate of Abu Dhabi is home to over 1.3 million people, the majority of whom are expatriates.",
+        "video": "katarina_1041_f995946d1d8462bc94f06fdf8ad72efc.mp4",
+        "video_saved": true
+      }
+    },
+    {
+      "id": "3792386d3488216a787d3261b35c6ac9",
+      "key": "3792386d3488216a787d3261b35c6ac9",
+      "value": {
+        "rev": "2-9e44315125285c3348c47a3d3fb8f9d7"
+      },
+      "doc": {
+        "_id": "3792386d3488216a787d3261b35c6ac9",
+        "_rev": "2-9e44315125285c3348c47a3d3fb8f9d7",
+        "index": 1049,
+        "question": "can you tell me about the Emirati national dress",
+        "answer": "The Emirati national dress for men is called the Kandoura. For women it is called the Abaya.",
+        "video": "katarina_1049_3792386d3488216a787d3261b35c6ac9.mp4"
+      }
+    },
+    {
+      "id": "3a91e77640148c090faf1193dc576cb2",
+      "key": "3a91e77640148c090faf1193dc576cb2",
+      "value": {
+        "rev": "3-44738ebab7a1b043a3d165b175d1c0c1"
+      },
+      "doc": {
+        "_id": "3a91e77640148c090faf1193dc576cb2",
+        "_rev": "3-44738ebab7a1b043a3d165b175d1c0c1",
+        "index": 1058,
+        "question": "What are the languages spoken in Abu Dhabi? ",
+        "answer": "Arabic is the official language of the government and business, though English, Persian, Hindi, and Urdu are also spoken. All signs are either in English or both English and Arabic.",
+        "video": "katarina_1058_3a91e77640148c090faf1193dc576cb2.mp4"
+      }
+    },
+    {
+      "id": "3a91e77640148c090faf1193dc584321",
+      "key": "3a91e77640148c090faf1193dc584321",
+      "value": {
+        "rev": "2-7ceda6545cd05779a6eef45ec8c167f5"
+      },
+      "doc": {
+        "_id": "3a91e77640148c090faf1193dc584321",
+        "_rev": "2-7ceda6545cd05779a6eef45ec8c167f5",
+        "index": 1177,
+        "question": "You are very knowledgeable",
+        "answer": "Thank you! / Thank you.",
+        "video": "katarina_1177_3a91e77640148c090faf1193dc584321.mp4",
+        "video_saved": true
+      }
+    }
+  ]
+}

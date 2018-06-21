@@ -43,6 +43,28 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   <script>
+
+  console.log("Fillers for {{avatar}}");
+
+  var avatarScriptURL = "../static/avatar-garden/{{avatar}}/script.json";
+
+  var fillers = [];
+
+  // Create array of filler videos
+  $.getJSON(avatarScriptURL, function(data) {
+    videos = data["rows"];
+    for (i=0; i<videos.length;i++) {
+      if(videos[i]["doc"]["video-type"] == "filler") {
+        var fillerLocation = "../static/avatar-garden/{{avatar}}/videos/" + videos[i]["doc"]["video"];
+        fillers.push(fillerLocation);
+      }
+    }
+    console.log(fillers[0]);
+    localStorage.setItem("fillers",JSON.stringify(fillers));
+    console.log(localStorage.getItem("fillers"));
+  });
+
+
   $(".loading").hide();
 
     $(".individual_form").click(function(){
