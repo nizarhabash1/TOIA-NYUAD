@@ -13,6 +13,12 @@
   أهلا، أنا صديقك "تويا"! مع من تريد أن تتحدث اليوم؟
 </div>
 
+<div id="selectPrevious">
+  <form id="previousAvatar" onsubmit="chosenAvatar();" style="padding-left:50px;">
+    <legend> Which avatar do you want to work on? </legend>
+  </form>
+</div>
+
 <div class="container">
 <form action="margarita" class ="avatar_container">
     <div class= "avatar_image">
@@ -52,4 +58,22 @@
 </div>
 
 </body>
+
+<script>
+
+  const avatarGarden = './static/avatar-garden/';
+  const fs = require('fs');
+  const avatarPaths = [];
+  fs.readdir(avatarGarden, (err, files) => {
+    files.forEach(file => {
+      avatarPaths.push(String(file));
+      console.log(avatarPaths);
+      console.log(file);
+    });
+  })
+  setTimeout(function(){
+    console.log(avatarPaths);
+  }, 1000);
+
+</script>
 </html>
