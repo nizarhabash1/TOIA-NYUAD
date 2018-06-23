@@ -112,16 +112,16 @@ def preprocess(line):
 
 def arabicSyn(myavatar):
     if(myavatar=="margarita"):
-        db= 'static/scripts/margarita2.json'
+        db= 'static/scripts/margarita-final.json'
 
     elif(myavatar=="rashid"):
-        db= 'static/scripts/rashid2.json'
+        db= 'static/scripts/rashid-final.json'
 
     elif(myavatar=="gabriela"):
-        db= 'static/scripts/gabriela1.json'
+        db= 'static/scripts/gabriela-final.json'
 
     elif(myavatar=="katarina"):
-        db= 'static/scripts/katarina1.json'
+        db= 'static/scripts/katarina-final.json'
 
     glossDict={}
     synonymDict={}
