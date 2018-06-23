@@ -386,11 +386,11 @@ function scriptOptions(){
 	document.getElementById("recorder").style.display="";
 	scriptName = document.querySelector('input[name="script"]:checked').value;
 	if(scriptName === "scratch") {
-		scriptName = '../web-recorder/public/templates/template-empty.json';
+		scriptName = '../web-recorder/public/template-scripts/template-empty.json';
 	} else if(scriptName === "template-narrative") {
-		scriptName = '../web-recorder/public/templates/template-narrative.json';
+		scriptName = '../web-recorder/public/template-scripts/template-narrative.json';
 	} else if (scriptName === "template-factual") {
-		scriptName = '../web-recorder/public/templates/template-factual.json';
+		scriptName = '../web-recorder/public/template-scripts/template-factual.json';
 	}
 	console.log(scriptName);
 	sendFileName();

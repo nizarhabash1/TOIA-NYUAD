@@ -11,7 +11,7 @@ var fs = require('fs');
 
 // NEED TO FIGURE OUT HOW TO SAVE TO NEW FILE - ask user to give name and save to it
 // make button through which can save json file to new thing
-var file = '../web-recorder/public/templates/temp_file.json';
+var file = '../web-recorder/public/template-scripts/temp_file.json';
 var Buffer = require('buffer');
 var multer  = require('multer');
 
@@ -66,7 +66,7 @@ app.get("/script", function(req,res){
 
 app.get("/scripts", function(req,res){
   console.log("DID THIS");
-  const scriptFolder = './public/avatars/';
+  const scriptFolder = './public/avatar-garden/';
   const fs = require('fs');
   const scriptPaths = [];
   fs.readdir(scriptFolder, (err, files) => {
@@ -88,9 +88,9 @@ app.post("/filename", function(req,res) {
   var fs = require('fs');
   var json = JSON.parse(fs.readFileSync(file));
   console.log(file);
-  json = JSON.stringify(json);
-  fs.writeFile("../web-recorder/public/templates/temp_file.json",json);
-  file = "../web-recorder/public/templates/temp_file.json";
+  json = JSON.stringify(json, null, 4);
+  fs.writeFile("../web-recorder/public/template-scripts/temp_file.json",json);
+  file = "../web-recorder/public/template-scripts/temp_file.json";
 });
 
 // Update an answer entry in the JSON database
@@ -103,9 +103,18 @@ app.post("/update", function(req,res){
 
 app.post("/makedir", function(req,res) {
   var directoryName = req.body.name;
-  mkdirp('../web-recorder/public/avatars/'+directoryName, function(err) { 
-    console.log("MADE DIRECTORY");
+  mkdirp('../web-recorder/public/avatar-garden/'+directoryName, function(err) { 
+    console.log("Made avatar directory");
   });
+  mkdirp('../web-recorder/public/avatar-garden/'+directoryName+'/videos', function(err) {
+    console.log("Made videos directory");
+  });
+  mkdirp('../web-recorder/public/avatar-garden/'+directoryName+'/subtitles', function(err) {
+    console.log("Made subtitles directory");
+  });
+  var inStr = fs.createReadStream('../web-recorder/public/sample-avatar/still.png');
+  var outStr = fs.createWriteStream('../web-recorder/public/avatar-garden/'+directoryName+'/still.png');
+  inStr.pipe(outStr);
 });
 
 // Save a recorded video in the file system as specified by multer upload, see above
@@ -114,7 +123,7 @@ app.post("/save",type, function(req,res){
   console.log("SAVING");
   console.log(req.file.originalname.substr(0,req.file.originalname.indexOf('_')));
   var avatarName = req.file.originalname.substr(0,req.file.originalname.indexOf('_'));
-  fs.rename(__dirname + '/public/uploads/' + req.file.filename, __dirname + '/public/avatars/' + avatarName + '/' + req.file.originalname, (err) => {
+  fs.rename(__dirname + '/public/uploads/' + req.file.filename, __dirname + '/public/avatar-garden/' + avatarName + '/' + req.file.originalname, (err) => {
       if (err) throw err;
       console.log('Rename complete!');
     });
@@ -123,11 +132,11 @@ app.post("/save",type, function(req,res){
 app.post("/saveAvatar", function(req,res) {
   console.log(req.body.name);
   folder = req.body.name;
-  var json = jsonfile.readFileSync("../web-recorder/public/templates/temp_file.json");
-  json = JSON.stringify(json);
+  var json = jsonfile.readFileSync("../web-recorder/public/template-scripts/temp_file.json");
+  json = JSON.stringify(json, null, 4);
   console.log(json);
   var fs = require('fs');
-  fs.writeFile("../web-recorder/public/avatars/"+folder+"/script.json",json);
+  fs.writeFile("../web-recorder/public/avatar-garden/"+folder+"/script.json",json);
 });
 
 app.listen(3000);
