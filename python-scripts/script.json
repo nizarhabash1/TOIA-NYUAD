@@ -1,0 +1,282 @@
+{
+    "rows": [
+        {
+            "key": "16a41b8cddc767f444e773b3582a6d1a",
+            "doc": {
+                "index": 3,
+                "arabic-answer": "(إسمي هو (مارغريتا",
+                "language": "English",
+                "english-question": "What is your name?",
+                "_rev": "3-f448a5b13e182f3a54314a6ed1554555",
+                "character": "margarita",
+                "video": "margarita_3_16a41b8cddc767f444e773b3582a6d1a.mp4",
+                "english-answer": "My name is Margarita.",
+                "arabic-question": "ما هو اسمك ؟",
+                "_id": "16a41b8cddc767f444e773b3582a6d1a",
+                "video-type": "regular",
+                "playing frequency": "once",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582a6d1a",
+            "value": {
+                "rev": "3-f448a5b13e182f3a54314a6ed1554555"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582a6d1a",
+            "doc": {
+                "index": 3,
+                "arabic-answer": "(اسمي (مارغريتا",
+                "language": "English",
+                "english-question": "What's your name?",
+                "_rev": "3-f448a5b13e182f3a54314a6ed1554555",
+                "character": "margarita",
+                "video": "margarita_3_16a41b8cddc767f444e773b3582a6d1a.mp4",
+                "english-answer": "My name is Margarita",
+                "arabic-question": "ما هو اسمك ؟",
+                "_id": "16a41b8cddc767f444e773b3582a6d1a",
+                "video-type": "regular",
+                "playing frequency": "multiple",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582a6d1a",
+            "value": {
+                "rev": "3-f448a5b13e182f3a54314a6ed1554555"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582a82b0",
+            "doc": {
+                "index": 18,
+                "arabic-answer": "أنا الشقيق الأصغر.",
+                "language": "English",
+                "english-question": "Is your brother older or younger than you?",
+                "_rev": "3-2281131e01b7f8be222e85975419264c",
+                "character": "margarita",
+                "video": "margarita_18_16a41b8cddc767f444e773b3582a82b0.mp4",
+                "english-answer": "I am the younger sibling.",
+                "arabic-question": "هل أخوك أكبر أو أصغر منك ؟",
+                "_id": "16a41b8cddc767f444e773b3582a82b0",
+                "video-type": "regular",
+                "playing frequency": "multiple",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582a82b0",
+            "value": {
+                "rev": "3-2281131e01b7f8be222e85975419264c"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582a8af9",
+            "doc": {
+                "index": 19,
+                "arabic-answer": "أخي أكبر سنا",
+                "language": "English",
+                "english-question": "Is your brother older or younger than you?",
+                "_rev": "3-6ab29d1c38f4dc2ce365cb14cd17745e",
+                "character": "margarita",
+                "video": "margarita_19_16a41b8cddc767f444e773b3582a8af9.mp4",
+                "english-answer": "My brother is older.",
+                "arabic-question": "هل أخوك أكبر أو أصغر منك ؟",
+                "_id": "16a41b8cddc767f444e773b3582a8af9",
+                "video-type": "regular",
+                "playing frequency": "multiple",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582a8af9",
+            "value": {
+                "rev": "3-6ab29d1c38f4dc2ce365cb14cd17745e"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582a8dc0",
+            "doc": {
+                "index": 29,
+                "arabic-answer": "حسنا ، جامعة نيويورك تقدم منحة دراسية جيدة وهي جامعة جيدة.",
+                "language": "English",
+                "english-question": "Why did you choose to study at NYU Abu Dhabi?",
+                "_rev": "3-55d4ed63dc3dcb25b5eebe8ea9410428",
+                "character": "margarita",
+                "video": "margarita_29_16a41b8cddc767f444e773b3582a8dc0.mp4",
+                "english-answer": "Well, NYUAD offers a good scholarship and it's a good university.",
+                "arabic-question": "لماذا اخترت الدراسة في جامعة \\\"نيويورك أبو ظبي\\\" ؟",
+                "_id": "16a41b8cddc767f444e773b3582a8dc0",
+                "video-type": "regular",
+                "playing frequency": "multiple",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582a8dc0",
+            "value": {
+                "rev": "3-55d4ed63dc3dcb25b5eebe8ea9410428"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582a9197",
+            "doc": {
+                "index": 34,
+                "arabic-answer": "(آسف ، لا أستطيع تذكر ما درسه (أوليج",
+                "language": "English",
+                "english-question": "No, but what did Oleg study?",
+                "_rev": "3-0b0ccaa2b9f6d92c7b0ed80b9f4b2297",
+                "character": "margarita",
+                "video": "margarita_34_16a41b8cddc767f444e773b3582a9197.mp4",
+                "english-answer": "Sorry, I can't remember what Oleg studied.",
+                "arabic-question": "لا ، ولكن ما هي دراسة أوليج ؟",
+                "_id": "16a41b8cddc767f444e773b3582a9197",
+                "video-type": "regular",
+                "playing frequency": "multiple",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582a9197",
+            "value": {
+                "rev": "3-0b0ccaa2b9f6d92c7b0ed80b9f4b2297"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582aa031",
+            "doc": {
+                "index": 39,
+                "arabic-answer": "أنت يجب أن gogle هو !",
+                "language": "English",
+                "english-question": "How did you apply here?",
+                "_rev": "3-dd781660e2ec502ff57adfc683fa7e87",
+                "character": "margarita",
+                "video": "margarita_39_16a41b8cddc767f444e773b3582aa031.mp4",
+                "english-answer": "You should google it!",
+                "arabic-question": "كيف تطبق هنا ؟",
+                "_id": "16a41b8cddc767f444e773b3582aa031",
+                "video-type": "regular",
+                "playing frequency": "multiple",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582aa031",
+            "value": {
+                "rev": "3-dd781660e2ec502ff57adfc683fa7e87"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582aa274",
+            "doc": {
+                "index": 44,
+                "arabic-answer": "أنا حقا أحب ترجمة. اللغات والرياضيات",
+                "language": "English",
+                "english-question": "What would you have studied if not music at NYUAD?",
+                "_rev": "3-545a504bb8bc3ebf44f33abbf550b3c1",
+                "character": "margarita",
+                "video": "margarita_44_16a41b8cddc767f444e773b3582aa274.mp4",
+                "english-answer": "I really like interpreting languages and math.",
+                "arabic-question": "ماذا كنت ستدرس إذا لم تكن الموسيقى في \\\"نيويورك\\\" ؟",
+                "_id": "16a41b8cddc767f444e773b3582aa274",
+                "video-type": "regular",
+                "playing frequency": "multiple",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582aa274",
+            "value": {
+                "rev": "3-545a504bb8bc3ebf44f33abbf550b3c1"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582aa4c7",
+            "doc": {
+                "index": 55,
+                "arabic-answer": "بمساعدة من (نيماد) لقد كنت في العديد من الأماكن لقد ذهبت إلى نيويورك ، إلى شنغهاي ، إلى بوينس آيرس وكان لي حتى رحلة من الدرجة إلى عمان !",
+                "language": "English",
+                "english-question": "What about travelling?",
+                "_rev": "3-7bbc19066921ec32fb02399dc2d1e575",
+                "character": "margarita",
+                "video": "margarita_55_16a41b8cddc767f444e773b3582aa4c7.mp4",
+                "english-answer": "With the help of NYUAD I've been to so many places! I've been to New York, to Shanghai, to Buenos Aires and I’ve even had a class trip to Oman!",
+                "arabic-question": "ماذا عن السفر ؟",
+                "_id": "16a41b8cddc767f444e773b3582aa4c7",
+                "video-type": "regular",
+                "playing frequency": "multiple",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582aa4c7",
+            "value": {
+                "rev": "3-7bbc19066921ec32fb02399dc2d1e575"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582aafe5",
+            "doc": {
+                "index": 58,
+                "arabic-answer": "بمساعدة من (نيماد) لقد كنت في العديد من الأماكن لقد ذهبت إلى نيويورك ، إلى شنغهاي ، إلى بوينس آيرس وكان لي حتى رحلة من الدرجة إلى عمان !",
+                "language": "English",
+                "english-question": "What countries have you been to?",
+                "_rev": "3-0946fbf42fe4f04438ae423618bd5931",
+                "character": "margarita",
+                "video": "margarita_58_16a41b8cddc767f444e773b3582aafe5.mp4",
+                "english-answer": "With the help of NYUAD I've been to so many places! I've been to New York, to Shanghai, to Buenos Aires and I’ve even had a class trip to Oman!",
+                "arabic-question": "ما هي البلدان التي كنت فيها ؟",
+                "_id": "16a41b8cddc767f444e773b3582aafe5",
+                "video-type": "regular",
+                "playing frequency": "multiple",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582aafe5",
+            "value": {
+                "rev": "3-0946fbf42fe4f04438ae423618bd5931"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582ab0f4",
+            "doc": {
+                "index": 62,
+                "arabic-answer": "بمساعدة من (نيماد) لقد كنت في العديد من الأماكن لقد ذهبت إلى نيويورك ، إلى شنغهاي ، إلى بوينس آيرس وكان لي حتى رحلة من الدرجة إلى عمان !",
+                "language": "English",
+                "english-question": "Where have you been in Oman?",
+                "_rev": "3-954b6b827520d9eab602b697468e564a",
+                "character": "margarita",
+                "video": "margarita_62_16a41b8cddc767f444e773b3582ab0f4.mp4",
+                "english-answer": "With the help of NYUAD I've been to so many places! I've been to New York, to Shanghai, to Buenos Aires and I’ve even had a class trip to Oman!",
+                "arabic-question": "أين كنت في عمان ؟",
+                "_id": "16a41b8cddc767f444e773b3582ab0f4",
+                "video-type": "regular",
+                "playing frequency": "multiple",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582ab0f4",
+            "value": {
+                "rev": "3-954b6b827520d9eab602b697468e564a"
+            }
+        },
+        {
+            "key": "16a41b8cddc767f444e773b3582ab9b9",
+            "doc": {
+                "index": 65,
+                "arabic-answer": "ذهبت إلى الصين من أجل فصل يناير في يناير ٢٠١٧ وذلك لدراسة مقرر مدته أسبوعين تقريباً! لست متأكدة إن كنت تعرفين، لكنه برنامج تقدمه جامعتنا",
+                "language": "English",
+                "english-question": "What did you do in China? ",
+                "_rev": "3-c4ac52c3b7c97ed2676699fc9594e89b",
+                "character": "margarita",
+                "video": "margarita_65_16a41b8cddc767f444e773b3582ab9b9.mp4",
+                "english-answer": "I went to China for my January term in January 2017 to study a class for about two weeks! I'm not sure if you know about it, but this is a program that our university offers.",
+                "arabic-question": "ماذا فعلت في الصين؟",
+                "_id": "16a41b8cddc767f444e773b3582ab9b9",
+                "video-type": "regular",
+                "playing frequency": "multiple",
+                "minimum required accuracy": "low",
+                "length constant": "40"
+            },
+            "id": "16a41b8cddc767f444e773b3582ab9b9",
+            "value": {
+                "rev": "3-c4ac52c3b7c97ed2676699fc9594e89b"
+            }
+        }
+    ],
+    "total_rows": 335,
+    "offset": 0
+}
