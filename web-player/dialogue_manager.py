@@ -24,6 +24,8 @@ sys.path.insert(0, 'dm_files/CalimaStar_files/')
 
 import StarMorphModules
 
+import StopWords
+
 import nltk
 # nltk.download('punkt')
 # nltk.download('averaged_perceptron_tagger')
@@ -49,8 +51,7 @@ from string import punctuation
 from nltk.corpus import wordnet as wn
 
 nltk.download('stopwords')
-#stop_words = stopwords.words('english') + list(punctuation)
-stop_words= ["on", "in", "tell", "me", "about", "a", "an", "the", "of", "and", "or", "but", "what", "are", "you", "your", "is", "was" , "do"]
+
 stop_words_arabic= ["ما", "ماذا", "هي", "هو"]
 
 '''
@@ -110,12 +111,6 @@ class session:
         self.language = language
        
 
-
-# find the intersection of two lists
-def intersect(a, b):
-    return list(set(a) & set(b))
-
-
 # preprocessing for Arabic
 def preprocess(line):
     processed = line.replace("؟", "")
@@ -126,14 +121,8 @@ def preprocess(line):
 
     return processed
 
+# save configuration variables from avatar's json files
 def configure(avatar_accuracy, avatar_length):
-    
-    # if (avatar_frequency=="multiple"):
-    #     av_frequency=2
-    # elif(avatar_frequency=="once"):
-    #     av_frequency=1
-    # elif(avatar_frequency=="never"):
-    #     av_frequency=0
 
     if (avatar_accuracy=="high"):
         av_accuracy= 0.1
@@ -146,6 +135,20 @@ def configure(avatar_accuracy, avatar_length):
 
     return av_length, av_accuracy
 
+#generate stop words
+
+def getStopwords(language):
+    stop_words= []
+    if language=="English":
+        stop_words = stopwords.words('english') + list(punctuation)
+        stop_words += ["on", "in", "tell", "me", "about", "a", "an", "the", "of", "and", "or", "but", "what", "are", "you", "your", "is", "was" , "do"]
+
+    elif language== "Arabic":
+       stop_words= StopWords.getStopwords()
+   
+    return stop_words
+
+# get Arabic synonyms
 def arabicSyn(myavatar):
 
     db= 'static/avatar-garden/' + myavatar +'/script.json'
@@ -180,6 +183,7 @@ def arabicSyn(myavatar):
                 if i not in synonymDict.keys():
                     synonymDict[i]=[j for j in glossDict[key]]
     return synonymDict
+
 # Initiates the model and create a new session
 def createModel(characterdict, currentSession, mylanguage, myavatar):
 
@@ -192,10 +196,14 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
 
     resp = json.load(f)
    
-
+    #number of questions in the db 
     totalQuestions = 0
 
+    #counter to generate ID for each video in the model 
     id_count = 0
+
+    if mylanguage=="Arabic":
+        arabic_synonyms= arabicSyn(myavatar)
 
     for i in range(0, len(resp["rows"]) - 1, 1):
 
@@ -219,6 +227,7 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         #     continue
 
         if (mylanguage == "Arabic"):
+            
             question = json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
             answer = json.dumps(resp["rows"][i]["doc"]["arabic-answer"], ensure_ascii=False).strip('،.؟"')
             question= preprocess(question)
@@ -252,13 +261,14 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         #if it's an "I don't have answer for that" video
         if(videoType== '"no-answer"'):
             characterdict[character].noAnswer[ID] = obj
-            print("no answer", characterdict[character].noAnswer.keys())
 
         else:
             characterdict[character].questionsMap[ID] = obj
 
         # stemming the question and answer and adding the stems, their bigrams and trigrams into model.stemmedMap
         if (mylanguage == "English"):
+
+            stop_words= getStopwords("English")
 
             unigram_split = question.lower().split() + answer.lower().split()
             unigram_list = [tmp.strip(',?."!)') for tmp in unigram_split]
@@ -380,108 +390,110 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
 
         elif (mylanguage == "Arabic"):
 
-        	unigram_split = question.strip('،"!؟/)').replace("،", " ").replace("/", " ").split() + answer.strip('،"!؟/)').replace("،", " ").replace("/", " ").split()
+            #arabic_stop_words= getStopwords("Arabic")
 
-        	unigram_list = [tmp.strip('،"!؟/)').replace('/', '') for tmp in unigram_split]
+            unigram_split = question.strip('،"!؟/)').replace("،", " ").replace("/", " ").split() + answer.strip('،"!؟/)').replace("،", " ").replace("/", " ").split()
 
-        	unigram_synonyms_list = []
+            unigram_list = [tmp.strip('،"!؟/)').replace('/', '') for tmp in unigram_split]
+
+            unigram_synonyms_list = []
 
 
-        	# # expands the unigram model by adding synonyms
-        	# for word in unigram_list:
-	        # 	if word in arabic_synonyms.keys():
-	        # 		for tmp in arabic_synonyms[word]:
-	        # 			if tmp not in unigram_synonyms_list:
-	        # 				unigram_synonyms_list.append(tmp)
+        	# expands the unigram model by adding synonyms
+            for word in unigram_list:
+            	if word in arabic_synonyms.keys():
+            		for tmp in arabic_synonyms[word]:
+            			if tmp not in unigram_synonyms_list:
+            				unigram_synonyms_list.append(tmp)
 
 
 
             # add the bigrams and trigrams into the three representations
-        	totalUnigrams = len(unigram_list)
+            totalUnigrams = len(unigram_list)
 
-        	for i in range(totalUnigrams):
+            for i in range(totalUnigrams):
 
                 # creates bigrams, their stems and lemmas and adds them to the respective maps
-        		if (i < totalUnigrams - 1):
-        			bigram = unigram_list[i] + "_" + unigram_list[i + 1]
-        			if bigram not in characterdict[character].wordMap.keys():
-        				characterdict[character].wordMap[bigram] = {}
-        			if ID not in characterdict[character].wordMap[bigram]:
-        				characterdict[character].wordMap[bigram][ID] = 1
-        			else:
-        			 	characterdict[character].wordMap[bigram][ID] += 1
+                if (i < totalUnigrams - 1):
+                    bigram = unigram_list[i] + "_" + unigram_list[i + 1]
+                    if bigram not in characterdict[character].wordMap.keys():
+                        characterdict[character].wordMap[bigram] = {}
+                    if ID not in characterdict[character].wordMap[bigram]:
+                        characterdict[character].wordMap[bigram][ID] = 1
+                    else:
+                        characterdict[character].wordMap[bigram][ID] += 1
 
-        			bigram_stem = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
+                    bigram_stem = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
 
-        			if bigram_stem not in characterdict[character].stemmedMap.keys():
-        				characterdict[character].stemmedMap[bigram_stem] = {}
-        			if ID not in characterdict[character].stemmedMap[bigram_stem]:
-        				characterdict[character].stemmedMap[bigram_stem][ID] = 1
-        			else:
-        				characterdict[character].wordMap[bigram][ID] += 1
+                    if bigram_stem not in characterdict[character].stemmedMap.keys():
+                        characterdict[character].stemmedMap[bigram_stem] = {}
+                    if ID not in characterdict[character].stemmedMap[bigram_stem]:
+                        characterdict[character].stemmedMap[bigram_stem][ID] = 1
+                    else:
+                        characterdict[character].wordMap[bigram][ID] += 1
 
-        			bigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
+                    bigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
 
-        			if bigram_lemma not in characterdict[character].lemmatizedMap.keys():
-        				characterdict[character].lemmatizedMap[bigram_lemma] = {}
+                    if bigram_lemma not in characterdict[character].lemmatizedMap.keys():
+                        characterdict[character].lemmatizedMap[bigram_lemma] = {}
 
-        			if ID not in characterdict[character].lemmatizedMap[bigram_lemma]:
-        				characterdict[character].lemmatizedMap[bigram_lemma][ID] = 1
-        			else:
-        				characterdict[character].lemmatizedMap[bigram_lemma][ID] += 1
+                    if ID not in characterdict[character].lemmatizedMap[bigram_lemma]:
+                        characterdict[character].lemmatizedMap[bigram_lemma][ID] = 1
+                    else:
+                        characterdict[character].lemmatizedMap[bigram_lemma][ID] += 1
 
 	        	 # creates trigrams, their stems and lemmas and add them to the respective maps
-        		if i < totalUnigrams - 2:
-        			trigram = unigram_list[i] + "_" + unigram_list[i + 1] + "_" + unigram_list[i + 2]
+                if i < totalUnigrams - 2:
+                    trigram = unigram_list[i] + "_" + unigram_list[i + 1] + "_" + unigram_list[i + 2]
 
-        			if trigram not in characterdict[character].wordMap.keys():
-        				characterdict[character].wordMap[trigram] = {}
-        			if ID not in characterdict[character].wordMap[trigram]:
-        				characterdict[character].wordMap[trigram][ID] = 1
-        			else:
-        				characterdict[character].wordMap[trigram][ID] = +1
+                    if trigram not in characterdict[character].wordMap.keys():
+                        characterdict[character].wordMap[trigram] = {}
+                    if ID not in characterdict[character].wordMap[trigram]:
+                        characterdict[character].wordMap[trigram][ID] = 1
+                    else:
+                        characterdict[character].wordMap[trigram][ID] = +1
 
-        			trigram_stem =  StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]+ "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
-        			if trigram_stem not in characterdict[character].stemmedMap.keys():
-        				characterdict[character].stemmedMap[trigram_stem] = {}
-        			if ID not in characterdict[character].stemmedMap[trigram_stem]:
-        				characterdict[character].stemmedMap[trigram_stem][ID] = 1
-        			else:
-        				characterdict[character].stemmedMap[trigram_stem][ID] += 1
+                    trigram_stem =  StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]+ "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
+                    if trigram_stem not in characterdict[character].stemmedMap.keys():
+                        characterdict[character].stemmedMap[trigram_stem] = {}
+                    if ID not in characterdict[character].stemmedMap[trigram_stem]:
+                        characterdict[character].stemmedMap[trigram_stem][ID] = 1
+                    else:
+                        characterdict[character].stemmedMap[trigram_stem][ID] += 1
 
-        			trigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
-        			if trigram_lemma not in characterdict[character].lemmatizedMap.keys():
-        				characterdict[character].lemmatizedMap[trigram_lemma] = {}
-        			if ID not in characterdict[character].lemmatizedMap[trigram_lemma]:
-        				characterdict[character].lemmatizedMap[trigram_lemma][ID] = 1
-        			else:
-        				characterdict[character].lemmatizedMap[trigram_lemma][ID] += 1
-	        # adds the unigrams and their synonyms into the three hashmaps - stems, lemmas and direct + unigram_synonyms_list:
-	        for token in (unigram_list+ unigram_synonyms_list):
-	            #print(token)
-	            stem = StarMorphModules.analyze_word(token, False)[0].split()[1].replace("stem:", "").split('d',1)[0]
-	            lemma = StarMorphModules.analyze_word(token, False)[0].split()[0].replace("lex:", "").split('_',1)[0]
+                    trigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
+                    if trigram_lemma not in characterdict[character].lemmatizedMap.keys():
+                        characterdict[character].lemmatizedMap[trigram_lemma] = {}
+                    if ID not in characterdict[character].lemmatizedMap[trigram_lemma]:
+                        characterdict[character].lemmatizedMap[trigram_lemma][ID] = 1
+                    else:
+                        characterdict[character].lemmatizedMap[trigram_lemma][ID] += 1
+	        
+            # adds the unigrams and their synonyms into the three hashmaps - stems, lemmas and direct + unigram_synonyms_list:
+            for token in (unigram_list+ unigram_synonyms_list):
+                stem = StarMorphModules.analyze_word(token, False)[0].split()[1].replace("stem:", "").split('d',1)[0]
+                lemma = StarMorphModules.analyze_word(token, False)[0].split()[0].replace("lex:", "").split('_',1)[0]
 
-	            if token not in characterdict[character].wordMap.keys():
-	                characterdict[character].wordMap[token] = {}
-	            if ID not in characterdict[character].wordMap[token]:
-	                characterdict[character].wordMap[token][ID] = 1
-	            else:
-	                characterdict[character].wordMap[token][ID] += 1
+                if token not in characterdict[character].wordMap.keys():
+                    characterdict[character].wordMap[token] = {}
+                if ID not in characterdict[character].wordMap[token]:
+                    characterdict[character].wordMap[token][ID] = 1
+                else:
+                    characterdict[character].wordMap[token][ID] += 1
 
-	            if stem not in characterdict[character].stemmedMap.keys():
-	                characterdict[character].stemmedMap[stem] = {}
-	            if ID not in characterdict[character].stemmedMap[stem]:
-	                characterdict[character].stemmedMap[stem][ID] = 1
-	            else:
-	                characterdict[character].stemmedMap[stem][ID] += 1
+                if stem not in characterdict[character].stemmedMap.keys():
+                    characterdict[character].stemmedMap[stem] = {}
+                if ID not in characterdict[character].stemmedMap[stem]:
+                    characterdict[character].stemmedMap[stem][ID] = 1
+                else:
+                    characterdict[character].stemmedMap[stem][ID] += 1
 
-	            if lemma not in characterdict[character].lemmatizedMap.keys():
-	                characterdict[character].lemmatizedMap[lemma] = {}
-	            if ID not in characterdict[character].lemmatizedMap[lemma]:
-	                characterdict[character].lemmatizedMap[lemma][ID] = 1
-	            else:
-	                characterdict[character].lemmatizedMap[lemma][ID] += 1
+                if lemma not in characterdict[character].lemmatizedMap.keys():
+                    characterdict[character].lemmatizedMap[lemma] = {}
+                if ID not in characterdict[character].lemmatizedMap[lemma]:
+                    characterdict[character].lemmatizedMap[lemma][ID] = 1
+                else:
+                    characterdict[character].lemmatizedMap[lemma][ID] += 1
 
 
     print("Total Questions: ", str(totalQuestions))
@@ -702,7 +714,8 @@ def lemma_intersection_match_English(query, characterModel, logger):
 
 
 def direct_intersection_match_Arabic(query, characterModel, logger):
-    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in stop_words_arabic]
+    arabic_stop_words= getStopwords("Arabic")
+    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in arabic_stop_words]
     # queryList.encode('utf-8')
 
     responses = {}
@@ -758,7 +771,8 @@ def stem_intersection_match_Arabic(query, characterModel, logger):
     # StarMorphModules.initialize_from_file("almor-s31.db","analyze")
 
     # print("Finding stem Intersection in Arabic")
-    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in stop_words_arabic]
+    arabic_stop_words= getStopwords("Arabic")
+    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in arabic_stop_words]
     responses = {}
     stemmed_query = []
     queryLen = len(queryList)
@@ -814,7 +828,8 @@ def stem_intersection_match_Arabic(query, characterModel, logger):
 def lemma_intersection_match_Arabic(query, characterModel, logger):
     # print("Finding lemma Intersection in Arabic")
     max_score=0
-    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in stop_words_arabic]
+    arabic_stop_words= getStopwords("Arabic")
+    queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in arabic_stop_words]
     # queryList.encode('utf-8')
 
     responses = {}
@@ -970,8 +985,6 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
             #print("multiple or once")
             allowed=1
 
-        # for key in currentSession.repetitions.keys():
-        #     print("key", key)
 
         if res in currentSession.repetitions.keys():
             #print("repeats", currentSession.repetitions[res])
@@ -992,8 +1005,8 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
             
             rep= currentSession.repetitions[res]
 
-        print("score",  videoResponses[res])
-        print("allowed", allowed)
+        #print("score",  videoResponses[res])
+        #print("allowed", allowed)
         videoResponses[res]=(videoResponses[res]*(1-rep/(total_iterations+1)))*allowed
         if videoResponses[res]< av_accuracy:
             videoResponses[res]=0
@@ -1010,9 +1023,9 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
         
         
 
-    print("responses", videoResponses)
+    #print("responses", videoResponses)
     ranked_list = sorted(videoResponses, key=lambda i: videoResponses[i], reverse=True)
-    #print("final_score", ranked_list[0])
+    print("video playing:", ranked_list[0])
     return ranked_list
 
 
@@ -1117,22 +1130,22 @@ def findResponse(query, characterModel, currentSession, counter):
         ranked_responses = rankAnswers(query, best_responses, currentSession, characterModel, counter)
         final_answer = ranked_responses[0]
 
-        if len(ranked_responses) > 2:
-            second_response = ranked_responses[1]
-            third_response = ranked_responses[2]
-            log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + characterModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t" + characterModel.objectMap[second_response].answer + "\t" + str(best_responses[second_response]) + "\t" + str(logger[second_response]) +  "\t" + characterModel.objectMap[third_response].answer + "\t" + str(best_responses[third_response]) + "\t" + str(logger[third_response]) + "\n"
+        # if len(ranked_responses) > 2:
+        #     second_response = ranked_responses[1]
+        #     third_response = ranked_responses[2]
+        #     log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + characterModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t" + characterModel.objectMap[second_response].answer + "\t" + str(best_responses[second_response]) + "\t" + str(logger[second_response]) +  "\t" + characterModel.objectMap[third_response].answer + "\t" + str(best_responses[third_response]) + "\t" + str(logger[third_response]) + "\n"
 
-        elif len(ranked_responses) == 2:
-            second_response = ranked_responses[1]
-            log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + characterModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t" + characterModel.objectMap[second_response].answer + "\t" + str(best_responses[second_response]) + "\t" + str(logger[second_response]) +  "\t\t\t\n"
+        # elif len(ranked_responses) == 2:
+        #     second_response = ranked_responses[1]
+        #     log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + characterModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t" + characterModel.objectMap[second_response].answer + "\t" + str(best_responses[second_response]) + "\t" + str(logger[second_response]) +  "\t\t\t\n"
 
-        else:
-            log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + characterModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t\t\t\t\t\t\n"
+        # else:
+        #     log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + characterModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t\t\t\t\t\t\n"
 
 
-        #print(log_string)
-        f.write(log_string)
-        f.close()
+        # #print(log_string)
+        # f.write(log_string)
+        # f.close()
         if final_answer in currentSession.repetitions.keys():
             currentSession.repetitions[final_answer] += 1
         else:
