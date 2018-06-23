@@ -19,7 +19,7 @@ import sys
 
 
 
-sys.path.insert(0, 'dm_files/CalimaStar_files/')
+sys.path.insert(0, 'dialogue-manager/CalimaStar_files/')
 
 
 import StarMorphModules
@@ -508,7 +508,7 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
 
 def findLemmaScore(lemma):
     score=0
-    lookup= open('dm_files/CalimaStar_files/lookup-table.txt', 'r', encoding='utf-8')
+    lookup= open('dialogue-manager/CalimaStar_files/lookup-table.txt', 'r', encoding='utf-8')
     for line in lookup:
         if lemma== line[0]:
             score= line[1]
