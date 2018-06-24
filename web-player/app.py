@@ -85,6 +85,6 @@ def my_form_post(avatar,language):
 
 if __name__ == '__main__':
     avatar = ""
-    StarMorphModules.read_config("dm_files/CalimaStar_files/config_dana.xml")
-    StarMorphModules.initialize_from_file("dm_files/CalimaStar_files/almor-s31.db", "analyze")
+    StarMorphModules.read_config("dialogue-manager/CalimaStar_files/config_dana.xml")
+    StarMorphModules.initialize_from_file("dialogue-manager/CalimaStar_files/almor-s31.db", "analyze")
     app.run(debug=True,threaded=True)
