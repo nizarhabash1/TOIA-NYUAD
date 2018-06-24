@@ -21,14 +21,19 @@ def translate(input_text, translation_mode):
 	    model_id=translation_mode)
 
 	translated_text= json.dumps(translation["translations"][0]["translation"], indent=2, ensure_ascii=False)
-	return translated_text.strip('"')
+	return translated_text.strip('"').replace("(", " ").replace(")", " ")
 	#print(translated_text)
 
 
 def addTranslation():
 	script= open(sys.argv[1], 'r', encoding='utf-8')
 	translation_mode= sys.argv[2]
-	avatar_name= sys.argv[3]
+	outfile_path= sys.argv[3]
+	file_name= sys.argv[4]
+
+	final_file= outfile_path+ '/' + file_name
+
+	
 	data= json.load(script)
 
 	for i in range(0, len(data["rows"]) - 1, 1):
@@ -57,7 +62,8 @@ def addTranslation():
 
 	resp = json.load(f)
 
-	final_file= '../web-player/static/avatar-garden/' + avatar_name + '/script.json'
+	final_file= outfile_path+ '/' + file_name
+
 
 	with codecs.open(final_file, 'w', encoding='utf-8') as json_file:
 	    json.dump(resp, json_file, ensure_ascii=False,indent=4)
