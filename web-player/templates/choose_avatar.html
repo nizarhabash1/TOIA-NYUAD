@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
 <head>
   <link rel = "stylesheet" type="text/css" href="{{url_for('static',filename='styles/choose_avatar.css')}}">
   <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
@@ -15,65 +17,69 @@
 
 <div id="selectPrevious">
   <form id="previousAvatar" onsubmit="chosenAvatar();" style="padding-left:50px;">
-    <legend> Which avatar do you want to work on? </legend>
   </form>
-</div>
-
-<div class="container">
-<form action="margarita" class ="avatar_container">
-    <div class= "avatar_image">
-      <input type="image" src="./static/images/margarita.png" value="margarita" class="image_form" />
-    </div>
-    <div class="caption">Margarita</div>
-        <div class="caption">مارغاريتا</div>
-</form>
-
-
-<form action="katarina" class ="avatar_container">
-  <div class= "avatar_image">
-    <input type="image" src="./static/images/katarina.png" value="katarina" class="image_form"/>
-  </div>
-    <div class="caption">Katarina</div>
-    <div class="caption">كاتارينا</div>
-</form>
-
-
-<form action="gabriela" class ="avatar_container">
-  <div class= "avatar_image">
-    <input type="image" src="./static/images/gabriela.png" value="gabriela" class="image_form"/>
-  </div>
-    <div class="caption">Elissa</div>
-    <div class="caption">إليسا</div>
-
-</form>
-
-
-<form action="rashid" class ="avatar_container">
-  <div class= "avatar_image">
-    <input type="image" src="./static/images/rashid.png" value="rashid" class="image_form"/>
-  </div>
-    <div class="caption">Rashid</div>
-    <div class="caption">راشد</div>
-</form>
 </div>
 
 </body>
 
 <script>
 
-  const avatarGarden = './static/avatar-garden/';
-  const fs = require('fs');
-  const avatarPaths = [];
-  fs.readdir(avatarGarden, (err, files) => {
-    files.forEach(file => {
-      avatarPaths.push(String(file));
-      console.log(avatarPaths);
-      console.log(file);
-    });
-  })
-  setTimeout(function(){
-    console.log(avatarPaths);
-  }, 1000);
+  var avatarList;
+
+  function readTextFile(file) {
+    rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function () {
+      if(rawFile.readyState === 4) {
+        if(rawFile.status === 200 || rawFile.status == 0) {
+          avatarList = rawFile.responseText;
+        }
+      }
+    }
+    rawFile.send(null);
+  }
+
+  readTextFile("../static/avatar-garden/avatars.txt");
+
+  console.log(avatarList);
+
+  var data = avatarList.split(",");
+
+  function makeRadioButton(name, value, text) {
+    var label = document.createElement("label");
+    var radio = document.createElement("input");
+    label.classList.add("scriptRadio");
+    radio.type = "radio";
+    radio.name = name;
+    radio.value = value;
+    label.appendChild(radio);
+    label.appendChild(document.createTextNode(text));
+    return label;
+  }
+
+  function capitalize(string) {
+    return string.replace(/^./, Function.call.bind("".toUpperCase));
+  }
+
+  $("#previousAvatar").submit(function(e) {
+    console.log("HI");
+    e.preventDefault();
+  });
+
+  var scriptForm = document.getElementById("previousAvatar");
+  for (var i = 0; i < data.length; i++ ) {
+    var scriptName = makeRadioButton("avatarFolderName",data[i],capitalize(data[i]));
+    scriptForm.appendChild(scriptName);
+    scriptForm.innerHTML += "<br>";
+  }
+  scriptForm.innerHTML += '<br> <input type="submit" value="Submit"></input>';
+
+  function chosenAvatar() {
+    name = document.querySelector('input[name="avatarFolderName"]:checked').value;
+    console.log("YOS");
+    console.log(name);
+    location.href = name;
+  }
 
 </script>
 </html>

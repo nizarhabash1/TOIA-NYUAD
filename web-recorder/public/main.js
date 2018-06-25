@@ -136,7 +136,7 @@ function setPlayEvent(data){
 			});
 			console.log("we are PLAYING " + data.doc.index);
 
-			var play_video_name= "avatars/" + document.getElementById("nameForSaving").innerHTML + "/" + document.getElementById("nameForSaving").innerHTML+"_" + data.doc.index +
+			var play_video_name= "avatar-garden/" + document.getElementById("nameForSaving").innerHTML + "/" + document.getElementById("nameForSaving").innerHTML+"_" + data.doc.index +
                             "_"+ theObj.doc._id + ".mp4";
 
 			recordingPlayer.src = play_video_name;
@@ -357,7 +357,7 @@ function chosenAvatar() {
 	document.getElementById("nameForSaving").innerHTML = scriptFolder;
 	document.getElementById("title").innerHTML += ": "+ capitalize(scriptFolder);
 	document.getElementById("pageTitle").innerHTML += ": "+ capitalize(scriptFolder);
-	scriptName = '../web-recorder/public/avatars/'+scriptFolder+'/script.json';
+	scriptName = '../web-recorder/public/avatar-garden/'+scriptFolder+'/script.json';
 	console.log(scriptName);
 	document.getElementById("selectPrevious").style.display="none";
 	document.getElementById("recorder").style.display='';
@@ -378,7 +378,24 @@ function nameAvatar() {
     	document.getElementById("pageTitle").innerHTML += ": "+ capitalize(avatarName);
     	document.getElementById("nameAvatar").style.display='none';
     	document.getElementById("scriptType").style.display='';
+    	modifyAvatarsList();
 	}
+}
+
+function modifyAvatarsList() {
+	console.log("IN this");
+	$.ajax({
+		url: '/updateAvatarList',
+		type: 'GET',
+		datatype: 'string',
+		error: function(data){
+			alert("Oh No! Try a refresh?");
+		},
+		success: function(data){
+			console.log("We have data!");
+			console.log(data);
+		}
+	});	
 }
 
 function scriptOptions(){
