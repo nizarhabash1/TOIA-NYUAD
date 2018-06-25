@@ -7,7 +7,8 @@
 /web-player/.idea/workspace.xml
 /web-player-four-avatars/static/avatar-videos
 /web-recorder/public/avatar-garden/*
-!/web-recorder/public/avatar-garden/README.txt
+!/web-recorder/public/avatar-garden/recorder_README.txt
+!/web-recorder/public/avatar-garden/player_README.txt
 __pycache__
 *.DS_Store
 **.DS_Store
