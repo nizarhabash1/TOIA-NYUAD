@@ -40,6 +40,25 @@ def json_to_webvtt(character):
             web_vtt_string = compose_web_vtt(answer, segment_duration, number_of_segment)
 
             write_web_vtt(subtitle_file_name, web_vtt_string)
+        if "english-answer" in resp["rows"][i]["doc"].keys():
+
+            answer = json.dumps(resp["rows"][i]["doc"]["english-answer"].strip('"'), ensure_ascii=False)
+
+            video = json.dumps(resp["rows"][i]["doc"]["video"]).strip('"')
+
+            # change file extension of mp4 in video to vtt
+            #subtitle_file_name = 'arabic_' + os.path.splitext(video)[0] + '.vtt'
+            subtitle_file_name = '../web-player/static/avatar-garden/' + resp["character"] + "/" + "subtitles/" + 'english_' + os.path.splitext(video)[0] + '.vtt'
+            cmd = "ffmpeg -i ../avatar-videos/" + video + " -f null - "
+            video_duration = get_duration(cmd)
+
+            number_of_word = total_word_count(answer)
+            number_of_segment = int(number_of_word/num_of_word_in_segment)+1
+            segment_duration = video_duration/number_of_segment
+
+            web_vtt_string = compose_web_vtt(answer, segment_duration, number_of_segment)
+
+            write_web_vtt(subtitle_file_name, web_vtt_string)
 
 
 # Example command to run ffmpeg in command line

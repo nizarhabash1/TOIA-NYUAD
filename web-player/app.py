@@ -72,8 +72,10 @@ def my_form_post(avatar,language):
 
     # response_subtitle_path = '/static/avatar-subtitle-timestamped/' + os.path.splitext(response.videoLink.strip('"'))[0] + '.vtt'
 
-    response_subtitle_path = '/static/avatar-subtitle-timestamped/' + language + '_' + os.path.splitext(response.videoLink.strip('"'))[0] + '.vtt'
+    response_subtitle_path = '/static/avatar-garden/' + avatar + '/subtitles/' + language + '_' + os.path.splitext(response.videoLink.strip('"'))[0] + '.vtt'
 
+    print(response_subtitle_path);
+    
     return render_template('main.html',
                    avatar=avatar,
                    avatar_video_path=response_video_path,
