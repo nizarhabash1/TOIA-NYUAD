@@ -1033,7 +1033,7 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
 
     #print("responses", videoResponses)
     ranked_list = sorted(videoResponses, key=lambda i: videoResponses[i], reverse=True)
-    print("video playing:", ranked_list[0])
+    #print("video playing:", ranked_list[0])
     return ranked_list
 
 
