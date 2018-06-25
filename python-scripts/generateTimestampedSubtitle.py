@@ -11,13 +11,14 @@
 import subprocess
 import json
 import os
+import sys
 
 num_of_word_in_segment = 12
 
 
-def json_to_webvtt(script):
+def json_to_webvtt(character):
     #f = open('all_characters.json', 'r', encoding='utf-8')
-    f = open(script, 'r', encoding='utf-8')
+    f = open('../web-player/static/avatar-garden/' + character + '/script.json', 'r', encoding='utf-8')
     resp = json.load(f)
     for i in range(0, len(resp["rows"]) - 1, 1):
         if "arabic-answer" in resp["rows"][i]["doc"].keys():
@@ -28,7 +29,7 @@ def json_to_webvtt(script):
 
             # change file extension of mp4 in video to vtt
             #subtitle_file_name = 'arabic_' + os.path.splitext(video)[0] + '.vtt'
-            subtitle_file_name = '../web-player/avatar-garden/' + resp["character"] + "/" + "subtitles/" + 'arabic_' + os.path.splitext(video)[0] + '.vtt'
+            subtitle_file_name = '../web-player/static/avatar-garden/' + resp["character"] + "/" + "subtitles/" + 'arabic_' + os.path.splitext(video)[0] + '.vtt'
             cmd = "ffmpeg -i ../avatar-videos/" + video + " -f null - "
             video_duration = get_duration(cmd)
 
@@ -102,4 +103,4 @@ def write_web_vtt(subtitle_file_name, web_vtt_string):
         file.write(web_vtt_string.encode('utf-8'))
 
 if __name__ == "__main__":
-    json_to_webvtt(script)
+    json_to_webvtt(sys.argv[1])
