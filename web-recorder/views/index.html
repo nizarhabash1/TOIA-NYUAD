@@ -92,6 +92,24 @@
 
         </div>
         <div class="col-sm-8">
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+            <form id="modifiedQuestions" onsubmit="updateQuestion(); return false;">
+              English question: <br><textarea name="english-question" id="english-question"></textarea><br>
+              English answer: <br> <textarea name="english-answer" id="english-answer"></textarea><br>
+              Arabic question: <br> <textarea name="arabic-question" id="arabic-question"></textarea><br>
+              Arabic answer: <br> <textarea name="arabic-answer" id="arabic-answer"></textarea><br>
+              Playing frequency: <input type="text" name="playing-frequency" id="playing-frequency"><br>
+              Minimum required accuracy (low/medium/high): <input type="text" name="minimum-required-accuracy" id="minimum-required-accuracy"><br>
+              Length constant: <input type="text" id="length-constant"><br>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+
+        </div>
 
         <section class="experiment recordrtc">
             <h2 class="header" style="margin: 0;">
