@@ -18,7 +18,7 @@ num_of_word_in_segment = 12
 
 def json_to_webvtt(character):
     #f = open('all_characters.json', 'r', encoding='utf-8')
-    f = open('../web-player/static/avatar-garden/' + character + '/script.json', 'r', encoding='utf-8')
+    f = open('../web-recorder/public/avatar-garden/' + character + '/script.json', 'r', encoding='utf-8')
     resp = json.load(f)
     for i in range(0, len(resp["rows"]) - 1, 1):
         if "arabic-answer" in resp["rows"][i]["doc"].keys():
@@ -29,7 +29,7 @@ def json_to_webvtt(character):
 
             # change file extension of mp4 in video to vtt
             #subtitle_file_name = 'arabic_' + os.path.splitext(video)[0] + '.vtt'
-            subtitle_file_name = '../web-player/static/avatar-garden/' + resp["character"] + "/" + "subtitles/" + 'arabic_' + os.path.splitext(video)[0] + '.vtt'
+            subtitle_file_name = '../web-recorder/public/avatar-garden/' + character + "/" + "subtitles/" + 'arabic_' + os.path.splitext(video)[0] + '.vtt'
             cmd = "ffmpeg -i ../avatar-videos/" + video + " -f null - "
             video_duration = get_duration(cmd)
 
@@ -48,7 +48,7 @@ def json_to_webvtt(character):
 
             # change file extension of mp4 in video to vtt
             #subtitle_file_name = 'arabic_' + os.path.splitext(video)[0] + '.vtt'
-            subtitle_file_name = '../web-player/static/avatar-garden/' + resp["character"] + "/" + "subtitles/" + 'english_' + os.path.splitext(video)[0] + '.vtt'
+            subtitle_file_name = '../web-recorder/public/avatar-garden/' + character + "/" + "subtitles/" + 'english_' + os.path.splitext(video)[0] + '.vtt'
             cmd = "ffmpeg -i ../avatar-videos/" + video + " -f null - "
             video_duration = get_duration(cmd)
 
