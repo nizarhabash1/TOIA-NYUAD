@@ -19,7 +19,7 @@ import sys
 
 
 
-sys.path.insert(0, 'dialogue-manager/CalimaStar_files/')
+sys.path.insert(0, '../../CalimaStar_files/')
 
 
 import StarMorphModules
@@ -149,9 +149,9 @@ def getStopwords(language):
     return stop_words
 
 # get Arabic synonyms
-def arabicSyn(myavatar):
+def arabicSyn(test_par):
 
-    db= 'static/avatar-garden/' + myavatar +'/script.json'
+    db= 'static/avatar-garden/' + test_par +'/script.json'
 
     glossDict={}
     synonymDict={}
@@ -185,14 +185,19 @@ def arabicSyn(myavatar):
     return synonymDict
 
 # Initiates the model and create a new session
-def createModel(characterdict, currentSession, mylanguage, myavatar):
+def createModel(characterdict, currentSession, mylanguage, test_par):
 
-
-    db= 'static/avatar-garden/' + myavatar +'/script.json'
-    try:
-        f = open(db, 'r', encoding='utf-8')
-    except IOError:
-        print("Error: File does not appear to exist.")
+    if test_par.automatic == False:
+        try:
+            f = open('../../../static/avatar-garden/margarita/script.json', 'r', encoding='utf-8')
+        except IOError:
+            print("Error: File does not appear to exist.")
+    else:
+        try:
+            #f = open('../../../static/scripts/miscellaneous/all-characters-automatic.json', 'r', encoding='utf-8')
+            f = open('../../../static/avatar-garden/margarita/script.json', 'r', encoding='utf-8')
+        except IOError:
+            print("Error: File does not appear to exist.")
 
     resp = json.load(f)
    
@@ -203,7 +208,7 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
     id_count = 0
 
     if mylanguage=="Arabic":
-        arabic_synonyms= arabicSyn(myavatar)
+        arabic_synonyms= arabicSyn(test_par)
 
     for i in range(0, len(resp["rows"]) - 1, 1):
 
@@ -520,7 +525,6 @@ def findLemmaScore(lemma):
 
 
 def direct_intersection_match_English(query, characterModel, logger):
-    stop_words= getStopwords("English")
     queryList = [tmp.strip(', " ?.!)') for tmp in query.split() if tmp not in stop_words ]
     responses = {}
     queryLen = len(queryList)
@@ -589,7 +593,6 @@ def direct_intersection_match_English(query, characterModel, logger):
 
 
 def stem_intersection_match_English(query, characterModel, logger):
-    stop_words= getStopwords("English")
     queryList = [porterStemmer.stem(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}
@@ -653,7 +656,6 @@ def stem_intersection_match_English(query, characterModel, logger):
 
 
 def lemma_intersection_match_English(query, characterModel, logger):
-    stop_words= getStopwords("English")
     queryList = [lemmatizer.lemmatize(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}

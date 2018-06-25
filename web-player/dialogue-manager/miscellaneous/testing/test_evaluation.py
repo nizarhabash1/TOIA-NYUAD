@@ -5,6 +5,11 @@ import random
 #from random_words import RandomWords
 import json
 
+import sys
+
+
+
+sys.path.insert(0, '../../CalimaStar_files/')
 
 
 import StarMorphModules
@@ -61,7 +66,7 @@ def test_wrapper(mylanguage):
 	#test_results = run_test(mylanguage, test_par)
 	#print(test_results)
 
-	f = open("test_results.csv" , "a")
+	f = open("test_results_3.csv" , "a")
 	count = 1
 	f.write("Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result\n")
 	for testSet_par in testSet_mode:
@@ -104,9 +109,9 @@ def readManualQuestions(characterdict, mylanguage):
 	count = 0
 	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
 	if mylanguage == "Arabic":
-		f= open('static/scripts/manual_questions_arabic.csv', 'r', encoding='utf-8')
+		f= open('../../../static/scripts/miscellaneous/manual_questions_arabic.csv', 'r', encoding='utf-8')
 	else:
-		f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
+		f= open('../../../static/scripts/miscellaneous/manual_questions.tsv', 'r', encoding='utf-8')
 	character = 'margarita'
 	language = mylanguage
 	video = ""
@@ -132,9 +137,9 @@ def readManualQuestions(characterdict, mylanguage):
 			answer = line_split[1].strip(',?."!')
 			
 
-			obj_1= test_dm.videoRecording(question1, answer, video, character, language)
-			obj_2= test_dm.videoRecording(question2, answer, video, character, language)
-			obj_3= test_dm.videoRecording(question3, answer, video, character, language)
+			obj_1= test_dm.videoRecording(question1, answer, video, character, language, "multiple")
+			obj_2= test_dm.videoRecording(question2, answer, video, character, language, "multiple")
+			obj_3= test_dm.videoRecording(question3, answer, video, character, language, "multiple")
 			characterdict[character].questionsMap[count + 1] = obj_1
 			characterdict[character].questionsMap[count + 2] = obj_2
 			characterdict[character].questionsMap[count + 3] = obj_3
@@ -145,7 +150,7 @@ def readManualQuestions(characterdict, mylanguage):
 
 def readAutomaticQuestions(characterdict):
 
-	f= open('static/scripts/automatic_questions.json', 'r', encoding='utf-8')
+	f= open('../../../static/scripts/miscellaneous/automatic_questions.json', 'r', encoding='utf-8')
 
 	resp = json.load(f)
 	#print(resp)

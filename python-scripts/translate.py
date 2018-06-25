@@ -26,12 +26,12 @@ def translate(input_text, translation_mode):
 
 
 def addTranslation():
-	script= open(sys.argv[1], 'r', encoding='utf-8')
+	input_filename= sys.argv[1]
+	script= open(input_filename, 'r', encoding='utf-8')
 	translation_mode= sys.argv[2]
-	outfile_path= sys.argv[3]
-	file_name= sys.argv[4]
+	output_filename= sys.argv[3]
 
-	final_file= outfile_path+ '/' + file_name
+	
 
 	
 	data= json.load(script)
@@ -54,21 +54,19 @@ def addTranslation():
 			#print("output_answer", output_answer)
 			data["rows"][i]["doc"]["arabic-answer"]= output_answer
 
-	with open('script2.json',"w") as outfile:
+	with open(output_filename,"w") as outfile:
 	    json_data = json.dumps(data)
 	    outfile.write(json_data)
 
-	f = open("script2.json", "r")
+	# f = open("script2.json", "r")
 
-	resp = json.load(f)
-
-	final_file= outfile_path+ '/' + file_name
+	# resp = json.load(f)
 
 
-	with codecs.open(final_file, 'w', encoding='utf-8') as json_file:
-	    json.dump(resp, json_file, ensure_ascii=False,indent=4)
+	# with codecs.open(output_filename, 'w', encoding='utf-8') as json_file:
+	#     json.dump(resp, json_file, ensure_ascii=False,indent=4)
 
-	f.close()
+	#f.close()
 
 addTranslation()
 
