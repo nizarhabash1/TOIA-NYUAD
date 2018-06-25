@@ -315,9 +315,9 @@ def test_questions(characterdict, language, test_par):
 					#print("Response: ",response.answer, "\n")
 				else:
 					incorrect += 1
-					#print("Question: ",question)
-					#print("Actual Answer: ",answer)
-					#print("Response: ",response.answer, "\n")
+					print("Question: ",question)
+					print("Actual Answer: ",answer)
+					print("Response: ",response.answer, "\n")
 
 					
 
@@ -342,14 +342,14 @@ def repeating_question(characterdict):
 
 					if question_id not in mentioned_question.keys():
 						mentioned_question[question_id] = True
-						print(question_id)
+						#print(question_id)
 					if tmp_question_id not in mentioned_question.keys():
 						mentioned_question[tmp_question_id] = True
-						print(tmp_question_id)
+						#print(tmp_question_id)
 						new_line = True
 			
 			if new_line:
-				print("\n")
+				#print("\n")
 				new_line= False
 
 if __name__ == '__main__':
