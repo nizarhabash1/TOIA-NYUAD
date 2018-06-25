@@ -525,6 +525,7 @@ def findLemmaScore(lemma):
 
 
 def direct_intersection_match_English(query, characterModel, logger):
+    stop_words= getStopwords("English")
     queryList = [tmp.strip(', " ?.!)') for tmp in query.split() if tmp not in stop_words ]
     responses = {}
     queryLen = len(queryList)
@@ -593,6 +594,7 @@ def direct_intersection_match_English(query, characterModel, logger):
 
 
 def stem_intersection_match_English(query, characterModel, logger):
+    stop_words= getStopwords("English")
     queryList = [porterStemmer.stem(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}
@@ -656,6 +658,7 @@ def stem_intersection_match_English(query, characterModel, logger):
 
 
 def lemma_intersection_match_English(query, characterModel, logger):
+    stop_words= getStopwords("English")
     queryList = [lemmatizer.lemmatize(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}
