@@ -5,6 +5,8 @@ import sys
 import unicodedata
 import codecs
 
+import copy
+
 from watson_developer_cloud import LanguageTranslatorV3
 
 
@@ -26,37 +28,62 @@ def translate(input_text, translation_mode):
 
 
 def addTranslation():
-	input_filename= sys.argv[1]
+	avatar_name= sys.argv[1]
+	input_filename= "../web-recorder/public/avatar-garden/" + avatar_name + "/script.json"
 	script= open(input_filename, 'r', encoding='utf-8')
+
 	translation_mode= sys.argv[2]
-	output_filename= sys.argv[3]
 
+	try:
+		script= open(input_filename, 'r', encoding='utf-8')
+		print("Reading from file " + input_filename + " successful")
+
+	except IOError:
+		print("Error: File does not appear to exist.")
 	
 
+	old_data=json.load(script)
+	data= copy.deepcopy(old_data)
+
+	try:
+		print("translating...")
+		for i in range(0, len(data["rows"]) - 1, 1):
+			if (translation_mode== 'ar-en'):
+				input_question= data["rows"][i]["doc"]["arabic-question"]
+				output_question= translate(input_question, translation_mode)
+				data["rows"][i]["doc"]["english-question"]= output_question
+				input_answer= data["rows"][i]["doc"]["arabic-answer"]
+				output_answer= translate(input_answer, translation_mode)
+				data["rows"][i]["doc"]["english-answer"]= output_answer
+			elif(translation_mode== 'en-ar'):
+				input_question= data["rows"][i]["doc"]["english-question"]
+				output_question= translate(input_question, translation_mode)
+				#print("output_question", output_question)
+				data["rows"][i]["doc"]["arabic-question"]= output_question
+				input_answer= data["rows"][i]["doc"]["english-answer"]
+				output_answer= translate(input_answer, translation_mode)
+				#print("output_answer", output_answer)
+				data["rows"][i]["doc"]["arabic-answer"]= output_answer
+
+		output_filename= input_filename
+		with open(output_filename,"w") as outfile:
+		    json_data = json.dumps(data)
+		    outfile.write(json_data)
+
+		old_file= input_filename+ ".old"
+		#print(old_data)
+		with open(old_file,"w") as old_outfile:
+		    old_json_data = json.dumps(old_data)
+		    old_outfile.write(old_json_data)
+		print("translation completed successfully")
+
+	except:
+		print("Error: translation failed")
+
+
+
+
 	
-	data= json.load(script)
-
-	for i in range(0, len(data["rows"]) - 1, 1):
-		if (translation_mode== 'ar-en'):
-			input_question= data["rows"][i]["doc"]["arabic-question"]
-			output_question= translate(input_question, translation_mode)
-			data["rows"][i]["doc"]["english-question"]= output_question
-			input_answer= data["rows"][i]["doc"]["arabic-answer"]
-			output_answer= translate(input_answer, translation_mode)
-			data["rows"][i]["doc"]["english-answer"]= output_answer
-		elif(translation_mode== 'en-ar'):
-			input_question= data["rows"][i]["doc"]["english-question"]
-			output_question= translate(input_question, translation_mode)
-			#print("output_question", output_question)
-			data["rows"][i]["doc"]["arabic-question"]= output_question
-			input_answer= data["rows"][i]["doc"]["english-answer"]
-			output_answer= translate(input_answer, translation_mode)
-			#print("output_answer", output_answer)
-			data["rows"][i]["doc"]["arabic-answer"]= output_answer
-
-	with open(output_filename,"w") as outfile:
-	    json_data = json.dumps(data)
-	    outfile.write(json_data)
 
 	# f = open("script2.json", "r")
 
