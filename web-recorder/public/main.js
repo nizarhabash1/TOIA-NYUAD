@@ -147,19 +147,24 @@ function setPlayEvent(data){
 // Setting update functionality for avatar creater to update the answer of a question
 function setUpdateEvent(data){
 		var theID = '#' + data.doc._rev;
-
 		$(theID).click(function(){
 			$.each(jsonData.rows,function(i){
 				if(jsonData.rows[i].doc._rev == data.doc._rev){
-					var promptVal = prompt('Enter a new answer to the question "'
-					   + jsonData.rows[i].doc["english-question"] + '":');
-					jsonData.rows[i].doc["english-answer"] = promptVal;
+					modal.style.display = "block";
+					localStorage.setItem("currentQuestion",data.doc._rev);
+					document.getElementById('english-question').value=data.doc["english-question"];
+					document.getElementById('english-answer').value=data.doc["english-answer"];
+					document.getElementById('arabic-question').value=data.doc["arabic-question"];
+					document.getElementById('arabic-answer').value=data.doc["arabic-answer"];
+					document.getElementById('playing-frequency').value=data.doc["playing frequency"];
+					document.getElementById('minimum-required-accuracy').value=data.doc["minimum required accuracy"];
+					document.getElementById('length-constant').value=data.doc["length constant"];
 					return false;
 				}
 			})
 			sendUpdateJSONRequest();
 		});
-	}
+}
 
 // Seeting deleting functionality for all question/ answer pairs
 function setDeleteEvent(data){
@@ -268,6 +273,9 @@ function addNewEntry(){
 					"arabic-answer":"",
 					"video-type":"regular",
 					language:"English",
+					"playing frequency": "multiple",
+					"minimum required accuracy": "low",
+					"length constant" : "40",
 					_id: new_unique_id,
 					_rev: new_unique_rev
 				},
@@ -313,6 +321,31 @@ $("#selectPrevious").submit(function(e) {
 	console.log("HI");
     e.preventDefault();
 });
+
+$("#updateQuestion").submit(function(e) {
+	console.log("HI");
+    e.preventDefault();
+});
+
+function updateQuestion(){
+	var currentQuestion = localStorage.getItem("currentQuestion");
+	$.each(jsonData.rows,function(i){
+		if(jsonData.rows[i].doc._rev == currentQuestion){
+			jsonData.rows[i].doc["english-question"] = document.getElementById('english-question').value;
+			jsonData.rows[i].doc["english-answer"] = document.getElementById('english-answer').value;
+			jsonData.rows[i].doc["arabic-question"] = document.getElementById('arabic-question').value;
+			jsonData.rows[i].doc["arabic-answer"] = document.getElementById('arabic-answer').value;
+			jsonData.rows[i].doc["playing frequency"] = document.getElementById('playing-frequency').value;
+			jsonData.rows[i].doc["minimum required accuracy"] = document.getElementById('minimum-required-accuracy').value;
+			jsonData.rows[i].doc["length constant"] = document.getElementById('length-constant').value;
+			return false;
+		}
+	});
+	modal.style.display = "none";
+	sendUpdateJSONRequest();
+} 
+
+
 
 // Call this function when we need to sync the jsonData and write it to the actual JSON file
 function sendFileName(){
@@ -494,6 +527,24 @@ $("#selectFiles").change(function() {
   filename = this.files[0].name;
   console.log(filename);
 });
+
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
 
 
