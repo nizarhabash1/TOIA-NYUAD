@@ -66,11 +66,13 @@ def addTranslation():
 				data["rows"][i]["doc"]["arabic-answer"]= output_answer
 
 		output_filename= input_filename
+		print ("created translated file: " + output_filename)
 		with open(output_filename,"w") as outfile:
 		    json_data = json.dumps(data)
 		    outfile.write(json_data)
 
 		old_file= input_filename+ ".old"
+		print("Renamed old file: " + old_file)
 		#print(old_data)
 		with open(old_file,"w") as old_outfile:
 		    old_json_data = json.dumps(old_data)

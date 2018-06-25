@@ -1038,7 +1038,7 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
 
 
 
-def findResponse(query, characterModel, currentSession, counter):
+def findResponse(query, characterModel, currentSession, test_par):
 
     currentTime = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
 
