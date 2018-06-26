@@ -141,7 +141,7 @@ def getStopwords(language):
     stop_words= []
     if language=="English":
         stop_words = stopwords.words('english') + list(punctuation)
-        stop_words += ["on", "in", "tell", "me", "about", "a", "an", "the", "of", "and", "or", "but", "what", "are", "you", "your", "is", "was" , "do"]
+        #stop_words += ["on", "in", "tell", "me", "about", "a", "an", "the", "of", "and", "or", "but", "what", "are", "you", "your", "is", "was" , "do"]
 
     elif language== "Arabic":
        stop_words= StopWords.getStopwords()
@@ -221,6 +221,8 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         language = mylanguage
         ID = id_count;
 
+
+
         frequency= json.dumps(resp["rows"][i]["doc"]["playing frequency"])
 
         # else:
@@ -254,6 +256,8 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         obj = videoRecording(question, answer, video, character, language, frequency)
         characterdict[character].objectMap[ID] = obj
 
+
+
         # if the video is for silence
         if (answer == '""' and video != '""'):
             characterdict[character].fillers[ID] = obj
@@ -268,19 +272,21 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         # stemming the question and answer and adding the stems, their bigrams and trigrams into model.stemmedMap
         if (mylanguage == "English"):
 
-            stop_words= getStopwords("English")
+            #stop_words= getStopwords("English")
 
             unigram_split = question.lower().split() + answer.lower().split()
             unigram_list = [tmp.strip(',?."!)') for tmp in unigram_split]
             unigram_synonyms_list = []
 
+            #print("unigram list", unigram_list)
+
             #expands the unigram model by adding synonyms
             for word in unigram_list:
-                if word not in stop_words:
-                    for synset in wn.synsets(word):
-                        for lemma in synset.lemmas():
-                            if lemma.name() not in unigram_synonyms_list:
-                                unigram_synonyms_list.append(lemma.name())
+                #if word not in stop_words:
+                for synset in wn.synsets(word):
+                    for lemma in synset.lemmas():
+                        if lemma.name() not in unigram_synonyms_list:
+                            unigram_synonyms_list.append(lemma.name())
 
             # add the bigrams and trigrams into the three representations
             totalUnigrams = len(unigram_list)
@@ -360,7 +366,7 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
             3. characterdict[character].LemmatizedMap is a dictionary where the key is the word (either unigram, bigram, or trigram)
             and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
             '''
-            for token in (unigram_list + unigram_synonyms_list):
+            for token in (unigram_list):
                 
 
                 stem = porterStemmer.stem(token)
@@ -368,7 +374,7 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
 
                 if token not in characterdict[character].wordMap.keys():
                     characterdict[character].wordMap[token] = {}
-                if ID not in characterdict[character].wordMap[token]:
+                if ID not in characterdict[character].wordMap[token].keys():
                     characterdict[character].wordMap[token][ID] = 1
                 else:
                     characterdict[character].wordMap[token][ID] += 1
@@ -387,6 +393,10 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
                     characterdict[character].lemmatizedMap[lemma][ID] = 1
                 else:
                     characterdict[character].lemmatizedMap[lemma][ID] += 1
+
+                characterdict[character].wordMap[token][ID]= characterdict[character].wordMap[token][ID]/totalUnigrams
+                characterdict[character].stemmedMap[stem][ID]= characterdict[character].stemmedMap[stem][ID]/totalUnigrams
+                characterdict[character].lemmatizedMap[lemma][ID]= characterdict[character].stemmedMap[stem][ID]/totalUnigrams
 
         elif (mylanguage == "Arabic"):
 
@@ -477,8 +487,10 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
                 if token not in characterdict[character].wordMap.keys():
                     characterdict[character].wordMap[token] = {}
                 if ID not in characterdict[character].wordMap[token]:
+                    print(ID, token)
                     characterdict[character].wordMap[token][ID] = 1
                 else:
+                    print("second time", ID, token)
                     characterdict[character].wordMap[token][ID] += 1
 
                 if stem not in characterdict[character].stemmedMap.keys():
@@ -495,6 +507,7 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
                 else:
                     characterdict[character].lemmatizedMap[lemma][ID] += 1
 
+    print("number of times name appears in video 1:" , characterdict[character].wordMap["name"][1])
 
     print("Total Questions: ", str(totalQuestions))
     print("done")
@@ -520,7 +533,8 @@ def findLemmaScore(lemma):
 
 
 def direct_intersection_match_English(query, characterModel, logger):
-    stop_words= getStopwords("English")
+    #stop_words= getStopwords("English")
+    stop_words= []
     queryList = [tmp.strip(', " ?.!)') for tmp in query.split() if tmp not in stop_words ]
     responses = {}
     queryLen = len(queryList)
@@ -539,12 +553,16 @@ def direct_intersection_match_English(query, characterModel, logger):
 
         unigram_string = queryList[i]
         if unigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
+            #print("word: ", unigram_string)
+            #print("word map: ", characterModel.wordMap[unigram_string])
             for vidResponse in characterModel.wordMap[unigram_string]:
+                #print("videos that include ",unigram_string, vidResponse )
                 if vidResponse not in responses.keys():
                     responses[vidResponse] = characterModel.wordMap[unigram_string][vidResponse]
+                    #print("added video "+ str(vidResponse) + "to responses" + " its value is " + str(characterModel.wordMap[unigram_string][vidResponse]))
                 else:
                     responses[vidResponse] += characterModel.wordMap[unigram_string][vidResponse]
-
+                    #print("increased score of " + str(vidResponse) + "by " + str(characterModel.wordMap[unigram_string][vidResponse]))
                 if vidResponse not in logger.keys():
                     logger[vidResponse] = {}
                     logger[vidResponse][unigram_string] = characterModel.wordMap[unigram_string][vidResponse]
@@ -582,6 +600,7 @@ def direct_intersection_match_English(query, characterModel, logger):
     #                 responses[vidResponse] += characterModel.wordMap[direct_string][vidResponse]
 
     
+    print("English direct responses", responses)
     for key in responses.keys():
         responses[key]= responses[key]
     
@@ -589,7 +608,8 @@ def direct_intersection_match_English(query, characterModel, logger):
 
 
 def stem_intersection_match_English(query, characterModel, logger):
-    stop_words= getStopwords("English")
+    #stop_words= getStopwords("English")
+    stop_words= []
     queryList = [porterStemmer.stem(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}
@@ -648,12 +668,14 @@ def stem_intersection_match_English(query, characterModel, logger):
         responses[key]= responses[key]
         #print("stem score",responses[key] )
     
+    print("English stem responses", responses)
     return responses
 
 
 
 def lemma_intersection_match_English(query, characterModel, logger):
-    stop_words= getStopwords("English")
+    #stop_words= getStopwords("English")
+    stop_words=[]
     queryList = [lemmatizer.lemmatize(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}
@@ -666,7 +688,6 @@ def lemma_intersection_match_English(query, characterModel, logger):
             for vidResponse in characterModel.lemmatizedMap[unigram_string]:
                 if vidResponse not in responses.keys():
                     responses[vidResponse] = characterModel.lemmatizedMap[unigram_string][vidResponse]
-
 
                 else:
                     responses[vidResponse] += characterModel.lemmatizedMap[unigram_string][vidResponse]
@@ -712,7 +733,7 @@ def lemma_intersection_match_English(query, characterModel, logger):
         responses[key]= responses[key]
         #print("lemma score after", responses[key])
     
-    #print("response lemma dictionary", responses)
+    print("English lemma responses", responses)
     return responses
 
 
@@ -1131,6 +1152,7 @@ def findResponse(query, characterModel, currentSession, counter):
     else:
        
         ranked_responses = rankAnswers(query, best_responses, currentSession, characterModel, counter)
+        print("final responses", ranked_responses)
         final_answer = ranked_responses[0]
 
         # if len(ranked_responses) > 2:

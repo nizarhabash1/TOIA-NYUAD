@@ -779,25 +779,25 @@ def stem_intersection_match_Arabic(query, characterModel, test_par):
                         elif vidResponse in responses.keys():
                             responses[vidResponse] += characterModel.stemmedMap[unigram_string][vidResponse]
 
-            if test_par.bigram == True:
-                if i < queryLen - 2:
-                    bigram_string = stemmed_query[i] + "_" + stemmed_query[i + 1]
-                    if bigram_string in characterModel.stemmedMap.keys():  # and direct_string not in stop_words:
-                        for vidResponse in characterModel.stemmedMap[bigram_string]:
-                            if vidResponse not in responses.keys():
-                                responses[vidResponse] = characterModel.stemmedMap[bigram_string][vidResponse]
-                            elif vidResponse in responses.keys():
-                                responses[vidResponse] += characterModel.stemmedMap[bigram_string][vidResponse]
+        if test_par.bigram == True:
+            if i < queryLen - 2:
+                bigram_string = stemmed_query[i] + "_" + stemmed_query[i + 1]
+                if bigram_string in characterModel.stemmedMap.keys():  # and direct_string not in stop_words:
+                    for vidResponse in characterModel.stemmedMap[bigram_string]:
+                        if vidResponse not in responses.keys():
+                            responses[vidResponse] = characterModel.stemmedMap[bigram_string][vidResponse]
+                        elif vidResponse in responses.keys():
+                            responses[vidResponse] += characterModel.stemmedMap[bigram_string][vidResponse]
 
-            if test_par.trigram == True:
-                if i < queryLen - 3:
-                    trigram_string = stemmed_query[i] + "_" + stemmed_query[i + 1] + "_" + stemmed_query[i + 2]
-                    if trigram_string in characterModel.stemmedMap.keys():  # and direct_string not in stop_words:
-                        for vidResponse in characterModel.stemmedMap[trigram_string]:
-                            if vidResponse not in responses.keys():
-                                responses[vidResponse] = characterModel.stemmedMap[trigram_string][vidResponse]
-                            elif vidResponse in responses.keys():
-                                responses[vidResponse] += characterModel.stemmedMap[trigram_string][vidResponse]
+        if test_par.trigram == True:
+            if i < queryLen - 3:
+                trigram_string = stemmed_query[i] + "_" + stemmed_query[i + 1] + "_" + stemmed_query[i + 2]
+                if trigram_string in characterModel.stemmedMap.keys():  # and direct_string not in stop_words:
+                    for vidResponse in characterModel.stemmedMap[trigram_string]:
+                        if vidResponse not in responses.keys():
+                            responses[vidResponse] = characterModel.stemmedMap[trigram_string][vidResponse]
+                        elif vidResponse in responses.keys():
+                            responses[vidResponse] += characterModel.stemmedMap[trigram_string][vidResponse]
 
 
     for key in responses.keys():
@@ -965,10 +965,10 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
 
                 if currentSession.repetitions[res]>1:
                     allowed=0
-                    print("once done")
+                    #print("once done")
                 else:
                     allowed=1
-                    print("once allowed")
+                    #print("once allowed")
             elif (pref_frequency=='"never"'):
                 allowed=0
                 #print("never")
@@ -996,7 +996,7 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
     #print("responses", videoResponses)
     ranked_list = sorted(videoResponses, key=lambda i: videoResponses[i], reverse=True)
     #print("video playing:", ranked_list[0])
-    return ranked_list
+    return ranked_list[0]
 
 
 
@@ -1097,8 +1097,8 @@ def findResponse(query, characterModel, currentSession, test_par):
 
     else:
        
-        ranked_responses = rankAnswers(query, best_responses, currentSession, characterModel, counter)
-        final_answer = ranked_responses[0]
+        final_answer = rankAnswers(query, best_responses, currentSession, characterModel, counter)
+        #final_answer = ranked_responses[0]
 
         # if len(ranked_responses) > 2:
         #     second_response = ranked_responses[1]
