@@ -16,24 +16,14 @@ import random
 import os
 import sys
 
-
-
-
+#path to Arabic NLP tools
 sys.path.insert(0, 'dialogue-manager/CalimaStar_files/')
-
-
 import StarMorphModules
-
 import StopWords
-
 import nltk
-# nltk.download('punkt')
-# nltk.download('averaged_perceptron_tagger')
-
-
 import ssl
-
 import math
+
 
 
 try:
@@ -52,27 +42,16 @@ from nltk.corpus import wordnet as wn
 
 nltk.download('stopwords')
 
-stop_words_arabic= ["ما", "ماذا", "هي", "هو"]
-
 '''
 Global Variables
 '''
 porterStemmer = PorterStemmer()
 lemmatizer = WordNetLemmatizer()
 
-# Dictionary of all Avatars
-characterdict = {}
+#avatar model stores the avatar model object of all avatars  
+avatarModel = {}
 
-#database filename
-db= ''
-# encoding
-str.encode('utf-8')
-
-av_length=0
-av_accuracy=0
-
-
-# The Structure for an avatar's model
+#The structure for an avatar's model
 class model:
 
     def __init__(self):
@@ -84,6 +63,15 @@ class model:
         self.greetings = {}
         self.questionsMap = {}
         self.noAnswer= {}
+
+#database filename
+db= ''
+# encoding
+str.encode('utf-8')
+
+av_length=0
+av_accuracy=0
+
 
 
 # The Structure for a video Object
@@ -185,7 +173,7 @@ def arabicSyn(myavatar):
     return synonymDict
 
 # Initiates the model and create a new session
-def createModel(characterdict, currentSession, mylanguage, myavatar):
+def createModel(avatarModel, currentSession, mylanguage, myavatar):
 
 
     db= 'static/avatar-garden/' + myavatar +'/script.json'
@@ -240,9 +228,9 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
             answer = json.dumps(resp["rows"][i]["doc"]["english-answer"]).strip(',?."!)')
 
         # Creates a new character model in the character dictionary if it does not exist already
-        if character not in characterdict.keys():
-            # characterdict[character] is the model of the respective character
-            characterdict[character] = model()
+        if character not in avatarModel.keys():
+            # avatarModel[character] is the model of the respective character
+            avatarModel[character] = model()
 
 
         #save configuration variables
@@ -254,20 +242,20 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
 
         # adds to the character's questions list based on the character key; adds all videos regardless of type to questions
         obj = videoRecording(question, answer, video, character, language, frequency)
-        characterdict[character].objectMap[ID] = obj
+        avatarModel[character].objectMap[ID] = obj
 
 
 
         # if the video is for silence
         if (answer == '""' and video != '""'):
-            characterdict[character].fillers[ID] = obj
+            avatarModel[character].fillers[ID] = obj
 
         #if it's an "I don't have answer for that" video
         if(videoType== '"no-answer"'):
-            characterdict[character].noAnswer[ID] = obj
+            avatarModel[character].noAnswer[ID] = obj
 
         else:
-            characterdict[character].questionsMap[ID] = obj
+            avatarModel[character].questionsMap[ID] = obj
 
         # stemming the question and answer and adding the stems, their bigrams and trigrams into model.stemmedMap
         if (mylanguage == "English"):
@@ -297,58 +285,58 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
                 if i < totalUnigrams - 1:
 
                     bigram = unigram_list[i] + "_" + unigram_list[i + 1]
-                    if bigram not in characterdict[character].wordMap.keys():
-                        characterdict[character].wordMap[bigram] = {}
-                    if ID not in characterdict[character].wordMap[bigram]:
-                        characterdict[character].wordMap[bigram][ID] = 1
+                    if bigram not in avatarModel[character].wordMap.keys():
+                        avatarModel[character].wordMap[bigram] = {}
+                    if ID not in avatarModel[character].wordMap[bigram]:
+                        avatarModel[character].wordMap[bigram][ID] = 1
                     else:
-                        characterdict[character].wordMap[bigram][ID] += 1
+                        avatarModel[character].wordMap[bigram][ID] += 1
 
                     bigram_stem = porterStemmer.stem(unigram_list[i]) + "_" + porterStemmer.stem(unigram_list[i + 1])
-                    if bigram_stem not in characterdict[character].stemmedMap.keys():
-                        characterdict[character].stemmedMap[bigram_stem] = {}
-                    if ID not in characterdict[character].stemmedMap[bigram_stem]:
-                        characterdict[character].stemmedMap[bigram_stem][ID] = 1
+                    if bigram_stem not in avatarModel[character].stemmedMap.keys():
+                        avatarModel[character].stemmedMap[bigram_stem] = {}
+                    if ID not in avatarModel[character].stemmedMap[bigram_stem]:
+                        avatarModel[character].stemmedMap[bigram_stem][ID] = 1
                     else:
-                        characterdict[character].wordMap[bigram][ID] += 1
+                        avatarModel[character].wordMap[bigram][ID] += 1
 
                     bigram_lemma = lemmatizer.lemmatize(unigram_list[i]) + "_" + lemmatizer.lemmatize(
                         unigram_list[i + 1])
-                    if bigram_lemma not in characterdict[character].lemmatizedMap.keys():
-                        characterdict[character].lemmatizedMap[bigram_lemma] = {}
-                    if ID not in characterdict[character].lemmatizedMap[bigram_lemma]:
-                        characterdict[character].lemmatizedMap[bigram_lemma][ID] = 1
+                    if bigram_lemma not in avatarModel[character].lemmatizedMap.keys():
+                        avatarModel[character].lemmatizedMap[bigram_lemma] = {}
+                    if ID not in avatarModel[character].lemmatizedMap[bigram_lemma]:
+                        avatarModel[character].lemmatizedMap[bigram_lemma][ID] = 1
                     else:
-                        characterdict[character].lemmatizedMap[bigram_lemma][ID] += 1
+                        avatarModel[character].lemmatizedMap[bigram_lemma][ID] += 1
 
                 # creates trigrams, their stems and lemmas and add them to the respective maps
                 if i < totalUnigrams - 2:
 
                     trigram = unigram_list[i] + "_" + unigram_list[i + 1] + "_" + unigram_list[i + 2]
-                    if trigram not in characterdict[character].wordMap.keys():
-                        characterdict[character].wordMap[trigram] = {}
-                    if ID not in characterdict[character].wordMap[trigram]:
-                        characterdict[character].wordMap[trigram][ID] = 1
+                    if trigram not in avatarModel[character].wordMap.keys():
+                        avatarModel[character].wordMap[trigram] = {}
+                    if ID not in avatarModel[character].wordMap[trigram]:
+                        avatarModel[character].wordMap[trigram][ID] = 1
                     else:
-                        characterdict[character].wordMap[trigram][ID] = +1
+                        avatarModel[character].wordMap[trigram][ID] = +1
 
                     trigram_stem = porterStemmer.stem(unigram_list[i]) + "_" + porterStemmer.stem(
                         unigram_list[i + 1]) + "_" + porterStemmer.stem(unigram_list[i + 2])
-                    if trigram_stem not in characterdict[character].stemmedMap.keys():
-                        characterdict[character].stemmedMap[trigram_stem] = {}
-                    if ID not in characterdict[character].stemmedMap[trigram_stem]:
-                        characterdict[character].stemmedMap[trigram_stem][ID] = 1
+                    if trigram_stem not in avatarModel[character].stemmedMap.keys():
+                        avatarModel[character].stemmedMap[trigram_stem] = {}
+                    if ID not in avatarModel[character].stemmedMap[trigram_stem]:
+                        avatarModel[character].stemmedMap[trigram_stem][ID] = 1
                     else:
-                        characterdict[character].stemmedMap[trigram_stem][ID] += 1
+                        avatarModel[character].stemmedMap[trigram_stem][ID] += 1
 
                     trigram_lemma = lemmatizer.lemmatize(unigram_list[i]) + "_" + lemmatizer.lemmatize(
                         unigram_list[i + 1]) + "_" + lemmatizer.lemmatize(unigram_list[i + 2])
-                    if trigram_lemma not in characterdict[character].lemmatizedMap.keys():
-                        characterdict[character].lemmatizedMap[trigram_lemma] = {}
-                    if ID not in characterdict[character].lemmatizedMap[trigram_lemma]:
-                        characterdict[character].lemmatizedMap[trigram_lemma][ID] = 1
+                    if trigram_lemma not in avatarModel[character].lemmatizedMap.keys():
+                        avatarModel[character].lemmatizedMap[trigram_lemma] = {}
+                    if ID not in avatarModel[character].lemmatizedMap[trigram_lemma]:
+                        avatarModel[character].lemmatizedMap[trigram_lemma][ID] = 1
                     else:
-                        characterdict[character].lemmatizedMap[trigram_lemma][ID] += 1
+                        avatarModel[character].lemmatizedMap[trigram_lemma][ID] += 1
 
             # removes stop words
             # question_split = [tmp.strip(', " ?.!') for tmp in question_split if tmp not in stop_words]
@@ -357,13 +345,13 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
             # adds the unigrams and their synonyms into the three hashmaps - stems, lemmas and direct:
 
             ''' 
-            1. characterdict[character].wordMap is a dictionary where the key is the word 
+            1. avatarModel[character].wordMap is a dictionary where the key is the word 
             and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
             
-            2. characterdict[character].stemmedMap is a dictionary where the key is the stem of a word 
+            2. avatarModel[character].stemmedMap is a dictionary where the key is the stem of a word 
             and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
 
-            3. characterdict[character].LemmatizedMap is a dictionary where the key is the word (either unigram, bigram, or trigram)
+            3. avatarModel[character].LemmatizedMap is a dictionary where the key is the word (either unigram, bigram, or trigram)
             and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
             '''
             for token in (unigram_list):
@@ -372,31 +360,31 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
                 stem = porterStemmer.stem(token)
                 lemma = lemmatizer.lemmatize(token)
 
-                if token not in characterdict[character].wordMap.keys():
-                    characterdict[character].wordMap[token] = {}
-                if ID not in characterdict[character].wordMap[token].keys():
-                    characterdict[character].wordMap[token][ID] = 1
+                if token not in avatarModel[character].wordMap.keys():
+                    avatarModel[character].wordMap[token] = {}
+                if ID not in avatarModel[character].wordMap[token].keys():
+                    avatarModel[character].wordMap[token][ID] = 1
                 else:
-                    characterdict[character].wordMap[token][ID] += 1
-                #print("token" + " " + token, characterdict[character].wordMap[token])
+                    avatarModel[character].wordMap[token][ID] += 1
+                #print("token" + " " + token, avatarModel[character].wordMap[token])
 
-                if stem not in characterdict[character].stemmedMap.keys():
-                    characterdict[character].stemmedMap[stem] = {}
-                if ID not in characterdict[character].stemmedMap[stem]:
-                    characterdict[character].stemmedMap[stem][ID] = 1
+                if stem not in avatarModel[character].stemmedMap.keys():
+                    avatarModel[character].stemmedMap[stem] = {}
+                if ID not in avatarModel[character].stemmedMap[stem]:
+                    avatarModel[character].stemmedMap[stem][ID] = 1
                 else:
-                    characterdict[character].stemmedMap[stem][ID] += 1
+                    avatarModel[character].stemmedMap[stem][ID] += 1
 
-                if lemma not in characterdict[character].lemmatizedMap.keys():
-                    characterdict[character].lemmatizedMap[lemma] = {}
-                if ID not in characterdict[character].lemmatizedMap[lemma]:
-                    characterdict[character].lemmatizedMap[lemma][ID] = 1
+                if lemma not in avatarModel[character].lemmatizedMap.keys():
+                    avatarModel[character].lemmatizedMap[lemma] = {}
+                if ID not in avatarModel[character].lemmatizedMap[lemma]:
+                    avatarModel[character].lemmatizedMap[lemma][ID] = 1
                 else:
-                    characterdict[character].lemmatizedMap[lemma][ID] += 1
+                    avatarModel[character].lemmatizedMap[lemma][ID] += 1
 
-                characterdict[character].wordMap[token][ID]= characterdict[character].wordMap[token][ID]/totalUnigrams
-                characterdict[character].stemmedMap[stem][ID]= characterdict[character].stemmedMap[stem][ID]/totalUnigrams
-                characterdict[character].lemmatizedMap[lemma][ID]= characterdict[character].stemmedMap[stem][ID]/totalUnigrams
+                avatarModel[character].wordMap[token][ID]= avatarModel[character].wordMap[token][ID]/totalUnigrams
+                avatarModel[character].stemmedMap[stem][ID]= avatarModel[character].stemmedMap[stem][ID]/totalUnigrams
+                avatarModel[character].lemmatizedMap[lemma][ID]= avatarModel[character].stemmedMap[stem][ID]/totalUnigrams
 
         elif (mylanguage == "Arabic"):
 
@@ -426,96 +414,96 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
                 # creates bigrams, their stems and lemmas and adds them to the respective maps
                 if (i < totalUnigrams - 1):
                     bigram = unigram_list[i] + "_" + unigram_list[i + 1]
-                    if bigram not in characterdict[character].wordMap.keys():
-                        characterdict[character].wordMap[bigram] = {}
-                    if ID not in characterdict[character].wordMap[bigram]:
-                        characterdict[character].wordMap[bigram][ID] = 1
+                    if bigram not in avatarModel[character].wordMap.keys():
+                        avatarModel[character].wordMap[bigram] = {}
+                    if ID not in avatarModel[character].wordMap[bigram]:
+                        avatarModel[character].wordMap[bigram][ID] = 1
                     else:
-                        characterdict[character].wordMap[bigram][ID] += 1
+                        avatarModel[character].wordMap[bigram][ID] += 1
 
                     bigram_stem = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
 
-                    if bigram_stem not in characterdict[character].stemmedMap.keys():
-                        characterdict[character].stemmedMap[bigram_stem] = {}
-                    if ID not in characterdict[character].stemmedMap[bigram_stem]:
-                        characterdict[character].stemmedMap[bigram_stem][ID] = 1
+                    if bigram_stem not in avatarModel[character].stemmedMap.keys():
+                        avatarModel[character].stemmedMap[bigram_stem] = {}
+                    if ID not in avatarModel[character].stemmedMap[bigram_stem]:
+                        avatarModel[character].stemmedMap[bigram_stem][ID] = 1
                     else:
-                        characterdict[character].wordMap[bigram][ID] += 1
+                        avatarModel[character].wordMap[bigram][ID] += 1
 
                     bigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
 
-                    if bigram_lemma not in characterdict[character].lemmatizedMap.keys():
-                        characterdict[character].lemmatizedMap[bigram_lemma] = {}
+                    if bigram_lemma not in avatarModel[character].lemmatizedMap.keys():
+                        avatarModel[character].lemmatizedMap[bigram_lemma] = {}
 
-                    if ID not in characterdict[character].lemmatizedMap[bigram_lemma]:
-                        characterdict[character].lemmatizedMap[bigram_lemma][ID] = 1
+                    if ID not in avatarModel[character].lemmatizedMap[bigram_lemma]:
+                        avatarModel[character].lemmatizedMap[bigram_lemma][ID] = 1
                     else:
-                        characterdict[character].lemmatizedMap[bigram_lemma][ID] += 1
+                        avatarModel[character].lemmatizedMap[bigram_lemma][ID] += 1
 
 	        	 # creates trigrams, their stems and lemmas and add them to the respective maps
                 if i < totalUnigrams - 2:
                     trigram = unigram_list[i] + "_" + unigram_list[i + 1] + "_" + unigram_list[i + 2]
 
-                    if trigram not in characterdict[character].wordMap.keys():
-                        characterdict[character].wordMap[trigram] = {}
-                    if ID not in characterdict[character].wordMap[trigram]:
-                        characterdict[character].wordMap[trigram][ID] = 1
+                    if trigram not in avatarModel[character].wordMap.keys():
+                        avatarModel[character].wordMap[trigram] = {}
+                    if ID not in avatarModel[character].wordMap[trigram]:
+                        avatarModel[character].wordMap[trigram][ID] = 1
                     else:
-                        characterdict[character].wordMap[trigram][ID] = +1
+                        avatarModel[character].wordMap[trigram][ID] = +1
 
                     trigram_stem =  StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]+ "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
-                    if trigram_stem not in characterdict[character].stemmedMap.keys():
-                        characterdict[character].stemmedMap[trigram_stem] = {}
-                    if ID not in characterdict[character].stemmedMap[trigram_stem]:
-                        characterdict[character].stemmedMap[trigram_stem][ID] = 1
+                    if trigram_stem not in avatarModel[character].stemmedMap.keys():
+                        avatarModel[character].stemmedMap[trigram_stem] = {}
+                    if ID not in avatarModel[character].stemmedMap[trigram_stem]:
+                        avatarModel[character].stemmedMap[trigram_stem][ID] = 1
                     else:
-                        characterdict[character].stemmedMap[trigram_stem][ID] += 1
+                        avatarModel[character].stemmedMap[trigram_stem][ID] += 1
 
                     trigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
-                    if trigram_lemma not in characterdict[character].lemmatizedMap.keys():
-                        characterdict[character].lemmatizedMap[trigram_lemma] = {}
-                    if ID not in characterdict[character].lemmatizedMap[trigram_lemma]:
-                        characterdict[character].lemmatizedMap[trigram_lemma][ID] = 1
+                    if trigram_lemma not in avatarModel[character].lemmatizedMap.keys():
+                        avatarModel[character].lemmatizedMap[trigram_lemma] = {}
+                    if ID not in avatarModel[character].lemmatizedMap[trigram_lemma]:
+                        avatarModel[character].lemmatizedMap[trigram_lemma][ID] = 1
                     else:
-                        characterdict[character].lemmatizedMap[trigram_lemma][ID] += 1
+                        avatarModel[character].lemmatizedMap[trigram_lemma][ID] += 1
 	        
             # adds the unigrams and their synonyms into the three hashmaps - stems, lemmas and direct + unigram_synonyms_list:
             for token in (unigram_list+ unigram_synonyms_list):
                 stem = StarMorphModules.analyze_word(token, False)[0].split()[1].replace("stem:", "").split('d',1)[0]
                 lemma = StarMorphModules.analyze_word(token, False)[0].split()[0].replace("lex:", "").split('_',1)[0]
 
-                if token not in characterdict[character].wordMap.keys():
-                    characterdict[character].wordMap[token] = {}
-                if ID not in characterdict[character].wordMap[token]:
+                if token not in avatarModel[character].wordMap.keys():
+                    avatarModel[character].wordMap[token] = {}
+                if ID not in avatarModel[character].wordMap[token]:
                     print(ID, token)
-                    characterdict[character].wordMap[token][ID] = 1
+                    avatarModel[character].wordMap[token][ID] = 1
                 else:
                     print("second time", ID, token)
-                    characterdict[character].wordMap[token][ID] += 1
+                    avatarModel[character].wordMap[token][ID] += 1
 
-                if stem not in characterdict[character].stemmedMap.keys():
-                    characterdict[character].stemmedMap[stem] = {}
-                if ID not in characterdict[character].stemmedMap[stem]:
-                    characterdict[character].stemmedMap[stem][ID] = 1
+                if stem not in avatarModel[character].stemmedMap.keys():
+                    avatarModel[character].stemmedMap[stem] = {}
+                if ID not in avatarModel[character].stemmedMap[stem]:
+                    avatarModel[character].stemmedMap[stem][ID] = 1
                 else:
-                    characterdict[character].stemmedMap[stem][ID] += 1
+                    avatarModel[character].stemmedMap[stem][ID] += 1
 
-                if lemma not in characterdict[character].lemmatizedMap.keys():
-                    characterdict[character].lemmatizedMap[lemma] = {}
-                if ID not in characterdict[character].lemmatizedMap[lemma]:
-                    characterdict[character].lemmatizedMap[lemma][ID] = 1
+                if lemma not in avatarModel[character].lemmatizedMap.keys():
+                    avatarModel[character].lemmatizedMap[lemma] = {}
+                if ID not in avatarModel[character].lemmatizedMap[lemma]:
+                    avatarModel[character].lemmatizedMap[lemma][ID] = 1
                 else:
-                    characterdict[character].lemmatizedMap[lemma][ID] += 1
+                    avatarModel[character].lemmatizedMap[lemma][ID] += 1
 
-    print("number of times name appears in video 1:" , characterdict[character].wordMap["name"][1])
+    print("number of times name appears in video 1:" , avatarModel[character].wordMap["name"][1])
 
     print("Total Questions: ", str(totalQuestions))
     print("done")
-    # print(characterdict["gabriela"].wordMap)
-    #print("before",characterdict['margarita'].wordMap['hello'])
-    calculateTFIDF(characterdict)
-    #print("character dictionary", characterdict['margarita'])
-    #print("after", characterdict['margarita'].wordMap['hello'])
+    # print(avatarModel["gabriela"].wordMap)
+    #print("before",avatarModel['margarita'].wordMap['hello'])
+    calculateTFIDF(avatarModel)
+    #print("character dictionary", avatarModel['margarita'])
+    #print("after", avatarModel['margarita'].wordMap['hello'])
     return currentSession
 
 
@@ -926,7 +914,7 @@ def lemma_intersection_match_Arabic(query, characterModel, logger):
     return responses
 
 
-def calculateTFIDF(characterdict):
+def calculateTFIDF(avatarModel):
     # #are we using each question as a "doc" or each character model?
 
     # totalDocs = len(characterModel.objectMap)
@@ -944,16 +932,16 @@ def calculateTFIDF(characterdict):
     # tfidf= tf * idf
     # return tfidf
 
-    for avatar in characterdict:
-        totalDocs = len(characterdict[avatar].objectMap)
+    for avatar in avatarModel:
+        totalDocs = len(avatarModel[avatar].objectMap)
         print("Total Docs: ", totalDocs)
-        for lemma in characterdict[avatar].lemmatizedMap.keys():
-            idf = totalDocs / len(characterdict[avatar].lemmatizedMap[lemma])
-            for doc in characterdict[avatar].lemmatizedMap[lemma].keys():
-                tf = characterdict[avatar].lemmatizedMap[lemma][doc]
+        for lemma in avatarModel[avatar].lemmatizedMap.keys():
+            idf = totalDocs / len(avatarModel[avatar].lemmatizedMap[lemma])
+            for doc in avatarModel[avatar].lemmatizedMap[lemma].keys():
+                tf = avatarModel[avatar].lemmatizedMap[lemma][doc]
                 tfidf = tf * idf
-                #characterdict[avatar].lemmatizedMap[lemma][doc] = tfidf
-                #print("lemma tfidf" + " " + lemma, characterdict[avatar].lemmatizedMap[lemma][doc])
+                #avatarModel[avatar].lemmatizedMap[lemma][doc] = tfidf
+                #print("lemma tfidf" + " " + lemma, avatarModel[avatar].lemmatizedMap[lemma][doc])
 
         # idf: inverse document frequency
         # idf= math.log(len(doclist) / (1 + n_containing(token, doclist)))
@@ -961,24 +949,24 @@ def calculateTFIDF(characterdict):
         # tfifd
         # tfidf= tf * idf
 
-        for stem in characterdict[avatar].stemmedMap.keys():
-            idf = totalDocs / len(characterdict[avatar].stemmedMap[stem])
-            for doc in characterdict[avatar].stemmedMap[stem].keys():
-                tf = characterdict[avatar].stemmedMap[stem][doc]
+        for stem in avatarModel[avatar].stemmedMap.keys():
+            idf = totalDocs / len(avatarModel[avatar].stemmedMap[stem])
+            for doc in avatarModel[avatar].stemmedMap[stem].keys():
+                tf = avatarModel[avatar].stemmedMap[stem][doc]
                 tfidf = tf * idf
-                #characterdict[avatar].stemmedMap[stem][doc] = tfidf
+                #avatarModel[avatar].stemmedMap[stem][doc] = tfidf
 
-        for word in characterdict[avatar].wordMap.keys():
-            idf = totalDocs / len(characterdict[avatar].wordMap[word])
-            for doc in characterdict[avatar].wordMap[word].keys():
-                tf = characterdict[avatar].wordMap[word][doc]
+        for word in avatarModel[avatar].wordMap.keys():
+            idf = totalDocs / len(avatarModel[avatar].wordMap[word])
+            for doc in avatarModel[avatar].wordMap[word].keys():
+                tf = avatarModel[avatar].wordMap[word][doc]
                 tfidf = tf * idf
-                #characterdict[avatar].wordMap[word][doc] = tfidf
+                #avatarModel[avatar].wordMap[word][doc] = tfidf
 
-    #print("avatar dict", characterdict['margarita'].wordMap["hello"][])
+    #print("avatar dict", avatarModel['margarita'].wordMap["hello"][])
    
 
-    #return characterdict
+    #return avatarModel
 
 
 def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
@@ -1183,7 +1171,7 @@ def findResponse(query, characterModel, currentSession, counter):
 
 
 
-# the player calls the following functions for greetings and silentVideos, using calls such as dialogue-manager3.sayHi(characterdict[avatar])
+# the player calls the following functions for greetings and silentVideos, using calls such as dialogue-manager3.sayHi(avatarModel[avatar])
 
 def silentVideos(corpus):
     return corpus["silences"]
