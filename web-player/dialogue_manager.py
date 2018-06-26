@@ -332,11 +332,27 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
             # the total number of words in the question and answer pair
             totalUnigrams = len(unigram_list)
 
+            ''' 
+            Types of hashmaps in the avatarModel:
+            1. avatarModel[avatar].wordMap is a dictionary where the key is the word 
+            and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
+            
+            2. avatarModel[avatar].stemmedMap is a dictionary where the key is the stem of a word 
+            and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
+
+            3. avatarModel[avatar].LemmatizedMap is a dictionary where the key is the word (either unigram, bigram, or trigram)
+            and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
+            '''
+
+             '''divide the question-answer pair into bigrams or word pairs
+                   obtain the stem and lemma for each one, 
+                   and add them to the respective maps in the avatar model
+              '''
+
             for i in range(totalUnigrams):
 
-                # create bigrams, obtain the stem and lemma for each one, and add them to the respective maps
+               
                 if i < totalUnigrams - 1:
-
                     
                     bigram = unigram_list[i] + "_" + unigram_list[i + 1]
                     if bigram not in avatarModel[avatar].wordMap.keys():
@@ -363,7 +379,15 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
                     else:
                         avatarModel[avatar].lemmatizedMap[bigram_lemma][ID] += 1
 
-                # creates trigrams, their stems and lemmas and add them to the respective maps
+                    avatarModel[avatar].wordMap[biram][ID]= avatarModel[avatar].wordMap[bigram][ID]/totalUnigrams-1
+                    avatarModel[avatar].stemmedMap[bigram_stem][ID]= avatarModel[avatar].stemmedMap[bigram_stem][ID]/totalUnigrams-1
+                    avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]= avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]/totalUnigrams-1
+
+                '''divide the question-answer pair into trigrams or word pairs
+                   obtain the stem and lemma for each one, 
+                   and add them to the respective maps in the avatar model
+                '''
+
                 if i < totalUnigrams - 2:
 
                     trigram = unigram_list[i] + "_" + unigram_list[i + 1] + "_" + unigram_list[i + 2]
@@ -391,24 +415,11 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
                         avatarModel[avatar].lemmatizedMap[trigram_lemma][ID] = 1
                     else:
                         avatarModel[avatar].lemmatizedMap[trigram_lemma][ID] += 1
+                    avatarModel[avatar].wordMap[trigram][ID]= avatarModel[avatar].wordMap[trigram][ID]/totalUnigrams-2
+                    avatarModel[avatar].stemmedMap[trigram_stem][ID]= avatarModel[avatar].stemmedMap[trigram_stem][ID]/totalUnigrams-2
+                    avatarModel[avatar].lemmatizedMap[trigram_lemma][ID]= avatarModel[avatar].lemmatizedMap[trigram_lemma][ID]/totalUnigrams-2
 
-            # removes stop words
-            # question_split = [tmp.strip(', " ?.!') for tmp in question_split if tmp not in stop_words]
-            # answer_split = [tmp.strip(', " ?.!') for tmp in answer_split if tmp not in stop_words]
-
-            # adds the unigrams and their synonyms into the three hashmaps - stems, lemmas and direct:
-
-            ''' 
-            1. avatarModel[avatar].wordMap is a dictionary where the key is the word 
-            and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
-            
-            2. avatarModel[avatar].stemmedMap is a dictionary where the key is the stem of a word 
-            and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
-
-            3. avatarModel[avatar].LemmatizedMap is a dictionary where the key is the word (either unigram, bigram, or trigram)
-            and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
-            '''
-
+            # add single words, their stems and lemmas to the respective maps in the avatarModel
             for token in (unigram_list+unigram_synonyms_list):
                 
 
@@ -439,20 +450,22 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
 
                 avatarModel[avatar].wordMap[token][ID]= avatarModel[avatar].wordMap[token][ID]/totalUnigrams
                 avatarModel[avatar].stemmedMap[stem][ID]= avatarModel[avatar].stemmedMap[stem][ID]/totalUnigrams
-                avatarModel[avatar].lemmatizedMap[lemma][ID]= avatarModel[avatar].stemmedMap[stem][ID]/totalUnigrams
+                avatarModel[avatar].lemmatizedMap[lemma][ID]= avatarModel[avatar].lemmatizedMap[lemma][ID]/totalUnigrams
 
         elif (mylanguage == "Arabic"):
 
+            # generate a list of stopwords. Turned off because tests proved it lowers performance
             #arabic_stop_words= getStopwords("Arabic")
 
-            unigram_split = question.strip('،"!؟/)').replace("،", " ").replace("/", " ").split() + answer.strip('،"!؟/)').replace("،", " ").replace("/", " ").split()
+            # split the question and answer pair into a list of words
+            unigram_split = question.split() + answer.split()
 
             unigram_list = [tmp.strip('،"!؟/)').replace('/', '') for tmp in unigram_split]
 
             unigram_synonyms_list = []
 
 
-        	# expands the unigram model by adding synonyms
+        	# generate synonyms for each word in the question and answer pair
             for word in unigram_list:
             	if word in arabic_synonyms.keys():
             		for tmp in arabic_synonyms[word]:
@@ -461,12 +474,28 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
 
 
 
-            # add the bigrams and trigrams into the three representations
+           # the total number of words in the question and answer pair
             totalUnigrams = len(unigram_list)
 
+            ''' 
+            Types of hashmaps in the avatarModel:
+            1. avatarModel[avatar].wordMap is a dictionary where the key is the word 
+            and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
+            
+            2. avatarModel[avatar].stemmedMap is a dictionary where the key is the stem of a word 
+            and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
+
+            3. avatarModel[avatar].LemmatizedMap is a dictionary where the key is the word (either unigram, bigram, or trigram)
+            and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
+            '''
+
+
+            '''divide the question-answer pair into bigrams or word pairs
+               obtain the stem and lemma for each one, 
+               and add them to the respective maps in the avatar model
+            '''
             for i in range(totalUnigrams):
 
-                # creates bigrams, their stems and lemmas and adds them to the respective maps
                 if (i < totalUnigrams - 1):
                     bigram = unigram_list[i] + "_" + unigram_list[i + 1]
                     if bigram not in avatarModel[avatar].wordMap.keys():
@@ -494,8 +523,14 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
                         avatarModel[avatar].lemmatizedMap[bigram_lemma][ID] = 1
                     else:
                         avatarModel[avatar].lemmatizedMap[bigram_lemma][ID] += 1
+                    avatarModel[avatar].wordMap[biram][ID]= avatarModel[avatar].wordMap[bigram][ID]/totalUnigrams-1
+                    avatarModel[avatar].stemmedMap[bigram_stem][ID]= avatarModel[avatar].stemmedMap[bigram_stem][ID]/totalUnigrams-1
+                    avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]= avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]/totalUnigrams-1
 
-	        	 # creates trigrams, their stems and lemmas and add them to the respective maps
+	        	 '''divide the question-answer pair into trigrams or word pairs
+                   obtain the stem and lemma for each one, 
+                   and add them to the respective maps in the avatar model
+                '''
                 if i < totalUnigrams - 2:
                     trigram = unigram_list[i] + "_" + unigram_list[i + 1] + "_" + unigram_list[i + 2]
 
@@ -521,8 +556,11 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
                         avatarModel[avatar].lemmatizedMap[trigram_lemma][ID] = 1
                     else:
                         avatarModel[avatar].lemmatizedMap[trigram_lemma][ID] += 1
+                    avatarModel[avatar].wordMap[trigram][ID]= avatarModel[avatar].wordMap[trigram][ID]/totalUnigrams-2
+                    avatarModel[avatar].stemmedMap[trigram_stem][ID]= avatarModel[avatar].stemmedMap[trigram_stem][ID]/totalUnigrams-2
+                    avatarModel[avatar].lemmatizedMap[trigram_lemma][ID]= avatarModel[avatar].lemmatizedMap[trigram_lemma][ID]/totalUnigrams-2
 	        
-            # adds the unigrams and their synonyms into the three hashmaps - stems, lemmas and direct + unigram_synonyms_list:
+            # add single words, their stems and lemmas to the respective maps in the avatarModel
             for token in (unigram_list+ unigram_synonyms_list):
                 stem = StarMorphModules.analyze_word(token, False)[0].split()[1].replace("stem:", "").split('d',1)[0]
                 lemma = StarMorphModules.analyze_word(token, False)[0].split()[0].replace("lex:", "").split('_',1)[0]
@@ -530,10 +568,10 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
                 if token not in avatarModel[avatar].wordMap.keys():
                     avatarModel[avatar].wordMap[token] = {}
                 if ID not in avatarModel[avatar].wordMap[token]:
-                    print(ID, token)
+                    #print(ID, token)
                     avatarModel[avatar].wordMap[token][ID] = 1
                 else:
-                    print("second time", ID, token)
+                    #print("second time", ID, token)
                     avatarModel[avatar].wordMap[token][ID] += 1
 
                 if stem not in avatarModel[avatar].stemmedMap.keys():
@@ -550,18 +588,20 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
                 else:
                     avatarModel[avatar].lemmatizedMap[lemma][ID] += 1
 
+                avatarModel[avatar].wordMap[token][ID]= avatarModel[avatar].wordMap[token][ID]/totalUnigrams
+                avatarModel[avatar].stemmedMap[stem][ID]= avatarModel[avatar].stemmedMap[stem][ID]/totalUnigrams
+                avatarModel[avatar].lemmatizedMap[lemma][ID]= avatarModel[avatar].lemmatizedMap[lemma][ID]/totalUnigrams
+
     print("number of times name appears in video 1:" , avatarModel[avatar].wordMap["name"][1])
 
     print("Total Questions: ", str(totalQuestions))
     print("done")
-    # print(avatarModel["gabriela"].wordMap)
-    #print("before",avatarModel['margarita'].wordMap['hello'])
+
     calculateTFIDF(avatarModel)
-    #print("avatar dictionary", avatarModel['margarita'])
-    #print("after", avatarModel['margarita'].wordMap['hello'])
+   
     return currentSession
 
-
+# function to rank lemmas obtained by the morphological analyzer 
 def findLemmaScore(lemma):
     score=0
     lookup= open('dialogue-manager/CalimaStar_files/lookup-table.txt', 'r', encoding='utf-8')
@@ -583,7 +623,7 @@ def direct_intersection_match_English(query, avatarModel, logger):
     queryLen = len(queryList)
     tokens_used = []
 
-    # newList = []
+   
 
     # expands the query by adding synonyms to the words in the query
     # testing proved that synonym expansion of the query lowered the results, therefore, we turned it off
@@ -809,7 +849,7 @@ def direct_intersection_match_Arabic(query, avatarModel, logger):
         #                 responses[obj_videoID] = avatarModel.wordMap[trigram_string][obj_videoID]
         #             elif obj_videoID in responses.keys():
         #                 responses[obj_videoID] += avatarModel.wordMap[trigram_string][obj_videoID]
-
+        
     return responses
 
 
@@ -867,7 +907,6 @@ def stem_intersection_match_Arabic(query, avatarModel, logger):
         #                 responses[obj_videoID] = avatarModel.stemmedMap[trigram_string][obj_videoID]
         #             elif obj_videoID in responses.keys():
         #                 responses[obj_videoID] += avatarModel.stemmedMap[trigram_string][obj_videoID]
-
 
     return responses
 
@@ -945,7 +984,6 @@ def lemma_intersection_match_Arabic(query, avatarModel, logger):
         #                 responses[obj_videoID] = avatarModel.lemmatizedMap[trigram_string][obj_videoID]
         #             elif obj_videoID in responses.keys():
         #                 responses[obj_videoID] += avatarModel.lemmatizedMap[trigram_string][obj_videoID]
-
 
     return responses
 
@@ -1174,21 +1212,7 @@ def findResponse(query, avatarModel, currentSession, counter):
 
 
 
-
-# the player calls the following functions for greetings and silentVideos, using calls such as dialogue-manager3.sayHi(avatarModel[avatar])
-
-def silentVideos(corpus):
-    return corpus["silences"]
-
-
-def sayHi(corpus):
-    return corpus["greetings"][0]
-
-
-def sayBye(corpus):
-    return corpus["greetings"][-1]
-
-
+# initiates a new session for a new interaction between a user and an avatar
 def create_new_session(avatar, language):
     print("creating a new session for " + avatar + " in " + language)
 
