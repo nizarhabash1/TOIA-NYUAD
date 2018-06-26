@@ -64,7 +64,7 @@ class databaseEntry:
         #videoLink: the pathway of the recorded video
         self.videoLink = video
 
-        # lanuage: the name of the language of the recorded vide
+        # lanuage: the name of the language of the recorded videos
         self.language = language
 
         # frequency: the number of times a video can be played specified by the user. The options include: once, never and multiple
@@ -174,7 +174,8 @@ def configure(avatar_accuracy, avatar_length):
 
     return av_length, av_accuracy
 
-#generate stop words
+
+#generate a list of stop words depending on the language (nltk for English and an open source list for Arabic)
 def getStopwords(language):
     stop_words= []
     if language=="English":
@@ -186,7 +187,7 @@ def getStopwords(language):
    
     return stop_words
 
-#get Arabic synonyms
+#generate arabic synonyms based on words that share the same English translation
 def arabicSyn(myavatar):
 
     db= 'static/avatar-garden/' + myavatar +'/script.json'
@@ -222,7 +223,7 @@ def arabicSyn(myavatar):
                     synonymDict[i]=[j for j in glossDict[key]]
     return synonymDict
 
-# Initiates the model and create a new session
+# Creates a model of the avatar's database 
 def createModel(avatarModel, currentSession, mylanguage, myavatar):
 
 
@@ -250,14 +251,16 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         #automatically generated ID 
         ID += 1
 
+
+       
+
         totalQuestions += 1
 
 
+
         video = json.dumps(resp["rows"][i]["doc"]["video"])
-        # avatar= json.dumps(resp["rows"][i]["doc"]["avatar"])
         #variable that stores the avatar name
         avatar = json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
-
         #variable that stores the language that the avatar videos were recorded in 
         language = json.dumps(resp["rows"][i]["doc"]["language"])
         #variable that stores the user's preferred playing frequency for each database entry
@@ -281,11 +284,12 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
             avatarModel[avatar] = model()
 
 
-        #save configuration variables
+        
 
         '''
+        save configuration variables
         accuracy (low/medium/high): This value is used as a threshold for accuracy. For example, if you require videos to be played only when there is a high match, then select "High". Otherwise, select either "Low" or "Medium". The default value is "Low".
-        length constant: if the number of words in an aswer is above this constant, then these answers will be ranked lower in our question-answer matching algorithm. 
+        maxLength: if the number of words in an aswer is above this constant, then these answers will be ranked lower in our question-answer matching algorithm. 
         video type: a tag that either equals regular, or filler, according to the type of the database entry
         '''
         accuracy= json.dumps(resp["rows"][i]["doc"]["minimum required accuracy"])
@@ -307,17 +311,20 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         if(videoType== '"no-answer"'):
             avatarModel[avatar].noAnswer[ID] = obj
 
+
         if (mylanguage == "English"):
 
+            # generate a list of stopwords. Turned off because tests proved it lowers performance
             #stop_words= getStopwords("English")
 
+            # split the question and answer pair into a list of words
             unigram_split = question.lower().split() + answer.lower().split()
             unigram_list = [tmp.strip(',?."!)') for tmp in unigram_split]
             unigram_synonyms_list = []
 
             #print("unigram list", unigram_list)
 
-            #expands the unigram model by adding synonyms
+            # generate synonyms for each word in the question and answer pair
             for word in unigram_list:
                 #if word not in stop_words:
                 for synset in wn.synsets(word):
@@ -325,14 +332,15 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
                         if lemma.name() not in unigram_synonyms_list and lemma.name() not in unigram_list:
                             unigram_synonyms_list.append(lemma.name())
 
-            # add the bigrams and trigrams into the three representations
+            # the total number of words in the question and answer pair
             totalUnigrams = len(unigram_list)
 
             for i in range(totalUnigrams):
 
-                # creates bigrams, their stems and lemmas and adds them to the respective maps
+                # create bigrams, obtain the stem and lemma for each one, and add them to the respective maps
                 if i < totalUnigrams - 1:
 
+                    
                     bigram = unigram_list[i] + "_" + unigram_list[i + 1]
                     if bigram not in avatarModel[avatar].wordMap.keys():
                         avatarModel[avatar].wordMap[bigram] = {}
@@ -632,19 +640,8 @@ def direct_intersection_match_English(query, avatarModel, logger):
         #             elif obj_videoID in responses.keys():
         #                 responses[obj_videoID] += avatarModel.wordMap[trigram_string][obj_videoID]
 
-    # for direct_string in queryList:
-    #     if direct_string in avatarModel.wordMap.keys():  # and direct_string not in stop_words:
-    #         for obj_videoID in avatarModel.wordMap[direct_string]:
-    #             if obj_videoID not in responses.keys():
-    #                 responses[obj_videoID] = avatarModel.wordMap[direct_string][obj_videoID]
-    #             elif obj_videoID in responses.keys():
-    #                 responses[obj_videoID] += avatarModel.wordMap[direct_string][obj_videoID]
-
     
     print("English direct responses", responses)
-    for key in responses.keys():
-        responses[key]= responses[key]
-    
     return responses
 
 
@@ -707,9 +704,6 @@ def stem_intersection_match_English(query, avatarModel, logger):
     #             elif obj_videoID in responses.keys():
     #                 responses[obj_videoID] += avatarModel.stemmedMap[stem_string][obj_videoID]
 
-    for key in responses.keys():
-        responses[key]= responses[key]
-        #print("stem score",responses[key] )
     
     print("English stem responses", responses)
     return responses
@@ -774,10 +768,7 @@ def lemma_intersection_match_English(query, avatarModel, logger):
     #             elif obj_videoID in responses.keys():
     #                 responses[obj_videoID] += avatarModel.lemmatizedMap[lemma_string][obj_videoID]
 
-    for key in responses.keys():
-        #print("lemma score before", responses[key])
-        responses[key]= responses[key]
-        #print("lemma score after", responses[key])
+   
     
     print("English lemma responses", responses)
     return responses
@@ -838,8 +829,7 @@ def direct_intersection_match_Arabic(query, avatarModel, logger):
 
 
 def stem_intersection_match_Arabic(query, avatarModel, logger):
-    # StarMorphModules.read_config("config_stem.xml")
-    # StarMorphModules.initialize_from_file("almor-s31.db","analyze")
+  
 
     # print("Finding stem Intersection in Arabic")
     arabic_stop_words= getStopwords("Arabic")
@@ -980,22 +970,6 @@ def lemma_intersection_match_Arabic(query, avatarModel, logger):
 
 
 def calculateTFIDF(avatarModel):
-    # #are we using each question as a "doc" or each avatar model?
-
-    # totalDocs = len(avatarModel.objectMap)
-
-    # #tf: term frequency
-    # tf= doc.words.count(token) / len(doc.words)
-
-    # #number of docs containing the token
-    # n_containing= sum(1 for doc in doclist if token in doc.words)
-
-    # #idf: inverse document frequency
-    # idf= math.log(len(doclist) / (1 + n_containing(token, doclist)))
-
-    # #tfifd
-    # tfidf= tf * idf
-    # return tfidf
 
     for avatar in avatarModel:
         totalDocs = len(avatarModel[avatar].objectMap)
@@ -1028,10 +1002,8 @@ def calculateTFIDF(avatarModel):
                 tfidf = tf * idf
                 #avatarModel[avatar].wordMap[word][doc] = tfidf
 
-    #print("avatar dict", avatarModel['margarita'].wordMap["hello"][])
+    
    
-
-    #return avatarModel
 
 
 def rankAnswers(query, videoResponses, currentSession, avatarModel, total_iterations):
@@ -1039,15 +1011,9 @@ def rankAnswers(query, videoResponses, currentSession, avatarModel, total_iterat
     allowed=1
     rep=0
 
-
-    # each repition is a given a weight of 2 e.g if a video has been played once 2 points will be subtracted from its matching score
-
-    # for each possible answer, checks if it has been played it already, and subtract points from its score if has been played already.
     for res in videoResponses.keys():
         videoObjLen = avatarModel.objectMap[res].answerLength
-        # precision = videoResponses[res] / videoObjLen
-        # recall = videoResponses[res] / query_len
-        # f_score = (precision + recall) / 2
+      
         pref_frequency= avatarModel.objectMap[res].frequency
         #print("frequency", pref_frequency)
         
@@ -1263,8 +1229,8 @@ if __name__ == "__main__":
 
 
 
-    for synset in wn.synsets("family"):
-        for lemma in synset.lemmas():
-                print(lemma.name())
+    # for synset in wn.synsets("family"):
+    #     for lemma in synset.lemmas():
+    #             print(lemma.name())
     """ This is executed when run from the command line """
     main()
