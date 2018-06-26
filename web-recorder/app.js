@@ -71,7 +71,7 @@ app.get("/scripts", function(req,res){
   const scriptPaths = [];
   fs.readdir(scriptFolder, (err, files) => {
     files.forEach(file => {
-      if(String(file)!="avatars.txt" && String(file)!="README.txt") {
+      if(String(file)!="recorder_README.md" && String(file)!="player_README.md") {
         scriptPaths.push(String(file));
         console.log(scriptPaths);
         console.log(file);
