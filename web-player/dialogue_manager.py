@@ -1029,11 +1029,12 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
             
             rep= currentSession.repetitions[res]
 
-        #print("score",  videoResponses[res])
+        print("before",  videoResponses[res])
         #print("allowed", allowed)
         videoResponses[res]=(videoResponses[res]*(1-rep/(total_iterations+1)))*allowed
-        if videoResponses[res]< av_accuracy:
-            videoResponses[res]=0
+        print("after", videoResponses[res])
+        # if videoResponses[res]< av_accuracy:
+        #     videoResponses[res]=0
 
 
 
@@ -1047,9 +1048,9 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
         
         
 
-    #print("responses", videoResponses)
+    print("responses", videoResponses)
     ranked_list = sorted(videoResponses, key=lambda i: videoResponses[i], reverse=True)
-    print("video playing:", ranked_list[0])
+    #print("video playing:", ranked_list[0])
     return ranked_list
 
 
@@ -1152,7 +1153,7 @@ def findResponse(query, characterModel, currentSession, counter):
     else:
        
         ranked_responses = rankAnswers(query, best_responses, currentSession, characterModel, counter)
-        print("final responses", ranked_responses)
+        #print("final responses", ranked_responses)
         final_answer = ranked_responses[0]
 
         # if len(ranked_responses) > 2:
