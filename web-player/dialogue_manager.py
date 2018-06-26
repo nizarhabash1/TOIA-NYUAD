@@ -175,7 +175,6 @@ def configure(avatar_accuracy, avatar_length):
     return av_length, av_accuracy
 
 #generate stop words
-
 def getStopwords(language):
     stop_words= []
     if language=="English":
@@ -239,37 +238,31 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
     #number of questions in the db, used for debugging purposes  
     totalQuestions = 0
 
-    
-    id_count = 0
+    #ID: counter to automatically generate ID for each databaseEntry in the model
+    ID = 0
+
 
     if mylanguage=="Arabic":
         arabic_synonyms= arabicSyn(myavatar)
 
     for i in range(0, len(resp["rows"]) - 1, 1):
 
-        id_count += 1
+        #automatically generated ID 
+        ID += 1
 
-        # If object is a question-answer pair, the relevant information is extracted
-        #if "english-question" in resp["rows"][i]["doc"].keys() or "arabic-question" in resp["rows"][i]["doc"].keys():
         totalQuestions += 1
-        # uni_ID= json.dumps(resp["rows"][i]["doc"]["_id"])
-        # print(uni_ID)
 
-        #variable that stores the video link 
+
         video = json.dumps(resp["rows"][i]["doc"]["video"])
         # avatar= json.dumps(resp["rows"][i]["doc"]["avatar"])
         #variable that stores the avatar name
         avatar = json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
-        # language= json.dumps(resp["rows"][i]["doc"]["language"])
+
         #variable that stores the language that the avatar videos were recorded in 
         language = json.dumps(resp["rows"][i]["doc"]["language"])
-        ID = id_count;
-
-
         #variable that stores the user's preferred playing frequency for each database entry
         frequency= json.dumps(resp["rows"][i]["doc"]["playing frequency"])
 
-    
 
         if (mylanguage == "Arabic"):
             
@@ -282,7 +275,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
             question = json.dumps(resp["rows"][i]["doc"]["english-question"]).strip(',?."!)')
             answer = json.dumps(resp["rows"][i]["doc"]["english-answer"]).strip(',?."!)')
 
-        # Creates a new avatar model in the avatar dictionary if it does not exist already
+        # Creates a new avatar model object in the avatarModel if it does not exist already
         if avatar not in avatarModel.keys():
             # avatarModel[avatar] is the model of the respective avatar
             avatarModel[avatar] = model()
@@ -302,8 +295,8 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         #read the configuration variables from the database and save it to the global variables
         configure(accuracy, maxLength)
 
-        # adds to the avatar's questions list based on the avatar key; adds all videos regardless of type to questions
-        
+
+        # obj: creates the databaseEntry object for the recorded video and adds it to the objectMap in the avatarModel
         obj = databaseEntry(question, answer, video, avatar, language, frequency)
         avatarModel[avatar].objectMap[ID] = obj
 
@@ -314,7 +307,6 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         if(videoType== '"no-answer"'):
             avatarModel[avatar].noAnswer[ID] = obj
 
-        # stemming the question and answer and adding the stems, their bigrams and trigrams into model.stemmedMap
         if (mylanguage == "English"):
 
             #stop_words= getStopwords("English")
@@ -411,6 +403,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
             3. avatarModel[avatar].LemmatizedMap is a dictionary where the key is the word (either unigram, bigram, or trigram)
             and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
             '''
+
             for token in (unigram_list+unigram_synonyms_list):
                 
 
@@ -583,10 +576,12 @@ def direct_intersection_match_English(query, avatarModel, logger):
     queryList = [tmp.strip(', " ?.!)') for tmp in query.split() if tmp not in stop_words ]
     responses = {}
     queryLen = len(queryList)
+    tokens_used = []
 
     # newList = []
 
-    # #expands the unigram model by adding synonyms
+    # expands the query by adding synonyms to the words in the query
+    # testing proved that synonym expansion of the query lowered the results, therefore, we turned it off
     # for word in queryList:
     # 	#if word not in stop_words:
     # 	for synset in wn.synsets(word):
@@ -597,7 +592,8 @@ def direct_intersection_match_English(query, avatarModel, logger):
     for i in range(queryLen):
 
         unigram_string = queryList[i]
-        if unigram_string in avatarModel.wordMap.keys():  # and direct_string not in stop_words:
+        if unigram_string in avatarModel.wordMap.keys() and unigram_string not in tokens_used:  # and direct_string not in stop_words:
+            tokens_used.append(unigram_string)
             #print("word: ", unigram_string)
             #print("word map: ", avatarModel.wordMap[unigram_string])
             for obj_videoID in avatarModel.wordMap[unigram_string]:
@@ -659,13 +655,15 @@ def stem_intersection_match_English(query, avatarModel, logger):
 
     responses = {}
     key_repetitions= {}
+    tokens_used = []
 
     queryLen = len(queryList)
 
     for i in range(queryLen):
 
         unigram_string = queryList[i]
-        if unigram_string in avatarModel.stemmedMap.keys():
+        if unigram_string in avatarModel.stemmedMap.keys() and unigram_string not in tokens_used:
+            tokens_used.append(unigram_string)
             for obj_videoID in avatarModel.stemmedMap[unigram_string]:
                 if obj_videoID not in responses.keys():
                     #number of times the unigram appears in the entry with the obj_videoID ID 
@@ -725,13 +723,16 @@ def lemma_intersection_match_English(query, avatarModel, logger):
 
     responses = {}
     queryLen = len(queryList)
+    tokens_used = []
 
     for i in range(queryLen):
 
         unigram_string = queryList[i]
-        if unigram_string in avatarModel.lemmatizedMap.keys():
+        if unigram_string in avatarModel.lemmatizedMap.keys() and unigram_string not in tokens_used:
+            tokens_used.append(unigram_string)
             for obj_videoID in avatarModel.lemmatizedMap[unigram_string]:
-                if obj_videoID not in responses.keys():
+
+                if obj_videoID not in responses.keys() :
                     responses[obj_videoID] = avatarModel.lemmatizedMap[unigram_string][obj_videoID]
 
                 else:
@@ -789,11 +790,12 @@ def direct_intersection_match_Arabic(query, avatarModel, logger):
 
     responses = {}
     queryLen = len(queryList)
+    tokens_used = []
 
     for i in range(queryLen):
-
         unigram_string = queryList[i]
-        if unigram_string in avatarModel.wordMap.keys():  
+        if unigram_string in avatarModel.wordMap.keys() and unigram_string not in tokens_used:
+            tokens_used.append(unigram_string)
             for obj_videoID in avatarModel.wordMap[unigram_string]:
                 if obj_videoID not in responses.keys():
                     responses[obj_videoID] = avatarModel.wordMap[unigram_string][obj_videoID]
@@ -845,6 +847,7 @@ def stem_intersection_match_Arabic(query, avatarModel, logger):
     responses = {}
     stemmed_query = []
     queryLen = len(queryList)
+    tokens_used = []
 
     for word in queryList:
         analysis = StarMorphModules.analyze_word(word, False)
@@ -854,7 +857,9 @@ def stem_intersection_match_Arabic(query, avatarModel, logger):
     for i in range(queryLen):
 
         unigram_string = stemmed_query[i]
-        if unigram_string in avatarModel.stemmedMap.keys():
+
+        if unigram_string in avatarModel.stemmedMap.keys() and unigram_string not in tokens_used:
+            tokens_used.append(unigram_string)
             for obj_videoID in avatarModel.stemmedMap[unigram_string]:
                 if obj_videoID not in responses.keys():
                     responses[obj_videoID] = avatarModel.stemmedMap[unigram_string][obj_videoID]
@@ -903,6 +908,7 @@ def lemma_intersection_match_Arabic(query, avatarModel, logger):
 
     responses = {}
     lemma_final= ''
+    tokens_used = []
 
 
     lemmatized_query = []
@@ -928,7 +934,9 @@ def lemma_intersection_match_Arabic(query, avatarModel, logger):
     for i in range(queryLen):
 
         unigram_string = lemmatized_query[i]
-        if unigram_string in avatarModel.lemmatizedMap.keys():
+        if unigram_string in avatarModel.lemmatizedMap.keys() and unigram_string not in tokens_used:
+            tokens_used.append(unigram_string)
+
             for obj_videoID in avatarModel.lemmatizedMap[unigram_string]:
                 if obj_videoID not in responses.keys():
                     responses[obj_videoID] = avatarModel.lemmatizedMap[unigram_string][obj_videoID]
