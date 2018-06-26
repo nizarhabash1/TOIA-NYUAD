@@ -24,26 +24,9 @@
 
 <script>
 
-  var avatarList;
+  var data = "{{avatars}}".split(",");
 
-  function readTextFile(file) {
-    rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function () {
-      if(rawFile.readyState === 4) {
-        if(rawFile.status === 200 || rawFile.status == 0) {
-          avatarList = rawFile.responseText;
-        }
-      }
-    }
-    rawFile.send(null);
-  }
-
-  readTextFile("../static/avatar-garden/avatars.txt");
-
-  console.log(avatarList);
-
-  var data = avatarList.split(",");
+  console.log(data);
 
   function makeRadioButton(name, value, text) {
     var label = document.createElement("label");
