@@ -52,9 +52,9 @@ def run_test(mylanguage, test_par):
 
 def test_wrapper(mylanguage):
 
-	unigram_mode = [True, False]
-	bigram_mode = [True, False]
-	trigram_mode = [True, False]
+	unigram_mode = [True]
+	bigram_mode = [False]
+	trigram_mode = [False]
 	synonym_mode = [True, False]
 	tfidf_mode = [True, False]
 	automatic_mode = [True, False]

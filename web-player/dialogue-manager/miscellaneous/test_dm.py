@@ -617,29 +617,29 @@ def direct_intersection_match_English(query, characterModel, test_par, logger):
             if i < queryLen - 2:
                 bigram_string = queryList[i] + "_" + queryList[i + 1]
                 if bigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                    for vidResponse in characterModel.wordMap[bigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.wordMap[bigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.wordMap[bigram_string][vidResponse]
+                    for obj_videoID in characterModel.wordMap[bigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.wordMap[bigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.wordMap[bigram_string][obj_videoID]
 
         if test_par.trigram == True:
             if i < queryLen - 3:
                 trigram_string = queryList[i] + "_" + queryList[i + 1] + "_" + queryList[i + 2]
                 if trigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                    for vidResponse in characterModel.wordMap[trigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.wordMap[trigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.wordMap[trigram_string][vidResponse]
+                    for obj_videoID in characterModel.wordMap[trigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.wordMap[trigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.wordMap[trigram_string][obj_videoID]
 
     # for direct_string in queryList:
     #     if direct_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-    #         for vidResponse in characterModel.wordMap[direct_string]:
-    #             if vidResponse not in responses.keys():
-    #                 responses[vidResponse] = characterModel.wordMap[direct_string][vidResponse]
-    #             elif vidResponse in responses.keys():
-    #                 responses[vidResponse] += characterModel.wordMap[direct_string][vidResponse]
+    #         for obj_videoID in characterModel.wordMap[direct_string]:
+    #             if obj_videoID not in responses.keys():
+    #                 responses[obj_videoID] = characterModel.wordMap[direct_string][obj_videoID]
+    #             elif obj_videoID in responses.keys():
+    #                 responses[obj_videoID] += characterModel.wordMap[direct_string][obj_videoID]
 
     print("English direct responses", responses)
     for key in responses.keys():
@@ -681,29 +681,29 @@ def stem_intersection_match_English(query, characterModel, test_par, logger):
             if i < queryLen - 2:
                 bigram_string = queryList[i] + "_" + queryList[i + 1]
                 if bigram_string in characterModel.stemmedMap.keys():
-                    for vidResponse in characterModel.stemmedMap[bigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.stemmedMap[bigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.stemmedMap[bigram_string][vidResponse]
+                    for obj_videoID in characterModel.stemmedMap[bigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.stemmedMap[bigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.stemmedMap[bigram_string][obj_videoID]
 
         if test_par.trigram == True:
             if i < queryLen - 3:
                 trigram_string = queryList[i] + "_" + queryList[i + 1] + "_" + queryList[i + 2]
                 if trigram_string in characterModel.stemmedMap.keys():
-                    for vidResponse in characterModel.stemmedMap[trigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.stemmedMap[trigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.stemmedMap[trigram_string][vidResponse]
+                    for obj_videoID in characterModel.stemmedMap[trigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.stemmedMap[trigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.stemmedMap[trigram_string][obj_videoID]
 
     # for stem_string in queryList:
     #     if stem_string in characterModel.stemmedMap.keys():
-    #         for vidResponse in characterModel.stemmedMap[stem_string]:
-    #             if vidResponse not in responses.keys():
-    #                 responses[vidResponse] = characterModel.stemmedMap[stem_string][vidResponse]
-    #             elif vidResponse in responses.keys():
-    #                 responses[vidResponse] += characterModel.stemmedMap[stem_string][vidResponse]
+    #         for obj_videoID in characterModel.stemmedMap[stem_string]:
+    #             if obj_videoID not in responses.keys():
+    #                 responses[obj_videoID] = characterModel.stemmedMap[stem_string][obj_videoID]
+    #             elif obj_videoID in responses.keys():
+    #                 responses[obj_videoID] += characterModel.stemmedMap[stem_string][obj_videoID]
 
     return responses
 
@@ -741,29 +741,29 @@ def lemma_intersection_match_English(query, characterModel, test_par, logger):
             if i < queryLen - 2:
                 bigram_string = queryList[i] + "_" + queryList[i + 1]
                 if bigram_string in characterModel.lemmatizedMap.keys():
-                    for vidResponse in characterModel.lemmatizedMap[bigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.lemmatizedMap[bigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.lemmatizedMap[bigram_string][vidResponse]
+                    for obj_videoID in characterModel.lemmatizedMap[bigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.lemmatizedMap[bigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.lemmatizedMap[bigram_string][obj_videoID]
 
         if test_par.trigram == True:
             if i < queryLen - 3:
                 trigram_string = queryList[i] + "_" + queryList[i + 1] + "_" + queryList[i + 2]
                 if trigram_string in characterModel.lemmatizedMap.keys():
-                    for vidResponse in characterModel.lemmatizedMap[trigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.lemmatizedMap[trigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.lemmatizedMap[trigram_string][vidResponse]
+                    for obj_videoID in characterModel.lemmatizedMap[trigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.lemmatizedMap[trigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.lemmatizedMap[trigram_string][obj_videoID]
 
     # for lemma_string in queryList:
     #     if lemma_string in characterModel.lemmatizedMap.keys():
-    #         for vidResponse in characterModel.lemmatizedMap[lemma_string]:
-    #             if vidResponse not in responses.keys():
-    #                 responses[vidResponse] = characterModel.lemmatizedMap[lemma_string][vidResponse]
-    #             elif vidResponse in responses.keys():
-    #                 responses[vidResponse] += characterModel.lemmatizedMap[lemma_string][vidResponse]
+    #         for obj_videoID in characterModel.lemmatizedMap[lemma_string]:
+    #             if obj_videoID not in responses.keys():
+    #                 responses[obj_videoID] = characterModel.lemmatizedMap[lemma_string][obj_videoID]
+    #             elif obj_videoID in responses.keys():
+    #                 responses[obj_videoID] += characterModel.lemmatizedMap[lemma_string][obj_videoID]
 
     return responses
 
@@ -801,28 +801,28 @@ def direct_intersection_match_Arabic(query, characterModel, test_par, logger):
             if i < queryLen - 2:
                 bigram_string = queryList[i] + "_" + queryList[i + 1]
                 if bigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                    for vidResponse in characterModel.wordMap[bigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.wordMap[bigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.wordMap[bigram_string][vidResponse]
+                    for obj_videoID in characterModel.wordMap[bigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.wordMap[bigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.wordMap[bigram_string][obj_videoID]
 
         if test_par.trigram == True:
             if i < queryLen - 3:
                 trigram_string = queryList[i] + "_" + queryList[i + 1] + "_" + queryList[i + 2]
                 if trigram_string in characterModel.wordMap.keys():  # and direct_string not in stop_words:
-                    for vidResponse in characterModel.wordMap[trigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.wordMap[trigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.wordMap[trigram_string][vidResponse]
+                    for obj_videoID in characterModel.wordMap[trigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.wordMap[trigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.wordMap[trigram_string][obj_videoID]
 
             '''		
-            if(characterModel.objectMap[vidResponse].answerLength):
-                recall = responses[vidResponse]/(characterModel.objectMap[vidResponse].questionLength)
-                precision= responses[vidResponse]/(characterModel.objectMap[vidResponse].questionLength+characterModel.objectMap[vidResponse].answerLength)
+            if(characterModel.objectMap[obj_videoID].answerLength):
+                recall = responses[obj_videoID]/(characterModel.objectMap[obj_videoID].questionLength)
+                precision= responses[obj_videoID]/(characterModel.objectMap[obj_videoID].questionLength+characterModel.objectMap[obj_videoID].answerLength)
                 #f-score
-                responses[vidResponse]= responses[vidResponse]/((recall+precision)/2)
+                responses[obj_videoID]= responses[obj_videoID]/((recall+precision)/2)
             '''
 
     return responses
@@ -869,28 +869,28 @@ def stem_intersection_match_Arabic(query, characterModel, test_par, logger):
             if i < queryLen - 2:
                 bigram_string = stemmed_query[i] + "_" + stemmed_query[i + 1]
                 if bigram_string in characterModel.stemmedMap.keys():  # and direct_string not in stop_words:
-                    for vidResponse in characterModel.stemmedMap[bigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.stemmedMap[bigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.stemmedMap[bigram_string][vidResponse]
+                    for obj_videoID in characterModel.stemmedMap[bigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.stemmedMap[bigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.stemmedMap[bigram_string][obj_videoID]
 
         if test_par.trigram == True:
             if i < queryLen - 3:
                 trigram_string = stemmed_query[i] + "_" + stemmed_query[i + 1] + "_" + stemmed_query[i + 2]
                 if trigram_string in characterModel.stemmedMap.keys():  # and direct_string not in stop_words:
-                    for vidResponse in characterModel.stemmedMap[trigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.stemmedMap[trigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.stemmedMap[trigram_string][vidResponse]
+                    for obj_videoID in characterModel.stemmedMap[trigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.stemmedMap[trigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.stemmedMap[trigram_string][obj_videoID]
     # for stem_string in stemmed_query:
     #     if stem_string in characterModel.stemmedMap.keys():
-    #         for vidResponse in characterModel.stemmedMap[stem_string]:
-    #             if vidResponse not in responses.keys():
-    #                 responses[vidResponse] = 1
-    #             elif vidResponse in responses.keys():
-    #                 responses[vidResponse] += 1
+    #         for obj_videoID in characterModel.stemmedMap[stem_string]:
+    #             if obj_videoID not in responses.keys():
+    #                 responses[obj_videoID] = 1
+    #             elif obj_videoID in responses.keys():
+    #                 responses[obj_videoID] += 1
 
     return responses
 
@@ -936,29 +936,29 @@ def lemma_intersection_match_Arabic(query, characterModel, test_par, logger):
             if i < queryLen - 2:
                 bigram_string = lemmatized_query[i] + "_" + lemmatized_query[i + 1]
                 if bigram_string in characterModel.lemmatizedMap.keys():  # and direct_string not in stop_words:
-                    for vidResponse in characterModel.lemmatizedMap[bigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.lemmatizedMap[bigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.lemmatizedMap[bigram_string][vidResponse]
+                    for obj_videoID in characterModel.lemmatizedMap[bigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.lemmatizedMap[bigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.lemmatizedMap[bigram_string][obj_videoID]
 
         if test_par.trigram == True:
             if i < queryLen - 3:
                 trigram_string = lemmatized_query[i] + "_" + lemmatized_query[i + 1] + "_" + lemmatized_query[i + 2]
                 if trigram_string in characterModel.lemmatizedMap.keys():  # and direct_string not in stop_words:
-                    for vidResponse in characterModel.lemmatizedMap[trigram_string]:
-                        if vidResponse not in responses.keys():
-                            responses[vidResponse] = characterModel.lemmatizedMap[trigram_string][vidResponse]
-                        elif vidResponse in responses.keys():
-                            responses[vidResponse] += characterModel.lemmatizedMap[trigram_string][vidResponse]
+                    for obj_videoID in characterModel.lemmatizedMap[trigram_string]:
+                        if obj_videoID not in responses.keys():
+                            responses[obj_videoID] = characterModel.lemmatizedMap[trigram_string][obj_videoID]
+                        elif obj_videoID in responses.keys():
+                            responses[obj_videoID] += characterModel.lemmatizedMap[trigram_string][obj_videoID]
 
     # for lemma_string in lemmatized_query:
     #     if lemma_string in characterModel.lemmatizedMap.keys():
-    #         for vidResponse in characterModel.lemmatizedMap[lemma_string]:
-    #             if vidResponse not in responses.keys():
-    #                 responses[vidResponse] = 1
-    #             elif vidResponse in responses.keys():
-    #                 responses[vidResponse] += 1
+    #         for obj_videoID in characterModel.lemmatizedMap[lemma_string]:
+    #             if obj_videoID not in responses.keys():
+    #                 responses[obj_videoID] = 1
+    #             elif obj_videoID in responses.keys():
+    #                 responses[obj_videoID] += 1
 
     return responses
 

@@ -175,6 +175,7 @@ def configure(avatar_accuracy, avatar_length):
     return av_length, av_accuracy
 
 
+
 #generate a list of stop words depending on the language (nltk for English and an open source list for Arabic)
 def getStopwords(language):
     stop_words= []
@@ -252,11 +253,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         ID += 1
 
 
-       
-
         totalQuestions += 1
-
-
 
         video = json.dumps(resp["rows"][i]["doc"]["video"])
         #variable that stores the avatar name
@@ -640,8 +637,6 @@ def direct_intersection_match_English(query, avatarModel, logger):
         #             elif obj_videoID in responses.keys():
         #                 responses[obj_videoID] += avatarModel.wordMap[trigram_string][obj_videoID]
 
-    
-    print("English direct responses", responses)
     return responses
 
 
@@ -704,8 +699,6 @@ def stem_intersection_match_English(query, avatarModel, logger):
     #             elif obj_videoID in responses.keys():
     #                 responses[obj_videoID] += avatarModel.stemmedMap[stem_string][obj_videoID]
 
-    
-    print("English stem responses", responses)
     return responses
 
 
@@ -768,9 +761,6 @@ def lemma_intersection_match_English(query, avatarModel, logger):
     #             elif obj_videoID in responses.keys():
     #                 responses[obj_videoID] += avatarModel.lemmatizedMap[lemma_string][obj_videoID]
 
-   
-    
-    print("English lemma responses", responses)
     return responses
 
 
@@ -819,11 +809,6 @@ def direct_intersection_match_Arabic(query, avatarModel, logger):
         #                 responses[obj_videoID] = avatarModel.wordMap[trigram_string][obj_videoID]
         #             elif obj_videoID in responses.keys():
         #                 responses[obj_videoID] += avatarModel.wordMap[trigram_string][obj_videoID]
-
-
-    for key in responses.keys():
-        responses[key]= responses[key]
-
 
     return responses
 
@@ -884,8 +869,6 @@ def stem_intersection_match_Arabic(query, avatarModel, logger):
         #                 responses[obj_videoID] += avatarModel.stemmedMap[trigram_string][obj_videoID]
 
 
-    for key in responses.keys():
-        responses[key]= responses[key]
     return responses
 
 
@@ -964,8 +947,6 @@ def lemma_intersection_match_Arabic(query, avatarModel, logger):
         #                 responses[obj_videoID] += avatarModel.lemmatizedMap[trigram_string][obj_videoID]
 
 
-    for key in responses.keys():
-        responses[key]= responses[key]
     return responses
 
 
