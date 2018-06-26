@@ -75,7 +75,7 @@ av_accuracy=0
 
 
 # The Structure for a video Object
-class videoRecording:
+class databaseEntry:
     def __init__(self, question, answer, video, character, language, frequency):
         self.character = character
         self.question = question
@@ -241,7 +241,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         configure(accuracy, maxLength)
 
         # adds to the character's questions list based on the character key; adds all videos regardless of type to questions
-        obj = videoRecording(question, answer, video, character, language, frequency)
+        obj = databaseEntry(question, answer, video, character, language, frequency)
         avatarModel[character].objectMap[ID] = obj
 
 
