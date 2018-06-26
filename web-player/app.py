@@ -25,7 +25,14 @@ counter=0
 # Home page where you go to select an avatar
 @app.route('/')
 def home():
-    return render_template('choose_avatar.html')
+    allAvatars = "";
+    for filename in os.listdir('static/avatar-garden'):
+        if os.path.isdir('static/avatar-garden/'+filename):
+            print(filename)
+            allAvatars += filename
+            allAvatars += ","
+    allAvatars = allAvatars[:-1] 
+    return render_template('choose_avatar.html', avatars = allAvatars)
 
 
 # Page where you go to select a language
