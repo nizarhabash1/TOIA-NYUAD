@@ -151,6 +151,8 @@ str.encode('utf-8')
 # preprocessing for Arabic
 def preprocess(line):
     processed = line.replace("؟", "")
+    processed = line.replace(".", "")
+    processed = line.replace("،", "")
     processed = processed.replace("أ", "ا")
     processed = processed.replace("إ", "ا")
     processed = processed.replace("ى", "ي")
@@ -185,7 +187,7 @@ def getStopwords(language):
    
     return stop_words
 
-# get Arabic synonyms
+#get Arabic synonyms
 def arabicSyn(myavatar):
 
     db= 'static/avatar-garden/' + myavatar +'/script.json'
@@ -225,6 +227,7 @@ def arabicSyn(myavatar):
 def createModel(avatarModel, currentSession, mylanguage, myavatar):
 
 
+    #db is the path to the json file containing the question-answer pairs of the specified avatar (my avatar)
     db= 'static/avatar-garden/' + myavatar +'/script.json'
     try:
         f = open(db, 'r', encoding='utf-8')
@@ -233,10 +236,10 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
 
     resp = json.load(f)
    
-    #number of questions in the db 
+    #number of questions in the db, used for debugging purposes  
     totalQuestions = 0
 
-    #counter to generate ID for each video in the model 
+    
     id_count = 0
 
     if mylanguage=="Arabic":
@@ -251,24 +254,27 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         totalQuestions += 1
         # uni_ID= json.dumps(resp["rows"][i]["doc"]["_id"])
         # print(uni_ID)
+
+        #variable that stores the video link 
         video = json.dumps(resp["rows"][i]["doc"]["video"])
         # avatar= json.dumps(resp["rows"][i]["doc"]["avatar"])
+        #variable that stores the avatar name
         avatar = json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
         # language= json.dumps(resp["rows"][i]["doc"]["language"])
-        language = mylanguage
+        #variable that stores the language that the avatar videos were recorded in 
+        language = json.dumps(resp["rows"][i]["doc"]["language"])
         ID = id_count;
 
 
-
+        #variable that stores the user's preferred playing frequency for each database entry
         frequency= json.dumps(resp["rows"][i]["doc"]["playing frequency"])
 
-        # else:
-        #     continue
+    
 
         if (mylanguage == "Arabic"):
             
-            question = json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False).strip('،.؟"')
-            answer = json.dumps(resp["rows"][i]["doc"]["arabic-answer"], ensure_ascii=False).strip('،.؟"')
+            question = json.dumps(resp["rows"][i]["doc"]["arabic-question"], ensure_ascii=False)
+            answer = json.dumps(resp["rows"][i]["doc"]["arabic-answer"], ensure_ascii=False)
             question= preprocess(question)
             answer= preprocess(answer)
 
@@ -283,23 +289,28 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
 
 
         #save configuration variables
+
+        '''
+        accuracy (low/medium/high): This value is used as a threshold for accuracy. For example, if you require videos to be played only when there is a high match, then select "High". Otherwise, select either "Low" or "Medium". The default value is "Low".
+        length constant: if the number of words in an aswer is above this constant, then these answers will be ranked lower in our question-answer matching algorithm. 
+        video type: a tag that either equals regular, or filler, according to the type of the database entry
+        '''
         accuracy= json.dumps(resp["rows"][i]["doc"]["minimum required accuracy"])
         maxLength= json.dumps(resp["rows"][i]["doc"]["length constant"])
         videoType= json.dumps(resp["rows"][i]["doc"]["video-type"])
 
+        #read the configuration variables from the database and save it to the global variables
         configure(accuracy, maxLength)
 
         # adds to the avatar's questions list based on the avatar key; adds all videos regardless of type to questions
+        
         obj = databaseEntry(question, answer, video, avatar, language, frequency)
         avatarModel[avatar].objectMap[ID] = obj
 
 
 
-        # if the video is for silence
-        if (answer == '""' and video != '""'):
-            avatarModel[avatar].fillers[ID] = obj
-
-        #if it's an "I don't have answer for that" video
+        '''If the videoType tag of the database entry is no-answer, the avatar says "I can't answer that" in this video
+         it's added to the noAnswer property of the avatarModel'''
         if(videoType== '"no-answer"'):
             avatarModel[avatar].noAnswer[ID] = obj
 
@@ -319,7 +330,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
                 #if word not in stop_words:
                 for synset in wn.synsets(word):
                     for lemma in synset.lemmas():
-                        if lemma.name() not in unigram_synonyms_list:
+                        if lemma.name() not in unigram_synonyms_list and lemma.name() not in unigram_list:
                             unigram_synonyms_list.append(lemma.name())
 
             # add the bigrams and trigrams into the three representations
@@ -400,7 +411,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
             3. avatarModel[avatar].LemmatizedMap is a dictionary where the key is the word (either unigram, bigram, or trigram)
             and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
             '''
-            for token in (unigram_list):
+            for token in (unigram_list+unigram_synonyms_list):
                 
 
                 stem = porterStemmer.stem(token)
@@ -589,49 +600,49 @@ def direct_intersection_match_English(query, avatarModel, logger):
         if unigram_string in avatarModel.wordMap.keys():  # and direct_string not in stop_words:
             #print("word: ", unigram_string)
             #print("word map: ", avatarModel.wordMap[unigram_string])
-            for vidResponse in avatarModel.wordMap[unigram_string]:
-                #print("videos that include ",unigram_string, vidResponse )
-                if vidResponse not in responses.keys():
-                    responses[vidResponse] = avatarModel.wordMap[unigram_string][vidResponse]
-                    #print("added video "+ str(vidResponse) + "to responses" + " its value is " + str(avatarModel.wordMap[unigram_string][vidResponse]))
+            for obj_videoID in avatarModel.wordMap[unigram_string]:
+                #print("videos that include ",unigram_string, obj_videoID )
+                if obj_videoID not in responses.keys():
+                    responses[obj_videoID] = avatarModel.wordMap[unigram_string][obj_videoID]
+                    #print("added video "+ str(obj_videoID) + "to responses" + " its value is " + str(avatarModel.wordMap[unigram_string][obj_videoID]))
                 else:
-                    responses[vidResponse] += avatarModel.wordMap[unigram_string][vidResponse]
-                    #print("increased score of " + str(vidResponse) + "by " + str(avatarModel.wordMap[unigram_string][vidResponse]))
-                if vidResponse not in logger.keys():
-                    logger[vidResponse] = {}
-                    logger[vidResponse][unigram_string] = avatarModel.wordMap[unigram_string][vidResponse]
+                    responses[obj_videoID] += avatarModel.wordMap[unigram_string][obj_videoID]
+                    #print("increased score of " + str(obj_videoID) + "by " + str(avatarModel.wordMap[unigram_string][obj_videoID]))
+                if obj_videoID not in logger.keys():
+                    logger[obj_videoID] = {}
+                    logger[obj_videoID][unigram_string] = avatarModel.wordMap[unigram_string][obj_videoID]
                 else:
-                    if unigram_string in logger[vidResponse]:
-                        logger[vidResponse][unigram_string] += avatarModel.wordMap[unigram_string][vidResponse]
+                    if unigram_string in logger[obj_videoID]:
+                        logger[obj_videoID][unigram_string] += avatarModel.wordMap[unigram_string][obj_videoID]
                     else:
-                        logger[vidResponse][unigram_string] = avatarModel.wordMap[unigram_string][vidResponse]
+                        logger[obj_videoID][unigram_string] = avatarModel.wordMap[unigram_string][obj_videoID]
 
 
         # if i < queryLen - 2:
         #     bigram_string = queryList[i] + "_" + queryList[i+1]
         #     if bigram_string in avatarModel.wordMap.keys():  # and direct_string not in stop_words:
-        #         for vidResponse in avatarModel.wordMap[bigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.wordMap[bigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.wordMap[bigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.wordMap[bigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.wordMap[bigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.wordMap[bigram_string][obj_videoID]
 
         # if i < queryLen - 3:
         #     trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
         #     if trigram_string in avatarModel.wordMap.keys():  # and direct_string not in stop_words:
-        #         for vidResponse in avatarModel.wordMap[trigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.wordMap[trigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.wordMap[trigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.wordMap[trigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.wordMap[trigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.wordMap[trigram_string][obj_videoID]
 
     # for direct_string in queryList:
     #     if direct_string in avatarModel.wordMap.keys():  # and direct_string not in stop_words:
-    #         for vidResponse in avatarModel.wordMap[direct_string]:
-    #             if vidResponse not in responses.keys():
-    #                 responses[vidResponse] = avatarModel.wordMap[direct_string][vidResponse]
-    #             elif vidResponse in responses.keys():
-    #                 responses[vidResponse] += avatarModel.wordMap[direct_string][vidResponse]
+    #         for obj_videoID in avatarModel.wordMap[direct_string]:
+    #             if obj_videoID not in responses.keys():
+    #                 responses[obj_videoID] = avatarModel.wordMap[direct_string][obj_videoID]
+    #             elif obj_videoID in responses.keys():
+    #                 responses[obj_videoID] += avatarModel.wordMap[direct_string][obj_videoID]
 
     
     print("English direct responses", responses)
@@ -655,48 +666,48 @@ def stem_intersection_match_English(query, avatarModel, logger):
 
         unigram_string = queryList[i]
         if unigram_string in avatarModel.stemmedMap.keys():
-            for vidResponse in avatarModel.stemmedMap[unigram_string]:
-                if vidResponse not in responses.keys():
-                    #number of times the unigram appears in the entry with the vidResponse ID 
-                    responses[vidResponse] = avatarModel.stemmedMap[unigram_string][vidResponse]
-                    #print("response", responses[vidResponse])
+            for obj_videoID in avatarModel.stemmedMap[unigram_string]:
+                if obj_videoID not in responses.keys():
+                    #number of times the unigram appears in the entry with the obj_videoID ID 
+                    responses[obj_videoID] = avatarModel.stemmedMap[unigram_string][obj_videoID]
+                    #print("response", responses[obj_videoID])
                 else:
-                    responses[vidResponse] += avatarModel.stemmedMap[unigram_string][vidResponse]
+                    responses[obj_videoID] += avatarModel.stemmedMap[unigram_string][obj_videoID]
 
-                if vidResponse not in logger.keys():
-                    logger[vidResponse] = {}
-                    logger[vidResponse][unigram_string] = avatarModel.stemmedMap[unigram_string][vidResponse]
+                if obj_videoID not in logger.keys():
+                    logger[obj_videoID] = {}
+                    logger[obj_videoID][unigram_string] = avatarModel.stemmedMap[unigram_string][obj_videoID]
                 else:
-                    if unigram_string in logger[vidResponse]:
-                        logger[vidResponse][unigram_string] += avatarModel.stemmedMap[unigram_string][vidResponse]
+                    if unigram_string in logger[obj_videoID]:
+                        logger[obj_videoID][unigram_string] += avatarModel.stemmedMap[unigram_string][obj_videoID]
                     else:
-                        logger[vidResponse][unigram_string] = avatarModel.stemmedMap[unigram_string][vidResponse]
+                        logger[obj_videoID][unigram_string] = avatarModel.stemmedMap[unigram_string][obj_videoID]
 
         # if i < queryLen - 2:
         #     bigram_string = queryList[i] + "_" + queryList[i+1]
         #     if bigram_string in avatarModel.stemmedMap.keys():
-        #         for vidResponse in avatarModel.stemmedMap[bigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.stemmedMap[bigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.stemmedMap[bigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.stemmedMap[bigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.stemmedMap[bigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.stemmedMap[bigram_string][obj_videoID]
 
         # if i < queryLen - 3:
         #     trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
         #     if trigram_string in avatarModel.stemmedMap.keys():
-        #         for vidResponse in avatarModel.stemmedMap[trigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.stemmedMap[trigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.stemmedMap[trigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.stemmedMap[trigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.stemmedMap[trigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.stemmedMap[trigram_string][obj_videoID]
 
     # for stem_string in queryList:
     #     if stem_string in avatarModel.stemmedMap.keys():
-    #         for vidResponse in avatarModel.stemmedMap[stem_string]:
-    #             if vidResponse not in responses.keys():
-    #                 responses[vidResponse] = avatarModel.stemmedMap[stem_string][vidResponse]
-    #             elif vidResponse in responses.keys():
-    #                 responses[vidResponse] += avatarModel.stemmedMap[stem_string][vidResponse]
+    #         for obj_videoID in avatarModel.stemmedMap[stem_string]:
+    #             if obj_videoID not in responses.keys():
+    #                 responses[obj_videoID] = avatarModel.stemmedMap[stem_string][obj_videoID]
+    #             elif obj_videoID in responses.keys():
+    #                 responses[obj_videoID] += avatarModel.stemmedMap[stem_string][obj_videoID]
 
     for key in responses.keys():
         responses[key]= responses[key]
@@ -719,48 +730,48 @@ def lemma_intersection_match_English(query, avatarModel, logger):
 
         unigram_string = queryList[i]
         if unigram_string in avatarModel.lemmatizedMap.keys():
-            for vidResponse in avatarModel.lemmatizedMap[unigram_string]:
-                if vidResponse not in responses.keys():
-                    responses[vidResponse] = avatarModel.lemmatizedMap[unigram_string][vidResponse]
+            for obj_videoID in avatarModel.lemmatizedMap[unigram_string]:
+                if obj_videoID not in responses.keys():
+                    responses[obj_videoID] = avatarModel.lemmatizedMap[unigram_string][obj_videoID]
 
                 else:
-                    responses[vidResponse] += avatarModel.lemmatizedMap[unigram_string][vidResponse]
+                    responses[obj_videoID] += avatarModel.lemmatizedMap[unigram_string][obj_videoID]
 
-                if vidResponse not in logger.keys():
-                    logger[vidResponse] = {}
-                    logger[vidResponse][unigram_string] = avatarModel.lemmatizedMap[unigram_string][vidResponse]
+                if obj_videoID not in logger.keys():
+                    logger[obj_videoID] = {}
+                    logger[obj_videoID][unigram_string] = avatarModel.lemmatizedMap[unigram_string][obj_videoID]
                 else:
-                    if unigram_string in logger[vidResponse]:
-                        logger[vidResponse][unigram_string] += avatarModel.lemmatizedMap[unigram_string][vidResponse]
+                    if unigram_string in logger[obj_videoID]:
+                        logger[obj_videoID][unigram_string] += avatarModel.lemmatizedMap[unigram_string][obj_videoID]
                     else:
-                        logger[vidResponse][unigram_string] = avatarModel.lemmatizedMap[unigram_string][vidResponse]
+                        logger[obj_videoID][unigram_string] = avatarModel.lemmatizedMap[unigram_string][obj_videoID]
 
         # if i < queryLen - 2:
         #     bigram_string = queryList[i] + "_" + queryList[i+1]
         #     if bigram_string in avatarModel.lemmatizedMap.keys():
-        #         for vidResponse in avatarModel.lemmatizedMap[bigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.lemmatizedMap[bigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.lemmatizedMap[bigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.lemmatizedMap[bigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.lemmatizedMap[bigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.lemmatizedMap[bigram_string][obj_videoID]
 
 
         # if i < queryLen - 3:
         #     trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
         #     if trigram_string in avatarModel.lemmatizedMap.keys():
-        #         for vidResponse in avatarModel.lemmatizedMap[trigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.lemmatizedMap[trigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.lemmatizedMap[trigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.lemmatizedMap[trigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.lemmatizedMap[trigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.lemmatizedMap[trigram_string][obj_videoID]
 
     # for lemma_string in queryList:
     #     if lemma_string in avatarModel.lemmatizedMap.keys():
-    #         for vidResponse in avatarModel.lemmatizedMap[lemma_string]:
-    #             if vidResponse not in responses.keys():
-    #                 responses[vidResponse] = avatarModel.lemmatizedMap[lemma_string][vidResponse]
-    #             elif vidResponse in responses.keys():
-    #                 responses[vidResponse] += avatarModel.lemmatizedMap[lemma_string][vidResponse]
+    #         for obj_videoID in avatarModel.lemmatizedMap[lemma_string]:
+    #             if obj_videoID not in responses.keys():
+    #                 responses[obj_videoID] = avatarModel.lemmatizedMap[lemma_string][obj_videoID]
+    #             elif obj_videoID in responses.keys():
+    #                 responses[obj_videoID] += avatarModel.lemmatizedMap[lemma_string][obj_videoID]
 
     for key in responses.keys():
         #print("lemma score before", responses[key])
@@ -783,38 +794,38 @@ def direct_intersection_match_Arabic(query, avatarModel, logger):
 
         unigram_string = queryList[i]
         if unigram_string in avatarModel.wordMap.keys():  
-            for vidResponse in avatarModel.wordMap[unigram_string]:
-                if vidResponse not in responses.keys():
-                    responses[vidResponse] = avatarModel.wordMap[unigram_string][vidResponse]
+            for obj_videoID in avatarModel.wordMap[unigram_string]:
+                if obj_videoID not in responses.keys():
+                    responses[obj_videoID] = avatarModel.wordMap[unigram_string][obj_videoID]
                 else:
-                    responses[vidResponse] += avatarModel.wordMap[unigram_string][vidResponse]
+                    responses[obj_videoID] += avatarModel.wordMap[unigram_string][obj_videoID]
 
-                if vidResponse not in logger.keys():
-                    logger[vidResponse] = {}
-                    logger[vidResponse][unigram_string] = avatarModel.wordMap[unigram_string][vidResponse]
+                if obj_videoID not in logger.keys():
+                    logger[obj_videoID] = {}
+                    logger[obj_videoID][unigram_string] = avatarModel.wordMap[unigram_string][obj_videoID]
                 else:
-                    if unigram_string in logger[vidResponse]:
-                        logger[vidResponse][unigram_string] += avatarModel.wordMap[unigram_string][vidResponse]
+                    if unigram_string in logger[obj_videoID]:
+                        logger[obj_videoID][unigram_string] += avatarModel.wordMap[unigram_string][obj_videoID]
                     else:
-                        logger[vidResponse][unigram_string] = avatarModel.wordMap[unigram_string][vidResponse]
+                        logger[obj_videoID][unigram_string] = avatarModel.wordMap[unigram_string][obj_videoID]
 
         # if i < queryLen - 2:
         #     bigram_string = queryList[i] + "_" + queryList[i+1]
         #     if bigram_string in avatarModel.wordMap.keys():  # and direct_string not in stop_words:
-        #         for vidResponse in avatarModel.wordMap[bigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.wordMap[bigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.wordMap[bigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.wordMap[bigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.wordMap[bigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.wordMap[bigram_string][obj_videoID]
 
         # if i < queryLen - 3:
         #     trigram_string = queryList[i] + "_" + queryList[i+1] + "_" + queryList[i+2]
         #     if trigram_string in avatarModel.wordMap.keys():  # and direct_string not in stop_words:
-        #         for vidResponse in avatarModel.wordMap[trigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.wordMap[trigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.wordMap[trigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.wordMap[trigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.wordMap[trigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.wordMap[trigram_string][obj_videoID]
 
 
     for key in responses.keys():
@@ -844,38 +855,38 @@ def stem_intersection_match_Arabic(query, avatarModel, logger):
 
         unigram_string = stemmed_query[i]
         if unigram_string in avatarModel.stemmedMap.keys():
-            for vidResponse in avatarModel.stemmedMap[unigram_string]:
-                if vidResponse not in responses.keys():
-                    responses[vidResponse] = avatarModel.stemmedMap[unigram_string][vidResponse]
+            for obj_videoID in avatarModel.stemmedMap[unigram_string]:
+                if obj_videoID not in responses.keys():
+                    responses[obj_videoID] = avatarModel.stemmedMap[unigram_string][obj_videoID]
                 else:
-                    responses[vidResponse] += avatarModel.stemmedMap[unigram_string][vidResponse]
+                    responses[obj_videoID] += avatarModel.stemmedMap[unigram_string][obj_videoID]
 
-                if vidResponse not in logger.keys():
-                    logger[vidResponse] = {}
-                    logger[vidResponse][unigram_string] = avatarModel.stemmedMap[unigram_string][vidResponse]
+                if obj_videoID not in logger.keys():
+                    logger[obj_videoID] = {}
+                    logger[obj_videoID][unigram_string] = avatarModel.stemmedMap[unigram_string][obj_videoID]
                 else:
-                    if unigram_string in logger[vidResponse]:
-                        logger[vidResponse][unigram_string] += avatarModel.stemmedMap[unigram_string][vidResponse]
+                    if unigram_string in logger[obj_videoID]:
+                        logger[obj_videoID][unigram_string] += avatarModel.stemmedMap[unigram_string][obj_videoID]
                     else:
-                        logger[vidResponse][unigram_string] = avatarModel.stemmedMap[unigram_string][vidResponse]
+                        logger[obj_videoID][unigram_string] = avatarModel.stemmedMap[unigram_string][obj_videoID]
 
         # if i < queryLen - 2:
         #     bigram_string = stemmed_query[i] + "_" + stemmed_query[i+1]
         #     if bigram_string in avatarModel.stemmedMap.keys():
-        #         for vidResponse in avatarModel.stemmedMap[bigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.stemmedMap[bigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.stemmedMap[bigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.stemmedMap[bigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.stemmedMap[bigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.stemmedMap[bigram_string][obj_videoID]
 
         # if i < queryLen - 3:
         #     trigram_string = stemmed_query[i] + "_" + stemmed_query[i+1] + "_" + stemmed_query[i+2]
         #     if trigram_string in avatarModel.stemmedMap.keys():  # and direct_string not in stop_words:
-        #         for vidResponse in avatarModel.stemmedMap[trigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.stemmedMap[trigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.stemmedMap[trigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.stemmedMap[trigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.stemmedMap[trigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.stemmedMap[trigram_string][obj_videoID]
 
 
     for key in responses.keys():
@@ -918,20 +929,20 @@ def lemma_intersection_match_Arabic(query, avatarModel, logger):
 
         unigram_string = lemmatized_query[i]
         if unigram_string in avatarModel.lemmatizedMap.keys():
-            for vidResponse in avatarModel.lemmatizedMap[unigram_string]:
-                if vidResponse not in responses.keys():
-                    responses[vidResponse] = avatarModel.lemmatizedMap[unigram_string][vidResponse]
+            for obj_videoID in avatarModel.lemmatizedMap[unigram_string]:
+                if obj_videoID not in responses.keys():
+                    responses[obj_videoID] = avatarModel.lemmatizedMap[unigram_string][obj_videoID]
                 else:
-                    responses[vidResponse] += avatarModel.lemmatizedMap[unigram_string][vidResponse]
+                    responses[obj_videoID] += avatarModel.lemmatizedMap[unigram_string][obj_videoID]
 
-                if vidResponse not in logger.keys():
-                    logger[vidResponse] = {}
-                    logger[vidResponse][unigram_string] = avatarModel.lemmatizedMap[unigram_string][vidResponse]
+                if obj_videoID not in logger.keys():
+                    logger[obj_videoID] = {}
+                    logger[obj_videoID][unigram_string] = avatarModel.lemmatizedMap[unigram_string][obj_videoID]
                 else:
-                    if unigram_string in logger[vidResponse]:
-                        logger[vidResponse][unigram_string] += avatarModel.lemmatizedMap[unigram_string][vidResponse]
+                    if unigram_string in logger[obj_videoID]:
+                        logger[obj_videoID][unigram_string] += avatarModel.lemmatizedMap[unigram_string][obj_videoID]
                     else:
-                        logger[vidResponse][unigram_string] = avatarModel.lemmatizedMap[unigram_string][vidResponse]
+                        logger[obj_videoID][unigram_string] = avatarModel.lemmatizedMap[unigram_string][obj_videoID]
 
 
 
@@ -939,20 +950,20 @@ def lemma_intersection_match_Arabic(query, avatarModel, logger):
         # if i < queryLen - 2:
         #     bigram_string = lemmatized_query[i] + "_" + lemmatized_query[i+1]
         #     if bigram_string in avatarModel.lemmatizedMap.keys():  # and direct_string not in stop_words:
-        #         for vidResponse in avatarModel.lemmatizedMap[bigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.lemmatizedMap[bigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.lemmatizedMap[bigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.lemmatizedMap[bigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.lemmatizedMap[bigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.lemmatizedMap[bigram_string][obj_videoID]
 
         # if i < queryLen - 3:
         #     trigram_string = lemmatized_query[i] + "_" + lemmatized_query[i+1] + "_" + lemmatized_query[i+2]
         #     if trigram_string in avatarModel.lemmatizedMap.keys():  # and direct_string not in stop_words:
-        #         for vidResponse in avatarModel.lemmatizedMap[trigram_string]:
-        #             if vidResponse not in responses.keys():
-        #                 responses[vidResponse] = avatarModel.lemmatizedMap[trigram_string][vidResponse]
-        #             elif vidResponse in responses.keys():
-        #                 responses[vidResponse] += avatarModel.lemmatizedMap[trigram_string][vidResponse]
+        #         for obj_videoID in avatarModel.lemmatizedMap[trigram_string]:
+        #             if obj_videoID not in responses.keys():
+        #                 responses[obj_videoID] = avatarModel.lemmatizedMap[trigram_string][obj_videoID]
+        #             elif obj_videoID in responses.keys():
+        #                 responses[obj_videoID] += avatarModel.lemmatizedMap[trigram_string][obj_videoID]
 
 
     for key in responses.keys():
@@ -1015,7 +1026,7 @@ def calculateTFIDF(avatarModel):
     #return avatarModel
 
 
-def rankAnswers(query, videoResponses, currentSession, avatarModel, counter):
+def rankAnswers(query, videoResponses, currentSession, avatarModel, total_iterations):
     query_len = len(query.split())
     allowed=1
     rep=0
@@ -1024,17 +1035,16 @@ def rankAnswers(query, videoResponses, currentSession, avatarModel, counter):
     # each repition is a given a weight of 2 e.g if a video has been played once 2 points will be subtracted from its matching score
 
     # for each possible answer, checks if it has been played it already, and subtract points from its score if has been played already.
-    for res in videoResponses:
+    for res in videoResponses.keys():
         videoObjLen = avatarModel.objectMap[res].answerLength
         # precision = videoResponses[res] / videoObjLen
         # recall = videoResponses[res] / query_len
         # f_score = (precision + recall) / 2
         pref_frequency= avatarModel.objectMap[res].frequency
         #print("frequency", pref_frequency)
-        total_iterations= counter
         
-        if (videoObjLen >int(av_length)):
-            videoResponses[res] = videoResponses[res]/ videoObjLen
+        # if (videoObjLen >int(av_length)):
+        #     videoResponses[res] = videoResponses[res]/ videoObjLen
         
         if (pref_frequency=='"never"'):
             #print("yes never")
@@ -1050,7 +1060,6 @@ def rankAnswers(query, videoResponses, currentSession, avatarModel, counter):
                 #print("multiple")
                 allowed=1
             elif(pref_frequency=='"once"'):
-
                 if currentSession.repetitions[res]>1:
                     allowed=0
                     print("once done")
@@ -1063,18 +1072,11 @@ def rankAnswers(query, videoResponses, currentSession, avatarModel, counter):
             
             rep= currentSession.repetitions[res]
 
-        print("before",  videoResponses[res])
+        #print("before",  videoResponses[res])
         #print("allowed", allowed)
         videoResponses[res]=(videoResponses[res]*(1-rep/(total_iterations+1)))*allowed
-        print("after", videoResponses[res])
-        # if videoResponses[res]< av_accuracy:
-        #     videoResponses[res]=0
-
-
-
-        # if res in currentSession.repetitions.keys():
-        #     negativePoints = currentSession.repetitions[res] * 0.4 * videoResponses[res]
-        #     videoResponses[res] -= negativePoints
+        #print("after", videoResponses[res])
+      
 
 
 
@@ -1082,8 +1084,9 @@ def rankAnswers(query, videoResponses, currentSession, avatarModel, counter):
         
         
 
-    print("responses", videoResponses)
+    #print("responses", videoResponses)
     ranked_list = sorted(videoResponses, key=lambda i: videoResponses[i], reverse=True)
+    #print("ranked list", ranked_list)
     #print("video playing:", ranked_list[0])
     return ranked_list
 
