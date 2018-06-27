@@ -54,10 +54,6 @@ app.get("/", function(req, res){
 	res.render('index', {page: 'get all data'});
 });
 
-app.get("/script", function(req,res){
-  res.render('pick-script', {page: 'get all data'});
-});
-
 app.get("/scripts", function(req,res){
   console.log("DID THIS");
   const scriptFolder = './public/avatar-garden/';
