@@ -263,7 +263,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
     maxLength= resp["length constant"]
     configure(accuracy, maxLength)
 
-    for i in range(0, len(resp["rows"]) - 1, 1):
+    for i in range(0, len(resp["rows"]), 1):
 
         #automatically generated ID 
         ID += 1
@@ -303,6 +303,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         
         
         videoType= json.dumps(resp["rows"][i]["doc"]["video-type"])
+        print(videoType)
 
         #read the configuration variables from the database and save it to the global variables
         
@@ -317,6 +318,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         '''If the videoType tag of the database entry is no-answer, the avatar says "I can't answer that" in this video
          it's added to the noAnswer property of the avatarModel'''
         if(videoType== '"no-answer"'):
+            print("found no answer video")
             avatarModel[avatar].noAnswer[ID] = obj
 
 
