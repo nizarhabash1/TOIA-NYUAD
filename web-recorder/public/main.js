@@ -108,7 +108,7 @@ function setSaveEvent(data){
 					return false;
 				}
 			})
-
+		sendUpdateJSONRequest();
 	});
 }
 
