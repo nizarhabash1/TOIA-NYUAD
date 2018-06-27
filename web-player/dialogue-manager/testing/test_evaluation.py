@@ -42,7 +42,7 @@ def run_test(mylanguage, test_par):
 	global currentSession
 	global oracleCharacterDict
 
-	test_dm.createModel(oracleCharacterDict, currentSession, mylanguage, test_par)
+	test_dm.createModel(oracleCharacterDict, currentSession, mylanguage, "margarita", test_par)
 
 	if test_par.testSet == "manual":
 		test_results = test_questions(manualCharacterDict, mylanguage, test_par)
@@ -109,9 +109,9 @@ def readManualQuestions(characterdict, mylanguage):
 	count = 0
 	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
 	if mylanguage == "Arabic":
-		f= open('../../../static/scripts/miscellaneous/manual_questions_arabic.csv', 'r', encoding='utf-8')
+		f= open('../../static/scripts/miscellaneous/manual_questions_arabic.csv', 'r', encoding='utf-8')
 	else:
-		f= open('../../../static/scripts/miscellaneous/manual_questions.tsv', 'r', encoding='utf-8')
+		f= open('../../static/scripts/miscellaneous/manual_questions.tsv', 'r', encoding='utf-8')
 	character = 'margarita'
 	language = mylanguage
 	video = ""
@@ -137,9 +137,9 @@ def readManualQuestions(characterdict, mylanguage):
 			answer = line_split[1].strip(',?."!')
 			
 
-			obj_1= test_dm.videoRecording(question1, answer, video, character, language, "multiple")
-			obj_2= test_dm.videoRecording(question2, answer, video, character, language, "multiple")
-			obj_3= test_dm.videoRecording(question3, answer, video, character, language, "multiple")
+			obj_1= test_dm.databaseEntry(question1, answer, video, character, language, "multiple")
+			obj_2= test_dm.databaseEntry(question2, answer, video, character, language, "multiple")
+			obj_3= test_dm.databaseEntry(question3, answer, video, character, language, "multiple")
 			characterdict[character].questionsMap[count + 1] = obj_1
 			characterdict[character].questionsMap[count + 2] = obj_2
 			characterdict[character].questionsMap[count + 3] = obj_3
@@ -271,6 +271,7 @@ def test_questions(characterdict, language, test_par):
 	incorrect = 0
 	correct = 0
 	counter=0
+	questionsAsked=[]
 	for avatar in characterdict.keys():
 		print(avatar)
 		if avatar == "gabriela" or avatar == "margarita" or avatar == "katarina":
@@ -281,13 +282,16 @@ def test_questions(characterdict, language, test_par):
 
 				if question == " ":
 					continue
+				if question in questionsAsked:
+					continue
 
 				answer = characterdict[avatar].questionsMap[question_id].answer
 
 				question_list = [tmp.strip(',?."!)') for tmp in question.lower().split()]
 				answer_list = [tmp.strip(',?."!)') for tmp in answer.lower().split()]
-				answer = " ".join(answer_list).replace("’","")
-				question = " ".join(question_list).replace("’","")
+				answer = " ".join(answer_list).replace("’","").replace(",", "").replace("'","").replace("”","")
+				question = " ".join(question_list).replace("’","").replace(",", "").replace("'","").replace("”","")
+				questionsAsked.append(question)
 
 				if (language == "Arabic"):
 					question= preprocess(question)
@@ -308,9 +312,9 @@ def test_questions(characterdict, language, test_par):
 				#print(response.answer)
 				response_answer = response.answer
 				response_list = [tmp.strip(',?."!)') for tmp in response_answer.lower().split()]
-				response_answer = " ".join(response_list).replace("'","")
+				response_answer = " ".join(response_list).replace("'","").replace("’","").replace(",", "").replace("'","").replace("”","")
 				
-				if(answer == response_answer or response.question == question):
+				if(answer.lower() == response_answer.lower() or response.question.lower() == question.lower()):
 					correct += 1
 					#print("Question: ",question)
 					#print("Actual Answer: ",answer)
