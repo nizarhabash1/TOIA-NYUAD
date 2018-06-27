@@ -157,13 +157,17 @@ function setUpdateEvent(data){
 					document.getElementById('arabic-question').value=data.doc["arabic-question"];
 					document.getElementById('arabic-answer').value=data.doc["arabic-answer"];
 					document.getElementById('playing-frequency').value=data.doc["playing frequency"];
-					document.getElementById('minimum-required-accuracy').value=data.doc["minimum required accuracy"];
-					document.getElementById('length-constant').value=data.doc["length constant"];
 					return false;
 				}
 			})
-			sendUpdateJSONRequest();
 		});
+}
+
+function setGlobalVariables(){
+	globalModal.style.display="block";
+	document.getElementById("language").value=jsonData["language"];
+	document.getElementById("minimum-required-accuracy").value=jsonData["minimum required accuracy"];
+	document.getElementById("length-constant").value=jsonData["length constant"];
 }
 
 // Seeting deleting functionality for all question/ answer pairs
@@ -185,11 +189,12 @@ function setDeleteEvent(data){
 
 // Call this function when we need to sync the jsonData and write it to the actual JSON file
 function sendUpdateJSONRequest(){
+	data = {avatar: document.getElementById("nameForSaving").innerHTML, json: jsonData}
 	$.ajax({
 		url: '/update',
 		type: 'POST',
 		contentType: 'application/json',
-		data: JSON.stringify(jsonData),
+		data: JSON.stringify(data),
 		error: function(resp){
 			console.log("Oh no...");
 			console.log(resp);
@@ -272,10 +277,7 @@ function addNewEntry(){
 					"arabic-question":"",
 					"arabic-answer":"",
 					"video-type":"regular",
-					language:"English",
 					"playing frequency": "multiple",
-					"minimum required accuracy": "low",
-					"length constant" : "40",
 					_id: new_unique_id,
 					_rev: new_unique_rev
 				},
@@ -327,6 +329,11 @@ $("#updateQuestion").submit(function(e) {
     e.preventDefault();
 });
 
+$("#updateScript").submit(function(e) {
+	console.log("HI");
+    e.preventDefault();
+});
+
 function updateQuestion(){
 	var currentQuestion = localStorage.getItem("currentQuestion");
 	$.each(jsonData.rows,function(i){
@@ -336,8 +343,6 @@ function updateQuestion(){
 			jsonData.rows[i].doc["arabic-question"] = document.getElementById('arabic-question').value;
 			jsonData.rows[i].doc["arabic-answer"] = document.getElementById('arabic-answer').value;
 			jsonData.rows[i].doc["playing frequency"] = document.getElementById('playing-frequency').value;
-			jsonData.rows[i].doc["minimum required accuracy"] = document.getElementById('minimum-required-accuracy').value;
-			jsonData.rows[i].doc["length constant"] = document.getElementById('length-constant').value;
 			return false;
 		}
 	});
@@ -345,13 +350,22 @@ function updateQuestion(){
 	sendUpdateJSONRequest();
 } 
 
+function updateScript() {
+	jsonData["language"] = document.getElementById("language").value;
+	jsonData["minimum required accuracy"] = document.getElementById("minimum-required-accuracy").value;
+	jsonData["length constant"] = document.getElementById("length-constant").value;
+	globalModal.style.display = "none";
+	sendUpdateJSONRequest();
+}
+
 
 
 // Call this function when we need to sync the jsonData and write it to the actual JSON file
 function sendFileName(){
 	console.log("YEAH IN HERE");
 	console.log(scriptName);
-	data_to_send={"name": scriptName};
+	data_to_send={"name": scriptName, 
+				  "avatar": document.getElementById("nameForSaving").innerHTML};
 	data_to_send=JSON.stringify(data_to_send);
 	$.ajax({
 		url: '/filename',
@@ -368,8 +382,9 @@ function sendFileName(){
 			console.log(resp);
 		}
 	});
-
-	getAllData();
+  	setTimeout(function(){
+    	getAllData();
+  	}, 1000);
 }
 
 function avatarOptions() {
@@ -493,31 +508,14 @@ function getScripts(){
 	});
 }
 
-//getScripts();
-
-$("#save-script").click(function() {
-	var saveAvatar = {"name":document.getElementById("nameForSaving").innerHTML};
-	$.ajax({
-		url: '/saveAvatar',
-		type: 'POST',
-		data: JSON.stringify(saveAvatar),
-		contentType: 'application/json; charset=utf-8',
-		error: function(resp){
-			console.log("Oh no...");
-			console.log(resp);
-		},
-		success: function(resp){
-			console.log('Sent folder name!');
-			console.log(resp);
-		}
-	});
-});
-
 $(document).ready(function(){
 	/*if (page === 'get all data'){
 		getAllData();
 	}*/
   //add new question and answer pair
+  $("#edit-global").click(function(){
+		setGlobalVariables();
+  });
   $("#add-question-button").click(function(){
 		addNewEntry();
   });
@@ -531,20 +529,7 @@ $("#selectFiles").change(function() {
 // Get the modal
 var modal = document.getElementById('myModal');
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+var globalModal = document.getElementById('globalModal');
 
 
 
