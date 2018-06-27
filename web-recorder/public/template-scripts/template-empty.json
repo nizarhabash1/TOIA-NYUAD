@@ -1,5 +1,8 @@
 {
-  "name_of_avatar": "",
+  "name_of_avatar": "Sara",
+  "language": "English",
+  "length constant": "40",
+  "minimum required accuracy": "low",
   "rows": [
     {
       "key": "16a41b8cddc767f444e773b3582a6d1a",
@@ -9,13 +12,9 @@
         "english-answer": "Give an answer.",
         "arabic-question": "اسألني سؤال؟",
         "index": 1,
-        "language": "English",
         "_id": "16a41b8cddc767f444e773b3582a6d1a",
         "_rev": "3-f448a5b13e182f3a54314a6ed1554555",
         "playing frequency": "multiple",
-        "minimum required accuracy": "low",
-        "length constant": "40",
-        "character": "Sara",
         "video": "",
         "video-type": "regular"
       },
@@ -32,13 +31,9 @@
         "english-answer": "I'm good",
         "arabic-question": "كيف حالك؟",
         "index": 2,
-        "language": "English",
         "_id": "16a41b8cddc767f444e773b3582a6d1b",
         "_rev": "3-f448a5b13e182f3a54314a6ed1554556",
         "playing frequency": "multiple",
-        "minimum required accuracy": "low",
-        "length constant": "40",
-        "character": "Sara",
         "video": "",
         "video-type": "regular"
       },
@@ -55,13 +50,9 @@
         "english-answer": "",
         "arabic-question": "اشرب الماء",
         "index": 3,
-        "language": "English",
         "_id": "16a41b8cddc767f444e773b3582a6d1c",
         "_rev": "3-f448a5b13e182f3a54314a6ed1554557",
         "playing frequency": "multiple",
-        "minimum required accuracy": "low",
-        "length constant": "40",
-        "character": "Sara",
         "video": "",
         "video-type": "filler"
       },

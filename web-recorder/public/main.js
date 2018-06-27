@@ -67,7 +67,7 @@ function makeHTML(theData){
 	var htmlString = '<ul id="theDataList">';
 	theData.rows.forEach(function(data_with_id_and_key){
     d = data_with_id_and_key.doc;
-		htmlString += '<li id='+ d.index + '>' + d.index + '. ' + d['english-question']
+		htmlString += '<li id='+ d.index + '>' + d['english-question']
 		+ ' <br> ' + d['english-answer'];
 		htmlString += '<br><button id=' + d._rev + ' class="updateButton">UPDATE</button>';
 		htmlString += '<button id=' + d._id + ' class="deleteButton">DELETE</button>';
