@@ -970,8 +970,11 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
         #print("frequency", pref_frequency)
         total_iterations= counter
         
-        if (videoObjLen >int(av_length)):
-            videoResponses[res] = videoResponses[res]/ videoObjLen
+        # if (videoObjLen >int(av_length)):
+        #     videoResponses[res] = videoResponses[res]/ videoObjLen
+
+        if(videoObjLen< 10):
+            pref_frequency='"once"'
         
         if (pref_frequency=='"never"'):
             #print("yes never")

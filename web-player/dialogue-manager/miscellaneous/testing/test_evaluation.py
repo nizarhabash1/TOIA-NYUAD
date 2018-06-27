@@ -302,10 +302,10 @@ def test_questions(characterdict, language, test_par):
 				else:
 					noisifiedq= question
 
-				print(noisifiedq)	
+				#print(noisifiedq)	
 				response = test_dm.findResponse(noisifiedq, oracleCharacterDict[avatar], currentSession, test_par, counter)
 				
-				print(response.answer)
+				#print(response.answer)
 				response_answer = response.answer
 				response_list = [tmp.strip(',?."!)') for tmp in response_answer.lower().split()]
 				response_answer = " ".join(response_list).replace("'","")
@@ -317,9 +317,9 @@ def test_questions(characterdict, language, test_par):
 					#print("Response: ",response.answer, "\n")
 				else:
 					incorrect += 1
-					# print("Question: ",question)
-					# print("Actual Answer: ",answer)
-					# print("Response: ",response.answer, "\n")
+					print("Question: ",question)
+					print("Actual Answer: ",answer)
+					print("Response: ",response.answer, "\n")
 				counter +=1
 
 					
