@@ -344,10 +344,10 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
             and the value is another dictionary with video IDs as keys, and the number of times that the word appears in that video as values
             '''
 
-             '''divide the question-answer pair into bigrams or word pairs
+            '''divide the question-answer pair into bigrams or word pairs
                    obtain the stem and lemma for each one, 
                    and add them to the respective maps in the avatar model
-              '''
+            '''
 
             for i in range(totalUnigrams):
 
@@ -379,7 +379,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
                     else:
                         avatarModel[avatar].lemmatizedMap[bigram_lemma][ID] += 1
 
-                    avatarModel[avatar].wordMap[biram][ID]= avatarModel[avatar].wordMap[bigram][ID]/totalUnigrams-1
+                    avatarModel[avatar].wordMap[bigram][ID]= avatarModel[avatar].wordMap[bigram][ID]/totalUnigrams-1
                     avatarModel[avatar].stemmedMap[bigram_stem][ID]= avatarModel[avatar].stemmedMap[bigram_stem][ID]/totalUnigrams-1
                     avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]= avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]/totalUnigrams-1
 
@@ -523,13 +523,13 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
                         avatarModel[avatar].lemmatizedMap[bigram_lemma][ID] = 1
                     else:
                         avatarModel[avatar].lemmatizedMap[bigram_lemma][ID] += 1
-                    avatarModel[avatar].wordMap[biram][ID]= avatarModel[avatar].wordMap[bigram][ID]/totalUnigrams-1
+                    avatarModel[avatar].wordMap[bigram][ID]= avatarModel[avatar].wordMap[bigram][ID]/totalUnigrams-1
                     avatarModel[avatar].stemmedMap[bigram_stem][ID]= avatarModel[avatar].stemmedMap[bigram_stem][ID]/totalUnigrams-1
                     avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]= avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]/totalUnigrams-1
 
-	        	 '''divide the question-answer pair into trigrams or word pairs
-                   obtain the stem and lemma for each one, 
-                   and add them to the respective maps in the avatar model
+                '''divide the question-answer pair into trigrams 
+                or word pairs, obtain the stem and lemma for each one, 
+                and add them to the respective maps in the avatar model
                 '''
                 if i < totalUnigrams - 2:
                     trigram = unigram_list[i] + "_" + unigram_list[i + 1] + "_" + unigram_list[i + 2]
