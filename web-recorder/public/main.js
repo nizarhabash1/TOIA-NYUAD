@@ -185,11 +185,12 @@ function setDeleteEvent(data){
 
 // Call this function when we need to sync the jsonData and write it to the actual JSON file
 function sendUpdateJSONRequest(){
+	data = {avatar: document.getElementById("nameForSaving").innerHTML, json: jsonData}
 	$.ajax({
 		url: '/update',
 		type: 'POST',
 		contentType: 'application/json',
-		data: JSON.stringify(jsonData),
+		data: JSON.stringify(data),
 		error: function(resp){
 			console.log("Oh no...");
 			console.log(resp);
@@ -351,7 +352,8 @@ function updateQuestion(){
 function sendFileName(){
 	console.log("YEAH IN HERE");
 	console.log(scriptName);
-	data_to_send={"name": scriptName};
+	data_to_send={"name": scriptName, 
+				  "avatar": document.getElementById("nameForSaving").innerHTML};
 	data_to_send=JSON.stringify(data_to_send);
 	$.ajax({
 		url: '/filename',
@@ -368,8 +370,9 @@ function sendFileName(){
 			console.log(resp);
 		}
 	});
-
-	getAllData();
+  	setTimeout(function(){
+    	getAllData();
+  	}, 1000);
 }
 
 function avatarOptions() {
@@ -492,26 +495,6 @@ function getScripts(){
 		}
 	});
 }
-
-//getScripts();
-
-$("#save-script").click(function() {
-	var saveAvatar = {"name":document.getElementById("nameForSaving").innerHTML};
-	$.ajax({
-		url: '/saveAvatar',
-		type: 'POST',
-		data: JSON.stringify(saveAvatar),
-		contentType: 'application/json; charset=utf-8',
-		error: function(resp){
-			console.log("Oh no...");
-			console.log(resp);
-		},
-		success: function(resp){
-			console.log('Sent folder name!');
-			console.log(resp);
-		}
-	});
-});
 
 $(document).ready(function(){
 	/*if (page === 'get all data'){

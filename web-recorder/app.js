@@ -6,12 +6,13 @@ var bodyParser = require('body-parser');
 var _ = require('underscore');
 var jsonfile = require('jsonfile');
 var fs = require('fs');
+script = "../web-recorder/public/template-scripts/temp_file.json";
 // Change this file to actual json file!
 //var file = '../web-recorder/public/test.json'
 
 // NEED TO FIGURE OUT HOW TO SAVE TO NEW FILE - ask user to give name and save to it
 // make button through which can save json file to new thing
-var file = '../web-recorder/public/template-scripts/temp_file.json';
+//var file = '../web-recorder/public/template-scripts/temp_file.json';
 var Buffer = require('buffer');
 var multer  = require('multer');
 
@@ -56,8 +57,8 @@ app.get("/", function(req, res){
 //Also a JSON Serving route (ALL Data)
 // sort json here too
 app.get("/api/all", function(req,res){
-  console.log(file);
-  res.json(jsonfile.readFileSync(file));
+  console.log(script);
+  res.json(jsonfile.readFileSync(script));
 });
 
 app.get("/script", function(req,res){
@@ -86,19 +87,21 @@ app.get("/scripts", function(req,res){
 
 app.post("/filename", function(req,res) {
   console.log(req.body.name);
-  file = req.body.name;
+  script = req.body.name;
   var fs = require('fs');
-  var json = JSON.parse(fs.readFileSync(file));
-  console.log(file);
+  var json = JSON.parse(fs.readFileSync(script));
+  console.log("WHWAAT");
+  script = "../web-recorder/public/avatar-garden/"+req.body.avatar+'/script.json';
+  console.log(script);
   json = JSON.stringify(json, null, 4);
-  fs.writeFile("../web-recorder/public/template-scripts/temp_file.json",json);
-  file = "../web-recorder/public/template-scripts/temp_file.json";
+  //fs.writeFile("../web-recorder/public/template-scripts/temp_file.json",json);
+  fs.writeFile("../web-recorder/public/avatar-garden/"+req.body.avatar+'/script.json',json);  
 });
 
 // Update an answer entry in the JSON database
 app.post("/update", function(req,res){
-	var theObj = req.body;
-  jsonfile.writeFileSync(file,theObj,function(err){
+	var theObj = req.body.json;
+  jsonfile.writeFileSync("../web-recorder/public/avatar-garden/"+req.body.avatar+'/script.json',theObj,function(err){
     console.error(err);
   });
 });
@@ -130,16 +133,6 @@ app.post("/save",type, function(req,res){
       console.log('Rename complete!');
     });
 })
-
-app.post("/saveAvatar", function(req,res) {
-  console.log(req.body.name);
-  folder = req.body.name;
-  var json = jsonfile.readFileSync("../web-recorder/public/template-scripts/temp_file.json");
-  json = JSON.stringify(json, null, 4);
-  console.log(json);
-  var fs = require('fs');
-  fs.writeFile("../web-recorder/public/avatar-garden/"+folder+"/script.json",json);
-});
 
 app.get("/updateAvatarList", function(req,res){
   console.log("UPDATING AVATARS");
