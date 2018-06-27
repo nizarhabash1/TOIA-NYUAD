@@ -17,22 +17,17 @@ counter=0
 def preprocess(text):
 	text= text.lower().replace("'","").replace("’","").replace("”","").replace(",", "").replace("?", "").replace(".", "")
 	return (text)
-def readQuestions(mylanguage, avatar):
+def readQuestions(mylanguage, avatar, sampleFile):
 	correct=0
 	incorrect=0
 	currentSession = dialogue_manager.create_new_session(avatar, mylanguage)
 	dialogue_manager.createModel(characterModel, currentSession, mylanguage, avatar)
 	
 	count = 0
-	if mylanguage == "Arabic":
-		f= open('test-set.csv', 'r', encoding='utf-8')
-	else:
-		f= open('test-set.tsv', 'r', encoding='utf-8')
-		#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
-	character = 'margarita'
+	f= open(sampleFile, 'r', encoding= 'utf-8')
 	language = mylanguage
 	video = ""
-	#characterdict[character] = dialogue_manager.model()
+	
 	lines = f.readlines()
 	del lines[0]
 
@@ -41,11 +36,9 @@ def readQuestions(mylanguage, avatar):
 
 		count = count + 1
 		#print(count)
-		if mylanguage == "English":
-			line_split = line.split("\t")
-		if mylanguage == "Arabic":
-			line_split = line.split(",")
-		#print(line_split)
+		
+		line_split = line.split("\t")
+
 		if line_split[2] != "":
 
 			question1 = line_split[2].strip(',?."!')
@@ -54,10 +47,6 @@ def readQuestions(mylanguage, avatar):
 			answer = line_split[1].strip(',?."!')
 			count = count + 3
 
-			# print("question1", question1)
-			# print("question2", question2)
-			# print("question3", question3)
-			# print("answer", answer)
 
 			response1 = dialogue_manager.findResponse(question1, characterModel[avatar], currentSession, counter)
 			response2 = dialogue_manager.findResponse(question2, characterModel[avatar], currentSession, counter)
@@ -65,36 +54,22 @@ def readQuestions(mylanguage, avatar):
 			
 
 			if preprocess(response1.answer) == preprocess(answer):
-				# print("question1", question1, "\n")
-				# print("answer", answer, "\n")
-				# print("response1", response1.answer, "\n")
 				correct +=1
-			if(preprocess(response1.answer) != preprocess(answer)):
-				incorrect+=1
-				print("question", question1)
-				print("actual answer", answer)
-				print("response", response1.answer, "\n")
 			if preprocess(response2.answer) == preprocess(answer):
-				#print(answer)
 				correct +=1
-			if(preprocess(response2.answer) != preprocess(answer)):
-				print("question", question2)
-				print("actual answer", answer)
-				print("response", response2.answer, "\n")
-				incorrect+=1
 			if preprocess(response3.answer) == preprocess(answer):
 				#print(answer)
 				correct +=1
-			if(preprocess(response3.answer) != preprocess(answer)):
-				print("question", question3)
-				print("actual answer", answer)
-				print("response", response3.answer, "\n")
-			# 	incorrect+=1
+			
 	print("correct", correct)
-	print("incorrect", incorrect)
 	print("total", count)
 	print("percentage", correct/count)
 
-readQuestions("English", "margarita")
+sampleFile= sys.argv[1]
+language= sys.argv[2]
+avatarTested= sys.argv[3]
+
+readQuestions(language, avatarTested, sampleFile)
+
 
 			
