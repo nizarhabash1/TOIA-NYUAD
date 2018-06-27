@@ -449,16 +449,14 @@ function getScripts(){
 }
 
 $(document).ready(function(){
-	/*if (page === 'get all data'){
-		getAllData();
-	}*/
-  //add new question and answer pair
+
   $("#edit-global").click(function(){
 		setGlobalVariables();
   });
   $("#add-question-button").click(function(){
 		addNewEntry();
   });
+  
 });
 
 $("#selectFiles").change(function() {

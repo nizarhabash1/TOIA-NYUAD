@@ -8,12 +8,7 @@ var jsonfile = require('jsonfile');
 var fs = require('fs');
 script = "../web-recorder/public/template-scripts/temp_file.json";
 console.log(script)
-// Change this file to actual json file!
-//var file = '../web-recorder/public/test.json'
 
-// NEED TO FIGURE OUT HOW TO SAVE TO NEW FILE - ask user to give name and save to it
-// make button through which can save json file to new thing
-//var file = '../web-recorder/public/template-scripts/temp_file.json';
 var Buffer = require('buffer');
 var multer  = require('multer');
 
@@ -54,6 +49,7 @@ app.get("/", function(req, res){
 	res.render('index', {page: 'get all data'});
 });
 
+// Get the script directories
 app.get("/scripts", function(req,res){
   console.log("DID THIS");
   const scriptFolder = './public/avatar-garden/';
@@ -74,12 +70,12 @@ app.get("/scripts", function(req,res){
   }, 1000);
 });
 
+// Update the script file
 app.post("/filename", function(req,res) {
   console.log(req.body.name);
   script = req.body.name;
   var fs = require('fs');
   var json = JSON.parse(fs.readFileSync(script));
-  console.log("WHWAAT");
   script = "../web-recorder/public/avatar-garden/"+req.body.avatar+'/script.json';
   console.log(script);
   console.log(json["name_of_avatar"]);
@@ -109,6 +105,7 @@ app.post("/update", function(req,res){
   });
 });
 
+// Create an avatar directory 
 app.post("/makedir", function(req,res) {
   var directoryName = req.body.name;
   mkdirp('../web-recorder/public/avatar-garden/'+directoryName, function(err) { 
