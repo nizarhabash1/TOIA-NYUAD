@@ -8,12 +8,7 @@ var jsonfile = require('jsonfile');
 var fs = require('fs');
 script = "../web-recorder/public/template-scripts/temp_file.json";
 console.log(script)
-// Change this file to actual json file!
-//var file = '../web-recorder/public/test.json'
 
-// NEED TO FIGURE OUT HOW TO SAVE TO NEW FILE - ask user to give name and save to it
-// make button through which can save json file to new thing
-//var file = '../web-recorder/public/template-scripts/temp_file.json';
 var Buffer = require('buffer');
 var multer  = require('multer');
 
@@ -54,10 +49,7 @@ app.get("/", function(req, res){
 	res.render('index', {page: 'get all data'});
 });
 
-app.get("/script", function(req,res){
-  res.render('pick-script', {page: 'get all data'});
-});
-
+// Get the script directories
 app.get("/scripts", function(req,res){
   console.log("DID THIS");
   const scriptFolder = './public/avatar-garden/';
@@ -78,12 +70,12 @@ app.get("/scripts", function(req,res){
   }, 1000);
 });
 
+// Update the script file
 app.post("/filename", function(req,res) {
   console.log(req.body.name);
   script = req.body.name;
   var fs = require('fs');
   var json = JSON.parse(fs.readFileSync(script));
-  console.log("WHWAAT");
   script = "../web-recorder/public/avatar-garden/"+req.body.avatar+'/script.json';
   console.log(script);
   console.log(json["name_of_avatar"]);
@@ -113,6 +105,7 @@ app.post("/update", function(req,res){
   });
 });
 
+// Create an avatar directory 
 app.post("/makedir", function(req,res) {
   var directoryName = req.body.name;
   mkdirp('../web-recorder/public/avatar-garden/'+directoryName, function(err) { 
@@ -140,26 +133,6 @@ app.post("/save",type, function(req,res){
       console.log('Rename complete!');
     });
 })
-
-app.get("/updateAvatarList", function(req,res){
-  console.log("UPDATING AVATARS");
-  const scriptFolder = './public/avatar-garden/';
-  const fs = require('fs');
-  const scriptPaths = [];
-  fs.readdir(scriptFolder, (err, files) => {
-    files.forEach(file => {
-      if(String(file)!="avatars.txt" && String(file)!="README.txt" && String(file)!=".DS_Store") {
-        scriptPaths.push(String(file));
-      }
-    });
-  })
-  setTimeout(function(){
-    console.log(scriptPaths);
-    console.log(scriptPaths.toString());
-    fs.writeFile("../web-recorder/public/avatar-garden/avatars.txt",scriptPaths.toString());
-    res.send("done");
-  }, 1000);
-});
 
 app.listen(3000);
 console.log('Express started on port 3000');
