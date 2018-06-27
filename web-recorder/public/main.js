@@ -5,11 +5,27 @@ var scroll_id;
 var scriptName;
 var data_to_send;
 var scriptList;
+var modal = document.getElementById('myModal');
+var globalModal = document.getElementById('globalModal');
 
 getScripts();
 
+// Capitalize string
 function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
+
+// Make a radio button
+function makeRadioButton(name, value, text) {
+	var label = document.createElement("label");
+	var radio = document.createElement("input");
+	label.classList.add("scriptRadio");
+	radio.type = "radio";
+	radio.name = name;
+	radio.value = value;
+	label.appendChild(radio);
+	label.appendChild(document.createTextNode(text));
+	return label;
 }
 
 // Display all the question and answer entries retrieved from Node back-end
@@ -50,12 +66,6 @@ $.ajax({
 					setSaveEvent(d);
 					setPlayEvent(d);
 				});
-			// TODO: add the following functionality back
-			/* Scroll to last saved video */
-			// $('#questionContainer').animate({
-		  //       scrollTop: $(scroll_id).offset().top
-		  //   });
-		    //updateCharacter();
 			}
 		}
 	});
@@ -237,7 +247,6 @@ function addNewEntry(){
 		alert("Please enter question and answer");
 	}
 	else{
-		console.log(jsonData.rows);
 		// sort jsonData, call this following lines if needed to sort jsonData
 		if(jsonData.length != 0){
 			jsonData.rows.sort(function(a,b){
@@ -287,7 +296,6 @@ function addNewEntry(){
 		};
 
 		jsonData.rows.push(data);
-		console.log("inside add new entry");
 		sendUpdateJSONRequest();
 
 		$('#new-question').val('');
@@ -295,46 +303,7 @@ function addNewEntry(){
 	}
 }
 
-$("#scriptType").submit(function(e) {
-	console.log("HI");
-    e.preventDefault();
-});
-
-$("#templateType").submit(function(e) {
-	console.log("YOS");
-    e.preventDefault();
-});
-
-$("#selectScript").submit(function(e) {
-	console.log("HI");
-    e.preventDefault();
-});
-
-$("#avatarOptions").submit(function(e) {
-	console.log("HI");
-    e.preventDefault();
-});
-
-$("#nameAvatar").submit(function(e) {
-	console.log("HI");
-    e.preventDefault();
-});
-
-$("#selectPrevious").submit(function(e) {
-	console.log("HI");
-    e.preventDefault();
-});
-
-$("#updateQuestion").submit(function(e) {
-	console.log("HI");
-    e.preventDefault();
-});
-
-$("#updateScript").submit(function(e) {
-	console.log("HI");
-    e.preventDefault();
-});
-
+// Update a question-answer pair after submitting information in the modal
 function updateQuestion(){
 	var currentQuestion = localStorage.getItem("currentQuestion");
 	$.each(jsonData.rows,function(i){
@@ -352,6 +321,7 @@ function updateQuestion(){
 	sendUpdateJSONRequest();
 } 
 
+// Update script after submitting global variable modal
 function updateScript() {
 	jsonData["language"] = document.getElementById("language").value;
 	jsonData["minimum required accuracy"] = document.getElementById("minimum-required-accuracy").value;
@@ -360,11 +330,8 @@ function updateScript() {
 	sendUpdateJSONRequest();
 }
 
-
-
 // Call this function when we need to sync the jsonData and write it to the actual JSON file
 function sendFileName(){
-	console.log("YEAH IN HERE");
 	console.log(scriptName);
 	data_to_send={"name": scriptName, 
 				  "avatar": document.getElementById("nameForSaving").innerHTML};
@@ -376,7 +343,7 @@ function sendFileName(){
 		data: data_to_send,
 		contentType: 'application/json; charset=utf-8',
 		error: function(resp){
-			console.log("SAD");
+			console.log("Oh no...");
 			console.log(data_to_send);
 			console.log(resp);
 		},
@@ -390,8 +357,8 @@ function sendFileName(){
   	}, 2000);
 }
 
+// Specify if you want to work on a previous or new avatar
 function avatarOptions() {
-	console.log("YO WTF");
 	var avatarType = document.querySelector('input[name="avatar"]:checked').value;
 	if (avatarType === "previousAvatar") {
 		document.getElementById("selectAvatarType").style.display='none';
@@ -402,6 +369,7 @@ function avatarOptions() {
 	}
 }
 
+// Load previously stored avatar
 function chosenAvatar() {
 	scriptFolder = document.querySelector('input[name="avatarFolderName"]:checked').value;
 	console.log(document.querySelector('input[name="avatarFolderName"]:checked').value);
@@ -416,6 +384,7 @@ function chosenAvatar() {
 	console.log("YES");
 }
 
+// Name an avatar
 function nameAvatar() {
 	var avatarName = document.getElementById("avatarName").value.toLowerCase();
 	console.log(avatarName);
@@ -432,6 +401,7 @@ function nameAvatar() {
 	}
 }
 
+// Specify type of script to start with
 function scriptOptions(){
 	document.getElementById("selectScript").style.display="none";
 	document.getElementById("recorder").style.display="";
@@ -446,22 +416,6 @@ function scriptOptions(){
 	console.log(scriptName);
 	sendFileName();
 	console.log("YO");
-}
-
-function goToRecorder() {
-	window.location.replace("/");
-}
-
-function makeRadioButton(name, value, text) {
-	var label = document.createElement("label");
-	var radio = document.createElement("input");
-	label.classList.add("scriptRadio");
-	radio.type = "radio";
-	radio.name = name;
-	radio.value = value;
-	label.appendChild(radio);
-	label.appendChild(document.createTextNode(text));
-	return label;
 }
 
 // Get the script names
@@ -512,10 +466,34 @@ $("#selectFiles").change(function() {
   console.log(filename);
 });
 
-// Get the modal
-var modal = document.getElementById('myModal');
+$("#scriptType").submit(function(e) {
+    e.preventDefault();
+});
 
-var globalModal = document.getElementById('globalModal');
+$("#templateType").submit(function(e) {
+    e.preventDefault();
+});
 
+$("#selectScript").submit(function(e) {
+    e.preventDefault();
+});
 
+$("#avatarOptions").submit(function(e) {
+    e.preventDefault();
+});
 
+$("#nameAvatar").submit(function(e) {
+    e.preventDefault();
+});
+
+$("#selectPrevious").submit(function(e) {
+    e.preventDefault();
+});
+
+$("#updateQuestion").submit(function(e) {
+    e.preventDefault();
+});
+
+$("#updateScript").submit(function(e) {
+    e.preventDefault();
+});
