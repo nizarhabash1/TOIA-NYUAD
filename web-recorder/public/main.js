@@ -429,24 +429,7 @@ function nameAvatar() {
     	document.getElementById("pageTitle").innerHTML += ": "+ capitalize(avatarName);
     	document.getElementById("nameAvatar").style.display='none';
     	document.getElementById("scriptType").style.display='';
-    	modifyAvatarsList();
 	}
-}
-
-function modifyAvatarsList() {
-	console.log("IN this");
-	$.ajax({
-		url: '/updateAvatarList',
-		type: 'GET',
-		datatype: 'string',
-		error: function(data){
-			alert("Oh No! Try a refresh?");
-		},
-		success: function(data){
-			console.log("We have data!");
-			console.log(data);
-		}
-	});	
 }
 
 function scriptOptions(){

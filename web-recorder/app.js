@@ -137,25 +137,5 @@ app.post("/save",type, function(req,res){
     });
 })
 
-app.get("/updateAvatarList", function(req,res){
-  console.log("UPDATING AVATARS");
-  const scriptFolder = './public/avatar-garden/';
-  const fs = require('fs');
-  const scriptPaths = [];
-  fs.readdir(scriptFolder, (err, files) => {
-    files.forEach(file => {
-      if(String(file)!="avatars.txt" && String(file)!="README.txt" && String(file)!=".DS_Store") {
-        scriptPaths.push(String(file));
-      }
-    });
-  })
-  setTimeout(function(){
-    console.log(scriptPaths);
-    console.log(scriptPaths.toString());
-    fs.writeFile("../web-recorder/public/avatar-garden/avatars.txt",scriptPaths.toString());
-    res.send("done");
-  }, 1000);
-});
-
 app.listen(3000);
 console.log('Express started on port 3000');
