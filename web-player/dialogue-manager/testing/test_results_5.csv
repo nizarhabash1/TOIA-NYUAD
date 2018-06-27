@@ -1,0 +1,16 @@
+Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result
+True , True , True , True , True , manual , None , True,4.643449419568823
+Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result
+True , True , True , True , True , manual , None , True,4.643449419568823
+True , True , True , True , True , manual , replace , True,4.643449419568823
+True , True , True , True , True , manual , drop , True,4.311774461028192
+True , True , True , True , True , manual , None , False,4.643449419568823
+Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result
+True , True , True , True , True , manual , None , True,4.643449419568823
+True , True , True , True , True , manual , replace , True,3.1509121061359866
+True , True , True , True , True , manual , drop , True,3.9800995024875623
+True , True , True , True , True , manual , None , False,4.643449419568823
+True , True , True , True , True , manual , replace , False,2.155887230514096
+Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result
+True , True , True , True , True , manual , None , True,4.643449419568823
+True , True , True , True , True , manual , replace , True,4.477611940298507
