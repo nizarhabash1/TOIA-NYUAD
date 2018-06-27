@@ -46,8 +46,11 @@ def run_test(mylanguage, test_par):
 
 	if test_par.testSet == "manual":
 		test_results = test_questions(manualCharacterDict, mylanguage, test_par)
+		return test_results
 
-	return test_results
+	if test_par.testSet == "oracle":
+		test_results = test_questions(oracleCharacterDict, mylanguage, test_par)
+		return test_results
 
 
 def test_wrapper(mylanguage):
@@ -59,7 +62,7 @@ def test_wrapper(mylanguage):
 	tfidf_mode = [True, False]
 	automatic_mode = [True, False]
 	noise_mode = ["None", "replace", "drop"]
-	testSet_mode = ["manual"]
+	testSet_mode = ["manual", "oracle"]
 
 	#unigram_par, bigram_par, trigram_par, tfidf_par, synonym_par, testSet_par, noise_par, automatic_par)
 	#test_par = test_parameters(True, False, False, True, False, "manual", "None", False)
