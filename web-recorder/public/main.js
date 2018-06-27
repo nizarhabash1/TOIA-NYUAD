@@ -157,6 +157,7 @@ function setUpdateEvent(data){
 					document.getElementById('arabic-question').value=data.doc["arabic-question"];
 					document.getElementById('arabic-answer').value=data.doc["arabic-answer"];
 					document.getElementById('playing-frequency').value=data.doc["playing frequency"];
+					document.getElementById('video-type').value=data.doc["video-type"];
 					return false;
 				}
 			})
@@ -343,6 +344,7 @@ function updateQuestion(){
 			jsonData.rows[i].doc["arabic-question"] = document.getElementById('arabic-question').value;
 			jsonData.rows[i].doc["arabic-answer"] = document.getElementById('arabic-answer').value;
 			jsonData.rows[i].doc["playing frequency"] = document.getElementById('playing-frequency').value;
+			jsonData.rows[i].doc["video-type"] = document.getElementById('video-type').value;
 			return false;
 		}
 	});
@@ -366,6 +368,7 @@ function sendFileName(){
 	console.log(scriptName);
 	data_to_send={"name": scriptName, 
 				  "avatar": document.getElementById("nameForSaving").innerHTML};
+	console.log(data_to_send);
 	data_to_send=JSON.stringify(data_to_send);
 	$.ajax({
 		url: '/filename',
@@ -373,7 +376,7 @@ function sendFileName(){
 		data: data_to_send,
 		contentType: 'application/json; charset=utf-8',
 		error: function(resp){
-			console.log("Oh no...");
+			console.log("SAD");
 			console.log(data_to_send);
 			console.log(resp);
 		},
@@ -384,7 +387,7 @@ function sendFileName(){
 	});
   	setTimeout(function(){
     	getAllData();
-  	}, 1000);
+  	}, 2000);
 }
 
 function avatarOptions() {
@@ -406,10 +409,10 @@ function chosenAvatar() {
 	document.getElementById("title").innerHTML += ": "+ capitalize(scriptFolder);
 	document.getElementById("pageTitle").innerHTML += ": "+ capitalize(scriptFolder);
 	scriptName = '../web-recorder/public/avatar-garden/'+scriptFolder+'/script.json';
+	sendFileName();
 	console.log(scriptName);
 	document.getElementById("selectPrevious").style.display="none";
 	document.getElementById("recorder").style.display='';
-	sendFileName();
 	console.log("YES");
 }
 

@@ -89,7 +89,7 @@ app.post("/filename", function(req,res) {
   console.log(json["name_of_avatar"]);
   json["name_of_avatar"] = req.body.avatar;
   json = JSON.stringify(json, null, 4);
-  //fs.writeFile("../web-recorder/public/template-scripts/temp_file.json",json);
+  fs.writeFile("../web-recorder/public/template-scripts/temp_file.json",json);
   fs.writeFile("../web-recorder/public/avatar-garden/"+req.body.avatar+'/script.json',json);  
 });
 
@@ -135,7 +135,7 @@ app.post("/save",type, function(req,res){
   console.log("SAVING");
   console.log(req.file.originalname.substr(0,req.file.originalname.indexOf('_')));
   var avatarName = req.file.originalname.substr(0,req.file.originalname.indexOf('_'));
-  fs.rename(__dirname + '/public/uploads/' + req.file.filename, __dirname + '/public/avatar-garden/' + avatarName + '/' + req.file.originalname, (err) => {
+  fs.rename(__dirname + '/public/uploads/' + req.file.filename, __dirname + '/public/avatar-garden/' + avatarName + '/videos/' + req.file.originalname, (err) => {
       if (err) throw err;
       console.log('Rename complete!');
     });
