@@ -93,6 +93,8 @@ app.post("/filename", function(req,res) {
   console.log("WHWAAT");
   script = "../web-recorder/public/avatar-garden/"+req.body.avatar+'/script.json';
   console.log(script);
+  console.log(json["name_of_avatar"]);
+  json["name_of_avatar"] = req.body.avatar;
   json = JSON.stringify(json, null, 4);
   //fs.writeFile("../web-recorder/public/template-scripts/temp_file.json",json);
   fs.writeFile("../web-recorder/public/avatar-garden/"+req.body.avatar+'/script.json',json);  

@@ -80,6 +80,7 @@
             <div class = "left-column" id = "questionContainer"></div>
 <!--                 <ul size="10" class="question-column" id="left-container"></ul> -->
               <div class="add-question-container">
+                <button id="edit-global">Edit global variables</button>
                 <div>
                   Question:<input type='text' id='new-question'/>
                 </div>
@@ -101,9 +102,19 @@
               English answer: <br> <textarea name="english-answer" id="english-answer"></textarea><br>
               Arabic question: <br> <textarea name="arabic-question" id="arabic-question"></textarea><br>
               Arabic answer: <br> <textarea name="arabic-answer" id="arabic-answer"></textarea><br>
-              Playing frequency: <input type="text" name="playing-frequency" id="playing-frequency"><br>
+              Playing frequency (never/once/multiple): <input type="text" name="playing-frequency" id="playing-frequency"><br>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+
+        <div id="globalModal" class="modal">
+
+          <div class="modal-content">
+            <form id="globalVariables" onsubmit="updateScript(); return false;">
+              Language (Arabic/English): <input type="text" id="language"><br>
               Minimum required accuracy (low/medium/high): <input type="text" name="minimum-required-accuracy" id="minimum-required-accuracy"><br>
-              Length constant: <input type="text" id="length-constant"><br>
+              Length constant (0-70): <input type="text" id="length-constant"><br>
               <input type="submit" value="Submit">
             </form>
           </div>
