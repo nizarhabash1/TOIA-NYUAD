@@ -59,14 +59,15 @@ def test_wrapper(mylanguage):
 	tfidf_mode = [True, False]
 	automatic_mode = [True, False]
 	noise_mode = ["None", "replace", "drop"]
-	testSet_mode = ["manual"]
+	#testSet_mode = ["manual"]
+	testSet_mode= ["oracle"]
 
 	#unigram_par, bigram_par, trigram_par, tfidf_par, synonym_par, testSet_par, noise_par, automatic_par)
 	#test_par = test_parameters(True, False, False, True, False, "manual", "None", False)
 	#test_results = run_test(mylanguage, test_par)
 	#print(test_results)
 
-	f = open("test_results_final.csv" , "a")
+	f = open("test_results_final2.csv" , "a")
 	count = 1
 	f.write("Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result\n")
 	for testSet_par in testSet_mode:
