@@ -247,6 +247,22 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
     if mylanguage=="Arabic":
         arabic_synonyms= arabicSyn(myavatar)
 
+    #variable that stores the language that the avatar videos were recorded in 
+    language = resp["language"]
+
+    #print("my avatar is ", myavatar)
+
+
+    '''
+        save configuration variables
+        accuracy (low/medium/high): This value is used as a threshold for accuracy. For example, if you require videos to be played only when there is a high match, then select "High". Otherwise, select either "Low" or "Medium". The default value is "Low".
+        maxLength: if the number of words in an aswer is above this constant, then these answers will be ranked lower in our question-answer matching algorithm. 
+        video type: a tag that either equals regular, or filler, according to the type of the database entry
+    '''
+    accuracy= resp["minimum required accuracy"]
+    maxLength= resp["length constant"]
+    configure(accuracy, maxLength)
+
     for i in range(0, len(resp["rows"]) - 1, 1):
 
         #automatically generated ID 
@@ -258,10 +274,11 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         video = json.dumps(resp["rows"][i]["doc"]["video"])
         #variable that stores the avatar name
         avatar = json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
-        #variable that stores the language that the avatar videos were recorded in 
-        language = json.dumps(resp["rows"][i]["doc"]["language"])
+       
         #variable that stores the user's preferred playing frequency for each database entry
         frequency= json.dumps(resp["rows"][i]["doc"]["playing frequency"])
+
+        #print("avatar is ", avatar)
 
 
         if (mylanguage == "Arabic"):
@@ -283,18 +300,12 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
 
         
 
-        '''
-        save configuration variables
-        accuracy (low/medium/high): This value is used as a threshold for accuracy. For example, if you require videos to be played only when there is a high match, then select "High". Otherwise, select either "Low" or "Medium". The default value is "Low".
-        maxLength: if the number of words in an aswer is above this constant, then these answers will be ranked lower in our question-answer matching algorithm. 
-        video type: a tag that either equals regular, or filler, according to the type of the database entry
-        '''
-        accuracy= json.dumps(resp["rows"][i]["doc"]["minimum required accuracy"])
-        maxLength= json.dumps(resp["rows"][i]["doc"]["length constant"])
+        
+        
         videoType= json.dumps(resp["rows"][i]["doc"]["video-type"])
 
         #read the configuration variables from the database and save it to the global variables
-        configure(accuracy, maxLength)
+        
 
 
         # obj: creates the databaseEntry object for the recorded video and adds it to the objectMap in the avatarModel
@@ -592,7 +603,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
                 avatarModel[avatar].stemmedMap[stem][ID]= avatarModel[avatar].stemmedMap[stem][ID]/totalUnigrams
                 avatarModel[avatar].lemmatizedMap[lemma][ID]= avatarModel[avatar].lemmatizedMap[lemma][ID]/totalUnigrams
 
-    print("number of times name appears in video 1:" , avatarModel[avatar].wordMap["name"][1])
+    #print("number of times name appears in video 1:" , avatarModel[avatar].wordMap["name"][1])
 
     print("Total Questions: ", str(totalQuestions))
     print("done")
