@@ -66,7 +66,7 @@ def test_wrapper(mylanguage):
 	#test_results = run_test(mylanguage, test_par)
 	#print(test_results)
 
-	f = open("test_results_4.csv" , "a")
+	f = open("test_results_final.csv" , "a")
 	count = 1
 	f.write("Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result\n")
 	for testSet_par in testSet_mode:
@@ -228,7 +228,7 @@ def noisify(inputString, percentage, noiseType):
 		indexReplaced = []
 
 		for i in range(changes):
-			randomWord= "مرحبا"
+			randomWord= "random"
 			#randomWord = rw.random_word()
 			index = 0
 			# runs until an index is identified which has not been changed yet
@@ -270,6 +270,7 @@ def test_questions(characterdict, language, test_par):
 	global oracleCharacterDict
 	incorrect = 0
 	correct = 0
+	counter=0
 	for avatar in characterdict.keys():
 		print(avatar)
 		if avatar == "gabriela" or avatar == "margarita" or avatar == "katarina":
@@ -301,8 +302,9 @@ def test_questions(characterdict, language, test_par):
 				else:
 					noisifiedq= question
 
-
-				response = test_dm.findResponse(noisifiedq, oracleCharacterDict[avatar], currentSession, test_par)
+				print(noisifiedq)	
+				response = test_dm.findResponse(noisifiedq, oracleCharacterDict[avatar], currentSession, test_par, counter)
+				
 				print(response.answer)
 				response_answer = response.answer
 				response_list = [tmp.strip(',?."!)') for tmp in response_answer.lower().split()]
@@ -315,9 +317,10 @@ def test_questions(characterdict, language, test_par):
 					#print("Response: ",response.answer, "\n")
 				else:
 					incorrect += 1
-					print("Question: ",question)
-					print("Actual Answer: ",answer)
-					print("Response: ",response.answer, "\n")
+					# print("Question: ",question)
+					# print("Actual Answer: ",answer)
+					# print("Response: ",response.answer, "\n")
+				counter +=1
 
 					
 
