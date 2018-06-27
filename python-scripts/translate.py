@@ -47,7 +47,7 @@ def addTranslation():
 
 	try:
 		print("translating...")
-		for i in range(0, len(data["rows"]) - 1, 1):
+		for i in range(0, len(data["rows"]), 1):
 			if (translation_mode== 'ar-en'):
 				input_question= data["rows"][i]["doc"]["arabic-question"]
 				output_question= translate(input_question, translation_mode)
