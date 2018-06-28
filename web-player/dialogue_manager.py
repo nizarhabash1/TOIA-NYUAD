@@ -21,10 +21,19 @@ sys.path.insert(0, 'dialogue-manager/CalimaStar_files/')
 
 
 import StarMorphModules
-import StopWords
+import StopWordsArabic
+import StopWordsEnglish
 import nltk
 import ssl
 import math
+
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
 
 # import the English NLP tools and corpuses from the NLTK library
 nltk.download('wordnet')
@@ -36,12 +45,6 @@ from nltk.corpus import wordnet as wn
 nltk.download('stopwords')
 
 
-try:
-    _create_unverified_https_context = ssl._create_unverified_context
-except AttributeError:
-    pass
-else:
-    ssl._create_default_https_context = _create_unverified_https_context
 
 
 
@@ -104,6 +107,8 @@ class model:
 
         # noAnswer: the dictionary of databaseEntry of the avatar saying "I can't answer that"
         self.noAnswer= {}
+
+        self.questionsMap = {}
 
 
 
@@ -176,15 +181,23 @@ def configure(avatar_accuracy, avatar_length):
 
 
 
-#generate a list of stop words depending on the language (nltk for English and an open source list for Arabic)
+'''
+ For stopwords, we use a modified list of the nltk stop words
+ for both languages, which can be found in StopWordsArabic.py and
+ StopWordsEnglish.py in the CalimaStar_files directory. These list 
+ were modified because they included words that were needed for matching. 
+ For example, the question: "Where are you from?", was never matched on with
+ the nltk list because all words in that are considered stop words. The list
+ can be edited as necessary 
+ '''
 def getStopwords(language):
     stop_words= []
     if language=="English":
-        stop_words = stopwords.words('english') + list(punctuation)
+        stop_words = StopWordsEnglish.getStopwords() + list(punctuation)
         #stop_words += ["on", "in", "tell", "me", "about", "a", "an", "the", "of", "and", "or", "but", "what", "are", "you", "your", "is", "was" , "do"]
 
     elif language== "Arabic":
-       stop_words= StopWords.getStopwords()
+       stop_words= StopWordsArabic.getStopwords()
    
     return stop_words
 
@@ -320,12 +333,14 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         if(videoType== '"no-answer"'):
             print("found no answer video")
             avatarModel[avatar].noAnswer[ID] = obj
+        elif(videoType== '"regular"'):
+            avatarModel[avatar].questionsMap[ID] = obj
 
 
         if (mylanguage == "English"):
 
             # generate a list of stopwords. Turned off because tests proved it lowers performance
-            #stop_words= getStopwords("English")
+            stop_words= getStopwords("English")
 
             # split the question and answer pair into a list of words
             unigram_split = question.lower().split() + answer.lower().split()
@@ -468,7 +483,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         elif (mylanguage == "Arabic"):
 
             # generate a list of stopwords. Turned off because tests proved it lowers performance
-            #arabic_stop_words= getStopwords("Arabic")
+            arabic_stop_words= getStopwords("Arabic")
 
             # split the question and answer pair into a list of words
             unigram_split = question.split() + answer.split()
@@ -629,8 +644,8 @@ def findLemmaScore(lemma):
 
 
 def direct_intersection_match_English(query, avatarModel, logger):
-    #stop_words= getStopwords("English")
-    stop_words= []
+    stop_words= getStopwords("English")
+    #stop_words= []
     queryList = [tmp.strip(', " ?.!)') for tmp in query.split() if tmp not in stop_words ]
     responses = {}
     queryLen = len(queryList)
@@ -694,8 +709,8 @@ def direct_intersection_match_English(query, avatarModel, logger):
 
 
 def stem_intersection_match_English(query, avatarModel, logger):
-    #stop_words= getStopwords("English")
-    stop_words= []
+    stop_words= getStopwords("English")
+    #stop_words= []
     queryList = [porterStemmer.stem(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}
@@ -757,8 +772,8 @@ def stem_intersection_match_English(query, avatarModel, logger):
 
 
 def lemma_intersection_match_English(query, avatarModel, logger):
-    #stop_words= getStopwords("English")
-    stop_words=[]
+    stop_words= getStopwords("English")
+    #stop_words=[]
     queryList = [lemmatizer.lemmatize(tmp.strip(', " ?.!)')) for tmp in query.split() if tmp not in stop_words ]
 
     responses = {}
@@ -817,6 +832,15 @@ def lemma_intersection_match_English(query, avatarModel, logger):
     return responses
 
 
+'''
+This function takes in a query, tokenizes it into unigrams, bigrams, and trigrams, and 
+then searches for the token in the word map property of the avatar model. If the token
+is found, each of the videos it appears in, and their corresponding scores, are 
+copied into a dictionary of responses, where the video ID is the key and its score is the value.
+Bigrams and Trigrams are turned off here because previous testing showed better results with unigrams.
+The function returns the dictionary of responses.
+
+'''
 def direct_intersection_match_Arabic(query, avatarModel, logger):
     arabic_stop_words= getStopwords("Arabic")
     queryList = [tmp.strip('،!؟."') for tmp in query.split()if tmp not in arabic_stop_words]
@@ -866,6 +890,15 @@ def direct_intersection_match_Arabic(query, avatarModel, logger):
     return responses
 
 
+'''
+This function takes in a query, tokenizes it into stemmed unigrams, bigrams, and trigrams, and 
+then searches for the token in the word map property of the avatar model. If the token
+is found, each of the videos it appears in, and their corresponding scores, are 
+copied into a dictionary of responses, where the video ID is the key and its score is the value.
+Bigrams and Trigrams are turned off here because previous testing showed better results with unigrams.
+The function returns the dictionary of responses.
+
+'''
 def stem_intersection_match_Arabic(query, avatarModel, logger):
   
 
@@ -923,6 +956,15 @@ def stem_intersection_match_Arabic(query, avatarModel, logger):
 
     return responses
 
+'''
+This function takes in a query, tokenizes it into lemmatized unigrams, bigrams, and trigrams, and 
+then searches for the token in the word map property of the avatar model. If the token
+is found, each of the videos it appears in, and their corresponding scores, are 
+copied into a dictionary of responses, where the video ID is the key and its score is the value.
+Bigrams and Trigrams are turned off here because previous testing showed better results with unigrams.
+The function returns the dictionary of responses.
+
+'''
 
 def lemma_intersection_match_Arabic(query, avatarModel, logger):
     # print("Finding lemma Intersection in Arabic")
@@ -1035,82 +1077,39 @@ def calculateTFIDF(avatarModel):
                 #avatarModel[avatar].wordMap[word][doc] = tfidf
 
     
-   
 
 
-def rankAnswers(query, videoResponses, currentSession, avatarModel, total_iterations):
-    query_len = len(query.split())
-    allowed=1
-    rep=0
-
-    for res in videoResponses.keys():
-        videoObjLen = avatarModel.objectMap[res].answerLength
-      
-        pref_frequency= avatarModel.objectMap[res].frequency
-        #print("frequency", pref_frequency)
-        
-        # if (videoObjLen >int(av_length)):
-        #     videoResponses[res] = videoResponses[res]/ videoObjLen
-        
-        if (pref_frequency=='"never"'):
-            #print("yes never")
-            allowed=0
-        elif(pref_frequency=='"multiple"' or pref_frequency=='"once"'):
-            #print("multiple or once")
-            allowed=1
-
-
-        if res in currentSession.repetitions.keys():
-            #print("repeats", currentSession.repetitions[res])
-            if (pref_frequency=='"multiple"'):
-                #print("multiple")
-                allowed=1
-            elif(pref_frequency=='"once"'):
-                if currentSession.repetitions[res]>1:
-                    allowed=0
-                    print("once done")
-                else:
-                    allowed=1
-                    print("once allowed")
-            elif (pref_frequency=='"never"'):
-                allowed=0
-                #print("never")
-            
-            rep= currentSession.repetitions[res]
-
-        #print("before",  videoResponses[res])
-        #print("allowed", allowed)
-        videoResponses[res]=(videoResponses[res]*(1-rep/(total_iterations+1)))*allowed
-        #print("after", videoResponses[res])
-      
-
-
-
-
-        
-        
-
-    #print("responses", videoResponses)
-    ranked_list = sorted(videoResponses, key=lambda i: videoResponses[i], reverse=True)
-    #print("ranked list", ranked_list)
-    #print("video playing:", ranked_list[0])
-    return ranked_list
-
-
+'''
+findResponse takes in the query, the avatar model object, the current
+interaction session, and the total number of interactions between the avatar
+and the user (counter). 
+'''
 
 def findResponse(query, avatarModel, currentSession, counter):
 
     currentTime = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
 
+    #determine the interaction language of the current session 
     language = currentSession.language
-    themax = 0
+    
+    #dictionary of the responses, where video IDs are keys and their scores are the values 
     best_responses = {}
+
+    #dictionary of the returned responses from the stem matching technique
     stem_match_responses = {}
+    #dictionary of the returned responses from the lemma matching technique
     lemma_match_responses = {}
+    #dictionary of the returned responses from the direct matching technique
     direct_match_responses = {}
+    
+    '''dictionary where keys are the video IDs, and values are the number of times 
+    they appear in best_responses. This dictionary is used to normalize the score
+    of the each video ID, so that it remains between 0 and 1. 
+    '''
     key_repetitions= {}
+    
+    #used to log out the results for debugging puposes
     logger = {}
-    counter=0
 
     if language == "English":
         f = open('english_log.tsv', 'a', encoding='utf-8')
@@ -1134,6 +1133,13 @@ def findResponse(query, avatarModel, currentSession, counter):
         print("language not recognised")
         return
 
+    ''' 
+     add the videoID and its score from
+     the dictionary generated by each 
+     matching technique to the best_responses dictionary,
+     and count repetition 
+    '''
+    
     for key in stem_match_responses.keys():
         if key not in key_repetitions.keys():
             key_repetitions[key]=1
@@ -1174,6 +1180,7 @@ def findResponse(query, avatarModel, currentSession, counter):
             best_responses[key] += copy.deepcopy(direct_match_responses[key])
            
 
+    # check for repetitions and normalize the score based on that number
     for key in best_responses.keys():
        #print("before", best_responses[key] )
        #print("repetitions", key_repetitions[key])
@@ -1185,7 +1192,7 @@ def findResponse(query, avatarModel, currentSession, counter):
            
 
    
-    # if the responses are empty, play "I can't answer that response"
+    # if best_responses is empty, play "I can't answer that response"
    
     if bool(best_responses) == False:
         noAnswerList= avatarModel.noAnswer.keys()
@@ -1195,35 +1202,132 @@ def findResponse(query, avatarModel, currentSession, counter):
 
     else:
        
+        # call the ranking function to rank the responses 
         ranked_responses = rankAnswers(query, best_responses, currentSession, avatarModel, counter)
+        
         #print("final responses", ranked_responses)
+        
+        # The response returned to the player will be the one with the highest score after the ranking
         final_answer = ranked_responses[0]
 
-        # if len(ranked_responses) > 2:
-        #     second_response = ranked_responses[1]
-        #     third_response = ranked_responses[2]
-        #     log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + avatarModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t" + avatarModel.objectMap[second_response].answer + "\t" + str(best_responses[second_response]) + "\t" + str(logger[second_response]) +  "\t" + avatarModel.objectMap[third_response].answer + "\t" + str(best_responses[third_response]) + "\t" + str(logger[third_response]) + "\n"
+        
+        # add information to the logger
+        if len(ranked_responses) > 2:
+            second_response = ranked_responses[1]
+            third_response = ranked_responses[2]
+            log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + avatarModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t" + avatarModel.objectMap[second_response].answer + "\t" + str(best_responses[second_response]) + "\t" + str(logger[second_response]) +  "\t" + avatarModel.objectMap[third_response].answer + "\t" + str(best_responses[third_response]) + "\t" + str(logger[third_response]) + "\n"
 
-        # elif len(ranked_responses) == 2:
-        #     second_response = ranked_responses[1]
-        #     log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + avatarModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t" + avatarModel.objectMap[second_response].answer + "\t" + str(best_responses[second_response]) + "\t" + str(logger[second_response]) +  "\t\t\t\n"
+        elif len(ranked_responses) == 2:
+            second_response = ranked_responses[1]
+            log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + avatarModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t" + avatarModel.objectMap[second_response].answer + "\t" + str(best_responses[second_response]) + "\t" + str(logger[second_response]) +  "\t\t\t\n"
 
-        # else:
-        #     log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + avatarModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t\t\t\t\t\t\n"
+        else:
+            log_string = currentTime + "\t" + currentSession.currentAvatar + "\t" + query + "\t" + avatarModel.objectMap[final_answer].answer + "\t" + str(best_responses[final_answer]) + "\t" + str(logger[final_answer]) +  "\t\t\t\t\t\t\n"
 
 
-        # #print(log_string)
-        # f.write(log_string)
-        # f.close()
+        #print(log_string)
+        f.write(log_string)
+        f.close()
         if final_answer in currentSession.repetitions.keys():
             currentSession.repetitions[final_answer] += 1
         else:
             currentSession.repetitions[final_answer] = 1
 
-
+    # return the databaseEntry object to the player
     return avatarModel.objectMap[final_answer]
 
+'''
+This function ranks the list of possible answers
+and returns the ranked list 
 
+'''
+
+def rankAnswers(query, videoResponses, currentSession, avatarModel, total_iterations):
+    
+    # length of the query
+    query_len = len(query.split())
+    
+    # variable that specifies whether a video should be played or not
+    allowed=1
+    
+    # variable storing the number of times a video has played during the current session
+    rep=0
+
+    for res in videoResponses.keys():
+        # length of the answer of the databaseEntry object
+        objAnswerLength = avatarModel.objectMap[res].answerLength
+      
+        '''the preferred frequency of playing, which is specified by the user
+        and can be never, once, or multiple '''
+
+        pref_frequency= avatarModel.objectMap[res].frequency
+        
+        
+        if (pref_frequency=='"never"'):
+            # set allowed to 0, video should not be played
+            allowed=0
+        elif(pref_frequency=='"multiple"' or pref_frequency=='"once"'):
+            # set allowed to 1, video can be played
+            allowed=1
+
+
+        if res in currentSession.repetitions.keys():
+            #print("repeats", currentSession.repetitions[res])
+            # the video has been played before 
+
+            # if the preferred frequency is multiple, the video can be played
+            if (pref_frequency=='"multiple"'):
+                allowed=1
+
+            elif(pref_frequency=='"once"'):
+                # if the preferred frequency is once, and the video was played before, it can't be played again
+                if currentSession.repetitions[res]>1:
+                    allowed=0
+                    print("once done")
+                else:
+                # if the preferred frequency is once, but the video was not played before, it can be played 
+                    allowed=1
+                    print("once allowed")
+            elif (pref_frequency=='"never"'):
+                allowed=0
+                #print("never")
+            
+            # get the number of times the video was played before 
+            rep= currentSession.repetitions[res]
+
+        #print("before",  videoResponses[res])
+        #print("allowed", allowed)
+
+        '''
+        The following variables are used to determine the final ranking:
+        videoResponses[res]: score between 0 and 1, describing how close of a match the 
+        question-answer pair is to the query.
+        rep: the number of times the video played before
+        total_iterations: the number of interactions between the user and the avatar
+        allowed: the variable that's set to 1 if the video can play, and 0 if it can't be
+
+        '''
+        videoResponses[res]=(videoResponses[res]*(1-rep/(total_iterations+1)))*allowed
+
+        # if the score is less than the minimum threshold for accuracy, set it to zero (disregard it)
+        if videoResponses[res]< av_accuracy:
+            videoResponses[res]=0
+        #print("after", videoResponses[res])
+      
+
+
+
+
+        
+        
+
+    #print("responses", videoResponses)
+
+    # sort the list of responses 
+    ranked_list = sorted(videoResponses, key=lambda i: videoResponses[i], reverse=True)
+    #print("ranked list", ranked_list)
+    #print("video playing:", ranked_list[0])
+    return ranked_list
 
 # initiates a new session for a new interaction between a user and an avatar
 def create_new_session(avatar, language):

@@ -61,7 +61,7 @@ def test_wrapper(mylanguage):
 	#test_results = run_test(mylanguage, test_par)
 	#print(test_results)
 
-	f = open("test_results.csv" , "a")
+	f = open("test_results1.csv" , "a")
 	count = 1
 	f.write("Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result\n")
 	for testSet_par in testSet_mode:

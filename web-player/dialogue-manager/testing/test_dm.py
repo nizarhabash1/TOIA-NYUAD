@@ -21,7 +21,7 @@ sys.path.insert(0, '../CalimaStar_files/')
 
 
 import StarMorphModules
-import StopWords
+import StopWordsArabic
 import nltk
 import ssl
 import math
@@ -191,7 +191,7 @@ def getStopwords(language):
         #stop_words += ["on", "in", "tell", "me", "about", "a", "an", "the", "of", "and", "or", "but", "what", "are", "you", "your", "is", "was" , "do"]
 
     elif language== "Arabic":
-       stop_words= StopWords.getStopwords()
+       stop_words= StopWordsArabic.getStopwords()
    
     return stop_words
 
@@ -1071,9 +1071,10 @@ def rankAnswers(query, videoResponses, currentSession, characterModel, counter):
 
         #print("score",  videoResponses[res])
         #print("allowed", allowed)
-        videoResponses[res]=(videoResponses[res]*(1-rep/(total_iterations+1)))*allowed
-        # if videoResponses[res]< av_accuracy:
-        #     videoResponses[res]=0
+        videoResponses[res]=(copy.deepcopy(videoResponses[res])*(1-rep/(total_iterations+1)))*allowed
+        
+        if videoResponses[res]< av_accuracy:
+            videoResponses[res]=0
 
 
 
