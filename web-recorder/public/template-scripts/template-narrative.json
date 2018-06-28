@@ -194,6 +194,44 @@
       "value": {
         "rev": "3-5af30e25b1726aef682cf250ce85824b"
       }
+    },
+    {
+      "key": "16a41b8cddc767f444e773b3582a6d67",
+      "doc": {
+        "arabic-answer": "أنا بحال جيدة",
+        "english-question": "no answer",
+        "english-answer": "I don't know how to answer this question.",
+        "arabic-question": "كيف حالك؟",
+        "index": 2,
+        "_id": "16a41b8cddc767f444e773b3582a6d1b",
+        "_rev": "3-f448a5b13e182f3a54314a6ed1554556",
+        "playing frequency": "multiple",
+        "video": "",
+        "video-type": "no-answer"
+      },
+      "id": "16a41b8cddc767f444e773b3582a6d67",
+      "value": {
+        "rev": "3-f448a5b13e182f3a54314a6ed1554556"
+      }
+    },
+    {
+      "key": "16a41b8cddc767f444e773b3582a6d15",
+      "doc": {
+        "arabic-answer": "",
+        "english-question": "filler",
+        "english-answer": "Drink water",
+        "arabic-question": "اشرب الماء",
+        "index": 3,
+        "_id": "16a41b8cddc767f444e773b3582a6d1c",
+        "_rev": "3-f448a5b13e182f3a54314a6ed1554557",
+        "playing frequency": "multiple",
+        "video": "",
+        "video-type": "filler"
+      },
+      "id": "16a41b8cddc767f444e773b3582a6d15",
+      "value": {
+        "rev": "3-f448a5b13e182f3a54314a6ed1554557"
+      }
     }
   ]
 }
