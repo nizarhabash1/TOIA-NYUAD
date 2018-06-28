@@ -81,13 +81,37 @@
 <!--                 <ul size="10" class="question-column" id="left-container"></ul> -->
               <div class="add-question-container">
                 <button id="edit-global">Edit global variables</button>
-                <div>
-                  Question:<input type='text' id='new-question'/>
+                <br><br>
+                <div id="questionTypeDiv" style="display:''"> 
+                  Pick type of question to add:
+                  <form id="questionType" onsubmit="questionOptions(); return false;">
+                    <label class="scriptRadio"><input type="radio" name="question" value="Question-Answer Pair">Question-Answer Pair</label>
+                    <label class="scriptRadio"><input type="radio" name="question" value="Filler">Filler</label>
+                    <label class="scriptRadio"><input type="radio" name="question" value="No Answer">No Answer</label>
+                    <input type="submit" value="Submit">
+                  </form>
                 </div>
-                <div>
-                  Answer:<input type='text' id="new-answer"/>
+                <div id="textQuestion" style="display:none">
+                  <div>
+                    Question:<input type='text' id='new-question'/>
+                  </div>
+                  <div>
+                    Answer:<input type='text' id="new-answer"/>
+                  </div>
+                  <button id="add-question-button">Add New Question</button>
                 </div>
-                <button id="add-question-button">Add New Question</button>
+                <div id="noAnswer" style="display:none">
+                  <div>
+                    No answer response:<input type='text' id='no-answer' />
+                  </div>
+                  <button id="add-no-answer-button">Add No Answer</button>
+                </div>
+                <div id="filler" style="display:none">
+                  <div>
+                    Filler action:<input type='text' id='new-filler' />
+                  </div>
+                  <button id="add-filler-button">Add New Filler</button>
+                </div>
               </div>
 
         </div>

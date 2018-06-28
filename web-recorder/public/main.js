@@ -240,13 +240,31 @@ function makeDirectory(avatarName){
 
 // This function allows avatar makers to add new question and answer entry
 // Also sorts the jsonData
-function addNewEntry(){
-	var newQuestion = $('#new-question').val();
-	var newAnswer = $('#new-answer').val();
-	if(!newQuestion || !newAnswer){
-		alert("Please enter question and answer");
+function addNewEntry(questionType){
+	var goAhead = true;
+	if(questionType == "regular") {
+		var newQuestion = $('#new-question').val();
+		var newAnswer = $('#new-answer').val();
+		if(!newQuestion || !newAnswer){
+			alert("Please enter question and answer");
+			goAhead = false;
+		}
+	} else if (questionType=="filler") {
+		var newQuestion = "filler";
+		var newAnswer = $('#new-filler').val();
+		if(!newAnswer){
+			alert("Please enter filler");
+			goAhead = false;
+		}	
+	} else if(questionType=="no-answer") {
+		var newQuestion="no answer";
+		var newAnswer = $('#no-answer').val();
+		if(!newAnswer){
+			alert("Please enter text");
+			goAhead = false;
+		}
 	}
-	else{
+	if(goAhead == true) {
 		// sort jsonData, call this following lines if needed to sort jsonData
 		if(jsonData.length != 0){
 			jsonData.rows.sort(function(a,b){
@@ -369,6 +387,19 @@ function avatarOptions() {
 	}
 }
 
+// DIsplay question-answer option according to selected type
+function questionOptions() {
+	var questionType = document.querySelector('input[name="question"]:checked').value;
+	document.getElementById("questionTypeDiv").style.display='none';
+	if (questionType === "Question-Answer Pair") {
+		document.getElementById("textQuestion").style.display='';
+	} else if (questionType === "Filler") {
+		document.getElementById("filler").style.display='';
+	} else if (questionType === "No Answer") {
+		document.getElementById("noAnswer").style.display='';
+	}
+}
+
 // Load previously stored avatar
 function chosenAvatar() {
 	scriptFolder = document.querySelector('input[name="avatarFolderName"]:checked').value;
@@ -454,9 +485,20 @@ $(document).ready(function(){
 		setGlobalVariables();
   });
   $("#add-question-button").click(function(){
-		addNewEntry();
+		addNewEntry("regular");
+		document.getElementById("textQuestion").style.display="none";
+		document.getElementById("questionTypeDiv").style.display="";
   });
-  
+  $("#add-filler-button").click(function(){
+  		addNewEntry("filler");
+		document.getElementById("filler").style.display="none";
+		document.getElementById("questionTypeDiv").style.display="";
+  });
+  $("#add-no-answer-button").click(function(){
+  		addNewEntry("no-answer");
+		document.getElementById("noAnswer").style.display="none";
+		document.getElementById("questionTypeDiv").style.display="";
+  });
 });
 
 $("#selectFiles").change(function() {
@@ -480,6 +522,10 @@ $("#avatarOptions").submit(function(e) {
     e.preventDefault();
 });
 
+$("#avatarType").submit(function(e) {
+    e.preventDefault();
+});
+
 $("#nameAvatar").submit(function(e) {
     e.preventDefault();
 });
@@ -493,5 +539,9 @@ $("#updateQuestion").submit(function(e) {
 });
 
 $("#updateScript").submit(function(e) {
+    e.preventDefault();
+});
+
+$("#questionOptions").submit(function(e) {
     e.preventDefault();
 });
