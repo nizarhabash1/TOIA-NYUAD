@@ -1,6 +1,6 @@
 The TOIA Player is a tool through which you can interact with an avatar recorded through our application.
 
-## Prerequisites
+## Prerequisities
 
 -Open the terminal
 -Install pyenv. If on macOS, run:
@@ -9,6 +9,9 @@ The TOIA Player is a tool through which you can interact with an avatar recorded
 *pyenv install 3.6.5*
 -Create a python environment in python 3.6.5:
 *pyenv local 3.6.5*
+
+## Running the player
+
 -cd into the web-player directory:
 *cd path-to-recorder-location/web-player*
 -Move the directory of the avatar you would like to interact with into the avatar-garden.

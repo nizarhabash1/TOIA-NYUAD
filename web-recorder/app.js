@@ -120,6 +120,12 @@ app.post("/makedir", function(req,res) {
   var inStr = fs.createReadStream('../web-recorder/public/sample-avatar/still.png');
   var outStr = fs.createWriteStream('../web-recorder/public/avatar-garden/'+directoryName+'/still.png');
   inStr.pipe(outStr);
+  var playerInStr = fs.createReadStream('../web-recorder/public/avatar-garden/player_README.md');
+  var playerOutStr = fs.createWriteStream('../web-recorder/public/avatar-garden/'+directoryName+'/player_README.md');
+  playerInStr.pipe(playerOutStr);
+  var recorderInStr = fs.createReadStream('../web-recorder/public/avatar-garden/recorder_README.md');
+  var recorderOutStr = fs.createWriteStream('../web-recorder/public/avatar-garden/'+directoryName+'/recorder_README.md');
+  recorderInStr.pipe(recorderOutStr);
 });
 
 // Save a recorded video in the file system as specified by multer upload, see above

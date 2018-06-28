@@ -49,8 +49,14 @@ Under each question and answer you have three buttons: UPDATE, DELETE, SAVE. The
 - Arabic question: the Arabic version of the question (this translation can be obtained through a step described under "Additional Scripts")
 - Arabic answer: the Arabic version of the answer 
 - Playing frequency (never/once/multiple): this variable is used to control how often a recorded video will be played while a user interacts with the avatar. You can set it to never, meaning that it will never play, once, meaning that it will only play once, or multiple, meaning that it could play multiple times during a user's interaction with it (when relevant). If you would rather not specify the frequency, it will automatically be set to multiple.
+
+#### Global editing options
+
+You also have the option of editing the global attributes of the script by clicking the "Edit global variables" button underneath the script. This will allow you to modify the following attributes: 
+
+- Language (Arabic/English): choose the language that the avatar is recorded in
 - Minimum required accuracy (low/medium/high): This value is used as a threshold for accuracy. For example, if you require videos to be played only when there is a high match, then select "High". Otherwise, select either "Low" or "Medium". The default value is "Low".
-- Length constant: if the number of words in an aswer is above this constant, then these answers will be ranked lower in our question-answer matching algorithm. 
+- Length constant: (0-70) if the number of words in an answer is above this constant, then these answers will be ranked lower in our question-answer matching algorithm. We recommend you keep this value at 40.
 
 #### Recording answer videos
 
@@ -61,7 +67,7 @@ In order to record a video which will be linked to a question and answer pair, y
 Don't forget to click the "Save Script" button after you're done recording. It's recommended to save frequently in case the recorder crashes.
 
 #### Adding/removing question-answer pairs
-If you want to add a new question-answer pair, fill in the "Question" and "Answer" input boxes and then click on the "Add New Question" button. The pair will automatically show up in the list. In order to remove a question-answer pair, just click on the DELETE button.
+If you want to add a new question-answer pair/a filler/ or a "no answer" type entry, select the respective option from the form under the list of questions and answers, then fill in the required input. The new entry will automatically show up in the list. In order to remove a question-answer pair, just click on the DELETE button.
 
 ### Edit previously created avatar
 
