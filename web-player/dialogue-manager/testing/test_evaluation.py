@@ -1,40 +1,109 @@
-import dialogue_manager
+import test_dm
 import os
 import random
 
 #from random_words import RandomWords
 import json
+
 import sys
 
 
 
-sys.path.insert(0, '../CalimaStar_files/')
+sys.path.insert(0, '../../CalimaStar_files/')
 
 
 import StarMorphModules
-
-import StopWords
 
 oracleCharacterDict = {}
 automaticCharacterDict = {}
 manualCharacterDict = {}
 currentAvatar = ""
 currentSession = None
+#.strip(',?."!')
 
+#f= open('manual-questions.txt', 'r', encoding='utf-8')
 
-def initiate(mylanguage):
-	StarMorphModules.read_config("../CalimaStar_files/config_dana.xml")
-	StarMorphModules.initialize_from_file("../CalimaStar_files/almor-s31.db","analyze")
+class test_parameters:
+	def __init__(self, unigram_par, bigram_par, trigram_par, tfidf_par, synonym_par, testSet_par, noise_par, automatic_par):
+		self.unigram = unigram_par
+		self.bigram = bigram_par
+		self.trigram = trigram_par
+		self.tfidf = tfidf_par
+		self.synonym = synonym_par
+		self.testSet = testSet_par
+		self.noise = noise_par
+		self.automatic = automatic_par
+
+	def toString(self):
+		tmp = str(self.unigram) + " , " + str(self.bigram) + " , "  + str(self.trigram)  + " , "+ str(self.tfidf) + " , "+ str(self.synonym)   + " , " + self.testSet + " , "+ str(self.noise)  + " , "  +  str(self.automatic)
+		return tmp
+
+def run_test(mylanguage, test_par):
 	global currentSession
 	global oracleCharacterDict
-	# initiates the model and a new session
+
+	test_dm.createModel(oracleCharacterDict, currentSession, mylanguage, "margarita", test_par)
+
+	if test_par.testSet == "manual":
+		test_results = test_questions(manualCharacterDict, mylanguage, test_par)
+		return test_results
+
+	if test_par.testSet == "oracle":
+		test_results = test_questions(oracleCharacterDict, mylanguage, test_par)
+		return test_results
 
 
-	currentSession = dialogue_manager.createModel(oracleCharacterDict, currentSession, mylanguage, "margarita")
-	return currentSession
+def test_wrapper(mylanguage):
+
+	unigram_mode = [True]
+	bigram_mode = [False]
+	trigram_mode = [False]
+	synonym_mode = [True, False]
+	tfidf_mode = [True, False]
+	automatic_mode = [True, False]
+	noise_mode = ["None", "replace", "drop"]
+	#testSet_mode = ["manual", "oracle"]
+	testSet_mode= ["manual"]
+
+	#unigram_par, bigram_par, trigram_par, tfidf_par, synonym_par, testSet_par, noise_par, automatic_par)
+	#test_par = test_parameters(True, False, False, True, False, "manual", "None", False)
+	#test_results = run_test(mylanguage, test_par)
+	#print(test_results)
+
+	f = open("test_results_final.csv" , "a")
+	count = 1
+	f.write("Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result\n")
+	for testSet_par in testSet_mode:
+		for unigram_par in unigram_mode:
+			for bigram_par in bigram_mode:
+				for trigram_par in trigram_mode:
+					for synonym_par in synonym_mode:
+						for tfidf_par in tfidf_mode:
+							for automatic_par in automatic_mode:
+								for noise_par in noise_mode:
+									count += 1
+									test_par = test_parameters(unigram_par, bigram_par, trigram_par, tfidf_par, synonym_par, testSet_par, noise_par, automatic_par)
+									initiate(mylanguage)
+									test_result = run_test(mylanguage, test_par)
+									new_line = test_par.toString() + "," + str(test_result) + "\n"
+									f.write(new_line)
+
+	f.close()
+def initiate(mylanguage):
+	global oracleCharacterDict
+
+	if mylanguage == "Arabic":
+		readManualQuestions(manualCharacterDict, "Arabic")
+
+	else:
+		readManualQuestions(manualCharacterDict, "English")
 	
-	#currentSession = dialogue_manager.createModel(characterdict, currentSession, "English")
+	# initiates the model and a new session
+	#test_dm.createModel(oracleCharacterDict, currentSession, mylanguage, test_par)
 
+def clean(text):
+	text= text.lower().replace("'","").replace("’","").replace("”","").replace(",", "").replace("?", "").replace(".", "")
+	return text
 def preprocess(line):
 	processed= line.replace("؟" , "")
 	processed= processed.replace("أ" , "ا")
@@ -47,14 +116,13 @@ def readManualQuestions(characterdict, mylanguage):
 	count = 0
 	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
 	if mylanguage == "Arabic":
-		f= open('test-set.csv', 'r', encoding='utf-8')
+		f= open('../../static/scripts/miscellaneous/manual_questions_arabic.csv', 'r', encoding='utf-8')
 	else:
-		f= open('test-set.tsv', 'r', encoding='utf-8')
-		#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
+		f= open('../../static/scripts/miscellaneous/manual_questions.tsv', 'r', encoding='utf-8')
 	character = 'margarita'
 	language = mylanguage
 	video = ""
-	characterdict[character] = dialogue_manager.model()
+	characterdict[character] = test_dm.model()
 	lines = f.readlines()
 	del lines[0]
 
@@ -76,9 +144,9 @@ def readManualQuestions(characterdict, mylanguage):
 			answer = line_split[1].strip(',?."!')
 			
 
-			obj_1= dialogue_manager.databaseEntry(question1, answer, video, character, language, "once")
-			obj_2= dialogue_manager.databaseEntry(question2, answer, video, character, language, "once")
-			obj_3= dialogue_manager.databaseEntry(question3, answer, video, character, language, "once")
+			obj_1= test_dm.databaseEntry(question1, answer, video, character, language, "multiple")
+			obj_2= test_dm.databaseEntry(question2, answer, video, character, language, "multiple")
+			obj_3= test_dm.databaseEntry(question3, answer, video, character, language, "multiple")
 			characterdict[character].questionsMap[count + 1] = obj_1
 			characterdict[character].questionsMap[count + 2] = obj_2
 			characterdict[character].questionsMap[count + 3] = obj_3
@@ -89,7 +157,7 @@ def readManualQuestions(characterdict, mylanguage):
 
 def readAutomaticQuestions(characterdict):
 
-	f= open('static/scripts/automatic_questions.json', 'r', encoding='utf-8')
+	f= open('../../../static/scripts/miscellaneous/automatic_questions.json', 'r', encoding='utf-8')
 
 	resp = json.load(f)
 	#print(resp)
@@ -114,7 +182,7 @@ def readAutomaticQuestions(characterdict):
 				#character= json.dumps(resp["rows"][i]["doc"]["character"])
 				character= json.dumps(resp["rows"][i]["doc"]["video"]).split("_")[0].replace('"', '')
 				language= "English"
-				ID= id_count;
+				ID= id_count
 			
 			else:
 				continue
@@ -126,10 +194,10 @@ def readAutomaticQuestions(characterdict):
 			# Creates a new character model in the character dictionary if it does not exist already
 			if character not in characterdict.keys():				
 				#characterdict[character] is the model of the respective character
-				characterdict[character] = dialogue_manager.model()
+				characterdict[character] = test_dm.model()
 
 			#adds to the character's questions list based on the character key; adds all videos regardless of type to questions
-			obj= dialogue_manager.videoRecording(question, answer, video, character, language)
+			obj= test_dm.videoRecording(question, answer, video, character, language)
 			characterdict[character].objectMap[ID] = obj
 			
 			# if the video is for silence
@@ -167,7 +235,7 @@ def noisify(inputString, percentage, noiseType):
 		indexReplaced = []
 
 		for i in range(changes):
-			randomWord= "مرحبا"
+			randomWord= "random"
 			#randomWord = rw.random_word()
 			index = 0
 			# runs until an index is identified which has not been changed yet
@@ -204,73 +272,75 @@ def noisify(inputString, percentage, noiseType):
 
 		return " ".join(newList)		
 
-def test_questions(characterdict, language):
+def test_questions(characterdict, language, test_par):
 	global currentSession
 	global oracleCharacterDict
 	incorrect = 0
 	correct = 0
 	counter=0
+	questionsAsked=[]
 	for avatar in characterdict.keys():
 		print(avatar)
 		if avatar == "gabriela" or avatar == "margarita" or avatar == "katarina":
-			currentSession = dialogue_manager.create_new_session(avatar, language)
+			currentSession = test_dm.create_new_session(avatar, language)
 			for question_id in characterdict[avatar].questionsMap.keys():
-				#print(question_id)
 
 				question = characterdict[avatar].questionsMap[question_id].question
-				noisifiedq= noisify(question, 0.25, "replace")
-				#print("regular", question)
-				#print("noisified", noisifiedq)
-				
-				#print("Question: ",question)
 
-				#answer = characterdict[avatar].questionsMap[question_id].answer
-				
-
-				#response = dialogue_manager.findResponse(question, characterModel[avatar], currentSession)
-
-				#response = dialogue_manager.findResponse(question, oracleCharacterDict[avatar], currentSession)
-
-				#question = characterdict[avatar].questionsMap[question_id].question
-				#replaced = noisify(question, 50, "replace")
-				#print("Question: ",question)
-				if question != " ":
-					answer = characterdict[avatar].questionsMap[question_id].answer
-
+				if question == " ":
+					continue
+				if question in questionsAsked:
+					continue
 
 				answer = characterdict[avatar].questionsMap[question_id].answer
 
-
-				response = dialogue_manager.findResponse(noisifiedq, oracleCharacterDict[avatar], currentSession, counter)
-
-				
-
+				question_list = [tmp.strip(',?."!)') for tmp in question.lower().split()]
 				answer_list = [tmp.strip(',?."!)') for tmp in answer.lower().split()]
+				answer = " ".join(answer_list).replace("’","").replace(",", "").replace("'","").replace("”","")
+				question = " ".join(question_list).replace("’","").replace(",", "").replace("'","").replace("”","")
+				questionsAsked.append(question)
+
+				if (language == "Arabic"):
+					question= preprocess(question)
+					answer= preprocess(answer)
+
+				if test_par.noise == "replace":
+					noisifiedq= noisify(question, 0.25, "replace")
+
+				elif test_par.noise == "drop":
+					noisifiedq= noisify(question, 0.25, "drop")
+				
+				else:
+					noisifiedq= question
+
+				#print(noisifiedq)	
+				response = test_dm.findResponse(noisifiedq, oracleCharacterDict[avatar], currentSession, test_par, counter)
+				
+				#print(response.answer)
 				response_answer = response.answer
 				response_list = [tmp.strip(',?."!)') for tmp in response_answer.lower().split()]
-				response_answer = " ".join(response_list).replace("'","").replace("’","").replace("”","").replace(",", "")
-				response_answer= preprocess(response_answer)
-				answer = " ".join(answer_list).replace("’","")
-				answer= preprocess(answer).replace("'","").replace("’","").replace("”","").replace(",", "")
-				response.question= preprocess(response.question).replace("'","").replace("’","").replace("”","").replace(",", "")
-				question= preprocess(question)
-				if(answer.lower() == response_answer.lower() or response.question.lower() == question.lower()):
+				response_answer = " ".join(response_list)
+				
+				response_answer= clean(response_answer)
+				answer= clean(answer)
+				response.question= clean(response.question)
+				question= clean(question)
+				if(answer == response_answer or response.question == question):
 					correct += 1
-					# print("Question: ",question)
-					# print("Actual Answer: ",answer)
-					# print("Response: ",response.answer, "\n")
+					#print("Question: ",question)
+					#print("Actual Answer: ",answer)
+					#print("Response: ",response.answer, "\n")
 				else:
 					incorrect += 1
 					print("Question: ",question)
 					print("Actual Answer: ",answer)
-					print("Response: ",response_answer, "\n")
+					print("Response: ",response.answer, "\n")
 				counter +=1
 
-				#print(incorrect+correct)	
+					
 
-	print("incorrect responses: ", incorrect)
-	print("correct responses: ", correct)
-	print(correct*100/(correct+incorrect))				
+	percentage_correct  = correct*100/(correct+incorrect)
+	return percentage_correct
 	#print("correct: ", correct)
 	#print("incorrect: ", incorrect)
 
@@ -290,69 +360,33 @@ def repeating_question(characterdict):
 
 					if question_id not in mentioned_question.keys():
 						mentioned_question[question_id] = True
-						print(question_id)
+						#print(question_id)
 					if tmp_question_id not in mentioned_question.keys():
 						mentioned_question[tmp_question_id] = True
-						print(tmp_question_id)
+						#print(tmp_question_id)
 						new_line = True
 			
 			if new_line:
-				print("\n")
+				#print("\n")
 				new_line= False
 
-def testInterviewQuestions(language):
-	global currentSession
-	global oracleCharacterDict
-
-	character = ""
-	
-	if language == "English":
-		f= open('english_log.tsv', 'r', encoding='utf-8')
-	else:
-		f= open('arabic_log.tsv', 'r', encoding='utf-8')
-	
-	lines = f.readlines()
-
-	for line in lines:
-		line_split = line.split("\t")
-		if line_split[0] == "":
-			continue
-		else:
-			query = line_split[2]
-			new_character = line_split[1]
-
-			if new_character != character:
-				currentSession = dialogue_manager.create_new_session(new_character, language)
-				character = new_character
-			response = dialogue_manager.findResponse(query, oracleCharacterDict[character], currentSession)
-
-
-
-
-
-
 if __name__ == '__main__':
-	
-	session = initiate("English")
+	#StarMorphModules.read_config("config_dana.xml")
+	#StarMorphModules.initialize_from_file("almor-s31.db", "analyze")
+
+	#readManualQuestions(manualCharacterDict, "Arabic")
+	initiate("English")
+	test_wrapper("English")
 	#for character in oracleCharacterDict.keys():
 	#print(oracleCharacterDict["rashid"].objectMap)
 	#readAutomaticQuestions(automaticCharacterDict)
 	#test_questions(oracleCharacterDict, "English")
-
-	#test_questions(oracleCharacterDict, "English")
-	#test_questions(automaticCharacterDict, "English")
-	readManualQuestions(manualCharacterDict, "English")
-	#testInterviewQuestions("English")
-
-	#print(manualCharacterDict["margarita"].objectMap)
-
 	#test_questions(oracleCharacterDict, "Arabic")
 	#test_questions(automaticCharacterDict)
 	#readManualQuestions(manualCharacterDict, "Arabic")
 
-
 	#print(oracleCharacterDict["margarita"].lemmatizedMap.keys())
-	test_questions(manualCharacterDict, "English")
+	#test_questions(manualCharacterDict, "Arabic")
 
 
 	#characterdict["katarina"].objectMap['"cdc6248b097f84b68b97bc341f149911"'].toString()

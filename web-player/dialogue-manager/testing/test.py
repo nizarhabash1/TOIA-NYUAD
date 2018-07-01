@@ -1,5 +1,20 @@
 # -*- coding: utf-8 -*-
 
+'''
+This file takes in three command line arguments:
+language: language of interaction you'd like to test (Arabic or English)
+avatar: the name of the avatar you're testing
+sample file: an excel sheet with the first column as the original
+question from the database, the second one as the corresponding answer
+from the database, and the next three columns as other questions
+that can share the same answer. 
+
+The file prints out the percentage of correct answers
+
+Example: python3 test_set.py English Margarita test_set.tsv
+
+
+'''
 
 import dialogue_manager
 import os
@@ -62,7 +77,7 @@ def readQuestions(mylanguage, avatar, sampleFile):
 				correct +=1
 			
 	print("correct", correct)
-	print("total", count)
+	#print("total", count)
 	print("percentage", correct/count)
 
 sampleFile= sys.argv[1]

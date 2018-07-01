@@ -1,0 +1,25 @@
+Unigram, Bigram, Trigram, TFIDF, Synonym Expansion, Test Set, Noise, Automatic Questions, Result
+True , False , False , True , True , manual , None , True,11.960132890365449
+True , False , False , True , True , manual , replace , True,8.305647840531561
+True , False , False , True , True , manual , drop , True,9.46843853820598
+True , False , False , True , True , manual , None , False,11.295681063122924
+True , False , False , True , True , manual , replace , False,11.129568106312293
+True , False , False , True , True , manual , drop , False,9.30232558139535
+True , False , False , False , True , manual , None , True,11.295681063122924
+True , False , False , False , True , manual , replace , True,8.803986710963455
+True , False , False , False , True , manual , drop , True,10.132890365448505
+True , False , False , False , True , manual , None , False,11.295681063122924
+True , False , False , False , True , manual , replace , False,9.966777408637874
+True , False , False , False , True , manual , drop , False,9.30232558139535
+True , False , False , True , False , manual , None , True,11.295681063122924
+True , False , False , True , False , manual , replace , True,8.970099667774086
+True , False , False , True , False , manual , drop , True,9.30232558139535
+True , False , False , True , False , manual , None , False,11.295681063122924
+True , False , False , True , False , manual , replace , False,7.807308970099668
+True , False , False , True , False , manual , drop , False,8.471760797342192
+True , False , False , False , False , manual , None , True,11.295681063122924
+True , False , False , False , False , manual , replace , True,8.471760797342192
+True , False , False , False , False , manual , drop , True,9.634551495016611
+True , False , False , False , False , manual , None , False,11.295681063122924
+True , False , False , False , False , manual , replace , False,8.637873754152825
+True , False , False , False , False , manual , drop , False,9.30232558139535

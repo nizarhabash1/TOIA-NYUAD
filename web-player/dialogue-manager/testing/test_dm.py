@@ -1169,6 +1169,12 @@ def findResponse(query, characterModel, currentSession, test_par, counter):
            
         else:
             best_responses[key] += copy.deepcopy(direct_match_responses[key])
+
+     # check for repetitions and normalize the score based on that number
+    for key in best_responses.keys():
+       #print("before", best_responses[key] )
+       #print("repetitions", key_repetitions[key])
+       best_responses[key]= best_responses[key]/key_repetitions[key]
     
     #print("best responses", best_responses)
 

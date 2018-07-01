@@ -1,13 +1,19 @@
-import dialogue_manager4
+import dialogue_manager
 import os
 import random
 
 #from random_words import RandomWords
 import json
+import sys
 
+
+
+sys.path.insert(0, '../CalimaStar_files/')
 
 
 import StarMorphModules
+
+import StopWords
 
 oracleCharacterDict = {}
 automaticCharacterDict = {}
@@ -38,10 +44,10 @@ def initiate(mylanguage):
 	# initiates the model and a new session
 
 
-	currentSession = dialogue_manager4.createModel(oracleCharacterDict, currentSession, mylanguage)
+	currentSession = dialogue_manager.createModel(oracleCharacterDict, currentSession, mylanguage, "margarita")
 	return currentSession
 	
-	#currentSession = dialogue_manager4.createModel(characterdict, currentSession, "English")
+	#currentSession = dialogue_manager.createModel(characterdict, currentSession, "English")
 
 def preprocess(line):
 	processed= line.replace("؟" , "")
@@ -62,7 +68,7 @@ def readManualQuestions(characterdict, mylanguage):
 	character = 'margarita'
 	language = mylanguage
 	video = ""
-	characterdict[character] = dialogue_manager4.model()
+	characterdict[character] = dialogue_manager.model()
 	lines = f.readlines()
 	del lines[0]
 
@@ -84,9 +90,9 @@ def readManualQuestions(characterdict, mylanguage):
 			answer = line_split[1].strip(',?."!')
 			
 
-			obj_1= dialogue_manager4.videoRecording(question1, answer, video, character, language)
-			obj_2= dialogue_manager4.videoRecording(question2, answer, video, character, language)
-			obj_3= dialogue_manager4.videoRecording(question3, answer, video, character, language)
+			obj_1= dialogue_manager.videoRecording(question1, answer, video, character, language)
+			obj_2= dialogue_manager.videoRecording(question2, answer, video, character, language)
+			obj_3= dialogue_manager.videoRecording(question3, answer, video, character, language)
 			characterdict[character].questionsMap[count + 1] = obj_1
 			characterdict[character].questionsMap[count + 2] = obj_2
 			characterdict[character].questionsMap[count + 3] = obj_3
@@ -134,10 +140,10 @@ def readAutomaticQuestions(characterdict):
 			# Creates a new character model in the character dictionary if it does not exist already
 			if character not in characterdict.keys():				
 				#characterdict[character] is the model of the respective character
-				characterdict[character] = dialogue_manager4.model()
+				characterdict[character] = dialogue_manager.model()
 
 			#adds to the character's questions list based on the character key; adds all videos regardless of type to questions
-			obj= dialogue_manager4.videoRecording(question, answer, video, character, language)
+			obj= dialogue_manager.videoRecording(question, answer, video, character, language)
 			characterdict[character].objectMap[ID] = obj
 			
 			# if the video is for silence
@@ -220,7 +226,7 @@ def test_questions(characterdict, language):
 	for avatar in characterdict.keys():
 		print(avatar)
 		if avatar == "gabriela" or avatar == "margarita" or avatar == "katarina":
-			currentSession = dialogue_manager4.create_new_session(avatar, language)
+			currentSession = dialogue_manager.create_new_session(avatar, language)
 			for question_id in characterdict[avatar].questionsMap.keys():
 				#print(question_id)
 
@@ -234,9 +240,9 @@ def test_questions(characterdict, language):
 				#answer = characterdict[avatar].questionsMap[question_id].answer
 				
 
-				#response = dialogue_manager4.findResponse(question, characterModel[avatar], currentSession)
+				#response = dialogue_manager.findResponse(question, characterModel[avatar], currentSession)
 
-				#response = dialogue_manager4.findResponse(question, oracleCharacterDict[avatar], currentSession)
+				#response = dialogue_manager.findResponse(question, oracleCharacterDict[avatar], currentSession)
 
 				#question = characterdict[avatar].questionsMap[question_id].question
 				#replaced = noisify(question, 50, "replace")
@@ -248,7 +254,7 @@ def test_questions(characterdict, language):
 				answer = characterdict[avatar].questionsMap[question_id].answer
 
 
-				response = dialogue_manager4.findResponse(noisifiedq, oracleCharacterDict[avatar], currentSession)
+				response = dialogue_manager.findResponse(noisifiedq, oracleCharacterDict[avatar], currentSession)
 
 				answer_list = [tmp.strip(',?."!)') for tmp in answer.lower().split()]
 				response_answer = response.answer
@@ -324,9 +330,9 @@ def testInterviewQuestions(language):
 			new_character = line_split[1]
 
 			if new_character != character:
-				currentSession = dialogue_manager4.create_new_session(new_character, language)
+				currentSession = dialogue_manager.create_new_session(new_character, language)
 				character = new_character
-			response = dialogue_manager4.findResponse(query, oracleCharacterDict[character], currentSession)
+			response = dialogue_manager.findResponse(query, oracleCharacterDict[character], currentSession)
 
 
 

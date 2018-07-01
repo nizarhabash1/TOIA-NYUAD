@@ -9,6 +9,13 @@ from collections import defaultdict
 from fractions import Fraction
 import json
 
+import sys
+
+
+
+
+sys.path.insert(0, '../../CalimaStar_files/')
+
 import StarMorphModules
 
 import nltk
@@ -19,6 +26,7 @@ import nltk
 import ssl
 
 import math
+
 
 # from textblob import TextBlob as tb
 
