@@ -23,6 +23,12 @@ currentSession = None
 
 #f= open('manual-questions.txt', 'r', encoding='utf-8')
 
+'''
+class test_parameters:
+
+		the parameters which corrosponding to the different conditions for testing. These conditions are related to the techniques, test sets and the input noise etc.
+'''
+
 class test_parameters:
 	def __init__(self, unigram_par, bigram_par, trigram_par, tfidf_par, synonym_par, testSet_par, noise_par, automatic_par):
 		self.unigram = unigram_par
@@ -38,6 +44,20 @@ class test_parameters:
 		tmp = str(self.unigram) + " , " + str(self.bigram) + " , "  + str(self.trigram)  + " , "+ str(self.tfidf) + " , "+ str(self.synonym)   + " , " + self.testSet + " , "+ str(self.noise)  + " , "  +  str(self.automatic)
 		return tmp
 
+
+'''
+
+function run_test (language, test_par):
+ 
+ 		takes the language of the interaction, and the test_par which is a test_paramter object specifying the conditions of the test.
+ 
+ 		uses test_questions(characterdict, language, test_par) to test the specified parameters on the test-set. The test-set is specified as characterdict which has the same structure as the avatarModel, and it contains test questions and their corresponding correct answers.
+ 
+		returns the percentage of correct responses.
+
+'''
+
+
 def run_test(mylanguage, test_par):
 	global currentSession
 	global oracleCharacterDict
@@ -52,17 +72,37 @@ def run_test(mylanguage, test_par):
 		test_results = test_questions(oracleCharacterDict, mylanguage, test_par)
 		return test_results
 
+'''
+
+	function test_wrapper(mylanguage):
+
+		The wrapper function which runs test based on all of the different test-parameters in the language specified using mylanguage parameter.
+
+		The function reports the results of all of the tests in an output file - "test_results_final.csv".
+
+		The result is in the form of percentage of correct reponses.
+
+		Look at the comments in the code for mode details.
+
+'''
 
 def test_wrapper(mylanguage):
 
-	unigram_mode = [True]
-	bigram_mode = [False]
-	trigram_mode = [False]
+	# True enables the technique, and False disables the technique
+	unigram_mode = [True, False]
+	bigram_mode = [True, False]
+	trigram_mode = [True, False]
 	synonym_mode = [True, False]
 	tfidf_mode = [True, False]
 	automatic_mode = [True, False]
+
+	# "None" adds no noise to the input query
+	# "replace" replaces 25% of the words in the query
+	#"drop" drops 25% of the words in the query
 	noise_mode = ["None", "replace", "drop"]
-	#testSet_mode = ["manual", "oracle"]
+
+	#oracle test-set corresponds to the original database, it queries in questions in the original database 
+	# manual test-set corresponds to alternative test questions which have been manually generated to the questions related to Margarita's avatar
 	testSet_mode= ["manual"]
 
 	#unigram_par, bigram_par, trigram_par, tfidf_par, synonym_par, testSet_par, noise_par, automatic_par)
@@ -89,6 +129,12 @@ def test_wrapper(mylanguage):
 									f.write(new_line)
 
 	f.close()
+
+'''
+
+reads the manual questions into respective test-set models.
+
+'''
 def initiate(mylanguage):
 	global oracleCharacterDict
 
@@ -112,6 +158,14 @@ def preprocess(line):
 	processed= processed.replace("ة" , "ه")
 
 	return processed
+
+'''
+
+Reads the test-set based on manually generated test questions in the language specified using the mylanguage parameter.
+
+Stores the test-set questions as model object which is referenced using the characterdict paramter.
+
+'''
 def readManualQuestions(characterdict, mylanguage):
 	count = 0
 	#f= open('static/scripts/manual_questions.tsv', 'r', encoding='utf-8')
@@ -154,6 +208,12 @@ def readManualQuestions(characterdict, mylanguage):
 
 			#print(line_split)
 			#print(line)'''
+
+'''
+
+Adds the questions genereated by the script generator into the oracle database  model on which the tests will be run on
+
+'''
 
 def readAutomaticQuestions(characterdict):
 
@@ -214,6 +274,19 @@ def readAutomaticQuestions(characterdict):
 	print("done")
 
 
+'''
+
+Adds noise to the inputString and returns it.
+
+The ammount of noise added depends on the percentage specified as the argument.
+
+Recognises two different noise types : 'replace' and 'drop'. 
+
+"replace": adds noise by replacing the words with random words
+
+"drop": adds noise by dropping the words randomly
+
+'''
 def noisify(inputString, percentage, noiseType):
 	# random word generator
 	#rw = RandomWords()
@@ -270,7 +343,15 @@ def noisify(inputString, percentage, noiseType):
 				newList.append(queryList[index])
 		#retuns the noisified query with the changed words.
 
-		return " ".join(newList)		
+		return " ".join(newList)
+
+'''
+
+Run the tests on the test-set model passed using the characterdict paramter, based on the language argument and the paramters passed using the test_par parameters.
+
+Outputs the percentage of correct responses.
+
+'''
 
 def test_questions(characterdict, language, test_par):
 	global currentSession
@@ -344,39 +425,19 @@ def test_questions(characterdict, language, test_par):
 	#print("correct: ", correct)
 	#print("incorrect: ", incorrect)
 
-def repeating_question(characterdict):
-	global currentSession
-	new_line = False
-	for avatar in characterdict.keys():
-		mentioned_question = {}
-		for question_id in characterdict[avatar].objectMap.keys():
-			
-			ori_question = characterdict[avatar].objectMap[question_id].question
-			
-			for tmp_question_id in characterdict[avatar].objectMap.keys():	
-				
-				tmp_question = characterdict[avatar].objectMap[tmp_question_id].question
-				if tmp_question == ori_question and tmp_question_id != question_id:
 
-					if question_id not in mentioned_question.keys():
-						mentioned_question[question_id] = True
-						#print(question_id)
-					if tmp_question_id not in mentioned_question.keys():
-						mentioned_question[tmp_question_id] = True
-						#print(tmp_question_id)
-						new_line = True
-			
-			if new_line:
-				#print("\n")
-				new_line= False
+'''
+initiation required before testing.
+make sure to read the test-set before testing it.
 
+'''
 if __name__ == '__main__':
 	#StarMorphModules.read_config("config_dana.xml")
 	#StarMorphModules.initialize_from_file("almor-s31.db", "analyze")
 
 	#readManualQuestions(manualCharacterDict, "Arabic")
 	initiate("English")
-	test_wrapper("English")
+	#test_wrapper("English")
 	#for character in oracleCharacterDict.keys():
 	#print(oracleCharacterDict["rashid"].objectMap)
 	#readAutomaticQuestions(automaticCharacterDict)

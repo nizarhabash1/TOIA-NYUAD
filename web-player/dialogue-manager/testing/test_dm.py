@@ -962,7 +962,6 @@ def lemma_intersection_match_Arabic(query, characterModel, logger):
 
     return responses
 
-
 def calculateTFIDF(avatarModel):
     # #are we using each question as a "doc" or each avatar model?
 
@@ -987,7 +986,8 @@ def calculateTFIDF(avatarModel):
         for lemma in avatarModel[avatar].lemmatizedMap.keys():
             idf = totalDocs / len(avatarModel[avatar].lemmatizedMap[lemma])
             for doc in avatarModel[avatar].lemmatizedMap[lemma].keys():
-                tf = avatarModel[avatar].lemmatizedMap[lemma][doc]
+                documentLength = avatarModel[avatar].objectMap[ID].questionLength + avatarModel[avatar].objectMap[ID].answerLength
+                tf = avatarModel[avatar].lemmatizedMap[lemma][doc] / documentLength
                 tfidf = tf * idf
                 #avatarModel[avatar].lemmatizedMap[lemma][doc] = tfidf
                 #print("lemma tfidf" + " " + lemma, avatarModel[avatar].lemmatizedMap[lemma][doc])
@@ -1001,14 +1001,16 @@ def calculateTFIDF(avatarModel):
         for stem in avatarModel[avatar].stemmedMap.keys():
             idf = totalDocs / len(avatarModel[avatar].stemmedMap[stem])
             for doc in avatarModel[avatar].stemmedMap[stem].keys():
-                tf = avatarModel[avatar].stemmedMap[stem][doc]
+                documentLength = avatarModel[avatar].objectMap[ID].questionLength + avatarModel[avatar].objectMap[ID].answerLength
+                tf = avatarModel[avatar].stemmedMap[stem][doc] / documentLength
                 tfidf = tf * idf
                 #avatarModel[avatar].stemmedMap[stem][doc] = tfidf
 
         for word in avatarModel[avatar].wordMap.keys():
             idf = totalDocs / len(avatarModel[avatar].wordMap[word])
             for doc in avatarModel[avatar].wordMap[word].keys():
-                tf = avatarModel[avatar].wordMap[word][doc]
+                documentLength = avatarModel[avatar].objectMap[ID].questionLength + avatarModel[avatar].objectMap[ID].answerLength
+                tf = avatarModel[avatar].wordMap[word][doc]/ documentLength
                 tfidf = tf * idf
                 #avatarModel[avatar].wordMap[word][doc] = tfidf
 
