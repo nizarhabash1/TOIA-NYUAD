@@ -3621,7 +3621,7 @@
                 "english-answer": "I can't really answer that.",
                 "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
                 "_id": "ef1374bdef2fc36054292623a39bf9bf",
-                "video-type": "regular",
+                "video-type": "no-answer",
                 "length constant": "20"
             },
             "id": "ef1374bdef2fc36054292623a39bf9bf",

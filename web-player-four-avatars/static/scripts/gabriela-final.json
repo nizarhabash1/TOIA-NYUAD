@@ -5151,7 +5151,7 @@
                 "english-answer": "Can we change the subject?",
                 "arabic-question": "سؤال لا يمكنني الإجابة عنه",
                 "_id": "cdc6248b097f84b68b97bc341f94fb0a",
-                "video-type": "regular",
+                "video-type": "no-answer",
                 "length constant": "30"
             },
             "id": "cdc6248b097f84b68b97bc341f94fb0a",
@@ -5194,7 +5194,7 @@
                 "english-answer": "I don't understand",
                 "arabic-question": "سؤال لم أسمعه",
                 "_id": "cdc6248b097f84b68b97bc341f95259d",
-                "video-type": "regular",
+                "video-type": "no-answer",
                 "length constant": "30"
             },
             "id": "cdc6248b097f84b68b97bc341f95259d",
@@ -6288,7 +6288,7 @@
                 "english-answer": "Sorry, I can't answer that question.",
                 "arabic-question": "سؤال لا يمكن الإجابة عنه",
                 "_id": "f85983fc8978aa97dec2132b47cff20c",
-                "video-type": "regular",
+                "video-type": "no-answer",
                 "length constant": "30"
             },
             "id": "f85983fc8978aa97dec2132b47cff20c",

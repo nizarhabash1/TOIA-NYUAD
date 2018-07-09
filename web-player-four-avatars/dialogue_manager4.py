@@ -11,6 +11,8 @@ import json
 import time
 import datetime
 
+import random
+
 import StarMorphModules
 
 import nltk
@@ -69,6 +71,7 @@ class model:
         self.fillers = {}
         self.greetings = {}
         self.questionsMap = {}
+        self.noAnswer= {}
 
 
 # The Structure for a video Object
@@ -160,16 +163,16 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         arabic_synonyms= arabicSyn(myavatar)
 
     if(myavatar=="margarita"):
-        db= 'static/scripts/margarita2.json'
+        db= 'static/scripts/margarita-final.json'
 
     elif(myavatar=="rashid"):
-        db= 'static/scripts/rashid2.json'
+        db= 'static/scripts/rashid-final.json'
 
     elif(myavatar=="gabriela"):
-        db= 'static/scripts/gabriela1.json'
+        db= 'static/scripts/gabriela-final.json'
 
     elif(myavatar=="katarina"):
-        db= 'static/scripts/katarina1.json'
+        db= 'static/scripts/katarina-final.json'
 
     try:
         f = open(db, 'r', encoding='utf-8')
@@ -222,6 +225,8 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
             # characterdict[character] is the model of the respective character
             characterdict[character] = model()
 
+        videoType= json.dumps(resp["rows"][i]["doc"]["video-type"])
+
         # adds to the character's questions list based on the character key; adds all videos regardless of type to questions
         obj = videoRecording(question, answer, video, character, language)
         characterdict[character].objectMap[ID] = obj
@@ -229,6 +234,14 @@ def createModel(characterdict, currentSession, mylanguage, myavatar):
         # if the video is for silence
         if (answer == '""' and video != '""'):
             characterdict[character].fillers[ID] = obj
+
+     
+        if(videoType== '"no-answer"'):
+            print("found no answer video")
+            characterdict[character].noAnswer[ID] = obj
+        
+        elif(videoType== '"regular"'):
+            characterdict[character].questionsMap[ID] = obj
 
         else:
             characterdict[character].questionsMap[ID] = obj
@@ -925,14 +938,8 @@ def findResponse(query, characterModel, currentSession):
     #best_responses= direct_match_responses
     # if the responses are empty, play "I can't answer that response"
     if bool(best_responses) == False:
-        if currentSession.currentAvatar == "gabriela":
-            final_answer = 798
-        elif currentSession.currentAvatar == "margarita":
-            final_answer = 618
-        elif currentSession.currentAvatar == "rashid":
-            final_answer = 938
-        else:
-            final_answer = 746
+       noAnswerList= characterModel.noAnswer.keys()
+       final_answer= random.choice(list(noAnswerList))
 
 
     else:

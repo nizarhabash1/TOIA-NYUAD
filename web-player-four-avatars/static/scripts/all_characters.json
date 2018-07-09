@@ -3258,7 +3258,7 @@
         "english-answer": "I don't know how to answer that.",
         "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
         "_id": "16a41b8cddc767f444e773b3582c2caf",
-        "video-type": "regular"
+        "video-type": "no-answer"
       },
       "id": "16a41b8cddc767f444e773b3582c2caf",
       "value": {
@@ -5177,7 +5177,7 @@
         "english-answer": "I don't really know.",
         "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال).",
         "_id": "3792386d3488216a787d3261b35d2369",
-        "video-type": "regular"
+        "video-type": "no-answer"
       },
       "id": "3792386d3488216a787d3261b35d2369",
       "value": {
@@ -12726,7 +12726,7 @@
         "english-answer": "I can't really answer that.",
         "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
         "_id": "cc28b6feb31c6d808ca0586a1fd25745",
-        "video-type": "regular"
+        "video-type": "no-answer"
       },
       "id": "cc28b6feb31c6d808ca0586a1fd25745",
       "value": {
@@ -15331,7 +15331,7 @@
         "english-answer": "I can't really answer that.",
         "arabic-question": "قائمة الردود على عندما يسألني أحد عن رأيي في شيء ما: أمثلة: وهل أعجبك؟ / هل كان مسلي؟ / كيف كان؟ / كيف وجدت x؟ / ما كان رأيك؟ /  هل كان جيد؟ (لأنني عادة ما أتحدث عن تجاربي السابقة التي كانت جيدة على أي حال)",
         "_id": "ef1374bdef2fc36054292623a39bf9bf",
-        "video-type": "regular"
+        "video-type": "no-answer"
       },
       "id": "ef1374bdef2fc36054292623a39bf9bf",
       "value": {
@@ -16417,7 +16417,7 @@
         "english-answer": "Sorry, I can't answer that question.",
         "arabic-question": "سؤال لا يمكن الإجابة عنه",
         "_id": "f85983fc8978aa97dec2132b47cff20c",
-        "video-type": "regular"
+        "video-type": "no-answer"
       },
       "id": "f85983fc8978aa97dec2132b47cff20c",
       "value": {
@@ -18942,7 +18942,7 @@
         "language": "Arabic",
         "video": "rashid_3189_17a0f962a4b53cf47f3bd315beadba39.mp4",
         "video_saved": true,
-        "video-type": "regular"
+        "video-type": "no-answer"
       },
       "id": "17a0f962a4b53cf47f3bd315beadba39",
       "key": "17a0f962a4b53cf47f3bd315beadba39",
