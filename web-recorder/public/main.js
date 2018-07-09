@@ -304,7 +304,7 @@ function addNewEntry(questionType){
 					"english-answer":newAnswer,
 					"arabic-question":"",
 					"arabic-answer":"",
-					"video-type":"regular",
+					"video-type":questionType,
 					"playing frequency": "multiple",
 					_id: new_unique_id,
 					_rev: new_unique_rev
