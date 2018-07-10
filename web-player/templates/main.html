@@ -191,8 +191,8 @@
       // TALKING MODE
       // Video is playing we are in talking mode, which means speech recognition will be paused.
         player.addEventListener('playing', function(e) {
-          console.log(vid.src);
-          if(JSON.parse(localStorage.getItem("fillers")).includes(vid.src)){
+          // if(JSON.parse(localStorage.getItem("fillers")).includes(player.src)){
+          if(!player.src){
           console.log("we are not playing a filler video");
             annyang.abort();
             console.log('Video is now playing and we stopped speech recognition') ;
