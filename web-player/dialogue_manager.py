@@ -316,7 +316,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         
         
         videoType= json.dumps(resp["rows"][i]["doc"]["video-type"])
-        print(videoType)
+       
 
         #read the configuration variables from the database and save it to the global variables
         
@@ -331,7 +331,7 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
         '''If the videoType tag of the database entry is no-answer, the avatar says "I can't answer that" in this video
          it's added to the noAnswer property of the avatarModel'''
         if(videoType== '"no-answer"'):
-            print("found no answer video")
+            #print("found no answer video")
             avatarModel[avatar].noAnswer[ID] = obj
         elif(videoType== '"regular"'):
             avatarModel[avatar].questionsMap[ID] = obj
@@ -1283,11 +1283,11 @@ def rankAnswers(query, videoResponses, currentSession, avatarModel, total_iterat
                 # if the preferred frequency is once, and the video was played before, it can't be played again
                 if currentSession.repetitions[res]>1:
                     allowed=0
-                    print("once done")
+                    #print("once done")
                 else:
                 # if the preferred frequency is once, but the video was not played before, it can be played 
                     allowed=1
-                    print("once allowed")
+                    #print("once allowed")
             elif (pref_frequency=='"never"'):
                 allowed=0
                 #print("never")
