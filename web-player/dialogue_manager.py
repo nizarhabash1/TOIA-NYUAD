@@ -518,80 +518,84 @@ def createModel(avatarModel, currentSession, mylanguage, myavatar):
             '''
 
 
-            '''divide the question-answer pair into bigrams or word pairs
-               obtain the stem and lemma for each one, 
-               and add them to the respective maps in the avatar model
-            '''
-            for i in range(totalUnigrams):
+            # '''divide the question-answer pair into bigrams or word pairs
+            #    obtain the stem and lemma for each one, 
+            #    and add them to the respective maps in the avatar model
+            # '''
+            # for i in range(totalUnigrams):
 
-                if (i < totalUnigrams - 1):
-                    bigram = unigram_list[i] + "_" + unigram_list[i + 1]
-                    if bigram not in avatarModel[avatar].wordMap.keys():
-                        avatarModel[avatar].wordMap[bigram] = {}
-                    if ID not in avatarModel[avatar].wordMap[bigram]:
-                        avatarModel[avatar].wordMap[bigram][ID] = 1
-                    else:
-                        avatarModel[avatar].wordMap[bigram][ID] += 1
+            #     if (i < totalUnigrams - 1):
+            #         bigram = unigram_list[i] + "_" + unigram_list[i + 1]
+            #         if bigram not in avatarModel[avatar].wordMap.keys():
+            #             avatarModel[avatar].wordMap[bigram] = {}
+            #         if ID not in avatarModel[avatar].wordMap[bigram]:
+            #             avatarModel[avatar].wordMap[bigram][ID] = 1
+            #         else:
+            #             avatarModel[avatar].wordMap[bigram][ID] += 1
 
-                    bigram_stem = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
+            #         bigram_stem = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
 
-                    if bigram_stem not in avatarModel[avatar].stemmedMap.keys():
-                        avatarModel[avatar].stemmedMap[bigram_stem] = {}
-                    if ID not in avatarModel[avatar].stemmedMap[bigram_stem]:
-                        avatarModel[avatar].stemmedMap[bigram_stem][ID] = 1
-                    else:
-                        avatarModel[avatar].wordMap[bigram][ID] += 1
+            #         if bigram_stem not in avatarModel[avatar].stemmedMap.keys():
+            #             avatarModel[avatar].stemmedMap[bigram_stem] = {}
+            #         if ID not in avatarModel[avatar].stemmedMap[bigram_stem]:
+            #             avatarModel[avatar].stemmedMap[bigram_stem][ID] = 1
+            #         else:
+            #             avatarModel[avatar].wordMap[bigram][ID] += 1
 
-                    bigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
+            #         bigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
 
-                    if bigram_lemma not in avatarModel[avatar].lemmatizedMap.keys():
-                        avatarModel[avatar].lemmatizedMap[bigram_lemma] = {}
+            #         if bigram_lemma not in avatarModel[avatar].lemmatizedMap.keys():
+            #             avatarModel[avatar].lemmatizedMap[bigram_lemma] = {}
 
-                    if ID not in avatarModel[avatar].lemmatizedMap[bigram_lemma]:
-                        avatarModel[avatar].lemmatizedMap[bigram_lemma][ID] = 1
-                    else:
-                        avatarModel[avatar].lemmatizedMap[bigram_lemma][ID] += 1
-                    avatarModel[avatar].wordMap[bigram][ID]= avatarModel[avatar].wordMap[bigram][ID]/totalUnigrams-1
-                    avatarModel[avatar].stemmedMap[bigram_stem][ID]= avatarModel[avatar].stemmedMap[bigram_stem][ID]/totalUnigrams-1
-                    avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]= avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]/totalUnigrams-1
+            #         if ID not in avatarModel[avatar].lemmatizedMap[bigram_lemma]:
+            #             avatarModel[avatar].lemmatizedMap[bigram_lemma][ID] = 1
+            #         else:
+            #             avatarModel[avatar].lemmatizedMap[bigram_lemma][ID] += 1
+            #         avatarModel[avatar].wordMap[bigram][ID]= avatarModel[avatar].wordMap[bigram][ID]/totalUnigrams-1
+            #         avatarModel[avatar].stemmedMap[bigram_stem][ID]= avatarModel[avatar].stemmedMap[bigram_stem][ID]/totalUnigrams-1
+            #         avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]= avatarModel[avatar].lemmatizedMap[bigram_lemma][ID]/totalUnigrams-1
 
-                '''divide the question-answer pair into trigrams 
-                or word pairs, obtain the stem and lemma for each one, 
-                and add them to the respective maps in the avatar model
-                '''
-                if i < totalUnigrams - 2:
-                    trigram = unigram_list[i] + "_" + unigram_list[i + 1] + "_" + unigram_list[i + 2]
+                # '''divide the question-answer pair into trigrams 
+                # or word pairs, obtain the stem and lemma for each one, 
+                # and add them to the respective maps in the avatar model
+                # '''
+                # if i < totalUnigrams - 2:
+                #     trigram = unigram_list[i] + "_" + unigram_list[i + 1] + "_" + unigram_list[i + 2]
 
-                    if trigram not in avatarModel[avatar].wordMap.keys():
-                        avatarModel[avatar].wordMap[trigram] = {}
-                    if ID not in avatarModel[avatar].wordMap[trigram]:
-                        avatarModel[avatar].wordMap[trigram][ID] = 1
-                    else:
-                        avatarModel[avatar].wordMap[trigram][ID] = +1
+                #     if trigram not in avatarModel[avatar].wordMap.keys():
+                #         avatarModel[avatar].wordMap[trigram] = {}
+                #     if ID not in avatarModel[avatar].wordMap[trigram]:
+                #         avatarModel[avatar].wordMap[trigram][ID] = 1
+                #     else:
+                #         avatarModel[avatar].wordMap[trigram][ID] = +1
 
-                    trigram_stem =  StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]+ "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
-                    if trigram_stem not in avatarModel[avatar].stemmedMap.keys():
-                        avatarModel[avatar].stemmedMap[trigram_stem] = {}
-                    if ID not in avatarModel[avatar].stemmedMap[trigram_stem]:
-                        avatarModel[avatar].stemmedMap[trigram_stem][ID] = 1
-                    else:
-                        avatarModel[avatar].stemmedMap[trigram_stem][ID] += 1
+                #     trigram_stem =  StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[1].replace("stem:", "").split('d',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[1].replace("stem:", "").split('d',1)[0]+ "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[1].replace("stem:", "").split('d',1)[0]
+                #     if trigram_stem not in avatarModel[avatar].stemmedMap.keys():
+                #         avatarModel[avatar].stemmedMap[trigram_stem] = {}
+                #     if ID not in avatarModel[avatar].stemmedMap[trigram_stem]:
+                #         avatarModel[avatar].stemmedMap[trigram_stem][ID] = 1
+                #     else:
+                #         avatarModel[avatar].stemmedMap[trigram_stem][ID] += 1
 
-                    trigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
-                    if trigram_lemma not in avatarModel[avatar].lemmatizedMap.keys():
-                        avatarModel[avatar].lemmatizedMap[trigram_lemma] = {}
-                    if ID not in avatarModel[avatar].lemmatizedMap[trigram_lemma]:
-                        avatarModel[avatar].lemmatizedMap[trigram_lemma][ID] = 1
-                    else:
-                        avatarModel[avatar].lemmatizedMap[trigram_lemma][ID] += 1
-                    avatarModel[avatar].wordMap[trigram][ID]= avatarModel[avatar].wordMap[trigram][ID]/totalUnigrams-2
-                    avatarModel[avatar].stemmedMap[trigram_stem][ID]= avatarModel[avatar].stemmedMap[trigram_stem][ID]/totalUnigrams-2
-                    avatarModel[avatar].lemmatizedMap[trigram_lemma][ID]= avatarModel[avatar].lemmatizedMap[trigram_lemma][ID]/totalUnigrams-2
+                #     trigram_lemma = StarMorphModules.analyze_word(unigram_list[i], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+1], False)[0].split()[0].replace("lex:", "").split('_',1)[0] + "_" + StarMorphModules.analyze_word(unigram_list[i+2], False)[0].split()[0].replace("lex:", "").split('_',1)[0]
+                #     if trigram_lemma not in avatarModel[avatar].lemmatizedMap.keys():
+                #         avatarModel[avatar].lemmatizedMap[trigram_lemma] = {}
+                #     if ID not in avatarModel[avatar].lemmatizedMap[trigram_lemma]:
+                #         avatarModel[avatar].lemmatizedMap[trigram_lemma][ID] = 1
+                #     else:
+                #         avatarModel[avatar].lemmatizedMap[trigram_lemma][ID] += 1
+                #     avatarModel[avatar].wordMap[trigram][ID]= avatarModel[avatar].wordMap[trigram][ID]/totalUnigrams-2
+                #     avatarModel[avatar].stemmedMap[trigram_stem][ID]= avatarModel[avatar].stemmedMap[trigram_stem][ID]/totalUnigrams-2
+                #     avatarModel[avatar].lemmatizedMap[trigram_lemma][ID]= avatarModel[avatar].lemmatizedMap[trigram_lemma][ID]/totalUnigrams-2
 	        
             # add single words, their stems and lemmas to the respective maps in the avatarModel
             for token in (unigram_list+ unigram_synonyms_list):
-                stem = StarMorphModules.analyze_word(token, False)[0].split()[1].replace("stem:", "").split('d',1)[0]
-                lemma = StarMorphModules.analyze_word(token, False)[0].split()[0].replace("lex:", "").split('_',1)[0]
+                #print(token)
+                #print(list(StarMorphModules.analyze_word(token, False)))
+                if(StarMorphModules.analyze_word(token, False) is not None):
+                    analysis_list=list(StarMorphModules.analyze_word(token, False))
+                    stem = analysis_list[0].split()[1].replace("stem:", "").split('d',1)[0]
+                    lemma = analysis_list[0].split()[0].replace("lex:", "").split('_',1)[0]
 
                 if token not in avatarModel[avatar].wordMap.keys():
                     avatarModel[avatar].wordMap[token] = {}
