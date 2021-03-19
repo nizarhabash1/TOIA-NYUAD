@@ -10,7 +10,7 @@ get==0.0.39
 idna==2.6
 imageio==2.1.2
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.0
 mathparse==0.1.1
 moviepy==0.2.3.2
