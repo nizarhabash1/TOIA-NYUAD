@@ -24,7 +24,7 @@ pymediainfo==2.2.1
 pymongo==3.6.0
 python-dateutil==2.6.1
 python-twitter==3.4
-PyYAML==3.12
+PyYAML==5.4
 query-string==0.0.28
 request==0.0.26
 requests==2.18.4
