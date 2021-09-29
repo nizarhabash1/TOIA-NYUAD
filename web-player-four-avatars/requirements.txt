@@ -14,7 +14,7 @@ Jinja2==2.10
 MarkupSafe==1.0
 mathparse==0.1.1
 moviepy==0.2.3.2
-nltk==3.2.5
+nltk==3.6.3
 numpy==1.14.2
 oauthlib==2.0.6
 Pillow==5.0.0
