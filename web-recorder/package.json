@@ -12,7 +12,7 @@
     "ajax": "0.0.4",
     "body-parser": "^1.18.3",
     "buffer": "^5.1.0",
-    "ejs": "^2.6.1",
+    "ejs": "^3.1.7",
     "exports": "0.0.1",
     "express": "^4.16.3",
     "filesystem": "^1.0.1",
