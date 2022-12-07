@@ -10,11 +10,11 @@
   },
   "dependencies": {
     "ajax": "0.0.4",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "buffer": "^5.1.0",
     "ejs": "^2.6.1",
     "exports": "0.0.1",
-    "express": "^4.16.3",
+    "express": "^4.18.2",
     "filesystem": "^1.0.1",
     "fs": "0.0.1-security",
     "jQuery": "^1.7.4",
